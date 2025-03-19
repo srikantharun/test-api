@@ -119,6 +119,7 @@ All diagrams use a white background with clear text and colored boxes to highlig
 
 ![image](https://github.com/user-attachments/assets/bca19e6b-c6d8-48d8-94ed-e3792d795e06)
 
+## Common Optimizations for Industrial Applications
 
 ![image](https://github.com/user-attachments/assets/30b696e3-d7a8-4a83-a170-31c4bf5590b1)
 
