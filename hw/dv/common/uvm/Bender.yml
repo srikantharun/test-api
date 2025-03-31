@@ -1,0 +1,18 @@
+package:
+  name: dv_common_uvm
+  description: "Verification Common UVM Code"
+  authors:
+    - "andrew.bond@axelera.ai"
+
+sources:
+  - target: simulation
+    include_dirs:
+      - ./scoreboards
+      - ./resource_allocators
+      - ./incrementors
+      - ./numeric
+    files:
+      - ./scoreboards/axe_uvm_scoreboard_pkg.sv
+      - ./resource_allocators/axe_uvm_resource_allocator_pkg.sv
+      - ./incrementors/axe_uvm_incrementor_pkg.sv
+      - ./numeric/axe_uvm_numeric_pkg.sv

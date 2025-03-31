@@ -1,0 +1,9 @@
+// Header: | config | cmd_format | token_cons | token_prod | reserved | triggers |
+00_02_1234_4321_DD_00 // 0x1060
+// LoopsM1N2
+// | etxra | iteration | length | start |
+// | map   | iteration | length | start |
+// | map   | iteration | length | start |
+AB_000010_000A_00DD // 0x1068
+00_000100_0009_00DD // 0x1070
+00_001000_0008_00DD // 0x1078

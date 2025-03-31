@@ -1,0 +1,37 @@
+#%Module1.0####################################################################
+##
+## Andes modulefile
+##
+proc ModulesHelp { } {
+    global version
+    puts stderr "\tSets up environment for Andes IP version $version"
+}
+
+#--------------------------------------------------------------------+
+#-- Global variables & functions for Tcl script use only ------------|
+#--------------------------------------------------------------------+
+#
+set version      v2.0.0
+set ip_home      /data/foundry/LIB/andes
+set release_home $ip_home/$version
+
+#-- what is --#
+module-whatis  "Sets up environment for Andes IP using version $version"
+module-whatis  "Contains all collateral for the Andes AX65 x6 Core Cluster"
+module-whatis  "Release located @ $release_home"
+
+#--------------------------------------------------------------------+
+#-- Conflicts -------------------------------------------------------|
+#
+conflict andes
+
+#--------------------------------------------------------------------+
+#-- Prerequisites ---------------------------------------------------|
+#
+
+#--------------------------------------------------------------------+
+#-- Module-related operations ---------------------------------------|
+#--------------------------------------------------------------------+
+#-- env vars --#
+#
+setenv NDS_HOME $release_home

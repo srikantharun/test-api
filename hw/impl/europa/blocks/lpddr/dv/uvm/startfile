@@ -1,0 +1,13 @@
+export BASE_DIR=`pwd`
+
+alias base='cd $BASE_DIR/'
+alias sim='cd $BASE_DIR/project_benches/sim/'
+alias env='cd $BASE_DIR/project_benches/tb/testbench/'
+alias ip='cd $BASE_DIR/verification_ip/'
+alias top='cd $BASE_DIR/verification_ip/top_env_pkg'
+alias fc='cd $BASE_DIR/project_benches/tb/testbench/functional_coverage'
+alias pr='cd $BASE_DIR/project_benches/tb/testbench/predictors'
+alias seq='cd $BASE_DIR/project_benches/tb/sequences'
+alias test='cd $BASE_DIR/project_benches/tb/tests'
+alias rtl='cd $BASE_DIR/project_benches/rtl'
+alias docs='cd $BASE_DIR/project_benches/docs'

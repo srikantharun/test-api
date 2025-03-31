@@ -1,0 +1,16 @@
+hdl_top/enable_ax65_instruction_dump
+hdl_top/new_file_ax65_instruction_dump
+
+hdl_top/enable_cva6v_instruction_dump
+hdl_top/new_file_cva6v_instruction_dump
+
+hdl_top/i_por_rst_n
+hdl_top/i_trst_n
+
+hdl_top/i_europa/u_aipu/u_soc_periph_p/u_soc_periph/u_peripherals/soc_periph_dw_uart/fast_printf_en
+
+#Real LPDDR
+hdl_top/i_europa/u_aipu/u_lpddr_p_graph_0/u_lpddr_subsys_wrapper/snps_ddr_subsystem_inst/dfi_tphy_wrlat[31:0]
+hdl_top/i_europa/u_aipu/u_lpddr_p_graph_0/u_lpddr_subsys_wrapper/snps_ddr_subsystem_inst/dfi_tphy_wrdata[31:0]
+hdl_top/i_europa/u_aipu/u_lpddr_p_graph_0/u_lpddr_subsys_wrapper/snps_ddr_subsystem_inst/dfi_tphy_rddata_en[31:0]
+hdl_top/i_europa/u_aipu/u_lpddr_p_graph_0/u_lpddr_subsys_wrapper/snps_ddr_subsystem_inst/dfi_tphy_rdlat[31:0]

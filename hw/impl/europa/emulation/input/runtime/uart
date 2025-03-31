@@ -1,0 +1,15 @@
+#!/bin/bash
+
+set -e
+
+# invoke script in xterm
+if [ "$1" = "-x" ]; then
+  shift 1
+  xterm -e $0 $@ &
+  exit 0
+fi
+
+FILE="./server_uart_0.txt"
+ip="$(grep "ip" "$FILE" | awk '{print $2}')"
+port="$(grep "port" "$FILE" | awk '{print $2}')"
+ncat $ip $port

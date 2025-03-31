@@ -1,0 +1,55 @@
+#%Module1.0####################################################################
+##
+## SNPS LPDDR modulefile
+##
+proc ModulesHelp { } {
+    global version
+    puts stderr "\tSets up environment for SNPS LPDDR release version $version"
+}
+
+#--------------------------------------------------------------------+
+#-- Global variables & functions for Tcl script use only ------------|
+#--------------------------------------------------------------------+
+#
+set version      pre-ss2
+set version_dir  pre_ss2
+set ip_home      /data/foundry/LIB/synopsys/lpddr5x
+set subsys_release_home $ip_home/$version_dir
+# Controller release should be stable over all subsys releases.
+set ctrl_release_home $ip_home/v_roel/Europa_lpddr_ctrl_config_lp5x_1_60a
+# PHY release should be stable over all subsys releases
+set phy_release_home $ip_home/v_roel/Europa_lpddr_phy_config
+#-- what is --#
+module-whatis  "Sets up environment for LPDDR IP from SNPS using version $version"
+module-whatis  "Contains Subsys release, links to matching CTRL and PHY IP builds done on our side."
+module-whatis  "Subsys release located @ $subsys_release_home"
+module-whatis  "CTRL release located @ $ctrl_release_home"
+module-whatis  "PHY release located @ $phy_release_home"
+
+#--------------------------------------------------------------------+
+#-- Conflicts -------------------------------------------------------|
+#
+conflict lpddr
+
+#--------------------------------------------------------------------+
+#-- Prerequisites ---------------------------------------------------|
+#
+
+#--------------------------------------------------------------------+
+#-- Module-related operations ---------------------------------------|
+#--------------------------------------------------------------------+
+#-- env vars --#
+#
+# These paths related to drop from the SNSPS SS team
+setenv LPDDR_VERSION $version
+setenv DDR_SUBSYSTEM_RTL_PATH $subsys_release_home/ws_snps_ddr_subsystem
+setenv DDR_MEM_PATH $subsys_release_home/ws_snps_ddr_subsystem/components
+# This path points to our export of the CTRL IP from coreConsultant. (Files have to be checked against checksum provided in subsys release)
+setenv DDR_CONTROLLER_RTL_PATH $ctrl_release_home
+# This path point to our export of the PHY IP from coreConsultant. (Files have to be checked against checksum provided in subsys release)
+setenv DDR_PHY_RTL_PATH $phy_release_home
+
+setenv DDR_CONTROLLER_PRIMEPROFILE $subsys_release_home/ws_snps_ddr_subsystem/customer_config/configs/PrimeProfile_LPDDR54_1.60a-lca00_axeleraai_europa.pp.gz
+# Set CTRL IP installation directory
+setenv DDR_CONTROLLER_IP_HOME /opt/synopsys/dware/eu001-1.0/iip/DWC_ddrctl_lpddr54/1.60a-lca00
+# Set PHY IP installation directory

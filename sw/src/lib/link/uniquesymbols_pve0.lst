@@ -1,0 +1,9 @@
+pve0_tohost tohost
+pve0_fromhost fromhost
+pve0_multicore_sync multicore_sync
+pve0_multicore_printf multicore_printf
+pve0__thread_pointer _thread_pointer
+pve0_stack_addrs stack_addrs
+pve0_barrier_vars barrier_vars
+pve0_exclusive_access_vars exclusive_access_vars
+pve0_pipeline pipeline

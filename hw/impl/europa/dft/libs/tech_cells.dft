@@ -1,0 +1,249 @@
+
+model axe_tcl_clk_inverter ( o_clk, i_clk )
+(
+    cell_type = clock_inverter;
+    input ( i_clk ) ()
+    output ( o_clk )
+    (
+        primitive = _inv U0 ( i_clk, o_clk ) ;
+    )
+)
+
+model axe_tcl_clk_buffer ( o_clk, i_clk )
+(
+    cell_type = clock_buffer;
+    input ( i_clk ) ()
+    output ( o_clk )
+    (
+        primitive = _buf U0 ( i_clk, o_clk ) ;
+    )
+)
+
+model axe_tcl_clk_and2 ( o_clk, i_clk0, i_clk1 )
+(
+    cell_type = clock_and;
+    input (i_clk0) (clock_in)
+    input (i_clk1) (data_in)
+    output (o_clk) (data_out)
+    (
+        primitive = _and U0 ( i_clk0, i_clk1, o_clk ) ;
+    )
+)
+
+model axe_tcl_clk_or2 ( o_clk, i_clk0, i_clk1 )
+(
+    cell_type = clock_or;
+    input (i_clk0) (clock_in)
+    input (i_clk1) (data_in)
+    output (o_clk) (data_out)
+    (
+        primitive = _or U0 ( i_clk0, i_clk1, o_clk ) ;
+    )
+)
+
+model axe_tcl_clk_mux2 ( o_clk, i_clk0, i_clk1, i_sel )
+(
+    cell_type = clock_mux;
+    input (i_clk0) (mux_in0)
+    input (i_clk1) (mux_in1)
+    input (i_sel) (mux_select)
+    output (o_clk) ()
+    (
+        primitive = _mux U0 ( i_clk0, i_clk1, i_sel, o_clk ) ;
+    )
+)
+
+model axe_tcl_clk_gating ( o_clk, i_clk, i_en, i_test_en )
+(
+    cell_type = clock_gating_and;
+    input (i_en) (func_enable)
+    input (i_test_en) (test_enable)
+    input (i_clk) (clock_in)
+    intern ( _i1, _i2, _i3 ) ()
+    output (o_clk) (clock_out)
+    (
+        primitive = _inv U0 ( i_clk, _i1 ) ;
+        primitive = _or U1 ( i_en, i_test_en, _i2 ) ;
+        primitive = _dlat U2 ( , , _i1, _i2, _i3, ) ;
+        primitive = _and U3 ( i_clk, _i3, o_clk ) ;
+    )
+)
+
+model axe_tcl_std_inverter ( o_z, i_a )
+(
+    cell_type = inverter;
+    input ( i_a ) ()
+    output ( o_z )
+    (
+        primitive = _inv U0 ( i_a, o_z ) ;
+    )
+)
+
+model axe_tcl_std_buffer ( o_z, i_a )
+(
+    cell_type = clock_buffer;
+    input ( i_a ) ()
+    output ( o_z )
+    (
+        primitive = _buf U0 ( i_a, o_z ) ;
+    )
+)
+
+model axe_tcl_std_nand2 ( o_z, i_a, i_b )
+(
+    cell_type = nand;
+    input ( i_a, i_b ) ()
+    output ( o_z )
+    (
+        primitive = _nand U0 ( i_a, i_b, o_z ) ;
+    )
+)
+
+model axe_tcl_std_nand3 ( o_z, i_a, i_b, i_c )
+(
+    cell_type = nand;
+    input ( i_a, i_b, i_c ) ()
+    output ( o_z )
+    (
+        primitive = _nand U0 ( i_a, i_b, i_c, o_z ) ;
+    )
+)
+
+model axe_tcl_std_nand4 ( o_z, i_a, i_b, i_c, i_d )
+(
+    cell_type = nand;
+    input ( i_a, i_b, i_c, i_d ) ()
+    output ( o_z )
+    (
+        primitive = _nand U0 ( i_a, i_b, i_c, i_d, o_z ) ;
+    )
+)
+
+model axe_tcl_std_nor2 ( o_z, i_a, i_b )
+(
+    cell_type = nor;
+    input ( i_a, i_b ) ()
+    output ( o_z )
+    (
+        primitive = _nor U0 ( i_a, i_b, o_z ) ;
+    )
+)
+
+model axe_tcl_std_nor3 ( o_z, i_a, i_b, i_c )
+(
+    cell_type = nor;
+    input ( i_a, i_b, i_c ) ()
+    output ( o_z )
+    (
+        primitive = _nor U0 ( i_a, i_b, i_c, o_z ) ;
+    )
+)
+
+model axe_tcl_std_nor4 ( o_z, i_a, i_b, i_c, i_d )
+(
+    cell_type = nor;
+    input ( i_a, i_b, i_c, i_d ) ()
+    output ( o_z )
+    (
+        primitive = _nor U0 ( i_a, i_b, i_c, i_d, o_z ) ;
+    )
+)
+
+model axe_tcl_std_and2 ( o_z, i_a, i_b )
+(
+    cell_type = and;
+    input ( i_a, i_b ) ()
+    output ( o_z )
+    (
+        primitive = _and U0 ( i_a, i_b, o_z ) ;
+    )
+)
+
+model axe_tcl_std_and3 ( o_z, i_a, i_b, i_c )
+(
+    cell_type = and;
+    input ( i_a, i_b, i_c ) ()
+    output ( o_z )
+    (
+        primitive = _and U0 ( i_a, i_b, i_c, o_z ) ;
+    )
+)
+
+model axe_tcl_std_and4 ( o_z, i_a, i_b, i_c, i_d )
+(
+    cell_type = and;
+    input ( i_a, i_b, i_c, i_d ) ()
+    output ( o_z )
+    (
+        primitive = _and U0 ( i_a, i_b, i_c, i_d, o_z ) ;
+    )
+)
+
+model axe_tcl_std_or2 ( o_z, i_a, i_b )
+(
+    cell_type = or;
+    input ( i_a, i_b ) ()
+    output ( o_z )
+    (
+        primitive = _or U0 ( i_a, i_b, o_z ) ;
+    )
+)
+
+model axe_tcl_std_or3 ( o_z, i_a, i_b, i_c )
+(
+    cell_type = or;
+    input ( i_a, i_b, i_c ) ()
+    output ( o_z )
+    (
+        primitive = _or U0 ( i_a, i_b, i_c, o_z ) ;
+    )
+)
+
+model axe_tcl_std_or4 ( o_z, i_a, i_b, i_c, i_d )
+(
+    cell_type = or;
+    input ( i_a, i_b, i_c, i_d ) ()
+    output ( o_z )
+    (
+        primitive = _or U0 ( i_a, i_b, i_c, i_d, o_z ) ;
+    )
+)
+
+model axe_tcl_std_xor2 ( o_z, i_a, i_b )
+(
+    cell_type = xor;
+    input ( i_a, i_b ) ()
+    output ( o_z )
+    (
+        primitive = _xor U0 ( i_a, i_b, o_z ) ;
+    )
+)
+
+model axe_tcl_std_mux2 ( o_z, i_a, i_b, i_sel )
+(
+    cell_type = mux;
+    input (i_a) (mux_in0)
+    input (i_b) (mux_in1)
+    input (i_sel) (mux_select)
+    output (o_z) ()
+    (
+        primitive = _mux U0 ( i_a, i_b, i_sel, o_z ) ;
+    )
+)
+
+dft_cell_selection ( default ) (
+
+  clock_inverter = axe_tcl_clk_inverter;
+  clock_buffer = axe_tcl_clk_buffer;
+  clock_and = axe_tcl_clk_and2;
+  clock_or = axe_tcl_clk_or2;
+  clock_mux = axe_tcl_clk_mux2;
+  clock_gating_and = axe_tcl_clk_gating;
+  inverter = axe_tcl_std_inverter;
+  buffer = axe_tcl_std_buffer;
+  nand = axe_tcl_std_nand2;
+  nor = axe_tcl_std_nor2;
+  and = axe_tcl_std_and2;
+  xor = axe_tcl_std_xor2;
+  mux = axe_tcl_std_mux2;
+)

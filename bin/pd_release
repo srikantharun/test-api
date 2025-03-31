@@ -1,0 +1,27 @@
+#!/usr/bin/env bash
+
+set -e
+
+VENV=.venv/pd_release
+
+make -C $REPO_ROOT/bin venv VENV=$VENV FILE=$REPO_ROOT/hw/scripts/pd_release/pd_release-requirements.txt > /dev/null 2>&1
+
+source $REPO_ROOT/bin/$VENV/bin/activate
+
+# Check the command line argument and call the appropriate Python script
+case "$1" in
+  -generate)
+    python3.10 $REPO_ROOT/hw/scripts/pd_release/pd_release.py "${@:2}"
+    ;;
+  -clean)
+    python3.10 $REPO_ROOT/hw/scripts/pd_release/pd_cleanup.py "${@:2}"
+    ;;
+  *)
+    echo "Invalid option: $1" >&2
+    echo "Usage: $0 -generate|-clean [options]" >&2
+    deactivate
+    exit 1
+    ;;
+esac
+
+deactivate

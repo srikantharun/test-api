@@ -1,0 +1,247 @@
+DftSpecification(aic_mid_p,rtl1) {
+  IjtagNetwork {
+    HostScanInterface(ijtag) {
+      Sib(sri) {
+        Attributes {
+          tessent_dft_function : scan_resource_instrument_host;
+        }
+        Sib(sri_ctrl) {
+          Tdr(sri_ctrl) {
+            Attributes {
+              tessent_dft_function : scan_resource_instrument_dft_control;
+            }
+          }
+        }
+        Sib(imc_bist) {
+          Tdr(imc_bist) {
+            extra_bits_capture_value : self;
+            DataOutPorts {
+              count: 13;
+              connection(0)    : u_aic_mid/u_mvm/i_mvm_jtag_tdr/i_mvm_jtag_tdr_core/o_mbist_start;
+              connection(1)    : u_aic_mid/u_mvm/i_mvm_jtag_tdr/i_mvm_jtag_tdr_core/o_cbist_start;
+              connection(2)    : u_aic_mid/u_mvm/i_mvm_jtag_tdr/i_mvm_jtag_tdr_core/o_resume;
+              connection(3)    : u_aic_mid/u_mvm/i_mvm_jtag_tdr/i_mvm_jtag_tdr_core/o_stop;
+              connection(8:4)  : u_aic_mid/u_mvm/i_mvm_jtag_tdr/i_mvm_jtag_tdr_core/o_max_repair_attempts;
+              connection(10:9) : u_aic_mid/u_mvm/i_mvm_jtag_tdr/i_mvm_jtag_tdr_core/o_bira_mode;
+              connection(11)   : u_aic_mid/u_mvm/i_mvm_jtag_tdr/i_mvm_jtag_tdr_core/o_burn_in;
+              connection(12)   : u_aic_mid/u_mvm/i_mvm_jtag_tdr/i_mvm_jtag_tdr_core/o_fail_analysis;
+              multiplexing: off;
+            }
+            DataInPorts {
+              count: 37;
+              connection(0)     : u_aic_mid/u_mvm/i_mvm_jtag_tdr/i_mvm_jtag_tdr_core/i_busy;
+              connection(1)     : u_aic_mid/u_mvm/i_mvm_jtag_tdr/i_mvm_jtag_tdr_core/i_done;
+              connection(2)     : u_aic_mid/u_mvm/i_mvm_jtag_tdr/i_mvm_jtag_tdr_core/i_pass;
+              connection(3)     : u_aic_mid/u_mvm/i_mvm_jtag_tdr/i_mvm_jtag_tdr_core/i_repair_needed;
+              connection(7:4)   : u_aic_mid/u_mvm/i_mvm_jtag_tdr/i_mvm_jtag_tdr_core/i_error_bank;
+              connection(12:8)  : u_aic_mid/u_mvm/i_mvm_jtag_tdr/i_mvm_jtag_tdr_core/i_error_col;
+              connection(36:13) : u_aic_mid/u_mvm/i_mvm_jtag_tdr/i_mvm_jtag_tdr_core/i_error_cycle;
+            }
+            parent_instance: u_aic_mid/u_mvm/i_mvm_jtag_tdr/i_mvm_jtag_tdr_core;
+          }
+        }
+        Sib(monitors) {
+          Tdr(p1_monitor) {
+            extra_bits_capture_value : self;
+            DataOutPorts {
+              count: 19;
+              connection(13:0)  : u_aic_mid/u_p1_monitor/u_process1_monitor_jtag_tdr_core/o_use_ro;
+              connection(16:14) : u_aic_mid/u_p1_monitor/u_process1_monitor_jtag_tdr_core/o_target;
+              connection(17)    : u_aic_mid/u_p1_monitor/u_process1_monitor_jtag_tdr_core/o_enable;
+              connection(18)    : u_aic_mid/u_p1_monitor/u_process1_monitor_jtag_tdr_core/o_jtag_mode;
+              multiplexing : off;
+            }
+            DataInPorts {
+              count: 225;
+              connection(0)     : u_aic_mid/u_p1_monitor/u_process1_monitor_jtag_tdr_core/i_valid;
+              connection(224:1) : u_aic_mid/u_p1_monitor/u_process1_monitor_jtag_tdr_core/i_count;
+            }
+            parent_instance: u_aic_mid/u_p1_monitor/u_process1_monitor_jtag_tdr_core;
+          }
+          Tdr(p2_monitor) {
+            extra_bits_capture_value : self;
+            DataOutPorts {
+              count: 48;
+              connection(42:0)  : u_aic_mid/u_p2_monitor/u_process2_monitor_jtag_tdr_core/o_use_ro;
+              connection(45:43) : u_aic_mid/u_p2_monitor/u_process2_monitor_jtag_tdr_core/o_target;
+              connection(46)    : u_aic_mid/u_p2_monitor/u_process2_monitor_jtag_tdr_core/o_enable;
+              connection(47)    : u_aic_mid/u_p2_monitor/u_process2_monitor_jtag_tdr_core/o_jtag_mode;
+              multiplexing : off;
+            }
+            DataInPorts {
+              count: 689;
+              connection(0)     : u_aic_mid/u_p2_monitor/u_process2_monitor_jtag_tdr_core/i_valid;
+              connection(688:1) : u_aic_mid/u_p2_monitor/u_process2_monitor_jtag_tdr_core/i_count;
+            }
+            parent_instance: u_aic_mid/u_p2_monitor/u_process2_monitor_jtag_tdr_core;
+          }
+          Tdr(svs_core_monitor) {
+            extra_bits_capture_value : self;
+            DataOutPorts {
+              count: 35;
+              connection(29:0)  : u_aic_mid/u_svs_core_monitor/u_svs_monitor_jtag_tdr_core/o_use_ro;
+              connection(32:30) : u_aic_mid/u_svs_core_monitor/u_svs_monitor_jtag_tdr_core/o_target;
+              connection(33)    : u_aic_mid/u_svs_core_monitor/u_svs_monitor_jtag_tdr_core/o_enable;
+              connection(34)    : u_aic_mid/u_svs_core_monitor/u_svs_monitor_jtag_tdr_core/o_jtag_mode;
+              multiplexing : off;
+            }
+            DataInPorts {
+              count: 481;
+              connection(0)     : u_aic_mid/u_svs_core_monitor/u_svs_monitor_jtag_tdr_core/i_valid;
+              connection(480:1) : u_aic_mid/u_svs_core_monitor/u_svs_monitor_jtag_tdr_core/i_count;
+            }
+            parent_instance: u_aic_mid/u_svs_core_monitor/u_svs_monitor_jtag_tdr_core;
+          }
+          Tdr(svs_imc_monitor) {
+            extra_bits_capture_value : self;
+            DataOutPorts {
+              count: 35;
+              connection(29:0)  : u_aic_mid/u_svs_imc_monitor/u_svs_monitor_jtag_tdr_core/o_use_ro;
+              connection(32:30) : u_aic_mid/u_svs_imc_monitor/u_svs_monitor_jtag_tdr_core/o_target;
+              connection(33)    : u_aic_mid/u_svs_imc_monitor/u_svs_monitor_jtag_tdr_core/o_enable;
+              connection(34)    : u_aic_mid/u_svs_imc_monitor/u_svs_monitor_jtag_tdr_core/o_jtag_mode;
+              multiplexing : off;
+            }
+            DataInPorts {
+              count: 481;
+              connection(0)     : u_aic_mid/u_svs_imc_monitor/u_svs_monitor_jtag_tdr_core/i_valid;
+              connection(480:1) : u_aic_mid/u_svs_imc_monitor/u_svs_monitor_jtag_tdr_core/i_count;
+            }
+            parent_instance: u_aic_mid/u_svs_imc_monitor/u_svs_monitor_jtag_tdr_core;
+          }
+        }
+      }
+      Sib(sti) {
+        Attributes {
+          tessent_dft_function : scan_tested_instrument_host;
+        }
+        Tdr(sti_ctrl) {
+          Attributes {
+            tessent_dft_function : scan_tested_instrument_dft_control;
+          }
+        }
+        Sib(mbist) {
+        }
+      }
+    }
+  }
+  MemoryBist {
+    ijtag_host_interface : Sib(mbist);
+    Controller(c1) {
+      clock_domain_label : i_clk;
+      Step {
+        MemoryInterface(m1) {
+          instance_name : u_aic_mid/u_dpu/i_dpu_dp/i_dpu_bstore/u_axe_tcl_sram/gen_macro.gen_data_banks[0].u_macro;
+        }
+        ReusedMemoryInterface(m2) {
+          instance_name : u_aic_mid/u_dpu/i_dpu_dp/i_dpu_bstore/u_axe_tcl_sram/gen_macro.gen_data_banks[1].u_macro;
+          reused_interface_id : m1;
+        }
+        ReusedMemoryInterface(m3) {
+          instance_name : u_aic_mid/u_dpu/i_dpu_dp/i_dpu_bstore/u_axe_tcl_sram/gen_macro.gen_data_banks[2].u_macro;
+          reused_interface_id : m1;
+        }
+        ReusedMemoryInterface(m4) {
+          instance_name : u_aic_mid/u_dpu/i_dpu_dp/i_dpu_bstore/u_axe_tcl_sram/gen_macro.gen_data_banks[3].u_macro;
+          reused_interface_id : m1;
+        }
+        MemoryInterface(m5) {
+          instance_name : u_aic_mid/u_dpu/i_dpu_dp/i_dpu_cstore/u_axe_tcl_sram[0]/gen_macro.gen_data_banks[0].u_macro;
+        }
+        ReusedMemoryInterface(m6) {
+          instance_name : u_aic_mid/u_dpu/i_dpu_dp/i_dpu_cstore/u_axe_tcl_sram[0]/gen_macro.gen_data_banks[1].u_macro;
+          reused_interface_id : m5;
+        }
+      }
+      Step {
+        ReusedMemoryInterface(m7) {
+          instance_name : u_aic_mid/u_dpu/i_dpu_dp/i_dpu_cstore/u_axe_tcl_sram[0]/gen_macro.gen_data_banks[2].u_macro;
+          reused_interface_id : m5;
+        }
+        ReusedMemoryInterface(m8) {
+          instance_name : u_aic_mid/u_dpu/i_dpu_dp/i_dpu_cstore/u_axe_tcl_sram[0]/gen_macro.gen_data_banks[3].u_macro;
+          reused_interface_id : m5;
+        }
+        ReusedMemoryInterface(m9) {
+          instance_name : u_aic_mid/u_dpu/i_dpu_dp/i_dpu_cstore/u_axe_tcl_sram[1]/gen_macro.gen_data_banks[0].u_macro;
+          reused_interface_id : m5;
+        }
+        ReusedMemoryInterface(m10) {
+          instance_name : u_aic_mid/u_dpu/i_dpu_dp/i_dpu_cstore/u_axe_tcl_sram[1]/gen_macro.gen_data_banks[1].u_macro;
+          reused_interface_id : m5;
+        }
+        ReusedMemoryInterface(m11) {
+          instance_name : u_aic_mid/u_dpu/i_dpu_dp/i_dpu_cstore/u_axe_tcl_sram[1]/gen_macro.gen_data_banks[2].u_macro;
+          reused_interface_id : m5;
+        }
+        ReusedMemoryInterface(m12) {
+          instance_name : u_aic_mid/u_dpu/i_dpu_dp/i_dpu_cstore/u_axe_tcl_sram[1]/gen_macro.gen_data_banks[3].u_macro;
+          reused_interface_id : m5;
+        }
+      }
+      Step {
+        MemoryInterface(m13) {
+          instance_name : u_aic_mid/u_dpu/u_dpu_dpcmd_gen/u_cmdblock_desc_mem/gen_ram.u_tc_ram/gen_macro.u_macro;
+        }
+      }
+    }
+    Controller(c2) {
+      clock_domain_label : i_clk;
+      Step {
+        ReusedMemoryInterface(m1) {
+          instance_name : u_aic_mid/u_dpu/i_dpu_dp/i_dpu_bstore/u_axe_tcl_sram/gen_macro.gen_data_banks[4].u_macro;
+          reused_interface_id : c1:m1;
+        }
+        ReusedMemoryInterface(m2) {
+          instance_name : u_aic_mid/u_dpu/i_dpu_dp/i_dpu_bstore/u_axe_tcl_sram/gen_macro.gen_data_banks[5].u_macro;
+          reused_interface_id : c1:m1;
+        }
+        ReusedMemoryInterface(m3) {
+          instance_name : u_aic_mid/u_dpu/i_dpu_dp/i_dpu_bstore/u_axe_tcl_sram/gen_macro.gen_data_banks[6].u_macro;
+          reused_interface_id : c1:m1;
+        }
+        ReusedMemoryInterface(m4) {
+          instance_name : u_aic_mid/u_dpu/i_dpu_dp/i_dpu_bstore/u_axe_tcl_sram/gen_macro.gen_data_banks[7].u_macro;
+          reused_interface_id : c1:m1;
+        }
+        ReusedMemoryInterface(m5) {
+          instance_name : u_aic_mid/u_dpu/i_dpu_dp/i_dpu_cstore/u_axe_tcl_sram[0]/gen_macro.gen_data_banks[4].u_macro;
+          reused_interface_id : c1:m5;
+        }
+        ReusedMemoryInterface(m6) {
+          instance_name : u_aic_mid/u_dpu/i_dpu_dp/i_dpu_cstore/u_axe_tcl_sram[0]/gen_macro.gen_data_banks[5].u_macro;
+          reused_interface_id : c1:m5;
+        }
+      }
+      Step {
+        ReusedMemoryInterface(m7) {
+          instance_name : u_aic_mid/u_dpu/i_dpu_dp/i_dpu_cstore/u_axe_tcl_sram[0]/gen_macro.gen_data_banks[6].u_macro;
+          reused_interface_id : c1:m5;
+        }
+        ReusedMemoryInterface(m8) {
+          instance_name : u_aic_mid/u_dpu/i_dpu_dp/i_dpu_cstore/u_axe_tcl_sram[0]/gen_macro.gen_data_banks[7].u_macro;
+          reused_interface_id : c1:m5;
+        }
+        ReusedMemoryInterface(m9) {
+          instance_name : u_aic_mid/u_dpu/i_dpu_dp/i_dpu_cstore/u_axe_tcl_sram[1]/gen_macro.gen_data_banks[4].u_macro;
+          reused_interface_id : c1:m5;
+        }
+        ReusedMemoryInterface(m10) {
+          instance_name : u_aic_mid/u_dpu/i_dpu_dp/i_dpu_cstore/u_axe_tcl_sram[1]/gen_macro.gen_data_banks[5].u_macro;
+          reused_interface_id : c1:m5;
+        }
+        ReusedMemoryInterface(m11) {
+          instance_name : u_aic_mid/u_dpu/i_dpu_dp/i_dpu_cstore/u_axe_tcl_sram[1]/gen_macro.gen_data_banks[6].u_macro;
+          reused_interface_id : c1:m5;
+        }
+        ReusedMemoryInterface(m12) {
+          instance_name : u_aic_mid/u_dpu/i_dpu_dp/i_dpu_cstore/u_axe_tcl_sram[1]/gen_macro.gen_data_banks[7].u_macro;
+          reused_interface_id : c1:m5;
+        }
+      }
+    }
+  }
+  MemoryBisr {
+    bisr_segment_order_file : aic_mid_p.bisr_segment_order;
+  }
+}

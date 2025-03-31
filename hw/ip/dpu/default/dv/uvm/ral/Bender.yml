@@ -1,0 +1,23 @@
+# (C) Copyright 2024 Axelera AI B.V.
+# All Rights Reserved
+# *** Axelera AI Confidential ***
+
+package:
+  name: dpu_uvm_ral
+  description: "UVM Register Access Layer for DPU"
+  authors:
+    - "fernando.yokota@axelera.ai"
+
+dependencies:
+  svt_amba_vip:                { path: "../../../../../../dv/svt_amba_vip"}
+  lowrisc_dv_base_reg:         { path: "../../../../../../vendor/axelera/lowrisc_dv/dv_base_reg"}
+  v_utils_pkg:                 { path: "../../../../../../dv/v_utils"}
+
+sources:
+  - target: simulation
+    include_dirs:
+      - .
+    files:
+      - ../../build_ral/dpu_csr_ral_pkg.sv
+      - dpu_ral_pkg.sv
+

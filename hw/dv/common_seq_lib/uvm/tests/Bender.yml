@@ -1,0 +1,17 @@
+package:
+  name: common_seq_lib_tests
+  description: "UVM enviroment setup for common sequence library"
+  authors:
+    - "srinivas.prakash@axelera.ai"
+
+dependencies:
+  svt_amba_vip:          { path: "../../../dv/svt_amba_vip" }
+  common_seq_lib_uvm:    { path: "../env" }
+
+sources:
+  - target: simulation
+    include_dirs:
+      - .
+    files:
+      - common_seq_lib_tests_pkg.sv
+

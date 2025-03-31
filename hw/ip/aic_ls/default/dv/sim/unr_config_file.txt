@@ -1,0 +1,61 @@
+### Instructions ##
+### Below are changes need to be done. Others are left unchanged.
+# 1. Select target module (eg. -buildTop odr)
+# 2. If for ai_core_ls_p, blackbox ai_core_ls (eg. -blackBoxes -type design ai_core_ls)
+# 3. Set save filename (eg. -save_exclusion ai_core_ls_unr_mifd0.el)
+# 4. Set covDUT instance name (eg. -covDUT hdl_top.dut.u_ai_core_ls_p.u_ai_core_ls.i_mvm_ifd0)
+# 5. Run using smake (eg. smake run_vcs_unr RUN_UNR=1 UVM_ENABLE=1 EXT_UNR_OPTS="-pvalue+STATIC_CMD_SIZ=0 -pvalue+NR_STATIC_ENTR=0")
+
+### Formal top
+-top ai_core_ls_pp
+#-buildTop ifd # for all ifd instances
+#-buildTop odr # for all odr instances
+#-buildTop token_mgr
+#-buildTop ai_core_ls_fabric
+#-buildTop l1  # L1 no unreachable
+#-buildTop ai_core_ls_p
+
+### Clocks
+-clock clk 1.25
+### Resets
+-reset rst_n 0 10
+### Blackboxes
+-blackBoxes -type cell l1_ram
+-blackBoxes -type cell tc_sram
+-blackBoxes -type cell *rams_*
+-blackBoxes -type cell *ram_*
+#-blackBoxes -type design ai_core_ls #only use for ai_core_ls_p
+
+### Resource limit
+-maxTime 2H
+#-maxMemory 64GB
+### Exclusion file to be saved
+-save_exclusion ai_core_ls_unr_mifd0.el
+#-save_exclusion ai_core_ls_unr_mifd1.el
+#-save_exclusion ai_core_ls_unr_mifdw.el
+#-save_exclusion ai_core_ls_unr_modr.el
+#-save_exclusion ai_core_ls_unr_difd0.el
+#-save_exclusion ai_core_ls_unr_difd1.el
+#-save_exclusion ai_core_ls_unr_dodr.el
+#-save_exclusion ai_core_ls_unr_token_mgr.el
+#-save_exclusion ai_core_ls_unr_fabric.el
+#-save_exclusion ai_core_ls_p_unr.el
+
+### Start
+### Simulation vdb info
+-covInput ../regr_runs/merged.vdb
+-covDUT hdl_top.dut.u_ai_core_ls_p.u_ai_core_ls.i_mvm_ifd0
+#-covDUT hdl_top.dut.u_ai_core_ls_p.u_ai_core_ls.i_mvm_ifd1
+#-covDUT hdl_top.dut.u_ai_core_ls_p.u_ai_core_ls.i_mvm_ifdw
+#-covDUT hdl_top.dut.u_ai_core_ls_p.u_ai_core_ls.i_mvm_odr
+#-covDUT hdl_top.dut.u_ai_core_ls_p.u_ai_core_ls.i_dwpu_ifd0
+#-covDUT hdl_top.dut.u_ai_core_ls_p.u_ai_core_ls.i_dwpu_ifd1
+#-covDUT hdl_top.dut.u_ai_core_ls_p.u_ai_core_ls.i_dwpu_odr
+#-covDUT hdl_top.dut.u_ai_core_ls_p.u_ai_core_ls.i_token_mgr
+#-covDUT hdl_top.dut.u_ai_core_ls_p.u_ai_core_ls.i_bus
+#-covDUT hdl_top.dut.u_ai_core_ls_p
+### Enable monitoring of toggle coverage for input ports
+-tglInput
+
+#smake run_vcs_unr RUN_UNR=1 UVM_ENABLE=1 EXT_UNR_OPTS="-pvalue+STATIC_CMD_SIZ=0 -pvalue+NR_STATIC_ENTR=0" # for all IFD's
+#smake run_vcs_unr RUN_UNR=1 UVM_ENABLE=1  # for all non-IFD's

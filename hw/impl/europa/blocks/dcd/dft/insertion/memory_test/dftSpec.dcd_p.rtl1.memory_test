@@ -1,0 +1,545 @@
+DftSpecification(dcd_p,rtl1) {
+  IjtagNetwork {
+    HostScanInterface(tap) {
+      Interface {
+        tck : tck;
+      }
+      Tap(main) {
+        HostIjtag(1) {
+          Sib(sri) {
+            Attributes {
+              tessent_dft_function : scan_resource_instrument_host;
+            }
+            Sib(pb1) {
+              DesignInstance("u_dcd/u_codec/u_alg_vcu_dec_top/\g_itu_core_num[0].I_CORE ") {
+                scan_interface : ijtag;
+              }
+            }
+            Sib(pb2) {
+              DesignInstance("u_dcd/u_codec/u_alg_vcu_dec_top/\g_itu_core_num[1].I_CORE ") {
+                scan_interface : ijtag;
+              }
+            }
+            Sib(sri_ctrl) {
+              Tdr(sri_ctrl) {
+                Attributes {
+                  tessent_dft_function : scan_resource_instrument_dft_control;
+                }
+              }
+            }
+          }
+          Sib(sti) {
+            Attributes {
+              tessent_dft_function : scan_tested_instrument_host;
+            }
+            Tdr(sti_ctrl) {
+              Attributes {
+                tessent_dft_function : scan_tested_instrument_dft_control;
+              }
+            }
+            Sib(mbist) {
+            }
+          }
+        }
+        HostBscan {
+        }
+      }
+    }
+  }
+  MemoryBist {
+    ijtag_host_interface : Sib(mbist);
+    Controller(c1) {
+      clock_domain_label : i_mcu_clk;
+      Step {
+        MemoryInterface(m1) {
+          instance_name : u_dcd/u_codec/u_alg_vcu_dec_top/I_VCU_DEC_INTERFACES/I_INTERFACES_RAMS/U_RAM_WORDEN_87_64X98X1/i_alg_ram_worden_64x98w1.alg_ram_worden_64x98x1/gen_macro.u_macro;
+        }
+        MemoryInterface(m2) {
+          instance_name : u_dcd/u_codec/u_alg_vcu_dec_top/I_VCU_DEC_INTERFACES/I_INTERFACES_RAMS/U_RAM_WORDEN_88_64X88X1/i_alg_ram_worden_64x88w1.alg_ram_worden_64x88x1/gen_macro.u_macro;
+        }
+        MemoryInterface(m3) {
+          instance_name : u_dcd/u_codec/u_alg_vcu_dec_top/I_VCU_DEC_INTERFACES/I_INTERFACES_RAMS/U_RAM_WORDEN_89_1024X16X1/i_alg_ram_worden_1024x16w1.alg_ram_worden_1024x16x1/gen_macro.u_macro;
+        }
+        MemoryInterface(m4) {
+          instance_name : u_dcd/u_codec/u_alg_vcu_dec_top/I_VCU_DEC_INTERFACES/I_INTERFACES_RAMS/U_RAM_WORDEN_90_256X60X1/i_alg_ram_worden_256x60w1.alg_ram_worden_256x60x1/gen_macro.u_macro;
+        }
+      }
+      Step {
+        MemoryInterface(m5) {
+          instance_name : u_dcd/u_codec/u_alg_vcu_dec_top/I_VCU_DEC_INTERFACES/I_INTERFACES_RAMS/U_RAM_WORDEN_91_2048X32X1/i_alg_ram_worden_2048x32w1.alg_ram_worden_2048x32x1/gen_macro.u_macro;
+        }
+        ReusedMemoryInterface(m6) {
+          instance_name : u_dcd/u_codec/u_alg_vcu_dec_top/I_VCU_DEC_INTERFACES/I_INTERFACES_RAMS/U_RAM_WORDEN_92_2048X32X1/i_alg_ram_worden_2048x32w1.alg_ram_worden_2048x32x1/gen_macro.u_macro;
+          reused_interface_id : c1:m5;
+        }
+        ReusedMemoryInterface(m7) {
+          instance_name : u_dcd/u_codec/u_alg_vcu_dec_top/I_VCU_DEC_INTERFACES/I_INTERFACES_RAMS/U_RAM_WORDEN_93_2048X32X1/i_alg_ram_worden_2048x32w1.alg_ram_worden_2048x32x1/gen_macro.u_macro;
+          reused_interface_id : c1:m5;
+        }
+        ReusedMemoryInterface(m8) {
+          instance_name : u_dcd/u_codec/u_alg_vcu_dec_top/I_VCU_DEC_INTERFACES/I_INTERFACES_RAMS/U_RAM_WORDEN_94_2048X32X1/i_alg_ram_worden_2048x32w1.alg_ram_worden_2048x32x1/gen_macro.u_macro;
+          reused_interface_id : c1:m5;
+        }
+        MemoryInterface(m9) {
+          instance_name : u_dcd/u_codec/u_alg_vcu_dec_top/I_VCU_DEC_INTERFACES/I_INTERFACES_RAMS/U_RAM_WORDEN_95_128X8X1/i_alg_ram_worden_128x8w1.alg_ram_worden_128x8x1/gen_macro.u_macro;
+        }
+      }
+    }
+    Controller(c2) {
+      clock_domain_label : i_mcu_clk;
+      Step {
+        MemoryInterface(m10) {
+          instance_name : u_dcd/u_codec/u_alg_vcu_dec_top/I_VCU_DEC_INTERFACES/I_INTERFACES_RAMS/U_RAM_WORDEN_96_1024X64X1/i_alg_ram_worden_1024x64w1.alg_ram_worden_1024x64x1/gen_macro.u_macro;
+        }
+        ReusedMemoryInterface(m11) {
+          instance_name : u_dcd/u_codec/u_alg_vcu_dec_top/I_VCU_DEC_INTERFACES/I_INTERFACES_RAMS/U_RAM_WORDEN_97_1024X64X1/i_alg_ram_worden_1024x64w1.alg_ram_worden_1024x64x1/gen_macro.u_macro;
+          reused_interface_id : c2:m10;
+        }
+        ReusedMemoryInterface(m12) {
+          instance_name : u_dcd/u_codec/u_alg_vcu_dec_top/I_VCU_DEC_INTERFACES/I_INTERFACES_RAMS/U_RAM_WORDEN_98_1024X64X1/i_alg_ram_worden_1024x64w1.alg_ram_worden_1024x64x1/gen_macro.u_macro;
+          reused_interface_id : c2:m10;
+        }
+        ReusedMemoryInterface(m13) {
+          instance_name : u_dcd/u_codec/u_alg_vcu_dec_top/I_VCU_DEC_INTERFACES/I_INTERFACES_RAMS/U_RAM_WORDEN_99_1024X64X1/i_alg_ram_worden_1024x64w1.alg_ram_worden_1024x64x1/gen_macro.u_macro;
+          reused_interface_id : c2:m10;
+        }
+      }
+      Step {
+        MemoryInterface(m14) {
+          instance_name : u_dcd/u_codec/u_alg_vcu_dec_top/I_VCU_DEC_INTERFACES/I_INTERFACES_RAMS/U_RAM_WORDEN_100_64X58X1/i_alg_ram_worden_64x58w1.alg_ram_worden_64x58x1/gen_macro.u_macro;
+        }
+        ReusedMemoryInterface(m15) {
+          instance_name : u_dcd/u_codec/u_alg_vcu_dec_top/I_VCU_DEC_INTERFACES/I_INTERFACES_RAMS/U_RAM_WORDEN_101_64X58X1/i_alg_ram_worden_64x58w1.alg_ram_worden_64x58x1/gen_macro.u_macro;
+          reused_interface_id : c2:m14;
+        }
+        ReusedMemoryInterface(m16) {
+          instance_name : u_dcd/u_codec/u_alg_vcu_dec_top/I_VCU_DEC_INTERFACES/I_INTERFACES_RAMS/U_RAM_WORDEN_102_64X58X1/i_alg_ram_worden_64x58w1.alg_ram_worden_64x58x1/gen_macro.u_macro;
+          reused_interface_id : c2:m14;
+        }
+        ReusedMemoryInterface(m17) {
+          instance_name : u_dcd/u_codec/u_alg_vcu_dec_top/I_VCU_DEC_INTERFACES/I_INTERFACES_RAMS/U_RAM_WORDEN_103_64X58X1/i_alg_ram_worden_64x58w1.alg_ram_worden_64x58x1/gen_macro.u_macro;
+          reused_interface_id : c2:m14;
+        }
+      }
+      Step {
+        MemoryInterface(m18) {
+          instance_name : u_dcd/u_codec/u_alg_vcu_dec_top/I_VCU_DEC_INTERFACES/I_INTERFACES_RAMS/U_RAM_DUAL_121_16X65X0/i_alg_ram_16x65.alg_ram_dual_16x65x0/gen_macro.u_macro;
+        }
+        MemoryInterface(m19) {
+          instance_name : u_dcd/u_codec/u_alg_vcu_dec_top/I_VCU_DEC_INTERFACES/I_INTERFACES_RAMS/U_RAM_DUAL_122_16X32X0/i_alg_ram_16x32.alg_ram_dual_16x32x0/gen_macro.u_macro;
+        }
+      }
+    }
+    Controller(c3) {
+      clock_domain_label : i_clk;
+      Step {
+        MemoryInterface(m1) {
+          instance_name : u_dcd/u_codec/u_alg_vcu_dec_top/I_POSTPROC/gen_pp_core_wrapper[0].I_PP_CORE_WRAPPER/I_CORE_RAMS/U_RAM_61_2880X128X0/i_alg_ram_2880x128x0.alg_ram_2880x128x0/gen_macro.u_macro;
+        }
+      }
+      Step {
+        MemoryInterface(m2) {
+          instance_name : u_dcd/u_codec/u_alg_vcu_dec_top/I_POSTPROC/gen_pp_core_wrapper[0].I_PP_CORE_WRAPPER/I_CORE_RAMS/U_RAM_DPWORDEN_63_912X128X2/i_alg_ram_worden_dpr_912x128w2.alg_ram_worden_dpr_912x128x2/gen_macro.gen_addr_banks[0].u_macro;
+        }
+        ReusedMemoryInterface(m3) {
+          instance_name : u_dcd/u_codec/u_alg_vcu_dec_top/I_POSTPROC/gen_pp_core_wrapper[0].I_PP_CORE_WRAPPER/I_CORE_RAMS/U_RAM_DPWORDEN_63_912X128X2/i_alg_ram_worden_dpr_912x128w2.alg_ram_worden_dpr_912x128x2/gen_macro.gen_addr_banks[1].u_macro;
+          reused_interface_id : c3:m2;
+        }
+        ReusedMemoryInterface(m4) {
+          instance_name : u_dcd/u_codec/u_alg_vcu_dec_top/I_POSTPROC/gen_pp_core_wrapper[0].I_PP_CORE_WRAPPER/I_CORE_RAMS/U_RAM_DPWORDEN_64_912X128X2/i_alg_ram_worden_dpr_912x128w2.alg_ram_worden_dpr_912x128x2/gen_macro.gen_addr_banks[0].u_macro;
+          reused_interface_id : c3:m2;
+        }
+        ReusedMemoryInterface(m5) {
+          instance_name : u_dcd/u_codec/u_alg_vcu_dec_top/I_POSTPROC/gen_pp_core_wrapper[0].I_PP_CORE_WRAPPER/I_CORE_RAMS/U_RAM_DPWORDEN_64_912X128X2/i_alg_ram_worden_dpr_912x128w2.alg_ram_worden_dpr_912x128x2/gen_macro.gen_addr_banks[1].u_macro;
+          reused_interface_id : c3:m2;
+        }
+      }
+      Step {
+        ReusedMemoryInterface(m6) {
+          instance_name : u_dcd/u_codec/u_alg_vcu_dec_top/I_POSTPROC/gen_pp_core_wrapper[0].I_PP_CORE_WRAPPER/I_CORE_RAMS/U_RAM_DPWORDEN_65_912X128X2/i_alg_ram_worden_dpr_912x128w2.alg_ram_worden_dpr_912x128x2/gen_macro.gen_addr_banks[0].u_macro;
+          reused_interface_id : c3:m2;
+        }
+        ReusedMemoryInterface(m7) {
+          instance_name : u_dcd/u_codec/u_alg_vcu_dec_top/I_POSTPROC/gen_pp_core_wrapper[0].I_PP_CORE_WRAPPER/I_CORE_RAMS/U_RAM_DPWORDEN_65_912X128X2/i_alg_ram_worden_dpr_912x128w2.alg_ram_worden_dpr_912x128x2/gen_macro.gen_addr_banks[1].u_macro;
+          reused_interface_id : c3:m2;
+        }
+        ReusedMemoryInterface(m8) {
+          instance_name : u_dcd/u_codec/u_alg_vcu_dec_top/I_POSTPROC/gen_pp_core_wrapper[0].I_PP_CORE_WRAPPER/I_CORE_RAMS/U_RAM_DPWORDEN_66_912X128X2/i_alg_ram_worden_dpr_912x128w2.alg_ram_worden_dpr_912x128x2/gen_macro.gen_addr_banks[0].u_macro;
+          reused_interface_id : c3:m2;
+        }
+        ReusedMemoryInterface(m9) {
+          instance_name : u_dcd/u_codec/u_alg_vcu_dec_top/I_POSTPROC/gen_pp_core_wrapper[0].I_PP_CORE_WRAPPER/I_CORE_RAMS/U_RAM_DPWORDEN_66_912X128X2/i_alg_ram_worden_dpr_912x128w2.alg_ram_worden_dpr_912x128x2/gen_macro.gen_addr_banks[1].u_macro;
+          reused_interface_id : c3:m2;
+        }
+      }
+      Step {
+        ReusedMemoryInterface(m10) {
+          instance_name : u_dcd/u_codec/u_alg_vcu_dec_top/I_POSTPROC/gen_pp_core_wrapper[0].I_PP_CORE_WRAPPER/I_CORE_RAMS/U_RAM_DPWORDEN_67_912X128X2/i_alg_ram_worden_dpr_912x128w2.alg_ram_worden_dpr_912x128x2/gen_macro.gen_addr_banks[0].u_macro;
+          reused_interface_id : c3:m2;
+        }
+        ReusedMemoryInterface(m11) {
+          instance_name : u_dcd/u_codec/u_alg_vcu_dec_top/I_POSTPROC/gen_pp_core_wrapper[0].I_PP_CORE_WRAPPER/I_CORE_RAMS/U_RAM_DPWORDEN_67_912X128X2/i_alg_ram_worden_dpr_912x128w2.alg_ram_worden_dpr_912x128x2/gen_macro.gen_addr_banks[1].u_macro;
+          reused_interface_id : c3:m2;
+        }
+        ReusedMemoryInterface(m12) {
+          instance_name : u_dcd/u_codec/u_alg_vcu_dec_top/I_POSTPROC/gen_pp_core_wrapper[0].I_PP_CORE_WRAPPER/I_CORE_RAMS/U_RAM_DPWORDEN_68_912X128X2/i_alg_ram_worden_dpr_912x128w2.alg_ram_worden_dpr_912x128x2/gen_macro.gen_addr_banks[0].u_macro;
+          reused_interface_id : c3:m2;
+        }
+        ReusedMemoryInterface(m13) {
+          instance_name : u_dcd/u_codec/u_alg_vcu_dec_top/I_POSTPROC/gen_pp_core_wrapper[0].I_PP_CORE_WRAPPER/I_CORE_RAMS/U_RAM_DPWORDEN_68_912X128X2/i_alg_ram_worden_dpr_912x128w2.alg_ram_worden_dpr_912x128x2/gen_macro.gen_addr_banks[1].u_macro;
+          reused_interface_id : c3:m2;
+        }
+      }
+      Step {
+        ReusedMemoryInterface(m14) {
+          instance_name : u_dcd/u_codec/u_alg_vcu_dec_top/I_POSTPROC/gen_pp_core_wrapper[0].I_PP_CORE_WRAPPER/I_CORE_RAMS/U_RAM_DPWORDEN_69_912X128X2/i_alg_ram_worden_dpr_912x128w2.alg_ram_worden_dpr_912x128x2/gen_macro.gen_addr_banks[0].u_macro;
+          reused_interface_id : c3:m2;
+        }
+        ReusedMemoryInterface(m15) {
+          instance_name : u_dcd/u_codec/u_alg_vcu_dec_top/I_POSTPROC/gen_pp_core_wrapper[0].I_PP_CORE_WRAPPER/I_CORE_RAMS/U_RAM_DPWORDEN_69_912X128X2/i_alg_ram_worden_dpr_912x128w2.alg_ram_worden_dpr_912x128x2/gen_macro.gen_addr_banks[1].u_macro;
+          reused_interface_id : c3:m2;
+        }
+        ReusedMemoryInterface(m16) {
+          instance_name : u_dcd/u_codec/u_alg_vcu_dec_top/I_POSTPROC/gen_pp_core_wrapper[0].I_PP_CORE_WRAPPER/I_CORE_RAMS/U_RAM_DPWORDEN_70_912X128X2/i_alg_ram_worden_dpr_912x128w2.alg_ram_worden_dpr_912x128x2/gen_macro.gen_addr_banks[0].u_macro;
+          reused_interface_id : c3:m2;
+        }
+      }
+    }
+    Controller(c4) {
+      clock_domain_label : i_clk;
+      Step {
+        ReusedMemoryInterface(m17) {
+          instance_name : u_dcd/u_codec/u_alg_vcu_dec_top/I_POSTPROC/gen_pp_core_wrapper[0].I_PP_CORE_WRAPPER/I_CORE_RAMS/U_RAM_DPWORDEN_70_912X128X2/i_alg_ram_worden_dpr_912x128w2.alg_ram_worden_dpr_912x128x2/gen_macro.gen_addr_banks[1].u_macro;
+          reused_interface_id : c3:m2;
+        }
+        ReusedMemoryInterface(m18) {
+          instance_name : u_dcd/u_codec/u_alg_vcu_dec_top/I_POSTPROC/gen_pp_core_wrapper[0].I_PP_CORE_WRAPPER/I_CORE_RAMS/U_RAM_DPWORDEN_71_912X128X2/i_alg_ram_worden_dpr_912x128w2.alg_ram_worden_dpr_912x128x2/gen_macro.gen_addr_banks[0].u_macro;
+          reused_interface_id : c3:m2;
+        }
+        ReusedMemoryInterface(m19) {
+          instance_name : u_dcd/u_codec/u_alg_vcu_dec_top/I_POSTPROC/gen_pp_core_wrapper[0].I_PP_CORE_WRAPPER/I_CORE_RAMS/U_RAM_DPWORDEN_71_912X128X2/i_alg_ram_worden_dpr_912x128w2.alg_ram_worden_dpr_912x128x2/gen_macro.gen_addr_banks[1].u_macro;
+          reused_interface_id : c3:m2;
+        }
+        ReusedMemoryInterface(m20) {
+          instance_name : u_dcd/u_codec/u_alg_vcu_dec_top/I_POSTPROC/gen_pp_core_wrapper[0].I_PP_CORE_WRAPPER/I_CORE_RAMS/U_RAM_DPWORDEN_72_912X128X2/i_alg_ram_worden_dpr_912x128w2.alg_ram_worden_dpr_912x128x2/gen_macro.gen_addr_banks[0].u_macro;
+          reused_interface_id : c3:m2;
+        }
+      }
+      Step {
+        ReusedMemoryInterface(m21) {
+          instance_name : u_dcd/u_codec/u_alg_vcu_dec_top/I_POSTPROC/gen_pp_core_wrapper[0].I_PP_CORE_WRAPPER/I_CORE_RAMS/U_RAM_DPWORDEN_72_912X128X2/i_alg_ram_worden_dpr_912x128w2.alg_ram_worden_dpr_912x128x2/gen_macro.gen_addr_banks[1].u_macro;
+          reused_interface_id : c3:m2;
+        }
+        ReusedMemoryInterface(m22) {
+          instance_name : u_dcd/u_codec/u_alg_vcu_dec_top/I_POSTPROC/gen_pp_core_wrapper[0].I_PP_CORE_WRAPPER/I_CORE_RAMS/U_RAM_DPWORDEN_73_912X128X2/i_alg_ram_worden_dpr_912x128w2.alg_ram_worden_dpr_912x128x2/gen_macro.gen_addr_banks[0].u_macro;
+          reused_interface_id : c3:m2;
+        }
+        ReusedMemoryInterface(m23) {
+          instance_name : u_dcd/u_codec/u_alg_vcu_dec_top/I_POSTPROC/gen_pp_core_wrapper[0].I_PP_CORE_WRAPPER/I_CORE_RAMS/U_RAM_DPWORDEN_73_912X128X2/i_alg_ram_worden_dpr_912x128w2.alg_ram_worden_dpr_912x128x2/gen_macro.gen_addr_banks[1].u_macro;
+          reused_interface_id : c3:m2;
+        }
+        ReusedMemoryInterface(m24) {
+          instance_name : u_dcd/u_codec/u_alg_vcu_dec_top/I_POSTPROC/gen_pp_core_wrapper[0].I_PP_CORE_WRAPPER/I_CORE_RAMS/U_RAM_DPWORDEN_74_912X128X2/i_alg_ram_worden_dpr_912x128w2.alg_ram_worden_dpr_912x128x2/gen_macro.gen_addr_banks[0].u_macro;
+          reused_interface_id : c3:m2;
+        }
+      }
+      Step {
+        ReusedMemoryInterface(m25) {
+          instance_name : u_dcd/u_codec/u_alg_vcu_dec_top/I_POSTPROC/gen_pp_core_wrapper[0].I_PP_CORE_WRAPPER/I_CORE_RAMS/U_RAM_DPWORDEN_74_912X128X2/i_alg_ram_worden_dpr_912x128w2.alg_ram_worden_dpr_912x128x2/gen_macro.gen_addr_banks[1].u_macro;
+          reused_interface_id : c3:m2;
+        }
+        ReusedMemoryInterface(m26) {
+          instance_name : u_dcd/u_codec/u_alg_vcu_dec_top/I_POSTPROC/gen_pp_core_wrapper[0].I_PP_CORE_WRAPPER/I_CORE_RAMS/U_RAM_DPWORDEN_75_912X128X2/i_alg_ram_worden_dpr_912x128w2.alg_ram_worden_dpr_912x128x2/gen_macro.gen_addr_banks[0].u_macro;
+          reused_interface_id : c3:m2;
+        }
+        ReusedMemoryInterface(m27) {
+          instance_name : u_dcd/u_codec/u_alg_vcu_dec_top/I_POSTPROC/gen_pp_core_wrapper[0].I_PP_CORE_WRAPPER/I_CORE_RAMS/U_RAM_DPWORDEN_75_912X128X2/i_alg_ram_worden_dpr_912x128w2.alg_ram_worden_dpr_912x128x2/gen_macro.gen_addr_banks[1].u_macro;
+          reused_interface_id : c3:m2;
+        }
+        ReusedMemoryInterface(m28) {
+          instance_name : u_dcd/u_codec/u_alg_vcu_dec_top/I_POSTPROC/gen_pp_core_wrapper[0].I_PP_CORE_WRAPPER/I_CORE_RAMS/U_RAM_DPWORDEN_76_912X128X2/i_alg_ram_worden_dpr_912x128w2.alg_ram_worden_dpr_912x128x2/gen_macro.gen_addr_banks[0].u_macro;
+          reused_interface_id : c3:m2;
+        }
+      }
+      Step {
+        ReusedMemoryInterface(m29) {
+          instance_name : u_dcd/u_codec/u_alg_vcu_dec_top/I_POSTPROC/gen_pp_core_wrapper[0].I_PP_CORE_WRAPPER/I_CORE_RAMS/U_RAM_DPWORDEN_76_912X128X2/i_alg_ram_worden_dpr_912x128w2.alg_ram_worden_dpr_912x128x2/gen_macro.gen_addr_banks[1].u_macro;
+          reused_interface_id : c3:m2;
+        }
+        ReusedMemoryInterface(m30) {
+          instance_name : u_dcd/u_codec/u_alg_vcu_dec_top/I_POSTPROC/gen_pp_core_wrapper[0].I_PP_CORE_WRAPPER/I_CORE_RAMS/U_RAM_DPWORDEN_77_912X128X2/i_alg_ram_worden_dpr_912x128w2.alg_ram_worden_dpr_912x128x2/gen_macro.gen_addr_banks[0].u_macro;
+          reused_interface_id : c3:m2;
+        }
+        ReusedMemoryInterface(m31) {
+          instance_name : u_dcd/u_codec/u_alg_vcu_dec_top/I_POSTPROC/gen_pp_core_wrapper[0].I_PP_CORE_WRAPPER/I_CORE_RAMS/U_RAM_DPWORDEN_77_912X128X2/i_alg_ram_worden_dpr_912x128w2.alg_ram_worden_dpr_912x128x2/gen_macro.gen_addr_banks[1].u_macro;
+          reused_interface_id : c3:m2;
+        }
+        ReusedMemoryInterface(m32) {
+          instance_name : u_dcd/u_codec/u_alg_vcu_dec_top/I_POSTPROC/gen_pp_core_wrapper[0].I_PP_CORE_WRAPPER/I_CORE_RAMS/U_RAM_DPWORDEN_78_912X128X2/i_alg_ram_worden_dpr_912x128w2.alg_ram_worden_dpr_912x128x2/gen_macro.gen_addr_banks[0].u_macro;
+          reused_interface_id : c3:m2;
+        }
+        ReusedMemoryInterface(m33) {
+          instance_name : u_dcd/u_codec/u_alg_vcu_dec_top/I_POSTPROC/gen_pp_core_wrapper[0].I_PP_CORE_WRAPPER/I_CORE_RAMS/U_RAM_DPWORDEN_78_912X128X2/i_alg_ram_worden_dpr_912x128w2.alg_ram_worden_dpr_912x128x2/gen_macro.gen_addr_banks[1].u_macro;
+          reused_interface_id : c3:m2;
+        }
+      }
+    }
+    Controller(c5) {
+      clock_domain_label : i_clk;
+      Step {
+        MemoryInterface(m34) {
+          instance_name : u_dcd/u_codec/u_alg_vcu_dec_top/I_POSTPROC/gen_pp_core_wrapper[0].I_PP_CORE_WRAPPER/I_CORE_RAMS/U_RAM_79_1072X128X0/i_alg_ram_1072x128x0.alg_ram_1072x128x0/gen_macro.u_macro;
+        }
+        MemoryInterface(m35) {
+          instance_name : u_dcd/u_codec/u_alg_vcu_dec_top/I_POSTPROC/gen_pp_core_wrapper[0].I_PP_CORE_WRAPPER/I_CORE_RAMS/U_RAM_80_400X12X0/i_alg_ram_400x12.alg_ram_400x12x0/gen_macro.u_macro;
+        }
+        MemoryInterface(m36) {
+          instance_name : u_dcd/u_codec/u_alg_vcu_dec_top/I_POSTPROC/gen_pp_core_wrapper[0].I_PP_CORE_WRAPPER/I_CORE_RAMS/U_RAM_83_256X256X0/i_alg_ram_256x256.RAM_X[0].alg_ram_256x256x0/gen_macro.u_macro;
+        }
+        ReusedMemoryInterface(m37) {
+          instance_name : u_dcd/u_codec/u_alg_vcu_dec_top/I_POSTPROC/gen_pp_core_wrapper[0].I_PP_CORE_WRAPPER/I_CORE_RAMS/U_RAM_83_256X256X0/i_alg_ram_256x256.RAM_X[1].alg_ram_256x256x0/gen_macro.u_macro;
+          reused_interface_id : c5:m36;
+        }
+      }
+      Step {
+        MemoryInterface(m38) {
+          instance_name : u_dcd/u_codec/u_alg_vcu_dec_top/I_POSTPROC/gen_pp_core_wrapper[0].I_PP_CORE_WRAPPER/I_CORE_RAMS/U_RAM_84_32X256X0/i_alg_ram_32x256x0.RAM_X[0].alg_ram_32x256x0/gen_macro.u_macro;
+        }
+        ReusedMemoryInterface(m39) {
+          instance_name : u_dcd/u_codec/u_alg_vcu_dec_top/I_POSTPROC/gen_pp_core_wrapper[0].I_PP_CORE_WRAPPER/I_CORE_RAMS/U_RAM_84_32X256X0/i_alg_ram_32x256x0.RAM_X[1].alg_ram_32x256x0/gen_macro.u_macro;
+          reused_interface_id : c5:m38;
+        }
+      }
+      Step {
+        MemoryInterface(m40) {
+          instance_name : u_dcd/u_codec/u_alg_vcu_dec_top/I_POSTPROC/gen_pp_core_wrapper[0].I_PP_CORE_WRAPPER/I_CORE_RAMS/U_RAM_85_192X256X0/i_alg_ram_192x256x0.RAM_X[0].alg_ram_192x256x0/gen_macro.u_macro;
+        }
+        ReusedMemoryInterface(m41) {
+          instance_name : u_dcd/u_codec/u_alg_vcu_dec_top/I_POSTPROC/gen_pp_core_wrapper[0].I_PP_CORE_WRAPPER/I_CORE_RAMS/U_RAM_85_192X256X0/i_alg_ram_192x256x0.RAM_X[1].alg_ram_192x256x0/gen_macro.u_macro;
+          reused_interface_id : c5:m40;
+        }
+        ReusedMemoryInterface(m42) {
+          instance_name : u_dcd/u_codec/u_alg_vcu_dec_top/I_POSTPROC/gen_pp_core_wrapper[0].I_PP_CORE_WRAPPER/I_CORE_RAMS/U_RAM_86_192X256X0/i_alg_ram_192x256x0.RAM_X[0].alg_ram_192x256x0/gen_macro.u_macro;
+          reused_interface_id : c5:m40;
+        }
+        ReusedMemoryInterface(m43) {
+          instance_name : u_dcd/u_codec/u_alg_vcu_dec_top/I_POSTPROC/gen_pp_core_wrapper[0].I_PP_CORE_WRAPPER/I_CORE_RAMS/U_RAM_86_192X256X0/i_alg_ram_192x256x0.RAM_X[1].alg_ram_192x256x0/gen_macro.u_macro;
+          reused_interface_id : c5:m40;
+        }
+      }
+    }
+    Controller(c6) {
+      clock_domain_label : i_clk;
+      Step {
+        MemoryInterface(m44) {
+          instance_name : u_dcd/u_codec/u_alg_vcu_dec_top/I_POSTPROC/gen_pp_core_wrapper[0].I_PP_CORE_WRAPPER/I_CORE_RAMS/U_RAM_DPWORDEN_107_1921X160X10/i_alg_ram_worden_dpr_1921x160w10.alg_ram_worden_dpr_1921x160x10/gen_macro.gen_addr_banks[0].u_macro;
+        }
+        ReusedMemoryInterface(m45) {
+          instance_name : u_dcd/u_codec/u_alg_vcu_dec_top/I_POSTPROC/gen_pp_core_wrapper[0].I_PP_CORE_WRAPPER/I_CORE_RAMS/U_RAM_DPWORDEN_107_1921X160X10/i_alg_ram_worden_dpr_1921x160w10.alg_ram_worden_dpr_1921x160x10/gen_macro.gen_addr_banks[1].u_macro;
+          reused_interface_id : c6:m44;
+        }
+        ReusedMemoryInterface(m46) {
+          instance_name : u_dcd/u_codec/u_alg_vcu_dec_top/I_POSTPROC/gen_pp_core_wrapper[0].I_PP_CORE_WRAPPER/I_CORE_RAMS/U_RAM_DPWORDEN_107_1921X160X10/i_alg_ram_worden_dpr_1921x160w10.alg_ram_worden_dpr_1921x160x10/gen_macro.gen_addr_banks[2].u_macro;
+          reused_interface_id : c6:m44;
+        }
+        ReusedMemoryInterface(m47) {
+          instance_name : u_dcd/u_codec/u_alg_vcu_dec_top/I_POSTPROC/gen_pp_core_wrapper[0].I_PP_CORE_WRAPPER/I_CORE_RAMS/U_RAM_DPWORDEN_107_1921X160X10/i_alg_ram_worden_dpr_1921x160w10.alg_ram_worden_dpr_1921x160x10/gen_macro.gen_addr_banks[3].u_macro;
+          reused_interface_id : c6:m44;
+        }
+      }
+    }
+    Controller(c7) {
+      clock_domain_label : i_clk;
+      Step {
+        MemoryInterface(m48) {
+          instance_name : u_dcd/u_codec/u_alg_vcu_dec_top/I_POSTPROC/gen_pp_core_wrapper[0].I_PP_CORE_WRAPPER/I_CORE_RAMS/U_RAM_DPWORDEN_126_5760X160X10/i_alg_ram_worden_dpr_5760x160w10.RAM_X[0].alg_ram_worden_dpr_5760x160x10/gen_macro.gen_addr_banks[0].u_macro;
+        }
+        ReusedMemoryInterface(m49) {
+          instance_name : u_dcd/u_codec/u_alg_vcu_dec_top/I_POSTPROC/gen_pp_core_wrapper[0].I_PP_CORE_WRAPPER/I_CORE_RAMS/U_RAM_DPWORDEN_126_5760X160X10/i_alg_ram_worden_dpr_5760x160w10.RAM_X[0].alg_ram_worden_dpr_5760x160x10/gen_macro.gen_addr_banks[10].u_macro;
+          reused_interface_id : c7:m48;
+        }
+        ReusedMemoryInterface(m50) {
+          instance_name : u_dcd/u_codec/u_alg_vcu_dec_top/I_POSTPROC/gen_pp_core_wrapper[0].I_PP_CORE_WRAPPER/I_CORE_RAMS/U_RAM_DPWORDEN_126_5760X160X10/i_alg_ram_worden_dpr_5760x160w10.RAM_X[0].alg_ram_worden_dpr_5760x160x10/gen_macro.gen_addr_banks[11].u_macro;
+          reused_interface_id : c7:m48;
+        }
+        ReusedMemoryInterface(m51) {
+          instance_name : u_dcd/u_codec/u_alg_vcu_dec_top/I_POSTPROC/gen_pp_core_wrapper[0].I_PP_CORE_WRAPPER/I_CORE_RAMS/U_RAM_DPWORDEN_126_5760X160X10/i_alg_ram_worden_dpr_5760x160w10.RAM_X[0].alg_ram_worden_dpr_5760x160x10/gen_macro.gen_addr_banks[12].u_macro;
+          reused_interface_id : c7:m48;
+        }
+      }
+      Step {
+        ReusedMemoryInterface(m52) {
+          instance_name : u_dcd/u_codec/u_alg_vcu_dec_top/I_POSTPROC/gen_pp_core_wrapper[0].I_PP_CORE_WRAPPER/I_CORE_RAMS/U_RAM_DPWORDEN_126_5760X160X10/i_alg_ram_worden_dpr_5760x160w10.RAM_X[0].alg_ram_worden_dpr_5760x160x10/gen_macro.gen_addr_banks[13].u_macro;
+          reused_interface_id : c7:m48;
+        }
+        ReusedMemoryInterface(m53) {
+          instance_name : u_dcd/u_codec/u_alg_vcu_dec_top/I_POSTPROC/gen_pp_core_wrapper[0].I_PP_CORE_WRAPPER/I_CORE_RAMS/U_RAM_DPWORDEN_126_5760X160X10/i_alg_ram_worden_dpr_5760x160w10.RAM_X[0].alg_ram_worden_dpr_5760x160x10/gen_macro.gen_addr_banks[14].u_macro;
+          reused_interface_id : c7:m48;
+        }
+        ReusedMemoryInterface(m54) {
+          instance_name : u_dcd/u_codec/u_alg_vcu_dec_top/I_POSTPROC/gen_pp_core_wrapper[0].I_PP_CORE_WRAPPER/I_CORE_RAMS/U_RAM_DPWORDEN_126_5760X160X10/i_alg_ram_worden_dpr_5760x160w10.RAM_X[0].alg_ram_worden_dpr_5760x160x10/gen_macro.gen_addr_banks[15].u_macro;
+          reused_interface_id : c7:m48;
+        }
+        ReusedMemoryInterface(m55) {
+          instance_name : u_dcd/u_codec/u_alg_vcu_dec_top/I_POSTPROC/gen_pp_core_wrapper[0].I_PP_CORE_WRAPPER/I_CORE_RAMS/U_RAM_DPWORDEN_126_5760X160X10/i_alg_ram_worden_dpr_5760x160w10.RAM_X[0].alg_ram_worden_dpr_5760x160x10/gen_macro.gen_addr_banks[1].u_macro;
+          reused_interface_id : c7:m48;
+        }
+      }
+    }
+    Controller(c8) {
+      clock_domain_label : i_clk;
+      Step {
+        ReusedMemoryInterface(m56) {
+          instance_name : u_dcd/u_codec/u_alg_vcu_dec_top/I_POSTPROC/gen_pp_core_wrapper[0].I_PP_CORE_WRAPPER/I_CORE_RAMS/U_RAM_DPWORDEN_126_5760X160X10/i_alg_ram_worden_dpr_5760x160w10.RAM_X[0].alg_ram_worden_dpr_5760x160x10/gen_macro.gen_addr_banks[2].u_macro;
+          reused_interface_id : c7:m48;
+        }
+        ReusedMemoryInterface(m57) {
+          instance_name : u_dcd/u_codec/u_alg_vcu_dec_top/I_POSTPROC/gen_pp_core_wrapper[0].I_PP_CORE_WRAPPER/I_CORE_RAMS/U_RAM_DPWORDEN_126_5760X160X10/i_alg_ram_worden_dpr_5760x160w10.RAM_X[0].alg_ram_worden_dpr_5760x160x10/gen_macro.gen_addr_banks[3].u_macro;
+          reused_interface_id : c7:m48;
+        }
+        ReusedMemoryInterface(m58) {
+          instance_name : u_dcd/u_codec/u_alg_vcu_dec_top/I_POSTPROC/gen_pp_core_wrapper[0].I_PP_CORE_WRAPPER/I_CORE_RAMS/U_RAM_DPWORDEN_126_5760X160X10/i_alg_ram_worden_dpr_5760x160w10.RAM_X[0].alg_ram_worden_dpr_5760x160x10/gen_macro.gen_addr_banks[4].u_macro;
+          reused_interface_id : c7:m48;
+        }
+        ReusedMemoryInterface(m59) {
+          instance_name : u_dcd/u_codec/u_alg_vcu_dec_top/I_POSTPROC/gen_pp_core_wrapper[0].I_PP_CORE_WRAPPER/I_CORE_RAMS/U_RAM_DPWORDEN_126_5760X160X10/i_alg_ram_worden_dpr_5760x160w10.RAM_X[0].alg_ram_worden_dpr_5760x160x10/gen_macro.gen_addr_banks[5].u_macro;
+          reused_interface_id : c7:m48;
+        }
+      }
+      Step {
+        ReusedMemoryInterface(m60) {
+          instance_name : u_dcd/u_codec/u_alg_vcu_dec_top/I_POSTPROC/gen_pp_core_wrapper[0].I_PP_CORE_WRAPPER/I_CORE_RAMS/U_RAM_DPWORDEN_126_5760X160X10/i_alg_ram_worden_dpr_5760x160w10.RAM_X[0].alg_ram_worden_dpr_5760x160x10/gen_macro.gen_addr_banks[6].u_macro;
+          reused_interface_id : c7:m48;
+        }
+        ReusedMemoryInterface(m61) {
+          instance_name : u_dcd/u_codec/u_alg_vcu_dec_top/I_POSTPROC/gen_pp_core_wrapper[0].I_PP_CORE_WRAPPER/I_CORE_RAMS/U_RAM_DPWORDEN_126_5760X160X10/i_alg_ram_worden_dpr_5760x160w10.RAM_X[0].alg_ram_worden_dpr_5760x160x10/gen_macro.gen_addr_banks[7].u_macro;
+          reused_interface_id : c7:m48;
+        }
+        ReusedMemoryInterface(m62) {
+          instance_name : u_dcd/u_codec/u_alg_vcu_dec_top/I_POSTPROC/gen_pp_core_wrapper[0].I_PP_CORE_WRAPPER/I_CORE_RAMS/U_RAM_DPWORDEN_126_5760X160X10/i_alg_ram_worden_dpr_5760x160w10.RAM_X[0].alg_ram_worden_dpr_5760x160x10/gen_macro.gen_addr_banks[8].u_macro;
+          reused_interface_id : c7:m48;
+        }
+        ReusedMemoryInterface(m63) {
+          instance_name : u_dcd/u_codec/u_alg_vcu_dec_top/I_POSTPROC/gen_pp_core_wrapper[0].I_PP_CORE_WRAPPER/I_CORE_RAMS/U_RAM_DPWORDEN_126_5760X160X10/i_alg_ram_worden_dpr_5760x160w10.RAM_X[0].alg_ram_worden_dpr_5760x160x10/gen_macro.gen_addr_banks[9].u_macro;
+          reused_interface_id : c7:m48;
+        }
+      }
+    }
+    Controller(c9) {
+      clock_domain_label : i_clk;
+      Step {
+        ReusedMemoryInterface(m64) {
+          instance_name : u_dcd/u_codec/u_alg_vcu_dec_top/I_POSTPROC/gen_pp_core_wrapper[0].I_PP_CORE_WRAPPER/I_CORE_RAMS/U_RAM_DPWORDEN_126_5760X160X10/i_alg_ram_worden_dpr_5760x160w10.RAM_X[1].alg_ram_worden_dpr_5760x160x10/gen_macro.gen_addr_banks[0].u_macro;
+          reused_interface_id : c7:m48;
+        }
+        ReusedMemoryInterface(m65) {
+          instance_name : u_dcd/u_codec/u_alg_vcu_dec_top/I_POSTPROC/gen_pp_core_wrapper[0].I_PP_CORE_WRAPPER/I_CORE_RAMS/U_RAM_DPWORDEN_126_5760X160X10/i_alg_ram_worden_dpr_5760x160w10.RAM_X[1].alg_ram_worden_dpr_5760x160x10/gen_macro.gen_addr_banks[10].u_macro;
+          reused_interface_id : c7:m48;
+        }
+        ReusedMemoryInterface(m66) {
+          instance_name : u_dcd/u_codec/u_alg_vcu_dec_top/I_POSTPROC/gen_pp_core_wrapper[0].I_PP_CORE_WRAPPER/I_CORE_RAMS/U_RAM_DPWORDEN_126_5760X160X10/i_alg_ram_worden_dpr_5760x160w10.RAM_X[1].alg_ram_worden_dpr_5760x160x10/gen_macro.gen_addr_banks[11].u_macro;
+          reused_interface_id : c7:m48;
+        }
+        ReusedMemoryInterface(m67) {
+          instance_name : u_dcd/u_codec/u_alg_vcu_dec_top/I_POSTPROC/gen_pp_core_wrapper[0].I_PP_CORE_WRAPPER/I_CORE_RAMS/U_RAM_DPWORDEN_126_5760X160X10/i_alg_ram_worden_dpr_5760x160w10.RAM_X[1].alg_ram_worden_dpr_5760x160x10/gen_macro.gen_addr_banks[12].u_macro;
+          reused_interface_id : c7:m48;
+        }
+      }
+      Step {
+        ReusedMemoryInterface(m68) {
+          instance_name : u_dcd/u_codec/u_alg_vcu_dec_top/I_POSTPROC/gen_pp_core_wrapper[0].I_PP_CORE_WRAPPER/I_CORE_RAMS/U_RAM_DPWORDEN_126_5760X160X10/i_alg_ram_worden_dpr_5760x160w10.RAM_X[1].alg_ram_worden_dpr_5760x160x10/gen_macro.gen_addr_banks[13].u_macro;
+          reused_interface_id : c7:m48;
+        }
+        ReusedMemoryInterface(m69) {
+          instance_name : u_dcd/u_codec/u_alg_vcu_dec_top/I_POSTPROC/gen_pp_core_wrapper[0].I_PP_CORE_WRAPPER/I_CORE_RAMS/U_RAM_DPWORDEN_126_5760X160X10/i_alg_ram_worden_dpr_5760x160w10.RAM_X[1].alg_ram_worden_dpr_5760x160x10/gen_macro.gen_addr_banks[14].u_macro;
+          reused_interface_id : c7:m48;
+        }
+        ReusedMemoryInterface(m70) {
+          instance_name : u_dcd/u_codec/u_alg_vcu_dec_top/I_POSTPROC/gen_pp_core_wrapper[0].I_PP_CORE_WRAPPER/I_CORE_RAMS/U_RAM_DPWORDEN_126_5760X160X10/i_alg_ram_worden_dpr_5760x160w10.RAM_X[1].alg_ram_worden_dpr_5760x160x10/gen_macro.gen_addr_banks[15].u_macro;
+          reused_interface_id : c7:m48;
+        }
+        ReusedMemoryInterface(m71) {
+          instance_name : u_dcd/u_codec/u_alg_vcu_dec_top/I_POSTPROC/gen_pp_core_wrapper[0].I_PP_CORE_WRAPPER/I_CORE_RAMS/U_RAM_DPWORDEN_126_5760X160X10/i_alg_ram_worden_dpr_5760x160w10.RAM_X[1].alg_ram_worden_dpr_5760x160x10/gen_macro.gen_addr_banks[1].u_macro;
+          reused_interface_id : c7:m48;
+        }
+      }
+      Step {
+        ReusedMemoryInterface(m72) {
+          instance_name : u_dcd/u_codec/u_alg_vcu_dec_top/I_POSTPROC/gen_pp_core_wrapper[0].I_PP_CORE_WRAPPER/I_CORE_RAMS/U_RAM_DPWORDEN_126_5760X160X10/i_alg_ram_worden_dpr_5760x160w10.RAM_X[1].alg_ram_worden_dpr_5760x160x10/gen_macro.gen_addr_banks[2].u_macro;
+          reused_interface_id : c7:m48;
+        }
+        ReusedMemoryInterface(m73) {
+          instance_name : u_dcd/u_codec/u_alg_vcu_dec_top/I_POSTPROC/gen_pp_core_wrapper[0].I_PP_CORE_WRAPPER/I_CORE_RAMS/U_RAM_DPWORDEN_126_5760X160X10/i_alg_ram_worden_dpr_5760x160w10.RAM_X[1].alg_ram_worden_dpr_5760x160x10/gen_macro.gen_addr_banks[3].u_macro;
+          reused_interface_id : c7:m48;
+        }
+        ReusedMemoryInterface(m74) {
+          instance_name : u_dcd/u_codec/u_alg_vcu_dec_top/I_POSTPROC/gen_pp_core_wrapper[0].I_PP_CORE_WRAPPER/I_CORE_RAMS/U_RAM_DPWORDEN_126_5760X160X10/i_alg_ram_worden_dpr_5760x160w10.RAM_X[1].alg_ram_worden_dpr_5760x160x10/gen_macro.gen_addr_banks[4].u_macro;
+          reused_interface_id : c7:m48;
+        }
+        ReusedMemoryInterface(m75) {
+          instance_name : u_dcd/u_codec/u_alg_vcu_dec_top/I_POSTPROC/gen_pp_core_wrapper[0].I_PP_CORE_WRAPPER/I_CORE_RAMS/U_RAM_DPWORDEN_126_5760X160X10/i_alg_ram_worden_dpr_5760x160w10.RAM_X[1].alg_ram_worden_dpr_5760x160x10/gen_macro.gen_addr_banks[5].u_macro;
+          reused_interface_id : c7:m48;
+        }
+      }
+      Step {
+        ReusedMemoryInterface(m76) {
+          instance_name : u_dcd/u_codec/u_alg_vcu_dec_top/I_POSTPROC/gen_pp_core_wrapper[0].I_PP_CORE_WRAPPER/I_CORE_RAMS/U_RAM_DPWORDEN_126_5760X160X10/i_alg_ram_worden_dpr_5760x160w10.RAM_X[1].alg_ram_worden_dpr_5760x160x10/gen_macro.gen_addr_banks[6].u_macro;
+          reused_interface_id : c7:m48;
+        }
+        ReusedMemoryInterface(m77) {
+          instance_name : u_dcd/u_codec/u_alg_vcu_dec_top/I_POSTPROC/gen_pp_core_wrapper[0].I_PP_CORE_WRAPPER/I_CORE_RAMS/U_RAM_DPWORDEN_126_5760X160X10/i_alg_ram_worden_dpr_5760x160w10.RAM_X[1].alg_ram_worden_dpr_5760x160x10/gen_macro.gen_addr_banks[7].u_macro;
+          reused_interface_id : c7:m48;
+        }
+        ReusedMemoryInterface(m78) {
+          instance_name : u_dcd/u_codec/u_alg_vcu_dec_top/I_POSTPROC/gen_pp_core_wrapper[0].I_PP_CORE_WRAPPER/I_CORE_RAMS/U_RAM_DPWORDEN_126_5760X160X10/i_alg_ram_worden_dpr_5760x160w10.RAM_X[1].alg_ram_worden_dpr_5760x160x10/gen_macro.gen_addr_banks[8].u_macro;
+          reused_interface_id : c7:m48;
+        }
+        ReusedMemoryInterface(m79) {
+          instance_name : u_dcd/u_codec/u_alg_vcu_dec_top/I_POSTPROC/gen_pp_core_wrapper[0].I_PP_CORE_WRAPPER/I_CORE_RAMS/U_RAM_DPWORDEN_126_5760X160X10/i_alg_ram_worden_dpr_5760x160w10.RAM_X[1].alg_ram_worden_dpr_5760x160x10/gen_macro.gen_addr_banks[9].u_macro;
+          reused_interface_id : c7:m48;
+        }
+      }
+    }
+    Controller(c10) {
+      clock_domain_label : i_clk;
+      Step {
+        MemoryInterface(m80) {
+          instance_name : u_dcd/u_codec/u_alg_vcu_dec_top/I_POSTPROC/gen_pp_core_wrapper[0].I_PP_CORE_WRAPPER/I_CORE_RAMS/U_RAM_DPWORDEN_127_2880X48X12/i_alg_ram_worden_dpr_2880x48w12.alg_ram_worden_dpr_2880x48x12/gen_macro.gen_addr_banks[0].u_macro;
+        }
+        ReusedMemoryInterface(m81) {
+          instance_name : u_dcd/u_codec/u_alg_vcu_dec_top/I_POSTPROC/gen_pp_core_wrapper[0].I_PP_CORE_WRAPPER/I_CORE_RAMS/U_RAM_DPWORDEN_127_2880X48X12/i_alg_ram_worden_dpr_2880x48w12.alg_ram_worden_dpr_2880x48x12/gen_macro.gen_addr_banks[1].u_macro;
+          reused_interface_id : c10:m80;
+        }
+        ReusedMemoryInterface(m82) {
+          instance_name : u_dcd/u_codec/u_alg_vcu_dec_top/I_POSTPROC/gen_pp_core_wrapper[0].I_PP_CORE_WRAPPER/I_CORE_RAMS/U_RAM_DPWORDEN_127_2880X48X12/i_alg_ram_worden_dpr_2880x48w12.alg_ram_worden_dpr_2880x48x12/gen_macro.gen_addr_banks[2].u_macro;
+          reused_interface_id : c10:m80;
+        }
+        ReusedMemoryInterface(m83) {
+          instance_name : u_dcd/u_codec/u_alg_vcu_dec_top/I_POSTPROC/gen_pp_core_wrapper[0].I_PP_CORE_WRAPPER/I_CORE_RAMS/U_RAM_DPWORDEN_127_2880X48X12/i_alg_ram_worden_dpr_2880x48w12.alg_ram_worden_dpr_2880x48x12/gen_macro.gen_addr_banks[3].u_macro;
+          reused_interface_id : c10:m80;
+        }
+      }
+      Step {
+        ReusedMemoryInterface(m84) {
+          instance_name : u_dcd/u_codec/u_alg_vcu_dec_top/I_POSTPROC/gen_pp_core_wrapper[0].I_PP_CORE_WRAPPER/I_CORE_RAMS/U_RAM_DPWORDEN_127_2880X48X12/i_alg_ram_worden_dpr_2880x48w12.alg_ram_worden_dpr_2880x48x12/gen_macro.gen_addr_banks[4].u_macro;
+          reused_interface_id : c10:m80;
+        }
+        ReusedMemoryInterface(m85) {
+          instance_name : u_dcd/u_codec/u_alg_vcu_dec_top/I_POSTPROC/gen_pp_core_wrapper[0].I_PP_CORE_WRAPPER/I_CORE_RAMS/U_RAM_DPWORDEN_127_2880X48X12/i_alg_ram_worden_dpr_2880x48w12.alg_ram_worden_dpr_2880x48x12/gen_macro.gen_addr_banks[5].u_macro;
+          reused_interface_id : c10:m80;
+        }
+        ReusedMemoryInterface(m86) {
+          instance_name : u_dcd/u_codec/u_alg_vcu_dec_top/I_POSTPROC/gen_pp_core_wrapper[0].I_PP_CORE_WRAPPER/I_CORE_RAMS/U_RAM_DPWORDEN_127_2880X48X12/i_alg_ram_worden_dpr_2880x48w12.alg_ram_worden_dpr_2880x48x12/gen_macro.gen_addr_banks[6].u_macro;
+          reused_interface_id : c10:m80;
+        }
+        ReusedMemoryInterface(m87) {
+          instance_name : u_dcd/u_codec/u_alg_vcu_dec_top/I_POSTPROC/gen_pp_core_wrapper[0].I_PP_CORE_WRAPPER/I_CORE_RAMS/U_RAM_DPWORDEN_127_2880X48X12/i_alg_ram_worden_dpr_2880x48w12.alg_ram_worden_dpr_2880x48x12/gen_macro.gen_addr_banks[7].u_macro;
+          reused_interface_id : c10:m80;
+        }
+      }
+    }
+  }
+  MemoryBisr {
+    bisr_segment_order_file : dcd_p.bisr_segment_order;
+  }
+}

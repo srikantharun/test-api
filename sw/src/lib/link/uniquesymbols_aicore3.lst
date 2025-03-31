@@ -1,0 +1,9 @@
+aicore3_tohost tohost
+aicore3_fromhost fromhost
+aicore3_multicore_sync multicore_sync
+aicore3_multicore_printf multicore_printf
+aicore3__thread_pointer _thread_pointer
+aicore3_stack_addrs stack_addrs
+aicore3_barrier_vars barrier_vars
+aicore3_exclusive_access_vars exclusive_access_vars
+aicore3_pipeline pipeline

@@ -1,0 +1,17 @@
+{
+  naming_rule: {
+    in_meta: prefix
+    in_meta_pre_info: i_
+    in_meta_suf_info: _i
+    out_meta: prefix
+    out_meta_pre_info: o_
+    out_meta_suf_info: _o
+    inout_meta: prefix
+    inout_meta_pre_info: io_
+    inout_meta_suf_info: _io
+  }
+  sig_type: {
+    clk: wire
+    reset: wire
+  }
+}

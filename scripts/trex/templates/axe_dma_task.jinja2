@@ -1,0 +1,143 @@
+{% macro render_dma_task(task,index,data_check,data_random,perf_counter)-%}
+
+// Task description
+// ================================
+// The task executed has the following command:
+// {{task}}
+
+// Configure the number of channels
+// ================================
+uint64_t num_channels_{{index}}={{task.num_channels}};
+uint64_t dmac_ch_num_{{index}}[] = { {{ task.channels | join(', ') }} };
+
+// Configure the transfer
+// =============================
+uint64_t src_xbytesize_{{index}}[] = { {% for size in task.src_xbytesize %}DATA_SIZE_{{ size }}B{% if not loop.last %}, {% endif %}{% endfor %} };
+uint64_t dst_xbytesize_{{index}}[] = { {% for size in task.dst_xbytesize %}DATA_SIZE_{{ size }}B{% if not loop.last %}, {% endif %}{% endfor %} };
+
+uint64_t src_xaddrinc_{{index}}[] = { {% for xaddrinc in task.src_xaddrinc %} {{xaddrinc}} {% if not loop.last %}, {% endif %}{% endfor %} };
+uint64_t dst_xaddrinc_{{index}}[] = { {% for xaddrinc in task.dst_xaddrinc %} {{xaddrinc}} {% if not loop.last %}, {% endif %}{% endfor %} };
+
+uint64_t tran_size_{{index}}[] = { {% for tran_size in task.tran_size %} {{tran_size}} {% if not loop.last %}, {% endif %}{% endfor %} };
+uint64_t xtype_{{index}}[] = { {% for xtype in task.xtype %} {{xtype}} {% if not loop.last %}, {% endif %}{% endfor %} };
+
+{% if task.fillval_mode -%}
+uint64_t fillval_mode_{{index}}[] = { {% for fillval_mode in task.fillval_mode %} {{fillval_mode}} {% if not loop.last %}, {% endif %}{% endfor %} };
+uint64_t fillval_{{index}}[] = { {% for fillval in task.fillval %} {{fillval}} {% if not loop.last %}, {% endif %}{% endfor %} };
+{% else -%}
+uint64_t fillval_mode_{{index}}[] = {};
+uint64_t fillval_{{index}}[] = {};
+{% endif -%}
+
+uint64_t src_burstlen_{{index}}[] = { {% for burst_length in task.burst_length %} {{burst_length}} {% if not loop.last %}, {% endif %}{% endfor %} };
+uint64_t dst_burstlen_{{index}}[] = { {% for burst_length in task.burst_length %} {{burst_length}} {% if not loop.last %}, {% endif %}{% endfor %} };
+
+uint64_t src_osr_lmt_{{index}}[] = { {% for osr in task.osr %} {{osr}} {% if not loop.last %}, {% endif %}{% endfor %} };
+uint64_t dst_osr_lmt_{{index}}[] = { {% for osr in task.osr %} {{osr}} {% if not loop.last %}, {% endif %}{% endfor %} };
+
+uint64_t ytype_{{index}}[] = { {% for ytype in task.ytype %} {{ytype}} {% if not loop.last %}, {% endif %}{% endfor %} };
+
+{% if task.ytype|select('!=', 0)|list -%}
+uint64_t src_yrowsize_{{index}}[] = { {% for yrowsize in task.src_yrowsize %} {{yrowsize}} {% if not loop.last %}, {% endif %}{% endfor %} };
+uint64_t dst_yrowsize_{{index}}[] = { {% for yrowsize in task.dst_yrowsize %} {{yrowsize}} {% if not loop.last %}, {% endif %}{% endfor %} };
+
+uint64_t src_yaddrstride_{{index}}[] = { {% for yaddrstride in task.src_yaddrstride %} {{yaddrstride}} {% if not loop.last %}, {% endif %}{% endfor %} };
+uint64_t dst_yaddrstride_{{index}}[] = { {% for yaddrstride in task.dst_yaddrstride %} {{yaddrstride}} {% if not loop.last %}, {% endif %}{% endfor %} };
+{% else -%}
+uint64_t src_yrowsize_{{index}}[] = { };
+uint64_t dst_yrowsize_{{index}}[] = { };
+
+uint64_t src_yaddrstride_{{index}}[] = { };
+uint64_t dst_yaddrstride_{{index}}[] = { };
+{% endif -%}
+
+uint64_t src_ms_{{index}}[] = { {% for src_ms in task.src_ms %} {{src_ms}} {% if not loop.last %}, {% endif %}{% endfor %} };
+uint64_t dst_ms_{{index}}[] = { {% for dst_ms in task.dst_ms %} {{dst_ms}} {% if not loop.last %}, {% endif %}{% endfor %} };
+uint64_t irq_en_{{index}}[] = {1};
+uint64_t irq_clr_{{index}}[] = {1};
+
+// Configure the SRC and DST
+// =============================
+uintptr_t src_{{index}}[] =  { {% for src_address in task.source_address%} (uintptr_t) {{src_address}} {% if not loop.last %}, {% endif %}{% endfor %} };
+uintptr_t dst_{{index}}[] =  { {% for dst_address in task.destination_address %} (uintptr_t) {{dst_address}} {% if not loop.last %}, {% endif %}{% endfor %} };
+
+// Configure the DMA config
+// =============================
+axe_dma_config config_{{index}} = {
+     .dmac = (axe_dma_regs *)get_dma_base_addr("{{task.instance}}"),
+     .num_channels =num_channels_{{index}},
+     .dmac_ch_num =  dmac_ch_num_{{index}},
+     .src = src_{{index}},
+     .dst = dst_{{index}},
+     .src_xbytesize = src_xbytesize_{{index}},
+     .dst_xbytesize = dst_xbytesize_{{index}},
+     .src_xaddrinc=src_xaddrinc_{{index}},
+     .dst_xaddrinc=dst_xaddrinc_{{index}},
+     .tran_size= tran_size_{{index}},
+     .xtype=xtype_{{index}},
+     .fillval_mode=fillval_mode_{{index}},
+     .fillval=fillval_{{index}},
+     .ytype=ytype_{{index}},
+     .src_yrowsize= src_yrowsize_{{index}},
+     .dst_yrowsize= dst_yrowsize_{{index}},
+     .src_yaddrstride=src_yaddrstride_{{index}},
+     .dst_yaddrstride=dst_yaddrstride_{{index}},
+     .src_burstlen=src_burstlen_{{index}},
+     .dst_burstlen=dst_burstlen_{{index}},
+     .src_osr_lmt=src_osr_lmt_{{index}},
+     .dst_osr_lmt=dst_osr_lmt_{{index}},
+     .src_ms= src_ms_{{index}},
+     .dst_ms= dst_ms_{{index}},
+     .irq_en= irq_en_{{index}},
+     .irq_clr= irq_clr_{{index}}
+};
+
+
+{% if data_check -%}
+// Initialise source and destination
+// ==================================
+{% for src in task.source_address -%}
+{% set size = task.src_xbytesize[loop.index0]  -%}
+
+{% if task.ytype[loop.index0] -%}
+for (uint64_t i = 0; i < src_yrowsize_{{index}}[{{loop.index0}}]; i++) {
+prepare_loc_array( (char * ) src_{{index}}[{{loop.index0}}]+ i*src_yaddrstride_{{index}}[{{loop.index0}}], arrRef{{size }}, DATA_SIZE_{{size }}B );
+}
+{% else -%}
+prepare_loc_array( (char * ) src_{{index}}[{{loop.index0}}], arrRef{{size}}, DATA_SIZE_{{size}}B );
+{% endif -%}
+
+
+{% endfor -%}
+{% endif -%}
+
+
+// Execute DMA task
+// =============================
+
+test_axe_dma_multi_channel_sel("{{task.name}}", &config_{{index}}, true);
+
+{% if data_check -%}
+// Perform data check
+// =============================
+{% for dst in task.destination_address -%}
+{% set size = task.src_xbytesize[loop.index0]  -%}
+
+{% if task.ytype[loop.index0] -%}
+for (uint64_t i = 0; i < dst_yrowsize_{{index}}[{{loop.index0}}]; i++) {
+  check_mem_snapshot(arrRef{{size}}, (char * ) dst_{{index}}[{{loop.index0}}]+ i*dst_yaddrstride_{{index}}[{{loop.index0}}], 0, DATA_SIZE_{{size}}B, get_memory_region_name(dst_{{index}}[{{loop.index0}}]),0);
+}
+{% else -%}
+  check_mem_snapshot(arrRef{{size}}, (char * ) dst_{{index}}[{{loop.index0}}], 0, DATA_SIZE_{{size}}B, get_memory_region_name(dst_{{index}}[{{loop.index0}}]),0);
+{% endif -%}
+
+{% endfor -%}
+{% endif -%}
+
+
+
+{% endmacro -%}
+
+
+
+

@@ -1,0 +1,62 @@
+# > Steps to Setup Environment
+
+# 	1) Extract the .tar file in your preferred directory.
+# 	2) Set the environment variables as given below:
+
+# 		S.No     	Variables       					Value
+# 		1 		AVERY_PLI 						Set the path of avery_pli dir (present in avery_vip)
+# 		2 		AVERY_SIM 						Set the path of avery_sim dir (present in avery_vip)
+# 		3 		AVERY_DDR 						Set the path of ddrxactor dir (present in avery_vip)
+# 		4 		QUESTA_MVC_HOME 					Set the path of questa_vip dir
+# 		5		PATH 							Set the directories avery scripts (present in $AVERY_DDR/scripts) and questasim dir in the PATH env variable.
+# 											eg: setenv PATH $AVERY_DDR/scripts:/proj/tools/questa/2024.1_2/questasim/linux_x86_64:$PATH
+# 		6 		AVERYDES_LICENSE_FILE 					Set URL of the license of avery.
+# 		7 		SALT_LICENSE_SERVER 					Set the $AVERYDES_LICENSE_FILE (set above).
+# 		8 		PATH 							Set the directory questa_vip to the PATH env variable.
+# 											Eg: setenv PATH /proj/tools/questa/2024.1_2/questasim/linux_x86_64:/proj/tools/questa_vip/2024.2/bin:$PATH
+# 		9 		LM_LICENSE_FILE 					Set URL of the license
+# 		10 		UVMF_HOME 						Set the path to UVM Framework dir
+# 		11 		QUESTA_HOME 						Set the path to questasim dir
+
+module load lic/mentor
+
+export AVERY_PLI=/opt/siemens/avery/2024.2_1/VIP/avery_pli
+export AVERY_SIM=/opt/siemens/avery/2024.2_1/VIP/avery_sim
+export AVERY_DDR=/opt/siemens/avery/2024.2_1/VIP/ddrxactor
+export QUESTA_MVC_HOME=/opt/siemens/Questa_VIP_2024.3
+# export AVERYDES_LICENSE_FILE=1717@license-0
+export SALT_LICENSE_SERVER=1717@license-0
+export PATH=$AVERY_DDR/scripts:$QUESTASIM_HOME/linux_x86_64:$QUESTA_MVC_HOME/bin:$PATH
+export LM_LICENSE_FILE=1717@license-0:$LM_LICENSE_FILE
+export QUESTA_HOME=$QUESTASIM_HOME
+export UVMF_HOME=/opt/siemens/UVMF_2023.4_2
+
+	# 3) Unset the given environment variable:
+
+	# 	S.No 		Variable 						Value
+	# 	1 		LD_PRELOAD						Unset the Variable
+
+unset LD_PRELOAD
+
+# > Steps to Run Test
+
+# 	1) go to the path /vip_services/lpddr_blk/ and source the startfile(enter “source startfile”)
+# 	2) Go to $BASE_DIR/project_benches/sim/ (you can also use the sim alias already set in the startfile).
+# 	3) Run the following command:
+# 					make TEST=<TEST_NAME> LOG_NAME=<LOG_NAME>
+
+# 		<TEST_NAME>: Name of the test you want to run. By default, the make utility will run the test “lpddr_subsystem_sanity_test”, if you don’t specify any test name (just enter “make” command)
+# 		<LOG_NAME>: Log name for your run. If you don’t provide any argument, “<TEST_NAME>_debug.log” will be automatically generated.
+
+source startfile
+
+# > Tool and Environment Configuration Details
+
+# 		S.No 	Tool Name			Provider  			Description			Version		Platform
+# 		1 	QuestaSim			Siemens EDA			RTL Simulation 			2024.1_2 	Linux
+# 		2 	Quesata Visualizer Debug	Siemens EDA 			RTL Simulation 			2024.1_2	Linux
+# 		3	Avery VIP			Siemens Industry Software Inc.					2024.2_1	Linux
+# 		4 	Tcsh								Shell				6.20.00		Linux
+# 		5 	Make				GNU				Simulation scripting		4.2.1		Linux
+# 		6 	UVM 				Accellera			Verification methodology 	1.2 		Linux
+# 		7 	Git 				Linux 				Version control			2.39.3		Linux

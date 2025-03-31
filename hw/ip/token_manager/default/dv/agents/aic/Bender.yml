@@ -1,0 +1,20 @@
+package:
+    name: tkn_mng_verif_uvm_aic_agent
+    description: "UVM Agent for AIC token manager"
+    authors:
+        - "Vito Luca Guglielmi - vito.guglielmi@axelera.ai"
+
+dependencies:
+    dv_common_uvm:                    { path: "" }
+    token_manager:                    { path: "" }
+    ai_core_token_agent_uvm_pkg:      { path: "" }
+    tkn_mng_verif_uvm_aic_ref_model:  { path: "" }
+
+
+
+sources:
+  - target: simulation
+    include_dirs:
+      - .
+    files:
+        - tkn_mng_aic_agent_pkg.sv

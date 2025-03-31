@@ -1,0 +1,23 @@
+# (C) Copyright 2024 Axelera AI B.V.
+# All Rights Reserved
+# *** Axelera AI Confidential ***
+
+package:
+  name: europa_apu_pkg
+  description: "Bender file for the APU subsystem packages"
+  authors:
+    - "Abhishek Maringanti <abhishek.maringanti@axelera.ai>"
+
+dependencies:
+  axi_pkg:             { path: "" }
+  europa_asic_pkg:     { path: "" }
+
+# Source files grouped in levels.
+# Files in level 0 have no dependencies on files in this package.
+# Files in level 1 only depend on files in level 0, files in level 2 on files in levels 1 and 0, etc.
+# Files within a level are ordered alphabetically.
+sources:
+  - files:
+    # Level 0
+    - apu_interrupt_map_pkg.sv
+    - apu_pkg.sv

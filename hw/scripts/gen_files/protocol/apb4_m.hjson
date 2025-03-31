@@ -1,0 +1,42 @@
+{
+  paddr: {
+    dw: addr_w
+    dir: out
+  }
+  pwdata:{
+    dw: size_w
+    dir: out
+  }
+  pwrite:{
+    dw: 1
+    dir: out
+  }
+  psel:{
+    dw: 1
+    dir: out
+  }
+  penable:{
+    dw: 1
+    dir: out
+  }
+  pstrb:{
+    dw: strb_w
+    dir: out
+  }
+  pprot:{
+    dw: 3
+    dir: out
+  }
+  pready:{
+    dw: 1
+    dir: in
+  }
+  prdata:{
+    dw: size_r
+    dir: in
+  }
+  pslverr:{
+    dw: 1
+    dir: in
+  }
+}

@@ -1,0 +1,81 @@
+Name,Type,Req_id,Description,Measure,Test,Coverpoints if applicable,notes
+Bring up,UVM,SEC_SANITY," Verify the compile , elab and connectivity of  IOs with simple reset
+ 1. compile /elab clean 
+ 2. reset
+ 3. preload C code into APU
+ 4. APU finishes C code and signalizes into a GPIO
+ 5. GPIO is analysed and when set to 1, terminate simulation in UVM",test.percent_pass,sec_sanity_test,"reset transitions : code coverage for rstn
+GPIO transitions : code coverage for toggle from 0 to 1",
+Register Access Layer,UVM,SEC_REGISTER,"Verify read writes with resets and toggles
+RC, RO , W1C, RW - check with resets
+Check err response for wrong address ",test.percent_pass,sec_register_test,code coverage of csrs,
+Register Access Layer,UVM,SEC_RAL_BURST,Run register access on Secure enclave CSR's exclusively with bursts,test.percent_pass,sec_register_test,,
+Register Access Layer,UVM,SEC_RAL_NOT_AVAIL,Run register access on Secure Enclave CSR's region that is not available (no registers available on those addresses) and receive response NOT_OKAY,Group,"sec_register_test
+cg_sec_regs",cp_bresp : coverppoint,
+KSE Command,C,"SEC_KSE_AES_ENC
+",Verify KSE AES encryption command on random data ,Group,"kse_aes_test
+cg_sec_cmd",cp_aes,
+KSE Command,C,SEC_KSE_AES_DEC,Verify KSE AES decryption command on random data ,Group,"kse_aes_test
+cg_sec_cmd",cp_aes,
+KSE Command,C,SEC_KSE_SPONGE_ENC,Verify KSE Sponge AEAD encryption command on random data,Group,"kse_sponge_test
+cg_sec_cmd",cp_sponge,
+KSE Command,C,SEC_KSE_SPONGE_DEC,Verify KSE Sponge AEAD decryption command on random data,Group ,"kse_sponge_test
+cg_sec_cmd",cp_sponge,
+KSE Command,C,SEC_KSE_HMAC,Verify KSE HMAC command on random data,Group,"kse_hmac_test
+cg_sec_cmd",cp_hmac,
+KSE Command,C,SEC_KSE_SHA,Verify KSE SHA command on random data,Group,"kse_sha_test
+cg_sec_cmd",cp_sha,
+KSE Command,C,SEC_KSE_ECDSA,Verify KSE ECDSA command on random data,Group,"kse_ecdsa_test
+cg_sec_cmd",cp_ecdsa,
+KSE Command,C,SEC_KSE_GEN_MASTER_KEY,Verify KSE is able to complete the command GenerateMasterSecretKey correctly,Group,"kse_gen_master_key_test
+cg_sec_cmd",cp_gen_master_key,
+KSE Command,C,SEC_KSE_SET_GET_LIFE_CYCLE,Verify KSE is able to complete the command Set/GetLifeCycle for all stages correctly,Group,"kse_lifecycle_test
+cg_sec_cmd",cp_lifecycle,
+KSE Command,C,SEC_KSE_IMPORT_KEY,Verify KSE is able to complete the command ImportKey correctly,Group,"kse_import_key_test
+cg_sec_cmd",cp_import_key,
+Connectivity,C,SEC_KSE_RAM_IN_USE_NOT_ACCESSIBLE,"Verify that when KSE is occupied running a command, the Data RAM is not accessible",Group,"kse_ram_in_use_test
+cg_sec_ram_concurrency",,
+KSE Command,C,SEC_KSE_OTP_RESTRICT_AREA,Verify that using KSE commands is possible to write and read from OTP (restricted area),Group,"kse_otp_access_test
+cg_sec_cmd","cp_restritive_area, cp_host_area",
+Connectivity,C,SEC_KSE_OTP_HOST_AREA,Verify that using KSE commands is not possible to write and read from OTP (host area),Group,"kse_otp_access_test
+cg_sec_cmd",cp_otp_area,
+KSE Command,C,SEC_KSE_AO_REGS,Verify that is possible to access AO registers using KSE commands,Group,"kse_ao_regs_access_test
+cg_sec_cmd",cp_ao_reg,
+KSE Command,C,SEC_KSE_FW,Verify that is possible to load a FW in IRAM from KSE using KSE commands,Group,"kse_load_fw_test
+cg_sec_cmd",,
+KSE Command,C,SEC_KSE_INTERRUPT,"Verify that when a command has finished, the interrupt_o is raised",Group,"kse_*_test
+cg_sec_irq",,
+KSE Command,C,SEC_KSE_STATUS_END_CMD,"Verify that when a command has finished, the status register signals that the command has finished",Group,"kse_*_test
+cg_sec_status_reg",,
+Lifecycle,C,SEC_LIFECYCLE_INCR,Verify that is possible to set lifecycle from WAFER_TEST until EOL,Group,"kse_lifecycle_test
+cg_sec_lifecycle",,
+Debug,C,SEC_DEBUG_ACCESS,"Verify that debug is only open when in WAFER_TEST, WAFER_PERSO and RMA stages",Group,"kse_debug_access_test
+cg_sec_debug_access",,
+Debug,C,SEC_OPEN_DEBUG,Verify that is possible to open debug during infield operations using challenge interface command (needs confirmation from Kudelski),Group,"kse_open_debug_infield_test
+cg_sec_debug_access",,
+Data Manipulation,C,SEC_ENC_DATA_FROM_PCIE,Data is moved encrypted and authenticated to AIPU DDR from external via PCIe. Then Data received is verified and decrypted by Root-of-Trust and write it unencrypted to DDR,Group,"sec_data_from_pcie_enc
+cg_sec_data_movement",,
+Data Manipulation,C,SEC_ENC_DATA_FROM_SD,"Data is moved encrypted and authenticated to AIPU DDR from AIPU SD Card. Then Data received is verified and decrypted by Root-of-Trust and written, decrypted, to DDR",Group,"sec_data_from_sd_enc
+cg_sec_data_movement",,
+Data Manipulation,C,SEC_ENC_AIPU_TO_AIPU_DATA,"Data is moved encrypted and authenticated from one AIPU DDR to other AIPU DDR . Then Data received is verified and decrypted by Root-of-Trust and written, decrypted, to DDR",Group,"sec_data_from_aipu_to_aipu_enc
+cg_sec_data_movement",,
+Connectivity,C,SEC_APU_OTP_RESTRICT_AREA,"Verify that APU cannot access OTP restricted area. Verify for all positions and verify that if the last addresses from OTP host area is written/read using burst mode, the address decoder will not allow to write/read on restricted area",Group,"apu_otp_access_test
+cg_sec_otp_access","cp_restritive_area, cp_host_area",
+Connectivity,C,SEC_APU_OTP_HOST_AREA,Verify that APU can access OTP host area ,Group,"apu_otp_access_test
+cg_sec_otp_access","cp_restritive_area, cp_host_area",
+OTP,UVM,SEC_APU_OTP_BYTE,"Verify that is possible to read and write OTP with different sizes (byte, half-word, word) using APB interface",Group,"apu_otp_access_test
+cg_sec_otp_access",cp_access_size,
+OTP,UVM,SEC_APU_OTP_JTAG,Verify that is possible to read and write OTP using JTAG interface,Group,"jtag_otp_access_test
+cg_sec_otp_access",cp_interface,
+In Field Repair,C,SEC_INFIELD_REPAIR_SANITY,Verify that infield repair is possible to repair errors that exist on memories,Group,"sec_infield_repair_sanity_test
+cg_sec_infield_repair",,
+In Field Repair,C,SEC_INFIELD_REPAIR_NO_SECRETS,"Verify that when infield repair is being done, no secret information is present on memories",Group,"sec_infield_repair_no_secrets_test
+cg_sec_infield_repair",,
+Boot,C,SEC_BOOT_SECURE,"Verify that if OTP is correctly provisioned, Secure boot (BL1.1, BL1.2 and jump to BL2) is done successfully",Group,"sec_boot_secure_test
+cg_boot",cp_secure,
+Boot,C,SEC_BOOT_BLANK_OTP,"Verify that if OTP is blank, the device wont boot",Group,"sec_empty_otp_boot_test
+cg_boot",cp_empty_opt,
+Boot,C,SEC_BOOT_UNSECURE,"Verify that if OTP is correctly provisioned, Unsecure boot (BL1.1, BL1.2 and jump to BL2) is done successfully",Group,"sec_boot_unsecure_test
+cg_boot",cp_non_secure,
+Performance,C,SEC_PERFORMANCE_DEC,Verify the time that takes to decrypt an image,test.percent_pass,sec_performance_test,,
+Performance,C,SEC_PERFORMANCE_ENC,Verify the time that takes to encrypt an image,test.percent_pass,sec_performance_test,,

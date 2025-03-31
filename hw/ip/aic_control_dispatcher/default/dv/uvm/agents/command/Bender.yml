@@ -1,0 +1,18 @@
+package:
+  name: ai_core_cd_command_uvm_pkg
+  description: "AI CORE CD Command package"
+  authors:
+    - "gabriel.bratu@axelera.ai"
+
+dependencies:
+  dv_common:                   { path: "" }
+  aic_common_pkg:              { path: "" }
+  ai_core_cd_uvm_common:       { path: "" }
+  svt_amba_vip:                { path: "" }
+
+sources:
+  - target: simulation
+    include_dirs:
+      - .
+    files:
+      - ai_core_cd_command_pkg.sv

@@ -1,0 +1,1079 @@
+// Copyright lowRISC contributors.
+// Licensed under the Apache License, Version 2.0, see LICENSE for details.
+// SPDX-License-Identifier: Apache-2.0
+{ name: "dpu_csr",
+  clocking: [{clock: "clk_i", reset: "rst_ni"}],
+  bus_interfaces: [
+    { protocol: "tlul", direction: "device" }
+  ],
+  regwidth: "64",
+  addrcap: "0x10000",
+  axi_intf: True
+  param_list : [
+    {name:"AXI_AW", type:"int", default:"28"},
+    {name:"AXI_IDW", type:"int", default:"9"},
+    {name:"AXI_LENW", type:"int", default:"8"}
+  ]
+  registers: [
+    { name: "CMDBLK_CTRL",
+      desc: "Control register of the CMD Block.",
+      swaccess: "rw",
+      hwaccess: "hro",
+      fields: [
+        {
+            bits: "0",
+            name: "EXEC_EN",
+            desc: '''
+                  While `EXEC_EN` is high, the block processes commands, that are pushed into the command FIFO.
+                  ''',
+            resval: 0x0
+        }
+        {
+            bits: "1",
+            name: "PTR_RST",
+            desc: '''
+                  Synchronous active-high reset of the command FIFO's input word pointer.
+                  Set and unset `PTR_RST` to reset `CMDBLK_STATUS.IN_WORD_PTR` to 0. Only use this for error recovery.
+                  ''',
+            resval: 0x0
+        }
+      ]
+    },
+    { name: "CMDBLK_STATUS",
+      desc: "Status register of the CMD Block.",
+      swaccess: "ro",
+      hwaccess: "hwo",
+      hwext : True
+      fields: [
+        {
+            bits: "1:0",
+            name: "STATE",
+            desc: '''
+                  0: `IDLE` Command FIFO and fill buffer are both empty.
+                  1: `FILL` Command FIFO is empty, but there is at least a header in the fill buffer
+                  2: `READY` Command FIFO contains at least one item
+                  3: `EXECUTE` Outstanding commands is at least 1
+                  '''
+        }
+        {
+            bits: "2",
+            name: "WAIT_TOKEN",
+            desc: '''
+                  `WAIT_TOKEN` is high iff a command is waiting at the output buffer of the command FIFO for a token to arrive.
+                  '''
+        }
+        {
+            bits: "15:8",
+            name: "IN_WORD_PTR",
+            desc: '''
+                  The input word pointer is used to construct the input data for the command FIFO and
+                  points to the next 64bit word of the input data to be received by the next AXI transaction.
+                  '''
+        }
+        {
+            bits: "23:16",
+            name: "FIFO_CNT",
+            desc: '''Fill counter of the command FIFO.'''
+        }
+        {
+            bits: "31:24",
+            name: "OUTST_CMDS",
+            desc: '''
+                  Number of outstanding commands.
+                  A command is outstanding iff it has been popped from the command FIFO and sent for execution,
+                  but the datapath has not yet signaled that its execution has been done.
+                  '''
+        }
+        {
+            bits: "47:32",
+            name: "PENDING_TOKENS",
+            desc: '''
+                  Signals which consume tokens are pending.
+                  '''
+        }
+      ]
+    },
+    {
+      name: "IRQ_EN",
+      desc: "Interrupt enable register",
+      swaccess: "rw",
+      hwaccess: "hro",
+      fields: [
+        { bits: "0",
+          name: "ERR_ACT_STREAM_IN0",
+          desc: '''
+                Enable IRQ flagging of active input stream 0 after the execution of a command.
+                '''
+        }
+        { bits: "1",
+          name: "ERR_ACT_STREAM_IN1",
+          desc: '''
+                Enable IRQ flagging of active input stream 1 after the execution of a command.
+                '''
+        }
+        { bits: "2",
+          name: "ERR_ACT_STREAM_OUT",
+          desc: '''
+                Enable IRQ flagging of active output streams after the execution of a command.
+                '''
+        }
+        { bits: "3",
+          name: "ERR_ILLEGAL_FORMAT",
+          desc: '''
+                Enable IRQ flagging of unknown `cmd_format` field in the command descriptor.
+                '''
+        }
+        { bits: "4",
+          name: "ERR_EMPTY_PROGRAM",
+          desc: '''
+                Enable IRQ flagging of the total length of all program sections being zero.
+                '''
+        }
+        { bits: "5",
+          name: "ERR_INIT_SEGFAULT",
+          desc: '''
+                Enable IRQ flagging of the `init` section of the program attempting to read outside the program memory.
+                '''
+        }
+        { bits: "6",
+          name: "ERR_LOOP_SEGFAULT",
+          desc: '''
+                Enable IRQ flagging of the `loop` section of the program attempting to read outside the program memory.
+                '''
+        }
+        { bits: "7",
+          name: "ERR_I0_TERMINATION",
+          desc: '''
+                Enable IRQ flagging of multi-beat operations on input stream 0 being interrupted with `TLAST`.
+                '''
+        }
+        { bits: "8",
+          name: "ERR_I1_TERMINATION",
+          desc: '''
+                Enable IRQ flagging of multi-beat operations on input stream 1 being interrupted with `TLAST`.
+                '''
+        }
+        { bits: "9",
+          name: "ERR_ID_ILLEGAL_INSTR",
+          desc: '''
+                Enable IRQ flagging of illegal instruction being decoded.
+                '''
+        }
+        { bits: "10",
+          name: "ERR_I0_OF",
+          desc: '''
+                Enable IRQ flagging of conversions to FP18 on input stream 0 overflowing.
+                '''
+        }
+        { bits: "11",
+          name: "ERR_I0_UF",
+          desc: '''
+                Enable IRQ flagging of conversions to FP18 on input stream 0 underflowing.
+                '''
+        }
+        { bits: "12",
+          name: "ERR_I0_NX",
+          desc: '''
+                Enable IRQ flagging of conversions to FP18 on input stream 0 incurring a rounding error.
+                '''
+        }
+        { bits: "13",
+          name: "ERR_I1_OF",
+          desc: '''
+                Enable IRQ flagging of conversions to FP18 on input stream 1 overflowing.
+                '''
+        }
+        { bits: "14",
+          name: "ERR_I1_UF",
+          desc: '''
+                Enable IRQ flagging of conversions to FP18 on input stream 1 underflowing.
+                '''
+        }
+        { bits: "15",
+          name: "ERR_I1_NX",
+          desc: '''
+                Enable IRQ flagging of conversions to FP18 on input stream 1 incurring a rounding error.
+                '''
+        }
+        { bits: "16",
+          name: "ERR_MADD_OP_OF",
+          desc: '''
+                Enable IRQ flagging of FP overlows in the multiply-add data path.
+                '''
+        }
+        { bits: "17",
+          name: "ERR_MADD_OP_UF",
+          desc: '''
+                Enable IRQ flagging of FP underflows in the multiply-add data path.
+                '''
+        }
+        { bits: "18",
+          name: "ERR_MADD_OP_NX",
+          desc: '''
+                Enable IRQ flagging of FP rounding errors in the multiply-add data path.
+                '''
+        }
+        { bits: "19",
+          name: "ERR_MADD_OP_NV",
+          desc: '''
+                Enable IRQ flagging of invalid FP operations in the multiply-add data path.
+                '''
+        }
+        { bits: "20",
+          name: "ERR_SUMR_OP_OF",
+          desc: '''
+                Enable IRQ flagging of FP overlows in the sum-reduction data path.
+                '''
+        }
+        { bits: "21",
+          name: "ERR_SUMR_OP_NX",
+          desc: '''
+                Enable IRQ flagging of FP rounding errors in the sum-reduction data path.
+                '''
+        }
+        { bits: "22",
+          name: "ERR_SUMR_OP_NV",
+          desc: '''
+                Enable IRQ flagging of invalid FP operations in the sum-reduction data path.
+                '''
+        }
+        { bits: "23",
+          name: "ERR_SFU_OP_OF",
+          desc: '''
+                Enable IRQ flagging of FP overlows in the special function unit data path.
+                '''
+        }
+        { bits: "24",
+          name: "ERR_SFU_OP_UF",
+          desc: '''
+                Enable IRQ flagging of FP underflows in the special function unit data path.
+                '''
+        }
+        { bits: "25",
+          name: "ERR_SFU_OP_NX",
+          desc: '''
+                Enable IRQ flagging of FP rounding errors in the special function unit data path.
+                '''
+        }
+        { bits: "26",
+          name: "ERR_SFU_OP_NV",
+          desc: '''
+                Enable IRQ flagging of invalid FP operations in the special function unit data path.
+                '''
+        }
+        { bits: "27",
+          name: "ERR_SFU_OP_ZR",
+          desc: '''
+                Enable IRQ flagging of dividing by zero operations in the special function unit data path.
+                '''
+        }
+        { bits: "28",
+          name: "ERR_O_OF",
+          desc: '''
+                Enable IRQ flagging of conversions from FP18 on the output stream overflowing.
+                '''
+        }
+        { bits: "29",
+          name: "ERR_O_UF",
+          desc: '''
+                Enable IRQ flagging of conversions from FP18 on the output stream underflowing.
+                '''
+        }
+        { bits: "30",
+          name: "ERR_O_NX",
+          desc: '''
+                Enable IRQ flagging of conversions from FP18 on the output stream incurring a rounding error.
+                '''
+        }
+        { bits: "32",
+          name: "DBG_SW_INTERRUPT",
+          desc: '''
+                Enable IRQ flagging of the debug SW interrupt.
+                '''
+        }
+        { bits: "40",
+          name: "CMDBLK_CMD_DROPPED",
+          desc: '''
+                Enable IRQ flagging of the command block FIFO dropping commands because the FIFO was already full.
+                '''
+        }
+      ]
+    },
+    {
+      name: "IRQ_STATUS",
+      desc: "Interrupt status register",
+      swaccess: "rw1c",
+      hwaccess: "hrw"
+      fields: [
+        { bits: "0",
+          name: "ERR_ACT_STREAM_IN0",
+          desc: '''
+                Indicates that input stream 0 is still active after the execution of a command, i.e.,
+                no `TLAST` from the current input stream has been received yet.
+                '''
+        }
+        { bits: "1",
+          name: "ERR_ACT_STREAM_IN1",
+          desc: '''
+                Indicates that input stream 1 is still active after the execution of a command, i.e.,
+                no `TLAST` from the current input stream has been received yet.
+                '''
+        }
+        { bits: "2",
+          name: "ERR_ACT_STREAM_OUT",
+          desc: '''
+                Indicates that an output stream is still active after the execution of a command, i.e.,
+                no `TLAST` for the current output stream has been pushed yet.
+                '''
+        }
+        { bits: "3",
+          name: "ERR_ILLEGAL_FORMAT",
+          desc: '''
+                Indicates that the `cmd_format` field in command descriptor header is unknown.
+                '''
+        }
+        { bits: "4",
+          name: "ERR_EMPTY_PROGRAM",
+          desc: '''
+                Indicates that the total length of all program sections is zero, i.e.,
+                either their number of iterations or their length are zero.
+                '''
+        }
+        { bits: "5",
+          name: "ERR_INIT_SEGFAULT",
+          desc: '''
+                Indicates that the `init` section of the program would attempt to read outside the program memory.
+                '''
+        }
+        { bits: "6",
+          name: "ERR_LOOP_SEGFAULT",
+          desc: '''
+                Indicates that the `loop` section of the program would attempt to read outside the program memory.
+                '''
+        }
+        { bits: "7",
+          name: "ERR_I0_TERMINATION",
+          desc: '''
+                Indicates that a multi-beat operation on input stream 0 (`i0-f16` or `i0-f32`) was interrupted with `TLAST`.
+                '''
+        }
+        { bits: "8",
+          name: "ERR_I1_TERMINATION",
+          desc: '''
+                Indicates that a multi-beat operation on input stream 1 (`i1-f16` or `i1-f32`) was interrupted with `TLAST`.
+                '''
+        }
+        { bits: "9",
+          name: "ERR_ID_ILLEGAL_INSTR",
+          desc: '''
+                Indicates that an illegal instruction was decoded.
+                '''
+        }
+        { bits: "10",
+          name: "ERR_I0_OF",
+          desc: '''
+                Indicates that a conversion to FP18 on input stream 0 overflowed.
+                '''
+        }
+        { bits: "11",
+          name: "ERR_I0_UF",
+          desc: '''
+                Indicates that a conversion to FP18 on input stream 0 underflowed.
+                '''
+        }
+        { bits: "12",
+          name: "ERR_I0_NX",
+          desc: '''
+                Indicates that a conversion to FP18 on input stream 0 incurred a rounding error.
+                '''
+        }
+        { bits: "13",
+          name: "ERR_I1_OF",
+          desc: '''
+                Indicates that a conversion to FP18 on input stream 1 overflowed.
+                '''
+        }
+        { bits: "14",
+          name: "ERR_I1_UF",
+          desc: '''
+                Indicates that a conversion to FP18 on input stream 1 underflowed.
+                '''
+        }
+        { bits: "15",
+          name: "ERR_I1_NX",
+          desc: '''
+                Indicates that a conversion to FP18 on input stream 1 incurred a rounding error.
+                '''
+        }
+        { bits: "16",
+          name: "ERR_MADD_OP_OF",
+          desc: '''
+                Indicates that a FP overlow happend in the multiply-add data path.
+                '''
+        }
+        { bits: "17",
+          name: "ERR_MADD_OP_UF",
+          desc: '''
+                Indicates that a FP underflow happend in the multiply-add data path.
+                '''
+        }
+        { bits: "18",
+          name: "ERR_MADD_OP_NX",
+          desc: '''
+                Indicates that a FP rounding error was incurred in the multiply-add data path.
+                '''
+        }
+        { bits: "19",
+          name: "ERR_MADD_OP_NV",
+          desc: '''
+                Indicates that an invalid FP operation happened in the multiply-add data path.
+                '''
+        }
+        { bits: "20",
+          name: "ERR_SUMR_OP_OF",
+          desc: '''
+                Indicates that a FP overlow happend in the sum-reduction data path.
+                '''
+        }
+        { bits: "21",
+          name: "ERR_SUMR_OP_NX",
+          desc: '''
+                Indicates that a FP rounding error was incurred in the sum-reduction data path.
+                '''
+        }
+        { bits: "22",
+          name: "ERR_SUMR_OP_NV",
+          desc: '''
+                Indicates that an invalid FP operation happened in the sum-reduction data path.
+                '''
+        }
+        { bits: "23",
+          name: "ERR_SFU_OP_OF",
+          desc: '''
+                Enable IRQ flagging of FP overlows in the special function unit data path.
+                '''
+        }
+        { bits: "24",
+          name: "ERR_SFU_OP_UF",
+          desc: '''
+                Enable IRQ flagging of FP underflows in the special function unit data path.
+                '''
+        }
+        { bits: "25",
+          name: "ERR_SFU_OP_NX",
+          desc: '''
+                Enable IRQ flagging of FP rounding errors in the special function unit data path.
+                '''
+        }
+        { bits: "26",
+          name: "ERR_SFU_OP_NV",
+          desc: '''
+                Enable IRQ flagging of invalid FP operations in the special function unit data path.
+                '''
+        }
+        { bits: "27",
+          name: "ERR_SFU_OP_ZR",
+          desc: '''
+                Enable IRQ flagging of dividing by zero operations in the special function unit data path.
+                '''
+        }
+        { bits: "28",
+          name: "ERR_O_OF",
+          desc: '''
+                Indicates that a conversion from FP18 on the output stream overflowed.
+                '''
+        }
+        { bits: "29",
+          name: "ERR_O_UF",
+          desc: '''
+                Indicates that a conversion from FP18 on the output stream underflowed.
+                '''
+        }
+        { bits: "30",
+          name: "ERR_O_NX",
+          desc: '''
+                Indicates that a conversion from FP18 on the output stream incurred a rounding error.
+                '''
+        }
+        { bits: "32",
+          name: "DBG_SW_INTERRUPT",
+          desc: '''
+                Indicates that SW triggered the debug interrupt by setting the `DP_CTRL.DBG_SW_IRQ` to high.
+                '''
+        }
+        { bits: "40",
+          name: "CMDBLK_CMD_DROPPED",
+          desc: '''
+                The command block FIFO had to drop at least one command because the FIFO was already full.
+                '''
+        }
+      ]
+    },
+    { name: "DP_CTRL",
+      desc: "Control register of the datapath.",
+      swaccess: "rw",
+      hwaccess: "hro",
+      fields: [
+        {
+            bits: "0",
+            name: "I0_INT_SGN",
+            desc: '''When set to `0`, integer values on input stream 0 are treated as unsigned.
+                     When set to `1`, integer values on input stream 0 are treated as two's complement signed.''',
+            resval: 0x1
+        }
+        {
+            bits: "1",
+            name: "I1_INT_SGN",
+            desc: '''When set to `0`, integer values on input stream 1 are treated as unsigned.
+                     When set to `1`, integer values on input stream 1 are treated as two's complement signed.''',
+            resval: 0x1
+        }
+        {
+            bits: "2",
+            name: "OUT_INT_SGN",
+            desc: '''When set to `0`, integer values on the output stream are produced as unsigned.
+                     When set to `1`, integer values on the output stream are produced as two's complement signed.''',
+            resval: 0x1
+        }
+        {
+            bits: "3",
+            name: "SKIP_ILLEGAL_PROG",
+            desc: '''When set to '0', illegal programs are detected, but attempted to be executed normally.
+                     When set to '1', illegal programs are detected and skipped.''',
+            resval: 0x0
+        }
+        {
+            bits: "4",
+            name: "DROP_ILLEGAL_INSTR",
+            desc: '''When set to '0', illegal instructions are detected, but attempted to be executed normally.
+                     When set to '1', illegal instructions are detected and skipped.''',
+            resval: 0x0
+        }
+        {
+            bits: "32",
+            name: "DBG_SW_IRQ",
+            desc: '''
+                  `DBG_SW_IRQ` is a level-triggered interrupt request.
+                  Set `DBG_SW_IRQ` to high to trigger the debug SW interrupt.
+                  Interrupt handler must set `DBG_SW_IRQ` to low again.
+                  '''
+            resval: 0x0
+        }
+      ]
+    },
+    { name: "DP_STATUS",
+      desc: "Datapath status observarion register.",
+      swaccess: "ro",
+      hwaccess: "hwo",
+      hwext : True
+      fields: [
+        {
+            bits: "0",
+            name: "IN0_VLD",
+            desc: '''Valid signal of the IAU input AXIS stream after input FIFO / buffer (if present).'''
+        }
+        {
+            bits: "1",
+            name: "IN0_RDY",
+            desc: '''Ready signal of the IAU input AXIS stream after input FIFO / buffer (if present).'''
+        }
+        {
+            bits: "2",
+            name: "IN0_LST",
+            desc: '''Last signal of the IAU input AXIS stream after input FIFO / buffer (if present).'''
+        }
+        {
+            bits: "3",
+            name: "IN0_STL",
+            desc: '''Indicates a stall on the IAU input AXIS stream after input FIFO / buffer (if present).'''
+        }
+        {
+            bits: "4",
+            name: "IN1_VLD",
+            desc: '''Valid signal of the IFD1 input AXIS stream after input FIFO / buffer (if present).'''
+        }
+        {
+            bits: "5",
+            name: "IN1_RDY",
+            desc: '''Ready signal of the IFD1 input AXIS stream after input FIFO / buffer (if present).'''
+        }
+        {
+            bits: "6",
+            name: "IN1_LST",
+            desc: '''Last signal of the IFD1 input AXIS stream after input FIFO / buffer (if present).'''
+        }
+        {
+            bits: "7",
+            name: "IN1_STL",
+            desc: '''Indicates a stall on the IFD1 input AXIS stream after input FIFO / buffer (if present).'''
+        }
+        {
+            bits: "8",
+            name: "OUT_VLD",
+            desc: '''Valid signal of the output AXIS stream before output FIFO / buffer (if present).'''
+        }
+        {
+            bits: "9",
+            name: "OUT_RDY",
+            desc: '''Ready signal of the output AXIS stream before output FIFO / buffer (if present).'''
+        }
+        {
+            bits: "10",
+            name: "OUT_LST",
+            desc: '''Last signal of the output AXIS stream before output FIFO / buffer (if present).'''
+        }
+        {
+            bits: "11",
+            name: "OUT_STL",
+            desc: '''Indicates a stall on the output AXIS stream before output FIFO / buffer (if present).'''
+        }
+        {
+            bits: "16",
+            name: "DPCMD0_VLD",
+            desc: '''Valid signal of the execution `DPcmd` AXIS stream after command FIFO / buffer (if present).'''
+        }
+        {
+            bits: "17",
+            name: "DPCMD0_RDY",
+            desc: '''Ready signal of the execution `DPcmd` AXIS stream after command FIFO / buffer (if present).'''
+        }
+        {
+            bits: "18",
+            name: "DPCMD0_LST",
+            desc: '''Last signal of the execution `DPcmd` AXIS stream after command FIFO / buffer (if present).'''
+        }
+        {
+            bits: "19",
+            name: "DPCMD0_STL",
+            desc: '''Indicates a stall on the execution `DPcmd` AXIS stream after command FIFO / buffer (if present).'''
+        }
+        // {
+        //     bits: "20",
+        //     name: "DPCMD1_VLD",
+        //     desc: '''Valid signal of the programming `DPcmd` AXIS stream after command FIFO / buffer (if present).'''
+        // }
+        // {
+        //     bits: "21",
+        //     name: "DPCMD1_RDY",
+        //     desc: '''Ready signal of the programming `DPcmd` AXIS stream after command FIFO / buffer (if present).'''
+        // }
+        // {
+        //     bits: "22",
+        //     name: "DPCMD1_LST",
+        //     desc: '''Last signal of the programming `DPcmd` AXIS stream after command FIFO / buffer (if present).'''
+        // }
+        // {
+        //     bits: "23",
+        //     name: "DPCMD1_STL",
+        //     desc: '''Indicates a stall on the programming `DPcmd` AXIS stream after command FIFO / buffer (if present).'''
+        // }
+        {
+            bits: "35:32",
+            name: "ID_CURRENT_OP",
+            desc: '''Currently decoded operation in the Instruction Decode (ID) stage.'''
+        }
+        {
+            bits: "36",
+            name: "ID_DISP_I_STALLED",
+            desc: '''
+                  A value of 1 indicates that the Instruction Decode (ID) stage is stalled dispatching on the input stream, i.e.,
+                  an instruction has been decoded but is stalled waiting for the respective input stream (according DP_STATUS.ID_CURRENT_OP`) to produce source operand(s).<br>
+                  Possible reasons for this are:<br>
+                  1. the input stream is not providing valid data (see `DP_STATUS.IN[0/1]_VLD`).<br>
+                  2. a multi-beat read from the input stream (`i[0/1]-f16` or `i[0/1]-f32`) is taking place.<br>
+                  3. the downstream Issue (ISS) stage has not yet processed a previously produced operand (see `DP_STATUS.ID_ISS_STALLED`).
+                  '''
+        }
+        {
+            bits: "37",
+            name: "ID_DISP_A_STALLED",
+            desc: '''
+                  A value of 1 indicates that the Instruction Decode (ID) stage is stalled dispatching on `a` storage, i.e.,
+                  an instruction has been decoded but is stalled waiting for `a` storage to produce source operand(s).<br>
+                  Possible reasons for this are:<br>
+                  1. a requested source operand has a data dependency on an in-flight instruction.<br>
+                  2. the downstream Issue (ISS) stage has not yet processed a previously produced operand (see `DP_STATUS.ID_ISS_STALLED`).
+                  '''
+        }
+        {
+            bits: "38",
+            name: "ID_DISP_B_STALLED",
+            desc: '''
+                  A value of 1 indicates that the Instruction Decode (ID) stage is stalled dispatching on `b` storage, i.e.,
+                  an instruction has been decoded but is stalled waiting for `b` storage to produce source operand(s).<br>
+                  Possible reasons for this are:<br>
+                  1. a requested source operand has a data dependency on an in-flight instruction.<br>
+                  2. the downstream Issue (ISS) stage has not yet processed a previously produced operand (see `DP_STATUS.ID_ISS_STALLED`).
+                  '''
+        }
+        {
+            bits: "39",
+            name: "ID_DISP_C_STALLED",
+            desc: '''
+                  A value of 1 indicates that the Instruction Decode (ID) stage is stalled dispatching on `c` storage, i.e.,
+                  an instruction has been decoded but is stalled waiting for `c` storage to produce source operand(s).<br>
+                  Possible reasons for this are:<br>
+                  1. a requested source operand has a data dependency on an in-flight instruction.<br>
+                  2. a write operation is currently occuring on `c` storage, taking priority (see `DP_STATUS.WB_C_WRITE`).<br>
+                  3. the downstream Issue (ISS) stage has not yet processed a previously produced operand (see `DP_STATUS.ID_ISS_STALLED`).
+                  '''
+        }
+        {
+            bits: "40",
+            name: "ID_WAW_STALLED",
+            desc: '''
+                  A value of 1 indicates that the Instruction Decode (ID) stage is stalled for a potential WAW-hazard, i.e.,
+                  an instruction has been decoded but is stalled because an operation writing the same destination address is still in flight.
+                  '''
+        }
+        {
+            bits: "41",
+            name: "ID_ISS_STALLED",
+            desc: '''
+                  A value of 1 indicates that the Instruction Decode (ID) stage is stalled by the Issue (ISS) stage, i.e.,
+                  an instruction has been decoded and source operands successfully dispatched, but the ISS stage is not ready to accept the operation.
+                  '''
+        }
+        {
+            bits: "42",
+            name: "ISS_I0_STALLED",
+            desc: '''
+                  A value of 1 indicates that the Issue (ISS) stage is stalled waiting on input stream 0, i.e.,
+                  an operation is to be issued but is stalled waiting for input stream 0 to produce source operand(s).<br>
+                  **This should never happen currently since all sources have only one cycle of latency between dispatch and issue.**
+                  '''
+        }
+        {
+            bits: "43",
+            name: "ISS_I1_STALLED",
+            desc: '''
+                  A value of 1 indicates that the Issue (ISS) stage is stalled waiting on input stream 1, i.e.,
+                  an operation is to be issued but is stalled waiting for input stream 1 to produce source operand(s).<br>
+                  **This should never happen currently since all sources have only one cycle of latency between dispatch and issue.**
+                  '''
+        }
+        {
+            bits: "44",
+            name: "ISS_A_STALLED",
+            desc: '''
+                  A value of 1 indicates that the Issue (ISS) stage is stalled waiting on `a` storage, i.e.,
+                  an operation is to be issued but is stalled waiting for `a` storage to produce source operand(s).<br>
+                  **This should never happen currently since all sources have only one cycle of latency between dispatch and issue.**
+                  '''
+        }
+        {
+            bits: "45",
+            name: "ISS_B_STALLED",
+            desc: '''
+                  A value of 1 indicates that the Issue (ISS) stage is stalled waiting on `b` storage, i.e.,
+                  an operation is to be issued but is stalled waiting for `b` storage to produce source operand(s).<br>
+                  **This should never happen currently since all sources have only one cycle of latency between dispatch and issue.**
+                  '''
+        }
+        {
+            bits: "46",
+            name: "ISS_C_STALLED",
+            desc: '''
+                  A value of 1 indicates that the Issue (ISS) stage is stalled waiting on `b` storage, i.e.,
+                  an operation is to be issued but is stalled waiting for `b` storage to produce source operand(s).<br>
+                  **This should never happen currently since all sources have only one cycle of latency between dispatch and issue.**
+                  '''
+        }
+        {
+            bits: "47",
+            name: "ISS_ORDER_STALLED",
+            desc: '''
+                  A value of 1 indicates that the Issue (ISS) stage is stalled for output stream ordering, i.e.,
+                  an operation targeting the output stream is to be issued but is stalled because previous operations targeting the
+                  output stream which take another execution path are still in flight (see `DP_STATUS.EXE_NUM_IN_FLT_OSTR_OPS`).
+                  '''
+        }
+        {
+            bits: "48",
+            name: "ISS_DONE_STALLED",
+            desc: '''
+                  A value of 1 indicates that the Issue (ISS) stage is stalled for signalling `dp_done`, i.e.,
+                  an operation which should signal `dp_done` is to be issued but is stalled because a previous operation that
+                  signals `dp_done` is waiting to complete (see `DP_STATUS.EXE_NUM_IN_FLT_OSTR_OPS`, and `DP_STATUS.WB_O_WRITE`).
+                  '''
+        }
+        {
+            bits: "49",
+            name: "ISS_EXE_STALLED",
+            desc: '''
+                  A value of 1 indicates that the Issue (ISS) stage is stalled by the Execute (EXE) stage, i.e.,
+                  an operation can be issued, but the EXE stage is not ready to accept it.
+                  '''
+        }
+        {
+            bits: "50",
+            name: "EXE_LUT_IN_FLT",
+            desc: '''
+                  A value of 1 indicates that the LUT datapath (ISS/EXE pipe -> LUT -> MADD arbiter) has in-flight operations being processed.
+                  '''
+        }
+        {
+            bits: "51",
+            name: "EXE_MADD_IN_FLT",
+            desc: '''
+                  A value of 1 indicates that the multiply-add datapath (MADD arbiter -> MADD -> result arbiter) has in-flight operations being processed.
+                  '''
+        }
+        {
+            bits: "52",
+            name: "EXE_MAX_IN_FLT",
+            desc: '''
+                  A value of 1 indicates that the maximum/minimum datapath (ISS/EXE pipe -> MAX/MIN -> result arbiter) has in-flight operations being processed.
+                  '''
+        }
+        {
+            bits: "53",
+            name: "EXE_MAXR_IN_FLT",
+            desc: '''
+                  A value of 1 indicates that the maximum/minimum reduction datapath (ISS/EXE pipe -> MAXR/MINR -> result arbiter) has in-flight operations being processed.
+                  '''
+        }
+        {
+            bits: "54",
+            name: "EXE_SUMR_IN_FLT",
+            desc: '''
+                  A value of 1 indicates that the sum reduction datapath (ISS/EXE pipe -> SUMR -> result arbiter) has in-flight operations being processed.
+                  '''
+        }
+        {
+            bits: "55",
+            name: "EXE_MV_IN_FLT",
+            desc: '''
+                  A value of 1 indicates that the move datapath (ISS/EXE pipe -> result arbiter) has in-flight operations being processed.
+                  '''
+        }
+        {
+            bits: "58:56",
+            name: "EXE_NUM_IN_FLT_OSTR_OPS",
+            desc: '''
+                  The number of currently in-flight operations in the EXE stage (ISS/EXE pipe -> result arbiter) that target the output stream.
+                  '''
+        }
+        {
+            bits: "59",
+            name: "EXE_WB_STALLED",
+            desc: '''
+                  A value of 1 indicates that the Execute (EXE) stage is stalled by the Write Back (WB) stage, i.e.,
+                  an executed operation result can be written, but the WB stage is not ready to accept it.
+                  '''
+        }
+        {
+            bits: "60",
+            name: "WB_O_WRITE",
+            desc: '''
+                  A value of 1 indicates that the Write Back (WB) stage is writing to the output stream.<br>
+                  Output stream writes can stall as follows:<br>
+                  1. the output stream is not ready to read data (see `DP_STATUS.OUT_RDY`).<br>
+                  2. a multi-beat write to the output stream (`o/l-f16` or `o/l-f32`) is taking place.
+                  '''
+        }
+        {
+            bits: "61",
+            name: "WB_A_WRITE",
+            desc: '''
+                  A value of 1 indicates that the Write Back (WB) stage is writing to `a` storage.<br>
+                  *Writes to internal storage never stall.*
+                  '''
+        }
+        {
+            bits: "62",
+            name: "WB_B_WRITE",
+            desc: '''
+                  A value of 1 indicates that the Write Back (WB) stage is writing to `b` storage.<br>
+                  *Writes to internal storage never stall.*
+                  '''
+        }
+        {
+            bits: "63",
+            name: "WB_C_WRITE",
+            desc: '''
+                  A value of 1 indicates that the Write Back (WB) stage is writing to `c` storage.<br>
+                  *Writes to internal storage never stall.*
+                  '''
+        }
+      ]
+    },
+    { name: "DBG_OBSERVE",
+      desc: "Observation register.",
+      swaccess: "ro",
+      hwaccess: "hwo",
+      hwext : True
+      fields: [
+        {
+            bits: "0",
+            name: "IN0_VLD",
+            desc: '''Valid signal of the IAU input AXIS stream.'''
+        }
+        {
+            bits: "1",
+            name: "IN0_RDY",
+            desc: '''Ready signal of the IAU input AXIS stream.'''
+        }
+        {
+            bits: "2",
+            name: "IN0_LST",
+            desc: '''Last signal of the IAU input AXIS stream.'''
+        }
+        {
+            bits: "4",
+            name: "IN1_VLD",
+            desc: '''Valid signal of the IFD1 input AXIS stream.'''
+        }
+        {
+            bits: "5",
+            name: "IN1_RDY",
+            desc: '''Ready signal of the IFD1 input AXIS stream.'''
+        }
+        {
+            bits: "6",
+            name: "IN1_LST",
+            desc: '''Last signal of the IFD1 input AXIS stream.'''
+        }
+        {
+            bits: "8",
+            name: "OUT_VLD",
+            desc: '''Valid signal of the output AXIS stream.'''
+        }
+        {
+            bits: "9",
+            name: "OUT_RDY",
+            desc: '''Ready signal of the output AXIS stream.'''
+        }
+        {
+            bits: "10",
+            name: "OUT_LST",
+            desc: '''Last signal of the output AXIS stream.'''
+        }
+        {
+            bits: "16",
+            name: "DPCMD0_VLD",
+            desc: '''Valid signal of the execution `DPcmd` AXIS stream after multiplexer.'''
+        }
+        {
+            bits: "17",
+            name: "DPCMD0_RDY",
+            desc: '''Ready signal of the execution `DPcmd` AXIS stream after multiplexer.'''
+        }
+        {
+            bits: "18",
+            name: "DPCMD0_LST",
+            desc: '''Last signal of the execution `DPcmd` AXIS stream after multiplexer.'''
+        }
+        // {
+        //     bits: "20",
+        //     name: "DPCMD1_VLD",
+        //     desc: '''Valid signal of the programming `DPcmd` AXIS stream after multiplexer.'''
+        // }
+        // {
+        //     bits: "21",
+        //     name: "DPCMD1_RDY",
+        //     desc: '''Ready signal of the programming `DPcmd` AXIS stream after multiplexer.'''
+        // }
+        // {
+        //     bits: "22",
+        //     name: "DPCMD1_LST",
+        //     desc: '''Last signal of the programming `DPcmd` AXIS stream after multiplexer.'''
+        // }
+      ]
+    },
+    { name: "CMDGEN_STATUS",
+      desc: "DP command generator observation register.",
+      swaccess: "ro",
+      hwaccess: "hwo",
+      hwext : True
+      fields: [
+        {
+            bits: "31:0",
+            name: "ITERATION_CNT",
+            desc: '''Iteration counter of the currently executed loop.'''
+        }
+        {
+            bits: "47:32",
+            name: "PROGRAM_CNT",
+            desc: '''Current program counter (instruction memory pointer) value.'''
+        }
+        {
+            bits: "49:48",
+            name: "FSM_STATE",
+            desc:
+            '''
+            Command generator FSM state. The states are:<br>
+            `2'b00`: `IDLE` - The command generator is waiting for a new command or applying a bypass operation (see `DP_STATUS.DPCMD0_VLD`).<br>
+            `2'b01`: `INIT` - The command generator is executing the `init` section of the program.<br>
+            `2'b10`: `LOOP` - The command generator is executing the `loop` section of the program.<br>
+            `2'b11`: `WAIT` - The command generator has fetched the last instruction of the program and is waiting for the datapath to accept it.
+            '''
+        }
+      ]
+    },
+    { name: "DBG_SCRATCH",
+      desc: "Scratch register only accessible through SW for debugging purposes.",
+      swaccess: "rw",
+      hwaccess: "none"
+      fields: [
+        {
+            bits: "63:0",
+            name: "SCRATCH",
+            desc: '''Scratch register field.''',
+            resval: 0x0
+        }
+      ]
+    },
+    { name: "DBG_ID",
+      desc: "Block identification register.",
+      swaccess: "ro",
+      hwaccess: "hwo",
+      hwext : True
+      fields: [
+        {
+            bits: "7:0",
+            name: "BLOCK_ID",
+            desc: '''Unique identifier of an `AI Core` block. Note, that the same blocks in each `AI Core` instance share the same `BLOCK_ID`.'''
+        }
+        {
+            bits: "15:8",
+            name: "AI_CORE_ID",
+            desc: '''`AI_CORE_ID` aka `CID` is a unique identifier of the `AI Core` instance.'''
+        }
+        {
+            bits: "23:16",
+            name: "HW_REVISION",
+            desc: '''Major hardware revision number.'''
+        }
+      ]
+    },
+    { name: "HW_CAPABILITY",
+      desc: "Hardware capability register for the instance.",
+      swaccess: "ro",
+      hwaccess: "hwo",
+      hwext : True
+      fields: [
+        {
+            bits: "7:0",
+            name: "CMD_FIFO_DEPTH",
+            desc: '''Depth of the command FIFO in the CMD block.'''
+        }
+        {
+             bits: "31:16",
+             name: "INSTR_MEM_DEPTH",
+             desc: '''Depth of the instruction memory in the `DPcmdgen` block, measured in number of instructions.'''
+        }
+        // {
+        //      bits: "32",
+        //      name: "STATIC_CMD_PRESENT",
+        //      desc: '''If set to high, the static part of the command block is present.'''
+        // }
+        // {
+        //     bits: "33",
+        //     name: "VTRSP_PRESENT",
+        //     desc: '''If set to high, the VTRSP block is present in the instance'''
+        // }
+      ]
+    }
+  ]
+}

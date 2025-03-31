@@ -1,0 +1,38 @@
+# (C) Copyright 2024 Axelera AI B.V.
+# All Rights Reserved
+# *** Axelera AI Confidential ***
+
+package:
+  name: process_monitor
+  description: "Process monitor"
+  authors:
+    - "Manuel Oliveira <manuel.oliveira@axelera.ai>"
+
+dependencies:
+  ro_monitor:          { path: "" }
+  process_monitor_pkg: { path: "" }
+
+# Source files grouped in levels.
+# Files in level 0 have no dependencies on files in this package.
+# Files in level 1 only depend on files in level 0, files in level 2 on files in levels 1 and 0, etc.
+# Files within a level are ordered alphabetically.
+sources:
+  - target: all(rtl, simulation)
+    files:
+    # Level 0
+    - process1_monitor.sv
+    - process2_monitor.sv
+  - target: rtl
+    files:
+    - process1_monitor_jtag_tdr_core.sv
+    - process2_monitor_jtag_tdr_core.sv
+  - target: all(rtl, not(emulation))
+    files:
+    # Level 1
+    - process1_monitor_wrapper.sv
+    - process2_monitor_wrapper.sv
+  - target: all(rtl, emulation)
+    files:
+    # Level 1
+    - process1_monitor_wrapper_dummy.sv
+    - process2_monitor_wrapper_dummy.sv

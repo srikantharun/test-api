@@ -1,0 +1,11 @@
+nav:
+  - 10_isa_specification.md
+  - 20_microarchitecture.md
+  - 21_dwpu_cmd_gen.md
+  - 22_dwpu_dp.md
+  - 24_dwpu_dp_channel.md
+  - 25_error_detection_and_interrupts.md
+  - 30_functional_description.md
+  - 40_performance_information.md
+  - 50_application_note.md
+  - ...

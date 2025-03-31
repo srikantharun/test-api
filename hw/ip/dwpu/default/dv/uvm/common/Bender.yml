@@ -1,0 +1,19 @@
+package:
+  name: ai_core_dwpu_uvm_common
+  description: "DWPU common verification definitions"
+  authors:
+    - "jorge.carvalho@axelera.ai"
+
+dependencies:
+  aic_common_pkg:              { path: "" }
+  svt_amba_vip:                { path: "" }
+  dwpu:                        { path: "" }
+  ai_core_dwpu_uvm_ral:        { path: "" }
+  ai_core_dp_cmd_uvm:          { path: "" }
+  
+sources:
+  - target: simulation
+    include_dirs:
+      - .
+    files:
+      - ai_core_dwpu_common_pkg.sv

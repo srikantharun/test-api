@@ -1,0 +1,31 @@
+# (C) Copyright Axelera AI 2021
+# All Rights Reserved
+# *** Axelera AI Confidential ***
+
+scripts/**
+
+# Synopsys generated sources
+
+# specify block for cell level timing arcs triggers syntax error
+
+# Has some specific macro usage which doesn't go well with verible.
+
+# Verification
+
+# disable NoC
+
+# TB files
+
+# Files original from invecas
+
+# SVA properties
+
+# pcie force files
+
+# vendor-in
+
+# Gives an error
+
+# FPGA generated
+
+# lpddr gls related files

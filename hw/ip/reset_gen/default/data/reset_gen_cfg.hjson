@@ -1,0 +1,54 @@
+// (C) Copyright Axelera AI 2021
+// All Rights Reserved
+// *** Axelera AI Confidential ***
+{ name: "sys_ctrl_reset_gen",
+  // External resets.
+  resets: 3,
+  def_stretch_val: 10,
+  ext_resets: "tamper_rst_ni, ndm_rst_ni, wdt_rst_ni"
+  stages: [
+    { name: "hw_rst"
+      resets: []
+      num_ips: 1
+      sw_rstn: 1
+      stretch_val: 10
+    },
+    { name: "dmi_rst"
+      resets: []
+      num_ips: 1
+      sw_rstn: 1
+      stretch_val: 10
+    },
+    { name: "bus_rst_asyn"
+      resets: []
+      num_ips: 1
+      sw_rstn: 1
+      stretch_val: 10
+    },
+    { name: "sys_core_rst"
+      resets: []
+      num_ips: 1
+      sw_rstn: 1
+      stretch_val: 10
+    },
+    { name: "ai_core_rst"
+      resets: []
+      num_ips: 1
+      sw_rstn: 1
+      stretch_val: 10
+    },
+    { name: "pcie_rst"
+      resets: []
+      num_ips: 3
+      sw_rstn: 0
+      stretch_val: 0
+    },
+    { name: "ddr_rst"
+      resets: []
+      num_ips: 6
+      sw_rstn: 0
+      stretch_val: 0
+    },
+  ]
+
+}

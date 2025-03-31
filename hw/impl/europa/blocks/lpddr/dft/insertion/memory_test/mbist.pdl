@@ -1,0 +1,22 @@
+iProcsForModule snps_ddr_subsystem
+
+iTopProc enable_read_margin { rd0 rd1 wr0 wr1 adme0 adme1 adme2 } {
+
+    iPrefix snps_ddr_subsystem_rtl1_tessent_tdr_sri_ctrl_inst
+
+    iWrite  mcs_control0 0b1
+    iWrite  mcs_control1 0b1
+    iWrite mcsw_control  0b1
+
+    iWrite mcsrd_control0 $rd0
+    iWrite mcsrd_control1 $rd1
+    iWrite mcswr_control0 $wr0
+    iWrite mcswr_control1 $wr1
+    
+    iWrite adme_control0 $adme0
+    iWrite adme_control1 $adme1
+    iWrite adme_control2 $adme2
+
+    iApply
+    iPrefix ""
+}

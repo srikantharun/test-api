@@ -1,0 +1,24 @@
+# (C) Copyright 2024 Axelera AI B.V.
+# All Rights Reserved
+# *** Axelera AI Confidential ***
+
+package:
+  name: aic_control_dispatcher_tb
+  description: "TODO: add description"
+  authors:
+    - "Wolfgang Roenninger <wolfgang.roenninger@axelera.ai>"
+
+dependencies:
+  aic_control_dispatcher_pkg: { path: "../../rtl/pkg" }
+  aic_control_dispatcher:     { path: "../../rtl"     }
+  dv_common_rtl:              { path: "europa/hw/dv/common/rtl" }
+
+# Source files grouped in levels.
+# Files in level 0 have no dependencies on files in this package.
+# Files in level 1 only depend on files in level 0, files in level 2 on files in levels 1 and 0, etc.
+# Files within a level are ordered alphabetically.
+sources:
+  - target: simulation
+    files:
+      - aic_cd_axi_read_tb.sv
+      - aic_cd_instruction_fetch_tb.sv

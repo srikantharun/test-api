@@ -1,0 +1,16 @@
+# (C) Copyright Axelera AI 2024
+# All Rights Reserved
+# *** Axelera AI Confidential ***
+#
+# Description: verif_cva6v_axi_pkg manifest
+# Owner: Domenic Wüthrich <domenic.wuethrich@axelera.ai>
+
+package:
+  name: verif_cva6v_axi_pkg
+
+dependencies:
+  verif_cva6v_common_cells:
+    path: ../../verif_cva6v_common_cells
+
+sources:
+  - axi_pkg.sv

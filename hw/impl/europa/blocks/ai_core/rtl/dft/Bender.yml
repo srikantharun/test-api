@@ -1,0 +1,22 @@
+# (C) Copyright 2024 Axelera AI B.V.
+# All Rights Reserved
+# *** Axelera AI Confidential ***
+
+package:
+  name: europa_ai_core_dft
+  description: "DFT Physical partition wrapper for ai_core"
+  authors:
+    - "Tiago Campos <tiago.campos@axelera.ai>"
+
+dependencies:
+  europa_ai_core: { path: ".." }
+  dft_aic_mid:    { path: "$DFT_HOME/aic_mid/Latest"}
+  dft_aic_did:    { path: "$DFT_HOME/aic_did/Latest"}
+  dft_aic_ls:     { path: "$DFT_HOME/aic_ls/Latest"}
+  dft_aic_infra:  { path: "$DFT_HOME/aic_infra/Latest"}
+  dft_ai_core:    { path: "$DFT_HOME/ai_core/Latest"}
+
+sources:
+  - target: rtl
+    files:
+

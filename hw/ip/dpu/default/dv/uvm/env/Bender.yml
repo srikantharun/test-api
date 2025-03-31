@@ -1,0 +1,30 @@
+# (C) Copyright 2024 Axelera AI B.V.
+# All Rights Reserved
+# *** Axelera AI Confidential ***
+
+package:
+  name: dpu_uvm_env
+  description: "DPU environment"
+  authors:
+    - "fernando.yokota@axelera.ai"
+
+dependencies:
+  svt_amba_vip                : { path : "../../../../../../dv/svt_amba_vip"}
+  aic_common                  : { path : "../../../../../aic_common/default/rtl" }
+  ai_core_dp_cmd_uvm          : { path : "../../../../../aic_common/default/dv/uvm"}
+  ai_core_token_agent_uvm_pkg : { path : "../../../../../../dv/token_agent"}
+  axi_icdf_pkg                : { path : "../../../../../../dv/icdf/uvm"}
+  dpu_uvm_common              : { path : "../common" }
+  dpu_uvm_agent               : { path : "../agents/dpu" }
+  dpu_uvm_ral                 : { path : "../ral" }
+  dpu_uvm_ref                 : { path : "../refmodels" }
+  dpu_func_cov                : { path : "../func_cov" }
+  dpu_uvm_sb                  : { path : "../scoreboards" }
+
+sources:
+  - target: simulation
+    include_dirs:
+      - .
+    files:
+      - dpu_env_pkg.sv
+

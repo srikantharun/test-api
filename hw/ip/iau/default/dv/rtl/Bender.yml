@@ -1,0 +1,28 @@
+# (C) Copyright 2024 Axelera AI B.V.
+# All Rights Reserved
+# *** Axelera AI Confidential ***
+
+package:
+  name: iau_uvm_tb
+  description: "IAU UVM testbench"
+  authors:
+    - "fernando.yokota@axelera.ai"
+
+dependencies     :
+  aic_common     : { path : "../../../../aic_common/default/rtl" }
+  iau            : { path : "../../../default/rtl/"              } # call in DUT RTL
+  iau_uvm_common : { path : "../uvm/common/"                     }
+  iau_uvm_test   : { path : "../uvm/tests/"                      } # AI Core MVM Verification testcases
+  axi4pc         : { path : "../../../../../dv/axi4pc"           } # Axi protocol checker binding
+  axi_pkg        : { path : "../../../axi/default/rtl"           }
+  dv_common_rtl  : { path: "../../../../../dv/common/rtl/" }
+  
+sources:
+  - target: simulation
+    include_dirs:
+      - .
+    files:
+      - iid_if.sv
+      - hdl_top.sv
+
+

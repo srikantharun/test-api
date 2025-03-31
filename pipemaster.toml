@@ -1,0 +1,66 @@
+[settings]
+acyclic_pipeline = true
+
+[settings.cache]
+files = false
+results = false
+
+[variables]
+dummy_template = ".dummy_job_template"
+
+[files]
+pipeline = [".gitlab/ci/pipelines/dynamic/*.gitlab-ci.yml"]
+metadata = "pipemaster_metadata.yml"
+
+[filters]
+targets = [
+  "debug",
+  "design",
+  "sync_main",
+  "dft",
+  "dft_patterns",
+  "formal",
+  "mvm",
+  "imc_bist",
+  "xprop",
+  "fiat",
+  "drv_fiat",
+  "lec",
+  "performance",
+  "verif",
+  "cc",
+  "fpga",
+  "icdf_mirror",
+  "gls",
+  "fm",
+  "emulation",
+  'verif',
+  "ungated_flops",
+  "weekdays_1_4",
+  "weekdays_2_5",
+  "weekdays_3_6",
+  "housekeeping"
+]
+schedules = [
+  "manual",
+  "merge",
+  "nightly",
+  "weekly",
+  "dft",
+  "ungated_flops",
+  "weekdays_1_4",
+  "weekdays_2_5",
+  "weekdays_3_6",
+  "cleanup",
+  "sync_main"
+]
+
+[resolvers]
+exclude_paths = [
+  "hw/scripts/",
+]
+
+[[overrides]]
+schedules = ["merge"]
+[overrides.attributes]
+timeout = "120 minutes"

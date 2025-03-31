@@ -1,0 +1,21 @@
+#!SPYGLASS_PROJECT_FILE
+#!VERSION 3.0
+#  -------------------------------------------------------------------
+#  This is a software generated project file. Manual edits to this file could be lost during the next save operation
+#  Copyright Synopsys Inc.
+#  Last Updated By: SpyGlass SpyGlass_vS-2021.09-SP2
+#  Last Updated On Fri Apr 22 15:02:50 2022
+#
+#  -------------------------------------------------------------------
+
+current_design axe_ccl_cdc_4_phase
+
+# clock and reset constraints
+
+clock -name "axe_ccl_cdc_4_phase.i_src_clk"   -domain SRC_CLK_DOMAIN -period 0.833  -edge {0. 0.5} -tag T0
+reset -name "axe_ccl_cdc_4_phase.i_src_rst_n" -async  -value 0
+
+clock -name "axe_ccl_cdc_4_phase.i_dst_clk"   -domain DST_CLK_DOMAIN -period 1.664  -edge {0. 0.5} -tag T1
+reset -name "axe_ccl_cdc_4_phase.i_dst_rst_n" -async  -value 0
+
+sg_clock_group -group { T0 } -group { T1 }

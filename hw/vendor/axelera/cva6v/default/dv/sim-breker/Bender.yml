@@ -1,0 +1,18 @@
+package:
+  name: cva6v_dv_breker
+  description: "CVA6V BREKER TB"
+  authors:
+    - "andrew.bond@axelera.ai"
+
+dependencies:
+    cva6v_dv_mini_soc_tb:        { path: "hw/vendor/axelera/cva6v/default/dv/mini_soc"}
+
+sources:
+  - target: simulation
+    defines:
+      SINGLE_CPU: 
+    include_dirs:
+      - uvm
+    files:
+      - uvm/trek_uvm_pkg.sv
+      - uvm/trek_uvm.sv

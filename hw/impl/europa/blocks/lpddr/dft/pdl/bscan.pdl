@@ -1,0 +1,42 @@
+
+## Need to setup some TDRs to allow bscan to operate. 
+iProcsForModule lpddr_p
+
+iTopProc disable_scan {} {
+    global DESIGN
+    global DESIGN_ID
+
+    foreach {tdr val} [list \
+                           scan_mode        0b0 \
+                           scan_shift_cg    0b0 \
+                           scan_asst_mode   0b0 \
+                           scan_occ_bypass  0b0 \
+                           scan_shift_async 0b0 \
+                           scan_ucclk_mode  0b0 \
+                           burnIn           0b0 \
+                           iddq_mode        0b0 \
+                           scan_mode        0b1 \
+                          ] {
+
+        iWrite ${DESIGN}_${DESIGN_ID}_tessent_tdr_${tdr}_inst.tdr $val
+    }
+    iApply
+}
+
+iTopProc enable_bscan { } {
+    # Bscan compilance requires the following.
+    # Scan mode 1
+    # Iddq_mode 0
+    # TxBypassMode* 1
+    # RxBypassPadEn* 1
+    # RxBypassRcvEn* 0
+    # BP_PWROK 1
+
+    #
+    #    snps_ddr_subsystem.snps_ddr_subsystem_rtl1_tessent_tdr_dto_inst
+    #    snps_ddr_subsystem.snps_ddr_subsystem_rtl1_tessent_tdr_rx_bypass_data_rcv_inst
+
+    iCall disable_scan 
+    iCall snps_ddr_subsystem.enable_bscan
+
+}

@@ -1,0 +1,43 @@
+package:
+  name: spinor_softmodel
+  authors:
+  - "jerome.sauger@axelera.ai"
+
+sources:
+  # For emulation+simulation: add +define+s25fs512s to your makefile
+  # For simulation: add +define+sim to your compilation switches
+  - target: spinor_s25fs512s
+    include_dirs:
+      - ${XL_VIP_HOME}/lib
+    files:
+      - ${SPINOR_RELS}/hdl/s25fs/s25fs512s.v
+      - ${SPINOR_RELS}/hdl/common/sf_def_pkg.sv
+      - ${SPINOR_RELS}/hdl/s25fs/s25fs_cmd_ctrl.sv
+      - ${SPINOR_RELS}/hdl/s25fs/s25fs_cmd_dec_ERASE.sv
+      - ${SPINOR_RELS}/hdl/s25fs/s25fs_cmd_dec_ID.sv
+      - ${SPINOR_RELS}/hdl/s25fs/s25fs_cmd_dec_OTP.sv
+      - ${SPINOR_RELS}/hdl/s25fs/s25fs_cmd_dec_PROGRAM.sv
+      - ${SPINOR_RELS}/hdl/s25fs/s25fs_cmd_dec_PROTECTION.sv
+      - ${SPINOR_RELS}/hdl/s25fs/s25fs_cmd_dec_READ.sv
+      - ${SPINOR_RELS}/hdl/s25fs/s25fs_cmd_dec_REGACCESS.sv
+      - ${SPINOR_RELS}/hdl/s25fs/s25fs_cmd_dec_SETTING.sv
+      - ${SPINOR_RELS}/hdl/s25fs/s25fs_cmd_dec_SUS_RES.sv
+      - ${SPINOR_RELS}/hdl/s25fs/s25fs_core.sv
+      - ${SPINOR_RELS}/hdl/s25fs/s25fs_DYB.sv
+      - ${SPINOR_RELS}/hdl/s25fs/s25fs_ECC_mem.sv
+      - ${SPINOR_RELS}/hdl/s25fs/s25fs_indicator_if.sv
+      - ${SPINOR_RELS}/hdl/s25fs/s25fs_PPB.sv
+      - ${SPINOR_RELS}/hdl/s25fs/s25fs_protection.sv
+      - ${SPINOR_RELS}/hdl/s25fs/s25fs_regs_mngr.sv
+      - ${SPINOR_RELS}/hdl/s25fs/s25fs_regs.sv
+      - ${SPINOR_RELS}/hdl/s25fs/s25fs_OTP_mem.sv
+      - ${SPINOR_RELS}/hdl/common/sf_block_protect.sv
+      - ${SPINOR_RELS}/hdl/common/sf_bus_ctrl.sv
+      - ${SPINOR_RELS}/hdl/common/sf_ID_mem.sv
+      - ${SPINOR_RELS}/hdl/common/sf_interface.sv
+      - ${SPINOR_RELS}/hdl/common/sf_mem_erase_ctrl.sv
+      - ${SPINOR_RELS}/hdl/common/sf_mem_mngr.sv
+      - ${SPINOR_RELS}/hdl/common/sf_mem_program_ctrl.sv
+      - ${SPINOR_RELS}/hdl/common/sf_mem_read_ctrl.sv
+      - ${SPINOR_RELS}/hdl/common/sf_mem.sv
+

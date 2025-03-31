@@ -1,0 +1,33 @@
+From ac9e531f81f9e8bca4978aeb630e3529362ca426 Mon Sep 17 00:00:00 2001
+From: Max Wipfli <max.wipfli@axelera.ai>
+Date: Wed, 3 Jul 2024 14:55:33 +0000
+Subject: [PATCH 1/9] Support multilib RISC-V compiler by specifying
+ -march/-mabi flags
+
+To enable using GCC that has been compiled as multilib, the -march and
+-mabi need to be specified explicitly.
+
+This is a change to the build flow, which should not affect
+functionality and is required to use our RISC-V compiler.
+---
+ bin/mcu/Makefile | 4 ++++
+ 1 file changed, 4 insertions(+)
+
+diff --git a/bin/mcu/Makefile b/bin/mcu/Makefile
+index 4ab8cf5..3d39b2e 100644
+--- a/bin/mcu/Makefile
++++ b/bin/mcu/Makefile
+@@ -26,6 +26,10 @@ else
+  LINKFLAGS = -lhal -lsim
+ endif
+ 
++ARCH       = -march=rv64imac_zicsr -mabi=lp64
++CFLAGS    += $(ARCH)
++LINKFLAGS += $(ARCH)
++
+ %.o : %.c
+ 	${CC} -c ${CFLAGS} -o $@ $<
+ 
+-- 
+2.43.0
+

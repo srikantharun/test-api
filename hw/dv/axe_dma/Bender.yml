@@ -1,0 +1,21 @@
+package:
+  name: dv_axe_dma 
+  description: "Verification Code for Axelera DMA"
+  authors:
+    - "andrew.bond@axelera.ai"
+
+dependencies:
+  dv_common:   { path: "$REPO_ROOT/hw/dv/common" }
+
+sources:
+  - target: simulation
+    include_dirs:
+      - ./uvm/axe_dma_cmd
+      - ./uvm/axe_dma_channel
+      - ./uvm/axe_dma_channel/sequences
+      - ./uvm/sequences
+      - ./uvm
+    files:
+      - ./uvm/axe_dma_cmd/axe_dma_cmd_pkg.sv
+      - ./uvm/axe_dma_channel/axe_dma_channel_pkg.sv
+      - ./uvm/axe_dma_pkg.sv

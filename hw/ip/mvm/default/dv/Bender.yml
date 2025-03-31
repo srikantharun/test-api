@@ -1,0 +1,15 @@
+package:
+  name: mvm_ral_pkg
+  description: "MVM ral package"
+  authors:
+    - "roswin.benny@axelera.ai"
+
+dependencies:
+  lowrisc_dv_base_reg:         { path: "$REPO_ROOT/hw/vendor/axelera/lowrisc_dv/dv_base_reg"}
+  v_utils_pkg:                 { path: "$REPO_ROOT/hw/dv/v_utils"}
+
+sources:
+  - target: simulation
+    files:
+      - $REPO_ROOT/hw/ip/mvm/default/dv/build_ral/mvmexe_csr_ral_pkg.sv
+      - $REPO_ROOT/hw/ip/mvm/default/dv/build_ral/mvmprg_csr_ral_pkg.sv

@@ -1,0 +1,130 @@
+{
+  name: lpddr
+  top_path: "{REPO_ROOT}/hw/impl/europa/blocks/lpddr/rtl/lpddr_inf.sv"
+  pkg_path: "{REPO_ROOT}/hw/impl/europa/blocks/lpddr/rtl/pkg/lpddr_pkg.sv"
+  param_resolved: False
+  param: {
+  }
+  imports: [
+    chip_pkg
+    axi_pkg
+  ]
+  in_clk: [
+    ddr_core_clk
+    ddr_clka_t
+    ddr_clka_c
+    ddr_clkb_t
+    ddr_clkb_c
+    lpddr_ctrl_axi_s_aclk
+    lpddr_ctrl_apb_v3_pclk
+    lpddr_phy_apb_v4_pclk
+    bscan_clock
+    scan_clk
+    edt_clock
+  ]
+  in_rst: [
+    ddr_core_rst_n
+    lpddr_ctrl_axi_s_aresetn
+    trst
+    trst2
+    vl_srv_wrstn
+  ]
+  in_port_b: [
+  ]
+  in_port_v: {
+  }
+  out_port_b: [
+  ]
+  out_port_v: {
+  }
+  inout_port_b: [
+    ddr_caa0
+    ddr_caa1
+    ddr_caa2
+    ddr_caa3
+    ddr_caa4
+    ddr_caa5
+    ddr_ckea0
+    ddr_ckea1
+    ddr_csa0
+    ddr_csa1
+    ddr_clka_t
+    ddr_clka_c
+    ddr_cab0
+    ddr_cab1
+    ddr_cab2
+    ddr_cab3
+    ddr_cab4
+    ddr_cab5
+    ddr_ckeb0
+    ddr_ckeb1
+    ddr_csb0
+    ddr_csb1
+    ddr_clkb_t
+    ddr_clkb_c
+    ddr_vref
+  ]
+  inout_port_v: {
+    ddr_dqa: 32
+    ddr_dmia: 4
+    ddr_dqsa_t: 4
+    ddr_dqsa_c: 4
+    ddr_dqb: 32
+    ddr_dmib: 4
+    ddr_dqsb_t: 4
+    ddr_dqsb_c: 4
+  }
+  bus:{
+    ht:{
+      type: axi_s
+      param: {
+        shared: {
+          addr_width : chip_axi_addr_t
+          len_width: axi_len_t
+          size_width: axi_size_t
+          burst_width : axi_burst_t
+          cache_width : axi_cache_t
+          prot_width : axi_prot_t
+          resp_width : axi_resp_t
+          qos_width : axi_qos_t
+          region_width : axi_region_t
+          awuser_width: chip_axi_ht_awuser_t
+          wuser_width: chip_axi_ht_wuser_t
+          buser_width: chip_axi_ht_buser_t
+          aruser_width: chip_axi_ht_aruser_t
+          ruser_width: chip_axi_ht_ruser_t
+        }
+        self: {
+          data_width : lpddr_graph_targ_ht_axi_data_t
+          strb_width : lpddr_graph_targ_ht_axi_strb_t
+          id_width: lpddr_graph_targ_ht_axi_id_t
+        }
+      }
+    }
+    cfg:{
+      type: apb3_s
+      param: {
+        shared: {
+          addr_w : lpddr_targ_phy_cfg_apb3_addr_t
+          size_w : lpddr_targ_phy_cfg_apb3_data_t
+          size_r : lpddr_targ_phy_cfg_apb3_data_t
+        }
+        self: {
+        }
+      }
+    }
+    syscfg:{
+      type: apb4_s
+      param: {
+        shared: {
+          addr_w : chip_syscfg_addr_t
+          size_w : chip_apb_syscfg_data_t
+          strb_w : chip_apb_syscfg_strb_t
+          size_r : chip_apb_syscfg_data_t
+        }
+        self: {
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,20 @@
+package:
+  name: aic_ls_uvm_fcov
+  description: "aic_ls functional coverage"
+  authors:
+    - "fernando.yokota@axelera.ai"
+
+dependencies:
+  v_utils_pkg:                       { path: "$REPO_ROOT/hw/dv/v_utils"}
+  svt_amba_vip:                      { path: "$REPO_ROOT/hw/dv/svt_amba_vip"}
+  ai_core_token_agent_uvm_pkg:       { path: "$REPO_ROOT/hw/dv/token_agent"}
+  mmio_agent_uvm_pkg:                { path: "$REPO_ROOT/hw/dv/mmio_agent"}
+  aic_ls_uvm_agent:                  { path: "../agents/aic_ls" }
+  aic_ls_uvm_dmc_agt:                { path: "../agents/dmc_addr_gen" }
+
+sources:
+  - target: simulation
+    include_dirs:
+      - .
+    files:
+      - aic_ls_coverage_pkg.sv

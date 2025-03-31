@@ -1,0 +1,38 @@
+set time scale 1.000000 ps ;
+set strobe_window time 500 ; 
+
+timeplate gen_tp1 =
+    force_pi 0;
+    measure_po 250;  
+    pulse_clock 5000 4999 ; 
+    period 10000 ;
+end;
+set default_timeplate gen_tp1;
+
+procedure test_setup =
+    timeplate gen_tp1 ;
+
+      cycle=
+        force trst 0;
+        force bisr_reset 0;
+      end;
+
+// Section 2.2 PUB databook
+//
+// 10. If using the TDR interface, it must be reset using the following procedure
+//   a. TDRCLK must be running (Step 2)
+//   b. Drive WRSTN=0 (asynchronous or synchronous to TDCLK)
+//   c. Wait a minimum of 1us
+//   d. Drive WRSTN=1 (must be synchronous with TDCLK)
+
+      loop 10 =
+       cycle=
+         pulse tck ; 
+       end;
+      end;
+      
+      cycle =
+        force trst 1;
+      end;
+
+end;

@@ -1,0 +1,105 @@
+// (C) Copyright 2024 Axelera AI B.V.
+// All Rights Reserved
+// *** Axelera AI Confidential ***
+//
+// Owner: Joao Martins <joao.martins@axelera.ai>
+//
+// Description: hjson desc for ddr_west_clock_gen CSRs
+
+// Copyright lowRISC contributors.
+// Licensed under the Apache License, Version 2.0, see LICENSE for details.
+// SPDX-License-Identifier: Apache-2.0
+{ name: "ddr_west_clock_gen_csr",
+  clocking: [{clock: "clk_i", reset: "rst_ni"}],
+  bus_interfaces: [{protocol: "tlul", direction: "device"}],
+  regwidth: "32",
+  addrcap: "0x10000",
+  registers: [
+    { skipto: "0x200" },
+    { name: "PLL_RESET",
+      desc: "PLL control and status register.",
+      swaccess: "rw",
+      hwaccess: "hro",
+      fields: [
+        { bits: "1",
+          name: "RESET",
+          desc: '''Write 0 to this bit to reset (or hold in reset) the PLL.''',
+          resval: "0"
+        }
+      ]
+    },
+    { name: "PLL_BYPASS",
+      desc: "PLL control and status register.",
+      swaccess: "rw",
+      hwaccess: "hro",
+      fields: [
+        { bits: "1",
+          name: "BYPASS",
+          desc: '''Write 1 to this bit to enable PWM pulses on the
+                   corresponding channel.''',
+          resval: "0"
+        }
+      ]
+    },
+    { name: "PLL_LOCK",
+      desc: "PLL has locked.",
+      swaccess: "ro",
+      hwaccess: "hrw",
+      fields: [
+        { bits: "0",
+          name: "LOCK",
+          desc: '''Status field for SW to see if PLL has locked.'''
+        }
+      ]
+    },
+    { name: "PLL_DIVIDER",
+      desc: "PLL divider settings.",
+      swaccess: "rw",
+      hwaccess: "hro",
+      fields: [
+        { bits: "5:0",
+          name: "REF_OUTPUT_DIVIDER",
+          desc: '''Reference output divider. Both REF and post-divide
+                   REF must be within the range specified in Table 1.
+                   (binary value + 1 : 000000 = ÷1)''',
+          resval: "0"
+        },
+        { bits: "15:6",
+          name: "FEEDBACK_DIVIDER",
+          desc: '''Feedback divider binary value.
+                   VCO must be within the range specified in Table 1.
+                   (binary value + 1 : 000000000 = ÷1)''',
+          resval: "0"
+        },
+        { bits: "18:16",
+          name: "PRE_OUTPUT_DIVIDER",
+          desc: '''Settings must maintain the PLL operational
+                   value) ranges specified in Table 1. Valid divider values
+                   are 2, 4, 8, 16, 32, 64, 128.
+                   001 = ÷2
+                   010 = ÷4
+                   011 = ÷8
+                   100 = ÷16
+                   101 = ÷32
+                   110 = ÷64
+                   111 = ÷128
+                '''
+          resval: "1"
+        }
+      ]
+    },
+    { name: "CLK_SELECT",
+      desc: "Select clock source by id.",
+      swaccess: "rw",
+      hwaccess: "hrw",
+      hwqe: "true",
+      fields: [
+        { bits: "31:0",
+          name: "SELECT",
+          desc: '''Select''',
+          resval: "0"
+        }
+      ]
+    },
+  ]
+}

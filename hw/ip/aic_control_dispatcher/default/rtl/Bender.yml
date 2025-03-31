@@ -1,0 +1,53 @@
+# (C) Copyright 2024 Axelera AI B.V.
+# All Rights Reserved
+# *** Axelera AI Confidential ***
+
+package:
+  name: aic_control_dispatcher
+  description: "Offloads AI Core Datapath control operations from a CPU"
+  authors:
+    - "Wolfgang Roenninger <wolfgang.roenninger@axelera.ai>"
+
+dependencies:
+  # Own package is dependency always
+  # aic_common_pkg:             { path: "hw/ip/aic_common/default/rtl/pkg" }
+  aic_control_dispatcher_pkg: { path: "" }
+  axe_tcl_pkg:                { path: "" }
+  axe_tcl:                    { path: "" }
+  # Reuse common infrastructure
+  cc_lib_pkg:                 { path: "" }
+  cc_lib:                     { path: "" }
+  # For AXI calculations
+  axi_pkg:                    { path: "" }
+  axi:                        { path: "" }
+  # IPs needed
+  cmdblock:                   { path: "" }
+  # For the CSRs
+  lowrisc_prim_subreg:        { path: "" }
+  axi4_common:                { path: "" }
+
+
+# Source files grouped in levels.
+# Files in level 0 have no dependencies on files in this package.
+# Files in level 1 only depend on files in level 0, files in level 2 on files in levels 1 and 0, etc.
+# Files within a level are ordered alphabetically.
+sources:
+  - target: rtl
+    files:
+      # Level 0
+      - build_reg/aic_cd_csr_reg_top.sv
+      - aic_cd_address_patching.sv
+      - aic_cd_axi_merge.sv
+      - aic_cd_axi_read.sv
+      - aic_cd_copy_read_request.sv
+      - aic_cd_copy_write_request.sv
+      - aic_cd_execute.sv
+      - aic_cd_fill_counters.sv
+      - aic_cd_instruction_request.sv
+      - aic_cd_instruction_validate.sv
+      - aic_cd_token_unit.sv
+      # Level 1
+      - aic_cd_instruction_fetch.sv
+      - aic_cd_copy_unit.sv
+      # Level 2
+      - aic_cd.sv

@@ -1,0 +1,13 @@
+#!/usr/bin/env bash
+
+set -e
+
+VENV=.venv/soc_periph_gen_cov_script
+
+SOC_PERIPH_DV_PATH="$REPO_ROOT/hw/impl/europa/blocks/soc_periph/dv"
+
+make -C $REPO_ROOT/bin venv VENV=$VENV FILE=$SOC_PERIPH_DV_PATH/coverage/requirements.txt > /dev/null 2>&1
+
+source $REPO_ROOT/bin/$VENV/bin/activate
+$SOC_PERIPH_DV_PATH/gen_cov_script.py $@
+deactivate

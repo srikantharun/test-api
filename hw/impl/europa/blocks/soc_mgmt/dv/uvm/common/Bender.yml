@@ -1,0 +1,21 @@
+# (C) Copyright 2024 Axelera AI B.V.
+# All Rights Reserved
+# *** Axelera AI Confidential ***
+
+package:
+  name: soc_mgmt_uvm_common
+  description: "soc_mgmt_ common verification definitions"
+  authors:
+    - "timir.soni@axelera.ai"
+
+dependencies:
+  europa_asic_pkg:             { path: "../../../asic/rtl/pkg" }
+  svt_amba_vip:                { path: "../../../../../../dv/svt_amba_vip"}
+  soc_mgmt_uvm_ral:                 { path: "../ral" }
+
+sources:
+  - target: simulation
+    include_dirs:
+      - .
+    files:
+      - soc_mgmt_common_pkg.sv

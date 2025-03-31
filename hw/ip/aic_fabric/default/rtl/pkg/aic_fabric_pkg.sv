@@ -1,0 +1,461 @@
+// (C) Copyright Axelera AI 2023
+// All Rights Reserved
+// *** Axelera AI Confidential ***
+//
+// Description: axi fabric external decoder parameters, Generated based on fabric_slave.hjson
+// Owner: Luyi <yi.lu@axelera.ai>
+
+`ifndef AIC_FABRIC_PKG_SV
+`define AIC_FABRIC_PKG_SV
+
+package aic_fabric_pkg;
+  import aipu_addr_map_pkg::*;
+  import aic_addr_map_pkg::*;
+  import aic_common_pkg::AIC_LT_AXI_ADDR_WIDTH;
+  import aic_common_pkg::AIC_CID_LSB;
+  import aic_common_pkg::AIC_CID_WIDTH;
+
+  parameter int AIC_FABRIC_CORE_ID_LSB = AIC_CID_LSB;
+  parameter int AIC_FABRIC_CORE_ID_W = AIC_CID_WIDTH;
+  parameter int AIC_FABRIC_NUM_CORE = 8;
+  parameter int AIC_FABRIC_CORE_ID[AIC_FABRIC_NUM_CORE] = {1, 2, 3, 4, 5, 6, 7, 8};
+  parameter int AIC_FABRIC_AXI_AW = AIC_LT_AXI_ADDR_WIDTH;
+
+  // external decoder related paras
+
+  // CONFIG
+  // default
+  parameter int AIC_FABRIC_CONFIG_NUM_SLAVES = 8;
+  parameter int AIC_FABRIC_CONFIG_NUM_MASTERS = 2;
+
+  parameter int AIC_FABRIC_CONFIG_NUM_ADDR_REGION = 9;
+  parameter longint AIC_FABRIC_CONFIG_ADDR_S[AIC_FABRIC_CONFIG_NUM_ADDR_REGION] = {
+
+    AICORE_0_ST_ADDR
+    ,
+    AICORE_0_CONFIGURATION_PERIPHERALS_TOKEN_MANAGER_ST_ADDR
+    ,
+    AICORE_0_CONFIGURATION_PERIPHERALS_CSR_ST_ADDR
+    ,
+    AICORE_0_CONFIGURATION_PERIPHERALS_TIMESTAMP_UNIT_ST_ADDR
+    ,
+    AICORE_0_CONFIGURATION_PERIPHERALS_PLIC_ST_ADDR
+    ,
+    AICORE_0_CONFIGURATION_CONTROL_LP_DMA_ST_ADDR
+    ,
+    AICORE_0_CONFIGURATION_CONTROL_ST_ADDR
+    ,
+    AICORE_0_CONFIGURATION_PERIPHERALS_CSR_MID_ST_ADDR
+    ,
+    AICORE_0_DATAPATH_ST_ADDR
+  };
+
+  parameter longint AIC_FABRIC_CONFIG_ADDR_E[AIC_FABRIC_CONFIG_NUM_ADDR_REGION] = {
+    AICORE_0_CONFIGURATION_PERIPHERALS_MAILBOX_END_ADDR
+    ,
+    AICORE_0_CONFIGURATION_PERIPHERALS_TOKEN_MANAGER_END_ADDR
+    ,
+    AICORE_0_CONFIGURATION_PERIPHERALS_CSR_INFRA_END_ADDR
+    ,
+    AICORE_0_CONFIGURATION_PERIPHERALS_TIMESTAMP_UNIT_END_ADDR
+    ,
+    AICORE_0_CONFIGURATION_PERIPHERALS_PLIC_END_ADDR
+    ,
+    AICORE_0_CONFIGURATION_CONTROL_LP_DMA_END_ADDR
+    ,
+    AICORE_0_CONFIGURATION_CONTROL_ACD_END_ADDR
+    ,
+    AICORE_0_CONFIGURATION_PERIPHERALS_CSR_END_ADDR
+    ,
+    AICORE_0_DATAPATH_INSTRUCTIONS_END_ADDR
+  };
+
+  parameter bit AIC_FABRIC_CONFIG_REGION_IS_CORE[AIC_FABRIC_CONFIG_NUM_ADDR_REGION] = {
+    1
+    ,
+    1
+    ,
+    1
+    ,
+    1
+    ,
+    1
+    ,
+    1
+    ,
+    1
+    ,
+    1
+    ,
+    1
+  };
+
+  parameter int AIC_FABRIC_CONFIG_DEFAULT_SLAVE = 0;
+  parameter int AIC_FABRIC_CONFIG_NOT_THIS_CORE_SLAVE = 0;
+
+  parameter int AIC_FABRIC_CONFIG_SL_IDX[AIC_FABRIC_CONFIG_NUM_ADDR_REGION] = {
+      1
+    ,
+      2
+    ,
+      3
+    ,
+      4
+    ,
+      5
+    ,
+      6
+    ,
+      7
+    ,
+      8
+    ,
+      8
+  };
+  // LP
+  // default
+  parameter int AIC_FABRIC_LP_NUM_SLAVES = 3;
+  parameter int AIC_FABRIC_LP_NUM_MASTERS = 6;
+
+  parameter int AIC_FABRIC_LP_NUM_ADDR_REGION = 2;
+  parameter longint AIC_FABRIC_LP_ADDR_S[AIC_FABRIC_LP_NUM_ADDR_REGION] = {
+
+    AICORE_0_L1_ST_ADDR
+    ,
+    AICORE_0_SPM_ST_ADDR
+  };
+
+  parameter longint AIC_FABRIC_LP_ADDR_E[AIC_FABRIC_LP_NUM_ADDR_REGION] = {
+    AICORE_0_L1_END_ADDR
+    ,
+    AICORE_0_SPM_END_ADDR
+  };
+
+  parameter bit AIC_FABRIC_LP_REGION_IS_CORE[AIC_FABRIC_LP_NUM_ADDR_REGION] = {
+    1
+    ,
+    1
+  };
+
+  parameter int AIC_FABRIC_LP_DEFAULT_SLAVE = 0;
+  parameter int AIC_FABRIC_LP_NOT_THIS_CORE_SLAVE = 3;
+
+  parameter int AIC_FABRIC_LP_SL_IDX[AIC_FABRIC_LP_NUM_ADDR_REGION] = {
+      1
+    ,
+      2
+  };
+  // HP
+  // default
+  parameter int AIC_FABRIC_HP_NUM_SLAVES = 3;
+  parameter int AIC_FABRIC_HP_NUM_MASTERS = 3;
+
+  parameter int AIC_FABRIC_HP_NUM_ADDR_REGION = 3;
+  parameter longint AIC_FABRIC_HP_ADDR_S[AIC_FABRIC_HP_NUM_ADDR_REGION] = {
+
+    AICORE_0_L1_ST_ADDR
+    ,
+    L2_ST_ADDR
+    ,
+    DDR_0_ST_ADDR
+  };
+
+  parameter longint AIC_FABRIC_HP_ADDR_E[AIC_FABRIC_HP_NUM_ADDR_REGION] = {
+    AICORE_0_L1_END_ADDR
+    ,
+    L2_END_ADDR
+    ,
+    DDR_1_END_ADDR
+  };
+
+  parameter bit AIC_FABRIC_HP_REGION_IS_CORE[AIC_FABRIC_HP_NUM_ADDR_REGION] = {
+    1
+    ,
+    0
+    ,
+    0
+  };
+
+  parameter int AIC_FABRIC_HP_DEFAULT_SLAVE = 1;
+  parameter int AIC_FABRIC_HP_NOT_THIS_CORE_SLAVE = 1;
+
+  parameter int AIC_FABRIC_HP_SL_IDX[AIC_FABRIC_HP_NUM_ADDR_REGION] = {
+      2
+    ,
+      3
+    ,
+      3
+  };
+  // CONTROL
+  // default
+  parameter int AIC_FABRIC_CONTROL_NUM_SLAVES = 2;
+  parameter int AIC_FABRIC_CONTROL_NUM_MASTERS = 2;
+
+  parameter int AIC_FABRIC_CONTROL_NUM_ADDR_REGION = 7;
+  parameter longint AIC_FABRIC_CONTROL_ADDR_S[AIC_FABRIC_CONTROL_NUM_ADDR_REGION] = {
+
+    AICORE_0_DATAPATH_CSR_DMA_ST_ADDR
+    ,
+    AICORE_0_DATAPATH_COMMAND_DMA_ST_ADDR
+    ,
+    AICORE_0_DATAPATH_INSTRUCTIONS_DMA_ST_ADDR
+    ,
+    AICORE_0_CONFIGURATION_PERIPHERALS_CSR_MID_ST_ADDR
+    ,
+    AICORE_0_DATAPATH_ST_ADDR
+    ,
+    AICORE_0_DATAPATH_COMMAND_ST_ADDR
+    ,
+    AICORE_0_DATAPATH_INSTRUCTIONS_ST_ADDR
+  };
+
+  parameter longint AIC_FABRIC_CONTROL_ADDR_E[AIC_FABRIC_CONTROL_NUM_ADDR_REGION] = {
+    AICORE_0_DATAPATH_CSR_END_ADDR
+    ,
+    AICORE_0_DATAPATH_COMMAND_END_ADDR
+    ,
+    AICORE_0_DATAPATH_INSTRUCTIONS_END_ADDR
+    ,
+    AICORE_0_CONFIGURATION_PERIPHERALS_CSR_END_ADDR
+    ,
+    AICORE_0_DATAPATH_CSR_DID_END_ADDR
+    ,
+    AICORE_0_DATAPATH_COMMAND_DID_END_ADDR
+    ,
+    AICORE_0_DATAPATH_INSTRUCTIONS_DID_END_ADDR
+  };
+
+  parameter bit AIC_FABRIC_CONTROL_REGION_IS_CORE[AIC_FABRIC_CONTROL_NUM_ADDR_REGION] = {
+    1
+    ,
+    1
+    ,
+    1
+    ,
+    1
+    ,
+    1
+    ,
+    1
+    ,
+    1
+  };
+
+  parameter int AIC_FABRIC_CONTROL_DEFAULT_SLAVE = 0;
+  parameter int AIC_FABRIC_CONTROL_NOT_THIS_CORE_SLAVE = 0;
+
+  parameter int AIC_FABRIC_CONTROL_SL_IDX[AIC_FABRIC_CONTROL_NUM_ADDR_REGION] = {
+      1
+    ,
+      1
+    ,
+      1
+    ,
+      2
+    ,
+      2
+    ,
+      2
+    ,
+      2
+  };
+  // CVA6_DEMUX
+  // default
+  parameter int AIC_FABRIC_CVA6_DEMUX_NUM_SLAVES = 2;
+  parameter int AIC_FABRIC_CVA6_DEMUX_NUM_MASTERS = 1;
+
+  parameter int AIC_FABRIC_CVA6_DEMUX_NUM_ADDR_REGION = 8;
+  parameter longint AIC_FABRIC_CVA6_DEMUX_ADDR_S[AIC_FABRIC_CVA6_DEMUX_NUM_ADDR_REGION] = {
+
+    L2_ST_ADDR
+    ,
+    AICORE_0_SPM_ST_ADDR
+    ,
+    AICORE_0_L1_ST_ADDR
+    ,
+    DDR_0_ST_ADDR
+    ,
+    AICORE_0_ST_ADDR
+    ,
+    AICORE_0_CONFIGURATION_PERIPHERALS_TIMESTAMP_UNIT_ST_ADDR
+    ,
+    AICORE_0_CONFIGURATION_CONTROL_ST_ADDR
+    ,
+    AICORE_0_DATAPATH_ST_ADDR
+  };
+
+  parameter longint AIC_FABRIC_CVA6_DEMUX_ADDR_E[AIC_FABRIC_CVA6_DEMUX_NUM_ADDR_REGION] = {
+    L2_END_ADDR
+    ,
+    AICORE_0_SPM_END_ADDR
+    ,
+    AICORE_0_L1_END_ADDR
+    ,
+    DDR_1_END_ADDR
+    ,
+    AICORE_0_CONFIGURATION_PERIPHERALS_CSR_INFRA_END_ADDR
+    ,
+    AICORE_0_CONFIGURATION_PERIPHERALS_PLIC_END_ADDR
+    ,
+    AICORE_0_CONFIGURATION_CONTROL_LP_DMA_END_ADDR
+    ,
+    AICORE_0_DATAPATH_INSTRUCTIONS_END_ADDR
+  };
+
+  parameter bit AIC_FABRIC_CVA6_DEMUX_REGION_IS_CORE[AIC_FABRIC_CVA6_DEMUX_NUM_ADDR_REGION] = {
+    0
+    ,
+    1
+    ,
+    1
+    ,
+    0
+    ,
+    1
+    ,
+    1
+    ,
+    1
+    ,
+    1
+  };
+
+  parameter int AIC_FABRIC_CVA6_DEMUX_DEFAULT_SLAVE = 0;
+  parameter int AIC_FABRIC_CVA6_DEMUX_NOT_THIS_CORE_SLAVE = 1;
+
+  parameter int AIC_FABRIC_CVA6_DEMUX_SL_IDX[AIC_FABRIC_CVA6_DEMUX_NUM_ADDR_REGION] = {
+      1
+    ,
+      1
+    ,
+      1
+    ,
+      1
+    ,
+      2
+    ,
+      2
+    ,
+      2
+    ,
+      2
+  };
+  // NOC_LP_S_DEMUX
+  // default
+  parameter int AIC_FABRIC_NOC_LP_S_DEMUX_NUM_SLAVES = 2;
+  parameter int AIC_FABRIC_NOC_LP_S_DEMUX_NUM_MASTERS = 1;
+
+  parameter int AIC_FABRIC_NOC_LP_S_DEMUX_NUM_ADDR_REGION = 5;
+  parameter longint AIC_FABRIC_NOC_LP_S_DEMUX_ADDR_S[AIC_FABRIC_NOC_LP_S_DEMUX_NUM_ADDR_REGION] = {
+
+    AICORE_0_ST_ADDR
+    ,
+    AICORE_0_CONFIGURATION_CONTROL_ST_ADDR
+    ,
+    AICORE_0_DATAPATH_ST_ADDR
+    ,
+    AICORE_0_SPM_ST_ADDR
+    ,
+    AICORE_0_L1_ST_ADDR
+  };
+
+  parameter longint AIC_FABRIC_NOC_LP_S_DEMUX_ADDR_E[AIC_FABRIC_NOC_LP_S_DEMUX_NUM_ADDR_REGION] = {
+    AICORE_0_CONFIGURATION_PERIPHERALS_PLIC_END_ADDR
+    ,
+    AICORE_0_CONFIGURATION_CONTROL_LP_DMA_END_ADDR
+    ,
+    AICORE_0_DATAPATH_INSTRUCTIONS_END_ADDR
+    ,
+    AICORE_0_SPM_END_ADDR
+    ,
+    AICORE_0_L1_END_ADDR
+  };
+
+  parameter bit AIC_FABRIC_NOC_LP_S_DEMUX_REGION_IS_CORE[AIC_FABRIC_NOC_LP_S_DEMUX_NUM_ADDR_REGION] = {
+    1
+    ,
+    1
+    ,
+    1
+    ,
+    1
+    ,
+    1
+  };
+
+  parameter int AIC_FABRIC_NOC_LP_S_DEMUX_DEFAULT_SLAVE = 0;
+  parameter int AIC_FABRIC_NOC_LP_S_DEMUX_NOT_THIS_CORE_SLAVE = 0;
+
+  parameter int AIC_FABRIC_NOC_LP_S_DEMUX_SL_IDX[AIC_FABRIC_NOC_LP_S_DEMUX_NUM_ADDR_REGION] = {
+      1
+    ,
+      1
+    ,
+      1
+    ,
+      2
+    ,
+      2
+  };
+  // ACD_DEMUX
+  // default
+  parameter int AIC_FABRIC_ACD_DEMUX_NUM_SLAVES = 2;
+  parameter int AIC_FABRIC_ACD_DEMUX_NUM_MASTERS = 1;
+
+  parameter int AIC_FABRIC_ACD_DEMUX_NUM_ADDR_REGION = 2;
+  parameter longint AIC_FABRIC_ACD_DEMUX_ADDR_S[AIC_FABRIC_ACD_DEMUX_NUM_ADDR_REGION] = {
+
+    AICORE_0_SPM_ST_ADDR
+    ,
+    AICORE_0_DATAPATH_ST_ADDR
+  };
+
+  parameter longint AIC_FABRIC_ACD_DEMUX_ADDR_E[AIC_FABRIC_ACD_DEMUX_NUM_ADDR_REGION] = {
+    AICORE_0_SPM_END_ADDR
+    ,
+    AICORE_0_DATAPATH_INSTRUCTIONS_END_ADDR
+  };
+
+  parameter bit AIC_FABRIC_ACD_DEMUX_REGION_IS_CORE[AIC_FABRIC_ACD_DEMUX_NUM_ADDR_REGION] = {
+    1
+    ,
+    1
+  };
+
+  parameter int AIC_FABRIC_ACD_DEMUX_DEFAULT_SLAVE = 0;
+  parameter int AIC_FABRIC_ACD_DEMUX_NOT_THIS_CORE_SLAVE = 0;
+
+  parameter int AIC_FABRIC_ACD_DEMUX_SL_IDX[AIC_FABRIC_ACD_DEMUX_NUM_ADDR_REGION] = {
+      1
+    ,
+      2
+  };
+  // DATAPATH_FIREWALL
+  // default
+  parameter int AIC_FABRIC_DATAPATH_FIREWALL_NUM_SLAVES = 1;
+  parameter int AIC_FABRIC_DATAPATH_FIREWALL_NUM_MASTERS = 1;
+
+  parameter int AIC_FABRIC_DATAPATH_FIREWALL_NUM_ADDR_REGION = 1;
+  parameter longint AIC_FABRIC_DATAPATH_FIREWALL_ADDR_S[AIC_FABRIC_DATAPATH_FIREWALL_NUM_ADDR_REGION] = {
+
+    AICORE_0_DATAPATH_COMMAND_ST_ADDR
+  };
+
+  parameter longint AIC_FABRIC_DATAPATH_FIREWALL_ADDR_E[AIC_FABRIC_DATAPATH_FIREWALL_NUM_ADDR_REGION] = {
+    AICORE_0_DATAPATH_COMMAND_END_ADDR
+  };
+
+  parameter bit AIC_FABRIC_DATAPATH_FIREWALL_REGION_IS_CORE[AIC_FABRIC_DATAPATH_FIREWALL_NUM_ADDR_REGION] = {
+    1
+  };
+
+  parameter int AIC_FABRIC_DATAPATH_FIREWALL_DEFAULT_SLAVE = 0;
+  parameter int AIC_FABRIC_DATAPATH_FIREWALL_NOT_THIS_CORE_SLAVE = 0;
+
+  parameter int AIC_FABRIC_DATAPATH_FIREWALL_SL_IDX[AIC_FABRIC_DATAPATH_FIREWALL_NUM_ADDR_REGION] = {
+      1
+  };
+
+endpackage
+
+`endif // AIC_FABRIC_PKG_SV

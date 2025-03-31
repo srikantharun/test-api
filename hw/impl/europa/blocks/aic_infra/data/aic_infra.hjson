@@ -1,0 +1,51 @@
+{
+  top: aic_infra
+  top_path: "{REPO_ROOT}/hw/impl/europa/blocks/aic_infra/rtl/aic_infra_gen.sv"
+  top_ports: {
+    i_clk : input
+    i_rst_n : input
+    noc_ht_axi_m : axi_m
+    dmc_l1_ht_axi_m : axi_m
+    dmc_l1_lt_axi_m : axi_m
+    noc_lt_axi_s : axi_s
+    noc_lt_axi_m : axi_m
+  }
+  ip_info: {
+    aic_fabric: "{REPO_ROOT}/hw/ip/aic_fabric/default/rtl/aic_fabric.sv"
+    ai_core_cva6v: "{REPO_ROOT}/hw/impl/europa/blocks/ai_core_cva6v/rtl/ai_core_cva6v.sv"
+  }
+  pkg_info: [
+    "{REPO_ROOT}/hw/ip/aic_common/default/rtl/pkg/"
+    "{REPO_ROOT}/hw/impl/europa/asic/rtl/pkg/chip_pkg.sv"
+    "{REPO_ROOT}/hw/ip/axi/default/rtl/pkg/axi_pkg.sv"
+  ]
+  localparam: {
+    "int unsigned": {
+      RvvPortSizeWidth: "$clog2(cva6v_ai_core_pkg::MemPortBeWidth)"
+    }
+  }
+  mapping_info: {
+    aic_fabric: {
+      inst: 1
+      pair_info: {
+        aic_infra: {
+          aclk : clk
+          rst_n : rst_n
+          noc_lp_s_demux_axi_m_01 : noc_lt_axi_s
+          lp_axi_s_03 : noc_lt_axi_m
+          hp_axi_s_03 : noc_ht_axi_m
+        }
+      }
+    }
+    ai_core_cva6v: {
+      inst: 1
+      pair_info: {
+        aic_infra: {
+          clk : clk
+          rst_n : rst_n
+        }
+      }
+    }
+  }
+}
+

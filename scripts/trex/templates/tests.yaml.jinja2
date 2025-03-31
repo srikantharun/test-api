@@ -1,0 +1,109 @@
+{%- macro render_testlist(scenarios) -%}
+{%- set enable_apu = namespace() -%}
+{%- set enable_aicore0 = namespace() -%}
+{%- set enable_aicore1 = namespace() -%}
+{%- set enable_aicore2 = namespace() -%}
+{%- set enable_aicore3 = namespace() -%}
+{%- set enable_aicore4 = namespace() -%}
+{%- set enable_aicore5 = namespace() -%}
+{%- set enable_aicore6 = namespace() -%}
+{%- set enable_aicore7 = namespace() -%}
+{%- set enable_pve0 = namespace() -%}
+{%- set enable_pve1 = namespace() -%}
+tests:
+{%- for scenario in scenarios %}
+  {# Reset enable_apu and enable_aicores for each scenario #}
+  {%- set enable_apu.value = true -%}
+  {%- set enable_aicore0.value = false -%}
+  {%- set enable_aicore1.value = false -%}
+  {%- set enable_aicore2.value = false -%}
+  {%- set enable_aicore3.value = false -%}
+  {%- set enable_aicore4.value = false -%}
+  {%- set enable_aicore5.value = false -%}
+  {%- set enable_aicore6.value = false -%}
+  {%- set enable_aicore7.value = false -%}
+  {%- set enable_pve0.value = false -%}
+  {%- set enable_pve1.value = false -%}
+
+  {# Loop through tasks to determine if APU or AI task.resources are required #}
+  {%- for task in scenario.tasks -%}
+      {%- if 'APU' in task.resource-%}
+        {%- set enable_apu.value = true -%}
+     {%- endif -%}
+      {%- if 'AI0' in task.resource -%}
+        {%- set enable_aicore0.value = true -%}
+      {%- endif -%}
+      {%- if 'AI1' in task.resource -%}
+        {%- set enable_aicore1.value = true -%}
+      {%- endif -%}
+      {%- if 'AI2' in task.resource -%}
+        {%- set enable_aicore2.value = true -%}
+      {%- endif -%}
+      {%- if 'AI3' in task.resource -%}
+        {%- set enable_aicore3.value = true -%}
+      {%- endif -%}
+      {%- if 'AI4' in task.resource -%}
+        {%- set enable_aicore4.value = true -%}
+      {%- endif -%}
+      {%- if 'AI5' in task.resource -%}
+        {%- set enable_aicore5.value = true -%}
+      {%- endif -%}
+      {%- if 'AI6' in task.resource -%}
+        {%- set enable_aicore6.value = true -%}
+      {%- endif -%}
+      {%- if 'AI7' in task.resource -%}
+        {%- set enable_aicore7.value = true -%}
+      {%- endif -%}
+      {%- if 'PVE0' in task.resource -%}
+        {%- set enable_pve0.value = true -%}
+      {%- endif -%}
+      {%- if 'PVE1' in task.resource -%}
+        {%- set enable_pve1.value = true -%}
+      {%- endif -%}
+
+  {%- endfor -%}
+  {%- set any_aicore_enabled = enable_aicore0.value or enable_aicore1.value or enable_aicore2.value or enable_aicore3.value or enable_aicore4.value or enable_aicore5.value or enable_aicore6.value or enable_aicore7.value-%}
+  - name: {{ scenario.name }}
+    description: Auto-generated TREX test.
+    labels: [{{", ".join(scenario.label)}}]
+    requirement_ids: [{{", ".join(scenario.requirement_ids)}}]
+    platforms: [ {%- if any_aicore_enabled -%} aicore.*, {%- endif -%} top.*]
+    owner: Spyridoula Koumousi
+    {%-if enable_apu.value %}
+    apu: [generated/{{ scenario.name }}/{{ scenario.name }}_apu.c ,../lib/common/drv/trex/trex_utils.c]
+    {%- endif -%}
+    {%- if enable_aicore0.value %}
+    aicore0: [generated/{{ scenario.name }}/{{ scenario.name }}_ai0.c ,../lib/common/drv/trex/trex_utils.c]
+    {%- endif -%}
+    {%- if enable_aicore1.value %}
+    aicore1: [generated/{{ scenario.name }}/{{ scenario.name }}_ai1.c ,../lib/common/drv/trex/trex_utils.c]
+    {%- endif -%}
+    {%- if enable_aicore2.value %}
+    aicore2: [generated/{{ scenario.name }}/{{ scenario.name }}_ai2.c ,../lib/common/drv/trex/trex_utils.c]
+    {%- endif -%}
+    {%- if enable_aicore3.value %}
+    aicore3: [generated/{{ scenario.name }}/{{ scenario.name }}_ai3.c ,../lib/common/drv/trex/trex_utils.c]
+    {%- endif -%}
+    {%- if enable_aicore4.value %}
+    aicore4: [generated/{{ scenario.name }}/{{ scenario.name }}_ai4.c ,../lib/common/drv/trex/trex_utils.c]
+    {%- endif -%}
+    {%- if enable_aicore5.value %}
+    aicore5: [generated/{{ scenario.name }}/{{ scenario.name }}_ai5.c ,../lib/common/drv/trex/trex_utils.c]
+    {%- endif -%}
+    {%- if enable_aicore6.value %}
+    aicore6: [generated/{{ scenario.name }}/{{ scenario.name }}_ai6.c ,../lib/common/drv/trex/trex_utils.c]
+    {%- endif -%}
+    {%- if enable_aicore7.value %}
+    aicore7: [generated/{{ scenario.name }}/{{ scenario.name }}_ai7.c ,../lib/common/drv/trex/trex_utils.c]
+    {%- endif -%}
+    {%- if enable_pve0.value %}
+    pve0: [generated/{{ scenario.name }}/{{ scenario.name }}_pve0.c ,../lib/common/drv/trex/trex_utils.c]
+    {%- endif -%}
+    {%- if enable_pve1.value %}
+    pve1: [generated/{{ scenario.name }}/{{ scenario.name }}_pve1.c ,../lib/common/drv/trex/trex_utils.c]
+    {%- endif -%}
+
+{% endfor -%}
+{% endmacro -%}
+{{ render_testlist(scenarios)}}
+

@@ -1,0 +1,21 @@
+# (C) Copyright 2024 Axelera AI B.V.
+# All Rights Reserved
+# *** Axelera AI Confidential ***
+
+package:
+  name: soc_mgmt_uvm_ral
+  description: "UVM Register Access Layer for SMU"
+  authors:
+    - "timir.soni@axelera.ai"
+
+dependencies:
+  svt_amba_vip:                { path: "../../../../../../../dv/svt_amba_vip"}
+  lowrisc_dv_base_reg:         { path: "../../../../../../../vendor/axelera/lowrisc_dv/dv_base_reg"}
+  v_utils_pkg:                 { path: "../../../../../../../dv/v_utils"}
+
+sources:
+  - target: simulation
+    include_dirs:
+      - .
+    files:
+      - soc_mgmt_ral_pkg.sv

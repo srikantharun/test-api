@@ -1,0 +1,22 @@
+# (C) Copyright 2024 Axelera AI B.V.
+# All Rights Reserved
+# *** Axelera AI Confidential ***
+
+package:
+  name: europa_noc_h_west
+  description: "Europa NoC West Sub-partition"
+  authors:
+    - "Joao Martins <joao.martins@axelera.ai>"
+    - "Tasos Psarras <anastasios.psarras@axelera.ai>"
+
+dependencies:
+  europa_noc_common: { path: "" }
+  noc_h_west: { path: "${EUROPA_NOC_HOME}/noc_h_west/rtl"}
+
+sources:
+  - target: rtl
+    files:
+    - noc_h_west.sv
+    - target: all(rtl, not(dft))
+      files:
+      - noc_h_west_p.sv

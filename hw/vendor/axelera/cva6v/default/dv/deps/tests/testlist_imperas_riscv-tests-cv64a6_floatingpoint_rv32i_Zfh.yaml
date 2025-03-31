@@ -1,0 +1,858 @@
+- test: FMSUB-H-RTZ-01
+  iterations: 1
+  path_var: TESTS_PATH
+  gcc_opts: "-DVLEN=4096 -static -mcmodel=medany -fvisibility=hidden -nostdlib -nostartfiles -I<path_var>/../../asm/env"
+  asm_tests: <path_var>/imperas-riscv-tests/riscv-test-suite/rv32i_m/Zfh/src/FMSUB-H-RTZ-01.S
+
+- test: FLH-01
+  iterations: 1
+  path_var: TESTS_PATH
+  gcc_opts: "-DVLEN=4096 -static -mcmodel=medany -fvisibility=hidden -nostdlib -nostartfiles -I<path_var>/../../asm/env"
+  asm_tests: <path_var>/imperas-riscv-tests/riscv-test-suite/rv32i_m/Zfh/src/FLH-01.S
+
+- test: FNMSUB-H-DYN-RNE-01
+  iterations: 1
+  path_var: TESTS_PATH
+  gcc_opts: "-DVLEN=4096 -static -mcmodel=medany -fvisibility=hidden -nostdlib -nostartfiles -I<path_var>/../../asm/env"
+  asm_tests: <path_var>/imperas-riscv-tests/riscv-test-suite/rv32i_m/Zfh/src/FNMSUB-H-DYN-RNE-01.S
+
+- test: FCVT-H-WU-DYN-RTZ-01
+  iterations: 1
+  path_var: TESTS_PATH
+  gcc_opts: "-DVLEN=4096 -static -mcmodel=medany -fvisibility=hidden -nostdlib -nostartfiles -I<path_var>/../../asm/env"
+  asm_tests: <path_var>/imperas-riscv-tests/riscv-test-suite/rv32i_m/Zfh/src/FCVT-H-WU-DYN-RTZ-01.S
+
+- test: FMADD-H-DYN-RUP-01
+  iterations: 1
+  path_var: TESTS_PATH
+  gcc_opts: "-DVLEN=4096 -static -mcmodel=medany -fvisibility=hidden -nostdlib -nostartfiles -I<path_var>/../../asm/env"
+  asm_tests: <path_var>/imperas-riscv-tests/riscv-test-suite/rv32i_m/Zfh/src/FMADD-H-DYN-RUP-01.S
+
+- test: FADD-H-RTZ-01
+  iterations: 1
+  path_var: TESTS_PATH
+  gcc_opts: "-DVLEN=4096 -static -mcmodel=medany -fvisibility=hidden -nostdlib -nostartfiles -I<path_var>/../../asm/env"
+  asm_tests: <path_var>/imperas-riscv-tests/riscv-test-suite/rv32i_m/Zfh/src/FADD-H-RTZ-01.S
+
+- test: FSQRT-H-DYN-RNE-01
+  iterations: 1
+  path_var: TESTS_PATH
+  gcc_opts: "-DVLEN=4096 -static -mcmodel=medany -fvisibility=hidden -nostdlib -nostartfiles -I<path_var>/../../asm/env"
+  asm_tests: <path_var>/imperas-riscv-tests/riscv-test-suite/rv32i_m/Zfh/src/FSQRT-H-DYN-RNE-01.S
+
+- test: FMSUB-H-DYN-RMM-01
+  iterations: 1
+  path_var: TESTS_PATH
+  gcc_opts: "-DVLEN=4096 -static -mcmodel=medany -fvisibility=hidden -nostdlib -nostartfiles -I<path_var>/../../asm/env"
+  asm_tests: <path_var>/imperas-riscv-tests/riscv-test-suite/rv32i_m/Zfh/src/FMSUB-H-DYN-RMM-01.S
+
+- test: FDIV-H-DYN-RUP-01
+  iterations: 1
+  path_var: TESTS_PATH
+  gcc_opts: "-DVLEN=4096 -static -mcmodel=medany -fvisibility=hidden -nostdlib -nostartfiles -I<path_var>/../../asm/env"
+  asm_tests: <path_var>/imperas-riscv-tests/riscv-test-suite/rv32i_m/Zfh/src/FDIV-H-DYN-RUP-01.S
+
+- test: FMUL-H-DYN-RMM-01
+  iterations: 1
+  path_var: TESTS_PATH
+  gcc_opts: "-DVLEN=4096 -static -mcmodel=medany -fvisibility=hidden -nostdlib -nostartfiles -I<path_var>/../../asm/env"
+  asm_tests: <path_var>/imperas-riscv-tests/riscv-test-suite/rv32i_m/Zfh/src/FMUL-H-DYN-RMM-01.S
+
+- test: FMADD-H-DYN-RTZ-01
+  iterations: 1
+  path_var: TESTS_PATH
+  gcc_opts: "-DVLEN=4096 -static -mcmodel=medany -fvisibility=hidden -nostdlib -nostartfiles -I<path_var>/../../asm/env"
+  asm_tests: <path_var>/imperas-riscv-tests/riscv-test-suite/rv32i_m/Zfh/src/FMADD-H-DYN-RTZ-01.S
+
+- test: FSH-01
+  iterations: 1
+  path_var: TESTS_PATH
+  gcc_opts: "-DVLEN=4096 -static -mcmodel=medany -fvisibility=hidden -nostdlib -nostartfiles -I<path_var>/../../asm/env"
+  asm_tests: <path_var>/imperas-riscv-tests/riscv-test-suite/rv32i_m/Zfh/src/FSH-01.S
+
+- test: FSUB-H-DYN-RNE-01
+  iterations: 1
+  path_var: TESTS_PATH
+  gcc_opts: "-DVLEN=4096 -static -mcmodel=medany -fvisibility=hidden -nostdlib -nostartfiles -I<path_var>/../../asm/env"
+  asm_tests: <path_var>/imperas-riscv-tests/riscv-test-suite/rv32i_m/Zfh/src/FSUB-H-DYN-RNE-01.S
+
+- test: FDIV-H-RTZ-01
+  iterations: 1
+  path_var: TESTS_PATH
+  gcc_opts: "-DVLEN=4096 -static -mcmodel=medany -fvisibility=hidden -nostdlib -nostartfiles -I<path_var>/../../asm/env"
+  asm_tests: <path_var>/imperas-riscv-tests/riscv-test-suite/rv32i_m/Zfh/src/FDIV-H-RTZ-01.S
+
+- test: FDIV-H-RUP-01
+  iterations: 1
+  path_var: TESTS_PATH
+  gcc_opts: "-DVLEN=4096 -static -mcmodel=medany -fvisibility=hidden -nostdlib -nostartfiles -I<path_var>/../../asm/env"
+  asm_tests: <path_var>/imperas-riscv-tests/riscv-test-suite/rv32i_m/Zfh/src/FDIV-H-RUP-01.S
+
+- test: FCVT-H-W-DYN-RDN-01
+  iterations: 1
+  path_var: TESTS_PATH
+  gcc_opts: "-DVLEN=4096 -static -mcmodel=medany -fvisibility=hidden -nostdlib -nostartfiles -I<path_var>/../../asm/env"
+  asm_tests: <path_var>/imperas-riscv-tests/riscv-test-suite/rv32i_m/Zfh/src/FCVT-H-W-DYN-RDN-01.S
+
+- test: FSQRT-H-DYN-RUP-01
+  iterations: 1
+  path_var: TESTS_PATH
+  gcc_opts: "-DVLEN=4096 -static -mcmodel=medany -fvisibility=hidden -nostdlib -nostartfiles -I<path_var>/../../asm/env"
+  asm_tests: <path_var>/imperas-riscv-tests/riscv-test-suite/rv32i_m/Zfh/src/FSQRT-H-DYN-RUP-01.S
+
+- test: FSQRT-H-DYN-RDN-01
+  iterations: 1
+  path_var: TESTS_PATH
+  gcc_opts: "-DVLEN=4096 -static -mcmodel=medany -fvisibility=hidden -nostdlib -nostartfiles -I<path_var>/../../asm/env"
+  asm_tests: <path_var>/imperas-riscv-tests/riscv-test-suite/rv32i_m/Zfh/src/FSQRT-H-DYN-RDN-01.S
+
+- test: FCVT-H-WU-RTZ-01
+  iterations: 1
+  path_var: TESTS_PATH
+  gcc_opts: "-DVLEN=4096 -static -mcmodel=medany -fvisibility=hidden -nostdlib -nostartfiles -I<path_var>/../../asm/env"
+  asm_tests: <path_var>/imperas-riscv-tests/riscv-test-suite/rv32i_m/Zfh/src/FCVT-H-WU-RTZ-01.S
+
+- test: FSUB-H-RTZ-01
+  iterations: 1
+  path_var: TESTS_PATH
+  gcc_opts: "-DVLEN=4096 -static -mcmodel=medany -fvisibility=hidden -nostdlib -nostartfiles -I<path_var>/../../asm/env"
+  asm_tests: <path_var>/imperas-riscv-tests/riscv-test-suite/rv32i_m/Zfh/src/FSUB-H-RTZ-01.S
+
+- test: FSQRT-H-RDN-01
+  iterations: 1
+  path_var: TESTS_PATH
+  gcc_opts: "-DVLEN=4096 -static -mcmodel=medany -fvisibility=hidden -nostdlib -nostartfiles -I<path_var>/../../asm/env"
+  asm_tests: <path_var>/imperas-riscv-tests/riscv-test-suite/rv32i_m/Zfh/src/FSQRT-H-RDN-01.S
+
+- test: FMUL-H-RMM-01
+  iterations: 1
+  path_var: TESTS_PATH
+  gcc_opts: "-DVLEN=4096 -static -mcmodel=medany -fvisibility=hidden -nostdlib -nostartfiles -I<path_var>/../../asm/env"
+  asm_tests: <path_var>/imperas-riscv-tests/riscv-test-suite/rv32i_m/Zfh/src/FMUL-H-RMM-01.S
+
+- test: FCVT-WU-H-DYN-RUP-01
+  iterations: 1
+  path_var: TESTS_PATH
+  gcc_opts: "-DVLEN=4096 -static -mcmodel=medany -fvisibility=hidden -nostdlib -nostartfiles -I<path_var>/../../asm/env"
+  asm_tests: <path_var>/imperas-riscv-tests/riscv-test-suite/rv32i_m/Zfh/src/FCVT-WU-H-DYN-RUP-01.S
+
+- test: FMUL-H-RTZ-01
+  iterations: 1
+  path_var: TESTS_PATH
+  gcc_opts: "-DVLEN=4096 -static -mcmodel=medany -fvisibility=hidden -nostdlib -nostartfiles -I<path_var>/../../asm/env"
+  asm_tests: <path_var>/imperas-riscv-tests/riscv-test-suite/rv32i_m/Zfh/src/FMUL-H-RTZ-01.S
+
+- test: FADD-H-DYN-RNE-01
+  iterations: 1
+  path_var: TESTS_PATH
+  gcc_opts: "-DVLEN=4096 -static -mcmodel=medany -fvisibility=hidden -nostdlib -nostartfiles -I<path_var>/../../asm/env"
+  asm_tests: <path_var>/imperas-riscv-tests/riscv-test-suite/rv32i_m/Zfh/src/FADD-H-DYN-RNE-01.S
+
+- test: FCVT-H-W-RTZ-01
+  iterations: 1
+  path_var: TESTS_PATH
+  gcc_opts: "-DVLEN=4096 -static -mcmodel=medany -fvisibility=hidden -nostdlib -nostartfiles -I<path_var>/../../asm/env"
+  asm_tests: <path_var>/imperas-riscv-tests/riscv-test-suite/rv32i_m/Zfh/src/FCVT-H-W-RTZ-01.S
+
+- test: FCVT-H-W-DYN-RUP-01
+  iterations: 1
+  path_var: TESTS_PATH
+  gcc_opts: "-DVLEN=4096 -static -mcmodel=medany -fvisibility=hidden -nostdlib -nostartfiles -I<path_var>/../../asm/env"
+  asm_tests: <path_var>/imperas-riscv-tests/riscv-test-suite/rv32i_m/Zfh/src/FCVT-H-W-DYN-RUP-01.S
+
+- test: FSGNJN-H-01
+  iterations: 1
+  path_var: TESTS_PATH
+  gcc_opts: "-DVLEN=4096 -static -mcmodel=medany -fvisibility=hidden -nostdlib -nostartfiles -I<path_var>/../../asm/env"
+  asm_tests: <path_var>/imperas-riscv-tests/riscv-test-suite/rv32i_m/Zfh/src/FSGNJN-H-01.S
+
+- test: FNMSUB-H-RMM-01
+  iterations: 1
+  path_var: TESTS_PATH
+  gcc_opts: "-DVLEN=4096 -static -mcmodel=medany -fvisibility=hidden -nostdlib -nostartfiles -I<path_var>/../../asm/env"
+  asm_tests: <path_var>/imperas-riscv-tests/riscv-test-suite/rv32i_m/Zfh/src/FNMSUB-H-RMM-01.S
+
+- test: FMUL-H-RNE-01
+  iterations: 1
+  path_var: TESTS_PATH
+  gcc_opts: "-DVLEN=4096 -static -mcmodel=medany -fvisibility=hidden -nostdlib -nostartfiles -I<path_var>/../../asm/env"
+  asm_tests: <path_var>/imperas-riscv-tests/riscv-test-suite/rv32i_m/Zfh/src/FMUL-H-RNE-01.S
+
+- test: FEQ-H-01
+  iterations: 1
+  path_var: TESTS_PATH
+  gcc_opts: "-DVLEN=4096 -static -mcmodel=medany -fvisibility=hidden -nostdlib -nostartfiles -I<path_var>/../../asm/env"
+  asm_tests: <path_var>/imperas-riscv-tests/riscv-test-suite/rv32i_m/Zfh/src/FEQ-H-01.S
+
+- test: FCVT-WU-H-RUP-01
+  iterations: 1
+  path_var: TESTS_PATH
+  gcc_opts: "-DVLEN=4096 -static -mcmodel=medany -fvisibility=hidden -nostdlib -nostartfiles -I<path_var>/../../asm/env"
+  asm_tests: <path_var>/imperas-riscv-tests/riscv-test-suite/rv32i_m/Zfh/src/FCVT-WU-H-RUP-01.S
+
+- test: FMSUB-H-DYN-RDN-01
+  iterations: 1
+  path_var: TESTS_PATH
+  gcc_opts: "-DVLEN=4096 -static -mcmodel=medany -fvisibility=hidden -nostdlib -nostartfiles -I<path_var>/../../asm/env"
+  asm_tests: <path_var>/imperas-riscv-tests/riscv-test-suite/rv32i_m/Zfh/src/FMSUB-H-DYN-RDN-01.S
+
+- test: FSQRT-H-RNE-01
+  iterations: 1
+  path_var: TESTS_PATH
+  gcc_opts: "-DVLEN=4096 -static -mcmodel=medany -fvisibility=hidden -nostdlib -nostartfiles -I<path_var>/../../asm/env"
+  asm_tests: <path_var>/imperas-riscv-tests/riscv-test-suite/rv32i_m/Zfh/src/FSQRT-H-RNE-01.S
+
+- test: FMUL-H-DYN-RNE-01
+  iterations: 1
+  path_var: TESTS_PATH
+  gcc_opts: "-DVLEN=4096 -static -mcmodel=medany -fvisibility=hidden -nostdlib -nostartfiles -I<path_var>/../../asm/env"
+  asm_tests: <path_var>/imperas-riscv-tests/riscv-test-suite/rv32i_m/Zfh/src/FMUL-H-DYN-RNE-01.S
+
+- test: FCVT-WU-H-DYN-RNE-01
+  iterations: 1
+  path_var: TESTS_PATH
+  gcc_opts: "-DVLEN=4096 -static -mcmodel=medany -fvisibility=hidden -nostdlib -nostartfiles -I<path_var>/../../asm/env"
+  asm_tests: <path_var>/imperas-riscv-tests/riscv-test-suite/rv32i_m/Zfh/src/FCVT-WU-H-DYN-RNE-01.S
+
+- test: FCVT-WU-H-RTZ-01
+  iterations: 1
+  path_var: TESTS_PATH
+  gcc_opts: "-DVLEN=4096 -static -mcmodel=medany -fvisibility=hidden -nostdlib -nostartfiles -I<path_var>/../../asm/env"
+  asm_tests: <path_var>/imperas-riscv-tests/riscv-test-suite/rv32i_m/Zfh/src/FCVT-WU-H-RTZ-01.S
+
+- test: FNMADD-H-DYN-RUP-01
+  iterations: 1
+  path_var: TESTS_PATH
+  gcc_opts: "-DVLEN=4096 -static -mcmodel=medany -fvisibility=hidden -nostdlib -nostartfiles -I<path_var>/../../asm/env"
+  asm_tests: <path_var>/imperas-riscv-tests/riscv-test-suite/rv32i_m/Zfh/src/FNMADD-H-DYN-RUP-01.S
+
+- test: FMADD-H-RDN-01
+  iterations: 1
+  path_var: TESTS_PATH
+  gcc_opts: "-DVLEN=4096 -static -mcmodel=medany -fvisibility=hidden -nostdlib -nostartfiles -I<path_var>/../../asm/env"
+  asm_tests: <path_var>/imperas-riscv-tests/riscv-test-suite/rv32i_m/Zfh/src/FMADD-H-RDN-01.S
+
+- test: FMSUB-H-DYN-RUP-01
+  iterations: 1
+  path_var: TESTS_PATH
+  gcc_opts: "-DVLEN=4096 -static -mcmodel=medany -fvisibility=hidden -nostdlib -nostartfiles -I<path_var>/../../asm/env"
+  asm_tests: <path_var>/imperas-riscv-tests/riscv-test-suite/rv32i_m/Zfh/src/FMSUB-H-DYN-RUP-01.S
+
+- test: FADD-H-RNE-01
+  iterations: 1
+  path_var: TESTS_PATH
+  gcc_opts: "-DVLEN=4096 -static -mcmodel=medany -fvisibility=hidden -nostdlib -nostartfiles -I<path_var>/../../asm/env"
+  asm_tests: <path_var>/imperas-riscv-tests/riscv-test-suite/rv32i_m/Zfh/src/FADD-H-RNE-01.S
+
+- test: FSUB-H-DYN-RMM-01
+  iterations: 1
+  path_var: TESTS_PATH
+  gcc_opts: "-DVLEN=4096 -static -mcmodel=medany -fvisibility=hidden -nostdlib -nostartfiles -I<path_var>/../../asm/env"
+  asm_tests: <path_var>/imperas-riscv-tests/riscv-test-suite/rv32i_m/Zfh/src/FSUB-H-DYN-RMM-01.S
+
+- test: FNMADD-H-RTZ-01
+  iterations: 1
+  path_var: TESTS_PATH
+  gcc_opts: "-DVLEN=4096 -static -mcmodel=medany -fvisibility=hidden -nostdlib -nostartfiles -I<path_var>/../../asm/env"
+  asm_tests: <path_var>/imperas-riscv-tests/riscv-test-suite/rv32i_m/Zfh/src/FNMADD-H-RTZ-01.S
+
+- test: FDIV-H-RDN-01
+  iterations: 1
+  path_var: TESTS_PATH
+  gcc_opts: "-DVLEN=4096 -static -mcmodel=medany -fvisibility=hidden -nostdlib -nostartfiles -I<path_var>/../../asm/env"
+  asm_tests: <path_var>/imperas-riscv-tests/riscv-test-suite/rv32i_m/Zfh/src/FDIV-H-RDN-01.S
+
+- test: FSUB-H-RDN-01
+  iterations: 1
+  path_var: TESTS_PATH
+  gcc_opts: "-DVLEN=4096 -static -mcmodel=medany -fvisibility=hidden -nostdlib -nostartfiles -I<path_var>/../../asm/env"
+  asm_tests: <path_var>/imperas-riscv-tests/riscv-test-suite/rv32i_m/Zfh/src/FSUB-H-RDN-01.S
+
+- test: FMUL-H-RDN-01
+  iterations: 1
+  path_var: TESTS_PATH
+  gcc_opts: "-DVLEN=4096 -static -mcmodel=medany -fvisibility=hidden -nostdlib -nostartfiles -I<path_var>/../../asm/env"
+  asm_tests: <path_var>/imperas-riscv-tests/riscv-test-suite/rv32i_m/Zfh/src/FMUL-H-RDN-01.S
+
+- test: FADD-H-RDN-01
+  iterations: 1
+  path_var: TESTS_PATH
+  gcc_opts: "-DVLEN=4096 -static -mcmodel=medany -fvisibility=hidden -nostdlib -nostartfiles -I<path_var>/../../asm/env"
+  asm_tests: <path_var>/imperas-riscv-tests/riscv-test-suite/rv32i_m/Zfh/src/FADD-H-RDN-01.S
+
+- test: FNMADD-H-RMM-01
+  iterations: 1
+  path_var: TESTS_PATH
+  gcc_opts: "-DVLEN=4096 -static -mcmodel=medany -fvisibility=hidden -nostdlib -nostartfiles -I<path_var>/../../asm/env"
+  asm_tests: <path_var>/imperas-riscv-tests/riscv-test-suite/rv32i_m/Zfh/src/FNMADD-H-RMM-01.S
+
+- test: FNMADD-H-DYN-RDN-01
+  iterations: 1
+  path_var: TESTS_PATH
+  gcc_opts: "-DVLEN=4096 -static -mcmodel=medany -fvisibility=hidden -nostdlib -nostartfiles -I<path_var>/../../asm/env"
+  asm_tests: <path_var>/imperas-riscv-tests/riscv-test-suite/rv32i_m/Zfh/src/FNMADD-H-DYN-RDN-01.S
+
+- test: FMIN-H-01
+  iterations: 1
+  path_var: TESTS_PATH
+  gcc_opts: "-DVLEN=4096 -static -mcmodel=medany -fvisibility=hidden -nostdlib -nostartfiles -I<path_var>/../../asm/env"
+  asm_tests: <path_var>/imperas-riscv-tests/riscv-test-suite/rv32i_m/Zfh/src/FMIN-H-01.S
+
+- test: FCVT-H-WU-DYN-RNE-01
+  iterations: 1
+  path_var: TESTS_PATH
+  gcc_opts: "-DVLEN=4096 -static -mcmodel=medany -fvisibility=hidden -nostdlib -nostartfiles -I<path_var>/../../asm/env"
+  asm_tests: <path_var>/imperas-riscv-tests/riscv-test-suite/rv32i_m/Zfh/src/FCVT-H-WU-DYN-RNE-01.S
+
+- test: FSUB-H-DYN-RDN-01
+  iterations: 1
+  path_var: TESTS_PATH
+  gcc_opts: "-DVLEN=4096 -static -mcmodel=medany -fvisibility=hidden -nostdlib -nostartfiles -I<path_var>/../../asm/env"
+  asm_tests: <path_var>/imperas-riscv-tests/riscv-test-suite/rv32i_m/Zfh/src/FSUB-H-DYN-RDN-01.S
+
+- test: FMSUB-H-RUP-01
+  iterations: 1
+  path_var: TESTS_PATH
+  gcc_opts: "-DVLEN=4096 -static -mcmodel=medany -fvisibility=hidden -nostdlib -nostartfiles -I<path_var>/../../asm/env"
+  asm_tests: <path_var>/imperas-riscv-tests/riscv-test-suite/rv32i_m/Zfh/src/FMSUB-H-RUP-01.S
+
+- test: FCVT-WU-H-DYN-RMM-01
+  iterations: 1
+  path_var: TESTS_PATH
+  gcc_opts: "-DVLEN=4096 -static -mcmodel=medany -fvisibility=hidden -nostdlib -nostartfiles -I<path_var>/../../asm/env"
+  asm_tests: <path_var>/imperas-riscv-tests/riscv-test-suite/rv32i_m/Zfh/src/FCVT-WU-H-DYN-RMM-01.S
+
+- test: FADD-H-RMM-01
+  iterations: 1
+  path_var: TESTS_PATH
+  gcc_opts: "-DVLEN=4096 -static -mcmodel=medany -fvisibility=hidden -nostdlib -nostartfiles -I<path_var>/../../asm/env"
+  asm_tests: <path_var>/imperas-riscv-tests/riscv-test-suite/rv32i_m/Zfh/src/FADD-H-RMM-01.S
+
+- test: FMAX-H-01
+  iterations: 1
+  path_var: TESTS_PATH
+  gcc_opts: "-DVLEN=4096 -static -mcmodel=medany -fvisibility=hidden -nostdlib -nostartfiles -I<path_var>/../../asm/env"
+  asm_tests: <path_var>/imperas-riscv-tests/riscv-test-suite/rv32i_m/Zfh/src/FMAX-H-01.S
+
+- test: FMUL-H-DYN-RTZ-01
+  iterations: 1
+  path_var: TESTS_PATH
+  gcc_opts: "-DVLEN=4096 -static -mcmodel=medany -fvisibility=hidden -nostdlib -nostartfiles -I<path_var>/../../asm/env"
+  asm_tests: <path_var>/imperas-riscv-tests/riscv-test-suite/rv32i_m/Zfh/src/FMUL-H-DYN-RTZ-01.S
+
+- test: FMADD-H-DYN-RMM-01
+  iterations: 1
+  path_var: TESTS_PATH
+  gcc_opts: "-DVLEN=4096 -static -mcmodel=medany -fvisibility=hidden -nostdlib -nostartfiles -I<path_var>/../../asm/env"
+  asm_tests: <path_var>/imperas-riscv-tests/riscv-test-suite/rv32i_m/Zfh/src/FMADD-H-DYN-RMM-01.S
+
+- test: FMADD-H-RNE-01
+  iterations: 1
+  path_var: TESTS_PATH
+  gcc_opts: "-DVLEN=4096 -static -mcmodel=medany -fvisibility=hidden -nostdlib -nostartfiles -I<path_var>/../../asm/env"
+  asm_tests: <path_var>/imperas-riscv-tests/riscv-test-suite/rv32i_m/Zfh/src/FMADD-H-RNE-01.S
+
+- test: FCVT-W-H-DYN-RUP-01
+  iterations: 1
+  path_var: TESTS_PATH
+  gcc_opts: "-DVLEN=4096 -static -mcmodel=medany -fvisibility=hidden -nostdlib -nostartfiles -I<path_var>/../../asm/env"
+  asm_tests: <path_var>/imperas-riscv-tests/riscv-test-suite/rv32i_m/Zfh/src/FCVT-W-H-DYN-RUP-01.S
+
+- test: FSUB-H-RUP-01
+  iterations: 1
+  path_var: TESTS_PATH
+  gcc_opts: "-DVLEN=4096 -static -mcmodel=medany -fvisibility=hidden -nostdlib -nostartfiles -I<path_var>/../../asm/env"
+  asm_tests: <path_var>/imperas-riscv-tests/riscv-test-suite/rv32i_m/Zfh/src/FSUB-H-RUP-01.S
+
+- test: FCVT-W-H-DYN-RTZ-01
+  iterations: 1
+  path_var: TESTS_PATH
+  gcc_opts: "-DVLEN=4096 -static -mcmodel=medany -fvisibility=hidden -nostdlib -nostartfiles -I<path_var>/../../asm/env"
+  asm_tests: <path_var>/imperas-riscv-tests/riscv-test-suite/rv32i_m/Zfh/src/FCVT-W-H-DYN-RTZ-01.S
+
+- test: FSQRT-H-RMM-01
+  iterations: 1
+  path_var: TESTS_PATH
+  gcc_opts: "-DVLEN=4096 -static -mcmodel=medany -fvisibility=hidden -nostdlib -nostartfiles -I<path_var>/../../asm/env"
+  asm_tests: <path_var>/imperas-riscv-tests/riscv-test-suite/rv32i_m/Zfh/src/FSQRT-H-RMM-01.S
+
+- test: FNMADD-H-RDN-01
+  iterations: 1
+  path_var: TESTS_PATH
+  gcc_opts: "-DVLEN=4096 -static -mcmodel=medany -fvisibility=hidden -nostdlib -nostartfiles -I<path_var>/../../asm/env"
+  asm_tests: <path_var>/imperas-riscv-tests/riscv-test-suite/rv32i_m/Zfh/src/FNMADD-H-RDN-01.S
+
+- test: FCVT-WU-H-DYN-RTZ-01
+  iterations: 1
+  path_var: TESTS_PATH
+  gcc_opts: "-DVLEN=4096 -static -mcmodel=medany -fvisibility=hidden -nostdlib -nostartfiles -I<path_var>/../../asm/env"
+  asm_tests: <path_var>/imperas-riscv-tests/riscv-test-suite/rv32i_m/Zfh/src/FCVT-WU-H-DYN-RTZ-01.S
+
+- test: FCVT-H-WU-DYN-RDN-01
+  iterations: 1
+  path_var: TESTS_PATH
+  gcc_opts: "-DVLEN=4096 -static -mcmodel=medany -fvisibility=hidden -nostdlib -nostartfiles -I<path_var>/../../asm/env"
+  asm_tests: <path_var>/imperas-riscv-tests/riscv-test-suite/rv32i_m/Zfh/src/FCVT-H-WU-DYN-RDN-01.S
+
+- test: FMSUB-H-RMM-01
+  iterations: 1
+  path_var: TESTS_PATH
+  gcc_opts: "-DVLEN=4096 -static -mcmodel=medany -fvisibility=hidden -nostdlib -nostartfiles -I<path_var>/../../asm/env"
+  asm_tests: <path_var>/imperas-riscv-tests/riscv-test-suite/rv32i_m/Zfh/src/FMSUB-H-RMM-01.S
+
+- test: FMADD-H-DYN-RNE-01
+  iterations: 1
+  path_var: TESTS_PATH
+  gcc_opts: "-DVLEN=4096 -static -mcmodel=medany -fvisibility=hidden -nostdlib -nostartfiles -I<path_var>/../../asm/env"
+  asm_tests: <path_var>/imperas-riscv-tests/riscv-test-suite/rv32i_m/Zfh/src/FMADD-H-DYN-RNE-01.S
+
+- test: FSQRT-H-DYN-RTZ-01
+  iterations: 1
+  path_var: TESTS_PATH
+  gcc_opts: "-DVLEN=4096 -static -mcmodel=medany -fvisibility=hidden -nostdlib -nostartfiles -I<path_var>/../../asm/env"
+  asm_tests: <path_var>/imperas-riscv-tests/riscv-test-suite/rv32i_m/Zfh/src/FSQRT-H-DYN-RTZ-01.S
+
+- test: FCVT-H-W-RDN-01
+  iterations: 1
+  path_var: TESTS_PATH
+  gcc_opts: "-DVLEN=4096 -static -mcmodel=medany -fvisibility=hidden -nostdlib -nostartfiles -I<path_var>/../../asm/env"
+  asm_tests: <path_var>/imperas-riscv-tests/riscv-test-suite/rv32i_m/Zfh/src/FCVT-H-W-RDN-01.S
+
+- test: FMSUB-H-DYN-RTZ-01
+  iterations: 1
+  path_var: TESTS_PATH
+  gcc_opts: "-DVLEN=4096 -static -mcmodel=medany -fvisibility=hidden -nostdlib -nostartfiles -I<path_var>/../../asm/env"
+  asm_tests: <path_var>/imperas-riscv-tests/riscv-test-suite/rv32i_m/Zfh/src/FMSUB-H-DYN-RTZ-01.S
+
+- test: FSQRT-H-RUP-01
+  iterations: 1
+  path_var: TESTS_PATH
+  gcc_opts: "-DVLEN=4096 -static -mcmodel=medany -fvisibility=hidden -nostdlib -nostartfiles -I<path_var>/../../asm/env"
+  asm_tests: <path_var>/imperas-riscv-tests/riscv-test-suite/rv32i_m/Zfh/src/FSQRT-H-RUP-01.S
+
+- test: FNMADD-H-DYN-RNE-01
+  iterations: 1
+  path_var: TESTS_PATH
+  gcc_opts: "-DVLEN=4096 -static -mcmodel=medany -fvisibility=hidden -nostdlib -nostartfiles -I<path_var>/../../asm/env"
+  asm_tests: <path_var>/imperas-riscv-tests/riscv-test-suite/rv32i_m/Zfh/src/FNMADD-H-DYN-RNE-01.S
+
+- test: FCVT-W-H-RNE-01
+  iterations: 1
+  path_var: TESTS_PATH
+  gcc_opts: "-DVLEN=4096 -static -mcmodel=medany -fvisibility=hidden -nostdlib -nostartfiles -I<path_var>/../../asm/env"
+  asm_tests: <path_var>/imperas-riscv-tests/riscv-test-suite/rv32i_m/Zfh/src/FCVT-W-H-RNE-01.S
+
+- test: FCVT-WU-H-RDN-01
+  iterations: 1
+  path_var: TESTS_PATH
+  gcc_opts: "-DVLEN=4096 -static -mcmodel=medany -fvisibility=hidden -nostdlib -nostartfiles -I<path_var>/../../asm/env"
+  asm_tests: <path_var>/imperas-riscv-tests/riscv-test-suite/rv32i_m/Zfh/src/FCVT-WU-H-RDN-01.S
+
+- test: FSUB-H-DYN-RTZ-01
+  iterations: 1
+  path_var: TESTS_PATH
+  gcc_opts: "-DVLEN=4096 -static -mcmodel=medany -fvisibility=hidden -nostdlib -nostartfiles -I<path_var>/../../asm/env"
+  asm_tests: <path_var>/imperas-riscv-tests/riscv-test-suite/rv32i_m/Zfh/src/FSUB-H-DYN-RTZ-01.S
+
+- test: FCVT-W-H-RMM-01
+  iterations: 1
+  path_var: TESTS_PATH
+  gcc_opts: "-DVLEN=4096 -static -mcmodel=medany -fvisibility=hidden -nostdlib -nostartfiles -I<path_var>/../../asm/env"
+  asm_tests: <path_var>/imperas-riscv-tests/riscv-test-suite/rv32i_m/Zfh/src/FCVT-W-H-RMM-01.S
+
+- test: FMUL-H-DYN-RUP-01
+  iterations: 1
+  path_var: TESTS_PATH
+  gcc_opts: "-DVLEN=4096 -static -mcmodel=medany -fvisibility=hidden -nostdlib -nostartfiles -I<path_var>/../../asm/env"
+  asm_tests: <path_var>/imperas-riscv-tests/riscv-test-suite/rv32i_m/Zfh/src/FMUL-H-DYN-RUP-01.S
+
+- test: FDIV-H-DYN-RTZ-01
+  iterations: 1
+  path_var: TESTS_PATH
+  gcc_opts: "-DVLEN=4096 -static -mcmodel=medany -fvisibility=hidden -nostdlib -nostartfiles -I<path_var>/../../asm/env"
+  asm_tests: <path_var>/imperas-riscv-tests/riscv-test-suite/rv32i_m/Zfh/src/FDIV-H-DYN-RTZ-01.S
+
+- test: FNMSUB-H-RTZ-01
+  iterations: 1
+  path_var: TESTS_PATH
+  gcc_opts: "-DVLEN=4096 -static -mcmodel=medany -fvisibility=hidden -nostdlib -nostartfiles -I<path_var>/../../asm/env"
+  asm_tests: <path_var>/imperas-riscv-tests/riscv-test-suite/rv32i_m/Zfh/src/FNMSUB-H-RTZ-01.S
+
+- test: FMADD-H-RTZ-01
+  iterations: 1
+  path_var: TESTS_PATH
+  gcc_opts: "-DVLEN=4096 -static -mcmodel=medany -fvisibility=hidden -nostdlib -nostartfiles -I<path_var>/../../asm/env"
+  asm_tests: <path_var>/imperas-riscv-tests/riscv-test-suite/rv32i_m/Zfh/src/FMADD-H-RTZ-01.S
+
+- test: FLE-H-01
+  iterations: 1
+  path_var: TESTS_PATH
+  gcc_opts: "-DVLEN=4096 -static -mcmodel=medany -fvisibility=hidden -nostdlib -nostartfiles -I<path_var>/../../asm/env"
+  asm_tests: <path_var>/imperas-riscv-tests/riscv-test-suite/rv32i_m/Zfh/src/FLE-H-01.S
+
+- test: FCVT-H-W-DYN-RMM-01
+  iterations: 1
+  path_var: TESTS_PATH
+  gcc_opts: "-DVLEN=4096 -static -mcmodel=medany -fvisibility=hidden -nostdlib -nostartfiles -I<path_var>/../../asm/env"
+  asm_tests: <path_var>/imperas-riscv-tests/riscv-test-suite/rv32i_m/Zfh/src/FCVT-H-W-DYN-RMM-01.S
+
+- test: FADD-H-DYN-RDN-01
+  iterations: 1
+  path_var: TESTS_PATH
+  gcc_opts: "-DVLEN=4096 -static -mcmodel=medany -fvisibility=hidden -nostdlib -nostartfiles -I<path_var>/../../asm/env"
+  asm_tests: <path_var>/imperas-riscv-tests/riscv-test-suite/rv32i_m/Zfh/src/FADD-H-DYN-RDN-01.S
+
+- test: FCVT-W-H-DYN-RMM-01
+  iterations: 1
+  path_var: TESTS_PATH
+  gcc_opts: "-DVLEN=4096 -static -mcmodel=medany -fvisibility=hidden -nostdlib -nostartfiles -I<path_var>/../../asm/env"
+  asm_tests: <path_var>/imperas-riscv-tests/riscv-test-suite/rv32i_m/Zfh/src/FCVT-W-H-DYN-RMM-01.S
+
+- test: FDIV-H-DYN-RMM-01
+  iterations: 1
+  path_var: TESTS_PATH
+  gcc_opts: "-DVLEN=4096 -static -mcmodel=medany -fvisibility=hidden -nostdlib -nostartfiles -I<path_var>/../../asm/env"
+  asm_tests: <path_var>/imperas-riscv-tests/riscv-test-suite/rv32i_m/Zfh/src/FDIV-H-DYN-RMM-01.S
+
+- test: FMSUB-H-DYN-RNE-01
+  iterations: 1
+  path_var: TESTS_PATH
+  gcc_opts: "-DVLEN=4096 -static -mcmodel=medany -fvisibility=hidden -nostdlib -nostartfiles -I<path_var>/../../asm/env"
+  asm_tests: <path_var>/imperas-riscv-tests/riscv-test-suite/rv32i_m/Zfh/src/FMSUB-H-DYN-RNE-01.S
+
+- test: FSQRT-H-RTZ-01
+  iterations: 1
+  path_var: TESTS_PATH
+  gcc_opts: "-DVLEN=4096 -static -mcmodel=medany -fvisibility=hidden -nostdlib -nostartfiles -I<path_var>/../../asm/env"
+  asm_tests: <path_var>/imperas-riscv-tests/riscv-test-suite/rv32i_m/Zfh/src/FSQRT-H-RTZ-01.S
+
+- test: FNMADD-H-DYN-RTZ-01
+  iterations: 1
+  path_var: TESTS_PATH
+  gcc_opts: "-DVLEN=4096 -static -mcmodel=medany -fvisibility=hidden -nostdlib -nostartfiles -I<path_var>/../../asm/env"
+  asm_tests: <path_var>/imperas-riscv-tests/riscv-test-suite/rv32i_m/Zfh/src/FNMADD-H-DYN-RTZ-01.S
+
+- test: FCVT-W-H-RDN-01
+  iterations: 1
+  path_var: TESTS_PATH
+  gcc_opts: "-DVLEN=4096 -static -mcmodel=medany -fvisibility=hidden -nostdlib -nostartfiles -I<path_var>/../../asm/env"
+  asm_tests: <path_var>/imperas-riscv-tests/riscv-test-suite/rv32i_m/Zfh/src/FCVT-W-H-RDN-01.S
+
+- test: FSGNJX-H-01
+  iterations: 1
+  path_var: TESTS_PATH
+  gcc_opts: "-DVLEN=4096 -static -mcmodel=medany -fvisibility=hidden -nostdlib -nostartfiles -I<path_var>/../../asm/env"
+  asm_tests: <path_var>/imperas-riscv-tests/riscv-test-suite/rv32i_m/Zfh/src/FSGNJX-H-01.S
+
+- test: FSUB-H-RNE-01
+  iterations: 1
+  path_var: TESTS_PATH
+  gcc_opts: "-DVLEN=4096 -static -mcmodel=medany -fvisibility=hidden -nostdlib -nostartfiles -I<path_var>/../../asm/env"
+  asm_tests: <path_var>/imperas-riscv-tests/riscv-test-suite/rv32i_m/Zfh/src/FSUB-H-RNE-01.S
+
+- test: FCVT-WU-H-DYN-RDN-01
+  iterations: 1
+  path_var: TESTS_PATH
+  gcc_opts: "-DVLEN=4096 -static -mcmodel=medany -fvisibility=hidden -nostdlib -nostartfiles -I<path_var>/../../asm/env"
+  asm_tests: <path_var>/imperas-riscv-tests/riscv-test-suite/rv32i_m/Zfh/src/FCVT-WU-H-DYN-RDN-01.S
+
+- test: FCVT-H-WU-DYN-RMM-01
+  iterations: 1
+  path_var: TESTS_PATH
+  gcc_opts: "-DVLEN=4096 -static -mcmodel=medany -fvisibility=hidden -nostdlib -nostartfiles -I<path_var>/../../asm/env"
+  asm_tests: <path_var>/imperas-riscv-tests/riscv-test-suite/rv32i_m/Zfh/src/FCVT-H-WU-DYN-RMM-01.S
+
+- test: FNMADD-H-RNE-01
+  iterations: 1
+  path_var: TESTS_PATH
+  gcc_opts: "-DVLEN=4096 -static -mcmodel=medany -fvisibility=hidden -nostdlib -nostartfiles -I<path_var>/../../asm/env"
+  asm_tests: <path_var>/imperas-riscv-tests/riscv-test-suite/rv32i_m/Zfh/src/FNMADD-H-RNE-01.S
+
+- test: FCVT-W-H-DYN-RDN-01
+  iterations: 1
+  path_var: TESTS_PATH
+  gcc_opts: "-DVLEN=4096 -static -mcmodel=medany -fvisibility=hidden -nostdlib -nostartfiles -I<path_var>/../../asm/env"
+  asm_tests: <path_var>/imperas-riscv-tests/riscv-test-suite/rv32i_m/Zfh/src/FCVT-W-H-DYN-RDN-01.S
+
+- test: FMUL-H-DYN-RDN-01
+  iterations: 1
+  path_var: TESTS_PATH
+  gcc_opts: "-DVLEN=4096 -static -mcmodel=medany -fvisibility=hidden -nostdlib -nostartfiles -I<path_var>/../../asm/env"
+  asm_tests: <path_var>/imperas-riscv-tests/riscv-test-suite/rv32i_m/Zfh/src/FMUL-H-DYN-RDN-01.S
+
+- test: FNMADD-H-RUP-01
+  iterations: 1
+  path_var: TESTS_PATH
+  gcc_opts: "-DVLEN=4096 -static -mcmodel=medany -fvisibility=hidden -nostdlib -nostartfiles -I<path_var>/../../asm/env"
+  asm_tests: <path_var>/imperas-riscv-tests/riscv-test-suite/rv32i_m/Zfh/src/FNMADD-H-RUP-01.S
+
+- test: FDIV-H-RNE-01
+  iterations: 1
+  path_var: TESTS_PATH
+  gcc_opts: "-DVLEN=4096 -static -mcmodel=medany -fvisibility=hidden -nostdlib -nostartfiles -I<path_var>/../../asm/env"
+  asm_tests: <path_var>/imperas-riscv-tests/riscv-test-suite/rv32i_m/Zfh/src/FDIV-H-RNE-01.S
+
+- test: FMSUB-H-RNE-01
+  iterations: 1
+  path_var: TESTS_PATH
+  gcc_opts: "-DVLEN=4096 -static -mcmodel=medany -fvisibility=hidden -nostdlib -nostartfiles -I<path_var>/../../asm/env"
+  asm_tests: <path_var>/imperas-riscv-tests/riscv-test-suite/rv32i_m/Zfh/src/FMSUB-H-RNE-01.S
+
+- test: FSQRT-H-DYN-RMM-01
+  iterations: 1
+  path_var: TESTS_PATH
+  gcc_opts: "-DVLEN=4096 -static -mcmodel=medany -fvisibility=hidden -nostdlib -nostartfiles -I<path_var>/../../asm/env"
+  asm_tests: <path_var>/imperas-riscv-tests/riscv-test-suite/rv32i_m/Zfh/src/FSQRT-H-DYN-RMM-01.S
+
+- test: FNMSUB-H-DYN-RTZ-01
+  iterations: 1
+  path_var: TESTS_PATH
+  gcc_opts: "-DVLEN=4096 -static -mcmodel=medany -fvisibility=hidden -nostdlib -nostartfiles -I<path_var>/../../asm/env"
+  asm_tests: <path_var>/imperas-riscv-tests/riscv-test-suite/rv32i_m/Zfh/src/FNMSUB-H-DYN-RTZ-01.S
+
+- test: FCVT-H-WU-RMM-01
+  iterations: 1
+  path_var: TESTS_PATH
+  gcc_opts: "-DVLEN=4096 -static -mcmodel=medany -fvisibility=hidden -nostdlib -nostartfiles -I<path_var>/../../asm/env"
+  asm_tests: <path_var>/imperas-riscv-tests/riscv-test-suite/rv32i_m/Zfh/src/FCVT-H-WU-RMM-01.S
+
+- test: FNMSUB-H-RNE-01
+  iterations: 1
+  path_var: TESTS_PATH
+  gcc_opts: "-DVLEN=4096 -static -mcmodel=medany -fvisibility=hidden -nostdlib -nostartfiles -I<path_var>/../../asm/env"
+  asm_tests: <path_var>/imperas-riscv-tests/riscv-test-suite/rv32i_m/Zfh/src/FNMSUB-H-RNE-01.S
+
+- test: FCVT-H-WU-DYN-RUP-01
+  iterations: 1
+  path_var: TESTS_PATH
+  gcc_opts: "-DVLEN=4096 -static -mcmodel=medany -fvisibility=hidden -nostdlib -nostartfiles -I<path_var>/../../asm/env"
+  asm_tests: <path_var>/imperas-riscv-tests/riscv-test-suite/rv32i_m/Zfh/src/FCVT-H-WU-DYN-RUP-01.S
+
+- test: FDIV-H-DYN-RDN-01
+  iterations: 1
+  path_var: TESTS_PATH
+  gcc_opts: "-DVLEN=4096 -static -mcmodel=medany -fvisibility=hidden -nostdlib -nostartfiles -I<path_var>/../../asm/env"
+  asm_tests: <path_var>/imperas-riscv-tests/riscv-test-suite/rv32i_m/Zfh/src/FDIV-H-DYN-RDN-01.S
+
+- test: FCVT-H-W-DYN-RNE-01
+  iterations: 1
+  path_var: TESTS_PATH
+  gcc_opts: "-DVLEN=4096 -static -mcmodel=medany -fvisibility=hidden -nostdlib -nostartfiles -I<path_var>/../../asm/env"
+  asm_tests: <path_var>/imperas-riscv-tests/riscv-test-suite/rv32i_m/Zfh/src/FCVT-H-W-DYN-RNE-01.S
+
+- test: FSUB-H-RMM-01
+  iterations: 1
+  path_var: TESTS_PATH
+  gcc_opts: "-DVLEN=4096 -static -mcmodel=medany -fvisibility=hidden -nostdlib -nostartfiles -I<path_var>/../../asm/env"
+  asm_tests: <path_var>/imperas-riscv-tests/riscv-test-suite/rv32i_m/Zfh/src/FSUB-H-RMM-01.S
+
+- test: FNMSUB-H-DYN-RDN-01
+  iterations: 1
+  path_var: TESTS_PATH
+  gcc_opts: "-DVLEN=4096 -static -mcmodel=medany -fvisibility=hidden -nostdlib -nostartfiles -I<path_var>/../../asm/env"
+  asm_tests: <path_var>/imperas-riscv-tests/riscv-test-suite/rv32i_m/Zfh/src/FNMSUB-H-DYN-RDN-01.S
+
+- test: FCVT-WU-H-RNE-01
+  iterations: 1
+  path_var: TESTS_PATH
+  gcc_opts: "-DVLEN=4096 -static -mcmodel=medany -fvisibility=hidden -nostdlib -nostartfiles -I<path_var>/../../asm/env"
+  asm_tests: <path_var>/imperas-riscv-tests/riscv-test-suite/rv32i_m/Zfh/src/FCVT-WU-H-RNE-01.S
+
+- test: FCVT-W-H-RUP-01
+  iterations: 1
+  path_var: TESTS_PATH
+  gcc_opts: "-DVLEN=4096 -static -mcmodel=medany -fvisibility=hidden -nostdlib -nostartfiles -I<path_var>/../../asm/env"
+  asm_tests: <path_var>/imperas-riscv-tests/riscv-test-suite/rv32i_m/Zfh/src/FCVT-W-H-RUP-01.S
+
+- test: FADD-H-DYN-RTZ-01
+  iterations: 1
+  path_var: TESTS_PATH
+  gcc_opts: "-DVLEN=4096 -static -mcmodel=medany -fvisibility=hidden -nostdlib -nostartfiles -I<path_var>/../../asm/env"
+  asm_tests: <path_var>/imperas-riscv-tests/riscv-test-suite/rv32i_m/Zfh/src/FADD-H-DYN-RTZ-01.S
+
+- test: FNMSUB-H-DYN-RUP-01
+  iterations: 1
+  path_var: TESTS_PATH
+  gcc_opts: "-DVLEN=4096 -static -mcmodel=medany -fvisibility=hidden -nostdlib -nostartfiles -I<path_var>/../../asm/env"
+  asm_tests: <path_var>/imperas-riscv-tests/riscv-test-suite/rv32i_m/Zfh/src/FNMSUB-H-DYN-RUP-01.S
+
+- test: FMUL-H-RUP-01
+  iterations: 1
+  path_var: TESTS_PATH
+  gcc_opts: "-DVLEN=4096 -static -mcmodel=medany -fvisibility=hidden -nostdlib -nostartfiles -I<path_var>/../../asm/env"
+  asm_tests: <path_var>/imperas-riscv-tests/riscv-test-suite/rv32i_m/Zfh/src/FMUL-H-RUP-01.S
+
+- test: FCVT-H-W-DYN-RTZ-01
+  iterations: 1
+  path_var: TESTS_PATH
+  gcc_opts: "-DVLEN=4096 -static -mcmodel=medany -fvisibility=hidden -nostdlib -nostartfiles -I<path_var>/../../asm/env"
+  asm_tests: <path_var>/imperas-riscv-tests/riscv-test-suite/rv32i_m/Zfh/src/FCVT-H-W-DYN-RTZ-01.S
+
+- test: FMV-H-X-01
+  iterations: 1
+  path_var: TESTS_PATH
+  gcc_opts: "-DVLEN=4096 -static -mcmodel=medany -fvisibility=hidden -nostdlib -nostartfiles -I<path_var>/../../asm/env"
+  asm_tests: <path_var>/imperas-riscv-tests/riscv-test-suite/rv32i_m/Zfh/src/FMV-H-X-01.S
+
+- test: FADD-H-DYN-RMM-01
+  iterations: 1
+  path_var: TESTS_PATH
+  gcc_opts: "-DVLEN=4096 -static -mcmodel=medany -fvisibility=hidden -nostdlib -nostartfiles -I<path_var>/../../asm/env"
+  asm_tests: <path_var>/imperas-riscv-tests/riscv-test-suite/rv32i_m/Zfh/src/FADD-H-DYN-RMM-01.S
+
+- test: FLT-H-01
+  iterations: 1
+  path_var: TESTS_PATH
+  gcc_opts: "-DVLEN=4096 -static -mcmodel=medany -fvisibility=hidden -nostdlib -nostartfiles -I<path_var>/../../asm/env"
+  asm_tests: <path_var>/imperas-riscv-tests/riscv-test-suite/rv32i_m/Zfh/src/FLT-H-01.S
+
+- test: FCVT-W-H-DYN-RNE-01
+  iterations: 1
+  path_var: TESTS_PATH
+  gcc_opts: "-DVLEN=4096 -static -mcmodel=medany -fvisibility=hidden -nostdlib -nostartfiles -I<path_var>/../../asm/env"
+  asm_tests: <path_var>/imperas-riscv-tests/riscv-test-suite/rv32i_m/Zfh/src/FCVT-W-H-DYN-RNE-01.S
+
+- test: FNMSUB-H-DYN-RMM-01
+  iterations: 1
+  path_var: TESTS_PATH
+  gcc_opts: "-DVLEN=4096 -static -mcmodel=medany -fvisibility=hidden -nostdlib -nostartfiles -I<path_var>/../../asm/env"
+  asm_tests: <path_var>/imperas-riscv-tests/riscv-test-suite/rv32i_m/Zfh/src/FNMSUB-H-DYN-RMM-01.S
+
+- test: FMV-X-H-01
+  iterations: 1
+  path_var: TESTS_PATH
+  gcc_opts: "-DVLEN=4096 -static -mcmodel=medany -fvisibility=hidden -nostdlib -nostartfiles -I<path_var>/../../asm/env"
+  asm_tests: <path_var>/imperas-riscv-tests/riscv-test-suite/rv32i_m/Zfh/src/FMV-X-H-01.S
+
+- test: FDIV-H-RMM-01
+  iterations: 1
+  path_var: TESTS_PATH
+  gcc_opts: "-DVLEN=4096 -static -mcmodel=medany -fvisibility=hidden -nostdlib -nostartfiles -I<path_var>/../../asm/env"
+  asm_tests: <path_var>/imperas-riscv-tests/riscv-test-suite/rv32i_m/Zfh/src/FDIV-H-RMM-01.S
+
+- test: FNMADD-H-DYN-RMM-01
+  iterations: 1
+  path_var: TESTS_PATH
+  gcc_opts: "-DVLEN=4096 -static -mcmodel=medany -fvisibility=hidden -nostdlib -nostartfiles -I<path_var>/../../asm/env"
+  asm_tests: <path_var>/imperas-riscv-tests/riscv-test-suite/rv32i_m/Zfh/src/FNMADD-H-DYN-RMM-01.S
+
+- test: FNMSUB-H-RUP-01
+  iterations: 1
+  path_var: TESTS_PATH
+  gcc_opts: "-DVLEN=4096 -static -mcmodel=medany -fvisibility=hidden -nostdlib -nostartfiles -I<path_var>/../../asm/env"
+  asm_tests: <path_var>/imperas-riscv-tests/riscv-test-suite/rv32i_m/Zfh/src/FNMSUB-H-RUP-01.S
+
+- test: FCLASS-H-01
+  iterations: 1
+  path_var: TESTS_PATH
+  gcc_opts: "-DVLEN=4096 -static -mcmodel=medany -fvisibility=hidden -nostdlib -nostartfiles -I<path_var>/../../asm/env"
+  asm_tests: <path_var>/imperas-riscv-tests/riscv-test-suite/rv32i_m/Zfh/src/FCLASS-H-01.S
+
+- test: FCVT-H-WU-RNE-01
+  iterations: 1
+  path_var: TESTS_PATH
+  gcc_opts: "-DVLEN=4096 -static -mcmodel=medany -fvisibility=hidden -nostdlib -nostartfiles -I<path_var>/../../asm/env"
+  asm_tests: <path_var>/imperas-riscv-tests/riscv-test-suite/rv32i_m/Zfh/src/FCVT-H-WU-RNE-01.S
+
+- test: FCVT-H-W-RUP-01
+  iterations: 1
+  path_var: TESTS_PATH
+  gcc_opts: "-DVLEN=4096 -static -mcmodel=medany -fvisibility=hidden -nostdlib -nostartfiles -I<path_var>/../../asm/env"
+  asm_tests: <path_var>/imperas-riscv-tests/riscv-test-suite/rv32i_m/Zfh/src/FCVT-H-W-RUP-01.S
+
+- test: FCVT-H-W-RNE-01
+  iterations: 1
+  path_var: TESTS_PATH
+  gcc_opts: "-DVLEN=4096 -static -mcmodel=medany -fvisibility=hidden -nostdlib -nostartfiles -I<path_var>/../../asm/env"
+  asm_tests: <path_var>/imperas-riscv-tests/riscv-test-suite/rv32i_m/Zfh/src/FCVT-H-W-RNE-01.S
+
+- test: FCVT-H-W-RMM-01
+  iterations: 1
+  path_var: TESTS_PATH
+  gcc_opts: "-DVLEN=4096 -static -mcmodel=medany -fvisibility=hidden -nostdlib -nostartfiles -I<path_var>/../../asm/env"
+  asm_tests: <path_var>/imperas-riscv-tests/riscv-test-suite/rv32i_m/Zfh/src/FCVT-H-W-RMM-01.S
+
+- test: FMADD-H-DYN-RDN-01
+  iterations: 1
+  path_var: TESTS_PATH
+  gcc_opts: "-DVLEN=4096 -static -mcmodel=medany -fvisibility=hidden -nostdlib -nostartfiles -I<path_var>/../../asm/env"
+  asm_tests: <path_var>/imperas-riscv-tests/riscv-test-suite/rv32i_m/Zfh/src/FMADD-H-DYN-RDN-01.S
+
+- test: FNMSUB-H-RDN-01
+  iterations: 1
+  path_var: TESTS_PATH
+  gcc_opts: "-DVLEN=4096 -static -mcmodel=medany -fvisibility=hidden -nostdlib -nostartfiles -I<path_var>/../../asm/env"
+  asm_tests: <path_var>/imperas-riscv-tests/riscv-test-suite/rv32i_m/Zfh/src/FNMSUB-H-RDN-01.S
+
+- test: FADD-H-RUP-01
+  iterations: 1
+  path_var: TESTS_PATH
+  gcc_opts: "-DVLEN=4096 -static -mcmodel=medany -fvisibility=hidden -nostdlib -nostartfiles -I<path_var>/../../asm/env"
+  asm_tests: <path_var>/imperas-riscv-tests/riscv-test-suite/rv32i_m/Zfh/src/FADD-H-RUP-01.S
+
+- test: FMADD-H-RMM-01
+  iterations: 1
+  path_var: TESTS_PATH
+  gcc_opts: "-DVLEN=4096 -static -mcmodel=medany -fvisibility=hidden -nostdlib -nostartfiles -I<path_var>/../../asm/env"
+  asm_tests: <path_var>/imperas-riscv-tests/riscv-test-suite/rv32i_m/Zfh/src/FMADD-H-RMM-01.S
+
+- test: FCVT-WU-H-RMM-01
+  iterations: 1
+  path_var: TESTS_PATH
+  gcc_opts: "-DVLEN=4096 -static -mcmodel=medany -fvisibility=hidden -nostdlib -nostartfiles -I<path_var>/../../asm/env"
+  asm_tests: <path_var>/imperas-riscv-tests/riscv-test-suite/rv32i_m/Zfh/src/FCVT-WU-H-RMM-01.S
+
+- test: FCVT-H-WU-RDN-01
+  iterations: 1
+  path_var: TESTS_PATH
+  gcc_opts: "-DVLEN=4096 -static -mcmodel=medany -fvisibility=hidden -nostdlib -nostartfiles -I<path_var>/../../asm/env"
+  asm_tests: <path_var>/imperas-riscv-tests/riscv-test-suite/rv32i_m/Zfh/src/FCVT-H-WU-RDN-01.S
+
+- test: FDIV-H-DYN-RNE-01
+  iterations: 1
+  path_var: TESTS_PATH
+  gcc_opts: "-DVLEN=4096 -static -mcmodel=medany -fvisibility=hidden -nostdlib -nostartfiles -I<path_var>/../../asm/env"
+  asm_tests: <path_var>/imperas-riscv-tests/riscv-test-suite/rv32i_m/Zfh/src/FDIV-H-DYN-RNE-01.S
+
+- test: FSGNJ-H-01
+  iterations: 1
+  path_var: TESTS_PATH
+  gcc_opts: "-DVLEN=4096 -static -mcmodel=medany -fvisibility=hidden -nostdlib -nostartfiles -I<path_var>/../../asm/env"
+  asm_tests: <path_var>/imperas-riscv-tests/riscv-test-suite/rv32i_m/Zfh/src/FSGNJ-H-01.S
+
+- test: FADD-H-DYN-RUP-01
+  iterations: 1
+  path_var: TESTS_PATH
+  gcc_opts: "-DVLEN=4096 -static -mcmodel=medany -fvisibility=hidden -nostdlib -nostartfiles -I<path_var>/../../asm/env"
+  asm_tests: <path_var>/imperas-riscv-tests/riscv-test-suite/rv32i_m/Zfh/src/FADD-H-DYN-RUP-01.S
+
+- test: FMSUB-H-RDN-01
+  iterations: 1
+  path_var: TESTS_PATH
+  gcc_opts: "-DVLEN=4096 -static -mcmodel=medany -fvisibility=hidden -nostdlib -nostartfiles -I<path_var>/../../asm/env"
+  asm_tests: <path_var>/imperas-riscv-tests/riscv-test-suite/rv32i_m/Zfh/src/FMSUB-H-RDN-01.S
+
+- test: FCVT-W-H-RTZ-01
+  iterations: 1
+  path_var: TESTS_PATH
+  gcc_opts: "-DVLEN=4096 -static -mcmodel=medany -fvisibility=hidden -nostdlib -nostartfiles -I<path_var>/../../asm/env"
+  asm_tests: <path_var>/imperas-riscv-tests/riscv-test-suite/rv32i_m/Zfh/src/FCVT-W-H-RTZ-01.S
+
+- test: FCVT-H-WU-RUP-01
+  iterations: 1
+  path_var: TESTS_PATH
+  gcc_opts: "-DVLEN=4096 -static -mcmodel=medany -fvisibility=hidden -nostdlib -nostartfiles -I<path_var>/../../asm/env"
+  asm_tests: <path_var>/imperas-riscv-tests/riscv-test-suite/rv32i_m/Zfh/src/FCVT-H-WU-RUP-01.S
+
+- test: FSUB-H-DYN-RUP-01
+  iterations: 1
+  path_var: TESTS_PATH
+  gcc_opts: "-DVLEN=4096 -static -mcmodel=medany -fvisibility=hidden -nostdlib -nostartfiles -I<path_var>/../../asm/env"
+  asm_tests: <path_var>/imperas-riscv-tests/riscv-test-suite/rv32i_m/Zfh/src/FSUB-H-DYN-RUP-01.S
+
+- test: FMADD-H-RUP-01
+  iterations: 1
+  path_var: TESTS_PATH
+  gcc_opts: "-DVLEN=4096 -static -mcmodel=medany -fvisibility=hidden -nostdlib -nostartfiles -I<path_var>/../../asm/env"
+  asm_tests: <path_var>/imperas-riscv-tests/riscv-test-suite/rv32i_m/Zfh/src/FMADD-H-RUP-01.S
+

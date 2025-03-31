@@ -1,0 +1,944 @@
+// Copyright lowRISC contributors.
+// Licensed under the Apache License, Version 2.0, see LICENSE for details.
+// SPDX-License-Identifier: Apache-2.0
+{ name: "dma_channel",
+  clocking: [{clock: "clk_i", reset: "rst_ni"}],
+  bus_interfaces: [
+    { protocol: "tlul", direction: "device" }
+  ],
+  regwidth: "64",
+  addrcap: "0x10000",
+  axi_intf: True
+  param_list : [
+    {name:"AXI_AW", type:"int", default:"40"} // upper limit
+    {name:"AXI_IDW", type:"int", default:"10"} // upper limit
+    {name:"AXI_LENW", type:"int", default:"8"}
+  ]
+  registers: [
+    { name: "CMDBLK_CTRL",
+      desc: "Control register of the CMD Block.",
+      swaccess: "rw",
+      hwaccess: "hro",
+      fields: [
+        {
+            bits: "0",
+            name: "EXEC_EN",
+            desc: '''
+                  While `EXEC_EN` is high, the block processes commands, that are pushed into the command FIFO.
+                  ''',
+            resval: 0x0
+        }
+        {
+            bits: "1",
+            name: "PTR_RST",
+            desc: '''
+                  Synchronous active-high reset of the command FIFO's input word pointer.
+                  Set and unset `PTR_RST` to reset `CMDBLK_STATUS.IN_WORD_PTR` to 0. Only use this for error recovery.
+                  ''',
+            resval: 0x0
+        }
+      ]
+    },
+    { name: "CMDBLK_STATUS",
+      desc: "Status register of the CMD Block.",
+      swaccess: "ro",
+      hwaccess: "hwo",
+      hwext : True
+      fields: [
+        {
+            bits: "1:0",
+            name: "STATE",
+            desc: '''
+                  0: `IDLE` Command FIFO and fill buffer are both empty.
+                  1: `FILL` Command FIFO is empty, but there is at least a header in the fill buffer
+                  2: `READY` Command FIFO contains at least one item
+                  3: `EXECUTE` Outstanding commands is at least 1
+                  '''
+        }
+        {
+            bits: "2",
+            name: "WAIT_TOKEN",
+            desc: '''
+                  `WAIT_TOKEN` is high iff a command is waiting at the output buffer of the command FIFO for a token to arrive.
+                  '''
+        }
+        {
+            bits: "15:8",
+            name: "IN_WORD_PTR",
+            desc: '''
+                  The input word pointer is used to construct the input data for the command FIFO and
+                  points to the next 64bit word of the input data to be received by the next AXI transaction.
+                  '''
+        }
+        {
+            bits: "23:16",
+            name: "FIFO_CNT",
+            desc: '''Fill counter of the command FIFO.'''
+        }
+        {
+            bits: "31:24",
+            name: "OUTST_CMDS",
+            desc: '''
+                  Number of outstanding commands.
+                  A command is outstanding iff it has been popped from the command FIFO and sent for execution,
+                  but the datapath has not yet signaled that its execution has been done.
+                  '''
+        }
+        {
+            bits: "47:32",
+            name: "PENDING_TOKENS",
+            desc: '''
+                  Signals which consume tokens are pending.
+                  '''
+        }
+      ]
+    },
+    {skipto: 256},
+    {
+      name: "CH_CTRL"
+      desc: '''
+            The Channel DMA Control register allows the SW to control the operation of a DMA instruction.
+            '''
+      swaccess: "rw",
+      hwaccess: "hro",
+      fields: [
+        {
+            bits: "0",
+            resval: "0x0"
+            swaccess: "rw1s"
+            hwaccess: "hrw"
+            name: "ENABLE",
+            desc: '''
+                  Channel Enable. When set to \‘1\’, enables the channel to run its programmed task. When set to \‘1\’, it cannot be set back to zero, and this field automatically clears to zero when a DMA process is completed.
+                  '''
+        }
+        {
+            bits: "1",
+            resval: "0x0"
+            swaccess: "rw1s"
+            hwaccess: "hrw"
+            name: "CLEAR",
+            desc: '''
+                  DMA Clear command. When set to \‘1\’, it remains high until all DMA channel registers and any internal queues and buffers are cleared, before returning to \‘0\’. When set at the same time as CH_ENABLE or while the DMA channel is already enabled, the clear only occurs after any ongoing DMA operation is either completed, stopped or disabled and the CH_ENABLE bit is deasserted by the DMA
+                  '''
+        }
+        {
+            bits: "8",
+            resval: "0x0"
+            swaccess: "rw"
+            hwaccess: "hro"
+            name: "INTERRUPT_EN",
+            desc: '''
+                  Enable interrupt generation
+                  '''
+        }
+        {
+            bits: "9",
+            resval: "0x0"
+            swaccess: "rw1s"
+            hwaccess: "hrw"
+            name: "INTERRUPT_CLR",
+            desc: '''
+                  Clear interrupts
+                  '''
+        }
+        {
+            bits: "18:13",
+            resval: "0xf"
+            swaccess: "rw"
+            hwaccess: "hro"
+            name: "SRC_OSR_LMT",
+            desc: '''
+                  Source Outstanding Request Limit
+                  Maximum outstanding request supported is 64.
+                  Source Outstanding Request Limit = SRC_OSR_LMT + 1
+                  '''
+        }
+        {
+            bits: "24:19",
+            resval: "0xf"
+            swaccess: "rw"
+            hwaccess: "hro"
+            name: "DST_OSR_LMT",
+            desc: '''
+                  Destination Outstanding Request Limit
+                  Maximum outstanding request supported is 64.
+                  Destination Outstanding Request Limit = DST_OSR_LMT + 1
+                  '''
+        }
+        {
+            bits: "26:25",
+            resval: "0x0"
+            swaccess: "rw"
+            hwaccess: "hro"
+            name: "SRC_MS",
+            desc: '''
+                  Source Master Select.
+                  Identifies the Master Interface layer from which the source device (memory) is accessed.
+                  0: AXI master 0
+                  1: AXI master 1
+                  2: RESERVED
+                  3: RESERVED
+                  '''
+        }
+        {
+            bits: "28:27",
+            resval: "0x0"
+            swaccess: "rw"
+            hwaccess: "hro"
+            name: "DST_MS",
+            desc: '''
+                  Destination Master Select.
+                  Identifies the Master Interface layer from which the destination device (memory) is accessed.
+                  0: AXI master 0
+                  1: AXI master 1
+                  2: RESERVED
+                  3: RESERVED
+                  '''
+        }
+        {
+            bits: "30:29",
+            resval: "0x0"
+            swaccess: "rw"
+            hwaccess: "hro"
+            name: "LL_MS",
+            desc: '''
+                  Linked-List Master Select.
+                  Identifies the Master Interface layer from which the linked-list device (memory) is accessed.
+                  0: AXI master 0
+                  1: AXI master 1
+                  2: RESERVED
+                  3: RESERVED
+                  '''
+        }
+        {
+            bits: "31",
+            resval: "0x1"
+            swaccess: "rw"
+            hwaccess: "hro"
+            name: "MMU_EN",
+            desc: '''
+                  Enable channel MMU
+                  '''
+        }
+        {
+            bits: "33:32",
+            resval: "0x0"
+            swaccess: "rw"
+            hwaccess: "hro"
+            name: "OVERALLOC_MODE",
+            desc: '''
+                  Over allocation Mode:
+                  00, 01: No overallocation. Data guaranteed to be stored in Channel Buffer
+                  10    : Overallocation, in case of data overflow case, push back on AXI RR channel. No data dropped.
+                  11    : Overallocation, in case of data overflow case, data is dropped, no pushback to AXI.
+                  '''
+        }
+        {
+            bits: "48",
+            resval: "0x0"
+            swaccess: "rw"
+            hwaccess: "hro"
+            name: "LL_EN",
+            desc: '''
+                  Linked List Enable.
+                  This indicates that this is multi-block transfer via LL. The LINK_ADDR is in a dedicated register, namely CH_LINK_DESCR<n>.
+                  This should be enabled for the first transfer and should only be written to 0 by the last linked list element.
+                  '''
+        }
+        {
+            bits: "49",
+            resval: "0x0"
+            swaccess: "rw"
+            hwaccess: "hro"
+            name: "LL_MODE",
+            desc: '''
+                  Linked List Mode.
+                  0: “small” : The LL descriptor length is 3. This is used when only the source and destination address changes between the different elements of the list.
+                  1: “large”: The LL descriptor length is 10. This is used any config parameter and source and destination address is changing.
+                  '''
+        }
+      ]
+    }
+    {
+      name: "CH_CFG"
+      desc: '''
+            The Channel DMA Control register allows the SW to configure the DMA instruction/transfer.
+            '''
+      swaccess: "rw",
+      hwaccess: "hro",
+      fields: [
+        {
+            bits: "3:0",
+            resval: "0x6"
+            swaccess: "rw"
+            hwaccess: "hro"
+            name: "TRANSIZE",
+            desc: '''
+                  Transfer Entity Size. This is used to define if the transfer is narrow or wide.
+                  The Axelera DMA supports multiple DATA_WIDTH sizes.
+                  If DATA_WITH = 512bits then all 3 config bits can take effect.
+                  If DATA_WIDTH=64bits then bit[2] is RESERVED and only bits[1:0] are valid. In this case, SW can program only the two least significant bits as the DMAC handles the most significant bit as RAZ/WI
+                  Size in bytes = 2^TRANSIZE.
+                  • 0000: 8bits (byte)
+                  • 0001: 16bits
+                  • 0010: 32bits
+                  • 0011: 64bits
+                  • 0100: 128bits
+                  • 0101: 256bits
+                  • 0110: 512bits
+                  • 0111: N/A
+                  • 1xxxx: N/A
+                  This data width is utilized by both the source and the destination of the DMAC operation.
+                  '''
+        }
+        {
+            bits: "7:4",
+            resval: "0x1"
+            swaccess: "rw"
+            hwaccess: "hro"
+            name: "XTYPE",
+            desc: '''
+                  Operation type for X direction:
+                  • 0000: “disable” - No data transfer takes place for this command. This mode can be used to create empty commands that wait for an event.Probably no usecase for Europa/Titania.
+                  • 0001: “continue” - Copy data in a continuous manner from source to the destination. For 1D operations it is expected that SRC_XBYTESIZE is equal to DST_XBYTESIZE, other combinations should raise an error in the CH_ERR_INFO register. For 2D operations, this mode can be used for simple 2D to 2D copy but it also allows the reshaping of the data like 1D to 2D or 2D to 1D conversions. If the DST_XBYTESIZE is smaller than SRC_XBYTESIZE then the read data from the current source line goes to the next destination line. If SRC_XBYTESIZE is smaller than DST_XBYTESIZE then the reads start on the next line and data is written to the remainder of the current destination line. Note: For 1D to 2D the SRC_YROWSIZE for 2D to 1D conversion the DST_YROWSIZE needs to be set to 1 when using this mode.
+                  • 0010: “wrap” - Wrap source data within a destination line when the end of the source line is reached. Read starts again from the beginning of the source line and copied to the remainder of the destination line. If the DST_XBYTESIZE is smaller than SRC_XBYTESIZE then this should raise an error in the CH_ERR_INFO register but not affect functionality.
+                  • 0011: “fill” - Fill the remainder of the destination line with FILLVAL when the end of the source line is reached. If the DST_XBYTESIZE is smaller than SRC_XBYTESIZE then this should raise an error in the CH_ERR_INFO register but not affect functionality.
+                  • Others: Reserved
+                  '''
+        }
+        {
+            bits: "11:8",
+            resval: "0x0"
+            swaccess: "rw"
+            hwaccess: "hro"
+            name: "YTYPE",
+            desc: '''
+                  Operation type for Y direction:
+                  • 0000: “disable” - Only do 1D transfers.
+                  • 0001: “continue” - Copy 2D data in a continuous manner from source area to the destination area by using the YROWSIZE registers. The copy stops when the source runs out of data or the destination runs out of space.
+                  • 0010: “wrap” - Wrap the 2D source area within the destination 2D area by starting to copy data from the beginning of the first source line to the remaining space in the destination area. If the destination area is smaller than the source area then this should raise an error in the CH_ERR_INFO register but not affect functionality.
+                  • 0011: Fill the remainder of the destination area with FILLVAL when the source area runs out of data. If the destination area is smaller than the source area then this should raise an error in the CH_ERR_INFO register but not affect functionality.
+                  • Others: Reserved The field is RAZ/WI when extended features are disabled for the channel
+                  '''
+        }
+        {
+            bits: "12",
+            resval: "0x0"
+            swaccess: "rw"
+            hwaccess: "hro"
+            name: "FILLVAL_MODE",
+            desc: '''
+                  FILLVAL is int8 or int16 format.
+                  0: int8 format. Only the lower 8 bits of the 16 bit value need to be extracted from the FILLVAL.
+                  1: int16 format. The full FILLVAL word needs to be used.
+                  '''
+        }
+        {
+            bits: "31:16",
+            resval: "0x0"
+            swaccess: "rw"
+            hwaccess: "hro"
+            name: "FILLVAL",
+            desc: '''
+                  Fill pattern value. When XTYPE or YTYPE is set to fill mode, then this register value is used on the write data bus when the command starts to fill the memory area. The FILLVAL is repeated to the TRANSIZE/ (FILLVAL_MODE: 0 ? 8: 16) times.
+                  '''
+        }
+        {
+            bits: "39:32",
+            resval: "0x3f"
+            swaccess: "rw"
+            hwaccess: "hro"
+            name: "SRC_BURSTLEN",
+            desc: '''
+                  Source  Burst Length. Define the allowed burst size it can use for read transfers. The maximum number of beats sent by the DMA for a read burst is equal to SRC_BURSTLEN + 1.
+                  Default: burst length 64
+                  '''
+        }
+        {
+            bits: "47:40",
+            resval: "0x3f"
+            swaccess: "rw"
+            hwaccess: "hro"
+            name: "DST_BURSTLEN",
+            desc: '''
+                  Destination Burst Length. Define the allowed burst size it can use for read transfers. The maximum number of beats sent by the DMA for a read burst is equal to DST_BURSTLEN + 1.
+                  Default: burst length 64
+                  '''
+        }
+        {
+            bits: "50",
+            resval: "0x0"
+            swaccess: "rw"
+            hwaccess: "hro"
+            name: "TRANSFORM_EN",
+            desc: '''
+                  Enable transformation
+                  '''
+        }
+      ]
+    }
+    {
+      name: "CH_SRC_ADDR"
+      desc: '''
+            Source Address
+            '''
+      swaccess: "rw",
+      hwaccess: "hro",
+      fields: [
+        {
+            bits: "63:0",
+            resval: "0x0"
+            swaccess: "rw"
+            hwaccess: "hro"
+            name: "SRC_ADDR",
+            desc: '''
+                  Source Address of the transfer[63:0].
+                  The starting source address to transfer data from. The source address does not have to be aligned with the transfer size.
+                  '''
+        }
+      ]
+    }
+    {
+      name: "CH_DST_ADDR"
+      desc: '''
+            Destination Address
+            '''
+      swaccess: "rw",
+      hwaccess: "hro",
+      fields: [
+        {
+            bits: "63:0",
+            resval: "0x0"
+            swaccess: "rw"
+            hwaccess: "hro"
+            name: "DST_ADDR",
+            desc: '''
+                  Destination Address of the transfer[63:0].
+                  The starting destination address to transfer data from. The destination address does not have to be aligned with the transfer size.
+                  '''
+        }
+      ]
+    }
+    {
+      name: "CH_XBYTESIZE"
+      desc: '''
+            X Byte Size
+            '''
+      swaccess: "rw",
+      hwaccess: "hro",
+      fields: [
+        {
+            bits: "31:0",
+            resval: "0x0"
+            swaccess: "rw"
+            hwaccess: "hro"
+            name: "SRC_XBYTESIZE",
+            desc: '''
+                  Total Source Number of bytes transferred in the X Dimension [31:0]. This register defines the source data block size of the DMA operation for any 1D operation, and defines the X dimension of the 2D source block for 2D operation.
+                  '''
+        }
+        {
+            bits: "63:32",
+            resval: "0x0"
+            swaccess: "rw"
+            hwaccess: "hro"
+            name: "DST_XBYTESIZE",
+            desc: '''
+                  Total Destination Number of bytes transferred in the X Dimension. This register defines the destination data block size of the DMA operation for or any 1D operation, and defines the X dimension of the 2D destination block for a 2D operation.
+                  '''
+        }
+      ]
+    }
+    {
+      name: "CH_YROWSIZE"
+      desc: '''
+            Y Row Size
+            '''
+      swaccess: "rw",
+      hwaccess: "hro",
+      fields: [
+        {
+            bits: "31:0",
+            resval: "0x0"
+            swaccess: "rw"
+            hwaccess: "hro"
+            name: "SRC_YROWSIZE",
+            desc: '''
+                  Source Y dimension or number of lines. Only relevant in 2D transfers. Indicates the number of 1D transfers that need to be performed for the 2D transfer.
+                  '''
+        }
+        {
+            bits: "63:32",
+            resval: "0x0"
+            swaccess: "rw"
+            hwaccess: "hro"
+            name: "DST_YROWSIZE",
+            desc: '''
+                  Destination Y dimension or number of lines. Only relevant in 2D transfers. Indicates the number of 1D transfers that need to be performed for the 2D transfer.
+                  '''
+        }
+      ]
+    }
+    {
+      name: "CH_TRAN_CFG"
+      desc: '''
+            Transfer Config
+            CH_TRAN_CFG[31:0] : This register defines transfer attribute settings in the read direction of the DMA command.
+            CH_TRAN_CFG[63:32]: This register defines transfer attribute settings in the write direction of the DMA command.
+            '''
+      swaccess: "rw",
+      hwaccess: "hro",
+      fields: [
+        {
+            bits: "3:0",
+            resval: "0x0"
+            swaccess: "rw"
+            hwaccess: "hro"
+            name: "SRCMEMATTRLO",
+            desc: '''
+                  Source Transfer Memory Attribute field [3:0]. When SRCMEMATTRHI is Device type (0000) then this field means:
+                  • 0000: Device-nGnRnE
+                  • 0100: Device-nGnRE
+                  • 1000: Device-nGRE
+                  • 1100: Device-GRE
+                  • Others: a config ERR should be raised in the CH_ERR_INFO register.
+                  When SRCMEMATTRHI is Normal memory type (other than 0000) then this field means:
+                  • 0000: Reserved
+                  • 0001: Normal memory, Inner Write allocate, Inner Write-through transient
+                  • 0010: Normal memory, Inner Read allocate, Inner Write-through transient
+                  • 0011: Normal memory, Inner Read/Write allocate, Inner Write-through transient
+                  • 0100: Normal memory, Inner non-cacheable
+                  • 0101: Normal memory, Inner Write allocate, Inner Write-back transient
+                  • 0110: Normal memory, Inner Read allocate, Inner Write-back transient
+                  • 0111: Normal memory, Inner Read/Write allocate, Inner Write-back transient
+                  • 1000: Normal memory, Inner Write-through non-transient
+                  • 1001: Normal memory, Inner Write allocate, Inner Write-through non-transient
+                  • 1010: Normal memory, Inner Read allocate, Inner Write-through non-transient
+                  • 1011: Normal memory, Inner Read/Write allocate, Inner Write-through non-transient
+                  • 1011: Normal memory, Inner Read/Write allocate, Inner Write-through non-transient
+                  • 1100: Normal memory, Inner Write-back non-transient
+                  • 1101: Normal memory, Inner Write allocate, Inner Write-back non-transient
+                  • 1110: Normal memory, Inner Read allocate, Inner Write-back non-transient
+                  • 1111: Normal memory, Inner Read/Write allocate, Inner Write-back non-transient
+                  '''
+        }
+        {
+            bits: "7:4",
+            resval: "0x0"
+            swaccess: "rw"
+            hwaccess: "hro"
+            name: "SRCMEMATTRHI",
+            desc: '''
+                  Source Transfer Memory Attribute field [7:4].
+                  • 0000: Device memory
+                  • 0001: Normal memory, Outer Write allocate, Outer Write -through transient
+                  • 0010: Normal memory, Outer Read allocate, Outer Write-through transient
+                  • 0011: Normal memory, Outer Read/Write allocate, Outer Write-through transient
+                  • 0100: Normal memory, Outer non-cacheable
+                  • 0101: Normal memory, Outer Write allocate, Outer Write-back transient
+                  • 0110: Normal memory, Outer Read allocate, Outer Write-back transient
+                  • 0111: Normal memory, Outer Read/Write allocate, Outer Write-back transient
+                  • 1000: Normal memory, Outer Write-through non-transient
+                  • 1001: Normal memory, Outer Write allocate, Outer Write-through non-transient
+                  • 1010: Normal memory, Outer Read allocate, Outer Write-through non-transient
+                  • 1011: Normal memory, Outer Read/Write allocate, Outer Write-through non-transient
+                  • 1100: Normal memory, Outer Write-back non-transient
+                  • 1101: Normal memory, Outer Write allocate, Outer Write-back non-transient
+                  • 1110: Normal memory, Outer Read allocate, Outer Write-back non-transient
+                  • 1111: Normal memory, Outer Read/Write allocate, Outer Write-back non-transient
+                  '''
+        }
+        {
+            bits: "9:8",
+            resval: "0x0"
+            swaccess: "rw"
+            hwaccess: "hro"
+            name: "SRCSHAREATTR",
+            desc: '''
+                  Source Transfer Shareability Attribute.
+                  • 00: Non-shareable
+                  • 01: Reserved
+                  • 10: Outer shareable
+                  • 11: Inner shareable
+                  '''
+        }
+        {
+            bits: "10",
+            resval: "0x1"
+            swaccess: "rw"
+            hwaccess: "hro"
+            name: "SRCNONSECATTR",
+            desc: '''
+                  Source Transfer Non-secure Attribute.
+                  • 0: Secure
+                  • 1: Non-secure
+                  When a channel is Non-secure this bit is tied to 1.
+                  '''
+        }
+        {
+            bits: "11",
+            resval: "0x0"
+            swaccess: "rw"
+            hwaccess: "hro"
+            name: "SRCPRIVATTR",
+            desc: '''
+                  Source Transfer Privilege Attribute.
+                  • 0: Unprivileged
+                  • 1: Privileged
+                  When a channel is unprivileged this bit is tied to 0.
+                  '''
+        }
+        {
+            bits: "24:15",
+            resval: "0x0"
+            swaccess: "rw"
+            hwaccess: "hro"
+            name: "SRCUSERFIELD",
+            desc: '''
+                  Source transfer AXI bus user defined field.
+                  '''
+        }
+        {
+            bits: "35:32",
+            resval: "0x0"
+            swaccess: "rw"
+            hwaccess: "hro"
+            name: "DSTMEMATTRLO",
+            desc: '''
+                  Destination Transfer Memory Attribute field [3:0]. When DSTMEMATTRHI is Device type (0000) then this field means:
+                  • 0000: Device-nGnRnE
+                  • 0100: Device-nGnRE
+                  • 1000: Device-nGRE
+                  • 1100: Device-GRE
+                  • Others: a config ERR should be raised in the CH_ERR_INFO register.
+                  When DSTMEMATTRHI is Normal memory type (other than 0000) then this field means:
+                  • 0000: Reserved
+                  • 0001: Normal memory, Inner Write allocate, Inner Write-through transient
+                  • 0010: Normal memory, Inner Read allocate, Inner Write-through transient
+                  • 0011: Normal memory, Inner Read/Write allocate, Inner Write-through transient
+                  • 0100: Normal memory, Inner non-cacheable
+                  • 0101: Normal memory, Inner Write allocate, Inner Write-back transient
+                  • 0110: Normal memory, Inner Read allocate, Inner Write-back transient
+                  • 0111: Normal memory, Inner Read/Write allocate, Inner Write-back transient
+                  • 1000: Normal memory, Inner Write-through non-transient
+                  • 1001: Normal memory, Inner Write allocate, Inner Write-through non-transient
+                  • 1010: Normal memory, Inner Read allocate, Inner Write-through non-transient
+                  • 1011: Normal memory, Inner Read/Write allocate, Inner Write-through non-transient
+                  • 1011: Normal memory, Inner Read/Write allocate, Inner Write-through non-transient
+                  • 1100: Normal memory, Inner Write-back non-transient
+                  • 1101: Normal memory, Inner Write allocate, Inner Write-back non-transient
+                  • 1110: Normal memory, Inner Read allocate, Inner Write-back non-transient
+                  • 1111: Normal memory, Inner Read/Write allocate, Inner Write-back non-transient
+                  '''
+        }
+        {
+            bits: "39:36",
+            resval: "0x0"
+            swaccess: "rw"
+            hwaccess: "hro"
+            name: "DSTMEMATTRHI",
+            desc: '''
+                  Destination Transfer Memory Attribute field [7:4].
+                  • 0000: Device memory
+                  • 0001: Normal memory, Outer Write allocate, Outer Write -through transient
+                  • 0010: Normal memory, Outer Read allocate, Outer Write-through transient
+                  • 0011: Normal memory, Outer Read/Write allocate, Outer Write-through transient
+                  • 0100: Normal memory, Outer non-cacheable
+                  • 0101: Normal memory, Outer Write allocate, Outer Write-back transient
+                  • 0110: Normal memory, Outer Read allocate, Outer Write-back transient
+                  • 0111: Normal memory, Outer Read/Write allocate, Outer Write-back transient
+                  • 1000: Normal memory, Outer Write-through non-transient
+                  • 1001: Normal memory, Outer Write allocate, Outer Write-through non-transient
+                  • 1010: Normal memory, Outer Read allocate, Outer Write-through non-transient
+                  • 1011: Normal memory, Outer Read/Write allocate, Outer Write-through non-transient
+                  • 1100: Normal memory, Outer Write-back non-transient
+                  • 1101: Normal memory, Outer Write allocate, Outer Write-back non-transient
+                  • 1110: Normal memory, Outer Read allocate, Outer Write-back non-transient
+                  • 1111: Normal memory, Outer Read/Write allocate, Outer Write-back non-transient
+                  '''
+        }
+        {
+            bits: "41:40",
+            resval: "0x0"
+            swaccess: "rw"
+            hwaccess: "hro"
+            name: "DSTSHAREATTR",
+            desc: '''
+                  Destination Transfer Shareability Attribute.
+                  • 00: Non-shareable
+                  • 01: Reserved
+                  • 10: Outer shareable
+                  • 11: Inner shareable
+                  '''
+        }
+        {
+            bits: "42",
+            resval: "0x1"
+            swaccess: "rw"
+            hwaccess: "hro"
+            name: "DSTNONSECATTR",
+            desc: '''
+                  Destination Transfer Non-secure Attribute.
+                  • 0: Secure
+                  • 1: Non-secure
+                  When a channel is Non-secure this bit is tied to 1.
+                  '''
+        }
+        {
+            bits: "43",
+            resval: "0x0"
+            swaccess: "rw"
+            hwaccess: "hro"
+            name: "DSTPRIVATTR",
+            desc: '''
+                  Destination Transfer Privilege Attribute.
+                  • 0: Unprivileged
+                  • 1: Privileged
+                  When a channel is unprivileged this bit is tied to 0.
+                  '''
+        }
+        {
+            bits: "56:47",
+            resval: "0x0"
+            swaccess: "rw"
+            hwaccess: "hro"
+            name: "DSTUSERFIELD",
+            desc: '''
+                  Destination transfer AXI bus user defined field.
+                  '''
+        }
+      ]
+    }
+    {
+      name: "CH_XADDRINC"
+      desc: '''
+            X dimension increment
+            '''
+      swaccess: "rw",
+      hwaccess: "hro",
+      fields: [
+        {
+            bits: "31:0",
+            resval: "0x0"
+            swaccess: "rw"
+            hwaccess: "hro"
+            name: "SRC_XADDRINC",
+            desc: '''
+                  Source X dimension Address Increment.
+                  This value is used as the increment between each TRANSIZE transfer.
+                  When a single bit is used then only 0 and 1 can be set.
+                  For wider increment registers, two’s complement used with a range between -32768 to 32767 when the counter is 16 bits wide.
+                  The width of the register is indicated by the INC_WIDTH parameter. SRCADDR_next = SRCADDR + 2^TRANSIZE * SRCXADDRINC
+                  '''
+        }
+        {
+            bits: "63:32",
+            resval: "0x0"
+            swaccess: "rw"
+            hwaccess: "hro"
+            name: "DST_XADDRINC",
+            desc: '''
+                  Destination X dimension Address Increment.
+                  This value is used as the increment between each TRANSIZE transfer.
+                  When a single bit is used then only 0 and 1 can be set.
+                  For wider increment registers, two’s complement used with a range between -32768 to 32767 when the counter is 16 bits wide.
+                  The width of the register is indicated by the INC_WIDTH parameter. DSTADDR_next = DSTADDR + 2^TRANSIZE * DSTXADDRINC
+                  '''
+        }
+
+      ]
+    }
+    {
+      name: "CH_YADDRSTRIDE"
+      desc: '''
+            Y dimension Stride
+            '''
+      swaccess: "rw",
+      hwaccess: "hro",
+      fields: [
+        {
+            bits: "31:0",
+            resval: "0x0"
+            swaccess: "rw"
+            hwaccess: "hro"
+            name: "SRC_YADDRSTRIDE",
+            desc: '''
+                  Source Address Stride between lines.
+                  Calculated in TRANSIZE aligned steps.
+                  This value is used to increment the SRCADDR after completing the transfer of a source line.
+                  SRCADDR_next_line_base = SRCADDR_line_base + 2^TRANSIZE * SRCYADDRSTRIDE. Two’s complement used with a range between -32768 to 32767.
+                  When set to 0 the SRCADDR is not incremented after completing one line.
+                  '''
+        }
+        {
+            bits: "63:32",
+            resval: "0x0"
+            swaccess: "rw"
+            hwaccess: "hro"
+            name: "DST_YADDRSTRIDE",
+            desc: '''
+                  Destination Address Stride between lines.
+                  Calculated in TRANSIZE aligned steps.
+                  This value is used to increment the DSTADDR after completing the transfer of a destination line.
+                  DSTADDR_next_line_base = DSTADDR_line_base + 2^TRANSIZE * DSTYADDRSTRIDE. Two’s complement used with a range between -32768 to 32767.
+                  When set to 0 the DESADDR is not incremented after completing one line.
+                  '''
+        }
+
+      ]
+    }
+    {
+      name: "CH_LINK_DESCR"
+      desc: '''
+            Linked List Register
+            '''
+      swaccess: "rw",
+      hwaccess: "hro",
+      fields: [
+        {
+            bits: "0",
+            resval: "0x0"
+            swaccess: "rw"
+            hwaccess: "hro"
+            name: "LL_LAST",
+            desc: '''
+                  Indicates if the next linked list item is the last in the chain.
+                  0: the item is not the last item.LL fetching should continue after this fetch.
+                  1: the item in the LL is the last of the whole chain. The LL fetching should stop after this fetch.
+                  '''
+        }
+        {
+            bits: "63:3",
+            resval: "0x0"
+            swaccess: "rw"
+            hwaccess: "hro"
+            name: "LINK_ADDR",
+            desc: '''
+                  Sets the 64-bit address of the next element in the linked list.
+                  Bits[2:0] that provide the byte offset are omitted.
+                  '''
+        }
+      ]
+    }
+    {
+      name: "CH_STATUS"
+      desc: '''
+            Channel Status Register
+            '''
+      swaccess: "ro",
+      hwaccess: "hwo",
+      hwext: "true",
+      fields: [
+        {
+            bits: "0",
+            resval: "0x0"
+            swaccess: "ro"
+            hwaccess: "hwo"
+            name: "LINK_ADDR",
+            desc: '''
+                  Indicates if the channel is busy making a transfer.
+                  0: idle
+                  1: busy
+                  '''
+        }
+
+      ]
+    }
+    {
+      name: "CH_ERR_INFO"
+      desc: '''
+            Channel Error Reporting Register
+            '''
+      swaccess: "ro",
+      hwaccess: "hwo",
+      hwext: "true",
+      fields: [
+        {
+            bits: "0",
+            resval: "0x0"
+            swaccess: "ro"
+            hwaccess: "hwo"
+            name: "SLV_ERR",
+            desc: '''
+                  Error Flag. Set when the DMA encounters a bus error during data or command read transfers.
+                  '''
+        }
+        {
+            bits: "1",
+            resval: "0x0"
+            swaccess: "ro"
+            hwaccess: "hwo"
+            name: "DEC_ERR",
+            desc: '''
+                  Error Flag. Set when the DMA encounters a decode error during data or command read transfers.
+                  '''
+        }
+        {
+            bits: "2",
+            resval: "0x0"
+            swaccess: "ro"
+            hwaccess: "hwo"
+            name: "CFG_ERR",
+            desc: '''
+                  Configuration Error Flag.
+                  Set when the DMA command is enabled or a linked command is read but it is configured in a mode that is not supported by the implementation.
+                  '''
+        }
+        {
+            bits: "3",
+            resval: "0x0"
+            swaccess: "ro"
+            hwaccess: "hwo"
+            name: "ECC_ERR",
+            desc: '''
+                  An ECC error has been detected in the memories of the DMA.
+                  '''
+        }
+        {
+            bits: "5",
+            resval: "0x0"
+            swaccess: "ro"
+            hwaccess: "hwo"
+            name: "ECC_ERR_TYPE",
+            desc: '''
+                  Indicates the ECC error type:
+                  0: 1-bit error (recoverable)
+                  1: 2-bit error (unrecoverable)
+                  '''
+        }
+        {
+            bits: "31:6",
+            resval: "0x0"
+            swaccess: "ro"
+            hwaccess: "hwo"
+            name: "ECC_ERR_MEM_LOC",
+            desc: '''
+                  Reserved (to be detailed later)
+                  '''
+        }
+      ]
+    }
+    {
+      name: "CH_REQ_BUS_CTRL"
+      desc: '''
+            Margin of overcommitting to the bus
+            '''
+      swaccess: "rw",
+      hwaccess: "hro",
+      fields: [
+        {
+            bits: "7:0",
+            resval: "0x0"
+            swaccess: "rw"
+            hwaccess: "hro"
+            name: "OVERCOMMIT",
+            desc: '''
+                  Reserved (to be detailed later)
+                  '''
+        }
+
+      ]
+    }
+  ]
+}

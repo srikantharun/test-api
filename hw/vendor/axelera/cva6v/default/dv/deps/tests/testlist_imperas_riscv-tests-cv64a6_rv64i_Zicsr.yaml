@@ -1,0 +1,36 @@
+- test: CSRRCI-01
+  iterations: 1
+  path_var: TESTS_PATH
+  gcc_opts: "-DVLEN=4096 -static -mcmodel=medany -fvisibility=hidden -nostdlib -nostartfiles -I<path_var>/../../asm/env"
+  asm_tests: <path_var>/imperas-riscv-tests/riscv-test-suite/rv64i_m/Zicsr/src/CSRRCI-01.S
+
+- test: CSRRW-01
+  iterations: 1
+  path_var: TESTS_PATH
+  gcc_opts: "-DVLEN=4096 -static -mcmodel=medany -fvisibility=hidden -nostdlib -nostartfiles -I<path_var>/../../asm/env"
+  asm_tests: <path_var>/imperas-riscv-tests/riscv-test-suite/rv64i_m/Zicsr/src/CSRRW-01.S
+
+- test: CSRRSI-01
+  iterations: 1
+  path_var: TESTS_PATH
+  gcc_opts: "-DVLEN=4096 -static -mcmodel=medany -fvisibility=hidden -nostdlib -nostartfiles -I<path_var>/../../asm/env"
+  asm_tests: <path_var>/imperas-riscv-tests/riscv-test-suite/rv64i_m/Zicsr/src/CSRRSI-01.S
+
+- test: CSRRWI-01
+  iterations: 1
+  path_var: TESTS_PATH
+  gcc_opts: "-DVLEN=4096 -static -mcmodel=medany -fvisibility=hidden -nostdlib -nostartfiles -I<path_var>/../../asm/env"
+  asm_tests: <path_var>/imperas-riscv-tests/riscv-test-suite/rv64i_m/Zicsr/src/CSRRWI-01.S
+
+- test: CSRRS-01
+  iterations: 1
+  path_var: TESTS_PATH
+  gcc_opts: "-DVLEN=4096 -static -mcmodel=medany -fvisibility=hidden -nostdlib -nostartfiles -I<path_var>/../../asm/env"
+  asm_tests: <path_var>/imperas-riscv-tests/riscv-test-suite/rv64i_m/Zicsr/src/CSRRS-01.S
+
+- test: CSRRC-01
+  iterations: 1
+  path_var: TESTS_PATH
+  gcc_opts: "-DVLEN=4096 -static -mcmodel=medany -fvisibility=hidden -nostdlib -nostartfiles -I<path_var>/../../asm/env"
+  asm_tests: <path_var>/imperas-riscv-tests/riscv-test-suite/rv64i_m/Zicsr/src/CSRRC-01.S
+

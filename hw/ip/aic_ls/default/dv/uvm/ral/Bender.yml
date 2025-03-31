@@ -1,0 +1,18 @@
+package:
+  name: aic_ls_uvm_ral
+  description: "UVM Register Access Layer for DMC L1"
+  authors:
+    - "raymond.garcia@axelera.ai"
+
+dependencies:
+  lowrisc_dv_base_reg:         { path: "$REPO_ROOT/hw/vendor/axelera/lowrisc_dv/dv_base_reg"}
+  v_utils_pkg:                 { path: "$REPO_ROOT/hw/dv/v_utils"}
+
+sources:
+  - target: simulation
+    include_dirs:
+      - .
+    files:
+      - $REPO_ROOT/hw/ip/ifd_odr/default/dv/build_ral/ifd_csr_ral_pkg.sv
+      - $REPO_ROOT/hw/ip/ifd_odr/default/dv/build_ral/odr_csr_ral_pkg.sv
+      - aic_ls_csr_ral_pkg.sv

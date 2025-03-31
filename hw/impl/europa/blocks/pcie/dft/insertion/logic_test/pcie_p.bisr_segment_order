@@ -1,0 +1,7 @@
+BisrSegmentOrderSpecification {
+ PowerDomainGroup(-) {
+  OrderedElements {
+   u_pcie_subsys/bisr_si;
+  }
+ }
+}

@@ -1,0 +1,14 @@
+# (C) Copyright Axelera AI 2021
+# All Rights Reserved
+# *** Axelera AI Confidential ***
+
+# THIS IS NOT A BENDER FILE BECAUSE THIS IP NEEDS FIXING AND IM TAKING IT OUT OF BENDERS WORLD !!
+
+package:
+  name: reset_gen_pkg
+  authors:
+  - "Florian Zaruba <florian.zaruba@axelera.ai>"
+
+sources:
+  - files:
+      - ../reset_gen_reg_pkg.sv

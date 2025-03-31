@@ -1,0 +1,20 @@
+# (C) Copyright 2024 Axelera AI B.V.
+# All Rights Reserved
+# *** Axelera AI Confidential ***
+
+package:
+  name: dma_ip_uvm_sb
+  description: "DMA IP DATA TRANSFER CHECKING SCOREBOARD"
+  authors:
+    - "sultan.khan@axelera.ai"
+
+dependencies:
+  svt_amba_vip:             { path: "../../../../../../dv/svt_amba_vip"}
+  dma_ip_uvm_ral:           { path: "../ral" }
+
+sources:
+  - target: simulation
+    include_dirs:
+      - .
+    files:
+      - dma_ip_scoreboard_pkg.sv

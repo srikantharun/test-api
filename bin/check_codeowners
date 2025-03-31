@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+
+set -e
+
+VENV=.venv/europa_ci
+
+make -C $REPO_ROOT/bin venv VENV=$VENV FILE=$REPO_ROOT/.gitlab/ci/scripts/python-requirements.txt > /dev/null 2>&1
+
+source $REPO_ROOT/bin/$VENV/bin/activate
+python3.10 $REPO_ROOT/.gitlab/ci/scripts/check_codeowners.py $@
+deactivate

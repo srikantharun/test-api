@@ -1,0 +1,37 @@
+#%Module1.0####################################################################
+##
+## Europa NoC modulefile
+##
+proc ModulesHelp { } {
+    global version
+    puts stderr "\tSets up environment for Europa NoC version $version"
+}
+
+#--------------------------------------------------------------------+
+#-- Global variables & functions for Tcl script use only ------------|
+#--------------------------------------------------------------------+
+#
+set version      [file tail $ModulesCurrentModulefile]
+set ip_home      /data/foundry/LIB/axelera/europa-noc
+set release_home $ip_home/$version
+
+#-- what is --#
+module-whatis  "Sets up environment for Europa NoC version $version"
+module-whatis  "Contains NoC"
+module-whatis  "Release located @ $release_home"
+
+#--------------------------------------------------------------------+
+#-- Conflicts -------------------------------------------------------|
+#
+conflict europa-noc
+
+#--------------------------------------------------------------------+
+#-- Prerequisites ---------------------------------------------------|
+#
+
+#--------------------------------------------------------------------+
+#-- Module-related operations ---------------------------------------|
+#--------------------------------------------------------------------+
+#-- env vars --#
+#
+setenv EUROPA_NOC_HOME $release_home

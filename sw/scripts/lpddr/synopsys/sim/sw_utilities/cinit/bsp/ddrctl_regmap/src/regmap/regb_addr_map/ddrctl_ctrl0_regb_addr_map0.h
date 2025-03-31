@@ -1,0 +1,24 @@
+// ------------------------------------------------------------------------------
+//
+// Copyright 2023 Synopsys, INC.
+//
+// This Synopsys IP and all associated documentation are proprietary to
+// Synopsys, Inc. and may only be used pursuant to the terms and conditions of a
+// written license agreement with Synopsys, Inc. All other use, reproduction,
+// modification, or distribution of the Synopsys IP or the associated
+// documentation is strictly prohibited.
+// Inclusivity & Diversity - Visit SolvNetPlus to read the "Synopsys Statement on
+//            Inclusivity and Diversity" (Refer to article 000036315 at
+//                        https://solvnetplus.synopsys.com)
+//
+// ------------------------------------------------------------------------------
+
+#ifndef REGB_ADDR_MAP_DDRCTL_CTRL0_REGB_ADDR_MAP0_H
+#define REGB_ADDR_MAP_DDRCTL_CTRL0_REGB_ADDR_MAP0_H
+
+#include "ddrctl_reg_types.h"
+
+
+extern ddrctl_reg_t ctrl0_regb_addr_map0[];
+
+#endif /* REGB_ADDR_MAP_DDRCTL_CTRL0_REGB_ADDR_MAP0_H */

@@ -1,0 +1,20 @@
+package:
+  name: aic_ls_uvm_data_sb
+  description: "UVM Data Scoreboard for DMC L1"
+  authors:
+    - "raymond.garcia@axelera.ai"
+
+dependencies:
+  aic_common_pkg:              { path: "$REPO_ROOT/hw/ip/aic_common/default/rtl/pkg/" }
+  l1:                          { path: "$REPO_ROOT/hw/ip/l1/default/rtl"}
+  svt_amba_vip:                { path: "$REPO_ROOT/hw/dv/svt_amba_vip"}
+  aic_ls_uvm_ral:              { path: "../../ral" }
+  aic_ls_uvm_dmc_agt:          { path: "../../agents/dmc_addr_gen" }
+  aic_ls_uvm_dmc_ref:          { path: "../../refmodels/dmc_addr_gen_ref_model" }
+
+sources:
+  - target: simulation
+    include_dirs:
+      - .
+    files:
+      - dmc_data_scoreboard_pkg.sv

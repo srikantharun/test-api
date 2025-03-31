@@ -1,0 +1,103 @@
+// Copyright lowRISC contributors.
+// Licensed under the Apache License, Version 2.0, see LICENSE for details.
+// SPDX-License-Identifier: Apache-2.0
+{ name: "dma_mmu",
+  clocking: [{clock: "clk_i", reset: "rst_ni"}],
+  bus_interfaces: [
+    { protocol: "tlul", direction: "device" }
+  ],
+  regwidth: "64",
+  addrcap: "0x10000",
+  axi_intf: True
+  param_list : [
+    {name:"AXI_AW", type:"int", default:"40"} // upper limit
+    {name:"AXI_IDW", type:"int", default:"10"} // upper limit
+    {name:"AXI_LENW", type:"int", default:"8"}
+    {name:"N_MMU_ENTRIES", type:"int", default:"16"}
+  ]
+  registers: [
+    { multireg:
+      { name: "CH_MMU_CFG",
+        desc: '''
+             This register configures the MMU entry
+              '''
+        count: "N_MMU_ENTRIES",
+        cname: "n_mmu_entry",
+        swaccess: "rw",
+        hwaccess: "hro",
+        fields: [
+          {
+            bits: "0",
+            name: "VALID",
+            desc: '''
+                  This indicates the MMU entry is valid.
+                  Value:
+                  0 : Entry is invalid
+                  1 : Entry is valid
+                  '''
+          }
+        ]
+      }
+    }
+    { multireg:
+      { name: "CH_MMU_FIRST",
+        desc: '''
+             This register configures the MMU entry: first_address
+              '''
+        count: "N_MMU_ENTRIES",
+        cname: "n_mmu_entry",
+        swaccess: "rw",
+        hwaccess: "hro",
+        fields: [
+          {
+            bits: "27:0",
+            name: "FIRST",
+            desc: '''
+                  Lower (including) address bound for translation
+                  '''
+          }
+        ]
+      }
+    }
+    { multireg:
+      { name: "CH_MMU_LAST",
+        desc: '''
+             This register configures the MMU entry: last_address
+              '''
+        count: "N_MMU_ENTRIES",
+        cname: "n_mmu_entry",
+        swaccess: "rw",
+        hwaccess: "hro",
+        fields: [
+          {
+            bits: "27:0",
+            name: "LAST",
+            desc: '''
+                  Upper (including) address bound for translation
+                  '''
+          }
+        ]
+      }
+    }
+    { multireg:
+      { name: "CH_MMU_BASE",
+        desc: '''
+             This register configures the MMU entry: last_address
+              '''
+        count: "N_MMU_ENTRIES",
+        cname: "n_mmu_entry",
+        swaccess: "rw",
+        hwaccess: "hro",
+        fields: [
+          {
+            bits: "27:0",
+            name: "BASE",
+            desc: '''
+                  On match, subtract first and add base.
+                  '''
+          }
+        ]
+      }
+    }
+  ]
+}

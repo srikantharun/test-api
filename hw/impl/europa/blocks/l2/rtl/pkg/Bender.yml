@@ -1,0 +1,23 @@
+# (C) Copyright 2024 Axelera AI B.V.
+# All Rights Reserved
+# *** Axelera AI Confidential ***
+
+package:
+  name: europa_l2_pkg
+  description: "Package of Europa L2 implementation"
+  authors:
+    - "Manuel Oliveira <manuel.oliveira@axelera.ai>"
+
+dependencies:
+  cc_lib_pkg: { path: "hw/ip/common_cell_library/default/rtl/pkg" }
+  l2_pkg:     { path: "hw/ip/l2/default/rtl/pkg" }
+
+# Source files grouped in levels.
+# Files in level 0 have no dependencies on files in this package.
+# Files in level 1 only depend on files in level 0, files in level 2 on files in levels 1 and 0, etc.
+# Files within a level are ordered alphabetically.
+sources:
+  - files:
+    # Level 0
+    - l2_p_pkg.sv
+    - ../build_reg/l2_csr_reg_pkg.sv

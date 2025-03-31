@@ -1,0 +1,33 @@
+# (C) Copyright Axelera AI 2023
+# All Rights Reserved
+# *** Axelera AI Confidential ***
+#
+# Owner: Raymond Garcia <raymond.garcia@axelera.ai>
+#
+# Description: All of LOWRISC DV file. Note, this
+# bender manifest is backward compatibility only and
+# and will be deprecated. Only use what you need for
+# you respective block using separate manifest!
+
+
+package:
+  name: lowrisc_dv
+  authors:
+    - "LowRisc Contributors"
+
+export_include_dirs:
+  - /home/projects/lowrisc_opentitan_repo/dv_base_reg
+  - /home/projects/lowrisc_opentitan_repo/dv_utils
+  - /home/projects/lowrisc_opentitan_repo/prim/rtl
+  - /home/projects/opentitan-master/hw/dv/sv/str_utils
+
+sources:
+  - target: simulation
+    files:
+      - /home/projects/opentitan-master/hw/dv/sv/str_utils/str_utils_pkg.sv
+      - /home/projects/lowrisc_opentitan_repo/dv_utils/dv_test_status_pkg.sv
+      - /home/projects/lowrisc_opentitan_repo/dv_utils/dv_utils_pkg.sv
+      - /home/projects/lowrisc_opentitan_repo/prim/rtl/prim_mubi_pkg.sv
+      - /home/projects/lowrisc_opentitan_repo/dv_base_reg/dv_base_reg_pkg.sv
+
+

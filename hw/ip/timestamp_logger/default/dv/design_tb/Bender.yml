@@ -1,0 +1,16 @@
+package:
+  name: trace_unit_tb
+  description:
+  authors:
+    - "Sander Geursen <sander.geursen@axelera.ai>"
+
+dependencies:
+  timestamp_logger: { path: ""}
+  aic_common_design_tb: { path: "" }
+
+sources:
+  - target: simulation
+    include_dirs:
+      - ../../../../aic_common/default/dv/design_tb/axi
+    files:
+      - timestamp_logger_tb.sv

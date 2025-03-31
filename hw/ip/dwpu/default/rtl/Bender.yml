@@ -1,0 +1,39 @@
+# (C) Copyright Axelera AI 2022
+# All Rights Reserved
+# *** Axelera AI Confidential ***
+
+package:
+  name: dwpu
+  description: "Less stubby DWPU stub"
+  authors:
+    - "Wolfgang Roenninger <wolfgang.roenninger@axelera.ai>"
+    - "Stefan Mach <stefan.mach@axelera.ai>"
+
+dependencies:
+  dwpu_pkg:            { path: "" }
+  aic_common_pkg:      { path: "" }
+  aic_common:          { path: "" }
+  axi_pkg:             { path: "" }
+  cc_lib_pkg:          { path: "" }
+  cc_lib:              { path: "" }
+  cmdblock:            { path: "" }
+  lowrisc_prim_subreg: { path: "" }
+  token_manager_pkg:   { path: "" }
+
+  aic_fabric_addr_decoder: { path: "" }
+  axi4_common:             { path: "" }
+
+# Source files are grouped in levels. Files in level 0 have no dependencies on files in this package.
+# Files in level 1 only depend on files in level 0, fils in level 2 on files in 0 and 1, etc.
+# Files within a level are ordered alphanumerically.
+sources:
+  - target: rtl
+    files:
+      # Level 0
+      - build_reg/dwpu_csr_reg_top.sv
+      - dwpu_dp_channel.sv
+      - dwpu_dp_instr_shim.sv
+      # Level 1
+      - dwpu_dp.sv
+      # Level 2
+      - dwpu.sv

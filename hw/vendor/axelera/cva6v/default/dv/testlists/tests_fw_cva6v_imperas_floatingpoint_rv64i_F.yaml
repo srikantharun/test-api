@@ -1,0 +1,1145 @@
+tests:
+  - name: cva6v_imperas_F_rv64i_FNMSUB-S-DYN-RDN-01
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_IMPERAS_F_TESTS]
+    requirement_ids: [CVA6V_FEAT_1, CVA6V_FEAT_2, CVA6V_FEAT_3]
+    platforms: [cva6v.*]
+    owner: Raymond Garcia
+    flags: [RUN_SCRIPT_ONLY, ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/imperas-riscv-tests/riscv-test-suite/rv64i_m/F/src/FNMSUB-S-DYN-RDN-01]
+
+  - name: cva6v_imperas_F_rv64i_FDIV-S-RUP-01
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_IMPERAS_F_TESTS]
+    requirement_ids: [CVA6V_FEAT_1, CVA6V_FEAT_2, CVA6V_FEAT_3]
+    platforms: [cva6v.*]
+    owner: Raymond Garcia
+    flags: [RUN_SCRIPT_ONLY, ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/imperas-riscv-tests/riscv-test-suite/rv64i_m/F/src/FDIV-S-RUP-01]
+
+  - name: cva6v_imperas_F_rv64i_FCVT-WU-S-RUP-01
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_IMPERAS_F_TESTS]
+    requirement_ids: [CVA6V_FEAT_1, CVA6V_FEAT_2, CVA6V_FEAT_3]
+    platforms: [cva6v.*]
+    owner: Raymond Garcia
+    flags: [RUN_SCRIPT_ONLY, ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/imperas-riscv-tests/riscv-test-suite/rv64i_m/F/src/FCVT-WU-S-RUP-01]
+
+  - name: cva6v_imperas_F_rv64i_FMSUB-S-RTZ-01
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_IMPERAS_F_TESTS]
+    requirement_ids: [CVA6V_FEAT_1, CVA6V_FEAT_2, CVA6V_FEAT_3]
+    platforms: [cva6v.*]
+    owner: Raymond Garcia
+    flags: [RUN_SCRIPT_ONLY, ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/imperas-riscv-tests/riscv-test-suite/rv64i_m/F/src/FMSUB-S-RTZ-01]
+
+  - name: cva6v_imperas_F_rv64i_FCVT-WU-S-RMM-01
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_IMPERAS_F_TESTS]
+    requirement_ids: [CVA6V_FEAT_1, CVA6V_FEAT_2, CVA6V_FEAT_3]
+    platforms: [cva6v.*]
+    owner: Raymond Garcia
+    flags: [RUN_SCRIPT_ONLY, ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/imperas-riscv-tests/riscv-test-suite/rv64i_m/F/src/FCVT-WU-S-RMM-01]
+
+  - name: cva6v_imperas_F_rv64i_FMSUB-S-RDN-01
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_IMPERAS_F_TESTS]
+    requirement_ids: [CVA6V_FEAT_1, CVA6V_FEAT_2, CVA6V_FEAT_3]
+    platforms: [cva6v.*]
+    owner: Raymond Garcia
+    flags: [RUN_SCRIPT_ONLY, ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/imperas-riscv-tests/riscv-test-suite/rv64i_m/F/src/FMSUB-S-RDN-01]
+
+  - name: cva6v_imperas_F_rv64i_FSQRT-S-RUP-01
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_IMPERAS_F_TESTS]
+    requirement_ids: [CVA6V_FEAT_1, CVA6V_FEAT_2, CVA6V_FEAT_3]
+    platforms: [cva6v.*]
+    owner: Raymond Garcia
+    flags: [RUN_SCRIPT_ONLY, ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/imperas-riscv-tests/riscv-test-suite/rv64i_m/F/src/FSQRT-S-RUP-01]
+
+  - name: cva6v_imperas_F_rv64i_FNMSUB-S-RMM-01
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_IMPERAS_F_TESTS]
+    requirement_ids: [CVA6V_FEAT_1, CVA6V_FEAT_2, CVA6V_FEAT_3]
+    platforms: [cva6v.*]
+    owner: Raymond Garcia
+    flags: [RUN_SCRIPT_ONLY, ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/imperas-riscv-tests/riscv-test-suite/rv64i_m/F/src/FNMSUB-S-RMM-01]
+
+  - name: cva6v_imperas_F_rv64i_FCVT-S-W-DYN-RDN-01
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_IMPERAS_F_TESTS]
+    requirement_ids: [CVA6V_FEAT_1, CVA6V_FEAT_2, CVA6V_FEAT_3]
+    platforms: [cva6v.*]
+    owner: Raymond Garcia
+    flags: [RUN_SCRIPT_ONLY, ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/imperas-riscv-tests/riscv-test-suite/rv64i_m/F/src/FCVT-S-W-DYN-RDN-01]
+
+  - name: cva6v_imperas_F_rv64i_FMUL-S-DYN-RUP-01
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_IMPERAS_F_TESTS]
+    requirement_ids: [CVA6V_FEAT_1, CVA6V_FEAT_2, CVA6V_FEAT_3]
+    platforms: [cva6v.*]
+    owner: Raymond Garcia
+    flags: [RUN_SCRIPT_ONLY, ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/imperas-riscv-tests/riscv-test-suite/rv64i_m/F/src/FMUL-S-DYN-RUP-01]
+
+  - name: cva6v_imperas_F_rv64i_FMADD-S-DYN-RUP-01
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_IMPERAS_F_TESTS]
+    requirement_ids: [CVA6V_FEAT_1, CVA6V_FEAT_2, CVA6V_FEAT_3]
+    platforms: [cva6v.*]
+    owner: Raymond Garcia
+    flags: [RUN_SCRIPT_ONLY, ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/imperas-riscv-tests/riscv-test-suite/rv64i_m/F/src/FMADD-S-DYN-RUP-01]
+
+  - name: cva6v_imperas_F_rv64i_FCVT-W-S-RNE-01
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_IMPERAS_F_TESTS]
+    requirement_ids: [CVA6V_FEAT_1, CVA6V_FEAT_2, CVA6V_FEAT_3]
+    platforms: [cva6v.*]
+    owner: Raymond Garcia
+    flags: [RUN_SCRIPT_ONLY, ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/imperas-riscv-tests/riscv-test-suite/rv64i_m/F/src/FCVT-W-S-RNE-01]
+
+  - name: cva6v_imperas_F_rv64i_FSUB-S-RDN-01
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_IMPERAS_F_TESTS]
+    requirement_ids: [CVA6V_FEAT_1, CVA6V_FEAT_2, CVA6V_FEAT_3]
+    platforms: [cva6v.*]
+    owner: Raymond Garcia
+    flags: [RUN_SCRIPT_ONLY, ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/imperas-riscv-tests/riscv-test-suite/rv64i_m/F/src/FSUB-S-RDN-01]
+
+  - name: cva6v_imperas_F_rv64i_FADD-S-DYN-RUP-01
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_IMPERAS_F_TESTS]
+    requirement_ids: [CVA6V_FEAT_1, CVA6V_FEAT_2, CVA6V_FEAT_3]
+    platforms: [cva6v.*]
+    owner: Raymond Garcia
+    flags: [RUN_SCRIPT_ONLY, ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/imperas-riscv-tests/riscv-test-suite/rv64i_m/F/src/FADD-S-DYN-RUP-01]
+
+  - name: cva6v_imperas_F_rv64i_FCVT-W-S-RUP-01
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_IMPERAS_F_TESTS]
+    requirement_ids: [CVA6V_FEAT_1, CVA6V_FEAT_2, CVA6V_FEAT_3]
+    platforms: [cva6v.*]
+    owner: Raymond Garcia
+    flags: [RUN_SCRIPT_ONLY, ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/imperas-riscv-tests/riscv-test-suite/rv64i_m/F/src/FCVT-W-S-RUP-01]
+
+  - name: cva6v_imperas_F_rv64i_FMSUB-S-DYN-RNE-01
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_IMPERAS_F_TESTS]
+    requirement_ids: [CVA6V_FEAT_1, CVA6V_FEAT_2, CVA6V_FEAT_3]
+    platforms: [cva6v.*]
+    owner: Raymond Garcia
+    flags: [RUN_SCRIPT_ONLY, ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/imperas-riscv-tests/riscv-test-suite/rv64i_m/F/src/FMSUB-S-DYN-RNE-01]
+
+  - name: cva6v_imperas_F_rv64i_FMV-W-X-01
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_IMPERAS_F_TESTS]
+    requirement_ids: [CVA6V_FEAT_1, CVA6V_FEAT_2, CVA6V_FEAT_3]
+    platforms: [cva6v.*]
+    owner: Raymond Garcia
+    flags: [RUN_SCRIPT_ONLY, ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/imperas-riscv-tests/riscv-test-suite/rv64i_m/F/src/FMV-W-X-01]
+
+  - name: cva6v_imperas_F_rv64i_FCVT-S-W-DYN-RUP-01
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_IMPERAS_F_TESTS]
+    requirement_ids: [CVA6V_FEAT_1, CVA6V_FEAT_2, CVA6V_FEAT_3]
+    platforms: [cva6v.*]
+    owner: Raymond Garcia
+    flags: [RUN_SCRIPT_ONLY, ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/imperas-riscv-tests/riscv-test-suite/rv64i_m/F/src/FCVT-S-W-DYN-RUP-01]
+
+  - name: cva6v_imperas_F_rv64i_FNMSUB-S-RNE-01
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_IMPERAS_F_TESTS]
+    requirement_ids: [CVA6V_FEAT_1, CVA6V_FEAT_2, CVA6V_FEAT_3]
+    platforms: [cva6v.*]
+    owner: Raymond Garcia
+    flags: [RUN_SCRIPT_ONLY, ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/imperas-riscv-tests/riscv-test-suite/rv64i_m/F/src/FNMSUB-S-RNE-01]
+
+  - name: cva6v_imperas_F_rv64i_FNMSUB-S-DYN-RUP-01
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_IMPERAS_F_TESTS]
+    requirement_ids: [CVA6V_FEAT_1, CVA6V_FEAT_2, CVA6V_FEAT_3]
+    platforms: [cva6v.*]
+    owner: Raymond Garcia
+    flags: [RUN_SCRIPT_ONLY, ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/imperas-riscv-tests/riscv-test-suite/rv64i_m/F/src/FNMSUB-S-DYN-RUP-01]
+
+  - name: cva6v_imperas_F_rv64i_FNMSUB-S-RUP-01
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_IMPERAS_F_TESTS]
+    requirement_ids: [CVA6V_FEAT_1, CVA6V_FEAT_2, CVA6V_FEAT_3]
+    platforms: [cva6v.*]
+    owner: Raymond Garcia
+    flags: [RUN_SCRIPT_ONLY, ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/imperas-riscv-tests/riscv-test-suite/rv64i_m/F/src/FNMSUB-S-RUP-01]
+
+  - name: cva6v_imperas_F_rv64i_FCVT-W-S-RDN-01
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_IMPERAS_F_TESTS]
+    requirement_ids: [CVA6V_FEAT_1, CVA6V_FEAT_2, CVA6V_FEAT_3]
+    platforms: [cva6v.*]
+    owner: Raymond Garcia
+    flags: [RUN_SCRIPT_ONLY, ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/imperas-riscv-tests/riscv-test-suite/rv64i_m/F/src/FCVT-W-S-RDN-01]
+
+  - name: cva6v_imperas_F_rv64i_FCVT-S-W-DYN-RMM-01
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_IMPERAS_F_TESTS]
+    requirement_ids: [CVA6V_FEAT_1, CVA6V_FEAT_2, CVA6V_FEAT_3]
+    platforms: [cva6v.*]
+    owner: Raymond Garcia
+    flags: [RUN_SCRIPT_ONLY, ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/imperas-riscv-tests/riscv-test-suite/rv64i_m/F/src/FCVT-S-W-DYN-RMM-01]
+
+  - name: cva6v_imperas_F_rv64i_FCVT-S-WU-RDN-01
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_IMPERAS_F_TESTS]
+    requirement_ids: [CVA6V_FEAT_1, CVA6V_FEAT_2, CVA6V_FEAT_3]
+    platforms: [cva6v.*]
+    owner: Raymond Garcia
+    flags: [RUN_SCRIPT_ONLY, ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/imperas-riscv-tests/riscv-test-suite/rv64i_m/F/src/FCVT-S-WU-RDN-01]
+
+  - name: cva6v_imperas_F_rv64i_FMIN-S-01
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_IMPERAS_F_TESTS]
+    requirement_ids: [CVA6V_FEAT_1, CVA6V_FEAT_2, CVA6V_FEAT_3]
+    platforms: [cva6v.*]
+    owner: Raymond Garcia
+    flags: [RUN_SCRIPT_ONLY, ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/imperas-riscv-tests/riscv-test-suite/rv64i_m/F/src/FMIN-S-01]
+
+  - name: cva6v_imperas_F_rv64i_FMSUB-S-DYN-RTZ-01
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_IMPERAS_F_TESTS]
+    requirement_ids: [CVA6V_FEAT_1, CVA6V_FEAT_2, CVA6V_FEAT_3]
+    platforms: [cva6v.*]
+    owner: Raymond Garcia
+    flags: [RUN_SCRIPT_ONLY, ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/imperas-riscv-tests/riscv-test-suite/rv64i_m/F/src/FMSUB-S-DYN-RTZ-01]
+
+  - name: cva6v_imperas_F_rv64i_FSQRT-S-RDN-01
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_IMPERAS_F_TESTS]
+    requirement_ids: [CVA6V_FEAT_1, CVA6V_FEAT_2, CVA6V_FEAT_3]
+    platforms: [cva6v.*]
+    owner: Raymond Garcia
+    flags: [RUN_SCRIPT_ONLY, ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/imperas-riscv-tests/riscv-test-suite/rv64i_m/F/src/FSQRT-S-RDN-01]
+
+  - name: cva6v_imperas_F_rv64i_FSUB-S-RMM-01
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_IMPERAS_F_TESTS]
+    requirement_ids: [CVA6V_FEAT_1, CVA6V_FEAT_2, CVA6V_FEAT_3]
+    platforms: [cva6v.*]
+    owner: Raymond Garcia
+    flags: [RUN_SCRIPT_ONLY, ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/imperas-riscv-tests/riscv-test-suite/rv64i_m/F/src/FSUB-S-RMM-01]
+
+  - name: cva6v_imperas_F_rv64i_FNMADD-S-RDN-01
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_IMPERAS_F_TESTS]
+    requirement_ids: [CVA6V_FEAT_1, CVA6V_FEAT_2, CVA6V_FEAT_3]
+    platforms: [cva6v.*]
+    owner: Raymond Garcia
+    flags: [RUN_SCRIPT_ONLY, ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/imperas-riscv-tests/riscv-test-suite/rv64i_m/F/src/FNMADD-S-RDN-01]
+
+  - name: cva6v_imperas_F_rv64i_FNMSUB-S-DYN-RMM-01
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_IMPERAS_F_TESTS]
+    requirement_ids: [CVA6V_FEAT_1, CVA6V_FEAT_2, CVA6V_FEAT_3]
+    platforms: [cva6v.*]
+    owner: Raymond Garcia
+    flags: [RUN_SCRIPT_ONLY, ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/imperas-riscv-tests/riscv-test-suite/rv64i_m/F/src/FNMSUB-S-DYN-RMM-01]
+
+  - name: cva6v_imperas_F_rv64i_FSUB-S-RTZ-01
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_IMPERAS_F_TESTS]
+    requirement_ids: [CVA6V_FEAT_1, CVA6V_FEAT_2, CVA6V_FEAT_3]
+    platforms: [cva6v.*]
+    owner: Raymond Garcia
+    flags: [RUN_SCRIPT_ONLY, ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/imperas-riscv-tests/riscv-test-suite/rv64i_m/F/src/FSUB-S-RTZ-01]
+
+  - name: cva6v_imperas_F_rv64i_FMSUB-S-DYN-RDN-01
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_IMPERAS_F_TESTS]
+    requirement_ids: [CVA6V_FEAT_1, CVA6V_FEAT_2, CVA6V_FEAT_3]
+    platforms: [cva6v.*]
+    owner: Raymond Garcia
+    flags: [RUN_SCRIPT_ONLY, ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/imperas-riscv-tests/riscv-test-suite/rv64i_m/F/src/FMSUB-S-DYN-RDN-01]
+
+  - name: cva6v_imperas_F_rv64i_FCVT-WU-S-RNE-01
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_IMPERAS_F_TESTS]
+    requirement_ids: [CVA6V_FEAT_1, CVA6V_FEAT_2, CVA6V_FEAT_3]
+    platforms: [cva6v.*]
+    owner: Raymond Garcia
+    flags: [RUN_SCRIPT_ONLY, ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/imperas-riscv-tests/riscv-test-suite/rv64i_m/F/src/FCVT-WU-S-RNE-01]
+
+  - name: cva6v_imperas_F_rv64i_FNMADD-S-DYN-RUP-01
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_IMPERAS_F_TESTS]
+    requirement_ids: [CVA6V_FEAT_1, CVA6V_FEAT_2, CVA6V_FEAT_3]
+    platforms: [cva6v.*]
+    owner: Raymond Garcia
+    flags: [RUN_SCRIPT_ONLY, ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/imperas-riscv-tests/riscv-test-suite/rv64i_m/F/src/FNMADD-S-DYN-RUP-01]
+
+  - name: cva6v_imperas_F_rv64i_FDIV-S-DYN-RTZ-01
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_IMPERAS_F_TESTS]
+    requirement_ids: [CVA6V_FEAT_1, CVA6V_FEAT_2, CVA6V_FEAT_3]
+    platforms: [cva6v.*]
+    owner: Raymond Garcia
+    flags: [RUN_SCRIPT_ONLY, ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/imperas-riscv-tests/riscv-test-suite/rv64i_m/F/src/FDIV-S-DYN-RTZ-01]
+
+  - name: cva6v_imperas_F_rv64i_FSUB-S-RNE-01
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_IMPERAS_F_TESTS]
+    requirement_ids: [CVA6V_FEAT_1, CVA6V_FEAT_2, CVA6V_FEAT_3]
+    platforms: [cva6v.*]
+    owner: Raymond Garcia
+    flags: [RUN_SCRIPT_ONLY, ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/imperas-riscv-tests/riscv-test-suite/rv64i_m/F/src/FSUB-S-RNE-01]
+
+  - name: cva6v_imperas_F_rv64i_FADD-S-DYN-RMM-01
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_IMPERAS_F_TESTS]
+    requirement_ids: [CVA6V_FEAT_1, CVA6V_FEAT_2, CVA6V_FEAT_3]
+    platforms: [cva6v.*]
+    owner: Raymond Garcia
+    flags: [RUN_SCRIPT_ONLY, ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/imperas-riscv-tests/riscv-test-suite/rv64i_m/F/src/FADD-S-DYN-RMM-01]
+
+  - name: cva6v_imperas_F_rv64i_FMADD-S-RDN-01
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_IMPERAS_F_TESTS]
+    requirement_ids: [CVA6V_FEAT_1, CVA6V_FEAT_2, CVA6V_FEAT_3]
+    platforms: [cva6v.*]
+    owner: Raymond Garcia
+    flags: [RUN_SCRIPT_ONLY, ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/imperas-riscv-tests/riscv-test-suite/rv64i_m/F/src/FMADD-S-RDN-01]
+
+  - name: cva6v_imperas_F_rv64i_FMV-X-W-01
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_IMPERAS_F_TESTS]
+    requirement_ids: [CVA6V_FEAT_1, CVA6V_FEAT_2, CVA6V_FEAT_3]
+    platforms: [cva6v.*]
+    owner: Raymond Garcia
+    flags: [RUN_SCRIPT_ONLY, ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/imperas-riscv-tests/riscv-test-suite/rv64i_m/F/src/FMV-X-W-01]
+
+  - name: cva6v_imperas_F_rv64i_FCVT-S-W-DYN-RNE-01
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_IMPERAS_F_TESTS]
+    requirement_ids: [CVA6V_FEAT_1, CVA6V_FEAT_2, CVA6V_FEAT_3]
+    platforms: [cva6v.*]
+    owner: Raymond Garcia
+    flags: [RUN_SCRIPT_ONLY, ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/imperas-riscv-tests/riscv-test-suite/rv64i_m/F/src/FCVT-S-W-DYN-RNE-01]
+
+  - name: cva6v_imperas_F_rv64i_FSQRT-S-DYN-RDN-01
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_IMPERAS_F_TESTS]
+    requirement_ids: [CVA6V_FEAT_1, CVA6V_FEAT_2, CVA6V_FEAT_3]
+    platforms: [cva6v.*]
+    owner: Raymond Garcia
+    flags: [RUN_SCRIPT_ONLY, ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/imperas-riscv-tests/riscv-test-suite/rv64i_m/F/src/FSQRT-S-DYN-RDN-01]
+
+  - name: cva6v_imperas_F_rv64i_FNMSUB-S-DYN-RNE-01
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_IMPERAS_F_TESTS]
+    requirement_ids: [CVA6V_FEAT_1, CVA6V_FEAT_2, CVA6V_FEAT_3]
+    platforms: [cva6v.*]
+    owner: Raymond Garcia
+    flags: [RUN_SCRIPT_ONLY, ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/imperas-riscv-tests/riscv-test-suite/rv64i_m/F/src/FNMSUB-S-DYN-RNE-01]
+
+  - name: cva6v_imperas_F_rv64i_FMADD-S-RUP-01
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_IMPERAS_F_TESTS]
+    requirement_ids: [CVA6V_FEAT_1, CVA6V_FEAT_2, CVA6V_FEAT_3]
+    platforms: [cva6v.*]
+    owner: Raymond Garcia
+    flags: [RUN_SCRIPT_ONLY, ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/imperas-riscv-tests/riscv-test-suite/rv64i_m/F/src/FMADD-S-RUP-01]
+
+  - name: cva6v_imperas_F_rv64i_FNMSUB-S-RDN-01
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_IMPERAS_F_TESTS]
+    requirement_ids: [CVA6V_FEAT_1, CVA6V_FEAT_2, CVA6V_FEAT_3]
+    platforms: [cva6v.*]
+    owner: Raymond Garcia
+    flags: [RUN_SCRIPT_ONLY, ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/imperas-riscv-tests/riscv-test-suite/rv64i_m/F/src/FNMSUB-S-RDN-01]
+
+  - name: cva6v_imperas_F_rv64i_FDIV-S-RDN-01
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_IMPERAS_F_TESTS]
+    requirement_ids: [CVA6V_FEAT_1, CVA6V_FEAT_2, CVA6V_FEAT_3]
+    platforms: [cva6v.*]
+    owner: Raymond Garcia
+    flags: [RUN_SCRIPT_ONLY, ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/imperas-riscv-tests/riscv-test-suite/rv64i_m/F/src/FDIV-S-RDN-01]
+
+  - name: cva6v_imperas_F_rv64i_FCVT-S-W-RDN-01
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_IMPERAS_F_TESTS]
+    requirement_ids: [CVA6V_FEAT_1, CVA6V_FEAT_2, CVA6V_FEAT_3]
+    platforms: [cva6v.*]
+    owner: Raymond Garcia
+    flags: [RUN_SCRIPT_ONLY, ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/imperas-riscv-tests/riscv-test-suite/rv64i_m/F/src/FCVT-S-W-RDN-01]
+
+  - name: cva6v_imperas_F_rv64i_FSGNJX-S-01
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_IMPERAS_F_TESTS]
+    requirement_ids: [CVA6V_FEAT_1, CVA6V_FEAT_2, CVA6V_FEAT_3]
+    platforms: [cva6v.*]
+    owner: Raymond Garcia
+    flags: [RUN_SCRIPT_ONLY, ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/imperas-riscv-tests/riscv-test-suite/rv64i_m/F/src/FSGNJX-S-01]
+
+  - name: cva6v_imperas_F_rv64i_FSQRT-S-DYN-RUP-01
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_IMPERAS_F_TESTS]
+    requirement_ids: [CVA6V_FEAT_1, CVA6V_FEAT_2, CVA6V_FEAT_3]
+    platforms: [cva6v.*]
+    owner: Raymond Garcia
+    flags: [RUN_SCRIPT_ONLY, ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/imperas-riscv-tests/riscv-test-suite/rv64i_m/F/src/FSQRT-S-DYN-RUP-01]
+
+  - name: cva6v_imperas_F_rv64i_FDIV-S-RTZ-01
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_IMPERAS_F_TESTS]
+    requirement_ids: [CVA6V_FEAT_1, CVA6V_FEAT_2, CVA6V_FEAT_3]
+    platforms: [cva6v.*]
+    owner: Raymond Garcia
+    flags: [RUN_SCRIPT_ONLY, ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/imperas-riscv-tests/riscv-test-suite/rv64i_m/F/src/FDIV-S-RTZ-01]
+
+  - name: cva6v_imperas_F_rv64i_FCVT-S-W-DYN-RTZ-01
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_IMPERAS_F_TESTS]
+    requirement_ids: [CVA6V_FEAT_1, CVA6V_FEAT_2, CVA6V_FEAT_3]
+    platforms: [cva6v.*]
+    owner: Raymond Garcia
+    flags: [RUN_SCRIPT_ONLY, ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/imperas-riscv-tests/riscv-test-suite/rv64i_m/F/src/FCVT-S-W-DYN-RTZ-01]
+
+  - name: cva6v_imperas_F_rv64i_FNMADD-S-RMM-01
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_IMPERAS_F_TESTS]
+    requirement_ids: [CVA6V_FEAT_1, CVA6V_FEAT_2, CVA6V_FEAT_3]
+    platforms: [cva6v.*]
+    owner: Raymond Garcia
+    flags: [RUN_SCRIPT_ONLY, ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/imperas-riscv-tests/riscv-test-suite/rv64i_m/F/src/FNMADD-S-RMM-01]
+
+  - name: cva6v_imperas_F_rv64i_FMUL-S-RMM-01
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_IMPERAS_F_TESTS]
+    requirement_ids: [CVA6V_FEAT_1, CVA6V_FEAT_2, CVA6V_FEAT_3]
+    platforms: [cva6v.*]
+    owner: Raymond Garcia
+    flags: [RUN_SCRIPT_ONLY, ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/imperas-riscv-tests/riscv-test-suite/rv64i_m/F/src/FMUL-S-RMM-01]
+
+  - name: cva6v_imperas_F_rv64i_FSUB-S-DYN-RNE-01
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_IMPERAS_F_TESTS]
+    requirement_ids: [CVA6V_FEAT_1, CVA6V_FEAT_2, CVA6V_FEAT_3]
+    platforms: [cva6v.*]
+    owner: Raymond Garcia
+    flags: [RUN_SCRIPT_ONLY, ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/imperas-riscv-tests/riscv-test-suite/rv64i_m/F/src/FSUB-S-DYN-RNE-01]
+
+  - name: cva6v_imperas_F_rv64i_FCVT-WU-S-DYN-RUP-01
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_IMPERAS_F_TESTS]
+    requirement_ids: [CVA6V_FEAT_1, CVA6V_FEAT_2, CVA6V_FEAT_3]
+    platforms: [cva6v.*]
+    owner: Raymond Garcia
+    flags: [RUN_SCRIPT_ONLY, ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/imperas-riscv-tests/riscv-test-suite/rv64i_m/F/src/FCVT-WU-S-DYN-RUP-01]
+
+  - name: cva6v_imperas_F_rv64i_FCVT-W-S-DYN-RTZ-01
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_IMPERAS_F_TESTS]
+    requirement_ids: [CVA6V_FEAT_1, CVA6V_FEAT_2, CVA6V_FEAT_3]
+    platforms: [cva6v.*]
+    owner: Raymond Garcia
+    flags: [RUN_SCRIPT_ONLY, ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/imperas-riscv-tests/riscv-test-suite/rv64i_m/F/src/FCVT-W-S-DYN-RTZ-01]
+
+  - name: cva6v_imperas_F_rv64i_FADD-S-RUP-01
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_IMPERAS_F_TESTS]
+    requirement_ids: [CVA6V_FEAT_1, CVA6V_FEAT_2, CVA6V_FEAT_3]
+    platforms: [cva6v.*]
+    owner: Raymond Garcia
+    flags: [RUN_SCRIPT_ONLY, ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/imperas-riscv-tests/riscv-test-suite/rv64i_m/F/src/FADD-S-RUP-01]
+
+  - name: cva6v_imperas_F_rv64i_FCVT-S-WU-RTZ-01
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_IMPERAS_F_TESTS]
+    requirement_ids: [CVA6V_FEAT_1, CVA6V_FEAT_2, CVA6V_FEAT_3]
+    platforms: [cva6v.*]
+    owner: Raymond Garcia
+    flags: [RUN_SCRIPT_ONLY, ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/imperas-riscv-tests/riscv-test-suite/rv64i_m/F/src/FCVT-S-WU-RTZ-01]
+
+  - name: cva6v_imperas_F_rv64i_FNMADD-S-RTZ-01
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_IMPERAS_F_TESTS]
+    requirement_ids: [CVA6V_FEAT_1, CVA6V_FEAT_2, CVA6V_FEAT_3]
+    platforms: [cva6v.*]
+    owner: Raymond Garcia
+    flags: [RUN_SCRIPT_ONLY, ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/imperas-riscv-tests/riscv-test-suite/rv64i_m/F/src/FNMADD-S-RTZ-01]
+
+  - name: cva6v_imperas_F_rv64i_FMADD-S-DYN-RNE-01
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_IMPERAS_F_TESTS]
+    requirement_ids: [CVA6V_FEAT_1, CVA6V_FEAT_2, CVA6V_FEAT_3]
+    platforms: [cva6v.*]
+    owner: Raymond Garcia
+    flags: [RUN_SCRIPT_ONLY, ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/imperas-riscv-tests/riscv-test-suite/rv64i_m/F/src/FMADD-S-DYN-RNE-01]
+
+  - name: cva6v_imperas_F_rv64i_FNMSUB-S-DYN-RTZ-01
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_IMPERAS_F_TESTS]
+    requirement_ids: [CVA6V_FEAT_1, CVA6V_FEAT_2, CVA6V_FEAT_3]
+    platforms: [cva6v.*]
+    owner: Raymond Garcia
+    flags: [RUN_SCRIPT_ONLY, ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/imperas-riscv-tests/riscv-test-suite/rv64i_m/F/src/FNMSUB-S-DYN-RTZ-01]
+
+  - name: cva6v_imperas_F_rv64i_FSUB-S-RUP-01
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_IMPERAS_F_TESTS]
+    requirement_ids: [CVA6V_FEAT_1, CVA6V_FEAT_2, CVA6V_FEAT_3]
+    platforms: [cva6v.*]
+    owner: Raymond Garcia
+    flags: [RUN_SCRIPT_ONLY, ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/imperas-riscv-tests/riscv-test-suite/rv64i_m/F/src/FSUB-S-RUP-01]
+
+  - name: cva6v_imperas_F_rv64i_FCVT-W-S-RMM-01
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_IMPERAS_F_TESTS]
+    requirement_ids: [CVA6V_FEAT_1, CVA6V_FEAT_2, CVA6V_FEAT_3]
+    platforms: [cva6v.*]
+    owner: Raymond Garcia
+    flags: [RUN_SCRIPT_ONLY, ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/imperas-riscv-tests/riscv-test-suite/rv64i_m/F/src/FCVT-W-S-RMM-01]
+
+  - name: cva6v_imperas_F_rv64i_FNMADD-S-DYN-RDN-01
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_IMPERAS_F_TESTS]
+    requirement_ids: [CVA6V_FEAT_1, CVA6V_FEAT_2, CVA6V_FEAT_3]
+    platforms: [cva6v.*]
+    owner: Raymond Garcia
+    flags: [RUN_SCRIPT_ONLY, ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/imperas-riscv-tests/riscv-test-suite/rv64i_m/F/src/FNMADD-S-DYN-RDN-01]
+
+  - name: cva6v_imperas_F_rv64i_FSUB-S-DYN-RTZ-01
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_IMPERAS_F_TESTS]
+    requirement_ids: [CVA6V_FEAT_1, CVA6V_FEAT_2, CVA6V_FEAT_3]
+    platforms: [cva6v.*]
+    owner: Raymond Garcia
+    flags: [RUN_SCRIPT_ONLY, ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/imperas-riscv-tests/riscv-test-suite/rv64i_m/F/src/FSUB-S-DYN-RTZ-01]
+
+  - name: cva6v_imperas_F_rv64i_FADD-S-RDN-01
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_IMPERAS_F_TESTS]
+    requirement_ids: [CVA6V_FEAT_1, CVA6V_FEAT_2, CVA6V_FEAT_3]
+    platforms: [cva6v.*]
+    owner: Raymond Garcia
+    flags: [RUN_SCRIPT_ONLY, ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/imperas-riscv-tests/riscv-test-suite/rv64i_m/F/src/FADD-S-RDN-01]
+
+  - name: cva6v_imperas_F_rv64i_FMUL-S-DYN-RMM-01
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_IMPERAS_F_TESTS]
+    requirement_ids: [CVA6V_FEAT_1, CVA6V_FEAT_2, CVA6V_FEAT_3]
+    platforms: [cva6v.*]
+    owner: Raymond Garcia
+    flags: [RUN_SCRIPT_ONLY, ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/imperas-riscv-tests/riscv-test-suite/rv64i_m/F/src/FMUL-S-DYN-RMM-01]
+
+  - name: cva6v_imperas_F_rv64i_FSQRT-S-RTZ-01
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_IMPERAS_F_TESTS]
+    requirement_ids: [CVA6V_FEAT_1, CVA6V_FEAT_2, CVA6V_FEAT_3]
+    platforms: [cva6v.*]
+    owner: Raymond Garcia
+    flags: [RUN_SCRIPT_ONLY, ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/imperas-riscv-tests/riscv-test-suite/rv64i_m/F/src/FSQRT-S-RTZ-01]
+
+  - name: cva6v_imperas_F_rv64i_FDIV-S-DYN-RMM-01
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_IMPERAS_F_TESTS]
+    requirement_ids: [CVA6V_FEAT_1, CVA6V_FEAT_2, CVA6V_FEAT_3]
+    platforms: [cva6v.*]
+    owner: Raymond Garcia
+    flags: [RUN_SCRIPT_ONLY, ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/imperas-riscv-tests/riscv-test-suite/rv64i_m/F/src/FDIV-S-DYN-RMM-01]
+
+  - name: cva6v_imperas_F_rv64i_FCVT-S-W-RTZ-01
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_IMPERAS_F_TESTS]
+    requirement_ids: [CVA6V_FEAT_1, CVA6V_FEAT_2, CVA6V_FEAT_3]
+    platforms: [cva6v.*]
+    owner: Raymond Garcia
+    flags: [RUN_SCRIPT_ONLY, ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/imperas-riscv-tests/riscv-test-suite/rv64i_m/F/src/FCVT-S-W-RTZ-01]
+
+  - name: cva6v_imperas_F_rv64i_FCVT-S-WU-DYN-RDN-01
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_IMPERAS_F_TESTS]
+    requirement_ids: [CVA6V_FEAT_1, CVA6V_FEAT_2, CVA6V_FEAT_3]
+    platforms: [cva6v.*]
+    owner: Raymond Garcia
+    flags: [RUN_SCRIPT_ONLY, ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/imperas-riscv-tests/riscv-test-suite/rv64i_m/F/src/FCVT-S-WU-DYN-RDN-01]
+
+  - name: cva6v_imperas_F_rv64i_FMADD-S-DYN-RMM-01
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_IMPERAS_F_TESTS]
+    requirement_ids: [CVA6V_FEAT_1, CVA6V_FEAT_2, CVA6V_FEAT_3]
+    platforms: [cva6v.*]
+    owner: Raymond Garcia
+    flags: [RUN_SCRIPT_ONLY, ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/imperas-riscv-tests/riscv-test-suite/rv64i_m/F/src/FMADD-S-DYN-RMM-01]
+
+  - name: cva6v_imperas_F_rv64i_FSUB-S-DYN-RDN-01
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_IMPERAS_F_TESTS]
+    requirement_ids: [CVA6V_FEAT_1, CVA6V_FEAT_2, CVA6V_FEAT_3]
+    platforms: [cva6v.*]
+    owner: Raymond Garcia
+    flags: [RUN_SCRIPT_ONLY, ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/imperas-riscv-tests/riscv-test-suite/rv64i_m/F/src/FSUB-S-DYN-RDN-01]
+
+  - name: cva6v_imperas_F_rv64i_FCVT-S-W-RMM-01
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_IMPERAS_F_TESTS]
+    requirement_ids: [CVA6V_FEAT_1, CVA6V_FEAT_2, CVA6V_FEAT_3]
+    platforms: [cva6v.*]
+    owner: Raymond Garcia
+    flags: [RUN_SCRIPT_ONLY, ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/imperas-riscv-tests/riscv-test-suite/rv64i_m/F/src/FCVT-S-W-RMM-01]
+
+  - name: cva6v_imperas_F_rv64i_FSQRT-S-DYN-RNE-01
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_IMPERAS_F_TESTS]
+    requirement_ids: [CVA6V_FEAT_1, CVA6V_FEAT_2, CVA6V_FEAT_3]
+    platforms: [cva6v.*]
+    owner: Raymond Garcia
+    flags: [RUN_SCRIPT_ONLY, ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/imperas-riscv-tests/riscv-test-suite/rv64i_m/F/src/FSQRT-S-DYN-RNE-01]
+
+  - name: cva6v_imperas_F_rv64i_FCVT-S-WU-DYN-RTZ-01
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_IMPERAS_F_TESTS]
+    requirement_ids: [CVA6V_FEAT_1, CVA6V_FEAT_2, CVA6V_FEAT_3]
+    platforms: [cva6v.*]
+    owner: Raymond Garcia
+    flags: [RUN_SCRIPT_ONLY, ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/imperas-riscv-tests/riscv-test-suite/rv64i_m/F/src/FCVT-S-WU-DYN-RTZ-01]
+
+  - name: cva6v_imperas_F_rv64i_FMSUB-S-RMM-01
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_IMPERAS_F_TESTS]
+    requirement_ids: [CVA6V_FEAT_1, CVA6V_FEAT_2, CVA6V_FEAT_3]
+    platforms: [cva6v.*]
+    owner: Raymond Garcia
+    flags: [RUN_SCRIPT_ONLY, ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/imperas-riscv-tests/riscv-test-suite/rv64i_m/F/src/FMSUB-S-RMM-01]
+
+  - name: cva6v_imperas_F_rv64i_FMADD-S-DYN-RDN-01
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_IMPERAS_F_TESTS]
+    requirement_ids: [CVA6V_FEAT_1, CVA6V_FEAT_2, CVA6V_FEAT_3]
+    platforms: [cva6v.*]
+    owner: Raymond Garcia
+    flags: [RUN_SCRIPT_ONLY, ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/imperas-riscv-tests/riscv-test-suite/rv64i_m/F/src/FMADD-S-DYN-RDN-01]
+
+  - name: cva6v_imperas_F_rv64i_FCVT-S-WU-DYN-RMM-01
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_IMPERAS_F_TESTS]
+    requirement_ids: [CVA6V_FEAT_1, CVA6V_FEAT_2, CVA6V_FEAT_3]
+    platforms: [cva6v.*]
+    owner: Raymond Garcia
+    flags: [RUN_SCRIPT_ONLY, ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/imperas-riscv-tests/riscv-test-suite/rv64i_m/F/src/FCVT-S-WU-DYN-RMM-01]
+
+  - name: cva6v_imperas_F_rv64i_FMUL-S-RUP-01
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_IMPERAS_F_TESTS]
+    requirement_ids: [CVA6V_FEAT_1, CVA6V_FEAT_2, CVA6V_FEAT_3]
+    platforms: [cva6v.*]
+    owner: Raymond Garcia
+    flags: [RUN_SCRIPT_ONLY, ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/imperas-riscv-tests/riscv-test-suite/rv64i_m/F/src/FMUL-S-RUP-01]
+
+  - name: cva6v_imperas_F_rv64i_FCVT-S-WU-RNE-01
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_IMPERAS_F_TESTS]
+    requirement_ids: [CVA6V_FEAT_1, CVA6V_FEAT_2, CVA6V_FEAT_3]
+    platforms: [cva6v.*]
+    owner: Raymond Garcia
+    flags: [RUN_SCRIPT_ONLY, ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/imperas-riscv-tests/riscv-test-suite/rv64i_m/F/src/FCVT-S-WU-RNE-01]
+
+  - name: cva6v_imperas_F_rv64i_FNMADD-S-RNE-01
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_IMPERAS_F_TESTS]
+    requirement_ids: [CVA6V_FEAT_1, CVA6V_FEAT_2, CVA6V_FEAT_3]
+    platforms: [cva6v.*]
+    owner: Raymond Garcia
+    flags: [RUN_SCRIPT_ONLY, ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/imperas-riscv-tests/riscv-test-suite/rv64i_m/F/src/FNMADD-S-RNE-01]
+
+  - name: cva6v_imperas_F_rv64i_FADD-S-RNE-01
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_IMPERAS_F_TESTS]
+    requirement_ids: [CVA6V_FEAT_1, CVA6V_FEAT_2, CVA6V_FEAT_3]
+    platforms: [cva6v.*]
+    owner: Raymond Garcia
+    flags: [RUN_SCRIPT_ONLY, ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/imperas-riscv-tests/riscv-test-suite/rv64i_m/F/src/FADD-S-RNE-01]
+
+  - name: cva6v_imperas_F_rv64i_FCVT-WU-S-RDN-01
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_IMPERAS_F_TESTS]
+    requirement_ids: [CVA6V_FEAT_1, CVA6V_FEAT_2, CVA6V_FEAT_3]
+    platforms: [cva6v.*]
+    owner: Raymond Garcia
+    flags: [RUN_SCRIPT_ONLY, ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/imperas-riscv-tests/riscv-test-suite/rv64i_m/F/src/FCVT-WU-S-RDN-01]
+
+  - name: cva6v_imperas_F_rv64i_FMUL-S-DYN-RTZ-01
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_IMPERAS_F_TESTS]
+    requirement_ids: [CVA6V_FEAT_1, CVA6V_FEAT_2, CVA6V_FEAT_3]
+    platforms: [cva6v.*]
+    owner: Raymond Garcia
+    flags: [RUN_SCRIPT_ONLY, ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/imperas-riscv-tests/riscv-test-suite/rv64i_m/F/src/FMUL-S-DYN-RTZ-01]
+
+  - name: cva6v_imperas_F_rv64i_FMSUB-S-DYN-RMM-01
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_IMPERAS_F_TESTS]
+    requirement_ids: [CVA6V_FEAT_1, CVA6V_FEAT_2, CVA6V_FEAT_3]
+    platforms: [cva6v.*]
+    owner: Raymond Garcia
+    flags: [RUN_SCRIPT_ONLY, ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/imperas-riscv-tests/riscv-test-suite/rv64i_m/F/src/FMSUB-S-DYN-RMM-01]
+
+  - name: cva6v_imperas_F_rv64i_FDIV-S-DYN-RDN-01
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_IMPERAS_F_TESTS]
+    requirement_ids: [CVA6V_FEAT_1, CVA6V_FEAT_2, CVA6V_FEAT_3]
+    platforms: [cva6v.*]
+    owner: Raymond Garcia
+    flags: [RUN_SCRIPT_ONLY, ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/imperas-riscv-tests/riscv-test-suite/rv64i_m/F/src/FDIV-S-DYN-RDN-01]
+
+  - name: cva6v_imperas_F_rv64i_FSUB-S-DYN-RMM-01
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_IMPERAS_F_TESTS]
+    requirement_ids: [CVA6V_FEAT_1, CVA6V_FEAT_2, CVA6V_FEAT_3]
+    platforms: [cva6v.*]
+    owner: Raymond Garcia
+    flags: [RUN_SCRIPT_ONLY, ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/imperas-riscv-tests/riscv-test-suite/rv64i_m/F/src/FSUB-S-DYN-RMM-01]
+
+  - name: cva6v_imperas_F_rv64i_FMSUB-S-RUP-01
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_IMPERAS_F_TESTS]
+    requirement_ids: [CVA6V_FEAT_1, CVA6V_FEAT_2, CVA6V_FEAT_3]
+    platforms: [cva6v.*]
+    owner: Raymond Garcia
+    flags: [RUN_SCRIPT_ONLY, ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/imperas-riscv-tests/riscv-test-suite/rv64i_m/F/src/FMSUB-S-RUP-01]
+
+  - name: cva6v_imperas_F_rv64i_FMAX-S-01
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_IMPERAS_F_TESTS]
+    requirement_ids: [CVA6V_FEAT_1, CVA6V_FEAT_2, CVA6V_FEAT_3]
+    platforms: [cva6v.*]
+    owner: Raymond Garcia
+    flags: [RUN_SCRIPT_ONLY, ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/imperas-riscv-tests/riscv-test-suite/rv64i_m/F/src/FMAX-S-01]
+
+  - name: cva6v_imperas_F_rv64i_FMUL-S-RNE-01
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_IMPERAS_F_TESTS]
+    requirement_ids: [CVA6V_FEAT_1, CVA6V_FEAT_2, CVA6V_FEAT_3]
+    platforms: [cva6v.*]
+    owner: Raymond Garcia
+    flags: [RUN_SCRIPT_ONLY, ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/imperas-riscv-tests/riscv-test-suite/rv64i_m/F/src/FMUL-S-RNE-01]
+
+  - name: cva6v_imperas_F_rv64i_FMUL-S-DYN-RNE-01
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_IMPERAS_F_TESTS]
+    requirement_ids: [CVA6V_FEAT_1, CVA6V_FEAT_2, CVA6V_FEAT_3]
+    platforms: [cva6v.*]
+    owner: Raymond Garcia
+    flags: [RUN_SCRIPT_ONLY, ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/imperas-riscv-tests/riscv-test-suite/rv64i_m/F/src/FMUL-S-DYN-RNE-01]
+
+  - name: cva6v_imperas_F_rv64i_FMADD-S-DYN-RTZ-01
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_IMPERAS_F_TESTS]
+    requirement_ids: [CVA6V_FEAT_1, CVA6V_FEAT_2, CVA6V_FEAT_3]
+    platforms: [cva6v.*]
+    owner: Raymond Garcia
+    flags: [RUN_SCRIPT_ONLY, ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/imperas-riscv-tests/riscv-test-suite/rv64i_m/F/src/FMADD-S-DYN-RTZ-01]
+
+  - name: cva6v_imperas_F_rv64i_FCVT-S-W-RUP-01
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_IMPERAS_F_TESTS]
+    requirement_ids: [CVA6V_FEAT_1, CVA6V_FEAT_2, CVA6V_FEAT_3]
+    platforms: [cva6v.*]
+    owner: Raymond Garcia
+    flags: [RUN_SCRIPT_ONLY, ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/imperas-riscv-tests/riscv-test-suite/rv64i_m/F/src/FCVT-S-W-RUP-01]
+
+  - name: cva6v_imperas_F_rv64i_FEQ-S-01
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_IMPERAS_F_TESTS]
+    requirement_ids: [CVA6V_FEAT_1, CVA6V_FEAT_2, CVA6V_FEAT_3]
+    platforms: [cva6v.*]
+    owner: Raymond Garcia
+    flags: [RUN_SCRIPT_ONLY, ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/imperas-riscv-tests/riscv-test-suite/rv64i_m/F/src/FEQ-S-01]
+
+  - name: cva6v_imperas_F_rv64i_FCVT-W-S-DYN-RMM-01
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_IMPERAS_F_TESTS]
+    requirement_ids: [CVA6V_FEAT_1, CVA6V_FEAT_2, CVA6V_FEAT_3]
+    platforms: [cva6v.*]
+    owner: Raymond Garcia
+    flags: [RUN_SCRIPT_ONLY, ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/imperas-riscv-tests/riscv-test-suite/rv64i_m/F/src/FCVT-W-S-DYN-RMM-01]
+
+  - name: cva6v_imperas_F_rv64i_FMADD-S-RTZ-01
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_IMPERAS_F_TESTS]
+    requirement_ids: [CVA6V_FEAT_1, CVA6V_FEAT_2, CVA6V_FEAT_3]
+    platforms: [cva6v.*]
+    owner: Raymond Garcia
+    flags: [RUN_SCRIPT_ONLY, ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/imperas-riscv-tests/riscv-test-suite/rv64i_m/F/src/FMADD-S-RTZ-01]
+
+  - name: cva6v_imperas_F_rv64i_FDIV-S-RMM-01
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_IMPERAS_F_TESTS]
+    requirement_ids: [CVA6V_FEAT_1, CVA6V_FEAT_2, CVA6V_FEAT_3]
+    platforms: [cva6v.*]
+    owner: Raymond Garcia
+    flags: [RUN_SCRIPT_ONLY, ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/imperas-riscv-tests/riscv-test-suite/rv64i_m/F/src/FDIV-S-RMM-01]
+
+  - name: cva6v_imperas_F_rv64i_FADD-S-DYN-RTZ-01
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_IMPERAS_F_TESTS]
+    requirement_ids: [CVA6V_FEAT_1, CVA6V_FEAT_2, CVA6V_FEAT_3]
+    platforms: [cva6v.*]
+    owner: Raymond Garcia
+    flags: [RUN_SCRIPT_ONLY, ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/imperas-riscv-tests/riscv-test-suite/rv64i_m/F/src/FADD-S-DYN-RTZ-01]
+
+  - name: cva6v_imperas_F_rv64i_FSQRT-S-RNE-01
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_IMPERAS_F_TESTS]
+    requirement_ids: [CVA6V_FEAT_1, CVA6V_FEAT_2, CVA6V_FEAT_3]
+    platforms: [cva6v.*]
+    owner: Raymond Garcia
+    flags: [RUN_SCRIPT_ONLY, ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/imperas-riscv-tests/riscv-test-suite/rv64i_m/F/src/FSQRT-S-RNE-01]
+
+  - name: cva6v_imperas_F_rv64i_FCVT-S-WU-RUP-01
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_IMPERAS_F_TESTS]
+    requirement_ids: [CVA6V_FEAT_1, CVA6V_FEAT_2, CVA6V_FEAT_3]
+    platforms: [cva6v.*]
+    owner: Raymond Garcia
+    flags: [RUN_SCRIPT_ONLY, ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/imperas-riscv-tests/riscv-test-suite/rv64i_m/F/src/FCVT-S-WU-RUP-01]
+
+  - name: cva6v_imperas_F_rv64i_FCVT-S-WU-DYN-RNE-01
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_IMPERAS_F_TESTS]
+    requirement_ids: [CVA6V_FEAT_1, CVA6V_FEAT_2, CVA6V_FEAT_3]
+    platforms: [cva6v.*]
+    owner: Raymond Garcia
+    flags: [RUN_SCRIPT_ONLY, ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/imperas-riscv-tests/riscv-test-suite/rv64i_m/F/src/FCVT-S-WU-DYN-RNE-01]
+
+  - name: cva6v_imperas_F_rv64i_FCVT-W-S-DYN-RUP-01
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_IMPERAS_F_TESTS]
+    requirement_ids: [CVA6V_FEAT_1, CVA6V_FEAT_2, CVA6V_FEAT_3]
+    platforms: [cva6v.*]
+    owner: Raymond Garcia
+    flags: [RUN_SCRIPT_ONLY, ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/imperas-riscv-tests/riscv-test-suite/rv64i_m/F/src/FCVT-W-S-DYN-RUP-01]
+
+  - name: cva6v_imperas_F_rv64i_FADD-S-DYN-RDN-01
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_IMPERAS_F_TESTS]
+    requirement_ids: [CVA6V_FEAT_1, CVA6V_FEAT_2, CVA6V_FEAT_3]
+    platforms: [cva6v.*]
+    owner: Raymond Garcia
+    flags: [RUN_SCRIPT_ONLY, ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/imperas-riscv-tests/riscv-test-suite/rv64i_m/F/src/FADD-S-DYN-RDN-01]
+
+  - name: cva6v_imperas_F_rv64i_FSGNJN-S-01
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_IMPERAS_F_TESTS]
+    requirement_ids: [CVA6V_FEAT_1, CVA6V_FEAT_2, CVA6V_FEAT_3]
+    platforms: [cva6v.*]
+    owner: Raymond Garcia
+    flags: [RUN_SCRIPT_ONLY, ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/imperas-riscv-tests/riscv-test-suite/rv64i_m/F/src/FSGNJN-S-01]
+
+  - name: cva6v_imperas_F_rv64i_FCVT-W-S-RTZ-01
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_IMPERAS_F_TESTS]
+    requirement_ids: [CVA6V_FEAT_1, CVA6V_FEAT_2, CVA6V_FEAT_3]
+    platforms: [cva6v.*]
+    owner: Raymond Garcia
+    flags: [RUN_SCRIPT_ONLY, ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/imperas-riscv-tests/riscv-test-suite/rv64i_m/F/src/FCVT-W-S-RTZ-01]
+
+  - name: cva6v_imperas_F_rv64i_FMADD-S-RNE-01
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_IMPERAS_F_TESTS]
+    requirement_ids: [CVA6V_FEAT_1, CVA6V_FEAT_2, CVA6V_FEAT_3]
+    platforms: [cva6v.*]
+    owner: Raymond Garcia
+    flags: [RUN_SCRIPT_ONLY, ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/imperas-riscv-tests/riscv-test-suite/rv64i_m/F/src/FMADD-S-RNE-01]
+
+  - name: cva6v_imperas_F_rv64i_FMSUB-S-DYN-RUP-01
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_IMPERAS_F_TESTS]
+    requirement_ids: [CVA6V_FEAT_1, CVA6V_FEAT_2, CVA6V_FEAT_3]
+    platforms: [cva6v.*]
+    owner: Raymond Garcia
+    flags: [RUN_SCRIPT_ONLY, ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/imperas-riscv-tests/riscv-test-suite/rv64i_m/F/src/FMSUB-S-DYN-RUP-01]
+
+  - name: cva6v_imperas_F_rv64i_FADD-S-RMM-01
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_IMPERAS_F_TESTS]
+    requirement_ids: [CVA6V_FEAT_1, CVA6V_FEAT_2, CVA6V_FEAT_3]
+    platforms: [cva6v.*]
+    owner: Raymond Garcia
+    flags: [RUN_SCRIPT_ONLY, ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/imperas-riscv-tests/riscv-test-suite/rv64i_m/F/src/FADD-S-RMM-01]
+
+  - name: cva6v_imperas_F_rv64i_FMUL-S-RTZ-01
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_IMPERAS_F_TESTS]
+    requirement_ids: [CVA6V_FEAT_1, CVA6V_FEAT_2, CVA6V_FEAT_3]
+    platforms: [cva6v.*]
+    owner: Raymond Garcia
+    flags: [RUN_SCRIPT_ONLY, ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/imperas-riscv-tests/riscv-test-suite/rv64i_m/F/src/FMUL-S-RTZ-01]
+
+  - name: cva6v_imperas_F_rv64i_FCVT-WU-S-DYN-RNE-01
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_IMPERAS_F_TESTS]
+    requirement_ids: [CVA6V_FEAT_1, CVA6V_FEAT_2, CVA6V_FEAT_3]
+    platforms: [cva6v.*]
+    owner: Raymond Garcia
+    flags: [RUN_SCRIPT_ONLY, ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/imperas-riscv-tests/riscv-test-suite/rv64i_m/F/src/FCVT-WU-S-DYN-RNE-01]
+
+  - name: cva6v_imperas_F_rv64i_FSQRT-S-DYN-RTZ-01
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_IMPERAS_F_TESTS]
+    requirement_ids: [CVA6V_FEAT_1, CVA6V_FEAT_2, CVA6V_FEAT_3]
+    platforms: [cva6v.*]
+    owner: Raymond Garcia
+    flags: [RUN_SCRIPT_ONLY, ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/imperas-riscv-tests/riscv-test-suite/rv64i_m/F/src/FSQRT-S-DYN-RTZ-01]
+
+  - name: cva6v_imperas_F_rv64i_FCVT-S-WU-DYN-RUP-01
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_IMPERAS_F_TESTS]
+    requirement_ids: [CVA6V_FEAT_1, CVA6V_FEAT_2, CVA6V_FEAT_3]
+    platforms: [cva6v.*]
+    owner: Raymond Garcia
+    flags: [RUN_SCRIPT_ONLY, ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/imperas-riscv-tests/riscv-test-suite/rv64i_m/F/src/FCVT-S-WU-DYN-RUP-01]
+
+  - name: cva6v_imperas_F_rv64i_FNMADD-S-DYN-RNE-01
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_IMPERAS_F_TESTS]
+    requirement_ids: [CVA6V_FEAT_1, CVA6V_FEAT_2, CVA6V_FEAT_3]
+    platforms: [cva6v.*]
+    owner: Raymond Garcia
+    flags: [RUN_SCRIPT_ONLY, ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/imperas-riscv-tests/riscv-test-suite/rv64i_m/F/src/FNMADD-S-DYN-RNE-01]
+
+  - name: cva6v_imperas_F_rv64i_FSUB-S-DYN-RUP-01
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_IMPERAS_F_TESTS]
+    requirement_ids: [CVA6V_FEAT_1, CVA6V_FEAT_2, CVA6V_FEAT_3]
+    platforms: [cva6v.*]
+    owner: Raymond Garcia
+    flags: [RUN_SCRIPT_ONLY, ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/imperas-riscv-tests/riscv-test-suite/rv64i_m/F/src/FSUB-S-DYN-RUP-01]
+
+  - name: cva6v_imperas_F_rv64i_FCVT-WU-S-DYN-RMM-01
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_IMPERAS_F_TESTS]
+    requirement_ids: [CVA6V_FEAT_1, CVA6V_FEAT_2, CVA6V_FEAT_3]
+    platforms: [cva6v.*]
+    owner: Raymond Garcia
+    flags: [RUN_SCRIPT_ONLY, ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/imperas-riscv-tests/riscv-test-suite/rv64i_m/F/src/FCVT-WU-S-DYN-RMM-01]
+
+  - name: cva6v_imperas_F_rv64i_FCVT-WU-S-DYN-RDN-01
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_IMPERAS_F_TESTS]
+    requirement_ids: [CVA6V_FEAT_1, CVA6V_FEAT_2, CVA6V_FEAT_3]
+    platforms: [cva6v.*]
+    owner: Raymond Garcia
+    flags: [RUN_SCRIPT_ONLY, ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/imperas-riscv-tests/riscv-test-suite/rv64i_m/F/src/FCVT-WU-S-DYN-RDN-01]
+
+  - name: cva6v_imperas_F_rv64i_FCVT-W-S-DYN-RDN-01
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_IMPERAS_F_TESTS]
+    requirement_ids: [CVA6V_FEAT_1, CVA6V_FEAT_2, CVA6V_FEAT_3]
+    platforms: [cva6v.*]
+    owner: Raymond Garcia
+    flags: [RUN_SCRIPT_ONLY, ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/imperas-riscv-tests/riscv-test-suite/rv64i_m/F/src/FCVT-W-S-DYN-RDN-01]
+
+  - name: cva6v_imperas_F_rv64i_FLT-S-01
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_IMPERAS_F_TESTS]
+    requirement_ids: [CVA6V_FEAT_1, CVA6V_FEAT_2, CVA6V_FEAT_3]
+    platforms: [cva6v.*]
+    owner: Raymond Garcia
+    flags: [RUN_SCRIPT_ONLY, ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/imperas-riscv-tests/riscv-test-suite/rv64i_m/F/src/FLT-S-01]
+
+  - name: cva6v_imperas_F_rv64i_FADD-S-DYN-RNE-01
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_IMPERAS_F_TESTS]
+    requirement_ids: [CVA6V_FEAT_1, CVA6V_FEAT_2, CVA6V_FEAT_3]
+    platforms: [cva6v.*]
+    owner: Raymond Garcia
+    flags: [RUN_SCRIPT_ONLY, ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/imperas-riscv-tests/riscv-test-suite/rv64i_m/F/src/FADD-S-DYN-RNE-01]
+
+  - name: cva6v_imperas_F_rv64i_FMUL-S-RDN-01
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_IMPERAS_F_TESTS]
+    requirement_ids: [CVA6V_FEAT_1, CVA6V_FEAT_2, CVA6V_FEAT_3]
+    platforms: [cva6v.*]
+    owner: Raymond Garcia
+    flags: [RUN_SCRIPT_ONLY, ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/imperas-riscv-tests/riscv-test-suite/rv64i_m/F/src/FMUL-S-RDN-01]
+
+  - name: cva6v_imperas_F_rv64i_FCVT-S-W-RNE-01
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_IMPERAS_F_TESTS]
+    requirement_ids: [CVA6V_FEAT_1, CVA6V_FEAT_2, CVA6V_FEAT_3]
+    platforms: [cva6v.*]
+    owner: Raymond Garcia
+    flags: [RUN_SCRIPT_ONLY, ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/imperas-riscv-tests/riscv-test-suite/rv64i_m/F/src/FCVT-S-W-RNE-01]
+
+  - name: cva6v_imperas_F_rv64i_FDIV-S-RNE-01
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_IMPERAS_F_TESTS]
+    requirement_ids: [CVA6V_FEAT_1, CVA6V_FEAT_2, CVA6V_FEAT_3]
+    platforms: [cva6v.*]
+    owner: Raymond Garcia
+    flags: [RUN_SCRIPT_ONLY, ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/imperas-riscv-tests/riscv-test-suite/rv64i_m/F/src/FDIV-S-RNE-01]
+
+  - name: cva6v_imperas_F_rv64i_FLW-01
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_IMPERAS_F_TESTS]
+    requirement_ids: [CVA6V_FEAT_1, CVA6V_FEAT_2, CVA6V_FEAT_3]
+    platforms: [cva6v.*]
+    owner: Raymond Garcia
+    flags: [RUN_SCRIPT_ONLY, ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/imperas-riscv-tests/riscv-test-suite/rv64i_m/F/src/FLW-01]
+
+  - name: cva6v_imperas_F_rv64i_FMSUB-S-RNE-01
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_IMPERAS_F_TESTS]
+    requirement_ids: [CVA6V_FEAT_1, CVA6V_FEAT_2, CVA6V_FEAT_3]
+    platforms: [cva6v.*]
+    owner: Raymond Garcia
+    flags: [RUN_SCRIPT_ONLY, ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/imperas-riscv-tests/riscv-test-suite/rv64i_m/F/src/FMSUB-S-RNE-01]
+
+  - name: cva6v_imperas_F_rv64i_FDIV-S-DYN-RUP-01
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_IMPERAS_F_TESTS]
+    requirement_ids: [CVA6V_FEAT_1, CVA6V_FEAT_2, CVA6V_FEAT_3]
+    platforms: [cva6v.*]
+    owner: Raymond Garcia
+    flags: [RUN_SCRIPT_ONLY, ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/imperas-riscv-tests/riscv-test-suite/rv64i_m/F/src/FDIV-S-DYN-RUP-01]
+
+  - name: cva6v_imperas_F_rv64i_FCLASS-S-01
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_IMPERAS_F_TESTS]
+    requirement_ids: [CVA6V_FEAT_1, CVA6V_FEAT_2, CVA6V_FEAT_3]
+    platforms: [cva6v.*]
+    owner: Raymond Garcia
+    flags: [RUN_SCRIPT_ONLY, ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/imperas-riscv-tests/riscv-test-suite/rv64i_m/F/src/FCLASS-S-01]
+
+  - name: cva6v_imperas_F_rv64i_FNMADD-S-DYN-RMM-01
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_IMPERAS_F_TESTS]
+    requirement_ids: [CVA6V_FEAT_1, CVA6V_FEAT_2, CVA6V_FEAT_3]
+    platforms: [cva6v.*]
+    owner: Raymond Garcia
+    flags: [RUN_SCRIPT_ONLY, ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/imperas-riscv-tests/riscv-test-suite/rv64i_m/F/src/FNMADD-S-DYN-RMM-01]
+
+  - name: cva6v_imperas_F_rv64i_FSW-01
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_IMPERAS_F_TESTS]
+    requirement_ids: [CVA6V_FEAT_1, CVA6V_FEAT_2, CVA6V_FEAT_3]
+    platforms: [cva6v.*]
+    owner: Raymond Garcia
+    flags: [RUN_SCRIPT_ONLY, ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/imperas-riscv-tests/riscv-test-suite/rv64i_m/F/src/FSW-01]
+
+  - name: cva6v_imperas_F_rv64i_FCVT-W-S-DYN-RNE-01
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_IMPERAS_F_TESTS]
+    requirement_ids: [CVA6V_FEAT_1, CVA6V_FEAT_2, CVA6V_FEAT_3]
+    platforms: [cva6v.*]
+    owner: Raymond Garcia
+    flags: [RUN_SCRIPT_ONLY, ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/imperas-riscv-tests/riscv-test-suite/rv64i_m/F/src/FCVT-W-S-DYN-RNE-01]
+
+  - name: cva6v_imperas_F_rv64i_FDIV-S-DYN-RNE-01
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_IMPERAS_F_TESTS]
+    requirement_ids: [CVA6V_FEAT_1, CVA6V_FEAT_2, CVA6V_FEAT_3]
+    platforms: [cva6v.*]
+    owner: Raymond Garcia
+    flags: [RUN_SCRIPT_ONLY, ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/imperas-riscv-tests/riscv-test-suite/rv64i_m/F/src/FDIV-S-DYN-RNE-01]
+
+  - name: cva6v_imperas_F_rv64i_FCVT-WU-S-RTZ-01
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_IMPERAS_F_TESTS]
+    requirement_ids: [CVA6V_FEAT_1, CVA6V_FEAT_2, CVA6V_FEAT_3]
+    platforms: [cva6v.*]
+    owner: Raymond Garcia
+    flags: [RUN_SCRIPT_ONLY, ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/imperas-riscv-tests/riscv-test-suite/rv64i_m/F/src/FCVT-WU-S-RTZ-01]
+
+  - name: cva6v_imperas_F_rv64i_FMUL-S-DYN-RDN-01
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_IMPERAS_F_TESTS]
+    requirement_ids: [CVA6V_FEAT_1, CVA6V_FEAT_2, CVA6V_FEAT_3]
+    platforms: [cva6v.*]
+    owner: Raymond Garcia
+    flags: [RUN_SCRIPT_ONLY, ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/imperas-riscv-tests/riscv-test-suite/rv64i_m/F/src/FMUL-S-DYN-RDN-01]
+
+  - name: cva6v_imperas_F_rv64i_FSQRT-S-RMM-01
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_IMPERAS_F_TESTS]
+    requirement_ids: [CVA6V_FEAT_1, CVA6V_FEAT_2, CVA6V_FEAT_3]
+    platforms: [cva6v.*]
+    owner: Raymond Garcia
+    flags: [RUN_SCRIPT_ONLY, ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/imperas-riscv-tests/riscv-test-suite/rv64i_m/F/src/FSQRT-S-RMM-01]
+
+  - name: cva6v_imperas_F_rv64i_FNMADD-S-DYN-RTZ-01
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_IMPERAS_F_TESTS]
+    requirement_ids: [CVA6V_FEAT_1, CVA6V_FEAT_2, CVA6V_FEAT_3]
+    platforms: [cva6v.*]
+    owner: Raymond Garcia
+    flags: [RUN_SCRIPT_ONLY, ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/imperas-riscv-tests/riscv-test-suite/rv64i_m/F/src/FNMADD-S-DYN-RTZ-01]
+
+  - name: cva6v_imperas_F_rv64i_FLE-S-01
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_IMPERAS_F_TESTS]
+    requirement_ids: [CVA6V_FEAT_1, CVA6V_FEAT_2, CVA6V_FEAT_3]
+    platforms: [cva6v.*]
+    owner: Raymond Garcia
+    flags: [RUN_SCRIPT_ONLY, ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/imperas-riscv-tests/riscv-test-suite/rv64i_m/F/src/FLE-S-01]
+
+  - name: cva6v_imperas_F_rv64i_FCVT-S-WU-RMM-01
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_IMPERAS_F_TESTS]
+    requirement_ids: [CVA6V_FEAT_1, CVA6V_FEAT_2, CVA6V_FEAT_3]
+    platforms: [cva6v.*]
+    owner: Raymond Garcia
+    flags: [RUN_SCRIPT_ONLY, ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/imperas-riscv-tests/riscv-test-suite/rv64i_m/F/src/FCVT-S-WU-RMM-01]
+
+  - name: cva6v_imperas_F_rv64i_FSQRT-S-DYN-RMM-01
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_IMPERAS_F_TESTS]
+    requirement_ids: [CVA6V_FEAT_1, CVA6V_FEAT_2, CVA6V_FEAT_3]
+    platforms: [cva6v.*]
+    owner: Raymond Garcia
+    flags: [RUN_SCRIPT_ONLY, ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/imperas-riscv-tests/riscv-test-suite/rv64i_m/F/src/FSQRT-S-DYN-RMM-01]
+
+  - name: cva6v_imperas_F_rv64i_FMADD-S-RMM-01
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_IMPERAS_F_TESTS]
+    requirement_ids: [CVA6V_FEAT_1, CVA6V_FEAT_2, CVA6V_FEAT_3]
+    platforms: [cva6v.*]
+    owner: Raymond Garcia
+    flags: [RUN_SCRIPT_ONLY, ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/imperas-riscv-tests/riscv-test-suite/rv64i_m/F/src/FMADD-S-RMM-01]
+
+  - name: cva6v_imperas_F_rv64i_FSGNJ-S-01
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_IMPERAS_F_TESTS]
+    requirement_ids: [CVA6V_FEAT_1, CVA6V_FEAT_2, CVA6V_FEAT_3]
+    platforms: [cva6v.*]
+    owner: Raymond Garcia
+    flags: [RUN_SCRIPT_ONLY, ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/imperas-riscv-tests/riscv-test-suite/rv64i_m/F/src/FSGNJ-S-01]
+
+  - name: cva6v_imperas_F_rv64i_FADD-S-RTZ-01
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_IMPERAS_F_TESTS]
+    requirement_ids: [CVA6V_FEAT_1, CVA6V_FEAT_2, CVA6V_FEAT_3]
+    platforms: [cva6v.*]
+    owner: Raymond Garcia
+    flags: [RUN_SCRIPT_ONLY, ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/imperas-riscv-tests/riscv-test-suite/rv64i_m/F/src/FADD-S-RTZ-01]
+
+  - name: cva6v_imperas_F_rv64i_FCVT-WU-S-DYN-RTZ-01
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_IMPERAS_F_TESTS]
+    requirement_ids: [CVA6V_FEAT_1, CVA6V_FEAT_2, CVA6V_FEAT_3]
+    platforms: [cva6v.*]
+    owner: Raymond Garcia
+    flags: [RUN_SCRIPT_ONLY, ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/imperas-riscv-tests/riscv-test-suite/rv64i_m/F/src/FCVT-WU-S-DYN-RTZ-01]
+
+  - name: cva6v_imperas_F_rv64i_FNMADD-S-RUP-01
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_IMPERAS_F_TESTS]
+    requirement_ids: [CVA6V_FEAT_1, CVA6V_FEAT_2, CVA6V_FEAT_3]
+    platforms: [cva6v.*]
+    owner: Raymond Garcia
+    flags: [RUN_SCRIPT_ONLY, ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/imperas-riscv-tests/riscv-test-suite/rv64i_m/F/src/FNMADD-S-RUP-01]
+
+  - name: cva6v_imperas_F_rv64i_FNMSUB-S-RTZ-01
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_IMPERAS_F_TESTS]
+    requirement_ids: [CVA6V_FEAT_1, CVA6V_FEAT_2, CVA6V_FEAT_3]
+    platforms: [cva6v.*]
+    owner: Raymond Garcia
+    flags: [RUN_SCRIPT_ONLY, ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/imperas-riscv-tests/riscv-test-suite/rv64i_m/F/src/FNMSUB-S-RTZ-01]
+

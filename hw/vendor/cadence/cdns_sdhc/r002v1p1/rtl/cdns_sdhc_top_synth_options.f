@@ -1,0 +1,2 @@
++define+CDNSSYNTHESIS
++define+CDNS_SYNTHESIS

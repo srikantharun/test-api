@@ -1,0 +1,14 @@
+package:
+  name: tkn_manager_ral_pkg
+  description: "Token manager ral package"
+  authors:
+    - "roswin.benny@axelera.ai"
+
+dependencies:
+  lowrisc_dv_base_reg:         { path: "$REPO_ROOT/hw/vendor/axelera/lowrisc_dv/dv_base_reg"}
+  v_utils_pkg:                 { path: "$REPO_ROOT/hw/dv/v_utils"}
+
+sources:
+  - target: simulation
+    files:
+      - $REPO_ROOT/hw/ip/token_manager/default/dv/build_ral/build_token/token_manager_aic_csr_ral_pkg.sv

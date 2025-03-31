@@ -1,0 +1,52 @@
+// (C) Copyright Axelera AI 2024
+// All Rights Reserved
+// *** Axelera AI Confidential ***
+//
+// Description: hjson desc for sdma csr
+// Owner: Sander Geursen <sander.geursen@axelera.ai>
+
+{
+  name: "sdma_csr",
+  clocking: [{clock: "clk_i", reset: "rst_ni"}],
+  bus_interfaces: [{protocol: "tlul", direction: "device"}],
+  regwidth: "64",
+  addrcap: "0x10000",
+  axi_intf: True
+  param_list : [
+    {name:"AXI_AW", type:"int", default:"40"},
+    {name:"AXI_IDW", type:"int", default:"7"},
+    {name:"AXI_LENW", type:"int", default:"8"}
+  ]
+  registers: [
+    { name: "ID",
+      desc: "Identification register.",
+      swaccess: "ro",
+      hwaccess: "hwo",
+      hwext : True
+      fields: [
+        {
+            bits: "7:0",
+            name: "SDMA_NR",
+            desc: '''`SDMA_NR` is an unique identifier of the `SDMA` instance.'''
+        }
+      ]
+    },
+    { name: "GLOBAL_SYNC_CONTROL",
+      desc: "Control the global sync",
+      swaccess: "rw",
+      hwaccess: "hro",
+      fields: [
+        {
+            bits: "0",
+            name: "EN",
+            desc: '''Enable the global sync towards the TimestampLogger''',
+            resval: 0x0
+        }
+      ]
+    },
+  #### Top Token Network:
+
+%%include:"{REPO_ROOT}/hw/impl/europa/data/top_token_network/top_token_regs.hjson"
+
+  ]
+}

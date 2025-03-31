@@ -1,0 +1,29 @@
+//-------------------------------------------------
+//  File created by: Tessent Shell
+//          Version: 2024.2
+//       Created on: Mon Jan 20 14:01:55 UTC 2025
+//-------------------------------------------------
+
+
+BisrSegmentOrderSpecification {
+  PowerDomainGroup(-) {
+    OrderedElements {
+      u_dma/g_chnl[0].u_chnl/u_buffer/g_data_ram_x[0].u_chnl_data_ram/gen_macro.u_macro;
+      u_dma/g_chnl[0].u_chnl/u_buffer/g_data_ram_x[1].u_chnl_data_ram/gen_macro.u_macro;
+      u_dma/g_chnl[0].u_chnl/u_buffer/g_data_ram_x[2].u_chnl_data_ram/gen_macro.u_macro;
+      u_dma/g_chnl[0].u_chnl/u_buffer/g_data_ram_x[3].u_chnl_data_ram/gen_macro.u_macro;
+      u_dma/g_chnl[1].u_chnl/u_buffer/g_data_ram_x[0].u_chnl_data_ram/gen_macro.u_macro;
+      u_dma/g_chnl[1].u_chnl/u_buffer/g_data_ram_x[1].u_chnl_data_ram/gen_macro.u_macro;
+      u_dma/g_chnl[1].u_chnl/u_buffer/g_data_ram_x[2].u_chnl_data_ram/gen_macro.u_macro;
+      u_dma/g_chnl[1].u_chnl/u_buffer/g_data_ram_x[3].u_chnl_data_ram/gen_macro.u_macro;
+      u_dma/g_chnl[2].u_chnl/u_buffer/g_data_ram_x[0].u_chnl_data_ram/gen_macro.u_macro;
+      u_dma/g_chnl[2].u_chnl/u_buffer/g_data_ram_x[1].u_chnl_data_ram/gen_macro.u_macro;
+      u_dma/g_chnl[2].u_chnl/u_buffer/g_data_ram_x[2].u_chnl_data_ram/gen_macro.u_macro;
+      u_dma/g_chnl[2].u_chnl/u_buffer/g_data_ram_x[3].u_chnl_data_ram/gen_macro.u_macro;
+      u_dma/g_chnl[3].u_chnl/u_buffer/g_data_ram_x[0].u_chnl_data_ram/gen_macro.u_macro;
+      u_dma/g_chnl[3].u_chnl/u_buffer/g_data_ram_x[1].u_chnl_data_ram/gen_macro.u_macro;
+      u_dma/g_chnl[3].u_chnl/u_buffer/g_data_ram_x[2].u_chnl_data_ram/gen_macro.u_macro;
+      u_dma/g_chnl[3].u_chnl/u_buffer/g_data_ram_x[3].u_chnl_data_ram/gen_macro.u_macro;
+    }
+  }
+}

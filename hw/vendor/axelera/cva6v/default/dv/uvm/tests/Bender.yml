@@ -1,0 +1,18 @@
+package:
+  name: cva6v_dv_uvm_test
+  description: "Tests for CVA6V DV UVM Testbench"
+  authors:
+    - "raymond.garcia@axelera.ai"
+
+dependencies:
+  cva6v_dv_uvm_seq:            { path: "../sequences" }
+  cva6v:                       { path: "$CVA6V_HOME/cva6v/rtl/cva6v" }
+
+
+sources:
+  - target: simulation
+    include_dirs:
+      - .
+      - $CVA6V_HOME/cva6v/rtl  # for typedefs
+    files:
+      - cva6v_test_pkg.sv

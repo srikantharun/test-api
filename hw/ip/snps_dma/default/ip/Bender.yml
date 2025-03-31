@@ -1,0 +1,165 @@
+# (C) Copyright Axelera AI 2024
+# All Rights Reserved
+# *** Axelera AI Confidential ***
+
+package:
+  name: snps_dma_dw
+  description: "DMA provided by Synopsys"
+  authors:
+    - "Synopsys DesignWare"
+
+# Source files are grouped in levels. Files in level 0 have no dependencies on files in this package.
+# Files in level 1 only depend on files in level 0, fils in level 2 on files in 0 and 1, etc.
+# Files within a level are ordered alphanumerically.
+sources:
+
+  # DW IP has clock gating cells
+  # Wrapper to use tech_cell instead
+  # For FPGA we want control over these
+  - target: rtl
+    files:
+      - aic_lt_DW_axi_dmac_clkgate_cell.v
+      - aic_ht_DW_axi_dmac_clkgate_cell.v
+      - apu_DW_axi_dmac_clkgate_cell.v
+
+  # AIC LT DMA:
+  - target: rtl
+    include_dirs:
+      - aic_lt_dma/src
+    files:
+      - aic_lt_dma/src/aic_lt_DW_axi_dmac_lp_sm.v
+      - aic_lt_dma/src/aic_lt_DW_axi_dmac_channel_lp.v
+      - aic_lt_dma/src/aic_lt_DW_axi_dmac_sbiu_lp.v
+      - aic_lt_dma/src/aic_lt_DW_axi_dmac_mxif_lp.v
+      - aic_lt_dma/src/aic_lt_DW_axi_dmac_gbl_lp.v
+      - aic_lt_dma/src/aic_lt_DW_axi_dmac_ahb_sbiu.v
+      - aic_lt_dma/src/aic_lt_DW_axi_dmac_arbiter.v
+      - aic_lt_dma/src/aic_lt_DW_axi_dmac_bcm01.v
+      - aic_lt_dma/src/aic_lt_DW_axi_dmac_bcm05.v
+      - aic_lt_dma/src/aic_lt_DW_axi_dmac_bcm06.v
+      - aic_lt_dma/src/aic_lt_DW_axi_dmac_bcm07.v
+      - aic_lt_dma/src/aic_lt_DW_axi_dmac_bcm22.v
+      - aic_lt_dma/src/aic_lt_DW_axi_dmac_bcm53.v
+      - aic_lt_dma/src/aic_lt_DW_axi_dmac_bcm57.v
+      - aic_lt_dma/src/aic_lt_DW_axi_dmac_bcm37.v
+      - aic_lt_dma/src/aic_lt_DW_axi_dmac_ch_shift_unalign.v
+      - aic_lt_dma/src/aic_lt_DW_axi_dmac_ch_src_unalign.v
+      - aic_lt_dma/src/aic_lt_DW_axi_dmac_ch_dst_unalign.v
+      - aic_lt_dma/src/aic_lt_DW_axi_dmac_fifo_cntrlr.v
+      - aic_lt_dma/src/aic_lt_DW_axi_dmac_ch_fifo_cntrlr.v
+      - aic_lt_dma/src/aic_lt_DW_axi_dmac_channelregs.v
+      - aic_lt_dma/src/aic_lt_DW_axi_dmac_ch_to_mst_addr_ch_mux.v
+      - aic_lt_dma/src/aic_lt_DW_axi_dmac_ch_to_mst_wdata_mux.v
+      - aic_lt_dma/src/aic_lt_DW_axi_dmac_commonregs.v
+      - aic_lt_dma/src/aic_lt_DW_axi_dmac_endian.v
+      - aic_lt_dma/src/aic_lt_DW_axi_dmac_hsif.v
+      - aic_lt_dma/src/aic_lt_DW_axi_dmac_intrif.v
+      - aic_lt_dma/src/aic_lt_DW_axi_dmac_mstif_sync.v
+      - aic_lt_dma/src/aic_lt_DW_axi_dmac_mstif.v
+      - aic_lt_dma/src/aic_lt_DW_axi_dmac_mst_to_ch_rdata_demux.v
+      - aic_lt_dma/src/aic_lt_DW_axi_dmac_mst_to_ch_wresp_demux.v
+      - aic_lt_dma/src/aic_lt_DW_axi_dmac_regif.v
+      - aic_lt_dma/src/aic_lt_DW_axi_dmac_channel_top.v
+      - aic_lt_dma/src/aic_lt_DW_axi_dmac_channel_tfr_ctrl.v
+      - aic_lt_dma/src/aic_lt_DW_axi_dmac_channel_src_sm.v
+      - aic_lt_dma/src/aic_lt_DW_axi_dmac_channel_lli_sm.v
+      - aic_lt_dma/src/aic_lt_DW_axi_dmac_channel_dst_sm.v
+      - aic_lt_dma/src/aic_lt_DW_axi_dmac_debug_if.v
+      - aic_lt_dma/src/aic_lt_DW_axi_dmac.v
+      - aic_lt_dma/src/aic_lt_DW_axi_dmac-undef.v
+
+  # AIC HT DMA:
+  - target: rtl
+    include_dirs:
+      - aic_ht_dma/src
+    files:
+      - aic_ht_dma/src/aic_ht_DW_axi_dmac_lp_sm.v
+      - aic_ht_dma/src/aic_ht_DW_axi_dmac_channel_lp.v
+      - aic_ht_dma/src/aic_ht_DW_axi_dmac_sbiu_lp.v
+      - aic_ht_dma/src/aic_ht_DW_axi_dmac_mxif_lp.v
+      - aic_ht_dma/src/aic_ht_DW_axi_dmac_gbl_lp.v
+      - aic_ht_dma/src/aic_ht_DW_axi_dmac_ahb_sbiu.v
+      - aic_ht_dma/src/aic_ht_DW_axi_dmac_busmux_ohsel.v
+      - aic_ht_dma/src/aic_ht_DW_axi_dmac_arbiter.v
+      - aic_ht_dma/src/aic_ht_DW_axi_dmac_bcm01.v
+      - aic_ht_dma/src/aic_ht_DW_axi_dmac_bcm05.v
+      - aic_ht_dma/src/aic_ht_DW_axi_dmac_bcm06.v
+      - aic_ht_dma/src/aic_ht_DW_axi_dmac_bcm07.v
+      - aic_ht_dma/src/aic_ht_DW_axi_dmac_bcm22.v
+      - aic_ht_dma/src/aic_ht_DW_axi_dmac_bcm53.v
+      - aic_ht_dma/src/aic_ht_DW_axi_dmac_bcm57.v
+      - aic_ht_dma/src/aic_ht_DW_axi_dmac_bcm37.v
+      - aic_ht_dma/src/aic_ht_DW_axi_dmac_ch_shift_unalign.v
+      - aic_ht_dma/src/aic_ht_DW_axi_dmac_fifo_cntrlr.v
+      - aic_ht_dma/src/aic_ht_DW_axi_dmac_ch_fifo_cntrlr.v
+      - aic_ht_dma/src/aic_ht_DW_axi_dmac_ch_ro_buff_cntrlr.v
+      - aic_ht_dma/src/aic_ht_DW_axi_dmac_ch_ro_buff_wr_cntrlr.v
+      - aic_ht_dma/src/aic_ht_DW_axi_dmac_ch_ro_buff_rd_cntrlr.v
+      - aic_ht_dma/src/aic_ht_DW_axi_dmac_ch_ro_buff_uid_cntrlr.v
+      - aic_ht_dma/src/aic_ht_DW_axi_dmac_max_rduid.v
+      - aic_ht_dma/src/aic_ht_DW_axi_dmac_channelregs.v
+      - aic_ht_dma/src/aic_ht_DW_axi_dmac_ch_to_mst_addr_ch_mux.v
+      - aic_ht_dma/src/aic_ht_DW_axi_dmac_ch_to_mst_wdata_mux.v
+      - aic_ht_dma/src/aic_ht_DW_axi_dmac_commonregs.v
+      - aic_ht_dma/src/aic_ht_DW_axi_dmac_endian.v
+      - aic_ht_dma/src/aic_ht_DW_axi_dmac_hsif.v
+      - aic_ht_dma/src/aic_ht_DW_axi_dmac_intrif.v
+      - aic_ht_dma/src/aic_ht_DW_axi_dmac_mstif_sync.v
+      - aic_ht_dma/src/aic_ht_DW_axi_dmac_mstif.v
+      - aic_ht_dma/src/aic_ht_DW_axi_dmac_mst_to_ch_rdata_demux.v
+      - aic_ht_dma/src/aic_ht_DW_axi_dmac_mst_to_ch_wresp_demux.v
+      - aic_ht_dma/src/aic_ht_DW_axi_dmac_regif.v
+      - aic_ht_dma/src/aic_ht_DW_axi_dmac_channel_top.v
+      - aic_ht_dma/src/aic_ht_DW_axi_dmac_channel_tfr_ctrl.v
+      - aic_ht_dma/src/aic_ht_DW_axi_dmac_channel_src_sm.v
+      - aic_ht_dma/src/aic_ht_DW_axi_dmac_channel_lli_sm.v
+      - aic_ht_dma/src/aic_ht_DW_axi_dmac_channel_dst_sm.v
+      - aic_ht_dma/src/aic_ht_DW_axi_dmac_debug_if.v
+      - aic_ht_dma/src/aic_ht_DW_axi_dmac.v
+      - aic_ht_dma/src/aic_ht_DW_axi_dmac-undef.v
+
+  # APU DMA:
+  - target: rtl
+    include_dirs:
+      - apu_dma/src
+    files:
+      - apu_dma/src/apu_DW_axi_dmac_lp_sm.v
+      - apu_dma/src/apu_DW_axi_dmac_channel_lp.v
+      - apu_dma/src/apu_DW_axi_dmac_sbiu_lp.v
+      - apu_dma/src/apu_DW_axi_dmac_mxif_lp.v
+      - apu_dma/src/apu_DW_axi_dmac_gbl_lp.v
+      - apu_dma/src/apu_DW_axi_dmac_ahb_sbiu.v
+      - apu_dma/src/apu_DW_axi_dmac_arbiter.v
+      - apu_dma/src/apu_DW_axi_dmac_bcm01.v
+      - apu_dma/src/apu_DW_axi_dmac_bcm05.v
+      - apu_dma/src/apu_DW_axi_dmac_bcm06.v
+      - apu_dma/src/apu_DW_axi_dmac_bcm07.v
+      - apu_dma/src/apu_DW_axi_dmac_bcm22.v
+      - apu_dma/src/apu_DW_axi_dmac_bcm53.v
+      - apu_dma/src/apu_DW_axi_dmac_bcm57.v
+      - apu_dma/src/apu_DW_axi_dmac_bcm37.v
+      - apu_dma/src/apu_DW_axi_dmac_ch_shift_unalign.v
+      - apu_dma/src/apu_DW_axi_dmac_ch_src_unalign.v
+      - apu_dma/src/apu_DW_axi_dmac_ch_dst_unalign.v
+      - apu_dma/src/apu_DW_axi_dmac_fifo_cntrlr.v
+      - apu_dma/src/apu_DW_axi_dmac_ch_fifo_cntrlr.v
+      - apu_dma/src/apu_DW_axi_dmac_channelregs.v
+      - apu_dma/src/apu_DW_axi_dmac_ch_to_mst_addr_ch_mux.v
+      - apu_dma/src/apu_DW_axi_dmac_ch_to_mst_wdata_mux.v
+      - apu_dma/src/apu_DW_axi_dmac_commonregs.v
+      - apu_dma/src/apu_DW_axi_dmac_endian.v
+      - apu_dma/src/apu_DW_axi_dmac_hsif.v
+      - apu_dma/src/apu_DW_axi_dmac_intrif.v
+      - apu_dma/src/apu_DW_axi_dmac_mstif_sync.v
+      - apu_dma/src/apu_DW_axi_dmac_mstif.v
+      - apu_dma/src/apu_DW_axi_dmac_mst_to_ch_rdata_demux.v
+      - apu_dma/src/apu_DW_axi_dmac_mst_to_ch_wresp_demux.v
+      - apu_dma/src/apu_DW_axi_dmac_regif.v
+      - apu_dma/src/apu_DW_axi_dmac_channel_top.v
+      - apu_dma/src/apu_DW_axi_dmac_channel_tfr_ctrl.v
+      - apu_dma/src/apu_DW_axi_dmac_channel_src_sm.v
+      - apu_dma/src/apu_DW_axi_dmac_channel_lli_sm.v
+      - apu_dma/src/apu_DW_axi_dmac_channel_dst_sm.v
+      - apu_dma/src/apu_DW_axi_dmac_debug_if.v
+      - apu_dma/src/apu_DW_axi_dmac.v
+      - apu_dma/src/apu_DW_axi_dmac-undef.v

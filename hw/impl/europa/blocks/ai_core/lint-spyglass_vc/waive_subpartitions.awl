@@ -1,0 +1,4 @@
+waive -ip {  {aic_did_p}  }  -rule {  {ALL}  }  -comment {Only check AI Core top}
+waive -ip {  {aic_infra_p}  }  -rule {  {ALL}  }  -comment {Only check AI Core top}
+waive -ip {  {aic_ls_p}  }  -rule {  {ALL}  }  -comment {Only check AI Core top}
+waive -ip {  {aic_mid_p}  }  -rule {  {ALL}  }  -comment {Only check AI Core top}

@@ -1,0 +1,7 @@
+nav:
+  - index.md
+  - instruction_fetch
+  - execute.md
+  - token_unit.md
+  - copy_unit
+  - axi_units.md

@@ -1,0 +1,80 @@
+{
+  name: sys_spm
+  top_path: "{REPO_ROOT}/hw/impl/europa/blocks/sys_spm/rtl/sys_spm_inf.sv"
+  pkg_path: "{REPO_ROOT}/hw/impl/europa/blocks/sys_spm/rtl/pkg/sys_spm_pkg.sv"
+  param_resolved: False
+  param: {
+    sys_spm_axi_data_t: chip_pkg::chip_axi_lt_data_t
+    sys_spm_axi_addr_t: chip_pkg::chip_axi_addr_t
+    sys_spm_axi_strb_t: chip_pkg::chip_axi_lt_wstrb_t
+    sys_spm_axi_len_t : axi_pkg::axi_len_t
+    sys_spm_axi_id_t  : sys_spm_targ_lt_axi_id_t
+    sys_spm_axi_size_t: axi_pkg::axi_size_t
+    sys_spm_axi_burst_t: axi_pkg::axi_burst_t
+    sys_spm_axi_resp_t: axi_pkg::axi_resp_t
+    sys_spm_axi_cache_t: axi_pkg::axi_cache_t
+    sys_spm_axi_prot_t: axi_pkg::axi_prot_t
+  }
+  imports: [
+    chip_pkg
+    axi_pkg
+  ]
+  in_clk: [
+    i_clk
+  ]
+  in_rst: [
+    i_rst_n
+  ]
+  in_port_b: [
+  ]
+  in_port_v: {
+  }
+  out_port_b: [
+  ]
+  out_port_v: {
+  }
+  inout_port_b: []
+  inout_port_v: {}
+  bus:{
+    lt:{
+      type: axi_s
+      param: {
+        shared: {
+          addr_width : chip_axi_addr_t
+          data_width : chip_axi_lt_data_t
+          len_width: axi_len_t
+          size_width: axi_size_t
+          burst_width : axi_burst_t
+          cache_width : axi_cache_t
+          prot_width : axi_prot_t
+          resp_width : axi_resp_t
+          strb_width : chip_axi_lt_wstrb_t
+          qos_width : axi_qos_t
+          region_width : axi_region_t
+          awuser_width: chip_axi_lt_awuser_t
+          wuser_width: chip_axi_lt_wuser_t
+          buser_width: chip_axi_lt_buser_t
+          aruser_width: chip_axi_lt_aruser_t
+          ruser_width: chip_axi_lt_ruser_t
+        }
+        self: {
+          id_width: sys_spm_targ_lt_axi_id_t
+        }
+      }
+    }
+    cfg:{
+      type: apb4_s
+      param: {
+        shared: {
+          addr_w : chip_syscfg_addr_t
+          size_w : chip_apb_syscfg_data_t
+          strb_w : chip_apb_syscfg_strb_t
+          size_r : chip_apb_syscfg_data_t
+        }
+        self: {
+
+        }
+      }
+    }
+  }
+}

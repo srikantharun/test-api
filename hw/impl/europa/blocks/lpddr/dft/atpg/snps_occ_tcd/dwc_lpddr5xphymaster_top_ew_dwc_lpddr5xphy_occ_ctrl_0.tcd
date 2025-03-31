@@ -1,0 +1,50 @@
+//--------------------------------------------------------------------------
+// Manually created https://docs.sw.siemens.com/en-US/doc/852852118/202311005.tshell_user/idffcdc6be-59ab-41f2-a49e-7dac2ec82333?audience=external
+//--------------------------------------------------------------------------
+
+Core(dwc_lpddr5xphymaster_top_ew_dwc_lpddr5xphy_occ_ctrl_0) {
+   Occ {
+      version: 4;
+      ijtag_scan_interface: off;
+      type: standard;
+      Interface {
+         FastClock(fast_clk) {
+            //persistent_pin: fast_clk;
+         }
+         SlowClock(scan_clk_BUF_sc_sc1_sc2) {
+            //persistent_pin: tessent_persistent_cell_slow_clock_buf/o_clk;
+         }
+         ScanEnable(test_se) {
+            //persistent_pin: tessent_persistent_cell_scan_en_buf/o_z;
+         }
+         ScanInput(cc_si) {
+            //persistent_pin: tessent_persistent_cell_scan_in_buf/o_z;
+         }
+         ScanOutput(cc_so) {
+            //persistent_pin: tessent_persistent_cell_scan_out_buf/o_z;
+         }
+         ShiftRegisterClock(u_slow_gate/Q) {
+         }
+         GatedFastClock(u_fast_gate/Q) {
+         }
+         GatedClock(u_clkor2/X) {
+            source: fast_clk;
+         }
+      }
+
+      ControlBits {
+         ControlBit(I_clk_ctrl_data_b3) {
+         }
+         ControlBit(I_clk_ctrl_data_b2) {
+         }
+         ControlBit(I_clk_ctrl_data_b1) {
+         }
+         ControlBit(I_clk_ctrl_data_b0) {
+         }
+      }
+      capture_trigger: shift_en;
+      static_clock_control: off;
+   }
+}
+  
+  

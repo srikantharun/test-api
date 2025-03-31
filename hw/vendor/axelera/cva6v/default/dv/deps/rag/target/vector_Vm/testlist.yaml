@@ -1,0 +1,328 @@
+# (C) Copyright Axelera AI 2024
+# All Rights Reserved
+# *** Axelera AI Confidential ***
+#
+# Description: Testlist for CVA6V
+# Owner: Raymond Garcia <raymond.garcia@axelera.ai>
+
+# ================================================================================
+#                  Regression test list format
+# --------------------------------------------------------------------------------
+# test            : Assembly test name
+# description     : Description of this test
+# gen_opts        : Instruction generator options
+# iterations      : Number of iterations of this test
+# no_iss          : Enable/disable ISS simulator (Optional)
+# gen_test        : Test name used by the instruction generator
+# rtl_test        : RTL simulation test name
+# cmp_opts        : Compile options passed to the instruction generator
+# sim_opts        : Simulation options passed to the instruction generator
+# no_post_compare : Enable/disable comparison of trace log and ISS log (Optional)
+# compare_opts    : Options for the RTL & ISS trace comparison
+# gcc_opts        : gcc compile options
+# --------------------------------------------------------------------------------
+# Base + Floating point + Vector mask
+
+- test: cva6v_rag_Vm
+  description: >
+    base + fp + vector test, Vector Fixed Point Arithmetic Instructions
+  gen_opts: >
+    +instr_cnt=10000
+    +num_of_sub_program=0
+    +enable_fp_extension=1
+    +enable_vector_extension=1
+    +vreg_init_method=RANDOM_VALUES_LOAD
+    +no_fence=1
+    +no_branch_jump=1
+    +no_csr_instr=1
+    +boot_mode=m
+    +specific_v_instructions=VMAND_MM,VMNAND_MM,VMANDN_MM,VMXOR_MM,VMOR_MM,VMNOR_MM,VMORN_MM,VMXNOR_MM,VCPOP_M,VFIRST_M,VMSBF_M,VMSIF_M,VMSOF_M,VIOTA_M,VID_V
+    +report_stats=1
+  iterations: 100
+  gen_test: riscv_instr_base_test
+  rtl_test: core_base_test
+
+- test: cva6v_rag_Vm_vmand_mm
+  description: >
+    base + fp + vector test, Vector Fixed Point Arithmetic Instructions
+  gen_opts: >
+    +instr_cnt=10000
+    +num_of_sub_program=0
+    +enable_fp_extension=1
+    +enable_vector_extension=1
+    +vreg_init_method=RANDOM_VALUES_LOAD
+    +no_fence=1
+    +no_branch_jump=1
+    +no_csr_instr=1
+    +boot_mode=m
+    +specific_v_instructions=VMAND_MM
+    +report_stats=1
+  iterations: 100
+  gen_test: riscv_instr_base_test
+  rtl_test: core_base_test
+
+- test: cva6v_rag_Vm_vmnand_mm
+  description: >
+    base + fp + vector test, Vector Fixed Point Arithmetic Instructions
+  gen_opts: >
+    +instr_cnt=10000
+    +num_of_sub_program=0
+    +enable_fp_extension=1
+    +enable_vector_extension=1
+    +vreg_init_method=RANDOM_VALUES_LOAD
+    +no_fence=1
+    +no_branch_jump=1
+    +no_csr_instr=1
+    +boot_mode=m
+    +specific_v_instructions=VMNAND_MM
+    +report_stats=1
+  iterations: 100
+  gen_test: riscv_instr_base_test
+  rtl_test: core_base_test
+
+- test: cva6v_rag_Vm_vmandn_mm
+  description: >
+    base + fp + vector test, Vector Fixed Point Arithmetic Instructions
+  gen_opts: >
+    +instr_cnt=10000
+    +num_of_sub_program=0
+    +enable_fp_extension=1
+    +enable_vector_extension=1
+    +vreg_init_method=RANDOM_VALUES_LOAD
+    +no_fence=1
+    +no_branch_jump=1
+    +no_csr_instr=1
+    +boot_mode=m
+    +specific_v_instructions=VMANDN_MM
+    +report_stats=1
+  iterations: 100
+  gen_test: riscv_instr_base_test
+  rtl_test: core_base_test
+
+- test: cva6v_rag_Vm_vmxor_mm
+  description: >
+    base + fp + vector test, Vector Fixed Point Arithmetic Instructions
+  gen_opts: >
+    +instr_cnt=10000
+    +num_of_sub_program=0
+    +enable_fp_extension=1
+    +enable_vector_extension=1
+    +vreg_init_method=RANDOM_VALUES_LOAD
+    +no_fence=1
+    +no_branch_jump=1
+    +no_csr_instr=1
+    +boot_mode=m
+    +specific_v_instructions=VMXOR_MM
+    +report_stats=1
+  iterations: 100
+  gen_test: riscv_instr_base_test
+  rtl_test: core_base_test
+
+- test: cva6v_rag_Vm_vmor_mm
+  description: >
+    base + fp + vector test, Vector Fixed Point Arithmetic Instructions
+  gen_opts: >
+    +instr_cnt=10000
+    +num_of_sub_program=0
+    +enable_fp_extension=1
+    +enable_vector_extension=1
+    +vreg_init_method=RANDOM_VALUES_LOAD
+    +no_fence=1
+    +no_branch_jump=1
+    +no_csr_instr=1
+    +boot_mode=m
+    +specific_v_instructions=VMOR_MM
+    +report_stats=1
+  iterations: 100
+  gen_test: riscv_instr_base_test
+  rtl_test: core_base_test
+
+- test: cva6v_rag_Vm_vmnor_mm
+  description: >
+    base + fp + vector test, Vector Fixed Point Arithmetic Instructions
+  gen_opts: >
+    +instr_cnt=10000
+    +num_of_sub_program=0
+    +enable_fp_extension=1
+    +enable_vector_extension=1
+    +vreg_init_method=RANDOM_VALUES_LOAD
+    +no_fence=1
+    +no_branch_jump=1
+    +no_csr_instr=1
+    +boot_mode=m
+    +specific_v_instructions=VMNOR_MM
+    +report_stats=1
+  iterations: 100
+  gen_test: riscv_instr_base_test
+  rtl_test: core_base_test
+
+- test: cva6v_rag_Vm_vmorn_mm
+  description: >
+    base + fp + vector test, Vector Fixed Point Arithmetic Instructions
+  gen_opts: >
+    +instr_cnt=10000
+    +num_of_sub_program=0
+    +enable_fp_extension=1
+    +enable_vector_extension=1
+    +vreg_init_method=RANDOM_VALUES_LOAD
+    +no_fence=1
+    +no_branch_jump=1
+    +no_csr_instr=1
+    +boot_mode=m
+    +specific_v_instructions=VMORN_MM
+    +report_stats=1
+  iterations: 100
+  gen_test: riscv_instr_base_test
+  rtl_test: core_base_test
+
+- test: cva6v_rag_Vm_vmxnor_mm
+  description: >
+    base + fp + vector test, Vector Fixed Point Arithmetic Instructions
+  gen_opts: >
+    +instr_cnt=10000
+    +num_of_sub_program=0
+    +enable_fp_extension=1
+    +enable_vector_extension=1
+    +vreg_init_method=RANDOM_VALUES_LOAD
+    +no_fence=1
+    +no_branch_jump=1
+    +no_csr_instr=1
+    +boot_mode=m
+    +specific_v_instructions=VMXNOR_MM
+    +report_stats=1
+  iterations: 100
+  gen_test: riscv_instr_base_test
+  rtl_test: core_base_test
+
+- test: cva6v_rag_Vm_vcpop_m
+  description: >
+    base + fp + vector test, Vector Fixed Point Arithmetic Instructions
+  gen_opts: >
+    +instr_cnt=10000
+    +num_of_sub_program=0
+    +enable_fp_extension=1
+    +enable_vector_extension=1
+    +vreg_init_method=RANDOM_VALUES_LOAD
+    +no_fence=1
+    +no_branch_jump=1
+    +no_csr_instr=1
+    +boot_mode=m
+    +specific_v_instructions=VCPOP_M
+    +report_stats=1
+  iterations: 100
+  gen_test: riscv_instr_base_test
+  rtl_test: core_base_test
+
+- test: cva6v_rag_Vm_vfirst_m
+  description: >
+    base + fp + vector test, Vector Fixed Point Arithmetic Instructions
+  gen_opts: >
+    +instr_cnt=10000
+    +num_of_sub_program=0
+    +enable_fp_extension=1
+    +enable_vector_extension=1
+    +vreg_init_method=RANDOM_VALUES_LOAD
+    +no_fence=1
+    +no_branch_jump=1
+    +no_csr_instr=1
+    +boot_mode=m
+    +specific_v_instructions=VFIRST_M
+    +report_stats=1
+  iterations: 100
+  gen_test: riscv_instr_base_test
+  rtl_test: core_base_test
+
+- test: cva6v_rag_Vm_vmsbf_mm
+  description: >
+    base + fp + vector test, Vector Fixed Point Arithmetic Instructions
+  gen_opts: >
+    +instr_cnt=10000
+    +num_of_sub_program=0
+    +enable_fp_extension=1
+    +enable_vector_extension=1
+    +vreg_init_method=RANDOM_VALUES_LOAD
+    +no_fence=1
+    +no_branch_jump=1
+    +no_csr_instr=1
+    +boot_mode=m
+    +specific_v_instructions=VMSBF_M
+    +report_stats=1
+  iterations: 100
+  gen_test: riscv_instr_base_test
+  rtl_test: core_base_test
+
+- test: cva6v_rag_Vm_vmsif_m
+  description: >
+    base + fp + vector test, Vector Fixed Point Arithmetic Instructions
+  gen_opts: >
+    +instr_cnt=10000
+    +num_of_sub_program=0
+    +enable_fp_extension=1
+    +enable_vector_extension=1
+    +vreg_init_method=RANDOM_VALUES_LOAD
+    +no_fence=1
+    +no_branch_jump=1
+    +no_csr_instr=1
+    +boot_mode=m
+    +specific_v_instructions=VMSIF_M
+    +report_stats=1
+  iterations: 100
+  gen_test: riscv_instr_base_test
+  rtl_test: core_base_test
+
+- test: cva6v_rag_Vm_vmsof_m
+  description: >
+    base + fp + vector test, Vector Fixed Point Arithmetic Instructions
+  gen_opts: >
+    +instr_cnt=10000
+    +num_of_sub_program=0
+    +enable_fp_extension=1
+    +enable_vector_extension=1
+    +vreg_init_method=RANDOM_VALUES_LOAD
+    +no_fence=1
+    +no_branch_jump=1
+    +no_csr_instr=1
+    +boot_mode=m
+    +specific_v_instructions=VMSOF_M
+    +report_stats=1
+  iterations: 100
+  gen_test: riscv_instr_base_test
+  rtl_test: core_base_test
+
+- test: cva6v_rag_Vm_viota_m
+  description: >
+    base + fp + vector test, Vector Fixed Point Arithmetic Instructions
+  gen_opts: >
+    +instr_cnt=10000
+    +num_of_sub_program=0
+    +enable_fp_extension=1
+    +enable_vector_extension=1
+    +vreg_init_method=RANDOM_VALUES_LOAD
+    +no_fence=1
+    +no_branch_jump=1
+    +no_csr_instr=1
+    +boot_mode=m
+    +specific_v_instructions=VIOTA_M
+    +report_stats=1
+  iterations: 100
+  gen_test: riscv_instr_base_test
+  rtl_test: core_base_test
+
+- test: cva6v_rag_Vm_vid_v
+  description: >
+    base + fp + vector test, Vector Fixed Point Arithmetic Instructions
+  gen_opts: >
+    +instr_cnt=10000
+    +num_of_sub_program=0
+    +enable_fp_extension=1
+    +enable_vector_extension=1
+    +vreg_init_method=RANDOM_VALUES_LOAD
+    +no_fence=1
+    +no_branch_jump=1
+    +no_csr_instr=1
+    +boot_mode=m
+    +specific_v_instructions=VID_V
+    +report_stats=1
+  iterations: 100
+  gen_test: riscv_instr_base_test
+  rtl_test: core_base_test

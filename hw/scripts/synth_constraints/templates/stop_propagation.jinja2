@@ -1,0 +1,7 @@
+{% import 'arguments.jinja2' as arguments %}
+####################
+# Stop Propagation #
+####################
+{% for propagation in data.stop_propagation|filter_by_mode(constraint_mode) %}
+set_sense -type {{ propagation.type.value }} -{{ propagation.edge.value }} -clocks {{ propagation.clock }} -stop_propagation
+{%- endfor %}

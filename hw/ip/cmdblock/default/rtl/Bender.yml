@@ -1,0 +1,34 @@
+# (C) Copyright Axelera AI 2022
+# All Rights Reserved
+# *** Axelera AI Confidential ***
+
+package:
+  name: cmdblock
+  authors:
+    - "Sander Geursen <sander.geursen@axelera.ai>"
+
+dependencies:
+  axe_tcl:          { path: "../../../tech_cell_library/default/rtl" }
+  axi4_common:      { path: "../../../axi4_common/default/rtl" }
+  cc_lib:           { path: "../../../common_cell_library/default/rtl" }
+  cmdblock_pkg:     { path: "pkg" }
+
+# Source files are grouped in levels. Files in level 0 have no dependencies on files in this package.
+# Files in level 1 only depend on files in level 0, fils in level 2 on files in 0 and 1, etc.
+# Files within a level are ordered alphanumerically.
+sources:
+  - target: rtl
+    files:
+      # Level 0
+      - cmdblock_reg.sv
+      - cmdblock_str_arb.sv
+      - cmdblock_str_block.sv
+      - cmdblock_str_multicast.sv
+      - cmdblock_cmd_unpack.sv
+      # Level 1
+      - cmdblock_cmd_fifo.sv
+      - cmdblock_desc_mem.sv
+      - cmdblock_tok_cons.sv
+      - cmdblock_tok_prod.sv
+      # Level 2
+      - cmdblock.sv

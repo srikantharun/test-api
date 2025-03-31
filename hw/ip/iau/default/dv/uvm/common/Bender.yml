@@ -1,0 +1,25 @@
+# (C) Copyright 2024 Axelera AI B.V.
+# All Rights Reserved
+# *** Axelera AI Confidential ***
+
+package:
+  name: iau_uvm_common
+  description: "IAU common verification definitions"
+  authors:
+    - "fernando.yokota@axelera.ai"
+
+dependencies:
+  aic_common          : { path : "../../../../../aic_common/default/rtl/" }
+  europa_asic_pkg     : { path : "../../../../../../../hw/impl/europa/asic/rtl/pkg"}
+  ai_core_dp_cmd_uvm  : { path : "../../../../../aic_common/default/dv/uvm"}
+  svt_amba_vip        : { path : "../../../../../../dv/svt_amba_vip"}
+  iau_pkg             : { path : "../../../rtl/pkg" }
+  iau_uvm_ral         : { path : "../ral" }
+
+sources:
+  - target: simulation
+    include_dirs:
+      - .
+    files:
+      - iau_common_pkg.sv
+

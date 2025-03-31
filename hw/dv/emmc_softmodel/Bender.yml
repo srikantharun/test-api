@@ -1,0 +1,33 @@
+package:
+  name: emmc_softmodel
+  authors:
+  - "jerome.sauger@axelera.ai"
+
+sources:
+  # For simulation: add +define+sim to your compilation switches
+  - target: emmc_softmodel
+    files:
+      - ${EMMC_RELS}/hdl/emmc_sm.v
+      - ${EMMC_RELS}/hdl/core.v
+      - ${EMMC_RELS}/hdl/DS_CTRL.v
+      - ${EMMC_RELS}/hdl/CMD_IF.v
+      - ${EMMC_RELS}/hdl/CMD_P2S.v
+      - ${EMMC_RELS}/hdl/CMD_S2P.v
+      - ${EMMC_RELS}/hdl/CRC16.v
+      - ${EMMC_RELS}/hdl/CRC7.v
+      - ${EMMC_RELS}/hdl/DAT_P24S.v
+      - ${EMMC_RELS}/hdl/DAT_P28S.v
+      - ${EMMC_RELS}/hdl/DAT_P2S.v
+      - ${EMMC_RELS}/hdl/DAT_S2P.v
+      - ${EMMC_RELS}/hdl/DATA_IF.v
+      - ${EMMC_RELS}/hdl/EMEM.v
+      - ${EMMC_RELS}/hdl/MFSM.v
+      - ${EMMC_RELS}/hdl/RESP_GEN.v
+      - ${EMMC_RELS}/hdl/sha256.v
+      - ${EMMC_RELS}/hdl/mem_1ps.v
+      - ${EMMC_RELS}/hdl/mem_1p.v
+      - ${EMMC_RELS}/hdl/mem_2p.v
+      - ${EMMC_RELS}/hdl/mem_4p.v
+      - ${EMMC_RELS}/hdl/emmc_mem_2d.sv
+      - ${EMMC_RELS}/hdl/emmc_mem_3d.sv
+

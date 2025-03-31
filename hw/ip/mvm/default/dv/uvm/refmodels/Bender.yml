@@ -1,0 +1,23 @@
+# (C) Copyright 2024 Axelera AI B.V.
+# All Rights Reserved
+# *** Axelera AI Confidential ***
+
+package:
+  name: ai_core_mvm_uvm_mvm_ref
+  description: "MVM verification reference model"
+  authors:
+    - "timir.soni@axelera.ai"
+
+dependencies:
+  aic_common_pkg:                 { path: "../../../../../aic_common/default/rtl/" }
+  ai_core_token_agent_uvm_pkg: { path: "../../../../../../dv/token_agent"}
+  svt_amba_vip:                { path: "../../../../../../dv/svt_amba_vip"}
+  ai_core_mvm_uvm_common:      { path: "../common" }
+
+
+sources:
+  - target: simulation
+    include_dirs:
+      - .
+    files:
+      - ai_core_mvm_ref_model_pkg.sv

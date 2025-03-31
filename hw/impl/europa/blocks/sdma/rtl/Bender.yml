@@ -1,0 +1,36 @@
+# (C) Copyright 2024 Axelera AI B.V.
+# All Rights Reserved
+# *** Axelera AI Confidential ***
+
+package:
+  name: europa_sdma
+  description: "Streaming DMA IP"
+  authors:
+    - "Matt Morris <matt.morris@axelera.ai>"
+
+dependencies:
+  europa_asic_pkg:     { path: "hw/impl/europa/asic/rtl/pkg" }
+  europa_sdma_pkg:     { path: "pkg" }
+  pctl:                { path: "hw/ip/pctl/default/rtl"}
+  dma:                 { path: "hw/ip/dma/default/rtl"}
+  timestamp_logger:    { path: "" }
+  lowrisc_prim_subreg: { path: "" }
+  token_manager:       { path: "" }
+  open_core_protocol:  { path: "" }
+
+# Source files grouped in levels.
+# Files in level 0 have no dependencies on files in this package.
+# Files in level 1 only depend on files in level 0, files in level 2 on files in levels 1 and 0, etc.
+# Files within a level are ordered alphabetically.
+sources:
+  - target: rtl
+    files:
+    # Level 0
+    - build_reg/timestamp_logger_sdma_csr_reg_top.sv
+    - build_reg/sdma_csr_reg_top.sv
+    # Level 1
+    - timestamp_logger_sdma.sv
+  - target: all(rtl, not(dft))
+    files:
+    # Level 2
+    - sdma_p.sv

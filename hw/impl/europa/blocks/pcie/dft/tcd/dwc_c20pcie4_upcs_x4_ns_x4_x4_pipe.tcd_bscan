@@ -1,0 +1,146 @@
+Core(dwc_c20pcie4_upcs_x4_ns_x4_x4_pipe) {
+  BoundaryScan {
+    Interface {
+
+      capture_shift_clock  : phy0_bs_cdr;
+      select               : phy0_bs_ce;
+      shift_en             : phy0_bs_sdr;
+      update_clock         : phy0_bs_udr;
+      scan_in              : phy0_bs_tdi;
+      scan_out             : phy0_bs_tdo;
+      ac_init_clock0       : phy0_bs_rx_init;
+      ac_signal            : phy0_bs_actest;
+      ac_mode_enable       : phy0_bs_acmode;
+    }
+    ExternalPort(phy_rx0_p) {
+      differential_type : voltage;
+      ac_hp_time : 45ns;
+      ac_lp_time : 22.5ns;
+    }
+    ExternalPort(phy_rx1_p) {
+      differential_type : voltage;
+      ac_hp_time : 45ns;
+      ac_lp_time : 22.5ns;
+    }
+    ExternalPort(phy_rx2_p) {
+      differential_type : voltage;
+      ac_hp_time : 45ns;
+      ac_lp_time : 22.5ns;
+    }
+    ExternalPort(phy_rx3_p) {
+      differential_type : voltage;
+      ac_hp_time : 45ns;
+      ac_lp_time : 22.5ns;
+    }
+    ExternalPort(phy_rx0_m) {
+      differential_inverse_of : phy_rx0_p;
+    }
+    ExternalPort(phy_rx1_m) {
+      differential_inverse_of : phy_rx1_p;
+    }
+    ExternalPort(phy_rx2_m) {
+      differential_inverse_of : phy_rx2_p;
+    }
+    ExternalPort(phy_rx3_m) {
+      differential_inverse_of : phy_rx3_p;
+    }
+    ExternalPort(phy_tx0_p) {
+      differential_type : voltage;
+      buffer_type : two_state;
+    }
+    ExternalPort(phy_tx1_p) {
+      differential_type : voltage;
+      buffer_type : two_state;
+    }
+    ExternalPort(phy_tx2_p) {
+      differential_type : voltage;
+      buffer_type : two_state;
+    }
+    ExternalPort(phy_tx3_p) {
+      differential_type : voltage;
+      buffer_type : two_state;
+    }
+    ExternalPort(phy_tx0_m) {
+      differential_inverse_of : phy_tx0_p;
+    }
+    ExternalPort(phy_tx1_m) {
+      differential_inverse_of : phy_tx1_p;
+    }
+    ExternalPort(phy_tx2_m) {
+      differential_inverse_of : phy_tx2_p;
+    }
+    ExternalPort(phy_tx3_m) {
+      differential_inverse_of : phy_tx3_p;
+    }
+    Cell(cell11) {
+      function : output;
+      bsdl_cell_type : AC_1;
+      external_port : phy_tx0_p;
+      ac_type : on;
+    }
+    Cell(cell10) {
+      function : observe_only;
+      bsdl_cell_type : BC_4;
+      external_port : phy_rx0_p;
+      ac_type : on;
+    }
+    Cell(cell9) {
+      function : observe_only;
+      bsdl_cell_type : BC_4;
+      external_port : phy_rx0_m;
+    }
+    Cell(cell8) {
+      function : output;
+      bsdl_cell_type : AC_1;
+      external_port : phy_tx1_p;
+      ac_type : on;
+    }
+    Cell(cell7) {
+      function : observe_only;
+      bsdl_cell_type : BC_4;
+      external_port : phy_rx1_p;
+      ac_type : on;
+    }
+    Cell(cell6) {
+      function : observe_only;
+      bsdl_cell_type : BC_4;
+      external_port : phy_rx1_m;
+    }
+    Cell(cell5) {
+      function : output;
+      bsdl_cell_type : AC_1;
+      external_port : phy_tx2_p;
+      ac_type : on;
+    }
+    Cell(cell4) {
+      function : observe_only;
+      bsdl_cell_type : BC_4;
+      external_port : phy_rx2_p;
+      ac_type : on;
+    }
+    Cell(cell3) {
+      function : observe_only;
+      bsdl_cell_type : BC_4;
+      external_port : phy_rx2_m;
+    }
+    Cell(cell2) {
+      function : output;
+      bsdl_cell_type : AC_1;
+      external_port : phy_tx3_p;
+      ac_type : on;
+    }
+    Cell(cell1) {
+      function : observe_only;
+      bsdl_cell_type : BC_4;
+      external_port : phy_rx3_p;
+      ac_type : on;
+    }
+    Cell(cell0) {
+      function : observe_only;
+      bsdl_cell_type : BC_4;
+      external_port : phy_rx3_m;
+    }
+    NonScannableInstances {
+    }
+  }
+}

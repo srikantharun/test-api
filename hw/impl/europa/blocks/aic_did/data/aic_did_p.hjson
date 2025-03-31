@@ -1,0 +1,81 @@
+{
+  design_name: aic_did
+  wrapper_name: aic_did_p
+  design_file: "{REPO_ROOT}/hw/impl/europa/blocks/aic_did/rtl/aic_did.sv"
+  wrapper_file: "{REPO_ROOT}/hw/impl/europa/blocks/aic_did/rtl/generated/aic_did_p.sv"
+  wrap_p: true
+  ports: {
+    clk: [
+      i_clk
+    ]
+    rst: [
+      i_rst_n
+    ]
+    axi:
+    {
+      defaults : {
+        pipe : true
+        rate_adapter : false
+        clock : i_clk
+        reset : i_rst_n
+      }
+    }
+    axis:
+    {
+      defaults : {
+        pipe : true
+        rate_adapter : false
+        clock : i_clk
+        reset : i_rst_n
+      }
+    }
+    token:
+    {
+      defaults : {
+        pipe : true
+        rate_adapter : false
+        clock : i_clk
+        reset : i_rst_n
+      }
+    }
+    bus: {
+    }
+    misc:
+    {
+      defaults : {
+        clock_edge : rising
+        pipe : false
+        clock : i_clk
+        reset : i_rst_n
+        static : false
+        multi_cycle : {}
+      }
+    }
+  }
+  # List all clocks with their frequency in MHz
+  # Indicate usage and connections of clock gate/divider
+  clocks : {
+    i_clk : {
+      freq : 1200
+      #TODO: support for clock divider to be enabled from the wrapper script
+      divider : {
+        reset : i_rst_n
+      }
+      gate : false
+    }
+  }
+  # List all resets and link with their respective clock
+  # Indicate whether they need reset sync
+  resets : {
+    i_rst_n : {
+      i_clk : {
+        synchronise : true
+      }
+    }
+  }
+  dft: default
+  pkg_info: [
+    "{REPO_ROOT}/hw/impl/europa/asic/rtl/pkg/chip_pkg.sv"
+    "{REPO_ROOT}/hw/ip/axi/default/rtl/pkg/axi_pkg.sv"
+  ]
+}

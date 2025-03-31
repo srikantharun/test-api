@@ -1,0 +1,157 @@
+package:
+  name: aic_did_p
+  description: "aic_did_p clock, related IOs, clock groups and design intend information"
+  authors:
+    - "Wolfgang Roenninger <wolfgang.roenninger@axelera.ai>"
+
+clocks:
+  - clock_type: master
+    name: fast_clk
+    freq_mhz: 1200
+    dc: 50
+    source:
+      name: i_clk
+      type: port
+    mode: func
+    sync_in:
+      - name: "{i_*_axi* i_*_tok_*}"
+        type: port
+    sync_out:
+      - name: "{o_*_axi* o_*_tok_* o_*_obs o_irq o_ts_* o_acd_sync}"
+        type: port
+
+
+resets:
+  - name: "i_rst_n"
+    type: port
+
+case_analysis:
+  - mode: func
+    object:
+      name: scan_en
+      type: port
+    value: 0
+  - mode: func
+    object:
+      name: test_mode
+      type: port
+    value: 0
+
+  - mode: func
+    object:
+      name: "i_cid[0]"
+      type: port
+    value: 0
+  - mode: func
+    object:
+      name: "i_cid[1]"
+      type: port
+    value: 0
+  - mode: func
+    object:
+      name: "i_cid[2]"
+      type: port
+    value: 0
+  - mode: func
+    object:
+      name: "i_cid[3]"
+      type: port
+    value: 0
+  - mode: func
+    object:
+      name: "i_cid[4]"
+      type: port
+    value: 0
+  - mode: func
+    object:
+      name: "i_cid[5]"
+      type: port
+    value: 0
+  - mode: func
+    object:
+      name: "i_cid[6]"
+      type: port
+    value: 0
+  - mode: func
+    object:
+      name: "i_cid[7]"
+      type: port
+    value: 0
+
+  - mode: func
+    object:
+      name: "i_sram_mcs[0]"
+      type: port
+    value: 1
+  - mode: func
+    object:
+      name: "i_sram_mcs[1]"
+      type: port
+    value: 0
+  - mode: func
+    object:
+      name: "i_sram_mcsw"
+      type: port
+    value: 0
+  - mode: func
+    object:
+      name: "i_sram_ret"
+      type: port
+    value: 0
+  - mode: func
+    object:
+      name: "i_sram_pde"
+      type: port
+    value: 0
+  - mode: func
+    object:
+      name: "i_sram_adme[0]"
+      type: port
+    value: 0
+  - mode: func
+    object:
+      name: "i_sram_adme[1]"
+      type: port
+    value: 0
+  - mode: func
+    object:
+      name: "i_sram_adme[2]"
+      type: port
+    value: 1
+
+false_path:
+  - mode: func
+    from_object:
+      name: '{i_*rst*}'
+      type: port
+    type: both
+  - mode: func
+    through_object:
+      name: '[get_pins -of_objects [get_cell -hier  *tc_lib_seq_sync* -filter full_name=~*tc_lib_seq_sync*] -filter "full_name=~*/D"]'
+      type: expr
+    type: both
+  - mode: func
+    to_object:
+      name: "o_sram_prn"
+      type: port
+    type: both
+
+retiming:
+  - name: '*dpu_dp_sfu*'
+    type: cell
+
+mcp_path:
+  - mode: func
+    to_object:
+      name: '[get_flat_pins -filter "full_name=~*i_dpu*_irq_status_err_*D"]'
+      type: expr
+    type: setup
+    multiplier: 3
+    relative_to: ""
+  - mode: func
+    to_object:
+      name: '[get_flat_pins -filter "full_name=~*i_dpu*_irq_status_err_*D"]'
+      type: expr
+    type: hold
+    multiplier: 2
+    relative_to: ""

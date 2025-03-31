@@ -1,0 +1,7 @@
+{% import 'get_object.jinja2' as get_object %}
+################################
+# Set Case Analysis Statements #
+################################
+{% for case in data.case_analysis|filter_by_mode(constraint_mode) %}
+set_case_analysis {{ case.value }} {{ get_object.get_object(case.object) }}
+{%- endfor %}

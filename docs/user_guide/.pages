@@ -1,0 +1,9 @@
+nav:
+  - Europa: index.md
+  - installation.md
+  - veloce.md
+  - top_level_simulation.md
+  - requirement_links.md
+  - top_level_coverage.md
+  - fw_trace_utils.md
+  - ...

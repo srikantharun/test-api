@@ -1,0 +1,23 @@
+# (C) Copyright 2024 Axelera AI B.V.
+# All Rights Reserved
+# *** Axelera AI Confidential ***
+
+package:
+  name: apu_bootrom
+  description: "Application Processor Unit Boot ROM"
+  authors:
+    - "Vincent MORILLON <vincent.morillon@axelera.ai>"
+
+dependencies:
+  apu_bootrom_pkg: { path: "" }
+  axe_tcl:         { path: "" }
+  axi:             { path: "" }
+  axi_pkg:         { path: "" }
+  axi4_common:     { path: "" }
+  europa_asic_pkg: { path: "" }
+
+sources:
+  - target: rtl
+    files:
+      # Level 0
+      - apu_bootrom.sv

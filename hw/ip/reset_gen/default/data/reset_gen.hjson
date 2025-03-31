@@ -1,0 +1,268 @@
+// (C) Copyright Axelera AI 2021
+// All Rights Reserved
+// *** Axelera AI Confidential ***
+{ name: "reset_gen",
+  clocking: [{clock: "clk_i", reset: "rst_ni"}],
+  bus_interfaces: [
+    { protocol: "tlul", direction: "device" }
+  ],
+  regwidth: "32",
+  addrcap: "0x10000",
+  registers: [
+    { name: "RST_CFG_HW_RST",
+      desc: "Reset configuration for stage `hw_rst`.",
+      swaccess: "rw",
+      hwaccess: "hro",
+      fields: [
+        {
+          bits: "2:0"
+          name: "RST_SRC_MASK",
+          desc: "Mask source for register `{c['name']}`."
+          resval: "7"
+        },
+        {
+          bits: "27:16",
+          name: "RST_STRETCH",
+          desc: "Stretch reset for register `{c['name']}`."
+          resval: "10"
+        }
+      ],
+    },
+    { name: "RST_SW_HW_RST",
+      desc: "Software reset (Active Low) for stage `hw_rst`.",
+      swaccess: "rw",
+      hwaccess: "hro",
+      fields: [
+        {
+          bits: "0"
+          name: "RST_SW",
+          desc: "Reset stage `{c['name']}`. (active low)"
+          resval: "1"
+        }
+      ],
+    }
+    { name: "RST_CFG_DMI_RST",
+      desc: "Reset configuration for stage `dmi_rst`.",
+      swaccess: "rw",
+      hwaccess: "hro",
+      fields: [
+        {
+          bits: "2:0"
+          name: "RST_SRC_MASK",
+          desc: "Mask source for register `{c['name']}`."
+          resval: "7"
+        },
+        {
+          bits: "27:16",
+          name: "RST_STRETCH",
+          desc: "Stretch reset for register `{c['name']}`."
+          resval: "10"
+        }
+      ],
+    },
+    { name: "RST_SW_DMI_RST",
+      desc: "Software reset (Active Low) for stage `dmi_rst`.",
+      swaccess: "rw",
+      hwaccess: "hro",
+      fields: [
+        {
+          bits: "0"
+          name: "RST_SW",
+          desc: "Reset stage `{c['name']}`. (active low)"
+          resval: "1"
+        }
+      ],
+    }
+    { name: "RST_CFG_BUS_RST_ASYN",
+      desc: "Reset configuration for stage `bus_rst_asyn`.",
+      swaccess: "rw",
+      hwaccess: "hro",
+      fields: [
+        {
+          bits: "2:0"
+          name: "RST_SRC_MASK",
+          desc: "Mask source for register `{c['name']}`."
+          resval: "7"
+        },
+        {
+          bits: "27:16",
+          name: "RST_STRETCH",
+          desc: "Stretch reset for register `{c['name']}`."
+          resval: "10"
+        }
+      ],
+    },
+    { name: "RST_SW_BUS_RST_ASYN",
+      desc: "Software reset (Active Low) for stage `bus_rst_asyn`.",
+      swaccess: "rw",
+      hwaccess: "hro",
+      fields: [
+        {
+          bits: "0"
+          name: "RST_SW",
+          desc: "Reset stage `{c['name']}`. (active low)"
+          resval: "1"
+        }
+      ],
+    }
+    { name: "RST_CFG_SYS_CORE_RST",
+      desc: "Reset configuration for stage `sys_core_rst`.",
+      swaccess: "rw",
+      hwaccess: "hro",
+      fields: [
+        {
+          bits: "2:0"
+          name: "RST_SRC_MASK",
+          desc: "Mask source for register `{c['name']}`."
+          resval: "7"
+        },
+        {
+          bits: "27:16",
+          name: "RST_STRETCH",
+          desc: "Stretch reset for register `{c['name']}`."
+          resval: "10"
+        }
+      ],
+    },
+    { name: "RST_SW_SYS_CORE_RST",
+      desc: "Software reset (Active Low) for stage `sys_core_rst`.",
+      swaccess: "rw",
+      hwaccess: "hro",
+      fields: [
+        {
+          bits: "0"
+          name: "RST_SW",
+          desc: "Reset stage `{c['name']}`. (active low)"
+          resval: "1"
+        }
+      ],
+    }
+    { name: "RST_CFG_AI_CORE_RST",
+      desc: "Reset configuration for stage `ai_core_rst`.",
+      swaccess: "rw",
+      hwaccess: "hro",
+      fields: [
+        {
+          bits: "2:0"
+          name: "RST_SRC_MASK",
+          desc: "Mask source for register `{c['name']}`."
+          resval: "7"
+        },
+        {
+          bits: "27:16",
+          name: "RST_STRETCH",
+          desc: "Stretch reset for register `{c['name']}`."
+          resval: "10"
+        }
+      ],
+    },
+    { name: "RST_SW_AI_CORE_RST",
+      desc: "Software reset (Active Low) for stage `ai_core_rst`.",
+      swaccess: "rw",
+      hwaccess: "hro",
+      fields: [
+        {
+          bits: "0"
+          name: "RST_SW",
+          desc: "Reset stage `{c['name']}`. (active low)"
+          resval: "1"
+        }
+      ],
+    }
+    { name: "RST_CFG_PCIE_RST",
+      desc: "Reset configuration for stage `pcie_rst`.",
+      swaccess: "rw",
+      hwaccess: "hro",
+      fields: [
+        {
+          bits: "2:0"
+          name: "RST_SRC_MASK",
+          desc: "Mask source for register `{c['name']}`."
+          resval: "7"
+        },
+        {
+          bits: "27:16",
+          name: "RST_STRETCH",
+          desc: "Stretch reset for register `{c['name']}`."
+          resval: "0"
+        }
+      ],
+    },
+    { name: "RST_SW_PCIE_RST",
+      desc: "Software reset (Active Low) for stage `pcie_rst`.",
+      swaccess: "rw",
+      hwaccess: "hro",
+      fields: [
+        {
+          bits: "2:0"
+          name: "RST_SW",
+          desc: "Reset stage `{c['name']}`. (active low)"
+          resval: "0"
+        }
+      ],
+    }
+    { name: "RST_CFG_DDR_RST",
+      desc: "Reset configuration for stage `ddr_rst`.",
+      swaccess: "rw",
+      hwaccess: "hro",
+      fields: [
+        {
+          bits: "2:0"
+          name: "RST_SRC_MASK",
+          desc: "Mask source for register `{c['name']}`."
+          resval: "7"
+        },
+        {
+          bits: "27:16",
+          name: "RST_STRETCH",
+          desc: "Stretch reset for register `{c['name']}`."
+          resval: "0"
+        }
+      ],
+    },
+    { name: "RST_SW_DDR_RST",
+      desc: "Software reset (Active Low) for stage `ddr_rst`.",
+      swaccess: "rw",
+      hwaccess: "hro",
+      fields: [
+        {
+          bits: "5:0"
+          name: "RST_SW",
+          desc: "Reset stage `{c['name']}`. (active low)"
+          resval: "0"
+        }
+      ],
+    }
+    { name: "DBNC_TIMER",
+      desc: "Debounce Timer.",
+      hwext: "true",
+      swaccess: "rw",
+      hwaccess: "hrw",
+      hwqe: "true"
+      fields: [
+        {
+            name: "dbnc_timer_val"
+            bits: "31:0",
+            desc: '''button reset debouncer timer value'''
+            resval: 20
+        }
+      ],
+    },
+    { name: "DBNC_TIMER_PCIE_BTN_RST",
+      desc: "Debounce Timer for PCIE Button Reset.",
+      hwext: "true",
+      swaccess: "rw",
+      hwaccess: "hrw",
+      hwqe: "true"
+      fields: [
+        {
+            name: "dbnc_timer_pcie_btn_val"
+            bits: "31:0",
+            desc: '''PCIE button reset debouncer timer value'''
+            resval: 20
+        }
+      ],
+    },
+  ]
+}
+

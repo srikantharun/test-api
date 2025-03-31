@@ -1,0 +1,39 @@
+package:
+  name: axi_stress_soc_periph
+  description: "UVM testbench to stress SOC_PERIPH AXI bus"
+  authors:
+    - "jerome.sauger@axelera.ai"
+
+dependencies:
+  svt_amba_vip: { path: "$REPO_ROOT/hw/dv/svt_amba_vip"}
+  europa_soc_periph: {path: "$REPO_ROOT/hw/impl/europa/blocks/soc_periph/rtl"}
+  dv_common: {path: "$REPO_ROOT/hw/dv/common"}
+  common_seq_lib_uvm: {path: "$REPO_ROOT/hw/dv/common_seq_lib/uvm"}
+
+sources:
+  - target: simulation
+    files:
+      - ../uvm/axi_stress_top_pkg.sv
+      - ../uvm/seq/axi_stress_top_seq_pkg.sv
+      - ../uvm/test/axi_stress_top_test_pkg.sv
+      - ../uvm/tb/axi_stress_top_tb.sv
+      - ../uvm/tb/axi_stress_top_th.sv
+      - ../uvm/tb/dummy_emmc.sv
+      - ../uvm/tb/dummy_soc_periph_dw_gpio_DW_apb_gpio.sv
+      - ../uvm/tb/dummy_soc_periph_dw_i2c_0_DW_apb_i2c.sv
+      - ../uvm/tb/dummy_soc_periph_dw_i2c_1_DW_apb_i2c.sv
+      - ../uvm/tb/dummy_soc_periph_dw_ssi_DW_apb_ssi.sv
+      - ../uvm/tb/dummy_soc_periph_dw_timers_DW_apb_timers.sv
+      - ../uvm/tb/dummy_soc_periph_dw_uart_DW_apb_uart.sv
+      # TODO: Add dummy padctrl
+
+    include_dirs:
+      - ../uvm
+      - ../uvm/seq
+      - ../uvm/test
+      - $REPO_ROOT/hw/impl/europa/blocks/soc_periph/rtl/soc_periph_dw_peripherals/soc_periph_dw_gpio
+      - $REPO_ROOT/hw/impl/europa/blocks/soc_periph/rtl/soc_periph_dw_peripherals/soc_periph_dw_i2c_0
+      - $REPO_ROOT/hw/impl/europa/blocks/soc_periph/rtl/soc_periph_dw_peripherals/soc_periph_dw_i2c_1
+      - $REPO_ROOT/hw/impl/europa/blocks/soc_periph/rtl/soc_periph_dw_peripherals/soc_periph_dw_ssi
+      - $REPO_ROOT/hw/impl/europa/blocks/soc_periph/rtl/soc_periph_dw_peripherals/soc_periph_dw_uart
+      - $REPO_ROOT/hw/impl/europa/blocks/soc_periph/rtl/soc_periph_dw_peripherals/soc_periph_dw_timers

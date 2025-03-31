@@ -1,0 +1,28 @@
+# (C) Copyright 2024 Axelera AI B.V.
+# All Rights Reserved
+# *** Axelera AI Confidential ***
+
+package:
+  name: dpu_uvm_sb
+  description: "DPU scoreboard"
+  authors:
+    - "fernando.yokota@axelera.ai"
+
+dependencies:
+  aic_common                  : { path : "../../../../../aic_common/default/rtl/" }
+  svt_amba_vip                : { path : "../../../../../../dv/svt_amba_vip"}
+  ai_core_token_agent_uvm_pkg : { path : "../../../../../../dv/token_agent"}
+  dpu_uvm_ral                 : { path : "../ral" }
+  dpu_uvm_common              : { path : "../common" }
+  dpu_uvm_agent               : { path : "../agents/dpu" }
+  
+
+
+sources:
+  - target: simulation
+    include_dirs:
+      - .
+    files:
+      - dpu_scoreboard_pkg.sv
+
+

@@ -1,0 +1,215 @@
+// Copyright lowRISC contributors.
+// Licensed under the Apache License, Version 2.0, see LICENSE for details.
+// SPDX-License-Identifier: Apache-2.0
+{ name: "timestamp_logger_csr",
+  clocking: [{clock: "clk_i", reset: "rst_ni"}],
+  bus_interfaces: [
+    { protocol: "tlul", direction: "device" }
+  ],
+  regwidth: "64",
+  addrcap: "0x1000",
+  axi_intf: True
+  param_list : [
+    {name:"AXI_AW", type:"int", default:"28"},
+    {name:"AXI_IDW", type:"int", default:"9"},
+    {name:"AXI_LENW", type:"int", default:"8"}
+  ]
+  registers: [
+    { name: "CTRL",
+      desc: "Control the Timestamp Logger Unit.",
+      swaccess: "rw",
+      hwaccess: "hro",
+      hwqe: True
+      fields: [
+        {
+            bits: "0",
+            name: "capture_enable",
+            desc: '''
+                  Enable the timestamp logger unit. A log is started from the start address when set and the counter is running (only applicable when sync_ctrl is set to wait for sync).
+                  When disabled any leftovers in the buffer will be written out in case of external mode. What is left in the FIFO's will be dropped. This will also fetch the required configuration for the external mode.
+                  ''',
+            resval: 0x0
+        }
+        {
+            bits: "1",
+            name: "trace_mode",
+            desc: '''
+                  Mode of the tracing when end address is reached. 0: discard; 1: wrap.
+                  ''',
+            resval: 0x0
+        }
+        {
+            bits: "2",
+            name: "external_mode",
+            desc: '''
+                  Enable external mode (1) or not (0). The internal memory will be used as buffer in case of external mode.
+                  ''',
+            resval: 0x0
+        }
+        {
+            bits: "6:4", # with 3 bits the counter will be 40b.
+            name: "cntr_division",
+            desc: '''
+                  Log2 of the divider. The timestamp in the log will be the counter divided by `2^CNTR_PRESCALE`.
+                  ''',
+            resval: 0x0
+        }
+      ]
+    },
+
+    { name: "COUNTER_CTRL",
+      desc: "Control the counter of the timestamp logger",
+      swaccess: "rw",
+      hwaccess: "hro"
+      hwqe: True
+      fields: [
+          {
+              bits: "0",
+              name: "sync_ctrl",
+              desc: '''1: Wait for sync to start the counter. Each sync will reset the counter to 0. 0: Start and stop counter via `capture_enable` of control''',
+              resval: 0x0
+          }
+          {
+              bits: "1",
+              name: "stop",
+              desc: '''Writing a 1 to this register will stop the counter in case of sync_ctrl = 1''',
+              resval: 0x0
+          }
+          {
+              bits: "2",
+              name: "reset",
+              desc: '''Writing a 1 to this register will reset the counter''',
+              resval: 0x0
+          }
+      ]
+    },
+
+    { name: "ST_ADDR",
+      desc: "Start address where the timestamp should be sent to. This should be a 1k aligned value when the TimestampLogger is in external mode, else this should be 8 byte aligned. Alignment LSB's will be ignored.",
+      swaccess: "rw",
+      hwaccess: "hro"
+      fields: [
+                  {
+              bits: "39:0",
+              name: "ST_ADDR",
+              desc: '''Start address where the timestamp should be sent to.''',
+              resval: 0x0
+          }
+      ]
+    },
+
+    { name: "LOG_SIZE",
+      desc: "The maximum size of the log in bytes. This should be a 1k aligned value when the TimestampLogger is in external mode, else this should be 8 byte aligned. Alignment LSB's will be ignored.",
+      swaccess: "rw",
+      swaccess: "rw",
+      hwaccess: "hro"
+      fields: [
+                  {
+              bits: "39:0",
+              name: "log_size",
+              desc: '''The maximum size of the log in bytes''',
+              resval: 0x0
+          }
+      ]
+    },
+
+    { name: "BURST_SIZE",
+      desc: "The log2 of the burst size to be used in external mode. Only when the amount is reached or when the tracing is disabled the timestamps will be written out (in a burst)",
+      swaccess: "rw",
+      swaccess: "rw",
+      hwaccess: "hro"
+      fields: [
+                  {
+              bits: "2:0",
+              name: "burst_size",
+              desc: '''2^burst will be the used burst. So burst can be 1, 2, 4, 8, 16, 32, 64, or 128''',
+              resval: 0x0
+          }
+      ]
+    },
+
+    { name: "GROUP_EN_0_63",
+      desc: "Enable if a group trigger can cause a timestamp log entry to be written. Groups 0-63. Note: check with the instance documentation if the group exists.",
+      swaccess: "rw",
+      hwaccess: "hro"
+      fields: [
+                  {
+              bits: "63:0",
+              name: "group_en",
+              desc: '''Bit n will enable group n''',
+              resval: 0x0
+          }
+      ]
+    },
+
+    { name: "GROUP_EN_64_127",
+      desc: "Enable if a group trigger can cause a timestamp log entry to be written. Groups 64-127. Note: check with the instance documentation if the group exists.",
+      swaccess: "rw",
+      hwaccess: "hro"
+      fields: [
+                  {
+              bits: "63:0",
+              name: "group_en",
+              desc: '''Bit n will enable group n+64''',
+              resval: 0x0
+          }
+      ]
+    },
+
+    { name: "ENTRY_COUNT",
+      desc: "Status of the amount of entries written in the internal buffer.",
+      swaccess: "ro",
+      hwaccess: "hwo",
+      hwext : True
+      fields: [
+        {
+            bits: "15:0",
+            name: "ENTRY_COUNT",
+            desc: '''The amount of events written to the memory for the current log. This value will reset once the logging is enabled.'''
+        }
+      ]
+    },
+
+    { multireg: {
+      name: "GROUP_TRIGGER_OVERFLOW",
+      cname: "GROUP"
+      count: "128"
+      desc: "A trigger got dropped because of the FIFO being full. Note: check with the instance documentation if the group exists.",
+      swaccess: "rc",
+      hwaccess: "hwo"
+      fields: [
+                  {
+              bits: "0",
+              name: "trigger_overflow",
+              desc: '''Group trigger had to drop a trigger due to a full FIFO''',
+              resval: 0x0
+          }
+      ]
+    }
+    },
+
+    {
+      name: "STAMP_OVERFLOW",
+      desc: "A timestamp got dropped because of the timestamp FIFO being full.",
+      swaccess: "rc",
+      hwaccess: "hwo"
+      fields: [
+                  {
+              bits: "0",
+              name: "stamp_overflow",
+              desc: '''A timestamp with attached triggers was dropped due to a full FIFO''',
+              resval: 0x0
+          }
+      ]
+    },
+    { skipto: "512"}
+    { window: {
+      name: "ip_csr"
+      items: "512"
+      swaccess: "rw"
+      desc: '''
+            Partition Specific CSR registers for the groups
+            '''
+    }}
+  ]
+}

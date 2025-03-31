@@ -1,0 +1,71 @@
+#!/bin/bash
+
+set -e
+
+DATABASE_DIR="$(readlink -e $(dirname $0))"
+
+#--------------------------------------------------------------
+# functions
+#--------------------------------------------------------------
+usage() {
+  cat << EOF
+usage: $(basename $0) [ARGS] DEST
+
+copy this database into DEST, removes unnecessary files
+
+where ARGS are:
+  -h                 : display this help
+  --prune_all_debug  : ONLY FOR REGRESSION TESTS, remove some debug capabilities (waveform etc)
+EOF
+}
+
+
+error() {
+  >&2 echo "ERROR: $@"
+  exit 1
+}
+
+
+copy_non_veloce_files() {
+  for f in *; do
+    if [ -d $f ]; then
+      [[ $f =~ veloce ]] && continue
+    fi
+    cp -rf $f $destination_dir
+  done
+}
+
+
+#--------------------------------------------------------------
+# execution
+#--------------------------------------------------------------
+velcomp_args=""
+destination_dir=""
+while [ "$#" -gt 0 ]
+do
+  case "$1" in
+    -h)
+      usage
+      exit 0
+      ;;
+    --prune_all_debug)
+      shift 1
+      velcomp_args+=" -prune all_debug"
+      ;;
+    *)
+      destination_dir="$1"
+      shift 1
+      ;;
+  esac
+done
+
+destination_dir="$(readlink -f $destination_dir || error "could not write in $destination_dir")"
+
+cd $DATABASE_DIR
+
+velcomp -lock_project
+velcomp -create_export_db $destination_dir $velcomp_args
+copy_non_veloce_files
+# useful for template recommendations and compilation log grepping
+cp -rf veloce.log $destination_dir
+velcomp -unlock_project

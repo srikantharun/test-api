@@ -1,0 +1,4 @@
+ASO: TC 26092024 Latch comes from Tessent-inserted RTL and is intentional [rtla] regexp=".*retiming_so_reg.*\| Latch \|.*"
+ASO: TC 26092024 Latch comes from Tessent-inserted RTL and is intentional [rtla] regexp=".*retiming_ltest_to_si_reg.*\| Latch \|.*"
+ASO: TC 26092024 Latch comes from Tessent-inserted RTL and is intentional [rtla] regexp=".*ltest_so_retiming_reg.*\| Latch \|.*"
+ASO: TC 15102024 Latch comes from Tessent-inserted RTL and is intentional [rtla] regexp=".*retiming_tdo_reg.*\| Latch \|.*"

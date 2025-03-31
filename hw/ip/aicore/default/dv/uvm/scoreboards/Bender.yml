@@ -1,0 +1,23 @@
+# (C) Copyright 2024 Axelera AI B.V.
+# All Rights Reserved
+# *** Axelera AI Confidential ***
+
+package:
+  name: ai_core_uvm_sb
+  description: "ai core scoreboard"
+  authors:
+    - "roswin.benny@axelera.ai"
+
+dependencies:
+  ai_core_pkg:                 { path: "../../../../subip/ai_core/rtl/pkg" }
+  aic_common:              { path: "../../../../../aic_common/default/rtl/" }
+  svt_amba_vip:            { path: "../../../../../../dv/svt_amba_vip"}
+  ai_core_uvm_ral:         { path: "../ral" }
+
+
+sources:
+  - target: simulation
+    include_dirs:
+      - .
+    files:
+      - ai_core_scoreboard_pkg.sv

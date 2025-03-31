@@ -1,0 +1,42 @@
+metrics:
+  - name: dcd_axi_outstandings
+    block: DECODER
+    category: HW_COVERGROUP
+    description: "Cover that both AXI masters of the decoder cores can reach at least 32 outstanding transactions"
+    requirement_ids: [DECODER_PERF_DEC_200_0]
+    owner: Stephane Gros
+
+  - name: dcd_axi_latency
+    block: DECODER
+    category: ASSERTION
+    description: "Cover that all AXI requests from the Decoder's AXI master are serviced within 500 IP clock cycles"
+    requirement_ids: [DECODER_PERF_DEC_205_0]
+    owner: Stephane Gros
+
+  - name: dcd_total_pixel_rate
+    block: DECODER
+    category: PERFORMANCE
+    description: "SW measure of the overall pixel rate (all streams included). Target=1Gpx/s"
+    requirement_ids: [DECODER_PERF_DEC_004_0]
+    owner: Stephane Gros
+
+  - name: dcd_single_pixel_rate
+    block: DECODER
+    category: PERFORMANCE
+    description: "SW measure of the pixel rate of a single stream. Target=500Mpx/s"
+    requirement_ids: [DECODER_PERF_DEC_006_0]
+    owner: Stephane Gros
+
+  - name: dcd_concurrent_video_stream
+    block: DECODER
+    category: SW_COVERGROUP
+    description: "SW measure of the number of concurrent video streams that are decoded. Target=64"
+    requirement_ids: [DECODER_PERF_DEC_005_0]
+    owner: Stephane Gros
+
+  - name: dcd_ruv_rgb
+    block: DECODER
+    category: SW_COVERGROUP
+    description: "SW covergroup that covers that both yuv and RGB were used"
+    requirement_ids: [DECODER_PERF_DEC_007_0]
+    owner: Stephane Gros

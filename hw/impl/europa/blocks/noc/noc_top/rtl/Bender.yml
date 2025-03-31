@@ -1,0 +1,46 @@
+# (C) Copyright 2024 Axelera AI B.V.
+# All Rights Reserved
+# *** Axelera AI Confidential ***
+
+package:
+  name: europa_noc_top
+  description: "Europa NoC"
+  authors:
+    - "Joao Martins <joao.martins@axelera.ai>"
+    - "Deeptanshu Sekhri <deeptanshu.sekhri@axelera.ai>"
+    - "Tasos Psarras <anastasios.psarras@axelera.ai>"
+
+dependencies:
+  axi_pkg: { path: "hw/ip/axi/default/rtl/pkg" }
+  axe_apb_pkg: { path: "hw/ip/apb/default/rtl/pkg" }
+  europa_ai_core_pkg: { path: "hw/impl/europa/blocks/ai_core/rtl/pkg" }
+  europa_l2_pkg: { path: "hw/impl/europa/blocks/l2/rtl/pkg" }
+  europa_lpddr_pkg: { path: "hw/impl/europa/blocks/lpddr/rtl/pkg" }
+  europa_dcd_pkg: { path: "hw/impl/europa/blocks/dcd/rtl/pkg" }
+  europa_sdma_pkg: { path: "hw/impl/europa/blocks/sdma/rtl/pkg" }
+  europa_sdma: { path: "hw/impl/europa/blocks/sdma/rtl" }
+  europa_pve_pkg: { path: "hw/impl/europa/blocks/pve/rtl/pkg" }
+  europa_apu_pkg: { path: "hw/impl/europa/blocks/apu/rtl/pkg" }
+  europa_pcie_pkg: { path: "hw/impl/europa/blocks/pcie/rtl/pkg" }
+  europa_soc_periph_pkg: { path: "hw/impl/europa/blocks/soc_periph/rtl/pkg" }
+  europa_soc_mgmt_pkg: { path: "hw/impl/europa/blocks/soc_mgmt/rtl/pkg" }
+  europa_sys_spm_pkg: { path: "hw/impl/europa/blocks/sys_spm/rtl/pkg" }
+  europa_asic_pkg: { path: "hw/impl/europa/asic/rtl/pkg" }
+  europa_noc_ddr_east: { path: "hw/impl/europa/blocks/noc/noc_ddr_east/rtl"}
+  europa_noc_ddr_west: { path: "hw/impl/europa/blocks/noc/noc_ddr_west/rtl"}
+  europa_noc_h_east: { path: "hw/impl/europa/blocks/noc/noc_h_east/rtl"}
+  europa_noc_h_north: { path: "hw/impl/europa/blocks/noc/noc_h_north/rtl"}
+  europa_noc_h_south: { path: "hw/impl/europa/blocks/noc/noc_h_south/rtl"}
+  europa_noc_h_west: { path: "hw/impl/europa/blocks/noc/noc_h_west/rtl"}
+  europa_noc_soc: { path: "hw/impl/europa/blocks/noc/noc_soc/rtl"}
+  europa_noc_v_center: { path: "hw/impl/europa/blocks/noc/noc_v_center/rtl"}
+
+# Source files grouped in levels.
+# Files in level 0 have no dependencies on files in this package.
+# Files in level 1 only depend on files in level 0, files in level 2 on files in levels 1 and 0, etc.
+# Files within a level are ordered alphabetically.
+sources:
+  - target: rtl
+    files:
+    # Level 0
+    - noc_top.sv

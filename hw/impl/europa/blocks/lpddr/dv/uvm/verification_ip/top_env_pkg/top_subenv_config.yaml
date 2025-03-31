@@ -1,0 +1,18 @@
+## To instantiate this subenv in a higher level, use this structure:
+##  qvip_subenvs :
+##    - { name: "<instance_name_of_subenv>", type: "top" }
+uvmf:
+  qvip_library:
+    version: '2024.2'
+    date: '05/29/2024:10:31'
+  qvip_environments:
+     "top":
+        agents:
+          - name: 'apb_master_0'
+            imports:
+              - "mvc_pkg"
+              - "mgc_apb3_v1_0_pkg"
+          - name: 'axi4_master_0'
+            imports:
+              - "mvc_pkg"
+              - "mgc_axi4_v1_0_pkg"

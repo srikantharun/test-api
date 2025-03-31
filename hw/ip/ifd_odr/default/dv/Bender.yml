@@ -1,0 +1,15 @@
+package:
+  name: ifd_odr_ral_pkg
+  description: "RAL package for ifd odrs"
+  authors:
+    - "roswin.benny@axelera.ai"
+
+dependencies:
+  lowrisc_dv_base_reg:         { path: "../../../../../../vendor/axelera/lowrisc_dv/dv_base_reg"}
+  v_utils_pkg:                 { path: "../../../../../../dv/v_utils"}
+
+sources:
+  - target: simulation
+    files:
+      - build_ral/ifd_csr_ral_pkg.sv
+      - build_ral/odr_csr_ral_pkg.sv

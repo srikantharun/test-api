@@ -1,0 +1,258 @@
+# (C) Copyright Axelera AI 2024
+# All Rights Reserved
+# *** Axelera AI Confidential ***
+#
+# Description: Testlist for CVA6V
+# Owner: Pawel Wiecha <pawel.wiecha@axelera.ai>
+
+# ================================================================================
+#                  Regression test list format
+# --------------------------------------------------------------------------------
+# test            : Assembly test name
+# description     : Description of this test
+# gen_opts        : Instruction generator options
+# iterations      : Number of iterations of this test
+# no_iss          : Enable/disable ISS simulator (Optional)
+# gen_test        : Test name used by the instruction generator
+# rtl_test        : RTL simulation test name
+# cmp_opts        : Compile options passed to the instruction generator
+# sim_opts        : Simulation options passed to the instruction generator
+# no_post_compare : Enable/disable comparison of trace log and ISS log (Optional)
+# compare_opts    : Options for the RTL & ISS trace comparison
+# gcc_opts        : gcc compile options
+# --------------------------------------------------------------------------------
+- test: base
+  description: >
+    Base ISA, no load/store/branch instructions
+  gen_opts: >
+    +instr_cnt=10000
+    +num_of_sub_program=0
+    +no_data_page=1
+    +no_branch_jump=1
+    +boot_mode=m
+    +report_stats=1
+  iterations: 10
+  gen_test: riscv_instr_base_test
+  rtl_test: core_base_test
+
+- test: base_subprograms
+  description: >
+    Base ISA with subprograms
+  gen_opts: >
+    +instr_cnt=10000
+    +num_of_sub_program=30
+    +boot_mode=m
+    +report_stats=1
+  iterations: 10
+  gen_test: riscv_instr_base_test
+  rtl_test: core_base_test
+
+- test: base_w_illegal
+  description: >
+    Base ISA w illegal instrs mixed in
+  gen_opts: >
+    +instr_cnt=10000
+    +num_of_sub_program=0
+    +no_data_page=1
+    +no_branch_jump=1
+    +illegal_instr_ratio=5
+    +boot_mode=m
+    +report_stats=1
+  iterations: 10
+  gen_test: riscv_instr_base_test
+  rtl_test: core_base_test
+
+- test: base_numeric_corner
+  description: >
+    Base ISA, no load/store/branch instructions
+  gen_opts: >
+    +instr_cnt=10000
+    +directed_instr_0=riscv_int_numeric_corner_stream,10
+    +num_of_sub_program=0
+    +no_data_page=1
+    +no_branch_jump=1
+    +boot_mode=m
+    +report_stats=1
+  iterations: 10
+  gen_test: riscv_instr_base_test
+  rtl_test: core_base_test
+
+- test: base_jump
+  description: >
+    Base ISA, stress back-to-back jump instructions
+  gen_opts: >
+    +instr_cnt=10000
+    +num_of_sub_program=2
+    +directed_instr_1=riscv_jal_instr,10
+    +boot_mode=m
+    +report_stats=1
+  iterations: 10
+  gen_test: riscv_instr_base_test
+  rtl_test: core_base_test
+
+- test: base_loop
+  description: >
+    Base ISA with loops
+  gen_opts: >
+    +instr_cnt=10000
+    +num_of_sub_program=2
+    +directed_instr_1=riscv_loop_instr,10
+    +boot_mode=m
+    +report_stats=1
+  iterations: 10
+  gen_test: riscv_instr_base_test
+  rtl_test: core_base_test
+
+- test: base_ldst
+  description: >
+    Base ISA with all the ldst streams
+  gen_opts: >
+    +instr_cnt=10000
+    +num_of_sub_program=0
+    +directed_instr_0=riscv_load_store_stress_instr_stream,3
+    +directed_instr_1=riscv_load_store_rand_instr_stream,3
+    +directed_instr_2=riscv_hazard_instr_stream,3
+    +directed_instr_3=riscv_load_store_hazard_instr_stream,3
+    +directed_instr_4=riscv_load_store_rand_addr_instr_stream,3
+    +directed_instr_5=riscv_multi_page_load_store_instr_stream,3
+    +directed_instr_6=riscv_mem_region_stress_test,3
+    +directed_instr_7=riscv_lr_sc_instr_stream,3
+    +boot_mode=m
+    +report_stats=1
+  iterations: 10
+  gen_test: riscv_instr_base_test
+  rtl_test: core_base_test
+
+- test: base_ldst_misaligned
+  description: >
+    Base ISA with misaligned ldst, less instr as trap handlers will add ~4x instrs
+  gen_opts: >
+    +instr_cnt=2000
+    +num_of_sub_program=0
+    +enable_misaligned_load_store=1
+    +no_branch_jump=1
+    +directed_instr_0=riscv_load_store_stress_instr_stream,1
+    +directed_instr_1=riscv_load_store_rand_instr_stream,1
+    +boot_mode=m
+    +report_stats=1
+  iterations: 10
+  gen_test: riscv_instr_base_test
+  rtl_test: core_base_test
+
+- test: base_ldst_misaligned2
+  description: >
+    Base ISA with misaligned ldst, with subprograms and different streams, less instr as trap handlers will add ~4x instrs
+  gen_opts: >
+    +instr_cnt=3000
+    +num_of_sub_program=5
+    +enable_misaligned_load_store=1
+    +no_branch_jump=1
+    +directed_instr_0=riscv_load_store_rand_instr_stream,1
+    +directed_instr_1=riscv_load_store_hazard_instr_stream,1
+    +directed_instr_2=riscv_multi_page_load_store_instr_stream,1
+    +directed_instr_3=riscv_mem_region_stress_test,1
+    +boot_mode=m
+    +report_stats=1
+  iterations: 10
+  gen_test: riscv_instr_base_test
+  rtl_test: core_base_test
+
+- test: base_ldst_no_atomics
+  description: >
+    Base ISA with all the ldst streams
+  gen_opts: >
+    +instr_cnt=10000
+    +num_of_sub_program=0
+    +directed_instr_0=riscv_load_store_stress_instr_stream,3
+    +directed_instr_1=riscv_load_store_rand_instr_stream,3
+    +directed_instr_2=riscv_hazard_instr_stream,3
+    +directed_instr_3=riscv_load_store_hazard_instr_stream,3
+    +directed_instr_4=riscv_load_store_rand_addr_instr_stream,3
+    +directed_instr_5=riscv_multi_page_load_store_instr_stream,3
+    +directed_instr_6=riscv_mem_region_stress_test,3
+    +boot_mode=m
+    +report_stats=1
+  iterations: 10
+  gen_test: riscv_instr_base_test
+  rtl_test: core_base_test
+
+- test: base_atomics
+  description: >
+    Base ISA with atomic streams
+  gen_opts: >
+    +instr_cnt=10000
+    +num_of_sub_program=0
+    +directed_instr_0=riscv_lr_sc_instr_stream,5
+    +directed_instr_1=riscv_amo_instr_stream,5
+    +boot_mode=m
+    +report_stats=1
+  iterations: 10
+  gen_test: riscv_instr_base_test
+  rtl_test: core_base_test
+
+- test: base_advanced
+  description: >
+    Base ISA with all the goodies
+  gen_opts: >
+    +instr_cnt=20000
+    +num_of_sub_program=0
+    +boot_mode=m
+    +directed_instr_0=riscv_load_store_rand_instr_stream,2
+    +directed_instr_1=riscv_loop_instr,1
+    +directed_instr_2=riscv_hazard_instr_stream,2
+    +directed_instr_3=riscv_load_store_hazard_instr_stream,2
+    +directed_instr_4=riscv_multi_page_load_store_instr_stream,2
+    +directed_instr_5=riscv_mem_region_stress_test,2
+    +directed_instr_6=riscv_jal_instr,1
+    +directed_instr_7=riscv_load_store_stress_instr_stream,2
+    +directed_instr_8=riscv_load_store_rand_addr_instr_stream,2
+    +directed_instr_9=riscv_lr_sc_instr_stream,1
+    +directed_instr_10=riscv_amo_instr_stream,1
+    +directed_instr_11=riscv_int_numeric_corner_stream,2
+    +report_stats=1
+  iterations: 10
+  gen_test: riscv_instr_base_test
+  rtl_test: core_base_test
+
+# priv mode change: root page table offset w/ new linker off by 2 bits, TODO
+#- test: base_supervisor
+#  description: >
+#    Base ISA, no load/store/branch instructions
+#  gen_opts: >
+#    +instr_cnt=100000
+#    +num_of_sub_program=0
+#    +no_data_page=1
+#    +no_branch_jump=1
+#    +boot_mode=s
+#    +report_stats=1
+#  iterations: 5
+#  gen_test: riscv_instr_base_test
+#  rtl_test: core_base_test
+
+# Cannot exercise misaligned address in system supporting compressed instrs
+#- test: base_misaligned_instr
+#  description: >
+#    Base ISA, no load/store/branch instructions
+#  gen_opts: >
+#    +instr_cnt=10000
+#    +num_of_sub_program=30
+#    +enable_misaligned_instr=1
+#    +boot_mode=m
+#    +report_stats=1
+#  iterations: 10
+#  gen_test: riscv_instr_base_test
+#  rtl_test: core_base_test
+
+# priv mode change: root page table offset w/ new linker off by 2 bits, TODO
+#- test: base_invalid_csr
+#  description: >
+#    Boot mode to lower priv, generate invalid CSR accesses (to higher priv)
+#  gen_opts: >
+#    +instr_cnt=100000
+#    +num_of_sub_program=0
+#    +boot_mode=u
+#    +enable_access_invalid_csr_level=1
+#    +report_stats=1
+#  iterations: 5
+#  gen_test: riscv_instr_base_test
+#  rtl_test: core_base_test

@@ -1,0 +1,1164 @@
+# (C) Copyright Axelera AI 2024
+# All Rights Reserved
+# *** Axelera AI Confidential ***
+#
+# Description: Testlist for CVA6V
+# Owner: Raymond Garcia <raymond.garcia@axelera.ai>
+
+# ================================================================================
+#                  Regression test list format
+# --------------------------------------------------------------------------------
+# test            : Assembly test name
+# description     : Description of this test
+# gen_opts        : Instruction generator options
+# iterations      : Number of iterations of this test
+# no_iss          : Enable/disable ISS simulator (Optional)
+# gen_test        : Test name used by the instruction generator
+# rtl_test        : RTL simulation test name
+# cmp_opts        : Compile options passed to the instruction generator
+# sim_opts        : Simulation options passed to the instruction generator
+# no_post_compare : Enable/disable comparison of trace log and ISS log (Optional)
+# compare_opts    : Options for the RTL & ISS trace comparison
+# gcc_opts        : gcc compile options
+# --------------------------------------------------------------------------------
+# Base + Floating point + Vector Floating Point
+
+- test: cva6v_rag_Vf
+  description: >
+    base + fp + vector test, Vector FP Instructions
+  gen_opts: >
+    +instr_cnt=10000
+    +num_of_sub_program=0
+    +enable_fp_extension=1
+    +enable_vector_extension=1
+    +vreg_init_method=RANDOM_VALUES_LOAD
+    +no_fence=1
+    +no_branch_jump=1
+    +no_csr_instr=1
+    +boot_mode=m
+    +specific_v_instructions=VFADD,VFSUB,VFRSUB,VFWADD,VFWSUB,VFMUL,VFDIV,VFRDIV,VFWMUL,VFMACC,VFNMACC,VFMSAC,VFNMSAC,VFMADD,VFNMADD,VFMSUB,VFNMSUB,VFWMACC,VFWNMACC,VFWMSAC,VFWNMSAC,VFSQRT_V,VFRSQRT7_V,VFREC7_V,VFMIN,VFMAX,VFSGNJ,VFSGNJN,VFSGNJX,VMFEQ,VMFNE,VMFLT,VMFLE,VMFGT,VMFGE,VFCLASS_V,VFMERGE,VFMV_V_F,VFCVT_XU_F_V,VFCVT_X_F_V,VFCVT_RTZ_XU_F_V,VFCVT_RTZ_X_F_V,VFCVT_F_XU_V,VFCVT_F_X_V,VFWCVT_XU_F_V,VFWCVT_X_F_V,VFWCVT_RTZ_XU_F_V,VFWCVT_RTZ_X_F_V,VFWCVT_F_XU_V,VFWCVT_F_X_V,VFWCVT_F_F_V,VFNCVT_XU_F_W,VFNCVT_X_F_W,VFNCVT_RTZ_XU_F_W,VFNCVT_RTZ_X_F_W,VFNCVT_F_XU_W,VFNCVT_F_X_W,VFNCVT_F_F_W,VFNCVT_ROD_F_F_W
+    +report_stats=1
+  iterations: 100
+  gen_test: riscv_instr_base_test
+  rtl_test: core_base_test
+
+- test: cva6v_rag_Vf_vfadd
+  description: >
+    base + fp + vector test, Vector FP Instructions
+  gen_opts: >
+    +instr_cnt=10000
+    +num_of_sub_program=0
+    +enable_fp_extension=1
+    +enable_vector_extension=1
+    +vreg_init_method=RANDOM_VALUES_LOAD
+    +no_fence=1
+    +no_branch_jump=1
+    +no_csr_instr=1
+    +boot_mode=m
+    +specific_v_instructions=VFADD
+    +report_stats=1
+  iterations: 100
+  gen_test: riscv_instr_base_test
+  rtl_test: core_base_test
+
+- test: cva6v_rag_Vf_vfsub
+  description: >
+    base + fp + vector test, Vector FP Instructions
+  gen_opts: >
+    +instr_cnt=10000
+    +num_of_sub_program=0
+    +enable_fp_extension=1
+    +enable_vector_extension=1
+    +vreg_init_method=RANDOM_VALUES_LOAD
+    +no_fence=1
+    +no_branch_jump=1
+    +no_csr_instr=1
+    +boot_mode=m
+    +specific_v_instructions=VFSUB
+    +report_stats=1
+  iterations: 100
+  gen_test: riscv_instr_base_test
+  rtl_test: core_base_test
+
+- test: cva6v_rag_Vf_vfrsub
+  description: >
+    base + fp + vector test, Vector FP Instructions
+  gen_opts: >
+    +instr_cnt=10000
+    +num_of_sub_program=0
+    +enable_fp_extension=1
+    +enable_vector_extension=1
+    +vreg_init_method=RANDOM_VALUES_LOAD
+    +no_fence=1
+    +no_branch_jump=1
+    +no_csr_instr=1
+    +boot_mode=m
+    +specific_v_instructions=VFRSUB
+    +report_stats=1
+  iterations: 100
+  gen_test: riscv_instr_base_test
+  rtl_test: core_base_test
+
+- test: cva6v_rag_Vf_vfwadd
+  description: >
+    base + fp + vector test, Vector FP Instructions
+  gen_opts: >
+    +instr_cnt=10000
+    +num_of_sub_program=0
+    +enable_fp_extension=1
+    +enable_vector_extension=1
+    +vreg_init_method=RANDOM_VALUES_LOAD
+    +no_fence=1
+    +no_branch_jump=1
+    +no_csr_instr=1
+    +boot_mode=m
+    +specific_v_instructions=VFWADD
+    +report_stats=1
+  iterations: 100
+  gen_test: riscv_instr_base_test
+  rtl_test: core_base_test
+
+- test: cva6v_rag_Vf_vfwsub
+  description: >
+    base + fp + vector test, Vector FP Instructions
+  gen_opts: >
+    +instr_cnt=10000
+    +num_of_sub_program=0
+    +enable_fp_extension=1
+    +enable_vector_extension=1
+    +vreg_init_method=RANDOM_VALUES_LOAD
+    +no_fence=1
+    +no_branch_jump=1
+    +no_csr_instr=1
+    +boot_mode=m
+    +specific_v_instructions=VFWSUB
+    +report_stats=1
+  iterations: 100
+  gen_test: riscv_instr_base_test
+  rtl_test: core_base_test
+
+- test: cva6v_rag_Vf_vfmul
+  description: >
+    base + fp + vector test, Vector FP Instructions
+  gen_opts: >
+    +instr_cnt=10000
+    +num_of_sub_program=0
+    +enable_fp_extension=1
+    +enable_vector_extension=1
+    +vreg_init_method=RANDOM_VALUES_LOAD
+    +no_fence=1
+    +no_branch_jump=1
+    +no_csr_instr=1
+    +boot_mode=m
+    +specific_v_instructions=VFMUL
+    +report_stats=1
+  iterations: 100
+  gen_test: riscv_instr_base_test
+  rtl_test: core_base_test
+
+- test: cva6v_rag_Vf_vfdiv
+  description: >
+    base + fp + vector test, Vector FP Instructions
+  gen_opts: >
+    +instr_cnt=10000
+    +num_of_sub_program=0
+    +enable_fp_extension=1
+    +enable_vector_extension=1
+    +vreg_init_method=RANDOM_VALUES_LOAD
+    +no_fence=1
+    +no_branch_jump=1
+    +no_csr_instr=1
+    +boot_mode=m
+    +specific_v_instructions=VFDIV
+    +report_stats=1
+  iterations: 100
+  gen_test: riscv_instr_base_test
+  rtl_test: core_base_test
+
+- test: cva6v_rag_Vf_vfrdiv
+  description: >
+    base + fp + vector test, Vector FP Instructions
+  gen_opts: >
+    +instr_cnt=10000
+    +num_of_sub_program=0
+    +enable_fp_extension=1
+    +enable_vector_extension=1
+    +vreg_init_method=RANDOM_VALUES_LOAD
+    +no_fence=1
+    +no_branch_jump=1
+    +no_csr_instr=1
+    +boot_mode=m
+    +specific_v_instructions=VFRDIV
+    +report_stats=1
+  iterations: 100
+  gen_test: riscv_instr_base_test
+  rtl_test: core_base_test
+
+- test: cva6v_rag_Vf_vfwmul
+  description: >
+    base + fp + vector test, Vector FP Instructions
+  gen_opts: >
+    +instr_cnt=10000
+    +num_of_sub_program=0
+    +enable_fp_extension=1
+    +enable_vector_extension=1
+    +vreg_init_method=RANDOM_VALUES_LOAD
+    +no_fence=1
+    +no_branch_jump=1
+    +no_csr_instr=1
+    +boot_mode=m
+    +specific_v_instructions=VFWMUL
+    +report_stats=1
+  iterations: 100
+  gen_test: riscv_instr_base_test
+  rtl_test: core_base_test
+
+- test: cva6v_rag_Vf_vfmacc
+  description: >
+    base + fp + vector test, Vector FP Instructions
+  gen_opts: >
+    +instr_cnt=10000
+    +num_of_sub_program=0
+    +enable_fp_extension=1
+    +enable_vector_extension=1
+    +vreg_init_method=RANDOM_VALUES_LOAD
+    +no_fence=1
+    +no_branch_jump=1
+    +no_csr_instr=1
+    +boot_mode=m
+    +specific_v_instructions=VFMACC
+    +report_stats=1
+  iterations: 100
+  gen_test: riscv_instr_base_test
+  rtl_test: core_base_test
+
+- test: cva6v_rag_Vf_vfnmacc
+  description: >
+    base + fp + vector test, Vector FP Instructions
+  gen_opts: >
+    +instr_cnt=10000
+    +num_of_sub_program=0
+    +enable_fp_extension=1
+    +enable_vector_extension=1
+    +vreg_init_method=RANDOM_VALUES_LOAD
+    +no_fence=1
+    +no_branch_jump=1
+    +no_csr_instr=1
+    +boot_mode=m
+    +specific_v_instructions=VFNMACC
+    +report_stats=1
+  iterations: 100
+  gen_test: riscv_instr_base_test
+  rtl_test: core_base_test
+
+- test: cva6v_rag_Vf_vfmsac
+  description: >
+    base + fp + vector test, Vector FP Instructions
+  gen_opts: >
+    +instr_cnt=10000
+    +num_of_sub_program=0
+    +enable_fp_extension=1
+    +enable_vector_extension=1
+    +vreg_init_method=RANDOM_VALUES_LOAD
+    +no_fence=1
+    +no_branch_jump=1
+    +no_csr_instr=1
+    +boot_mode=m
+    +specific_v_instructions=VFMSAC
+    +report_stats=1
+  iterations: 100
+  gen_test: riscv_instr_base_test
+  rtl_test: core_base_test
+
+- test: cva6v_rag_Vf_vfnmsac
+  description: >
+    base + fp + vector test, Vector FP Instructions
+  gen_opts: >
+    +instr_cnt=10000
+    +num_of_sub_program=0
+    +enable_fp_extension=1
+    +enable_vector_extension=1
+    +vreg_init_method=RANDOM_VALUES_LOAD
+    +no_fence=1
+    +no_branch_jump=1
+    +no_csr_instr=1
+    +boot_mode=m
+    +specific_v_instructions=VFNMSAC
+    +report_stats=1
+  iterations: 100
+  gen_test: riscv_instr_base_test
+  rtl_test: core_base_test
+
+- test: cva6v_rag_Vf_vfmadd
+  description: >
+    base + fp + vector test, Vector FP Instructions
+  gen_opts: >
+    +instr_cnt=10000
+    +num_of_sub_program=0
+    +enable_fp_extension=1
+    +enable_vector_extension=1
+    +vreg_init_method=RANDOM_VALUES_LOAD
+    +no_fence=1
+    +no_branch_jump=1
+    +no_csr_instr=1
+    +boot_mode=m
+    +specific_v_instructions=VFMADD
+    +report_stats=1
+  iterations: 100
+  gen_test: riscv_instr_base_test
+  rtl_test: core_base_test
+
+- test: cva6v_rag_Vf_vfnmadd
+  description: >
+    base + fp + vector test, Vector FP Instructions
+  gen_opts: >
+    +instr_cnt=10000
+    +num_of_sub_program=0
+    +enable_fp_extension=1
+    +enable_vector_extension=1
+    +vreg_init_method=RANDOM_VALUES_LOAD
+    +no_fence=1
+    +no_branch_jump=1
+    +no_csr_instr=1
+    +boot_mode=m
+    +specific_v_instructions=VFNMADD
+    +report_stats=1
+  iterations: 100
+  gen_test: riscv_instr_base_test
+  rtl_test: core_base_test
+
+- test: cva6v_rag_Vf_vfmsub
+  description: >
+    base + fp + vector test, Vector FP Instructions
+  gen_opts: >
+    +instr_cnt=10000
+    +num_of_sub_program=0
+    +enable_fp_extension=1
+    +enable_vector_extension=1
+    +vreg_init_method=RANDOM_VALUES_LOAD
+    +no_fence=1
+    +no_branch_jump=1
+    +no_csr_instr=1
+    +boot_mode=m
+    +specific_v_instructions=VFMSUB
+    +report_stats=1
+  iterations: 100
+  gen_test: riscv_instr_base_test
+  rtl_test: core_base_test
+
+- test: cva6v_rag_Vf_vfnmsub
+  description: >
+    base + fp + vector test, Vector FP Instructions
+  gen_opts: >
+    +instr_cnt=10000
+    +num_of_sub_program=0
+    +enable_fp_extension=1
+    +enable_vector_extension=1
+    +vreg_init_method=RANDOM_VALUES_LOAD
+    +no_fence=1
+    +no_branch_jump=1
+    +no_csr_instr=1
+    +boot_mode=m
+    +specific_v_instructions=VFNMSUB
+    +report_stats=1
+  iterations: 100
+  gen_test: riscv_instr_base_test
+  rtl_test: core_base_test
+
+- test: cva6v_rag_Vf_vfwmacc
+  description: >
+    base + fp + vector test, Vector FP Instructions
+  gen_opts: >
+    +instr_cnt=10000
+    +num_of_sub_program=0
+    +enable_fp_extension=1
+    +enable_vector_extension=1
+    +vreg_init_method=RANDOM_VALUES_LOAD
+    +no_fence=1
+    +no_branch_jump=1
+    +no_csr_instr=1
+    +boot_mode=m
+    +specific_v_instructions=VFWMACC
+    +report_stats=1
+  iterations: 100
+  gen_test: riscv_instr_base_test
+  rtl_test: core_base_test
+
+- test: cva6v_rag_Vf_vfwnmacc
+  description: >
+    base + fp + vector test, Vector FP Instructions
+  gen_opts: >
+    +instr_cnt=10000
+    +num_of_sub_program=0
+    +enable_fp_extension=1
+    +enable_vector_extension=1
+    +vreg_init_method=RANDOM_VALUES_LOAD
+    +no_fence=1
+    +no_branch_jump=1
+    +no_csr_instr=1
+    +boot_mode=m
+    +specific_v_instructions=VFWNMACC
+    +report_stats=1
+  iterations: 100
+  gen_test: riscv_instr_base_test
+  rtl_test: core_base_test
+
+- test: cva6v_rag_Vf_vfwmsac
+  description: >
+    base + fp + vector test, Vector FP Instructions
+  gen_opts: >
+    +instr_cnt=10000
+    +num_of_sub_program=0
+    +enable_fp_extension=1
+    +enable_vector_extension=1
+    +vreg_init_method=RANDOM_VALUES_LOAD
+    +no_fence=1
+    +no_branch_jump=1
+    +no_csr_instr=1
+    +boot_mode=m
+    +specific_v_instructions=VFWMSAC
+    +report_stats=1
+  iterations: 100
+  gen_test: riscv_instr_base_test
+  rtl_test: core_base_test
+
+- test: cva6v_rag_Vf_vfwnmsac
+  description: >
+    base + fp + vector test, Vector FP Instructions
+  gen_opts: >
+    +instr_cnt=10000
+    +num_of_sub_program=0
+    +enable_fp_extension=1
+    +enable_vector_extension=1
+    +vreg_init_method=RANDOM_VALUES_LOAD
+    +no_fence=1
+    +no_branch_jump=1
+    +no_csr_instr=1
+    +boot_mode=m
+    +specific_v_instructions=VFWNMSAC
+    +report_stats=1
+  iterations: 100
+  gen_test: riscv_instr_base_test
+  rtl_test: core_base_test
+
+- test: cva6v_rag_Vf_vfsqrt_v
+  description: >
+    base + fp + vector test, Vector FP Instructions
+  gen_opts: >
+    +instr_cnt=10000
+    +num_of_sub_program=0
+    +enable_fp_extension=1
+    +enable_vector_extension=1
+    +vreg_init_method=RANDOM_VALUES_LOAD
+    +no_fence=1
+    +no_branch_jump=1
+    +no_csr_instr=1
+    +boot_mode=m
+    +specific_v_instructions=VFSQRT_V
+    +report_stats=1
+  iterations: 100
+  gen_test: riscv_instr_base_test
+  rtl_test: core_base_test
+
+- test: cva6v_rag_Vf_vfsqrt7_v
+  description: >
+    base + fp + vector test, Vector FP Instructions
+  gen_opts: >
+    +instr_cnt=10000
+    +num_of_sub_program=0
+    +enable_fp_extension=1
+    +enable_vector_extension=1
+    +vreg_init_method=RANDOM_VALUES_LOAD
+    +no_fence=1
+    +no_branch_jump=1
+    +no_csr_instr=1
+    +boot_mode=m
+    +specific_v_instructions=VFRSQRT7_V
+    +report_stats=1
+  iterations: 100
+  gen_test: riscv_instr_base_test
+  rtl_test: core_base_test
+
+- test: cva6v_rag_Vf_vfrec7_v
+  description: >
+    base + fp + vector test, Vector FP Instructions
+  gen_opts: >
+    +instr_cnt=10000
+    +num_of_sub_program=0
+    +enable_fp_extension=1
+    +enable_vector_extension=1
+    +vreg_init_method=RANDOM_VALUES_LOAD
+    +no_fence=1
+    +no_branch_jump=1
+    +no_csr_instr=1
+    +boot_mode=m
+    +specific_v_instructions=VFREC7_V
+    +report_stats=1
+  iterations: 100
+  gen_test: riscv_instr_base_test
+  rtl_test: core_base_test
+
+- test: cva6v_rag_Vf_vfmin
+  description: >
+    base + fp + vector test, Vector FP Instructions
+  gen_opts: >
+    +instr_cnt=10000
+    +num_of_sub_program=0
+    +enable_fp_extension=1
+    +enable_vector_extension=1
+    +vreg_init_method=RANDOM_VALUES_LOAD
+    +no_fence=1
+    +no_branch_jump=1
+    +no_csr_instr=1
+    +boot_mode=m
+    +specific_v_instructions=VFMIN
+    +report_stats=1
+  iterations: 100
+  gen_test: riscv_instr_base_test
+  rtl_test: core_base_test
+
+- test: cva6v_rag_Vf_vfmax
+  description: >
+    base + fp + vector test, Vector FP Instructions
+  gen_opts: >
+    +instr_cnt=10000
+    +num_of_sub_program=0
+    +enable_fp_extension=1
+    +enable_vector_extension=1
+    +vreg_init_method=RANDOM_VALUES_LOAD
+    +no_fence=1
+    +no_branch_jump=1
+    +no_csr_instr=1
+    +boot_mode=m
+    +specific_v_instructions=VFMAX
+    +report_stats=1
+  iterations: 100
+  gen_test: riscv_instr_base_test
+  rtl_test: core_base_test
+
+- test: cva6v_rag_Vf_vfsgnj
+  description: >
+    base + fp + vector test, Vector FP Instructions
+  gen_opts: >
+    +instr_cnt=10000
+    +num_of_sub_program=0
+    +enable_fp_extension=1
+    +enable_vector_extension=1
+    +vreg_init_method=RANDOM_VALUES_LOAD
+    +no_fence=1
+    +no_branch_jump=1
+    +no_csr_instr=1
+    +boot_mode=m
+    +specific_v_instructions=VFSGNJ
+    +report_stats=1
+  iterations: 100
+  gen_test: riscv_instr_base_test
+  rtl_test: core_base_test
+
+- test: cva6v_rag_Vf_vfsgnjn
+  description: >
+    base + fp + vector test, Vector FP Instructions
+  gen_opts: >
+    +instr_cnt=10000
+    +num_of_sub_program=0
+    +enable_fp_extension=1
+    +enable_vector_extension=1
+    +vreg_init_method=RANDOM_VALUES_LOAD
+    +no_fence=1
+    +no_branch_jump=1
+    +no_csr_instr=1
+    +boot_mode=m
+    +specific_v_instructions=VFSGNJN
+    +report_stats=1
+  iterations: 100
+  gen_test: riscv_instr_base_test
+  rtl_test: core_base_test
+
+- test: cva6v_rag_Vf_vfsgnjx
+  description: >
+    base + fp + vector test, Vector FP Instructions
+  gen_opts: >
+    +instr_cnt=10000
+    +num_of_sub_program=0
+    +enable_fp_extension=1
+    +enable_vector_extension=1
+    +vreg_init_method=RANDOM_VALUES_LOAD
+    +no_fence=1
+    +no_branch_jump=1
+    +no_csr_instr=1
+    +boot_mode=m
+    +specific_v_instructions=VFSGNJX
+    +report_stats=1
+  iterations: 100
+  gen_test: riscv_instr_base_test
+  rtl_test: core_base_test
+
+- test: cva6v_rag_Vf_vmfeq
+  description: >
+    base + fp + vector test, Vector FP Instructions
+  gen_opts: >
+    +instr_cnt=10000
+    +num_of_sub_program=0
+    +enable_fp_extension=1
+    +enable_vector_extension=1
+    +vreg_init_method=RANDOM_VALUES_LOAD
+    +no_fence=1
+    +no_branch_jump=1
+    +no_csr_instr=1
+    +boot_mode=m
+    +specific_v_instructions=VMFEQ
+    +report_stats=1
+  iterations: 100
+  gen_test: riscv_instr_base_test
+  rtl_test: core_base_test
+
+- test: cva6v_rag_Vf_vmfne
+  description: >
+    base + fp + vector test, Vector FP Instructions
+  gen_opts: >
+    +instr_cnt=10000
+    +num_of_sub_program=0
+    +enable_fp_extension=1
+    +enable_vector_extension=1
+    +vreg_init_method=RANDOM_VALUES_LOAD
+    +no_fence=1
+    +no_branch_jump=1
+    +no_csr_instr=1
+    +boot_mode=m
+    +specific_v_instructions=VMFNE
+    +report_stats=1
+  iterations: 100
+  gen_test: riscv_instr_base_test
+  rtl_test: core_base_test
+
+- test: cva6v_rag_Vf_vmflt
+  description: >
+    base + fp + vector test, Vector FP Instructions
+  gen_opts: >
+    +instr_cnt=10000
+    +num_of_sub_program=0
+    +enable_fp_extension=1
+    +enable_vector_extension=1
+    +vreg_init_method=RANDOM_VALUES_LOAD
+    +no_fence=1
+    +no_branch_jump=1
+    +no_csr_instr=1
+    +boot_mode=m
+    +specific_v_instructions=VMFLT
+    +report_stats=1
+  iterations: 100
+  gen_test: riscv_instr_base_test
+  rtl_test: core_base_test
+
+- test: cva6v_rag_Vf_vmfle
+  description: >
+    base + fp + vector test, Vector FP Instructions
+  gen_opts: >
+    +instr_cnt=10000
+    +num_of_sub_program=0
+    +enable_fp_extension=1
+    +enable_vector_extension=1
+    +vreg_init_method=RANDOM_VALUES_LOAD
+    +no_fence=1
+    +no_branch_jump=1
+    +no_csr_instr=1
+    +boot_mode=m
+    +specific_v_instructions=VMFLE
+    +report_stats=1
+  iterations: 100
+  gen_test: riscv_instr_base_test
+  rtl_test: core_base_test
+
+- test: cva6v_rag_Vf_vmfgt
+  description: >
+    base + fp + vector test, Vector FP Instructions
+  gen_opts: >
+    +instr_cnt=10000
+    +num_of_sub_program=0
+    +enable_fp_extension=1
+    +enable_vector_extension=1
+    +vreg_init_method=RANDOM_VALUES_LOAD
+    +no_fence=1
+    +no_branch_jump=1
+    +no_csr_instr=1
+    +boot_mode=m
+    +specific_v_instructions=VMFGT
+    +report_stats=1
+  iterations: 100
+  gen_test: riscv_instr_base_test
+  rtl_test: core_base_test
+
+- test: cva6v_rag_Vf_vmfge
+  description: >
+    base + fp + vector test, Vector FP Instructions
+  gen_opts: >
+    +instr_cnt=10000
+    +num_of_sub_program=0
+    +enable_fp_extension=1
+    +enable_vector_extension=1
+    +vreg_init_method=RANDOM_VALUES_LOAD
+    +no_fence=1
+    +no_branch_jump=1
+    +no_csr_instr=1
+    +boot_mode=m
+    +specific_v_instructions=VMFGE
+    +report_stats=1
+  iterations: 100
+  gen_test: riscv_instr_base_test
+  rtl_test: core_base_test
+
+- test: cva6v_rag_Vf_vfclass_v
+  description: >
+    base + fp + vector test, Vector FP Instructions
+  gen_opts: >
+    +instr_cnt=10000
+    +num_of_sub_program=0
+    +enable_fp_extension=1
+    +enable_vector_extension=1
+    +vreg_init_method=RANDOM_VALUES_LOAD
+    +no_fence=1
+    +no_branch_jump=1
+    +no_csr_instr=1
+    +boot_mode=m
+    +specific_v_instructions=VFCLASS_V
+    +report_stats=1
+  iterations: 100
+  gen_test: riscv_instr_base_test
+  rtl_test: core_base_test
+
+- test: cva6v_rag_Vf_vfmerge
+  description: >
+    base + fp + vector test, Vector FP Instructions
+  gen_opts: >
+    +instr_cnt=10000
+    +num_of_sub_program=0
+    +enable_fp_extension=1
+    +enable_vector_extension=1
+    +vreg_init_method=RANDOM_VALUES_LOAD
+    +no_fence=1
+    +no_branch_jump=1
+    +no_csr_instr=1
+    +boot_mode=m
+    +specific_v_instructions=VFMERGE
+    +report_stats=1
+  iterations: 100
+  gen_test: riscv_instr_base_test
+  rtl_test: core_base_test
+
+- test: cva6v_rag_Vf_vfmv_v_f
+  description: >
+    base + fp + vector test, Vector FP Instructions
+  gen_opts: >
+    +instr_cnt=10000
+    +num_of_sub_program=0
+    +enable_fp_extension=1
+    +enable_vector_extension=1
+    +vreg_init_method=RANDOM_VALUES_LOAD
+    +no_fence=1
+    +no_branch_jump=1
+    +no_csr_instr=1
+    +boot_mode=m
+    +specific_v_instructions=VFMV_V_F
+    +report_stats=1
+  iterations: 100
+  gen_test: riscv_instr_base_test
+  rtl_test: core_base_test
+
+- test: cva6v_rag_Vf_vfcvt_xu_f_v
+  description: >
+    base + fp + vector test, Vector FP Instructions
+  gen_opts: >
+    +instr_cnt=10000
+    +num_of_sub_program=0
+    +enable_fp_extension=1
+    +enable_vector_extension=1
+    +vreg_init_method=RANDOM_VALUES_LOAD
+    +no_fence=1
+    +no_branch_jump=1
+    +no_csr_instr=1
+    +boot_mode=m
+    +specific_v_instructions=VFCVT_XU_F_V
+    +report_stats=1
+  iterations: 100
+  gen_test: riscv_instr_base_test
+  rtl_test: core_base_test
+
+- test: cva6v_rag_Vf_vfcvt_x_f_v
+  description: >
+    base + fp + vector test, Vector FP Instructions
+  gen_opts: >
+    +instr_cnt=10000
+    +num_of_sub_program=0
+    +enable_fp_extension=1
+    +enable_vector_extension=1
+    +vreg_init_method=RANDOM_VALUES_LOAD
+    +no_fence=1
+    +no_branch_jump=1
+    +no_csr_instr=1
+    +boot_mode=m
+    +specific_v_instructions=VFCVT_X_F_V
+    +report_stats=1
+  iterations: 100
+  gen_test: riscv_instr_base_test
+  rtl_test: core_base_test
+
+- test: cva6v_rag_Vf_vfcvt_rtz_xu_f_v
+  description: >
+    base + fp + vector test, Vector FP Instructions
+  gen_opts: >
+    +instr_cnt=10000
+    +num_of_sub_program=0
+    +enable_fp_extension=1
+    +enable_vector_extension=1
+    +vreg_init_method=RANDOM_VALUES_LOAD
+    +no_fence=1
+    +no_branch_jump=1
+    +no_csr_instr=1
+    +boot_mode=m
+    +specific_v_instructions=VFCVT_RTZ_XU_F_V
+    +report_stats=1
+  iterations: 100
+  gen_test: riscv_instr_base_test
+  rtl_test: core_base_test
+
+- test: cva6v_rag_Vf_vfcvt_rtz_x_f_v
+  description: >
+    base + fp + vector test, Vector FP Instructions
+  gen_opts: >
+    +instr_cnt=10000
+    +num_of_sub_program=0
+    +enable_fp_extension=1
+    +enable_vector_extension=1
+    +vreg_init_method=RANDOM_VALUES_LOAD
+    +no_fence=1
+    +no_branch_jump=1
+    +no_csr_instr=1
+    +boot_mode=m
+    +specific_v_instructions=VFCVT_RTZ_X_F_V
+    +report_stats=1
+  iterations: 100
+  gen_test: riscv_instr_base_test
+  rtl_test: core_base_test
+
+- test: cva6v_rag_Vf_vfcvt_f_xu_v
+  description: >
+    base + fp + vector test, Vector FP Instructions
+  gen_opts: >
+    +instr_cnt=10000
+    +num_of_sub_program=0
+    +enable_fp_extension=1
+    +enable_vector_extension=1
+    +vreg_init_method=RANDOM_VALUES_LOAD
+    +no_fence=1
+    +no_branch_jump=1
+    +no_csr_instr=1
+    +boot_mode=m
+    +specific_v_instructions=VFCVT_F_XU_V
+    +report_stats=1
+  iterations: 100
+  gen_test: riscv_instr_base_test
+  rtl_test: core_base_test
+
+- test: cva6v_rag_Vf_vfcvt_f_x_v
+  description: >
+    base + fp + vector test, Vector FP Instructions
+  gen_opts: >
+    +instr_cnt=10000
+    +num_of_sub_program=0
+    +enable_fp_extension=1
+    +enable_vector_extension=1
+    +vreg_init_method=RANDOM_VALUES_LOAD
+    +no_fence=1
+    +no_branch_jump=1
+    +no_csr_instr=1
+    +boot_mode=m
+    +specific_v_instructions=VFCVT_F_X_V
+    +report_stats=1
+  iterations: 100
+  gen_test: riscv_instr_base_test
+  rtl_test: core_base_test
+
+- test: cva6v_rag_Vf_vfwcvt_xu_f_v
+  description: >
+    base + fp + vector test, Vector FP Instructions
+  gen_opts: >
+    +instr_cnt=10000
+    +num_of_sub_program=0
+    +enable_fp_extension=1
+    +enable_vector_extension=1
+    +vreg_init_method=RANDOM_VALUES_LOAD
+    +no_fence=1
+    +no_branch_jump=1
+    +no_csr_instr=1
+    +boot_mode=m
+    +specific_v_instructions=VFWCVT_XU_F_V
+    +report_stats=1
+  iterations: 100
+  gen_test: riscv_instr_base_test
+  rtl_test: core_base_test
+
+- test: cva6v_rag_Vf_vfwcvt_x_f_v
+  description: >
+    base + fp + vector test, Vector FP Instructions
+  gen_opts: >
+    +instr_cnt=10000
+    +num_of_sub_program=0
+    +enable_fp_extension=1
+    +enable_vector_extension=1
+    +vreg_init_method=RANDOM_VALUES_LOAD
+    +no_fence=1
+    +no_branch_jump=1
+    +no_csr_instr=1
+    +boot_mode=m
+    +specific_v_instructions=VFWCVT_X_F_V
+    +report_stats=1
+  iterations: 100
+  gen_test: riscv_instr_base_test
+  rtl_test: core_base_test
+
+- test: cva6v_rag_Vf_vfwcvt_rtz_xu_f_v
+  description: >
+    base + fp + vector test, Vector FP Instructions
+  gen_opts: >
+    +instr_cnt=10000
+    +num_of_sub_program=0
+    +enable_fp_extension=1
+    +enable_vector_extension=1
+    +vreg_init_method=RANDOM_VALUES_LOAD
+    +no_fence=1
+    +no_branch_jump=1
+    +no_csr_instr=1
+    +boot_mode=m
+    +specific_v_instructions=VFWCVT_RTZ_XU_F_V
+    +report_stats=1
+  iterations: 100
+  gen_test: riscv_instr_base_test
+  rtl_test: core_base_test
+
+- test: cva6v_rag_Vf_vfwcvt_rtz_x_f_v
+  description: >
+    base + fp + vector test, Vector FP Instructions
+  gen_opts: >
+    +instr_cnt=10000
+    +num_of_sub_program=0
+    +enable_fp_extension=1
+    +enable_vector_extension=1
+    +vreg_init_method=RANDOM_VALUES_LOAD
+    +no_fence=1
+    +no_branch_jump=1
+    +no_csr_instr=1
+    +boot_mode=m
+    +specific_v_instructions=VFWCVT_RTZ_X_F_V
+    +report_stats=1
+  iterations: 100
+  gen_test: riscv_instr_base_test
+  rtl_test: core_base_test
+
+- test: cva6v_rag_Vf_vfwcvt_f_xu_v
+  description: >
+    base + fp + vector test, Vector FP Instructions
+  gen_opts: >
+    +instr_cnt=10000
+    +num_of_sub_program=0
+    +enable_fp_extension=1
+    +enable_vector_extension=1
+    +vreg_init_method=RANDOM_VALUES_LOAD
+    +no_fence=1
+    +no_branch_jump=1
+    +no_csr_instr=1
+    +boot_mode=m
+    +specific_v_instructions=VFWCVT_F_XU_V
+    +report_stats=1
+  iterations: 100
+  gen_test: riscv_instr_base_test
+  rtl_test: core_base_test
+
+- test: cva6v_rag_Vf_vfwcvt_f_x_v
+  description: >
+    base + fp + vector test, Vector FP Instructions
+  gen_opts: >
+    +instr_cnt=10000
+    +num_of_sub_program=0
+    +enable_fp_extension=1
+    +enable_vector_extension=1
+    +vreg_init_method=RANDOM_VALUES_LOAD
+    +no_fence=1
+    +no_branch_jump=1
+    +no_csr_instr=1
+    +boot_mode=m
+    +specific_v_instructions=VFWCVT_F_X_V
+    +report_stats=1
+  iterations: 100
+  gen_test: riscv_instr_base_test
+  rtl_test: core_base_test
+
+- test: cva6v_rag_Vf_vfwcvt_f_f_v
+  description: >
+    base + fp + vector test, Vector FP Instructions
+  gen_opts: >
+    +instr_cnt=10000
+    +num_of_sub_program=0
+    +enable_fp_extension=1
+    +enable_vector_extension=1
+    +vreg_init_method=RANDOM_VALUES_LOAD
+    +no_fence=1
+    +no_branch_jump=1
+    +no_csr_instr=1
+    +boot_mode=m
+    +specific_v_instructions=VFWCVT_F_F_V
+    +report_stats=1
+  iterations: 100
+  gen_test: riscv_instr_base_test
+  rtl_test: core_base_test
+
+- test: cva6v_rag_Vf_vfncvt_xu_f_w
+  description: >
+    base + fp + vector test, Vector FP Instructions
+  gen_opts: >
+    +instr_cnt=10000
+    +num_of_sub_program=0
+    +enable_fp_extension=1
+    +enable_vector_extension=1
+    +vreg_init_method=RANDOM_VALUES_LOAD
+    +no_fence=1
+    +no_branch_jump=1
+    +no_csr_instr=1
+    +boot_mode=m
+    +specific_v_instructions=VFNCVT_XU_F_W
+    +report_stats=1
+  iterations: 100
+  gen_test: riscv_instr_base_test
+  rtl_test: core_base_test
+
+- test: cva6v_rag_Vf_vfncvt_x_f_w
+  description: >
+    base + fp + vector test, Vector FP Instructions
+  gen_opts: >
+    +instr_cnt=10000
+    +num_of_sub_program=0
+    +enable_fp_extension=1
+    +enable_vector_extension=1
+    +vreg_init_method=RANDOM_VALUES_LOAD
+    +no_fence=1
+    +no_branch_jump=1
+    +no_csr_instr=1
+    +boot_mode=m
+    +specific_v_instructions=VFNCVT_X_F_W
+    +report_stats=1
+  iterations: 100
+  gen_test: riscv_instr_base_test
+  rtl_test: core_base_test
+
+- test: cva6v_rag_Vf_vfncvt_rtz_xu_f_w
+  description: >
+    base + fp + vector test, Vector FP Instructions
+  gen_opts: >
+    +instr_cnt=10000
+    +num_of_sub_program=0
+    +enable_fp_extension=1
+    +enable_vector_extension=1
+    +vreg_init_method=RANDOM_VALUES_LOAD
+    +no_fence=1
+    +no_branch_jump=1
+    +no_csr_instr=1
+    +boot_mode=m
+    +specific_v_instructions=VFNCVT_RTZ_XU_F_W
+    +report_stats=1
+  iterations: 100
+  gen_test: riscv_instr_base_test
+  rtl_test: core_base_test
+
+- test: cva6v_rag_Vf_vfncvt_rtz_x_f_w
+  description: >
+    base + fp + vector test, Vector FP Instructions
+  gen_opts: >
+    +instr_cnt=10000
+    +num_of_sub_program=0
+    +enable_fp_extension=1
+    +enable_vector_extension=1
+    +vreg_init_method=RANDOM_VALUES_LOAD
+    +no_fence=1
+    +no_branch_jump=1
+    +no_csr_instr=1
+    +boot_mode=m
+    +specific_v_instructions=VFNCVT_RTZ_X_F_W
+    +report_stats=1
+  iterations: 100
+  gen_test: riscv_instr_base_test
+  rtl_test: core_base_test
+
+- test: cva6v_rag_Vf_vfncvt_f_xu_w
+  description: >
+    base + fp + vector test, Vector FP Instructions
+  gen_opts: >
+    +instr_cnt=10000
+    +num_of_sub_program=0
+    +enable_fp_extension=1
+    +enable_vector_extension=1
+    +vreg_init_method=RANDOM_VALUES_LOAD
+    +no_fence=1
+    +no_branch_jump=1
+    +no_csr_instr=1
+    +boot_mode=m
+    +specific_v_instructions=VFNCVT_F_XU_W
+    +report_stats=1
+  iterations: 100
+  gen_test: riscv_instr_base_test
+  rtl_test: core_base_test
+
+- test: cva6v_rag_Vf_vfncvt_f_x_w
+  description: >
+    base + fp + vector test, Vector FP Instructions
+  gen_opts: >
+    +instr_cnt=10000
+    +num_of_sub_program=0
+    +enable_fp_extension=1
+    +enable_vector_extension=1
+    +vreg_init_method=RANDOM_VALUES_LOAD
+    +no_fence=1
+    +no_branch_jump=1
+    +no_csr_instr=1
+    +boot_mode=m
+    +specific_v_instructions=VFNCVT_F_X_W
+    +report_stats=1
+  iterations: 100
+  gen_test: riscv_instr_base_test
+  rtl_test: core_base_test
+
+- test: cva6v_rag_Vf_vfncvt_f_f_w
+  description: >
+    base + fp + vector test, Vector FP Instructions
+  gen_opts: >
+    +instr_cnt=10000
+    +num_of_sub_program=0
+    +enable_fp_extension=1
+    +enable_vector_extension=1
+    +vreg_init_method=RANDOM_VALUES_LOAD
+    +no_fence=1
+    +no_branch_jump=1
+    +no_csr_instr=1
+    +boot_mode=m
+    +specific_v_instructions=VFNCVT_F_F_W
+    +report_stats=1
+  iterations: 100
+  gen_test: riscv_instr_base_test
+  rtl_test: core_base_test
+
+- test: cva6v_rag_Vf_vfncvt_rod_f_f_w
+  description: >
+    base + fp + vector test, Vector FP Instructions
+  gen_opts: >
+    +instr_cnt=10000
+    +num_of_sub_program=0
+    +enable_fp_extension=1
+    +enable_vector_extension=1
+    +vreg_init_method=RANDOM_VALUES_LOAD
+    +no_fence=1
+    +no_branch_jump=1
+    +no_csr_instr=1
+    +boot_mode=m
+    +specific_v_instructions=VFNCVT_ROD_F_F_W
+    +report_stats=1
+  iterations: 100
+  gen_test: riscv_instr_base_test
+  rtl_test: core_base_test

@@ -1,0 +1,4 @@
+// Header: | config | cmd_format | token_cons | token_prod | reserved | triggers |
+00_01_5678_8765_11_00 // 0x1080
+// | length | lin_settings | mem_baseaddr |
+0020_01_0000F00000 // 0x1088

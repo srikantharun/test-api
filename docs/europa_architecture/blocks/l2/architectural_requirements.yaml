@@ -1,0 +1,215 @@
+requirements:
+  -
+    block: L2 
+    category: FEAT
+    index: 0
+    description: "The L2 subsystem shall contain a memory for the weights/coefficients and intermediate Fmaps from all the Europa cores."
+    criticality: bronze
+    owner: Spyridoula Koumousi
+  -
+    block: L2 
+    category: FEAT
+    index: 1
+    description: "The L2 memory shall be used as a reserve memory for control data such as AICORE programs, TLB pagetables, PCIE DMA descriptors etc. Control data are primarily located in the SYS-SPM."
+    criticality: bronze
+    owner: Spyridoula Koumousi
+  -
+    block: L2 
+    category: FEAT
+    index: 2
+    description: "The L2 subsystem shall be composed by multiple L2 modules to allow interleaved access to each module. The L2 modules shall be accessible with all NoC supported interleaving modes."
+    criticality: bronze
+    owner: Spyridoula Koumousi
+  -
+    block: L2 
+    category: FEAT
+    index: 3
+    description: "The L2 subsystem memory shall have defined size of 128MiB."
+    criticality: bronze
+    owner: Spyridoula Koumousi
+  -
+    block: L2 
+    category: FEAT
+    index: 4
+    description: "Each L2 module shall have a Full Duplex 512-bit wide AXI4 interface towards the NoC."
+    criticality: bronze
+    owner: Spyridoula Koumousi
+  -
+    block: L2 
+    category: FEAT
+    index: 5
+    description: "Each L2 module shall contain a subset of the full memory (16MiB per L2 module - 8 instances in total)."
+    criticality: bronze
+    owner: Spyridoula Koumousi
+  -
+    block: L2 
+    category: FEAT
+    index: 6
+    description: "The L2 module shall contain the memory cells to form the L2 module memory and all the interconnect logic needed."
+    criticality: bronze
+    owner: Spyridoula Koumousi
+  -
+    block: L2 
+    category: FEAT
+    index: 7
+    description: "The L2 module shall contain arbitration logic to arbitrate the simultaneous RD/WR requests to memory banks."
+    criticality: bronze
+    owner: Spyridoula Koumousi
+  -
+    block: L2 
+    category: FEAT
+    index: 8
+    description: "The L2 memory shall be composed by single port memory macro’s.No simultaneous RD/WR operations can occur on the same memory region."
+    criticality: bronze
+    owner: Spyridoula Koumousi
+  -
+    block: L2 
+    category: FEAT
+    index: 10
+    description: "The L2 subsystem should support aligned and unaligned accesses. Unaligned accesses are done via masked writes."
+    criticality: bronze
+    owner: Spyridoula Koumousi
+  -
+    block: L2 
+    category: FEAT
+    index: 11
+    description: "The L2 memory shall be composed by macros that allow the partitioning in banks/subbanks while being able to meet timing at 1.2GHz."
+    criticality: bronze
+    owner: Spyridoula Koumousi
+  -
+    block: L2 
+    category: FEAT
+    index: 12
+    description: "The L2 memories shall be power gated during IDLE periods via SW control. The macros can be shutdown via a dedicated register access. Implementation defined granularity."
+    criticality: bronze
+    owner: Spyridoula Koumousi
+  -
+    block: L2 
+    category: FEAT
+    index: 13
+    description: "The L2 memories shall be clock gated when not in use. Fine granularity gating when no access to the specific bank should be implemented."
+    criticality: bronze
+    owner: Spyridoula Koumousi
+  -
+    block: L2 
+    category: FEAT
+    index: 14
+    description: "The L2 memories shall not be ECC protected."
+    criticality: bronze
+    owner: Spyridoula Koumousi
+  -
+    block: L2 
+    category: FEAT
+    index: 15
+    description: "The L2 modules shall be integrated in a physical design wrapper that includes the needed PPU and CSRs."
+    criticality: bronze
+    owner: Spyridoula Koumousi
+  -
+    block: L2 
+    category: FEAT
+    index: 16
+    description: "The L2 modules physical design wrapper shall have an APB configuration interface to be able to access the CSRs."
+    criticality: bronze
+    owner: Spyridoula Koumousi
+  -
+    block: L2 
+    category: FEAT
+    index: 17
+    description: "The L2 subsystem shall not support exclusives/atomic accesses."
+    criticality: gold
+    owner: Spyridoula Koumousi  
+  -
+    block: L2 
+    category: FEAT
+    index: 18
+    description: "The L2 memory shall be configured as MEMORY region and therefore it can be cached by CPUs in the system."
+    criticality: gold
+    owner: Spyridoula Koumousi  
+  -
+    block: L2 
+    category: CLK
+    index: 0
+    description: "The L2 subsystem shall operate in a single clock domain at 1.2GHz."
+    criticality: bronze
+    owner: Spyridoula Koumousi
+  -
+    block: L2 
+    category: CLK
+    index: 1
+    description: "The L2 subsystem clock shall be gated via a dedicated PMU register access."
+    criticality: bronze
+    owner: Spyridoula Koumousi
+  -
+    block: L2 
+    category: CLK
+    index: 2
+    description: "The L2 subsystem clock shall be divided via a dedicated PMU register access."
+    criticality: bronze
+    owner: Spyridoula Koumousi
+  -
+    block: L2 
+    category: RST
+    index: 0
+    description: "The L2 subsystem shall be asynchronously reset by the system reset generator. There is no HW safeguarding structures in case of reset during operation."
+    criticality: bronze
+    owner: Spyridoula Koumousi
+  -
+    block: L2 
+    category: DBG
+    index: 0
+    description: "The L2 subsystem shall not have any debug and observation interface. No trace infrastructure will be needed."
+    criticality: gold
+    owner: Spyridoula Koumousi
+  -
+    block: L2 
+    category: DBG
+    optional_description: JTAG
+    index: 1
+    description: "The L2 subsystem shall have a JTAG interface and it shall be connected to the top JTAG chain."
+    criticality: gold
+    owner: Spyridoula Koumousi
+  -
+    block: L2 
+    category: PERF
+    index: 0
+    description: "The L2 memory shall provide fixed response latency that should be low as possible. Implementation defined."
+    criticality: silver
+    owner: Spyridoula Koumousi
+  -
+    block: L2 
+    category: PERF
+    index: 1
+    description: "The L2 subsystem shall maintain Full Throughout for both RD/WR AXI channels at 77.1GB/s assuming 1.2GHz operating frequency."
+    criticality: silver
+    owner: Spyridoula Koumousi
+  -
+    block: L2 
+    category: MBIST
+    optional_description: REPAIR
+    index: 0
+    description: "The L2 memories shall be repairable, both at boot and in-field by an on-chip controller."
+    criticality: silver
+    owner: Spyridoula Koumousi 
+  -
+    block: L2 
+    category: PWR
+    optional_description: IDLE
+    index: 0
+    description: "The L2 subsystem shall have as low as possible power consumption. When IDLE it should be only leakage power."
+    criticality: gold
+    owner: Spyridoula Koumousi 
+  -
+    block: L2 
+    category: PWR
+    optional_description: DYN
+    index: 1
+    description: "The L2 subsystem shall have as low as possible power consumption. When operating it should be minimized to the control logic and the dynamic power of the macro that is accessed."
+    criticality: gold
+    owner: Spyridoula Koumousi  
+  -
+    block: L2 
+    category: CONN
+    index: 0
+    description: "The L2 subsystem shall be a sub-ordinate of the HTF NoC and shall be reachable by all initiators."
+    criticality: gold
+    owner: Spyridoula Koumousi  

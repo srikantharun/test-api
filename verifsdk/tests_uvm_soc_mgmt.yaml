@@ -1,0 +1,135 @@
+tests:
+  - name: soc_mgmt_base_test
+    description: TODO
+    labels: [HW_IP_SOC_MGMT_DEFAULT_DV_SIM_MERGE_REQUEST, HW_IP_SOC_MGMT_DEFAULT_DV_SIM_NIGHTLY]
+    requirement_ids: []
+    platforms: [uvm.HW_IP_SOC_MGMT_DEFAULT_DV_SIM]
+    owner: Timir Soni
+    seeds: [1]
+
+  - name: soc_mgmt_memory_map_axi_rot_kse_test
+    description: TODO
+    labels: [HW_IP_SOC_MGMT_DEFAULT_DV_SIM_MERGE_REQUEST, HW_IP_SOC_MGMT_DEFAULT_DV_SIM_NIGHTLY]
+    requirement_ids: [SOC_MGMT_CONN_MEMORY_MAP_0]
+    platforms: [uvm.HW_IP_SOC_MGMT_DEFAULT_DV_SIM]
+    flags: [UVM_TESTNAME="soc_mgmt_memory_map_axi_test", +LOOP_STRT=0, +LOOP_LEN=2]
+    owner: Timir Soni
+    seeds: [1]
+
+  - name: soc_mgmt_memory_map_axi_rot_ao_test
+    description: TODO
+    labels: [HW_IP_SOC_MGMT_DEFAULT_DV_SIM_MERGE_REQUEST, HW_IP_SOC_MGMT_DEFAULT_DV_SIM_NIGHTLY]
+    requirement_ids: [SOC_MGMT_CONN_MEMORY_MAP_1]
+    platforms: [uvm.HW_IP_SOC_MGMT_DEFAULT_DV_SIM]
+    flags: [UVM_TESTNAME="soc_mgmt_memory_map_axi_test", +LOOP_STRT=2, +LOOP_LEN=4]
+    owner: Timir Soni
+    seeds: [1]
+  
+  - name: soc_mgmt_memory_map_axi_otp_host_test
+    description: TODO
+    labels: [HW_IP_SOC_MGMT_DEFAULT_DV_SIM_MERGE_REQUEST, HW_IP_SOC_MGMT_DEFAULT_DV_SIM_NIGHTLY]
+    requirement_ids: [SOC_MGMT_CONN_MEMORY_MAP_2]
+    platforms: [uvm.HW_IP_SOC_MGMT_DEFAULT_DV_SIM]
+    flags: [UVM_TESTNAME="soc_mgmt_memory_map_axi_test", +LOOP_STRT=4, +LOOP_LEN=6]
+    owner: Timir Soni
+    seeds: [1]
+
+  - name: soc_mgmt_memory_map_axi_tms_test
+    description: TODO
+    labels: [HW_IP_SOC_MGMT_DEFAULT_DV_SIM_MERGE_REQUEST, HW_IP_SOC_MGMT_DEFAULT_DV_SIM_NIGHTLY]
+    requirement_ids: [SOC_MGMT_CONN_MEMORY_MAP_3]
+    platforms: [uvm.HW_IP_SOC_MGMT_DEFAULT_DV_SIM]
+    flags: [UVM_TESTNAME="soc_mgmt_memory_map_axi_test", +LOOP_STRT=6, +LOOP_LEN=8]
+    owner: Timir Soni
+    seeds: [1]
+
+  - name: soc_mgmt_memory_map_axi_rtc_test
+    description: TODO
+    labels: [HW_IP_SOC_MGMT_DEFAULT_DV_SIM_MERGE_REQUEST, HW_IP_SOC_MGMT_DEFAULT_DV_SIM_NIGHTLY]
+    requirement_ids: [SOC_MGMT_CONN_MEMORY_MAP_4]
+    platforms: [uvm.HW_IP_SOC_MGMT_DEFAULT_DV_SIM]
+    flags: [UVM_TESTNAME="soc_mgmt_memory_map_axi_test", +LOOP_STRT=8, +LOOP_LEN=10]
+    owner: Timir Soni
+    seeds: [1]
+
+  - name: soc_mgmt_memory_map_axi_watchdog_test
+    description: TODO
+    labels: [HW_IP_SOC_MGMT_DEFAULT_DV_SIM_MERGE_REQUEST, HW_IP_SOC_MGMT_DEFAULT_DV_SIM_NIGHTLY]
+    requirement_ids: [SOC_MGMT_CONN_MEMORY_MAP_5]
+    platforms: [uvm.HW_IP_SOC_MGMT_DEFAULT_DV_SIM]
+    flags: [UVM_TESTNAME="soc_mgmt_memory_map_axi_test", +LOOP_STRT=10, +LOOP_LEN=12]
+    owner: Timir Soni
+    seeds: [1]
+
+  - name: soc_mgmt_memory_map_axi_debug_test
+    description: TODO
+    labels: [HW_IP_SOC_MGMT_DEFAULT_DV_SIM_MERGE_REQUEST, HW_IP_SOC_MGMT_DEFAULT_DV_SIM_NIGHTLY]
+    requirement_ids: [SOC_MGMT_CONN_MEMORY_MAP_6]
+    platforms: [uvm.HW_IP_SOC_MGMT_DEFAULT_DV_SIM]
+    flags: [UVM_TESTNAME="soc_mgmt_memory_map_axi_test", +LOOP_STRT=12, +LOOP_LEN=14]
+    owner: Timir Soni
+    seeds: [1]
+
+  ##- name: soc_mgmt_memory_map_axi_mbist_test
+  ##  description: TODO
+  ##  labels: [HW_IP_SOC_MGMT_DEFAULT_DV_SIM_MERGE_REQUEST]
+  ##  requirement_ids: []
+  ##  platforms: [uvm.HW_IP_SOC_MGMT_DEFAULT_DV_SIM]
+  ##  flags: [UVM_TESTNAME="soc_mgmt_memory_map_axi_test", +LOOP_STRT=14, +LOOP_LEN=16]
+  ##  owner: Timir Soni
+  ##  seeds: [1]
+  
+  - name: soc_mgmt_memory_map_apb_sys_cfg_ao_csr_clock_gen_csr_test
+    description: TODO
+    labels: [HW_IP_SOC_MGMT_DEFAULT_DV_SIM_MERGE_REQUEST, HW_IP_SOC_MGMT_DEFAULT_DV_SIM_NIGHTLY]
+    requirement_ids: [SOC_MGMT_CONN_MEMORY_MAP_7]
+    platforms: [uvm.HW_IP_SOC_MGMT_DEFAULT_DV_SIM]
+    flags: [UVM_TESTNAME="soc_mgmt_memory_map_apb_test", +LOOP_STRT=0, +LOOP_LEN=2]
+    owner: Timir Soni
+    seeds: [1]
+  
+  - name: soc_mgmt_memory_map_apb_sys_cfg_ao_csr_reset_gen_csr_test
+    description: TODO
+    labels: [HW_IP_SOC_MGMT_DEFAULT_DV_SIM_MERGE_REQUEST, HW_IP_SOC_MGMT_DEFAULT_DV_SIM_NIGHTLY]
+    requirement_ids: [SOC_MGMT_CONN_MEMORY_MAP_8]
+    platforms: [uvm.HW_IP_SOC_MGMT_DEFAULT_DV_SIM]
+    flags: [UVM_TESTNAME="soc_mgmt_memory_map_apb_test", +LOOP_STRT=2, +LOOP_LEN=4]
+    owner: Timir Soni
+    seeds: [1]
+
+
+  - name: soc_mgmt_memory_map_apb_sys_cfg_ao_csr_noc_ao_csr_test
+    description: TODO
+    labels: [HW_IP_SOC_MGMT_DEFAULT_DV_SIM_MERGE_REQUEST, HW_IP_SOC_MGMT_DEFAULT_DV_SIM_NIGHTLY]
+    requirement_ids: [SOC_MGMT_CONN_MEMORY_MAP_9]
+    platforms: [uvm.HW_IP_SOC_MGMT_DEFAULT_DV_SIM]
+    flags: [UVM_TESTNAME="soc_mgmt_memory_map_apb_test", +LOOP_STRT=4, +LOOP_LEN=6]
+    owner: Timir Soni
+    seeds: [1]
+  
+  - name: soc_mgmt_memory_map_apb_sys_cfg_ao_csr_misc_ao_csr_test
+    description: TODO
+    labels: [HW_IP_SOC_MGMT_DEFAULT_DV_SIM_MERGE_REQUEST, HW_IP_SOC_MGMT_DEFAULT_DV_SIM_NIGHTLY]
+    requirement_ids: [SOC_MGMT_CONN_MEMORY_MAP_10]
+    platforms: [uvm.HW_IP_SOC_MGMT_DEFAULT_DV_SIM]
+    flags: [UVM_TESTNAME="soc_mgmt_memory_map_apb_test", +LOOP_STRT=6, +LOOP_LEN=8]
+    owner: Timir Soni
+    seeds: [1]
+  
+  - name: soc_mgmt_memory_map_apb_sys_cfg_ao_csr_dlm_csr_test
+    description: TODO
+    labels: [HW_IP_SOC_MGMT_DEFAULT_DV_SIM_MERGE_REQUEST, HW_IP_SOC_MGMT_DEFAULT_DV_SIM_NIGHTLY]
+    requirement_ids: [SOC_MGMT_CONN_MEMORY_MAP_11]
+    platforms: [uvm.HW_IP_SOC_MGMT_DEFAULT_DV_SIM]
+    flags: [UVM_TESTNAME="soc_mgmt_memory_map_apb_test", +LOOP_STRT=8, +LOOP_LEN=10]
+    owner: Timir Soni
+    seeds: [1]
+
+  - name: soc_mgmt_clkgen_test
+    description: Check PLLs and system clocks frequency
+    labels: [HW_IP_SOC_MGMT_DEFAULT_DV_SIM_NIGHTLY]
+    requirement_ids: [SOC_MGMT_CONN_MEMORY_MAP_11]
+    platforms: [uvm.HW_IP_SOC_MGMT_DEFAULT_DV_SIM]
+    flags: [UVM_TESTNAME="soc_mgmt_clkgen_test"]
+    owner: Lorinc Antoni
+    seeds: [1]

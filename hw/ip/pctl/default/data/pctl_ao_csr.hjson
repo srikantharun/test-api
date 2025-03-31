@@ -1,0 +1,368 @@
+// Copyright lowRISC contributors.
+// Licensed under the Apache License, Version 2.0, see LICENSE for details.
+// SPDX-License-Identifier: Apache-2.0
+{ name: "pctl_ao_csr",
+  clocking: [{clock: "clk_i", reset: "rst_ni"}],
+  bus_interfaces: [
+    { protocol: "tlul", direction: "device" }
+  ],
+  regwidth: "32",
+  addrcap: "0x1000",
+  axi_intf: False
+  param_list : [
+    {name:"AW", type:"int", default:"16"}
+    {name:"MAX_RESETS", type:"int", default:"8"}
+    {name:"MAX_CLOCKS", type:"int", default:"8"}
+    {name:"MAX_MEM_GRPS", type:"int", default:"4"}
+    {name:"MAX_FENCES", type:"int", default:"4"}
+    {name:"MAX_THROTTLE_PINS", type:"int", default:"4"}
+    {name:"MAX_CLOCKS_X_THROTTLE_PINS", type:"int", default:"32"} // This should be equal to (MAX_CLOCKS * MAX_THROTTLE_PINS)
+  ]
+  registers: [
+    { multireg: {name: "PPMU_RESET_CONTROL",
+      desc: "Partition Power Management Reset Control Register",
+      count: "MAX_RESETS",
+      cname: "rstid"
+      swaccess: "rw1s",
+      hwaccess: "hrw",
+      fields: [
+        {
+            bits: "0",
+            name: "prst_remove",
+            desc: '''
+                  Partition Reset Removal Control. Write '1' to start removal of partition reset.
+                  '''
+        }
+        {
+            bits: "1",
+            name: "prst_activate",
+            desc: '''
+                  Partition Reset Activation Control. Write '1' to start activation of partition reset.
+                  '''
+        }
+      ]
+    }}
+    { multireg: { name: "PPMU_RESET_TIMING_CONTROL",
+      desc: "Partition Power Management Reset 0 Timing Control Register",
+      count: "MAX_RESETS",
+      cname: "RESET"
+      swaccess: "rw",
+      hwaccess: "hro",
+      fields: [
+        {
+            bits: "7:0",
+            name: "pre_rst_0_cycles",
+            resval: 4,
+            desc: '''
+                  Number of noc i/f cycles of forced clock stopped before activating reset.
+                  '''
+        }
+        {
+            bits: "15:8",
+            name: "pre_rst_1_cycles",
+            resval: 4,
+            desc: '''
+                  Number of noc i/f cycles under reset before enabling clock and clean sync reset flops.
+                  '''
+        }
+        {
+            bits: "23:16",
+            name: "pre_rst_2_cycles",
+            resval: 4,
+            desc: '''
+                  Number of noc i/f cycles to allow clocks to run for while under reset (clear pipelined state).
+                  '''
+        }
+        {
+            bits: "31:24",
+            name: "pre_rel_cycles",
+            resval: 4,
+            desc: '''
+                  Number of noc i/f cycles of forced clock stopped with released reset.
+                  '''
+        }
+      ]
+    }
+    }
+    { multireg: {name: "PPMU_STATUS",
+      desc: "Partition Power Management Reset Status Register",
+      count: "MAX_RESETS",
+      cname: "rstid"
+      swaccess: "ro",
+      hwaccess: "hwo",
+      hwext: true,
+      fields: [
+        {
+            bits: "3:0",
+            name: "partition_reset_fsm_state",
+            desc: '''
+                  PPMU Reset FSM State.
+                  '''
+        }
+      ]
+    }
+    }
+    { multireg: {name: "PPMU_ISOLATION_CONTROL"
+      desc: "Partition Power Management NoC Isolation Control Register",
+      count: "MAX_FENCES",
+      cname: "fenceid",
+      swaccess: "rw",
+      hwaccess: "hrw",
+      fields: [
+        {
+            bits: "0",
+            name: "iso_idle_req",
+            resval: 1,
+            desc: '''
+                  Partition request to NOC to isolate main AXI interfaces.
+                  '''
+        }
+      ]
+    }}
+    { multireg: {name: "PPMU_ISOLATION_STATUS"
+      desc: "Partition Power Management NoC Isolation Status Register",
+      count: "MAX_FENCES",
+      cname: "fenceid",
+      swaccess: "ro",
+      hwaccess: "hwo",
+      hwext: true,
+      fields: [
+        {
+            bits: "0",
+            name: "iso_idle_ack",
+            desc: '''
+                  NOC isolation acknowledgement status for main AXI interfaces.
+                  '''
+        }
+        {
+            bits: "1",
+            name: "iso_idle_val",
+            desc: '''
+                  NOC isolation active status for main AXI interfaces.
+                  '''
+        }
+      ]
+    }}
+    {
+      name: "PPMU_INTERNAL_SHUTDOWN_CONTROL",
+      desc: "Partition Power Management Shutdown Control Register",
+      swaccess: "rw",
+      hwaccess: "hro",
+      fields: [
+        {
+            bits: "0",
+            name: "sw_shutdown_req",
+            resval: "0",
+            desc: '''
+                  Request to partition logic to start a clean shutdown of the partition
+                  '''
+        }
+      ]
+    }
+    { name : "PPMU_INTERNAL_SHUTDOWN_STATUS",
+      desc : "Partition Power Management Shutdown Status Register",
+      swaccess: "ro",
+      hwaccess: "hwo",
+      hwext: true,
+      fields: [
+        {
+            bits: "0",
+            name: "sw_shutdown_complete",
+            resval: "0",
+            desc: '''
+                  Response from partition logic to indicate that a clean shutdown of the partition has completed
+                  '''
+        }
+      ]
+    }
+    { name : "PPMU_INTERNAL_SHUTDOWN_ACK",
+      desc : "Partition Power Management Shutdown Acknowledgement Register",
+      swaccess: "rw",
+      hwaccess: "hrw",
+      fields: [
+        {
+            bits: "0",
+            name: "sw_shutdown_complete",
+            resval: "0",
+            desc: '''
+                  Partition CPU acknowledgement for SW generated responses - feeds into status. Resets to 0 on partition_rst.
+                  '''
+        }
+      ]
+    }
+    { multireg: {name: "PPMU_CLOCK_GATING_CONTROL",
+      count: "MAX_CLOCKS",
+      cname: "clk"
+      desc: "Partition Power Management Root Clock Gate Control Register",
+      swaccess: "rw",
+      hwaccess: "hro",
+      hwqe: "true",
+      fields: [
+        {
+            bits: "0",
+            name: "clock_disable",
+            resval: 0,
+            desc: '''
+                  Fast Clock Root Clock Gating Control. If '1', clock will be gated.
+                  '''
+        }
+        {
+          bits: "15:8",
+          name: "clk_divider",
+          resval: "0xFF",
+          desc: '''
+                Fast Clock Divider Value
+                '''
+       }
+      ]
+    }}
+    { multireg: {name: "MEM_POWER_MODE",
+      count: "MAX_MEM_GRPS"
+      cname: "grp"
+      desc: "Power Modes Control.",
+      swaccess: "rw",
+      hwaccess: "hro"
+      fields: [
+        {
+            bits: "0",
+            name: "ret",
+            desc: '''
+                  Retention mode enable, active high
+                  When PDE is high and RET are low, the memory operates in the power-down
+                  mode. However, when PDE is high and RET is high, you can control the retention
+                  voltage of the core by varying VDDCE.
+                  '''
+            resval: 0x0
+        }
+        {
+            bits: "1",
+            name: "pde",
+            desc: '''
+                  Power down enable, active high
+                  During normal SRAM operation, this signal must be low to enable power gates.
+                  When high, the retention mode or power-down mode is enable.
+                  '''
+            resval: 0x0
+        }
+      ]
+    }},
+    { multireg: {name: "MEM_POWER_UP_READY",
+      count: "MAX_MEM_GRPS"
+      cname: "grp"
+      desc: "Memory Operation Ready Status Register.",
+      swaccess: "ro",
+      hwaccess: "hwo",
+      hwext: "true",
+      fields: [
+        {
+            bits: "0",
+            name:"prn",
+            desc: '''
+                  Power up ready negative
+                  When entering normal mode from power mode, PRN is changed from 1 to 0 to
+                  notify that power up is completed.'''
+        }
+      ]
+    }},
+    { name: "GLOBAL_SYNC_CONTROL",
+      desc: "Control of High Precision Sync Delay",
+      swaccess: "rw",
+      hwaccess: "hro",
+      hwqe: "true",
+      fields: [
+        {
+            bits: "5:0",
+            name:"Delay",
+            desc: '''
+                  Additional delay on top of resync (2-3 cycles).'''
+        }
+      ]
+    },
+    { multireg: {name: "THROTTLE_CONTROL",
+      count: "MAX_CLOCKS_X_THROTTLE_PINS"
+      cname: "thr"
+      desc: "Clock Throttle Control Register for DCTU",
+      swaccess: "rw",
+      hwaccess: "hro",
+      hwqe: "true",
+      fields: [
+        {
+            bits: "0",
+            name:"throttle_en",
+            resval: 0,
+            desc: '''
+                  Enable the throttle unit.
+                  '''
+        }
+        {
+            bits: "1",
+            name:"sw_overwrite",
+            resval: 0,
+            desc: '''
+                  Force the enable of the throttle logic.
+                  '''
+        }
+        {
+            bits: "9:8",
+            name:"throttle_mode",
+            resval: "0x1",
+            desc: '''
+                  Define the throttle mode. 0 - DISABLED; 1 - E_MAX_LIMIT; 2 - E_HARD_THROTTLE; 3 - E_SOFT_THROTTLE.
+                  '''
+        }
+        {
+            bits: "23:16",
+            name:"throttle_div_value",
+            resval: 0,
+            desc: '''
+                  Clock division target when throttle is enabled.
+                  '''
+        }
+        {
+            bits: "31:24",
+            name:"throttle_prescale",
+            resval: 0,
+            desc: '''
+                  Pre-scale factor for the baseline cycle times above (multiplier).
+                  '''
+        }
+      ]
+    }},
+    { multireg: {name: "THROTTLE_INCR_DECR_RATE",
+      count: "MAX_CLOCKS_X_THROTTLE_PINS"
+      cname: "thr"
+      desc: "Clock Throttle Increment and Decrement Rates for Soft Throttle Mode",
+      swaccess: "rw",
+      hwaccess: "hro",
+      hwqe: "true",
+      fields: [
+        {
+            bits: "15:0",
+            name:"throttle_incr_time",
+            resval: 0,
+            desc: '''
+                  Baseline cycle time between increments of one for the clock division.
+                  '''
+        }
+        {
+            bits: "31:16",
+            name:"throttle_decr_time",
+            resval: 0,
+            desc: '''
+                  Baseline cycle time between decrements of one for the clock division.
+                  '''
+        }
+      ]
+    }},
+    { skipto: "512"}
+    { window: {
+      name: "int_partition_ao_csr"
+      items: "128"
+      swaccess: "rw"
+      desc: '''
+            Partition Specific AO CSR registers
+            '''
+    }}
+
+  ]
+}

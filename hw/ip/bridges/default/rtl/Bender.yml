@@ -1,0 +1,31 @@
+# (C) Copyright 2024 Axelera AI B.V.
+# All Rights Reserved
+# *** Axelera AI Confidential ***
+
+package:
+  name: bridges
+  description: "Collection of protocol converters to be used across the project"
+  authors:
+    - "Kevin Luciani <kevin.luciani@axelera.ai>"
+
+dependencies:
+  bridges_pkg: { path: "" }
+  axe_apb:     { path: "" }
+  axe_ahb:     { path: "" }
+  cc_lib:      { path: "" }
+  designware:  { path: "" }
+
+# Source files grouped in levels.
+# Files in level 0 have no dependencies on files in this package.
+# Files in level 1 only depend on files in level 0, files in level 2 on files in levels 1 and 0, etc.
+# Files within a level are ordered alphabetically.
+sources:
+  - target: rtl
+    files:
+    # Level 0
+    - axe_jtag_to_apb_tdr_core.sv
+    - axe_ahb_to_apb.sv
+    # Level 1
+    - axe_jtag_to_apb_tdr.sv
+    # Level 2
+    - axe_jtag_to_apb.sv

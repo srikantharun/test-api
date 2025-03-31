@@ -1,0 +1,2030 @@
+tests:
+- description: TODO
+  flags:
+  - ELF=/data/regression/europa/verif_team/cva6v/asm/rag/csr/build/csr_mmode_cycle_0
+  labels:
+  - CVA6V_DV_TESTS
+  - CVA6V_DV_RAG_TESTS
+  - CVA6V_DV_RAG_SCALAR_TESTS
+  - CVA6V_DV_RAG_CSR_241001_TESTS
+  name: csr_mmode_cycle_0
+  owner: Raymond Garcia
+  platforms:
+  - cva6v.*
+  requirement_ids: [CVA6V_FEAT_0, CVA6V_FEAT_5, CVA6V_FEAT_6, CVA6V_FEAT_7]
+- description: TODO
+  flags:
+  - ELF=/data/regression/europa/verif_team/cva6v/asm/rag/csr/build/csr_mmode_dcache_0
+  labels:
+  - CVA6V_DV_TESTS
+  - CVA6V_DV_RAG_TESTS
+  - CVA6V_DV_RAG_SCALAR_TESTS
+  - CVA6V_DV_RAG_CSR_241001_TESTS
+  name: csr_mmode_dcache_0
+  owner: Raymond Garcia
+  platforms:
+  - cva6v.*
+  requirement_ids: [CVA6V_FEAT_0, CVA6V_FEAT_5, CVA6V_FEAT_6, CVA6V_FEAT_7]
+- description: TODO
+  flags:
+  - ELF=/data/regression/europa/verif_team/cva6v/asm/rag/csr/build/csr_mmode_dcsr_0
+  labels:
+  - CVA6V_DV_TESTS
+  - CVA6V_DV_RAG_TESTS
+  - CVA6V_DV_RAG_SCALAR_TESTS
+  - CVA6V_DV_RAG_CSR_241001_TESTS
+  name: csr_mmode_dcsr_0
+  owner: Raymond Garcia
+  platforms:
+  - cva6v.*
+  requirement_ids: [CVA6V_FEAT_0, CVA6V_FEAT_5, CVA6V_FEAT_6, CVA6V_FEAT_7]
+- description: TODO
+  flags:
+  - ELF=/data/regression/europa/verif_team/cva6v/asm/rag/csr/build/csr_mmode_dpc_0
+  labels:
+  - CVA6V_DV_TESTS
+  - CVA6V_DV_RAG_TESTS
+  - CVA6V_DV_RAG_SCALAR_TESTS
+  - CVA6V_DV_RAG_CSR_241001_TESTS
+  name: csr_mmode_dpc_0
+  owner: Raymond Garcia
+  platforms:
+  - cva6v.*
+  requirement_ids: [CVA6V_FEAT_0, CVA6V_FEAT_5, CVA6V_FEAT_6, CVA6V_FEAT_7]
+- description: TODO
+  flags:
+  - ELF=/data/regression/europa/verif_team/cva6v/asm/rag/csr/build/csr_mmode_dscratch0_0
+  labels:
+  - CVA6V_DV_TESTS
+  - CVA6V_DV_RAG_TESTS
+  - CVA6V_DV_RAG_SCALAR_TESTS
+  - CVA6V_DV_RAG_CSR_241001_TESTS
+  name: csr_mmode_dscratch0_0
+  owner: Raymond Garcia
+  platforms:
+  - cva6v.*
+  requirement_ids: [CVA6V_FEAT_0, CVA6V_FEAT_5, CVA6V_FEAT_6, CVA6V_FEAT_7]
+- description: TODO
+  flags:
+  - ELF=/data/regression/europa/verif_team/cva6v/asm/rag/csr/build/csr_mmode_dscratch1_0
+  labels:
+  - CVA6V_DV_TESTS
+  - CVA6V_DV_RAG_TESTS
+  - CVA6V_DV_RAG_SCALAR_TESTS
+  - CVA6V_DV_RAG_CSR_241001_TESTS
+  name: csr_mmode_dscratch1_0
+  owner: Raymond Garcia
+  platforms:
+  - cva6v.*
+  requirement_ids: [CVA6V_FEAT_0, CVA6V_FEAT_5, CVA6V_FEAT_6, CVA6V_FEAT_7]
+- description: TODO
+  flags:
+  - ELF=/data/regression/europa/verif_team/cva6v/asm/rag/csr/build/csr_mmode_fcsr_0
+  labels:
+  - CVA6V_DV_TESTS
+  - CVA6V_DV_RAG_TESTS
+  - CVA6V_DV_RAG_SCALAR_TESTS
+  - CVA6V_DV_RAG_CSR_241001_TESTS
+  name: csr_mmode_fcsr_0
+  owner: Raymond Garcia
+  platforms:
+  - cva6v.*
+  requirement_ids: [CVA6V_FEAT_0, CVA6V_FEAT_5, CVA6V_FEAT_6, CVA6V_FEAT_7]
+- description: TODO
+  flags:
+  - ELF=/data/regression/europa/verif_team/cva6v/asm/rag/csr/build/csr_mmode_fflags_0
+  labels:
+  - CVA6V_DV_TESTS
+  - CVA6V_DV_RAG_TESTS
+  - CVA6V_DV_RAG_SCALAR_TESTS
+  - CVA6V_DV_RAG_CSR_241001_TESTS
+  name: csr_mmode_fflags_0
+  owner: Raymond Garcia
+  platforms:
+  - cva6v.*
+  requirement_ids: [CVA6V_FEAT_0, CVA6V_FEAT_5, CVA6V_FEAT_6, CVA6V_FEAT_7]
+- description: TODO
+  flags:
+  - ELF=/data/regression/europa/verif_team/cva6v/asm/rag/csr/build/csr_mmode_frm_0
+  labels:
+  - CVA6V_DV_TESTS
+  - CVA6V_DV_RAG_TESTS
+  - CVA6V_DV_RAG_SCALAR_TESTS
+  - CVA6V_DV_RAG_CSR_241001_TESTS
+  name: csr_mmode_frm_0
+  owner: Raymond Garcia
+  platforms:
+  - cva6v.*
+  requirement_ids: [CVA6V_FEAT_0, CVA6V_FEAT_5, CVA6V_FEAT_6, CVA6V_FEAT_7]
+- description: TODO
+  flags:
+  - ELF=/data/regression/europa/verif_team/cva6v/asm/rag/csr/build/csr_mmode_hpmcounter_0
+  labels:
+  - CVA6V_DV_TESTS
+  - CVA6V_DV_RAG_TESTS
+  - CVA6V_DV_RAG_SCALAR_TESTS
+  - CVA6V_DV_RAG_CSR_241001_TESTS
+  name: csr_mmode_hpmcounter_0
+  owner: Raymond Garcia
+  platforms:
+  - cva6v.*
+  requirement_ids: [CVA6V_FEAT_0, CVA6V_FEAT_5, CVA6V_FEAT_6, CVA6V_FEAT_7]
+- description: TODO
+  flags:
+  - ELF=/data/regression/europa/verif_team/cva6v/asm/rag/csr/build/csr_mmode_icache_0
+  labels:
+  - CVA6V_DV_TESTS
+  - CVA6V_DV_RAG_TESTS
+  - CVA6V_DV_RAG_SCALAR_TESTS
+  - CVA6V_DV_RAG_CSR_241001_TESTS
+  name: csr_mmode_icache_0
+  owner: Raymond Garcia
+  platforms:
+  - cva6v.*
+  requirement_ids: [CVA6V_FEAT_0, CVA6V_FEAT_5, CVA6V_FEAT_6, CVA6V_FEAT_7]
+- description: TODO
+  flags:
+  - ELF=/data/regression/europa/verif_team/cva6v/asm/rag/csr/build/csr_mmode_instret_0
+  labels:
+  - CVA6V_DV_TESTS
+  - CVA6V_DV_RAG_TESTS
+  - CVA6V_DV_RAG_SCALAR_TESTS
+  - CVA6V_DV_RAG_CSR_241001_TESTS
+  name: csr_mmode_instret_0
+  owner: Raymond Garcia
+  platforms:
+  - cva6v.*
+  requirement_ids: [CVA6V_FEAT_0, CVA6V_FEAT_5, CVA6V_FEAT_6, CVA6V_FEAT_7]
+- description: TODO
+  flags:
+  - ELF=/data/regression/europa/verif_team/cva6v/asm/rag/csr/build/csr_mmode_marchid_0
+  labels:
+  - CVA6V_DV_TESTS
+  - CVA6V_DV_RAG_TESTS
+  - CVA6V_DV_RAG_SCALAR_TESTS
+  - CVA6V_DV_RAG_CSR_241001_TESTS
+  name: csr_mmode_marchid_0
+  owner: Raymond Garcia
+  platforms:
+  - cva6v.*
+  requirement_ids: [CVA6V_FEAT_0, CVA6V_FEAT_5, CVA6V_FEAT_6, CVA6V_FEAT_7]
+- description: TODO
+  flags:
+  - ELF=/data/regression/europa/verif_team/cva6v/asm/rag/csr/build/csr_mmode_mcause_0
+  labels:
+  - CVA6V_DV_TESTS
+  - CVA6V_DV_RAG_TESTS
+  - CVA6V_DV_RAG_SCALAR_TESTS
+  - CVA6V_DV_RAG_CSR_241001_TESTS
+  name: csr_mmode_mcause_0
+  owner: Raymond Garcia
+  platforms:
+  - cva6v.*
+  requirement_ids: [CVA6V_FEAT_0, CVA6V_FEAT_5, CVA6V_FEAT_6, CVA6V_FEAT_7]
+- description: TODO
+  flags:
+  - ELF=/data/regression/europa/verif_team/cva6v/asm/rag/csr/build/csr_mmode_mconfigptr_0
+  labels:
+  - CVA6V_DV_TESTS
+  - CVA6V_DV_RAG_TESTS
+  - CVA6V_DV_RAG_SCALAR_TESTS
+  - CVA6V_DV_RAG_CSR_241001_TESTS
+  name: csr_mmode_mconfigptr_0
+  owner: Raymond Garcia
+  platforms:
+  - cva6v.*
+  requirement_ids: [CVA6V_FEAT_0, CVA6V_FEAT_5, CVA6V_FEAT_6, CVA6V_FEAT_7]
+- description: TODO
+  flags:
+  - ELF=/data/regression/europa/verif_team/cva6v/asm/rag/csr/build/csr_mmode_mcounteren_0
+  labels:
+  - CVA6V_DV_TESTS
+  - CVA6V_DV_RAG_TESTS
+  - CVA6V_DV_RAG_SCALAR_TESTS
+  - CVA6V_DV_RAG_CSR_241001_TESTS
+  name: csr_mmode_mcounteren_0
+  owner: Raymond Garcia
+  platforms:
+  - cva6v.*
+  requirement_ids: [CVA6V_FEAT_0, CVA6V_FEAT_5, CVA6V_FEAT_6, CVA6V_FEAT_7]
+- description: TODO
+  flags:
+  - ELF=/data/regression/europa/verif_team/cva6v/asm/rag/csr/build/csr_mmode_mcountinhibit_0
+  labels:
+  - CVA6V_DV_TESTS
+  - CVA6V_DV_RAG_TESTS
+  - CVA6V_DV_RAG_SCALAR_TESTS
+  - CVA6V_DV_RAG_CSR_241001_TESTS
+  name: csr_mmode_mcountinhibit_0
+  owner: Raymond Garcia
+  platforms:
+  - cva6v.*
+  requirement_ids: [CVA6V_FEAT_0, CVA6V_FEAT_5, CVA6V_FEAT_6, CVA6V_FEAT_7]
+- description: TODO
+  flags:
+  - ELF=/data/regression/europa/verif_team/cva6v/asm/rag/csr/build/csr_mmode_mcycle_0
+  labels:
+  - CVA6V_DV_TESTS
+  - CVA6V_DV_RAG_TESTS
+  - CVA6V_DV_RAG_SCALAR_TESTS
+  - CVA6V_DV_RAG_CSR_241001_TESTS
+  name: csr_mmode_mcycle_0
+  owner: Raymond Garcia
+  platforms:
+  - cva6v.*
+  requirement_ids: [CVA6V_FEAT_0, CVA6V_FEAT_5, CVA6V_FEAT_6, CVA6V_FEAT_7]
+- description: TODO
+  flags:
+  - ELF=/data/regression/europa/verif_team/cva6v/asm/rag/csr/build/csr_mmode_medeleg_0
+  labels:
+  - CVA6V_DV_TESTS
+  - CVA6V_DV_RAG_TESTS
+  - CVA6V_DV_RAG_SCALAR_TESTS
+  - CVA6V_DV_RAG_CSR_241001_TESTS
+  name: csr_mmode_medeleg_0
+  owner: Raymond Garcia
+  platforms:
+  - cva6v.*
+  requirement_ids: [CVA6V_FEAT_0, CVA6V_FEAT_5, CVA6V_FEAT_6, CVA6V_FEAT_7]
+- description: TODO
+  flags:
+  - ELF=/data/regression/europa/verif_team/cva6v/asm/rag/csr/build/csr_mmode_menvcfg_0
+  labels:
+  - CVA6V_DV_TESTS
+  - CVA6V_DV_RAG_TESTS
+  - CVA6V_DV_RAG_SCALAR_TESTS
+  - CVA6V_DV_RAG_CSR_241001_TESTS
+  name: csr_mmode_menvcfg_0
+  owner: Raymond Garcia
+  platforms:
+  - cva6v.*
+  requirement_ids: [CVA6V_FEAT_0, CVA6V_FEAT_5, CVA6V_FEAT_6, CVA6V_FEAT_7]
+- description: TODO
+  flags:
+  - ELF=/data/regression/europa/verif_team/cva6v/asm/rag/csr/build/csr_mmode_mepc_0
+  labels:
+  - CVA6V_DV_TESTS
+  - CVA6V_DV_RAG_TESTS
+  - CVA6V_DV_RAG_SCALAR_TESTS
+  - CVA6V_DV_RAG_CSR_241001_TESTS
+  name: csr_mmode_mepc_0
+  owner: Raymond Garcia
+  platforms:
+  - cva6v.*
+  requirement_ids: [CVA6V_FEAT_0, CVA6V_FEAT_5, CVA6V_FEAT_6, CVA6V_FEAT_7]
+- description: TODO
+  flags:
+  - ELF=/data/regression/europa/verif_team/cva6v/asm/rag/csr/build/csr_mmode_mhartid_0
+  labels:
+  - CVA6V_DV_TESTS
+  - CVA6V_DV_RAG_TESTS
+  - CVA6V_DV_RAG_SCALAR_TESTS
+  - CVA6V_DV_RAG_CSR_241001_TESTS
+  name: csr_mmode_mhartid_0
+  owner: Raymond Garcia
+  platforms:
+  - cva6v.*
+  requirement_ids: [CVA6V_FEAT_0, CVA6V_FEAT_5, CVA6V_FEAT_6, CVA6V_FEAT_7]
+- description: TODO
+  flags:
+  - ELF=/data/regression/europa/verif_team/cva6v/asm/rag/csr/build/csr_mmode_mhpmcounter_0
+  labels:
+  - CVA6V_DV_TESTS
+  - CVA6V_DV_RAG_TESTS
+  - CVA6V_DV_RAG_SCALAR_TESTS
+  - CVA6V_DV_RAG_CSR_241001_TESTS
+  name: csr_mmode_mhpmcounter_0
+  owner: Raymond Garcia
+  platforms:
+  - cva6v.*
+  requirement_ids: [CVA6V_FEAT_0, CVA6V_FEAT_5, CVA6V_FEAT_6, CVA6V_FEAT_7]
+- description: TODO
+  flags:
+  - ELF=/data/regression/europa/verif_team/cva6v/asm/rag/csr/build/csr_mmode_mhpmevent_0
+  labels:
+  - CVA6V_DV_TESTS
+  - CVA6V_DV_RAG_TESTS
+  - CVA6V_DV_RAG_SCALAR_TESTS
+  - CVA6V_DV_RAG_CSR_241001_TESTS
+  name: csr_mmode_mhpmevent_0
+  owner: Raymond Garcia
+  platforms:
+  - cva6v.*
+  requirement_ids: [CVA6V_FEAT_0, CVA6V_FEAT_5, CVA6V_FEAT_6, CVA6V_FEAT_7]
+- description: TODO
+  flags:
+  - ELF=/data/regression/europa/verif_team/cva6v/asm/rag/csr/build/csr_mmode_mideleg_0
+  labels:
+  - CVA6V_DV_TESTS
+  - CVA6V_DV_RAG_TESTS
+  - CVA6V_DV_RAG_SCALAR_TESTS
+  - CVA6V_DV_RAG_CSR_241001_TESTS
+  name: csr_mmode_mideleg_0
+  owner: Raymond Garcia
+  platforms:
+  - cva6v.*
+  requirement_ids: [CVA6V_FEAT_0, CVA6V_FEAT_5, CVA6V_FEAT_6, CVA6V_FEAT_7]
+- description: TODO
+  flags:
+  - ELF=/data/regression/europa/verif_team/cva6v/asm/rag/csr/build/csr_mmode_mie_0
+  labels:
+  - CVA6V_DV_TESTS
+  - CVA6V_DV_RAG_TESTS
+  - CVA6V_DV_RAG_SCALAR_TESTS
+  - CVA6V_DV_RAG_CSR_241001_TESTS
+  name: csr_mmode_mie_0
+  owner: Raymond Garcia
+  platforms:
+  - cva6v.*
+  requirement_ids: [CVA6V_FEAT_0, CVA6V_FEAT_5, CVA6V_FEAT_6, CVA6V_FEAT_7]
+- description: TODO
+  flags:
+  - ELF=/data/regression/europa/verif_team/cva6v/asm/rag/csr/build/csr_mmode_mimpid_0
+  labels:
+  - CVA6V_DV_TESTS
+  - CVA6V_DV_RAG_TESTS
+  - CVA6V_DV_RAG_SCALAR_TESTS
+  - CVA6V_DV_RAG_CSR_241001_TESTS
+  name: csr_mmode_mimpid_0
+  owner: Raymond Garcia
+  platforms:
+  - cva6v.*
+  requirement_ids: [CVA6V_FEAT_0, CVA6V_FEAT_5, CVA6V_FEAT_6, CVA6V_FEAT_7]
+- description: TODO
+  flags:
+  - ELF=/data/regression/europa/verif_team/cva6v/asm/rag/csr/build/csr_mmode_minstret_0
+  labels:
+  - CVA6V_DV_TESTS
+  - CVA6V_DV_RAG_TESTS
+  - CVA6V_DV_RAG_SCALAR_TESTS
+  - CVA6V_DV_RAG_CSR_241001_TESTS
+  name: csr_mmode_minstret_0
+  owner: Raymond Garcia
+  platforms:
+  - cva6v.*
+  requirement_ids: [CVA6V_FEAT_0, CVA6V_FEAT_5, CVA6V_FEAT_6, CVA6V_FEAT_7]
+- description: TODO
+  flags:
+  - ELF=/data/regression/europa/verif_team/cva6v/asm/rag/csr/build/csr_mmode_mip_0
+  labels:
+  - CVA6V_DV_TESTS
+  - CVA6V_DV_RAG_TESTS
+  - CVA6V_DV_RAG_SCALAR_TESTS
+  - CVA6V_DV_RAG_CSR_241001_TESTS
+  name: csr_mmode_mip_0
+  owner: Raymond Garcia
+  platforms:
+  - cva6v.*
+  requirement_ids: [CVA6V_FEAT_0, CVA6V_FEAT_5, CVA6V_FEAT_6, CVA6V_FEAT_7]
+- description: TODO
+  flags:
+  - ELF=/data/regression/europa/verif_team/cva6v/asm/rag/csr/build/csr_mmode_misa_0
+  labels:
+  - CVA6V_DV_TESTS
+  - CVA6V_DV_RAG_TESTS
+  - CVA6V_DV_RAG_SCALAR_TESTS
+  - CVA6V_DV_RAG_CSR_241001_TESTS
+  name: csr_mmode_misa_0
+  owner: Raymond Garcia
+  platforms:
+  - cva6v.*
+  requirement_ids: [CVA6V_FEAT_0, CVA6V_FEAT_5, CVA6V_FEAT_6, CVA6V_FEAT_7]
+- description: TODO
+  flags:
+  - ELF=/data/regression/europa/verif_team/cva6v/asm/rag/csr/build/csr_mmode_mscratch_0
+  labels:
+  - CVA6V_DV_MR_TESTS
+  - CVA6V_DV_TESTS
+  - CVA6V_DV_RAG_TESTS
+  - CVA6V_DV_RAG_SCALAR_TESTS
+  - CVA6V_DV_RAG_CSR_241001_TESTS
+  name: csr_mmode_mscratch_0
+  owner: Raymond Garcia
+  platforms:
+  - cva6v.*
+  requirement_ids: [CVA6V_FEAT_0, CVA6V_FEAT_5, CVA6V_FEAT_6, CVA6V_FEAT_7]
+- description: TODO
+  flags:
+  - ELF=/data/regression/europa/verif_team/cva6v/asm/rag/csr/build/csr_mmode_mstatus_0
+  labels:
+  - CVA6V_DV_TESTS
+  - CVA6V_DV_RAG_TESTS
+  - CVA6V_DV_RAG_SCALAR_TESTS
+  - CVA6V_DV_RAG_CSR_241001_TESTS
+  name: csr_mmode_mstatus_0
+  owner: Raymond Garcia
+  platforms:
+  - cva6v.*
+  requirement_ids: [CVA6V_FEAT_0, CVA6V_FEAT_5, CVA6V_FEAT_6, CVA6V_FEAT_7]
+- description: TODO
+  flags:
+  - ELF=/data/regression/europa/verif_team/cva6v/asm/rag/csr/build/csr_mmode_mtval_0
+  labels:
+  - CVA6V_DV_TESTS
+  - CVA6V_DV_RAG_TESTS
+  - CVA6V_DV_RAG_SCALAR_TESTS
+  - CVA6V_DV_RAG_CSR_241001_TESTS
+  name: csr_mmode_mtval_0
+  owner: Raymond Garcia
+  platforms:
+  - cva6v.*
+  requirement_ids: [CVA6V_FEAT_0, CVA6V_FEAT_5, CVA6V_FEAT_6, CVA6V_FEAT_7]
+- description: TODO
+  flags:
+  - ELF=/data/regression/europa/verif_team/cva6v/asm/rag/csr/build/csr_mmode_mtvec_0
+  labels:
+  - CVA6V_DV_TESTS
+  - CVA6V_DV_RAG_TESTS
+  - CVA6V_DV_RAG_SCALAR_TESTS
+  - CVA6V_DV_RAG_CSR_241001_TESTS
+  name: csr_mmode_mtvec_0
+  owner: Raymond Garcia
+  platforms:
+  - cva6v.*
+  requirement_ids: [CVA6V_FEAT_0, CVA6V_FEAT_5, CVA6V_FEAT_6, CVA6V_FEAT_7]
+- description: TODO
+  flags:
+  - ELF=/data/regression/europa/verif_team/cva6v/asm/rag/csr/build/csr_mmode_mvendorid_0
+  labels:
+  - CVA6V_DV_TESTS
+  - CVA6V_DV_RAG_TESTS
+  - CVA6V_DV_RAG_SCALAR_TESTS
+  - CVA6V_DV_RAG_CSR_241001_TESTS
+  name: csr_mmode_mvendorid_0
+  owner: Raymond Garcia
+  platforms:
+  - cva6v.*
+  requirement_ids: [CVA6V_FEAT_0, CVA6V_FEAT_5, CVA6V_FEAT_6, CVA6V_FEAT_7]
+- description: TODO
+  flags:
+  - ELF=/data/regression/europa/verif_team/cva6v/asm/rag/csr/build/csr_mmode_scause_0
+  labels:
+  - CVA6V_DV_TESTS
+  - CVA6V_DV_RAG_TESTS
+  - CVA6V_DV_RAG_SCALAR_TESTS
+  - CVA6V_DV_RAG_CSR_241001_TESTS
+  name: csr_mmode_scause_0
+  owner: Raymond Garcia
+  platforms:
+  - cva6v.*
+  requirement_ids: [CVA6V_FEAT_0, CVA6V_FEAT_5, CVA6V_FEAT_6, CVA6V_FEAT_7]
+- description: TODO
+  flags:
+  - ELF=/data/regression/europa/verif_team/cva6v/asm/rag/csr/build/csr_mmode_scounteren_0
+  labels:
+  - CVA6V_DV_TESTS
+  - CVA6V_DV_RAG_TESTS
+  - CVA6V_DV_RAG_SCALAR_TESTS
+  - CVA6V_DV_RAG_CSR_241001_TESTS
+  name: csr_mmode_scounteren_0
+  owner: Raymond Garcia
+  platforms:
+  - cva6v.*
+  requirement_ids: [CVA6V_FEAT_0, CVA6V_FEAT_5, CVA6V_FEAT_6, CVA6V_FEAT_7]
+- description: TODO
+  flags:
+  - ELF=/data/regression/europa/verif_team/cva6v/asm/rag/csr/build/csr_mmode_senvcfg_0
+  labels:
+  - CVA6V_DV_TESTS
+  - CVA6V_DV_RAG_TESTS
+  - CVA6V_DV_RAG_SCALAR_TESTS
+  - CVA6V_DV_RAG_CSR_241001_TESTS
+  name: csr_mmode_senvcfg_0
+  owner: Raymond Garcia
+  platforms:
+  - cva6v.*
+  requirement_ids: [CVA6V_FEAT_0, CVA6V_FEAT_5, CVA6V_FEAT_6, CVA6V_FEAT_7]
+- description: TODO
+  flags:
+  - ELF=/data/regression/europa/verif_team/cva6v/asm/rag/csr/build/csr_mmode_sepc_0
+  labels:
+  - CVA6V_DV_TESTS
+  - CVA6V_DV_RAG_TESTS
+  - CVA6V_DV_RAG_SCALAR_TESTS
+  - CVA6V_DV_RAG_CSR_241001_TESTS
+  name: csr_mmode_sepc_0
+  owner: Raymond Garcia
+  platforms:
+  - cva6v.*
+  requirement_ids: [CVA6V_FEAT_0, CVA6V_FEAT_5, CVA6V_FEAT_6, CVA6V_FEAT_7]
+- description: TODO
+  flags:
+  - ELF=/data/regression/europa/verif_team/cva6v/asm/rag/csr/build/csr_mmode_sie_0
+  labels:
+  - CVA6V_DV_TESTS
+  - CVA6V_DV_RAG_TESTS
+  - CVA6V_DV_RAG_SCALAR_TESTS
+  - CVA6V_DV_RAG_CSR_241001_TESTS
+  name: csr_mmode_sie_0
+  owner: Raymond Garcia
+  platforms:
+  - cva6v.*
+  requirement_ids: [CVA6V_FEAT_0, CVA6V_FEAT_5, CVA6V_FEAT_6, CVA6V_FEAT_7]
+- description: TODO
+  flags:
+  - ELF=/data/regression/europa/verif_team/cva6v/asm/rag/csr/build/csr_mmode_sip_0
+  labels:
+  - CVA6V_DV_TESTS
+  - CVA6V_DV_RAG_TESTS
+  - CVA6V_DV_RAG_SCALAR_TESTS
+  - CVA6V_DV_RAG_CSR_241001_TESTS
+  name: csr_mmode_sip_0
+  owner: Raymond Garcia
+  platforms:
+  - cva6v.*
+  requirement_ids: [CVA6V_FEAT_0, CVA6V_FEAT_5, CVA6V_FEAT_6, CVA6V_FEAT_7]
+- description: TODO
+  flags:
+  - ELF=/data/regression/europa/verif_team/cva6v/asm/rag/csr/build/csr_mmode_sscratch_0
+  labels:
+  - CVA6V_DV_TESTS
+  - CVA6V_DV_RAG_TESTS
+  - CVA6V_DV_RAG_SCALAR_TESTS
+  - CVA6V_DV_RAG_CSR_241001_TESTS
+  name: csr_mmode_sscratch_0
+  owner: Raymond Garcia
+  platforms:
+  - cva6v.*
+  requirement_ids: [CVA6V_FEAT_0, CVA6V_FEAT_5, CVA6V_FEAT_6, CVA6V_FEAT_7]
+- description: TODO
+  flags:
+  - ELF=/data/regression/europa/verif_team/cva6v/asm/rag/csr/build/csr_mmode_sstatus_0
+  labels:
+  - CVA6V_DV_TESTS
+  - CVA6V_DV_RAG_TESTS
+  - CVA6V_DV_RAG_SCALAR_TESTS
+  - CVA6V_DV_RAG_CSR_241001_TESTS
+  name: csr_mmode_sstatus_0
+  owner: Raymond Garcia
+  platforms:
+  - cva6v.*
+  requirement_ids: [CVA6V_FEAT_0, CVA6V_FEAT_5, CVA6V_FEAT_6, CVA6V_FEAT_7]
+- description: TODO
+  flags:
+  - ELF=/data/regression/europa/verif_team/cva6v/asm/rag/csr/build/csr_mmode_stval_0
+  labels:
+  - CVA6V_DV_TESTS
+  - CVA6V_DV_RAG_TESTS
+  - CVA6V_DV_RAG_SCALAR_TESTS
+  - CVA6V_DV_RAG_CSR_241001_TESTS
+  name: csr_mmode_stval_0
+  owner: Raymond Garcia
+  platforms:
+  - cva6v.*
+  requirement_ids: [CVA6V_FEAT_0, CVA6V_FEAT_5, CVA6V_FEAT_6, CVA6V_FEAT_7]
+- description: TODO
+  flags:
+  - ELF=/data/regression/europa/verif_team/cva6v/asm/rag/csr/build/csr_mmode_stvec_0
+  labels:
+  - CVA6V_DV_TESTS
+  - CVA6V_DV_RAG_TESTS
+  - CVA6V_DV_RAG_SCALAR_TESTS
+  - CVA6V_DV_RAG_CSR_241001_TESTS
+  name: csr_mmode_stvec_0
+  owner: Raymond Garcia
+  platforms:
+  - cva6v.*
+  requirement_ids: [CVA6V_FEAT_0, CVA6V_FEAT_5, CVA6V_FEAT_6, CVA6V_FEAT_7]
+- description: TODO
+  flags:
+  - ELF=/data/regression/europa/verif_team/cva6v/asm/rag/csr/build/csr_mmode_vcsr_0
+  labels:
+  - CVA6V_DV_TESTS
+  - CVA6V_DV_RAG_TESTS
+  - CVA6V_DV_RAG_SCALAR_TESTS
+  - CVA6V_DV_RAG_CSR_241001_TESTS
+  name: csr_mmode_vcsr_0
+  owner: Raymond Garcia
+  platforms:
+  - cva6v.*
+  requirement_ids: [CVA6V_FEAT_0, CVA6V_FEAT_5, CVA6V_FEAT_6, CVA6V_FEAT_7]
+- description: TODO
+  flags:
+  - ELF=/data/regression/europa/verif_team/cva6v/asm/rag/csr/build/csr_mmode_vl_0
+  labels:
+  - CVA6V_DV_TESTS
+  - CVA6V_DV_RAG_TESTS
+  - CVA6V_DV_RAG_SCALAR_TESTS
+  - CVA6V_DV_RAG_CSR_241001_TESTS
+  name: csr_mmode_vl_0
+  owner: Raymond Garcia
+  platforms:
+  - cva6v.*
+  requirement_ids: [CVA6V_FEAT_0, CVA6V_FEAT_5, CVA6V_FEAT_6, CVA6V_FEAT_7]
+- description: TODO
+  flags:
+  - ELF=/data/regression/europa/verif_team/cva6v/asm/rag/csr/build/csr_mmode_vlenb_0
+  labels:
+  - CVA6V_DV_TESTS
+  - CVA6V_DV_RAG_TESTS
+  - CVA6V_DV_RAG_SCALAR_TESTS
+  - CVA6V_DV_RAG_CSR_241001_TESTS
+  name: csr_mmode_vlenb_0
+  owner: Raymond Garcia
+  platforms:
+  - cva6v.*
+  requirement_ids: [CVA6V_FEAT_0, CVA6V_FEAT_5, CVA6V_FEAT_6, CVA6V_FEAT_7]
+- description: TODO
+  flags:
+  - ELF=/data/regression/europa/verif_team/cva6v/asm/rag/csr/build/csr_mmode_vstart_0
+  labels:
+  - CVA6V_DV_TESTS
+  - CVA6V_DV_RAG_TESTS
+  - CVA6V_DV_RAG_SCALAR_TESTS
+  - CVA6V_DV_RAG_CSR_241001_TESTS
+  name: csr_mmode_vstart_0
+  owner: Raymond Garcia
+  platforms:
+  - cva6v.*
+  requirement_ids: [CVA6V_FEAT_0, CVA6V_FEAT_5, CVA6V_FEAT_6, CVA6V_FEAT_7]
+- description: TODO
+  flags:
+  - ELF=/data/regression/europa/verif_team/cva6v/asm/rag/csr/build/csr_mmode_vtype_0
+  labels:
+  - CVA6V_DV_TESTS
+  - CVA6V_DV_RAG_TESTS
+  - CVA6V_DV_RAG_SCALAR_TESTS
+  - CVA6V_DV_RAG_CSR_241001_TESTS
+  name: csr_mmode_vtype_0
+  owner: Raymond Garcia
+  platforms:
+  - cva6v.*
+  requirement_ids: [CVA6V_FEAT_0, CVA6V_FEAT_5, CVA6V_FEAT_6, CVA6V_FEAT_7]
+- description: TODO
+  flags:
+  - ELF=/data/regression/europa/verif_team/cva6v/asm/rag/csr/build/csr_mmode_vxrm_0
+  labels:
+  - CVA6V_DV_TESTS
+  - CVA6V_DV_RAG_TESTS
+  - CVA6V_DV_RAG_SCALAR_TESTS
+  - CVA6V_DV_RAG_CSR_241001_TESTS
+  name: csr_mmode_vxrm_0
+  owner: Raymond Garcia
+  platforms:
+  - cva6v.*
+  requirement_ids: [CVA6V_FEAT_0, CVA6V_FEAT_5, CVA6V_FEAT_6, CVA6V_FEAT_7]
+- description: TODO
+  flags:
+  - ELF=/data/regression/europa/verif_team/cva6v/asm/rag/csr/build/csr_mmode_vxsat_0
+  labels:
+  - CVA6V_DV_TESTS
+  - CVA6V_DV_RAG_TESTS
+  - CVA6V_DV_RAG_SCALAR_TESTS
+  - CVA6V_DV_RAG_CSR_241001_TESTS
+  name: csr_mmode_vxsat_0
+  owner: Raymond Garcia
+  platforms:
+  - cva6v.*
+  requirement_ids: [CVA6V_FEAT_0, CVA6V_FEAT_5, CVA6V_FEAT_6, CVA6V_FEAT_7]
+- description: TODO
+  flags:
+  - ELF=/data/regression/europa/verif_team/cva6v/asm/rag/csr/build/csr_smode_cycle_0
+  labels:
+  - CVA6V_DV_TESTS
+  - CVA6V_DV_RAG_TESTS
+  - CVA6V_DV_RAG_SCALAR_TESTS
+  - CVA6V_DV_RAG_CSR_241001_TESTS
+  name: csr_smode_cycle_0
+  owner: Raymond Garcia
+  platforms:
+  - cva6v.*
+  requirement_ids: [CVA6V_FEAT_0, CVA6V_FEAT_5, CVA6V_FEAT_6, CVA6V_FEAT_7]
+- description: TODO
+  flags:
+  - ELF=/data/regression/europa/verif_team/cva6v/asm/rag/csr/build/csr_smode_dcache_0
+  labels:
+  - CVA6V_DV_TESTS
+  - CVA6V_DV_RAG_TESTS
+  - CVA6V_DV_RAG_SCALAR_TESTS
+  - CVA6V_DV_RAG_CSR_241001_TESTS
+  name: csr_smode_dcache_0
+  owner: Raymond Garcia
+  platforms:
+  - cva6v.*
+  requirement_ids: [CVA6V_FEAT_0, CVA6V_FEAT_5, CVA6V_FEAT_6, CVA6V_FEAT_7]
+- description: TODO
+  flags:
+  - ELF=/data/regression/europa/verif_team/cva6v/asm/rag/csr/build/csr_smode_dcsr_0
+  labels:
+  - CVA6V_DV_TESTS
+  - CVA6V_DV_RAG_TESTS
+  - CVA6V_DV_RAG_SCALAR_TESTS
+  - CVA6V_DV_RAG_CSR_241001_TESTS
+  name: csr_smode_dcsr_0
+  owner: Raymond Garcia
+  platforms:
+  - cva6v.*
+  requirement_ids: [CVA6V_FEAT_0, CVA6V_FEAT_5, CVA6V_FEAT_6, CVA6V_FEAT_7]
+- description: TODO
+  flags:
+  - ELF=/data/regression/europa/verif_team/cva6v/asm/rag/csr/build/csr_smode_dpc_0
+  labels:
+  - CVA6V_DV_TESTS
+  - CVA6V_DV_RAG_TESTS
+  - CVA6V_DV_RAG_SCALAR_TESTS
+  - CVA6V_DV_RAG_CSR_241001_TESTS
+  name: csr_smode_dpc_0
+  owner: Raymond Garcia
+  platforms:
+  - cva6v.*
+  requirement_ids: [CVA6V_FEAT_0, CVA6V_FEAT_5, CVA6V_FEAT_6, CVA6V_FEAT_7]
+- description: TODO
+  flags:
+  - ELF=/data/regression/europa/verif_team/cva6v/asm/rag/csr/build/csr_smode_dscratch0_0
+  labels:
+  - CVA6V_DV_TESTS
+  - CVA6V_DV_RAG_TESTS
+  - CVA6V_DV_RAG_SCALAR_TESTS
+  - CVA6V_DV_RAG_CSR_241001_TESTS
+  name: csr_smode_dscratch0_0
+  owner: Raymond Garcia
+  platforms:
+  - cva6v.*
+  requirement_ids: [CVA6V_FEAT_0, CVA6V_FEAT_5, CVA6V_FEAT_6, CVA6V_FEAT_7]
+- description: TODO
+  flags:
+  - ELF=/data/regression/europa/verif_team/cva6v/asm/rag/csr/build/csr_smode_dscratch1_0
+  labels:
+  - CVA6V_DV_TESTS
+  - CVA6V_DV_RAG_TESTS
+  - CVA6V_DV_RAG_SCALAR_TESTS
+  - CVA6V_DV_RAG_CSR_241001_TESTS
+  name: csr_smode_dscratch1_0
+  owner: Raymond Garcia
+  platforms:
+  - cva6v.*
+  requirement_ids: [CVA6V_FEAT_0, CVA6V_FEAT_5, CVA6V_FEAT_6, CVA6V_FEAT_7]
+- description: TODO
+  flags:
+  - ELF=/data/regression/europa/verif_team/cva6v/asm/rag/csr/build/csr_smode_fcsr_0
+  labels:
+  - CVA6V_DV_TESTS
+  - CVA6V_DV_RAG_TESTS
+  - CVA6V_DV_RAG_SCALAR_TESTS
+  - CVA6V_DV_RAG_CSR_241001_TESTS
+  name: csr_smode_fcsr_0
+  owner: Raymond Garcia
+  platforms:
+  - cva6v.*
+  requirement_ids: [CVA6V_FEAT_0, CVA6V_FEAT_5, CVA6V_FEAT_6, CVA6V_FEAT_7]
+- description: TODO
+  flags:
+  - ELF=/data/regression/europa/verif_team/cva6v/asm/rag/csr/build/csr_smode_fflags_0
+  labels:
+  - CVA6V_DV_TESTS
+  - CVA6V_DV_RAG_TESTS
+  - CVA6V_DV_RAG_SCALAR_TESTS
+  - CVA6V_DV_RAG_CSR_241001_TESTS
+  name: csr_smode_fflags_0
+  owner: Raymond Garcia
+  platforms:
+  - cva6v.*
+  requirement_ids: [CVA6V_FEAT_0, CVA6V_FEAT_5, CVA6V_FEAT_6, CVA6V_FEAT_7]
+- description: TODO
+  flags:
+  - ELF=/data/regression/europa/verif_team/cva6v/asm/rag/csr/build/csr_smode_frm_0
+  labels:
+  - CVA6V_DV_TESTS
+  - CVA6V_DV_RAG_TESTS
+  - CVA6V_DV_RAG_SCALAR_TESTS
+  - CVA6V_DV_RAG_CSR_241001_TESTS
+  name: csr_smode_frm_0
+  owner: Raymond Garcia
+  platforms:
+  - cva6v.*
+  requirement_ids: [CVA6V_FEAT_0, CVA6V_FEAT_5, CVA6V_FEAT_6, CVA6V_FEAT_7]
+- description: TODO
+  flags:
+  - ELF=/data/regression/europa/verif_team/cva6v/asm/rag/csr/build/csr_smode_hpmcounter_0
+  labels:
+  - CVA6V_DV_TESTS
+  - CVA6V_DV_RAG_TESTS
+  - CVA6V_DV_RAG_SCALAR_TESTS
+  - CVA6V_DV_RAG_CSR_241001_TESTS
+  name: csr_smode_hpmcounter_0
+  owner: Raymond Garcia
+  platforms:
+  - cva6v.*
+  requirement_ids: [CVA6V_FEAT_0, CVA6V_FEAT_5, CVA6V_FEAT_6, CVA6V_FEAT_7]
+- description: TODO
+  flags:
+  - ELF=/data/regression/europa/verif_team/cva6v/asm/rag/csr/build/csr_smode_icache_0
+  labels:
+  - CVA6V_DV_TESTS
+  - CVA6V_DV_RAG_TESTS
+  - CVA6V_DV_RAG_SCALAR_TESTS
+  - CVA6V_DV_RAG_CSR_241001_TESTS
+  name: csr_smode_icache_0
+  owner: Raymond Garcia
+  platforms:
+  - cva6v.*
+  requirement_ids: [CVA6V_FEAT_0, CVA6V_FEAT_5, CVA6V_FEAT_6, CVA6V_FEAT_7]
+- description: TODO
+  flags:
+  - ELF=/data/regression/europa/verif_team/cva6v/asm/rag/csr/build/csr_smode_instret_0
+  labels:
+  - CVA6V_DV_TESTS
+  - CVA6V_DV_RAG_TESTS
+  - CVA6V_DV_RAG_SCALAR_TESTS
+  - CVA6V_DV_RAG_CSR_241001_TESTS
+  name: csr_smode_instret_0
+  owner: Raymond Garcia
+  platforms:
+  - cva6v.*
+  requirement_ids: [CVA6V_FEAT_0, CVA6V_FEAT_5, CVA6V_FEAT_6, CVA6V_FEAT_7]
+- description: TODO
+  flags:
+  - ELF=/data/regression/europa/verif_team/cva6v/asm/rag/csr/build/csr_smode_marchid_0
+  labels:
+  - CVA6V_DV_TESTS
+  - CVA6V_DV_RAG_TESTS
+  - CVA6V_DV_RAG_SCALAR_TESTS
+  - CVA6V_DV_RAG_CSR_241001_TESTS
+  name: csr_smode_marchid_0
+  owner: Raymond Garcia
+  platforms:
+  - cva6v.*
+  requirement_ids: [CVA6V_FEAT_0, CVA6V_FEAT_5, CVA6V_FEAT_6, CVA6V_FEAT_7]
+- description: TODO
+  flags:
+  - ELF=/data/regression/europa/verif_team/cva6v/asm/rag/csr/build/csr_smode_mcause_0
+  labels:
+  - CVA6V_DV_TESTS
+  - CVA6V_DV_RAG_TESTS
+  - CVA6V_DV_RAG_SCALAR_TESTS
+  - CVA6V_DV_RAG_CSR_241001_TESTS
+  name: csr_smode_mcause_0
+  owner: Raymond Garcia
+  platforms:
+  - cva6v.*
+  requirement_ids: [CVA6V_FEAT_0, CVA6V_FEAT_5, CVA6V_FEAT_6, CVA6V_FEAT_7]
+- description: TODO
+  flags:
+  - ELF=/data/regression/europa/verif_team/cva6v/asm/rag/csr/build/csr_smode_mconfigptr_0
+  labels:
+  - CVA6V_DV_TESTS
+  - CVA6V_DV_RAG_TESTS
+  - CVA6V_DV_RAG_SCALAR_TESTS
+  - CVA6V_DV_RAG_CSR_241001_TESTS
+  name: csr_smode_mconfigptr_0
+  owner: Raymond Garcia
+  platforms:
+  - cva6v.*
+  requirement_ids: [CVA6V_FEAT_0, CVA6V_FEAT_5, CVA6V_FEAT_6, CVA6V_FEAT_7]
+- description: TODO
+  flags:
+  - ELF=/data/regression/europa/verif_team/cva6v/asm/rag/csr/build/csr_smode_mcounteren_0
+  labels:
+  - CVA6V_DV_TESTS
+  - CVA6V_DV_RAG_TESTS
+  - CVA6V_DV_RAG_SCALAR_TESTS
+  - CVA6V_DV_RAG_CSR_241001_TESTS
+  name: csr_smode_mcounteren_0
+  owner: Raymond Garcia
+  platforms:
+  - cva6v.*
+  requirement_ids: [CVA6V_FEAT_0, CVA6V_FEAT_5, CVA6V_FEAT_6, CVA6V_FEAT_7]
+- description: TODO
+  flags:
+  - ELF=/data/regression/europa/verif_team/cva6v/asm/rag/csr/build/csr_smode_mcountinhibit_0
+  labels:
+  - CVA6V_DV_TESTS
+  - CVA6V_DV_RAG_TESTS
+  - CVA6V_DV_RAG_SCALAR_TESTS
+  - CVA6V_DV_RAG_CSR_241001_TESTS
+  name: csr_smode_mcountinhibit_0
+  owner: Raymond Garcia
+  platforms:
+  - cva6v.*
+  requirement_ids: [CVA6V_FEAT_0, CVA6V_FEAT_5, CVA6V_FEAT_6, CVA6V_FEAT_7]
+- description: TODO
+  flags:
+  - ELF=/data/regression/europa/verif_team/cva6v/asm/rag/csr/build/csr_smode_mcycle_0
+  labels:
+  - CVA6V_DV_TESTS
+  - CVA6V_DV_RAG_TESTS
+  - CVA6V_DV_RAG_SCALAR_TESTS
+  - CVA6V_DV_RAG_CSR_241001_TESTS
+  name: csr_smode_mcycle_0
+  owner: Raymond Garcia
+  platforms:
+  - cva6v.*
+  requirement_ids: [CVA6V_FEAT_0, CVA6V_FEAT_5, CVA6V_FEAT_6, CVA6V_FEAT_7]
+- description: TODO
+  flags:
+  - ELF=/data/regression/europa/verif_team/cva6v/asm/rag/csr/build/csr_smode_medeleg_0
+  labels:
+  - CVA6V_DV_TESTS
+  - CVA6V_DV_RAG_TESTS
+  - CVA6V_DV_RAG_SCALAR_TESTS
+  - CVA6V_DV_RAG_CSR_241001_TESTS
+  name: csr_smode_medeleg_0
+  owner: Raymond Garcia
+  platforms:
+  - cva6v.*
+  requirement_ids: [CVA6V_FEAT_0, CVA6V_FEAT_5, CVA6V_FEAT_6, CVA6V_FEAT_7]
+- description: TODO
+  flags:
+  - ELF=/data/regression/europa/verif_team/cva6v/asm/rag/csr/build/csr_smode_menvcfg_0
+  labels:
+  - CVA6V_DV_TESTS
+  - CVA6V_DV_RAG_TESTS
+  - CVA6V_DV_RAG_SCALAR_TESTS
+  - CVA6V_DV_RAG_CSR_241001_TESTS
+  name: csr_smode_menvcfg_0
+  owner: Raymond Garcia
+  platforms:
+  - cva6v.*
+  requirement_ids: [CVA6V_FEAT_0, CVA6V_FEAT_5, CVA6V_FEAT_6, CVA6V_FEAT_7]
+- description: TODO
+  flags:
+  - ELF=/data/regression/europa/verif_team/cva6v/asm/rag/csr/build/csr_smode_mepc_0
+  labels:
+  - CVA6V_DV_TESTS
+  - CVA6V_DV_RAG_TESTS
+  - CVA6V_DV_RAG_SCALAR_TESTS
+  - CVA6V_DV_RAG_CSR_241001_TESTS
+  name: csr_smode_mepc_0
+  owner: Raymond Garcia
+  platforms:
+  - cva6v.*
+  requirement_ids: [CVA6V_FEAT_0, CVA6V_FEAT_5, CVA6V_FEAT_6, CVA6V_FEAT_7]
+- description: TODO
+  flags:
+  - ELF=/data/regression/europa/verif_team/cva6v/asm/rag/csr/build/csr_smode_mhartid_0
+  labels:
+  - CVA6V_DV_TESTS
+  - CVA6V_DV_RAG_TESTS
+  - CVA6V_DV_RAG_SCALAR_TESTS
+  - CVA6V_DV_RAG_CSR_241001_TESTS
+  name: csr_smode_mhartid_0
+  owner: Raymond Garcia
+  platforms:
+  - cva6v.*
+  requirement_ids: [CVA6V_FEAT_0, CVA6V_FEAT_5, CVA6V_FEAT_6, CVA6V_FEAT_7]
+- description: TODO
+  flags:
+  - ELF=/data/regression/europa/verif_team/cva6v/asm/rag/csr/build/csr_smode_mhpmcounter_0
+  labels:
+  - CVA6V_DV_TESTS
+  - CVA6V_DV_RAG_TESTS
+  - CVA6V_DV_RAG_SCALAR_TESTS
+  - CVA6V_DV_RAG_CSR_241001_TESTS
+  name: csr_smode_mhpmcounter_0
+  owner: Raymond Garcia
+  platforms:
+  - cva6v.*
+  requirement_ids: [CVA6V_FEAT_0, CVA6V_FEAT_5, CVA6V_FEAT_6, CVA6V_FEAT_7]
+- description: TODO
+  flags:
+  - ELF=/data/regression/europa/verif_team/cva6v/asm/rag/csr/build/csr_smode_mhpmevent_0
+  labels:
+  - CVA6V_DV_TESTS
+  - CVA6V_DV_RAG_TESTS
+  - CVA6V_DV_RAG_SCALAR_TESTS
+  - CVA6V_DV_RAG_CSR_241001_TESTS
+  name: csr_smode_mhpmevent_0
+  owner: Raymond Garcia
+  platforms:
+  - cva6v.*
+  requirement_ids: [CVA6V_FEAT_0, CVA6V_FEAT_5, CVA6V_FEAT_6, CVA6V_FEAT_7]
+- description: TODO
+  flags:
+  - ELF=/data/regression/europa/verif_team/cva6v/asm/rag/csr/build/csr_smode_mideleg_0
+  labels:
+  - CVA6V_DV_TESTS
+  - CVA6V_DV_RAG_TESTS
+  - CVA6V_DV_RAG_SCALAR_TESTS
+  - CVA6V_DV_RAG_CSR_241001_TESTS
+  name: csr_smode_mideleg_0
+  owner: Raymond Garcia
+  platforms:
+  - cva6v.*
+  requirement_ids: [CVA6V_FEAT_0, CVA6V_FEAT_5, CVA6V_FEAT_6, CVA6V_FEAT_7]
+- description: TODO
+  flags:
+  - ELF=/data/regression/europa/verif_team/cva6v/asm/rag/csr/build/csr_smode_mie_0
+  labels:
+  - CVA6V_DV_TESTS
+  - CVA6V_DV_RAG_TESTS
+  - CVA6V_DV_RAG_SCALAR_TESTS
+  - CVA6V_DV_RAG_CSR_241001_TESTS
+  name: csr_smode_mie_0
+  owner: Raymond Garcia
+  platforms:
+  - cva6v.*
+  requirement_ids: [CVA6V_FEAT_0, CVA6V_FEAT_5, CVA6V_FEAT_6, CVA6V_FEAT_7]
+- description: TODO
+  flags:
+  - ELF=/data/regression/europa/verif_team/cva6v/asm/rag/csr/build/csr_smode_mimpid_0
+  labels:
+  - CVA6V_DV_TESTS
+  - CVA6V_DV_RAG_TESTS
+  - CVA6V_DV_RAG_SCALAR_TESTS
+  - CVA6V_DV_RAG_CSR_241001_TESTS
+  name: csr_smode_mimpid_0
+  owner: Raymond Garcia
+  platforms:
+  - cva6v.*
+  requirement_ids: [CVA6V_FEAT_0, CVA6V_FEAT_5, CVA6V_FEAT_6, CVA6V_FEAT_7]
+- description: TODO
+  flags:
+  - ELF=/data/regression/europa/verif_team/cva6v/asm/rag/csr/build/csr_smode_minstret_0
+  labels:
+  - CVA6V_DV_TESTS
+  - CVA6V_DV_RAG_TESTS
+  - CVA6V_DV_RAG_SCALAR_TESTS
+  - CVA6V_DV_RAG_CSR_241001_TESTS
+  name: csr_smode_minstret_0
+  owner: Raymond Garcia
+  platforms:
+  - cva6v.*
+  requirement_ids: [CVA6V_FEAT_0, CVA6V_FEAT_5, CVA6V_FEAT_6, CVA6V_FEAT_7]
+- description: TODO
+  flags:
+  - ELF=/data/regression/europa/verif_team/cva6v/asm/rag/csr/build/csr_smode_mip_0
+  labels:
+  - CVA6V_DV_TESTS
+  - CVA6V_DV_RAG_TESTS
+  - CVA6V_DV_RAG_SCALAR_TESTS
+  - CVA6V_DV_RAG_CSR_241001_TESTS
+  name: csr_smode_mip_0
+  owner: Raymond Garcia
+  platforms:
+  - cva6v.*
+  requirement_ids: [CVA6V_FEAT_0, CVA6V_FEAT_5, CVA6V_FEAT_6, CVA6V_FEAT_7]
+- description: TODO
+  flags:
+  - ELF=/data/regression/europa/verif_team/cva6v/asm/rag/csr/build/csr_smode_misa_0
+  labels:
+  - CVA6V_DV_TESTS
+  - CVA6V_DV_RAG_TESTS
+  - CVA6V_DV_RAG_SCALAR_TESTS
+  - CVA6V_DV_RAG_CSR_241001_TESTS
+  name: csr_smode_misa_0
+  owner: Raymond Garcia
+  platforms:
+  - cva6v.*
+  requirement_ids: [CVA6V_FEAT_0, CVA6V_FEAT_5, CVA6V_FEAT_6, CVA6V_FEAT_7]
+- description: TODO
+  flags:
+  - ELF=/data/regression/europa/verif_team/cva6v/asm/rag/csr/build/csr_smode_mscratch_0
+  labels:
+  - CVA6V_DV_TESTS
+  - CVA6V_DV_RAG_TESTS
+  - CVA6V_DV_RAG_SCALAR_TESTS
+  - CVA6V_DV_RAG_CSR_241001_TESTS
+  name: csr_smode_mscratch_0
+  owner: Raymond Garcia
+  platforms:
+  - cva6v.*
+  requirement_ids: [CVA6V_FEAT_0, CVA6V_FEAT_5, CVA6V_FEAT_6, CVA6V_FEAT_7]
+- description: TODO
+  flags:
+  - ELF=/data/regression/europa/verif_team/cva6v/asm/rag/csr/build/csr_smode_mstatus_0
+  labels:
+  - CVA6V_DV_TESTS
+  - CVA6V_DV_RAG_TESTS
+  - CVA6V_DV_RAG_SCALAR_TESTS
+  - CVA6V_DV_RAG_CSR_241001_TESTS
+  name: csr_smode_mstatus_0
+  owner: Raymond Garcia
+  platforms:
+  - cva6v.*
+  requirement_ids: [CVA6V_FEAT_0, CVA6V_FEAT_5, CVA6V_FEAT_6, CVA6V_FEAT_7]
+- description: TODO
+  flags:
+  - ELF=/data/regression/europa/verif_team/cva6v/asm/rag/csr/build/csr_smode_mtval_0
+  labels:
+  - CVA6V_DV_TESTS
+  - CVA6V_DV_RAG_TESTS
+  - CVA6V_DV_RAG_SCALAR_TESTS
+  - CVA6V_DV_RAG_CSR_241001_TESTS
+  name: csr_smode_mtval_0
+  owner: Raymond Garcia
+  platforms:
+  - cva6v.*
+  requirement_ids: [CVA6V_FEAT_0, CVA6V_FEAT_5, CVA6V_FEAT_6, CVA6V_FEAT_7]
+- description: TODO
+  flags:
+  - ELF=/data/regression/europa/verif_team/cva6v/asm/rag/csr/build/csr_smode_mtvec_0
+  labels:
+  - CVA6V_DV_TESTS
+  - CVA6V_DV_RAG_TESTS
+  - CVA6V_DV_RAG_SCALAR_TESTS
+  - CVA6V_DV_RAG_CSR_241001_TESTS
+  name: csr_smode_mtvec_0
+  owner: Raymond Garcia
+  platforms:
+  - cva6v.*
+  requirement_ids: [CVA6V_FEAT_0, CVA6V_FEAT_5, CVA6V_FEAT_6, CVA6V_FEAT_7]
+- description: TODO
+  flags:
+  - ELF=/data/regression/europa/verif_team/cva6v/asm/rag/csr/build/csr_smode_mvendorid_0
+  labels:
+  - CVA6V_DV_TESTS
+  - CVA6V_DV_RAG_TESTS
+  - CVA6V_DV_RAG_SCALAR_TESTS
+  - CVA6V_DV_RAG_CSR_241001_TESTS
+  name: csr_smode_mvendorid_0
+  owner: Raymond Garcia
+  platforms:
+  - cva6v.*
+  requirement_ids: [CVA6V_FEAT_0, CVA6V_FEAT_5, CVA6V_FEAT_6, CVA6V_FEAT_7]
+- description: TODO
+  flags:
+  - ELF=/data/regression/europa/verif_team/cva6v/asm/rag/csr/build/csr_smode_scause_0
+  labels:
+  - CVA6V_DV_TESTS
+  - CVA6V_DV_RAG_TESTS
+  - CVA6V_DV_RAG_SCALAR_TESTS
+  - CVA6V_DV_RAG_CSR_241001_TESTS
+  name: csr_smode_scause_0
+  owner: Raymond Garcia
+  platforms:
+  - cva6v.*
+  requirement_ids: [CVA6V_FEAT_0, CVA6V_FEAT_5, CVA6V_FEAT_6, CVA6V_FEAT_7]
+- description: TODO
+  flags:
+  - ELF=/data/regression/europa/verif_team/cva6v/asm/rag/csr/build/csr_smode_scounteren_0
+  labels:
+  - CVA6V_DV_TESTS
+  - CVA6V_DV_RAG_TESTS
+  - CVA6V_DV_RAG_SCALAR_TESTS
+  - CVA6V_DV_RAG_CSR_241001_TESTS
+  name: csr_smode_scounteren_0
+  owner: Raymond Garcia
+  platforms:
+  - cva6v.*
+  requirement_ids: [CVA6V_FEAT_0, CVA6V_FEAT_5, CVA6V_FEAT_6, CVA6V_FEAT_7]
+- description: TODO
+  flags:
+  - ELF=/data/regression/europa/verif_team/cva6v/asm/rag/csr/build/csr_smode_senvcfg_0
+  labels:
+  - CVA6V_DV_TESTS
+  - CVA6V_DV_RAG_TESTS
+  - CVA6V_DV_RAG_SCALAR_TESTS
+  - CVA6V_DV_RAG_CSR_241001_TESTS
+  name: csr_smode_senvcfg_0
+  owner: Raymond Garcia
+  platforms:
+  - cva6v.*
+  requirement_ids: [CVA6V_FEAT_0, CVA6V_FEAT_5, CVA6V_FEAT_6, CVA6V_FEAT_7]
+- description: TODO
+  flags:
+  - ELF=/data/regression/europa/verif_team/cva6v/asm/rag/csr/build/csr_smode_sepc_0
+  labels:
+  - CVA6V_DV_TESTS
+  - CVA6V_DV_RAG_TESTS
+  - CVA6V_DV_RAG_SCALAR_TESTS
+  - CVA6V_DV_RAG_CSR_241001_TESTS
+  name: csr_smode_sepc_0
+  owner: Raymond Garcia
+  platforms:
+  - cva6v.*
+  requirement_ids: [CVA6V_FEAT_0, CVA6V_FEAT_5, CVA6V_FEAT_6, CVA6V_FEAT_7]
+- description: TODO
+  flags:
+  - ELF=/data/regression/europa/verif_team/cva6v/asm/rag/csr/build/csr_smode_sie_0
+  labels:
+  - CVA6V_DV_TESTS
+  - CVA6V_DV_RAG_TESTS
+  - CVA6V_DV_RAG_SCALAR_TESTS
+  - CVA6V_DV_RAG_CSR_241001_TESTS
+  name: csr_smode_sie_0
+  owner: Raymond Garcia
+  platforms:
+  - cva6v.*
+  requirement_ids: [CVA6V_FEAT_0, CVA6V_FEAT_5, CVA6V_FEAT_6, CVA6V_FEAT_7]
+- description: TODO
+  flags:
+  - ELF=/data/regression/europa/verif_team/cva6v/asm/rag/csr/build/csr_smode_sip_0
+  labels:
+  - CVA6V_DV_TESTS
+  - CVA6V_DV_RAG_TESTS
+  - CVA6V_DV_RAG_SCALAR_TESTS
+  - CVA6V_DV_RAG_CSR_241001_TESTS
+  name: csr_smode_sip_0
+  owner: Raymond Garcia
+  platforms:
+  - cva6v.*
+  requirement_ids: [CVA6V_FEAT_0, CVA6V_FEAT_5, CVA6V_FEAT_6, CVA6V_FEAT_7]
+- description: TODO
+  flags:
+  - ELF=/data/regression/europa/verif_team/cva6v/asm/rag/csr/build/csr_smode_sscratch_0
+  labels:
+  - CVA6V_DV_TESTS
+  - CVA6V_DV_RAG_TESTS
+  - CVA6V_DV_RAG_SCALAR_TESTS
+  - CVA6V_DV_RAG_CSR_241001_TESTS
+  name: csr_smode_sscratch_0
+  owner: Raymond Garcia
+  platforms:
+  - cva6v.*
+  requirement_ids: [CVA6V_FEAT_0, CVA6V_FEAT_5, CVA6V_FEAT_6, CVA6V_FEAT_7]
+- description: TODO
+  flags:
+  - ELF=/data/regression/europa/verif_team/cva6v/asm/rag/csr/build/csr_smode_sstatus_0
+  labels:
+  - CVA6V_DV_TESTS
+  - CVA6V_DV_RAG_TESTS
+  - CVA6V_DV_RAG_SCALAR_TESTS
+  - CVA6V_DV_RAG_CSR_241001_TESTS
+  name: csr_smode_sstatus_0
+  owner: Raymond Garcia
+  platforms:
+  - cva6v.*
+  requirement_ids: [CVA6V_FEAT_0, CVA6V_FEAT_5, CVA6V_FEAT_6, CVA6V_FEAT_7]
+- description: TODO
+  flags:
+  - ELF=/data/regression/europa/verif_team/cva6v/asm/rag/csr/build/csr_smode_stval_0
+  labels:
+  - CVA6V_DV_TESTS
+  - CVA6V_DV_RAG_TESTS
+  - CVA6V_DV_RAG_SCALAR_TESTS
+  - CVA6V_DV_RAG_CSR_241001_TESTS
+  name: csr_smode_stval_0
+  owner: Raymond Garcia
+  platforms:
+  - cva6v.*
+  requirement_ids: [CVA6V_FEAT_0, CVA6V_FEAT_5, CVA6V_FEAT_6, CVA6V_FEAT_7]
+- description: TODO
+  flags:
+  - ELF=/data/regression/europa/verif_team/cva6v/asm/rag/csr/build/csr_smode_stvec_0
+  labels:
+  - CVA6V_DV_TESTS
+  - CVA6V_DV_RAG_TESTS
+  - CVA6V_DV_RAG_SCALAR_TESTS
+  - CVA6V_DV_RAG_CSR_241001_TESTS
+  name: csr_smode_stvec_0
+  owner: Raymond Garcia
+  platforms:
+  - cva6v.*
+  requirement_ids: [CVA6V_FEAT_0, CVA6V_FEAT_5, CVA6V_FEAT_6, CVA6V_FEAT_7]
+- description: TODO
+  flags:
+  - ELF=/data/regression/europa/verif_team/cva6v/asm/rag/csr/build/csr_smode_vcsr_0
+  labels:
+  - CVA6V_DV_TESTS
+  - CVA6V_DV_RAG_TESTS
+  - CVA6V_DV_RAG_SCALAR_TESTS
+  - CVA6V_DV_RAG_CSR_241001_TESTS
+  name: csr_smode_vcsr_0
+  owner: Raymond Garcia
+  platforms:
+  - cva6v.*
+  requirement_ids: [CVA6V_FEAT_0, CVA6V_FEAT_5, CVA6V_FEAT_6, CVA6V_FEAT_7]
+- description: TODO
+  flags:
+  - ELF=/data/regression/europa/verif_team/cva6v/asm/rag/csr/build/csr_smode_vl_0
+  labels:
+  - CVA6V_DV_TESTS
+  - CVA6V_DV_RAG_TESTS
+  - CVA6V_DV_RAG_SCALAR_TESTS
+  - CVA6V_DV_RAG_CSR_241001_TESTS
+  name: csr_smode_vl_0
+  owner: Raymond Garcia
+  platforms:
+  - cva6v.*
+  requirement_ids: [CVA6V_FEAT_0, CVA6V_FEAT_5, CVA6V_FEAT_6, CVA6V_FEAT_7]
+- description: TODO
+  flags:
+  - ELF=/data/regression/europa/verif_team/cva6v/asm/rag/csr/build/csr_smode_vlenb_0
+  labels:
+  - CVA6V_DV_TESTS
+  - CVA6V_DV_RAG_TESTS
+  - CVA6V_DV_RAG_SCALAR_TESTS
+  - CVA6V_DV_RAG_CSR_241001_TESTS
+  name: csr_smode_vlenb_0
+  owner: Raymond Garcia
+  platforms:
+  - cva6v.*
+  requirement_ids: [CVA6V_FEAT_0, CVA6V_FEAT_5, CVA6V_FEAT_6, CVA6V_FEAT_7]
+- description: TODO
+  flags:
+  - ELF=/data/regression/europa/verif_team/cva6v/asm/rag/csr/build/csr_smode_vstart_0
+  labels:
+  - CVA6V_DV_TESTS
+  - CVA6V_DV_RAG_TESTS
+  - CVA6V_DV_RAG_SCALAR_TESTS
+  - CVA6V_DV_RAG_CSR_241001_TESTS
+  name: csr_smode_vstart_0
+  owner: Raymond Garcia
+  platforms:
+  - cva6v.*
+  requirement_ids: [CVA6V_FEAT_0, CVA6V_FEAT_5, CVA6V_FEAT_6, CVA6V_FEAT_7]
+- description: TODO
+  flags:
+  - ELF=/data/regression/europa/verif_team/cva6v/asm/rag/csr/build/csr_smode_vtype_0
+  labels:
+  - CVA6V_DV_TESTS
+  - CVA6V_DV_RAG_TESTS
+  - CVA6V_DV_RAG_SCALAR_TESTS
+  - CVA6V_DV_RAG_CSR_241001_TESTS
+  name: csr_smode_vtype_0
+  owner: Raymond Garcia
+  platforms:
+  - cva6v.*
+  requirement_ids: [CVA6V_FEAT_0, CVA6V_FEAT_5, CVA6V_FEAT_6, CVA6V_FEAT_7]
+- description: TODO
+  flags:
+  - ELF=/data/regression/europa/verif_team/cva6v/asm/rag/csr/build/csr_smode_vxrm_0
+  labels:
+  - CVA6V_DV_TESTS
+  - CVA6V_DV_RAG_TESTS
+  - CVA6V_DV_RAG_SCALAR_TESTS
+  - CVA6V_DV_RAG_CSR_241001_TESTS
+  name: csr_smode_vxrm_0
+  owner: Raymond Garcia
+  platforms:
+  - cva6v.*
+  requirement_ids: [CVA6V_FEAT_0, CVA6V_FEAT_5, CVA6V_FEAT_6, CVA6V_FEAT_7]
+- description: TODO
+  flags:
+  - ELF=/data/regression/europa/verif_team/cva6v/asm/rag/csr/build/csr_smode_vxsat_0
+  labels:
+  - CVA6V_DV_TESTS
+  - CVA6V_DV_RAG_TESTS
+  - CVA6V_DV_RAG_SCALAR_TESTS
+  - CVA6V_DV_RAG_CSR_241001_TESTS
+  name: csr_smode_vxsat_0
+  owner: Raymond Garcia
+  platforms:
+  - cva6v.*
+  requirement_ids: [CVA6V_FEAT_0, CVA6V_FEAT_5, CVA6V_FEAT_6, CVA6V_FEAT_7]
+- description: TODO
+  flags:
+  - ELF=/data/regression/europa/verif_team/cva6v/asm/rag/csr/build/csr_umode_cycle_0
+  labels:
+  - CVA6V_DV_TESTS
+  - CVA6V_DV_RAG_TESTS
+  - CVA6V_DV_RAG_SCALAR_TESTS
+  - CVA6V_DV_RAG_CSR_241001_TESTS
+  name: csr_umode_cycle_0
+  owner: Raymond Garcia
+  platforms:
+  - cva6v.*
+  requirement_ids: [CVA6V_FEAT_0, CVA6V_FEAT_5, CVA6V_FEAT_6, CVA6V_FEAT_7]
+- description: TODO
+  flags:
+  - ELF=/data/regression/europa/verif_team/cva6v/asm/rag/csr/build/csr_umode_dcache_0
+  labels:
+  - CVA6V_DV_TESTS
+  - CVA6V_DV_RAG_TESTS
+  - CVA6V_DV_RAG_SCALAR_TESTS
+  - CVA6V_DV_RAG_CSR_241001_TESTS
+  name: csr_umode_dcache_0
+  owner: Raymond Garcia
+  platforms:
+  - cva6v.*
+  requirement_ids: [CVA6V_FEAT_0, CVA6V_FEAT_5, CVA6V_FEAT_6, CVA6V_FEAT_7]
+- description: TODO
+  flags:
+  - ELF=/data/regression/europa/verif_team/cva6v/asm/rag/csr/build/csr_umode_dcsr_0
+  labels:
+  - CVA6V_DV_TESTS
+  - CVA6V_DV_RAG_TESTS
+  - CVA6V_DV_RAG_SCALAR_TESTS
+  - CVA6V_DV_RAG_CSR_241001_TESTS
+  name: csr_umode_dcsr_0
+  owner: Raymond Garcia
+  platforms:
+  - cva6v.*
+  requirement_ids: [CVA6V_FEAT_0, CVA6V_FEAT_5, CVA6V_FEAT_6, CVA6V_FEAT_7]
+- description: TODO
+  flags:
+  - ELF=/data/regression/europa/verif_team/cva6v/asm/rag/csr/build/csr_umode_dpc_0
+  labels:
+  - CVA6V_DV_TESTS
+  - CVA6V_DV_RAG_TESTS
+  - CVA6V_DV_RAG_SCALAR_TESTS
+  - CVA6V_DV_RAG_CSR_241001_TESTS
+  name: csr_umode_dpc_0
+  owner: Raymond Garcia
+  platforms:
+  - cva6v.*
+  requirement_ids: [CVA6V_FEAT_0, CVA6V_FEAT_5, CVA6V_FEAT_6, CVA6V_FEAT_7]
+- description: TODO
+  flags:
+  - ELF=/data/regression/europa/verif_team/cva6v/asm/rag/csr/build/csr_umode_dscratch0_0
+  labels:
+  - CVA6V_DV_TESTS
+  - CVA6V_DV_RAG_TESTS
+  - CVA6V_DV_RAG_SCALAR_TESTS
+  - CVA6V_DV_RAG_CSR_241001_TESTS
+  name: csr_umode_dscratch0_0
+  owner: Raymond Garcia
+  platforms:
+  - cva6v.*
+  requirement_ids: [CVA6V_FEAT_0, CVA6V_FEAT_5, CVA6V_FEAT_6, CVA6V_FEAT_7]
+- description: TODO
+  flags:
+  - ELF=/data/regression/europa/verif_team/cva6v/asm/rag/csr/build/csr_umode_dscratch1_0
+  labels:
+  - CVA6V_DV_TESTS
+  - CVA6V_DV_RAG_TESTS
+  - CVA6V_DV_RAG_SCALAR_TESTS
+  - CVA6V_DV_RAG_CSR_241001_TESTS
+  name: csr_umode_dscratch1_0
+  owner: Raymond Garcia
+  platforms:
+  - cva6v.*
+  requirement_ids: [CVA6V_FEAT_0, CVA6V_FEAT_5, CVA6V_FEAT_6, CVA6V_FEAT_7]
+- description: TODO
+  flags:
+  - ELF=/data/regression/europa/verif_team/cva6v/asm/rag/csr/build/csr_umode_fcsr_0
+  labels:
+  - CVA6V_DV_TESTS
+  - CVA6V_DV_RAG_TESTS
+  - CVA6V_DV_RAG_SCALAR_TESTS
+  - CVA6V_DV_RAG_CSR_241001_TESTS
+  name: csr_umode_fcsr_0
+  owner: Raymond Garcia
+  platforms:
+  - cva6v.*
+  requirement_ids: [CVA6V_FEAT_0, CVA6V_FEAT_5, CVA6V_FEAT_6, CVA6V_FEAT_7]
+- description: TODO
+  flags:
+  - ELF=/data/regression/europa/verif_team/cva6v/asm/rag/csr/build/csr_umode_fflags_0
+  labels:
+  - CVA6V_DV_TESTS
+  - CVA6V_DV_RAG_TESTS
+  - CVA6V_DV_RAG_SCALAR_TESTS
+  - CVA6V_DV_RAG_CSR_241001_TESTS
+  name: csr_umode_fflags_0
+  owner: Raymond Garcia
+  platforms:
+  - cva6v.*
+  requirement_ids: [CVA6V_FEAT_0, CVA6V_FEAT_5, CVA6V_FEAT_6, CVA6V_FEAT_7]
+- description: TODO
+  flags:
+  - ELF=/data/regression/europa/verif_team/cva6v/asm/rag/csr/build/csr_umode_frm_0
+  labels:
+  - CVA6V_DV_TESTS
+  - CVA6V_DV_RAG_TESTS
+  - CVA6V_DV_RAG_SCALAR_TESTS
+  - CVA6V_DV_RAG_CSR_241001_TESTS
+  name: csr_umode_frm_0
+  owner: Raymond Garcia
+  platforms:
+  - cva6v.*
+  requirement_ids: [CVA6V_FEAT_0, CVA6V_FEAT_5, CVA6V_FEAT_6, CVA6V_FEAT_7]
+- description: TODO
+  flags:
+  - ELF=/data/regression/europa/verif_team/cva6v/asm/rag/csr/build/csr_umode_hpmcounter_0
+  labels:
+  - CVA6V_DV_TESTS
+  - CVA6V_DV_RAG_TESTS
+  - CVA6V_DV_RAG_SCALAR_TESTS
+  - CVA6V_DV_RAG_CSR_241001_TESTS
+  name: csr_umode_hpmcounter_0
+  owner: Raymond Garcia
+  platforms:
+  - cva6v.*
+  requirement_ids: [CVA6V_FEAT_0, CVA6V_FEAT_5, CVA6V_FEAT_6, CVA6V_FEAT_7]
+- description: TODO
+  flags:
+  - ELF=/data/regression/europa/verif_team/cva6v/asm/rag/csr/build/csr_umode_icache_0
+  labels:
+  - CVA6V_DV_TESTS
+  - CVA6V_DV_RAG_TESTS
+  - CVA6V_DV_RAG_SCALAR_TESTS
+  - CVA6V_DV_RAG_CSR_241001_TESTS
+  name: csr_umode_icache_0
+  owner: Raymond Garcia
+  platforms:
+  - cva6v.*
+  requirement_ids: [CVA6V_FEAT_0, CVA6V_FEAT_5, CVA6V_FEAT_6, CVA6V_FEAT_7]
+- description: TODO
+  flags:
+  - ELF=/data/regression/europa/verif_team/cva6v/asm/rag/csr/build/csr_umode_instret_0
+  labels:
+  - CVA6V_DV_TESTS
+  - CVA6V_DV_RAG_TESTS
+  - CVA6V_DV_RAG_SCALAR_TESTS
+  - CVA6V_DV_RAG_CSR_241001_TESTS
+  name: csr_umode_instret_0
+  owner: Raymond Garcia
+  platforms:
+  - cva6v.*
+  requirement_ids: [CVA6V_FEAT_0, CVA6V_FEAT_5, CVA6V_FEAT_6, CVA6V_FEAT_7]
+- description: TODO
+  flags:
+  - ELF=/data/regression/europa/verif_team/cva6v/asm/rag/csr/build/csr_umode_marchid_0
+  labels:
+  - CVA6V_DV_TESTS
+  - CVA6V_DV_RAG_TESTS
+  - CVA6V_DV_RAG_SCALAR_TESTS
+  - CVA6V_DV_RAG_CSR_241001_TESTS
+  name: csr_umode_marchid_0
+  owner: Raymond Garcia
+  platforms:
+  - cva6v.*
+  requirement_ids: [CVA6V_FEAT_0, CVA6V_FEAT_5, CVA6V_FEAT_6, CVA6V_FEAT_7]
+- description: TODO
+  flags:
+  - ELF=/data/regression/europa/verif_team/cva6v/asm/rag/csr/build/csr_umode_mcause_0
+  labels:
+  - CVA6V_DV_TESTS
+  - CVA6V_DV_RAG_TESTS
+  - CVA6V_DV_RAG_SCALAR_TESTS
+  - CVA6V_DV_RAG_CSR_241001_TESTS
+  name: csr_umode_mcause_0
+  owner: Raymond Garcia
+  platforms:
+  - cva6v.*
+  requirement_ids: [CVA6V_FEAT_0, CVA6V_FEAT_5, CVA6V_FEAT_6, CVA6V_FEAT_7]
+- description: TODO
+  flags:
+  - ELF=/data/regression/europa/verif_team/cva6v/asm/rag/csr/build/csr_umode_mconfigptr_0
+  labels:
+  - CVA6V_DV_TESTS
+  - CVA6V_DV_RAG_TESTS
+  - CVA6V_DV_RAG_SCALAR_TESTS
+  - CVA6V_DV_RAG_CSR_241001_TESTS
+  name: csr_umode_mconfigptr_0
+  owner: Raymond Garcia
+  platforms:
+  - cva6v.*
+  requirement_ids: [CVA6V_FEAT_0, CVA6V_FEAT_5, CVA6V_FEAT_6, CVA6V_FEAT_7]
+- description: TODO
+  flags:
+  - ELF=/data/regression/europa/verif_team/cva6v/asm/rag/csr/build/csr_umode_mcounteren_0
+  labels:
+  - CVA6V_DV_TESTS
+  - CVA6V_DV_RAG_TESTS
+  - CVA6V_DV_RAG_SCALAR_TESTS
+  - CVA6V_DV_RAG_CSR_241001_TESTS
+  name: csr_umode_mcounteren_0
+  owner: Raymond Garcia
+  platforms:
+  - cva6v.*
+  requirement_ids: [CVA6V_FEAT_0, CVA6V_FEAT_5, CVA6V_FEAT_6, CVA6V_FEAT_7]
+- description: TODO
+  flags:
+  - ELF=/data/regression/europa/verif_team/cva6v/asm/rag/csr/build/csr_umode_mcountinhibit_0
+  labels:
+  - CVA6V_DV_TESTS
+  - CVA6V_DV_RAG_TESTS
+  - CVA6V_DV_RAG_SCALAR_TESTS
+  - CVA6V_DV_RAG_CSR_241001_TESTS
+  name: csr_umode_mcountinhibit_0
+  owner: Raymond Garcia
+  platforms:
+  - cva6v.*
+  requirement_ids: [CVA6V_FEAT_0, CVA6V_FEAT_5, CVA6V_FEAT_6, CVA6V_FEAT_7]
+- description: TODO
+  flags:
+  - ELF=/data/regression/europa/verif_team/cva6v/asm/rag/csr/build/csr_umode_mcycle_0
+  labels:
+  - CVA6V_DV_TESTS
+  - CVA6V_DV_RAG_TESTS
+  - CVA6V_DV_RAG_SCALAR_TESTS
+  - CVA6V_DV_RAG_CSR_241001_TESTS
+  name: csr_umode_mcycle_0
+  owner: Raymond Garcia
+  platforms:
+  - cva6v.*
+  requirement_ids: [CVA6V_FEAT_0, CVA6V_FEAT_5, CVA6V_FEAT_6, CVA6V_FEAT_7]
+- description: TODO
+  flags:
+  - ELF=/data/regression/europa/verif_team/cva6v/asm/rag/csr/build/csr_umode_medeleg_0
+  labels:
+  - CVA6V_DV_TESTS
+  - CVA6V_DV_RAG_TESTS
+  - CVA6V_DV_RAG_SCALAR_TESTS
+  - CVA6V_DV_RAG_CSR_241001_TESTS
+  name: csr_umode_medeleg_0
+  owner: Raymond Garcia
+  platforms:
+  - cva6v.*
+  requirement_ids: [CVA6V_FEAT_0, CVA6V_FEAT_5, CVA6V_FEAT_6, CVA6V_FEAT_7]
+- description: TODO
+  flags:
+  - ELF=/data/regression/europa/verif_team/cva6v/asm/rag/csr/build/csr_umode_menvcfg_0
+  labels:
+  - CVA6V_DV_TESTS
+  - CVA6V_DV_RAG_TESTS
+  - CVA6V_DV_RAG_SCALAR_TESTS
+  - CVA6V_DV_RAG_CSR_241001_TESTS
+  name: csr_umode_menvcfg_0
+  owner: Raymond Garcia
+  platforms:
+  - cva6v.*
+  requirement_ids: [CVA6V_FEAT_0, CVA6V_FEAT_5, CVA6V_FEAT_6, CVA6V_FEAT_7]
+- description: TODO
+  flags:
+  - ELF=/data/regression/europa/verif_team/cva6v/asm/rag/csr/build/csr_umode_mepc_0
+  labels:
+  - CVA6V_DV_TESTS
+  - CVA6V_DV_RAG_TESTS
+  - CVA6V_DV_RAG_SCALAR_TESTS
+  - CVA6V_DV_RAG_CSR_241001_TESTS
+  name: csr_umode_mepc_0
+  owner: Raymond Garcia
+  platforms:
+  - cva6v.*
+  requirement_ids: [CVA6V_FEAT_0, CVA6V_FEAT_5, CVA6V_FEAT_6, CVA6V_FEAT_7]
+- description: TODO
+  flags:
+  - ELF=/data/regression/europa/verif_team/cva6v/asm/rag/csr/build/csr_umode_mhartid_0
+  labels:
+  - CVA6V_DV_TESTS
+  - CVA6V_DV_RAG_TESTS
+  - CVA6V_DV_RAG_SCALAR_TESTS
+  - CVA6V_DV_RAG_CSR_241001_TESTS
+  name: csr_umode_mhartid_0
+  owner: Raymond Garcia
+  platforms:
+  - cva6v.*
+  requirement_ids: [CVA6V_FEAT_0, CVA6V_FEAT_5, CVA6V_FEAT_6, CVA6V_FEAT_7]
+- description: TODO
+  flags:
+  - ELF=/data/regression/europa/verif_team/cva6v/asm/rag/csr/build/csr_umode_mhpmcounter_0
+  labels:
+  - CVA6V_DV_TESTS
+  - CVA6V_DV_RAG_TESTS
+  - CVA6V_DV_RAG_SCALAR_TESTS
+  - CVA6V_DV_RAG_CSR_241001_TESTS
+  name: csr_umode_mhpmcounter_0
+  owner: Raymond Garcia
+  platforms:
+  - cva6v.*
+  requirement_ids: [CVA6V_FEAT_0, CVA6V_FEAT_5, CVA6V_FEAT_6, CVA6V_FEAT_7]
+- description: TODO
+  flags:
+  - ELF=/data/regression/europa/verif_team/cva6v/asm/rag/csr/build/csr_umode_mhpmevent_0
+  labels:
+  - CVA6V_DV_TESTS
+  - CVA6V_DV_RAG_TESTS
+  - CVA6V_DV_RAG_SCALAR_TESTS
+  - CVA6V_DV_RAG_CSR_241001_TESTS
+  name: csr_umode_mhpmevent_0
+  owner: Raymond Garcia
+  platforms:
+  - cva6v.*
+  requirement_ids: [CVA6V_FEAT_0, CVA6V_FEAT_5, CVA6V_FEAT_6, CVA6V_FEAT_7]
+- description: TODO
+  flags:
+  - ELF=/data/regression/europa/verif_team/cva6v/asm/rag/csr/build/csr_umode_mideleg_0
+  labels:
+  - CVA6V_DV_TESTS
+  - CVA6V_DV_RAG_TESTS
+  - CVA6V_DV_RAG_SCALAR_TESTS
+  - CVA6V_DV_RAG_CSR_241001_TESTS
+  name: csr_umode_mideleg_0
+  owner: Raymond Garcia
+  platforms:
+  - cva6v.*
+  requirement_ids: [CVA6V_FEAT_0, CVA6V_FEAT_5, CVA6V_FEAT_6, CVA6V_FEAT_7]
+- description: TODO
+  flags:
+  - ELF=/data/regression/europa/verif_team/cva6v/asm/rag/csr/build/csr_umode_mie_0
+  labels:
+  - CVA6V_DV_TESTS
+  - CVA6V_DV_RAG_TESTS
+  - CVA6V_DV_RAG_SCALAR_TESTS
+  - CVA6V_DV_RAG_CSR_241001_TESTS
+  name: csr_umode_mie_0
+  owner: Raymond Garcia
+  platforms:
+  - cva6v.*
+  requirement_ids: [CVA6V_FEAT_0, CVA6V_FEAT_5, CVA6V_FEAT_6, CVA6V_FEAT_7]
+- description: TODO
+  flags:
+  - ELF=/data/regression/europa/verif_team/cva6v/asm/rag/csr/build/csr_umode_mimpid_0
+  labels:
+  - CVA6V_DV_TESTS
+  - CVA6V_DV_RAG_TESTS
+  - CVA6V_DV_RAG_SCALAR_TESTS
+  - CVA6V_DV_RAG_CSR_241001_TESTS
+  name: csr_umode_mimpid_0
+  owner: Raymond Garcia
+  platforms:
+  - cva6v.*
+  requirement_ids: [CVA6V_FEAT_0, CVA6V_FEAT_5, CVA6V_FEAT_6, CVA6V_FEAT_7]
+- description: TODO
+  flags:
+  - ELF=/data/regression/europa/verif_team/cva6v/asm/rag/csr/build/csr_umode_minstret_0
+  labels:
+  - CVA6V_DV_TESTS
+  - CVA6V_DV_RAG_TESTS
+  - CVA6V_DV_RAG_SCALAR_TESTS
+  - CVA6V_DV_RAG_CSR_241001_TESTS
+  name: csr_umode_minstret_0
+  owner: Raymond Garcia
+  platforms:
+  - cva6v.*
+  requirement_ids: [CVA6V_FEAT_0, CVA6V_FEAT_5, CVA6V_FEAT_6, CVA6V_FEAT_7]
+- description: TODO
+  flags:
+  - ELF=/data/regression/europa/verif_team/cva6v/asm/rag/csr/build/csr_umode_mip_0
+  labels:
+  - CVA6V_DV_TESTS
+  - CVA6V_DV_RAG_TESTS
+  - CVA6V_DV_RAG_SCALAR_TESTS
+  - CVA6V_DV_RAG_CSR_241001_TESTS
+  name: csr_umode_mip_0
+  owner: Raymond Garcia
+  platforms:
+  - cva6v.*
+  requirement_ids: [CVA6V_FEAT_0, CVA6V_FEAT_5, CVA6V_FEAT_6, CVA6V_FEAT_7]
+- description: TODO
+  flags:
+  - ELF=/data/regression/europa/verif_team/cva6v/asm/rag/csr/build/csr_umode_misa_0
+  labels:
+  - CVA6V_DV_TESTS
+  - CVA6V_DV_RAG_TESTS
+  - CVA6V_DV_RAG_SCALAR_TESTS
+  - CVA6V_DV_RAG_CSR_241001_TESTS
+  name: csr_umode_misa_0
+  owner: Raymond Garcia
+  platforms:
+  - cva6v.*
+  requirement_ids: [CVA6V_FEAT_0, CVA6V_FEAT_5, CVA6V_FEAT_6, CVA6V_FEAT_7]
+- description: TODO
+  flags:
+  - ELF=/data/regression/europa/verif_team/cva6v/asm/rag/csr/build/csr_umode_mscratch_0
+  labels:
+  - CVA6V_DV_TESTS
+  - CVA6V_DV_RAG_TESTS
+  - CVA6V_DV_RAG_SCALAR_TESTS
+  - CVA6V_DV_RAG_CSR_241001_TESTS
+  name: csr_umode_mscratch_0
+  owner: Raymond Garcia
+  platforms:
+  - cva6v.*
+  requirement_ids: [CVA6V_FEAT_0, CVA6V_FEAT_5, CVA6V_FEAT_6, CVA6V_FEAT_7]
+- description: TODO
+  flags:
+  - ELF=/data/regression/europa/verif_team/cva6v/asm/rag/csr/build/csr_umode_mstatus_0
+  labels:
+  - CVA6V_DV_TESTS
+  - CVA6V_DV_RAG_TESTS
+  - CVA6V_DV_RAG_SCALAR_TESTS
+  - CVA6V_DV_RAG_CSR_241001_TESTS
+  name: csr_umode_mstatus_0
+  owner: Raymond Garcia
+  platforms:
+  - cva6v.*
+  requirement_ids: [CVA6V_FEAT_0, CVA6V_FEAT_5, CVA6V_FEAT_6, CVA6V_FEAT_7]
+- description: TODO
+  flags:
+  - ELF=/data/regression/europa/verif_team/cva6v/asm/rag/csr/build/csr_umode_mtval_0
+  labels:
+  - CVA6V_DV_TESTS
+  - CVA6V_DV_RAG_TESTS
+  - CVA6V_DV_RAG_SCALAR_TESTS
+  - CVA6V_DV_RAG_CSR_241001_TESTS
+  name: csr_umode_mtval_0
+  owner: Raymond Garcia
+  platforms:
+  - cva6v.*
+  requirement_ids: [CVA6V_FEAT_0, CVA6V_FEAT_5, CVA6V_FEAT_6, CVA6V_FEAT_7]
+- description: TODO
+  flags:
+  - ELF=/data/regression/europa/verif_team/cva6v/asm/rag/csr/build/csr_umode_mtvec_0
+  labels:
+  - CVA6V_DV_TESTS
+  - CVA6V_DV_RAG_TESTS
+  - CVA6V_DV_RAG_SCALAR_TESTS
+  - CVA6V_DV_RAG_CSR_241001_TESTS
+  name: csr_umode_mtvec_0
+  owner: Raymond Garcia
+  platforms:
+  - cva6v.*
+  requirement_ids: [CVA6V_FEAT_0, CVA6V_FEAT_5, CVA6V_FEAT_6, CVA6V_FEAT_7]
+- description: TODO
+  flags:
+  - ELF=/data/regression/europa/verif_team/cva6v/asm/rag/csr/build/csr_umode_mvendorid_0
+  labels:
+  - CVA6V_DV_TESTS
+  - CVA6V_DV_RAG_TESTS
+  - CVA6V_DV_RAG_SCALAR_TESTS
+  - CVA6V_DV_RAG_CSR_241001_TESTS
+  name: csr_umode_mvendorid_0
+  owner: Raymond Garcia
+  platforms:
+  - cva6v.*
+  requirement_ids: [CVA6V_FEAT_0, CVA6V_FEAT_5, CVA6V_FEAT_6, CVA6V_FEAT_7]
+- description: TODO
+  flags:
+  - ELF=/data/regression/europa/verif_team/cva6v/asm/rag/csr/build/csr_umode_scause_0
+  labels:
+  - CVA6V_DV_TESTS
+  - CVA6V_DV_RAG_TESTS
+  - CVA6V_DV_RAG_SCALAR_TESTS
+  - CVA6V_DV_RAG_CSR_241001_TESTS
+  name: csr_umode_scause_0
+  owner: Raymond Garcia
+  platforms:
+  - cva6v.*
+  requirement_ids: [CVA6V_FEAT_0, CVA6V_FEAT_5, CVA6V_FEAT_6, CVA6V_FEAT_7]
+- description: TODO
+  flags:
+  - ELF=/data/regression/europa/verif_team/cva6v/asm/rag/csr/build/csr_umode_scounteren_0
+  labels:
+  - CVA6V_DV_TESTS
+  - CVA6V_DV_RAG_TESTS
+  - CVA6V_DV_RAG_SCALAR_TESTS
+  - CVA6V_DV_RAG_CSR_241001_TESTS
+  name: csr_umode_scounteren_0
+  owner: Raymond Garcia
+  platforms:
+  - cva6v.*
+  requirement_ids: [CVA6V_FEAT_0, CVA6V_FEAT_5, CVA6V_FEAT_6, CVA6V_FEAT_7]
+- description: TODO
+  flags:
+  - ELF=/data/regression/europa/verif_team/cva6v/asm/rag/csr/build/csr_umode_senvcfg_0
+  labels:
+  - CVA6V_DV_TESTS
+  - CVA6V_DV_RAG_TESTS
+  - CVA6V_DV_RAG_SCALAR_TESTS
+  - CVA6V_DV_RAG_CSR_241001_TESTS
+  name: csr_umode_senvcfg_0
+  owner: Raymond Garcia
+  platforms:
+  - cva6v.*
+  requirement_ids: [CVA6V_FEAT_0, CVA6V_FEAT_5, CVA6V_FEAT_6, CVA6V_FEAT_7]
+- description: TODO
+  flags:
+  - ELF=/data/regression/europa/verif_team/cva6v/asm/rag/csr/build/csr_umode_sepc_0
+  labels:
+  - CVA6V_DV_TESTS
+  - CVA6V_DV_RAG_TESTS
+  - CVA6V_DV_RAG_SCALAR_TESTS
+  - CVA6V_DV_RAG_CSR_241001_TESTS
+  name: csr_umode_sepc_0
+  owner: Raymond Garcia
+  platforms:
+  - cva6v.*
+  requirement_ids: [CVA6V_FEAT_0, CVA6V_FEAT_5, CVA6V_FEAT_6, CVA6V_FEAT_7]
+- description: TODO
+  flags:
+  - ELF=/data/regression/europa/verif_team/cva6v/asm/rag/csr/build/csr_umode_sie_0
+  labels:
+  - CVA6V_DV_TESTS
+  - CVA6V_DV_RAG_TESTS
+  - CVA6V_DV_RAG_SCALAR_TESTS
+  - CVA6V_DV_RAG_CSR_241001_TESTS
+  name: csr_umode_sie_0
+  owner: Raymond Garcia
+  platforms:
+  - cva6v.*
+  requirement_ids: [CVA6V_FEAT_0, CVA6V_FEAT_5, CVA6V_FEAT_6, CVA6V_FEAT_7]
+- description: TODO
+  flags:
+  - ELF=/data/regression/europa/verif_team/cva6v/asm/rag/csr/build/csr_umode_sip_0
+  labels:
+  - CVA6V_DV_TESTS
+  - CVA6V_DV_RAG_TESTS
+  - CVA6V_DV_RAG_SCALAR_TESTS
+  - CVA6V_DV_RAG_CSR_241001_TESTS
+  name: csr_umode_sip_0
+  owner: Raymond Garcia
+  platforms:
+  - cva6v.*
+  requirement_ids: [CVA6V_FEAT_0, CVA6V_FEAT_5, CVA6V_FEAT_6, CVA6V_FEAT_7]
+- description: TODO
+  flags:
+  - ELF=/data/regression/europa/verif_team/cva6v/asm/rag/csr/build/csr_umode_sscratch_0
+  labels:
+  - CVA6V_DV_TESTS
+  - CVA6V_DV_RAG_TESTS
+  - CVA6V_DV_RAG_SCALAR_TESTS
+  - CVA6V_DV_RAG_CSR_241001_TESTS
+  name: csr_umode_sscratch_0
+  owner: Raymond Garcia
+  platforms:
+  - cva6v.*
+  requirement_ids: [CVA6V_FEAT_0, CVA6V_FEAT_5, CVA6V_FEAT_6, CVA6V_FEAT_7]
+- description: TODO
+  flags:
+  - ELF=/data/regression/europa/verif_team/cva6v/asm/rag/csr/build/csr_umode_sstatus_0
+  labels:
+  - CVA6V_DV_TESTS
+  - CVA6V_DV_RAG_TESTS
+  - CVA6V_DV_RAG_SCALAR_TESTS
+  - CVA6V_DV_RAG_CSR_241001_TESTS
+  name: csr_umode_sstatus_0
+  owner: Raymond Garcia
+  platforms:
+  - cva6v.*
+  requirement_ids: [CVA6V_FEAT_0, CVA6V_FEAT_5, CVA6V_FEAT_6, CVA6V_FEAT_7]
+- description: TODO
+  flags:
+  - ELF=/data/regression/europa/verif_team/cva6v/asm/rag/csr/build/csr_umode_stval_0
+  labels:
+  - CVA6V_DV_TESTS
+  - CVA6V_DV_RAG_TESTS
+  - CVA6V_DV_RAG_SCALAR_TESTS
+  - CVA6V_DV_RAG_CSR_241001_TESTS
+  name: csr_umode_stval_0
+  owner: Raymond Garcia
+  platforms:
+  - cva6v.*
+  requirement_ids: [CVA6V_FEAT_0, CVA6V_FEAT_5, CVA6V_FEAT_6, CVA6V_FEAT_7]
+- description: TODO
+  flags:
+  - ELF=/data/regression/europa/verif_team/cva6v/asm/rag/csr/build/csr_umode_stvec_0
+  labels:
+  - CVA6V_DV_TESTS
+  - CVA6V_DV_RAG_TESTS
+  - CVA6V_DV_RAG_SCALAR_TESTS
+  - CVA6V_DV_RAG_CSR_241001_TESTS
+  name: csr_umode_stvec_0
+  owner: Raymond Garcia
+  platforms:
+  - cva6v.*
+  requirement_ids: [CVA6V_FEAT_0, CVA6V_FEAT_5, CVA6V_FEAT_6, CVA6V_FEAT_7]
+- description: TODO
+  flags:
+  - ELF=/data/regression/europa/verif_team/cva6v/asm/rag/csr/build/csr_umode_vcsr_0
+  labels:
+  - CVA6V_DV_TESTS
+  - CVA6V_DV_RAG_TESTS
+  - CVA6V_DV_RAG_SCALAR_TESTS
+  - CVA6V_DV_RAG_CSR_241001_TESTS
+  name: csr_umode_vcsr_0
+  owner: Raymond Garcia
+  platforms:
+  - cva6v.*
+  requirement_ids: [CVA6V_FEAT_0, CVA6V_FEAT_5, CVA6V_FEAT_6, CVA6V_FEAT_7]
+- description: TODO
+  flags:
+  - ELF=/data/regression/europa/verif_team/cva6v/asm/rag/csr/build/csr_umode_vl_0
+  labels:
+  - CVA6V_DV_TESTS
+  - CVA6V_DV_RAG_TESTS
+  - CVA6V_DV_RAG_SCALAR_TESTS
+  - CVA6V_DV_RAG_CSR_241001_TESTS
+  name: csr_umode_vl_0
+  owner: Raymond Garcia
+  platforms:
+  - cva6v.*
+  requirement_ids: [CVA6V_FEAT_0, CVA6V_FEAT_5, CVA6V_FEAT_6, CVA6V_FEAT_7]
+- description: TODO
+  flags:
+  - ELF=/data/regression/europa/verif_team/cva6v/asm/rag/csr/build/csr_umode_vlenb_0
+  labels:
+  - CVA6V_DV_TESTS
+  - CVA6V_DV_RAG_TESTS
+  - CVA6V_DV_RAG_SCALAR_TESTS
+  - CVA6V_DV_RAG_CSR_241001_TESTS
+  name: csr_umode_vlenb_0
+  owner: Raymond Garcia
+  platforms:
+  - cva6v.*
+  requirement_ids: [CVA6V_FEAT_0, CVA6V_FEAT_5, CVA6V_FEAT_6, CVA6V_FEAT_7]
+- description: TODO
+  flags:
+  - ELF=/data/regression/europa/verif_team/cva6v/asm/rag/csr/build/csr_umode_vstart_0
+  labels:
+  - CVA6V_DV_TESTS
+  - CVA6V_DV_RAG_TESTS
+  - CVA6V_DV_RAG_SCALAR_TESTS
+  - CVA6V_DV_RAG_CSR_241001_TESTS
+  name: csr_umode_vstart_0
+  owner: Raymond Garcia
+  platforms:
+  - cva6v.*
+  requirement_ids: [CVA6V_FEAT_0, CVA6V_FEAT_5, CVA6V_FEAT_6, CVA6V_FEAT_7]
+- description: TODO
+  flags:
+  - ELF=/data/regression/europa/verif_team/cva6v/asm/rag/csr/build/csr_umode_vtype_0
+  labels:
+  - CVA6V_DV_TESTS
+  - CVA6V_DV_RAG_TESTS
+  - CVA6V_DV_RAG_SCALAR_TESTS
+  - CVA6V_DV_RAG_CSR_241001_TESTS
+  name: csr_umode_vtype_0
+  owner: Raymond Garcia
+  platforms:
+  - cva6v.*
+  requirement_ids: [CVA6V_FEAT_0, CVA6V_FEAT_5, CVA6V_FEAT_6, CVA6V_FEAT_7]
+- description: TODO
+  flags:
+  - ELF=/data/regression/europa/verif_team/cva6v/asm/rag/csr/build/csr_umode_vxrm_0
+  labels:
+  - CVA6V_DV_TESTS
+  - CVA6V_DV_RAG_TESTS
+  - CVA6V_DV_RAG_SCALAR_TESTS
+  - CVA6V_DV_RAG_CSR_241001_TESTS
+  name: csr_umode_vxrm_0
+  owner: Raymond Garcia
+  platforms:
+  - cva6v.*
+  requirement_ids: [CVA6V_FEAT_0, CVA6V_FEAT_5, CVA6V_FEAT_6, CVA6V_FEAT_7]
+- description: TODO
+  flags:
+  - ELF=/data/regression/europa/verif_team/cva6v/asm/rag/csr/build/csr_umode_vxsat_0
+  labels:
+  - CVA6V_DV_TESTS
+  - CVA6V_DV_RAG_TESTS
+  - CVA6V_DV_RAG_SCALAR_TESTS
+  - CVA6V_DV_RAG_CSR_241001_TESTS
+  name: csr_umode_vxsat_0
+  owner: Raymond Garcia
+  platforms:
+  - cva6v.*
+  requirement_ids: [CVA6V_FEAT_0, CVA6V_FEAT_5, CVA6V_FEAT_6, CVA6V_FEAT_7]

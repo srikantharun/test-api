@@ -1,0 +1,17 @@
+package:
+  name: axe_uvm_numeric_tb
+  description: "Verification Common Testbenches"
+  authors:
+    - "andrew.bond@axelera.ai"
+
+dependencies:
+  dv_common:   { path: "../" }
+
+sources:
+  - target: simulation
+    include_dirs:
+      - ./rtl
+      - ./uvm
+    files:
+      - ./uvm/test_pkg.sv
+      - ./rtl/tb.sv

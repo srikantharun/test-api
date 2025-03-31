@@ -1,0 +1,7 @@
+{% import 'arguments.jinja2' as arguments %}
+##################################
+# Set Multicycle Path Statements #
+##################################
+{% for path in data.mcp_path|filter_by_mode(constraint_mode) %}
+set_multicycle_path {{ path.multiplier }} {{ path.relative_to }} {{ arguments.type(path.type) }} {{ arguments.from(path.from_object) }}{{ arguments.to(path.to_object) }}{{ arguments.through(path.through_object) }}
+{%- endfor %}

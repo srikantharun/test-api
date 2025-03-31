@@ -1,0 +1,2 @@
+ASO: KL 29012025 Ring-Oscillator is replaced by dummy module until hard macro is available. [spyglass] regexp="\[(DED)\]\s+FlopClockConstant\s+Error\s+.+KSE3_IP_TOP_SG\.vhd\s+(\d+)\s+(\d+)\s+Clock pin CP on Flop .+ is tiedlow \(connected to soc_mgmt_p\.u_soc_mgmt\.u_soc_mgmt_secu_enclave\.ro_clk\[7:0\]\)"
+

@@ -1,0 +1,24 @@
+# (C) Copyright 2024 Axelera AI B.V.
+# All Rights Reserved
+# *** Axelera AI Confidential ***
+
+package:
+  name: cdns_ip6185_1990_dll_phy_tb
+  description: "TODO: add description"
+  authors:
+    - "Andrew Bond <andrew.bond@axelera.ai>"
+
+dependencies:
+  cdns_ip6185_1990_dll_phy_pkg: { path: "../../rtl/pkg" }
+  cdns_ip6185_1990_dll_phy:     { path: "../../rtl"     }
+
+
+# Source files grouped in levels.
+# Files in level 0 have no dependencies on files in this package.
+# Files in level 1 only depend on files in level 0, files in level 2 on files in levels 1 and 0, etc.
+# Files within a level are ordered alphabetically.
+sources:
+  - target: simulation
+    files:
+    # Level 0
+    - cdns_ip6185_1990_dll_phy_tb.sv

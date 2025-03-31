@@ -1,0 +1,13 @@
+#!/usr/bin/env bash
+# Open the generated wr/rd_txns.txt files to plot the performance graph
+
+set -e  # Exit immediately if a command exits with a non-zero status
+
+VENV=.venv/plot_perf_graph_venv
+
+make -C $REPO_ROOT/bin venv VENV=$VENV FILE=$REPO_ROOT/hw/dv/axi_perf_tracker/requirements.txt > /dev/null 2>&1
+
+source $REPO_ROOT/bin/$VENV/bin/activate
+# Pass the arguments to the Python script
+python3 $REPO_ROOT/hw/dv/axi_perf_tracker/plot_perf.py $@
+deactivate

@@ -1,0 +1,14 @@
+package:
+  name: axi4_common_ral_pkg
+  description: "AXI4 common ral package"
+  authors:
+    - "roswin.benny@axelera.ai"
+
+dependencies:
+  lowrisc_dv_base_reg:         { path: "$REPO_ROOT/hw/vendor/axelera/lowrisc_dv/dv_base_reg"}
+  v_utils_pkg:                 { path: "$REPO_ROOT/hw/dv/v_utils"}
+
+sources:
+  - target: simulation
+    files:
+      - $REPO_ROOT/hw/ip/axi4_common/default/dv/build_ral/axi_mailbox_csr_ral_pkg.sv

@@ -1,0 +1,23 @@
+# (C) Copyright 2024 Axelera AI B.V.
+# All Rights Reserved
+# *** Axelera AI Confidential ***
+
+package:
+  name: dpu_func_cov
+  description: "DPU verification functional coverage"
+  authors:
+    - "fernando.yokota@axelera.ai"
+
+dependencies:
+  svt_amba_vip                : { path: "../../../../../../dv/svt_amba_vip" }
+  ai_core_token_agent_uvm_pkg : { path: "../../../../../../dv/token_agent"}
+  dpu_uvm_common              : { path: "../common" }
+
+
+sources:
+  - target: simulation
+    include_dirs:
+      - .
+    files:
+      - dpu_func_cov_pkg.sv
+

@@ -1,0 +1,68 @@
+# (C) Copyright 2024 Axelera AI B.V.
+# All Rights Reserved
+# *** Axelera AI Confidential ***
+
+package:
+  name: europa_soc_mgmt
+  description: "Europa - SoC Management"
+  authors:
+    - "Joao Martins   <joao.martins@axelera.ai>"
+    - "Andrew Dickson <andrew.dickson@axelera.ai>"
+
+dependencies:
+  europa_asic_pkg:       { path: "" }
+  axi_pkg:               { path: "" }
+  axe_apb:               { path: "" }
+  europa_soc_mgmt_pkg:   { path: "" }
+  lowrisc_prim_subreg:   { path: "" }
+  samsung_otp_wrapper:   { path: "" }
+  samsung_pll_wrapper:   { path: "" }
+  samsung_efuse_wrapper: { path: "" }
+  samsung_pvt_wrapper:   { path: "" }
+  smu_fabric_subsys  :   { path: "" }
+  axe_tcl:               { path: "" }
+  cc_lib:                { path: "" }
+  designware:            { path: "" }
+  pctl:                  { path: "" }
+  tms:                   { path: "" }
+  ax65_cluster:          { path: "" }
+  axe_ahb_pkg:           { path: "" }
+  kudelski_kse3:         { path: "" }
+  otp_wrapper:           { path: "" }
+  kudelski_ring_osc:     { path: "" }
+  c2c_monitor:           { path: "" }
+
+# Source files grouped in levels.
+# Files in level 0 have no dependencies on files in this package.
+# Files in level 1 only depend on files in level 0, files in level 2 on files in levels 1 and 0, etc.
+# Files within a level are ordered alphabetically.
+sources:
+  - target: rtl
+    files:
+    # Level 0
+    - build_reg/soc_mgmt_clk_gen_csr_reg_top.sv
+    - build_reg/soc_mgmt_misc_csr_reg_top.sv
+    - build_reg/soc_mgmt_reset_gen_csr_reg_top.sv
+    - build_reg/soc_mgmt_secu_aor_csr_reg_top.sv
+    - reset_gen_basic_block.sv
+    - freq_meter.sv
+    - soc_mgmt_clk_gen.sv
+    - nds_pldm_wrapper.sv
+    - soc_mgmt_secu_apb_dec.sv
+    - soc_mgmt_secu_ahb_dec.sv
+    - kse_jtag_tdr_core.sv
+    - kse_jtag_fsm.sv
+    # Level 1
+    - soc_mgmt_efuse_wrapper.sv
+    - soc_mgmt_bus_fabric_wrapper.sv
+    - soc_mgmt_reset_gen.sv
+    - soc_mgmt_sycscfg_apb_addr_decode.sv
+    - kse_jtag_tdr.sv
+    - kse_jtag_fsm.sv
+    # Level 2
+    - soc_mgmt_secu_enclave.sv
+  - target: all(rtl, not(dft))
+    files:
+    # Level 3
+    - soc_mgmt.sv
+    - soc_mgmt_p.sv

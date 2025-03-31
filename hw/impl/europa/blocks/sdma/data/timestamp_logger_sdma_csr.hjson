@@ -1,0 +1,61 @@
+// Copyright lowRISC contributors.
+// Licensed under the Apache License, Version 2.0, see LICENSE for details.
+// SPDX-License-Identifier: Apache-2.0
+{ name: "timestamp_logger_sdma_csr",
+  clocking: [{clock: "clk_i", reset: "rst_ni"}],
+  bus_interfaces: [
+    { protocol: "tlul", direction: "device" }
+  ],
+  regwidth: "64",
+  addrcap: "0x1000",
+  registers: [
+    { skipto: "0x200" },
+    { name: "SWEP",
+      desc: "Software endpoint.",
+      swaccess: "wo",
+      hwaccess: "hro",
+      hwqe: True
+      fields: [
+        {
+            bits: "1:0",
+            name: "swep_message",
+            desc: '''
+                  Message to be timestamped, any write will trigger.
+                  ''',
+            resval: 0x0
+        }
+      ]
+    }
+    { name: "CHANNEL_MASK",
+      desc: "Mask the channels from logging",
+      swaccess: "rw",
+      hwaccess: "hro"
+      fields: [
+          {
+              bits: "0",
+              name: "ch0",
+              desc: 'When set a ts_start or ts_end of `ch0` will cause a trigger',
+              resval: 0x1
+          }
+          {
+              bits: "1",
+              name: "ch1",
+              desc: 'When set a ts_start or ts_end of `ch1` will cause a trigger',
+              resval: 0x1
+          }
+          {
+              bits: "2",
+              name: "ch2",
+              desc: 'When set a ts_start or ts_end of `ch2` will cause a trigger',
+              resval: 0x1
+          }
+          {
+              bits: "3",
+              name: "ch3",
+              desc: 'When set a ts_start or ts_end of `ch3` will cause a trigger',
+              resval: 0x1
+          }
+      ]
+    },
+  ]
+}

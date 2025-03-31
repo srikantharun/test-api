@@ -1,0 +1,19 @@
+package:
+  name: europa_soc_periph_uvm_sw_ipc
+  description: "SOC_PERIPH UVM SW IPC"
+  authors:
+    - "jerome.sauger@axelera.ai"
+
+dependencies:
+  europa_asic_pkg : { path: "${REPO_ROOT}hw/impl/europa/asic/rtl/pkg" }
+  svt_amba_vip: { path: "$REPO_ROOT/hw/dv/svt_amba_vip"}
+
+sources:
+  - target: simulation
+    defines:
+      UVM_SW_IPC_FLAVOR_SOC_PERIPH: ~
+    include_dirs:
+      - ..
+    files:
+      - ../uvm_sw_ipc_pkg.sv
+      - ../uvm_sw_ipc_if_soc_periph.sv

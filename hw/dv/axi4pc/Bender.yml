@@ -1,0 +1,15 @@
+package:
+  name: axi4pc
+  description: "AXI4 Protocol checker binding for Axi4PC"
+  authors:
+    - "Timir Soni <timir.soni@axelera.ai>"
+
+export_include_dirs:
+  - include
+
+sources:
+  - target: simulation
+    include_dirs:
+      - .
+    files:
+      - AxiPC.sv

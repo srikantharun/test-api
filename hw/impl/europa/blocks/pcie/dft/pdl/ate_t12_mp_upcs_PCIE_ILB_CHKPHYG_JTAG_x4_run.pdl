@@ -1,0 +1,955 @@
+iTopProc ate_t12_mp_upcs_PCIE_ILB_CHKPHYG_JTAG_x4_run {} {
+    iNote "BEGIN_TASK <INITIALIZATION@REFCLK_100M>"
+    iNote "BEGIN_TASK <LOAD_FIRMWARE@REFCLK_100M>"
+    iNote "	 Waiting for 1 microseconds for expected events to take place"
+    iRunLoop [expr (1 * 1000) / 10] -tck ; # waiting this many 10ns clock periods
+    iNote "	 Waiting for 2 microseconds for expected events to take place"
+    iRunLoop [expr (2 * 1000) / 10] -tck ; # waiting this many 10ns clock periods
+    iNote "	 Waiting for 2 microseconds for expected events to take place"
+    iRunLoop [expr (2 * 1000) / 10] -tck ; # waiting this many 10ns clock periods
+    iNote "	 Waiting for 6 microseconds for expected events to take place"
+    iRunLoop [expr (6 * 1000) / 10] -tck ; # waiting this many 10ns clock periods
+    iNote "Enter CR ACCESS"
+    iNote "	 Waiting for 2 microseconds for expected events to take place"
+    iRunLoop [expr (2 * 1000) / 10] -tck ; # waiting this many 10ns clock periods
+    iNote " Overriding ref_range to 3"
+    crsel_write 0x017f  0xcc00
+    iNote " Overriding fsm_cmd_start_r to 1'b0, and fsm_ovrd_en_r to 1'b1 to avoid firmware starting"
+    crsel_write 0x6140  0x4000
+    iNote " Overriding ref_clk_en_ovrd_en to 1'b1 to start the sram bootloading process"
+    crsel_write 0x0155  0x0030
+    iNote "	 Waiting for 2 microseconds for expected events to take place"
+    iRunLoop [expr (2 * 1000) / 10] -tck ; # waiting this many 10ns clock periods
+    iNote " !!!NEED ATTENTION - SRAM bootloading time can be changing across ref_clk"
+    iNote "	 Waiting for 250 microseconds for expected events to take place"
+    iRunLoop [expr (250 * 1000) / 10] -tck ; # waiting this many 10ns clock periods
+    iNote " Reading SRAM_INIT_DONE"
+    crsel_read_masked   0x0178  0x0001  0x0001  ;# : READ DATA=1h, EXPECTED DATA=1h, MASK=1h
+    iNote " Expecting SRAM_INIT_DONE to be asserted "
+    iNote " update firmware if necessary"
+    iNote "	 Waiting for 2 microseconds for expected events to take place"
+    iRunLoop [expr (2 * 1000) / 10] -tck ; # waiting this many 10ns clock periods
+    iNote " Insert the vector pause for FW updates if necessary in ate.vec at line number 4724"
+    iNote "	 Waiting for 2 microseconds for expected events to take place"
+    iRunLoop [expr (2 * 1000) / 10] -tck ; # waiting this many 10ns clock periods
+    iNote " Overriding sram_ext_ld_done to 1'b1"
+    crsel_write 0x0176  0x0003
+    iNote "	 Waiting for 2 microseconds for expected events to take place"
+    iRunLoop [expr (2 * 1000) / 10] -tck ; # waiting this many 10ns clock periods
+    iNote "END_TASK <LOAD_FIRMWARE@REFCLK_100M>"
+    iNote "BEGIN_INTTASK <ate_init_dut>"
+    iNote "BEGIN_INTTASK <cfg_cmn>"
+    iNote " JTAG ID READ for selective register read enabling"
+    crsel_read_masked   0x0000  0x74cd  0xffff  ;# : READ DATA=74cdh, EXPECTED DATA=74cdh, MASK=ffffh
+    iNote " JTAG IDCODE_LO is read as expected "
+    crsel_read_masked   0x0001  0x1144  0xffff  ;# : READ DATA=1144h, EXPECTED DATA=1144h, MASK=ffffh
+    iNote " JTAG IDCODE_HI is read as expected "
+    iNote " Overriding mpll_recal_force_en to 0"
+    iNote " Overriding mpll_recal_skip_en to based on configuration"
+    iNote " Overriding mpll_recal_bank_sel to based on configuration"
+    crsel_write 0x010f  0x2a54
+    iNote " Overriding mplla_init_cal_disable to 1, mpllb_init_cal_disable to 0, rtune_req to 0"
+    crsel_write 0x0102  0x0823
+    iNote " Overriding mplla_force_en, mpllb_force_en, ref_repeat_clk_en to 0, ref_clk_en to 1"
+    crsel_write 0x0155  0x00ba
+    iNote " Overriding bg_en_r to 1"
+    crsel_write 0x0003  0x0dc0
+    iNote " Overriding ref_clkdet_en_r to 0"
+    crsel_write 0x0004  0x008b
+    iNote " Get access to external resistor"
+    crsel_write 0x001f  0x0018
+    iNote " Overriding tx_lpd, tx_data_en, tx_invert, tx_beacon_en to 0"
+    iNote " Overriding tx_clk_rdy, tx_mpll_en to 1"
+    iNote " Overriding tx_pstate to P1"
+    crsel_write 0x6005  0x7756
+    iNote " Overriding tx_disable to 0"
+    crsel_write 0x7020  0x0002
+    iNote " Overriding lane_link_num to 0"
+    crsel_write 0x6000  0x0100
+    iNote " Overriding tx_hp_prot_en to 0"
+    crsel_write 0x7016  0x0002
+    iNote " Overriding tx_detrx_req, tx_recal_force_en, tx_recal_skip_en to 0"
+    iNote " Overriding tx_master_mplla_state, tx_master_mpllb_state, tx_lane2lane_dskw_en to 1"
+    crsel_write 0x6006  0x2a2f
+    iNote " Overriding tx_req to 0"
+    crsel_write 0x6004  0x0008
+    iNote " Overriding rx_req to 0"
+    crsel_write 0x6080  0x0008
+    iNote " Overriding rx_lpd, rx_invert, rx_adapt_req, rx_adapt_in_prog, rx_data_en to 0"
+    iNote " Overriding rx_pstate to P1"
+    crsel_write 0x6081  0x5156
+    iNote " Clear the rx_adapt_dis IRQ to prevent rx_ack assertion after initial power-up sequence completed"
+    crsel_write 0x60ce  0x0001
+    iNote " Override rx_margin_vdac and rx_recal_bank_sel to 0"
+    crsel_write 0x6083  0x1200
+    iNote " Override rx_recal_skip_en, rx_recal_force_en, rx_margin_iq, rx_margin_in_prog, rx_margin_error_clear to 0 "
+    crsel_write 0x6082  0xaa80
+    iNote " Overriding rx_disable to 0"
+    iNote " Overriding rx_term_en, rx_sigdet_lf_en, rx_sigdet_hf_filt_dis to 1"
+    crsel_write 0x71c1  0x0cce
+    iNote "END_INTTASK <cfg_cmn>"
+    iNote " Connect rxX_p/m based on the loopback mode = ILB_INTRA"
+    iNote "BEGIN_INTTASK <cfg_lane_lb_en_val>"
+    iNote " Overriding laneX_rx2tx_par_lb_en to 0 and laneX_tx2rx_ser_lb_en to 0"
+    crsel_write 0x6000  0x010a
+    iNote "END_INTTASK <cfg_lane_lb_en_val>"
+    iNote "BEGIN_INTTASK <cfg_rate_para@ATE_PCIECM_G1_20B@REFCLK_100M>"
+    iNote " Overriding cmn_cntx_sel"
+    crsel_write 0x0119  0x010a
+    iNote " Overriding mplla_cntx_sel"
+    crsel_write 0x011a  0x0100
+    iNote " Overriding mpllb_cntx_sel"
+    crsel_write 0x011b  0x0106
+    iNote " Overriding tx_cntx_sel"
+    crsel_write 0x6007  0x010a
+    iNote " Overriding rx_cntx_sel"
+    crsel_write 0x6084  0x010a
+    iNote " Overriding tx_clk_dskw_en"
+    crsel_write 0x6006  0x2aaf
+    iNote " Overriding mplla_ssc_en, mpllb_ssc_en, hdmimode_enable"
+    crsel_write 0x0102  0x0aab
+    iNote " Hooking up tx0_clk to appropriate mpll word/dword/qword/div16p5/div33 clock"
+    iNote " Overriding tx_clk_sel"
+    crsel_write 0x6041  0x000e
+    iNote " Overriding tx_eq_pre, tx_eq_main and tx_eq_post"
+    iNote " Overriding tx_eq_main to 96 and tx_eq_post to 0"
+    crsel_write 0x600d  0x0030
+    iNote " Overriding tx_eq_pre to 0"
+    crsel_write 0x600e  0x0040
+    iNote " Overriding rx_cdr_ssc_en"
+    crsel_write 0x6081  0x5756
+    iNote " Overriding rx_term_acdc, rx_sigdet_hf_en"
+    crsel_write 0x71c1  0x0efe
+    iNote "END_INTTASK <cfg_rate_para@ATE_PCIECM_G1_20B@REFCLK_100M>"
+    iNote "BEGIN_INTTASK <pwrup_phy>"
+    iNote "BEGIN_INTTASK <pwrup_all_txrx>"
+    iNote " De-asserting rx_reset"
+    crsel_write 0x6080  0x000a
+    iNote " De-asserting tx_reset"
+    crsel_write 0x6004  0x000a
+    iNote "END_INTTASK <pwrup_all_txrx>"
+    iNote " Release Override on fsm_cmd_start_r and fsm_ovrd_en_r"
+    crsel_write 0x6140  0x0000
+    iNote " Initial configuration done"
+    iNote " Waiting for PHY power up..."
+    iNote "	 Waiting for 3000 microseconds for expected events to take place"
+    iRunLoop [expr (3000 * 1000) / 10] -tck ; # waiting this many 10ns clock periods
+    iNote " Insert the vector pause of interest for normal FW in ate.vec at line number 56754"
+    iNote "	 Waiting for 3000 microseconds for expected events to take place"
+    iRunLoop [expr (3000 * 1000) / 10] -tck ; # waiting this many 10ns clock periods
+    iNote " Reading INIT_PWRUP_DONE on all lanes"
+    crsel_read_masked   0x301a  0x0001  0x0001  ;# : READ DATA=1h, EXPECTED DATA=1h, MASK=1h
+    iNote " Expecting INIT_PWRUP_DONE on Lane 0 to be asserted "
+    crsel_read_masked   0x321a  0x0001  0x0001  ;# : READ DATA=1h, EXPECTED DATA=1h, MASK=1h
+    iNote " Expecting INIT_PWRUP_DONE on Lane 1 to be asserted "
+    crsel_read_masked   0x341a  0x0001  0x0001  ;# : READ DATA=1h, EXPECTED DATA=1h, MASK=1h
+    iNote " Expecting INIT_PWRUP_DONE on Lane 2 to be asserted "
+    crsel_read_masked   0x361a  0x0001  0x0001  ;# : READ DATA=1h, EXPECTED DATA=1h, MASK=1h
+    iNote " Expecting INIT_PWRUP_DONE on Lane 3 to be asserted "
+    iNote " Reading RX ACK and RX VALID at PMA level 'h0"
+    crsel_read_masked   0x1095  0x0014  0x0003  ;# : READ DATA=14h, EXPECTED DATA=14h, MASK=3h
+    iNote " Expecting RX ACK to be de-asserted and RX VALID to be de-asserted on Channel0 "
+    crsel_read_masked   0x1295  0x0014  0x0003  ;# : READ DATA=14h, EXPECTED DATA=14h, MASK=3h
+    iNote " Expecting RX ACK to be de-asserted and RX VALID to be de-asserted on Channel1 "
+    crsel_read_masked   0x1495  0x0014  0x0003  ;# : READ DATA=14h, EXPECTED DATA=14h, MASK=3h
+    iNote " Expecting RX ACK to be de-asserted and RX VALID to be de-asserted on Channel2 "
+    crsel_read_masked   0x1695  0x0014  0x0003  ;# : READ DATA=14h, EXPECTED DATA=14h, MASK=3h
+    iNote " Expecting RX ACK to be de-asserted and RX VALID to be de-asserted on Channel3 "
+    iNote " Reading RX ACK at PHY level"
+    crsel_read_masked   0x208a  0x0000  0x0001  ;# : READ DATA=0h, EXPECTED DATA=0h, MASK=1h
+    iNote " Expecting RX ACK to be de-asserted on Channel0 "
+    crsel_read_masked   0x228a  0x0000  0x0001  ;# : READ DATA=0h, EXPECTED DATA=0h, MASK=1h
+    iNote " Expecting RX ACK to be de-asserted on Channel1 "
+    crsel_read_masked   0x248a  0x0000  0x0001  ;# : READ DATA=0h, EXPECTED DATA=0h, MASK=1h
+    iNote " Expecting RX ACK to be de-asserted on Channel2 "
+    crsel_read_masked   0x268a  0x0000  0x0001  ;# : READ DATA=0h, EXPECTED DATA=0h, MASK=1h
+    iNote " Expecting RX ACK to be de-asserted on Channel3 "
+    iNote " Reading TX ACK at PMA level"
+    crsel_read_masked   0x100d  0x0004  0x0001  ;# : READ DATA=4h, EXPECTED DATA=4h, MASK=1h
+    iNote " Expecting TX ACK of Channel0 to be de-asserted "
+    crsel_read_masked   0x120d  0x0004  0x0001  ;# : READ DATA=4h, EXPECTED DATA=4h, MASK=1h
+    iNote " Expecting TX ACK of Channel1 to be de-asserted "
+    crsel_read_masked   0x140d  0x0004  0x0001  ;# : READ DATA=4h, EXPECTED DATA=4h, MASK=1h
+    iNote " Expecting TX ACK of Channel2 to be de-asserted "
+    crsel_read_masked   0x160d  0x0004  0x0001  ;# : READ DATA=4h, EXPECTED DATA=4h, MASK=1h
+    iNote " Expecting TX ACK of Channel3 to be de-asserted "
+    iNote " Reading TX ACK at PHY level"
+    crsel_read_masked   0x200c  0x0000  0x0001  ;# : READ DATA=0h, EXPECTED DATA=0h, MASK=1h
+    iNote " Expecting TX ACK of Channel0 to be de-asserted "
+    crsel_read_masked   0x220c  0x0000  0x0001  ;# : READ DATA=0h, EXPECTED DATA=0h, MASK=1h
+    iNote " Expecting TX ACK of Channel1 to be de-asserted "
+    crsel_read_masked   0x240c  0x0000  0x0001  ;# : READ DATA=0h, EXPECTED DATA=0h, MASK=1h
+    iNote " Expecting TX ACK of Channel2 to be de-asserted "
+    crsel_read_masked   0x260c  0x0000  0x0001  ;# : READ DATA=0h, EXPECTED DATA=0h, MASK=1h
+    iNote " Expecting TX ACK of Channel3 to be de-asserted "
+    iNote "BEGIN_INTTASK <pwrup_act_txrx>"
+    iNote " De-asserting rx_reset"
+    crsel_write 0x6080  0x000a
+    iNote " De-asserting tx_reset"
+    crsel_write 0x6004  0x000a
+    iNote "END_INTTASK <pwrup_act_txrx>"
+    iNote "END_INTTASK <pwrup_phy>"
+    iNote "BEGIN_INTTASK <cfg_lane_lb_en@ILB_INTRA>"
+    iNote " Overriding laneX_rx2tx_par_lb_en to 0 and laneX_tx2rx_ser_lb_en to 1"
+    crsel_write 0x6000  0x010e
+    iNote " Overriding rx_loopback_sel"
+    crsel_write 0x6083  0x5200
+    iNote "END_INTTASK <cfg_lane_lb_en@ILB_INTRA>"
+    iNote "BEGIN_INTTASK <cfg_inlb_settings@ENABLE>"
+    iNote " Enable workaround-1 for internal loopback"
+    iNote " INLB_WA#1: Overriding TX_ANA_PULL_DN_REG to 1"
+    crsel_write 0x505e  0x2000
+    iNote " INLB_WA#1: Sequence for AFE settings update"
+    crsel_write 0x5089  0x0100
+    crsel_write 0x5088  0x0f80
+    iNote "END_INTTASK <cfg_inlb_settings@ENABLE>"
+    crsel_write 0x71bf  0x0005
+    iNote "BEGIN_INTTASK <goto_pstate@p0>"
+    iNote "BEGIN_INTTASK <cfg_tx_lbert@DIS@X>"
+    iNote " Disabling txX LBERT"
+    crsel_write 0x5029  0x0000
+    iNote "END_INTTASK <cfg_tx_lbert@DIS@X>"
+    iNote " Override rx_pstate to 0"
+    crsel_write 0x6081  0x5754
+    iNote " Override tx_pstate to 0"
+    crsel_write 0x6005  0x7754
+    iNote "BEGIN_INTTASK <txrx_reqack_handshake>"
+    iNote " Override rx_req to 1 at PHY"
+    crsel_write 0x6080  0x000e
+    iNote " Override tx_req to 1 at PHY"
+    crsel_write 0x6004  0x000e
+    iNote " Waiting for tx/rx_ack asserted"
+    iNote "	 Waiting for 80 microseconds for expected events to take place"
+    iRunLoop [expr (80 * 1000) / 10] -tck ; # waiting this many 10ns clock periods
+    iNote " Reading RX ACK at PHY level"
+    crsel_read_masked   0x208a  0x0001  0x0001  ;# : READ DATA=1h, EXPECTED DATA=1h, MASK=1h
+    iNote " Expecting RX ACK to be asserted on Channel0 "
+    crsel_read_masked   0x228a  0x0001  0x0001  ;# : READ DATA=1h, EXPECTED DATA=1h, MASK=1h
+    iNote " Expecting RX ACK to be asserted on Channel1 "
+    crsel_read_masked   0x248a  0x0001  0x0001  ;# : READ DATA=1h, EXPECTED DATA=1h, MASK=1h
+    iNote " Expecting RX ACK to be asserted on Channel2 "
+    crsel_read_masked   0x268a  0x0001  0x0001  ;# : READ DATA=1h, EXPECTED DATA=1h, MASK=1h
+    iNote " Expecting RX ACK to be asserted on Channel3 "
+    iNote " Reading TX ACK at PHY level"
+    crsel_read_masked   0x200c  0x0001  0x0001  ;# : READ DATA=1h, EXPECTED DATA=1h, MASK=1h
+    iNote " Expecting TX ACK of Channel0 to be asserted "
+    crsel_read_masked   0x220c  0x0001  0x0001  ;# : READ DATA=1h, EXPECTED DATA=1h, MASK=1h
+    iNote " Expecting TX ACK of Channel1 to be asserted "
+    crsel_read_masked   0x240c  0x0001  0x0001  ;# : READ DATA=1h, EXPECTED DATA=1h, MASK=1h
+    iNote " Expecting TX ACK of Channel2 to be asserted "
+    crsel_read_masked   0x260c  0x0001  0x0001  ;# : READ DATA=1h, EXPECTED DATA=1h, MASK=1h
+    iNote " Expecting TX ACK of Channel3 to be asserted "
+    iNote " Override rx_req to 0 at PHY"
+    crsel_write 0x6080  0x000a
+    iNote " Override tx_req to 0 at PHY"
+    crsel_write 0x6004  0x000a
+    iNote " Waiting for tx/rx_ack de-asserted"
+    iNote "	 Waiting for 10 microseconds for expected events to take place"
+    iRunLoop [expr (10 * 1000) / 10] -tck ; # waiting this many 10ns clock periods
+    iNote " Reading RX ACK at PHY level"
+    crsel_read_masked   0x208a  0x0000  0x0001  ;# : READ DATA=0h, EXPECTED DATA=0h, MASK=1h
+    iNote " Expecting RX ACK to be de-asserted on Channel0 "
+    crsel_read_masked   0x228a  0x0000  0x0001  ;# : READ DATA=0h, EXPECTED DATA=0h, MASK=1h
+    iNote " Expecting RX ACK to be de-asserted on Channel1 "
+    crsel_read_masked   0x248a  0x0000  0x0001  ;# : READ DATA=0h, EXPECTED DATA=0h, MASK=1h
+    iNote " Expecting RX ACK to be de-asserted on Channel2 "
+    crsel_read_masked   0x268a  0x0000  0x0001  ;# : READ DATA=0h, EXPECTED DATA=0h, MASK=1h
+    iNote " Expecting RX ACK to be de-asserted on Channel3 "
+    iNote " Reading TX ACK at PHY level"
+    crsel_read_masked   0x200c  0x0000  0x0001  ;# : READ DATA=0h, EXPECTED DATA=0h, MASK=1h
+    iNote " Expecting TX ACK of Channel0 to be de-asserted "
+    crsel_read_masked   0x220c  0x0000  0x0001  ;# : READ DATA=0h, EXPECTED DATA=0h, MASK=1h
+    iNote " Expecting TX ACK of Channel1 to be de-asserted "
+    crsel_read_masked   0x240c  0x0000  0x0001  ;# : READ DATA=0h, EXPECTED DATA=0h, MASK=1h
+    iNote " Expecting TX ACK of Channel2 to be de-asserted "
+    crsel_read_masked   0x260c  0x0000  0x0001  ;# : READ DATA=0h, EXPECTED DATA=0h, MASK=1h
+    iNote " Expecting TX ACK of Channel3 to be de-asserted "
+    iNote "END_INTTASK <txrx_reqack_handshake>"
+    iNote "END_INTTASK <goto_pstate@p0>"
+    iNote "END_INTTASK <ate_init_dut>"
+    iNote "END_TASK <INITIALIZATION@REFCLK_100M>"
+    iNote "BEGIN_TASK <RATE_CHANGE@ATE_PCIECM_G1_20B@REFCLK_100M>"
+    iNote "BEGIN_INTTASK <cfg_rx_datapath@dis@X>"
+    iNote " Overriding rxX_data_en to 0"
+    crsel_write 0x6081  0x5754
+    iNote "END_INTTASK <cfg_rx_datapath@dis@X>"
+    iNote "BEGIN_INTTASK <cfg_lanes_reset@ASSERT>"
+    iNote " Overriding rx_reset to 1"
+    crsel_write 0x6080  0x000b
+    iNote " Overriding tx_reset to 1"
+    crsel_write 0x6004  0x000b
+    iNote "END_INTTASK <cfg_lanes_reset@ASSERT>"
+    iNote " Override rx_pstate to 2"
+    crsel_write 0x6081  0x5756
+    iNote " Override tx_pstate to 2"
+    crsel_write 0x6005  0x7756
+    iNote "BEGIN_INTTASK <cfg_mpllb_recal_force_en>"
+    iNote " Override mpllb_recal_force_en to 1"
+    crsel_write 0x010f  0x2e54
+    iNote "END_INTTASK <cfg_mpllb_recal_force_en>"
+    iNote "BEGIN_INTTASK <cfg_mpllen@on>"
+    iNote " Override tx_mpll_en to 1"
+    crsel_write 0x6005  0x7756
+    iNote "END_INTTASK <cfg_mpllen@on>"
+    iNote "BEGIN_INTTASK <cfg_rx_recal_force_en>"
+    iNote " Override rx_recal_force_en to 1"
+    crsel_write 0x6082  0xba80
+    iNote "END_INTTASK <cfg_rx_recal_force_en>"
+    iNote "BEGIN_INTTASK <cfg_tx_recal_force_en>"
+    iNote " Override tx_recal_force_en to 1"
+    crsel_write 0x6006  0x2eaf
+    iNote "END_INTTASK <cfg_tx_recal_force_en>"
+    iNote "BEGIN_INTTASK <cfg_rate_para@ATE_PCIECM_G1_20B@REFCLK_100M>"
+    iNote " Overriding cmn_cntx_sel"
+    crsel_write 0x0119  0x010a
+    iNote " Overriding mplla_cntx_sel"
+    crsel_write 0x011a  0x0100
+    iNote " Overriding mpllb_cntx_sel"
+    crsel_write 0x011b  0x0106
+    iNote " Overriding tx_cntx_sel"
+    crsel_write 0x6007  0x010a
+    iNote " Overriding rx_cntx_sel"
+    crsel_write 0x6084  0x010a
+    iNote " Overriding tx_clk_dskw_en"
+    crsel_write 0x6006  0x2eaf
+    iNote " Overriding mplla_ssc_en, mpllb_ssc_en, hdmimode_enable"
+    crsel_write 0x0102  0x0aab
+    iNote " Hooking up tx0_clk to appropriate mpll word/dword/qword/div16p5/div33 clock"
+    iNote " Overriding tx_clk_sel"
+    crsel_write 0x6041  0x000e
+    iNote " Overriding tx_eq_pre, tx_eq_main and tx_eq_post"
+    iNote " Overriding tx_eq_main to 96 and tx_eq_post to 0"
+    crsel_write 0x600d  0x0030
+    iNote " Overriding tx_eq_pre to 0"
+    crsel_write 0x600e  0x0040
+    iNote " Overriding rx_cdr_ssc_en"
+    crsel_write 0x6081  0x5756
+    iNote " Overriding rx_term_acdc, rx_sigdet_hf_en"
+    crsel_write 0x71c1  0x0efe
+    iNote "END_INTTASK <cfg_rate_para@ATE_PCIECM_G1_20B@REFCLK_100M>"
+    iNote "BEGIN_INTTASK <pwrup_all_txrx>"
+    iNote " De-asserting rx_reset"
+    crsel_write 0x6080  0x000a
+    iNote " De-asserting tx_reset"
+    crsel_write 0x6004  0x000a
+    iNote "END_INTTASK <pwrup_all_txrx>"
+    iNote " Waiting for the lanes pwrup_all_txrx completed on FORCE_RECAL..."
+    iNote "	 Waiting for 7000 microseconds for expected events to take place"
+    iRunLoop [expr (7000 * 1000) / 10] -tck ; # waiting this many 10ns clock periods
+    iNote " Reading INIT_PWRUP_DONE on all lanes"
+    crsel_read_masked   0x301a  0x0001  0x0001  ;# : READ DATA=1h, EXPECTED DATA=1h, MASK=1h
+    iNote " Expecting INIT_PWRUP_DONE on Lane 0 to be asserted "
+    crsel_read_masked   0x321a  0x0001  0x0001  ;# : READ DATA=1h, EXPECTED DATA=1h, MASK=1h
+    iNote " Expecting INIT_PWRUP_DONE on Lane 1 to be asserted "
+    crsel_read_masked   0x341a  0x0001  0x0001  ;# : READ DATA=1h, EXPECTED DATA=1h, MASK=1h
+    iNote " Expecting INIT_PWRUP_DONE on Lane 2 to be asserted "
+    crsel_read_masked   0x361a  0x0001  0x0001  ;# : READ DATA=1h, EXPECTED DATA=1h, MASK=1h
+    iNote " Expecting INIT_PWRUP_DONE on Lane 3 to be asserted "
+    iNote " Reading RX ACK at PHY level"
+    crsel_read_masked   0x208a  0x0000  0x0001  ;# : READ DATA=0h, EXPECTED DATA=0h, MASK=1h
+    iNote " Expecting RX ACK to be de-asserted on Channel0 "
+    crsel_read_masked   0x228a  0x0000  0x0001  ;# : READ DATA=0h, EXPECTED DATA=0h, MASK=1h
+    iNote " Expecting RX ACK to be de-asserted on Channel1 "
+    crsel_read_masked   0x248a  0x0000  0x0001  ;# : READ DATA=0h, EXPECTED DATA=0h, MASK=1h
+    iNote " Expecting RX ACK to be de-asserted on Channel2 "
+    crsel_read_masked   0x268a  0x0000  0x0001  ;# : READ DATA=0h, EXPECTED DATA=0h, MASK=1h
+    iNote " Expecting RX ACK to be de-asserted on Channel3 "
+    iNote " Reading TX ACK at PHY level"
+    crsel_read_masked   0x200c  0x0000  0x0001  ;# : READ DATA=0h, EXPECTED DATA=0h, MASK=1h
+    iNote " Expecting TX ACK of Channel0 to be de-asserted "
+    crsel_read_masked   0x220c  0x0000  0x0001  ;# : READ DATA=0h, EXPECTED DATA=0h, MASK=1h
+    iNote " Expecting TX ACK of Channel1 to be de-asserted "
+    crsel_read_masked   0x240c  0x0000  0x0001  ;# : READ DATA=0h, EXPECTED DATA=0h, MASK=1h
+    iNote " Expecting TX ACK of Channel2 to be de-asserted "
+    crsel_read_masked   0x260c  0x0000  0x0001  ;# : READ DATA=0h, EXPECTED DATA=0h, MASK=1h
+    iNote " Expecting TX ACK of Channel3 to be de-asserted "
+    iNote "BEGIN_INTTASK <cfg_lanes_reset@ASSERT>"
+    iNote " Overriding rx_reset to 1"
+    crsel_write 0x6080  0x000b
+    iNote " Overriding tx_reset to 1"
+    crsel_write 0x6004  0x000b
+    iNote "END_INTTASK <cfg_lanes_reset@ASSERT>"
+    iNote " Override rx_pstate to 0"
+    crsel_write 0x6081  0x5754
+    iNote " Override tx_pstate to 0"
+    crsel_write 0x6005  0x7754
+    iNote "BEGIN_INTTASK <cfg_mpllb_recal_force_dis>"
+    iNote " Override mpllb_recal_force_en to 0"
+    crsel_write 0x010f  0x2a54
+    iNote "END_INTTASK <cfg_mpllb_recal_force_dis>"
+    iNote "BEGIN_INTTASK <cfg_rx_recal_force_dis>"
+    iNote " Override rx_recal_force_en to 0"
+    crsel_write 0x6082  0xaa80
+    iNote "END_INTTASK <cfg_rx_recal_force_dis>"
+    iNote "BEGIN_INTTASK <cfg_tx_recal_force_dis>"
+    iNote " Override tx_recal_force_en to 0"
+    crsel_write 0x6006  0x2aaf
+    iNote "END_INTTASK <cfg_tx_recal_force_dis>"
+    iNote "BEGIN_INTTASK <pwrup_act_txrx>"
+    iNote " De-asserting rx_reset"
+    crsel_write 0x6080  0x000a
+    iNote " De-asserting tx_reset"
+    crsel_write 0x6004  0x000a
+    iNote "END_INTTASK <pwrup_act_txrx>"
+    iNote " Waiting for the lanes pwrup_all_txrx completed on LANE_PWRUP..."
+    iNote "	 Waiting for 2000 microseconds for expected events to take place"
+    iRunLoop [expr (2000 * 1000) / 10] -tck ; # waiting this many 10ns clock periods
+    iNote " Reading INIT_PWRUP_DONE on all lanes"
+    crsel_read_masked   0x301a  0x0001  0x0001  ;# : READ DATA=1h, EXPECTED DATA=1h, MASK=1h
+    iNote " Expecting INIT_PWRUP_DONE on Lane 0 to be asserted "
+    crsel_read_masked   0x321a  0x0001  0x0001  ;# : READ DATA=1h, EXPECTED DATA=1h, MASK=1h
+    iNote " Expecting INIT_PWRUP_DONE on Lane 1 to be asserted "
+    crsel_read_masked   0x341a  0x0001  0x0001  ;# : READ DATA=1h, EXPECTED DATA=1h, MASK=1h
+    iNote " Expecting INIT_PWRUP_DONE on Lane 2 to be asserted "
+    crsel_read_masked   0x361a  0x0001  0x0001  ;# : READ DATA=1h, EXPECTED DATA=1h, MASK=1h
+    iNote " Expecting INIT_PWRUP_DONE on Lane 3 to be asserted "
+    iNote " Reading RX ACK at PHY level"
+    crsel_read_masked   0x208a  0x0000  0x0001  ;# : READ DATA=0h, EXPECTED DATA=0h, MASK=1h
+    iNote " Expecting RX ACK to be de-asserted on Channel0 "
+    crsel_read_masked   0x228a  0x0000  0x0001  ;# : READ DATA=0h, EXPECTED DATA=0h, MASK=1h
+    iNote " Expecting RX ACK to be de-asserted on Channel1 "
+    crsel_read_masked   0x248a  0x0000  0x0001  ;# : READ DATA=0h, EXPECTED DATA=0h, MASK=1h
+    iNote " Expecting RX ACK to be de-asserted on Channel2 "
+    crsel_read_masked   0x268a  0x0000  0x0001  ;# : READ DATA=0h, EXPECTED DATA=0h, MASK=1h
+    iNote " Expecting RX ACK to be de-asserted on Channel3 "
+    iNote " Reading TX ACK at PHY level"
+    crsel_read_masked   0x200c  0x0000  0x0001  ;# : READ DATA=0h, EXPECTED DATA=0h, MASK=1h
+    iNote " Expecting TX ACK of Channel0 to be de-asserted "
+    crsel_read_masked   0x220c  0x0000  0x0001  ;# : READ DATA=0h, EXPECTED DATA=0h, MASK=1h
+    iNote " Expecting TX ACK of Channel1 to be de-asserted "
+    crsel_read_masked   0x240c  0x0000  0x0001  ;# : READ DATA=0h, EXPECTED DATA=0h, MASK=1h
+    iNote " Expecting TX ACK of Channel2 to be de-asserted "
+    crsel_read_masked   0x260c  0x0000  0x0001  ;# : READ DATA=0h, EXPECTED DATA=0h, MASK=1h
+    iNote " Expecting TX ACK of Channel3 to be de-asserted "
+    iNote "END_TASK <RATE_CHANGE@ATE_PCIECM_G1_20B@REFCLK_100M>"
+    iNote "BEGIN_INTTASK <ate_lb_check@ILB_INTRA@LFSR15>"
+    iNote "+*************************************************************************"
+    iNote "+Functional test to verify that the device is operational and"
+    iNote "+the BERTs are functioning. The BERTs are tested that they can match"
+    iNote "+lfsr31, lfsr23_0, lfsr23_1, lfsr16, lfsr15, lfsr11, lfsr9, lfsr7, Nyquist, DCWORD, FIXED or EXTENDED as specified and that they can count errors"
+    iNote "+*************************************************************************"
+    iNote "BEGIN_TASK <CHANGE_LOOPBACK_MODE@ILB_INTRA@ATE_PCIECM_G1_20B>"
+    iNote "BEGIN_INTTASK <cfg_rx_datapath@dis@X>"
+    iNote " Overriding rxX_data_en to 0"
+    crsel_write 0x6081  0x5754
+    iNote "END_INTTASK <cfg_rx_datapath@dis@X>"
+    iNote "BEGIN_INTTASK <cfg_inlb_settings@ENABLE>"
+    iNote " Enable workaround-1 for internal loopback"
+    iNote " INLB_WA#1: Overriding TX_ANA_PULL_DN_REG to 1"
+    crsel_write 0x505e  0x2000
+    iNote " INLB_WA#1: Sequence for AFE settings update"
+    crsel_write 0x5089  0x0100
+    crsel_write 0x5088  0x0f80
+    iNote "END_INTTASK <cfg_inlb_settings@ENABLE>"
+    iNote "BEGIN_INTTASK <cfg_lpbk_mode@ILB_INTRA>"
+    iNote " Connect rxX_p/m based on the loopback mode = ILB_INTRA"
+    iNote "BEGIN_INTTASK <cfg_lane_lb_en@ILB_INTRA>"
+    iNote " Overriding laneX_rx2tx_par_lb_en to 0 and laneX_tx2rx_ser_lb_en to 1"
+    crsel_write 0x6000  0x010e
+    iNote " Overriding rx_loopback_sel"
+    crsel_write 0x6083  0x5200
+    iNote "END_INTTASK <cfg_lane_lb_en@ILB_INTRA>"
+    iNote "END_INTTASK <cfg_lpbk_mode@ILB_INTRA>"
+    iNote "END_TASK <CHANGE_LOOPBACK_MODE@ILB_INTRA@ATE_PCIECM_G1_20B>"
+    iNote "BEGIN_TASK <TRANSMIT_BERT@LFSR15@ATE_PCIECM_G1_20B>"
+    iNote "BEGIN_INTTASK <cfg_rx_datapath@dis@X>"
+    iNote " Overriding rxX_data_en to 0"
+    crsel_write 0x6081  0x5754
+    iNote "END_INTTASK <cfg_rx_datapath@dis@X>"
+    iNote "BEGIN_INTTASK <cfg_tx_lbert@LFSR15@X>"
+    iNote " Disabling txX LBERT"
+    crsel_write 0x5029  0x0000
+    iNote " Enabling txX LBERT in LFSR15"
+    crsel_write 0x5029  0x0005
+    iNote "	 Waiting for 2 microseconds for expected events to take place"
+    iRunLoop [expr (2 * 1000) / 10] -tck ; # waiting this many 10ns clock periods
+    iNote "END_INTTASK <cfg_tx_lbert@LFSR15@X>"
+    iNote "BEGIN_INTTASK <cfg_rx_datapath@en@X>"
+    iNote " Overriding rxX_data_en to 1"
+    crsel_write 0x6081  0x5774
+    iNote "	 Waiting for 50 microseconds for expected events to take place"
+    iRunLoop [expr (50 * 1000) / 10] -tck ; # waiting this many 10ns clock periods
+    iNote " Reading RX ACK and RX VALID at PMA level 'h1"
+    crsel_read_masked   0x1095  0x0016  0x0003  ;# : READ DATA=16h, EXPECTED DATA=16h, MASK=3h
+    iNote " Expecting RX ACK to be de-asserted and RX VALID to be asserted on Channel0 "
+    crsel_read_masked   0x1295  0x0016  0x0003  ;# : READ DATA=16h, EXPECTED DATA=16h, MASK=3h
+    iNote " Expecting RX ACK to be de-asserted and RX VALID to be asserted on Channel1 "
+    crsel_read_masked   0x1495  0x0012  0x0003  ;# : READ DATA=12h, EXPECTED DATA=12h, MASK=3h
+    iNote " Expecting RX ACK to be de-asserted and RX VALID to be asserted on Channel2 "
+    crsel_read_masked   0x1695  0x0016  0x0003  ;# : READ DATA=16h, EXPECTED DATA=16h, MASK=3h
+    iNote " Expecting RX ACK to be de-asserted and RX VALID to be asserted on Channel3 "
+    iNote "END_INTTASK <cfg_rx_datapath@en@X>"
+    iNote "END_TASK <TRANSMIT_BERT@LFSR15@ATE_PCIECM_G1_20B>"
+    iNote "BEGIN_TASK <CHECK_BERT@LFSR15>"
+    iNote "BEGIN_INTTASK <cfg_rx_lbert@LFSR15@X>"
+    iNote " Disabling rxX LBERT"
+    crsel_write 0x50b3  0x0000
+    iNote " Enabling rxX LBERT in LFSR15"
+    crsel_write 0x50b3  0x0005
+    iNote " Set rxX LBERT SYNC to 0"
+    crsel_write 0x50b3  0x0005
+    iNote " Set rxX LBERT SYNC to 1"
+    crsel_write 0x50b3  0x0015
+    iNote " Set rxX LBERT SYNC to 0"
+    crsel_write 0x50b3  0x0005
+    iNote "END_INTTASK <cfg_rx_lbert@LFSR15@X>"
+    iNote "BEGIN_INTTASK <check_rx_lbert@X>"
+    iNote " 131 microseconds have run for LFSR15 with 2500 MBps baud rate for Rx lane0 !!!"
+    iNote " The equation for BERT check duration = 1.0 * 10 * (2**15-1)/(2500) !!!"
+    iNote "	 Waiting for 131 microseconds for expected events to take place"
+    iRunLoop [expr (131 * 1000) / 10] -tck ; # waiting this many 10ns clock periods
+    crsel_read_nodata 0x10b4 
+    iNote "	 Waiting for 1 microseconds for expected events to take place"
+    iRunLoop [expr (1 * 1000) / 10] -tck ; # waiting this many 10ns clock periods
+    crsel_read_masked   0x10b4  0x0000  0xffff  ;# : READ DATA=0h, EXPECTED DATA=0h, MASK=ffffh
+    iNote " Bert errors on channel0 expect 0 error "
+    iNote " 131 microseconds have run for LFSR15 with 2500 MBps baud rate for Rx lane1 !!!"
+    iNote " The equation for BERT check duration = 1.0 * 10 * (2**15-1)/(2500) !!!"
+    iNote "	 Waiting for 131 microseconds for expected events to take place"
+    iRunLoop [expr (131 * 1000) / 10] -tck ; # waiting this many 10ns clock periods
+    crsel_read_nodata 0x12b4 
+    iNote "	 Waiting for 1 microseconds for expected events to take place"
+    iRunLoop [expr (1 * 1000) / 10] -tck ; # waiting this many 10ns clock periods
+    crsel_read_masked   0x12b4  0x0000  0xffff  ;# : READ DATA=0h, EXPECTED DATA=0h, MASK=ffffh
+    iNote " Bert errors on channel1 expect 0 error "
+    iNote " 131 microseconds have run for LFSR15 with 2500 MBps baud rate for Rx lane2 !!!"
+    iNote " The equation for BERT check duration = 1.0 * 10 * (2**15-1)/(2500) !!!"
+    iNote "	 Waiting for 131 microseconds for expected events to take place"
+    iRunLoop [expr (131 * 1000) / 10] -tck ; # waiting this many 10ns clock periods
+    crsel_read_nodata 0x14b4 
+    iNote "	 Waiting for 1 microseconds for expected events to take place"
+    iRunLoop [expr (1 * 1000) / 10] -tck ; # waiting this many 10ns clock periods
+    crsel_read_masked   0x14b4  0x0000  0xffff  ;# : READ DATA=0h, EXPECTED DATA=0h, MASK=ffffh
+    iNote " Bert errors on channel2 expect 0 error "
+    iNote " 131 microseconds have run for LFSR15 with 2500 MBps baud rate for Rx lane3 !!!"
+    iNote " The equation for BERT check duration = 1.0 * 10 * (2**15-1)/(2500) !!!"
+    iNote "	 Waiting for 131 microseconds for expected events to take place"
+    iRunLoop [expr (131 * 1000) / 10] -tck ; # waiting this many 10ns clock periods
+    crsel_read_nodata 0x16b4 
+    iNote "	 Waiting for 1 microseconds for expected events to take place"
+    iRunLoop [expr (1 * 1000) / 10] -tck ; # waiting this many 10ns clock periods
+    crsel_read_masked   0x16b4  0x0000  0xffff  ;# : READ DATA=0h, EXPECTED DATA=0h, MASK=ffffh
+    iNote " Bert errors on channel3 expect 0 error "
+    iNote " Introducing error on txX"
+    crsel_write 0x5029  0x0015
+    crsel_write 0x5029  0x0005
+    iNote "	 Waiting for 10 microseconds for expected events to take place"
+    iRunLoop [expr (10 * 1000) / 10] -tck ; # waiting this many 10ns clock periods
+    crsel_read_nodata 0x10b4 
+    iNote "	 Waiting for 1 microseconds for expected events to take place"
+    iRunLoop [expr (1 * 1000) / 10] -tck ; # waiting this many 10ns clock periods
+    crsel_read_masked   0x10b4  0x0001  0xffff  ;# : READ DATA=1h, EXPECTED DATA=1h, MASK=ffffh
+    iNote " Bert errors on channel0 expect 1 error "
+    crsel_read_nodata 0x12b4 
+    iNote "	 Waiting for 1 microseconds for expected events to take place"
+    iRunLoop [expr (1 * 1000) / 10] -tck ; # waiting this many 10ns clock periods
+    crsel_read_masked   0x12b4  0x0001  0xffff  ;# : READ DATA=1h, EXPECTED DATA=1h, MASK=ffffh
+    iNote " Bert errors on channel1 expect 1 error "
+    crsel_read_nodata 0x14b4 
+    iNote "	 Waiting for 1 microseconds for expected events to take place"
+    iRunLoop [expr (1 * 1000) / 10] -tck ; # waiting this many 10ns clock periods
+    crsel_read_masked   0x14b4  0x0001  0xffff  ;# : READ DATA=1h, EXPECTED DATA=1h, MASK=ffffh
+    iNote " Bert errors on channel2 expect 1 error "
+    crsel_read_nodata 0x16b4 
+    iNote "	 Waiting for 1 microseconds for expected events to take place"
+    iRunLoop [expr (1 * 1000) / 10] -tck ; # waiting this many 10ns clock periods
+    crsel_read_masked   0x16b4  0x0001  0xffff  ;# : READ DATA=1h, EXPECTED DATA=1h, MASK=ffffh
+    iNote " Bert errors on channel3 expect 1 error "
+    iNote "END_INTTASK <check_rx_lbert@X>"
+    iNote "END_TASK <CHECK_BERT@LFSR15>"
+    iNote "BEGIN_TASK <cfg_inlb_settings@DISABLE>"
+    iNote " Disable workaround-1 for internal loopback"
+    iNote " INLB_WA#1: Overriding TX_ANA_PULL_DN_REG to 0"
+    crsel_write 0x505e  0x0000
+    iNote " INLB_WA#1: Sequence for AFE settings update"
+    crsel_write 0x5089  0x0080
+    crsel_write 0x5088  0x0c00
+    iNote "END_TASK <cfg_inlb_settings@DISABLE>"
+    iNote "END_INTTASK <ate_lb_check@ILB_INTRA@LFSR15>"
+    iNote "BEGIN_TASK <RX_ADAPTATION_READOUT>"
+    iNote "+**********************************************************************************************"
+    iNote "+ DESCRIPTION: This test read out the PHY registers to check for the PHY behavior"
+    iNote "+ This is to help and understand and Debug the PHY"
+    iNote "+ This Testcase does not has PASS/FAIl condition"
+    iNote "+**********************************************************************************************"
+    iNote "  Checking configuration"
+    crsel_read_capture 0x0177 
+    crsel_read_capture 0x0119 
+    crsel_read_capture 0x011a 
+    crsel_read_capture 0x011b 
+    crsel_read_capture 0x6007 
+    crsel_read_capture 0x6084 
+    crsel_read_capture 0x0120 
+    crsel_read_capture 0x0121 
+    crsel_read_capture 0x0122 
+    crsel_read_capture 0x0123 
+    crsel_read_capture 0x0128 
+    crsel_read_capture 0x0129 
+    crsel_read_capture 0x012a 
+    crsel_read_capture 0x012b 
+    crsel_read_capture 0x012c 
+    crsel_read_capture 0x012d 
+    crsel_read_capture 0x012e 
+    crsel_read_capture 0x012f 
+    crsel_read_capture 0x0130 
+    crsel_read_capture 0x0131 
+    crsel_read_capture 0x0134 
+    crsel_read_capture 0x0135 
+    crsel_read_capture 0x0136 
+    crsel_read_capture 0x0137 
+    crsel_read_capture 0x0138 
+    crsel_read_capture 0x0139 
+    crsel_read_capture 0x013a 
+    crsel_read_capture 0x013b 
+    crsel_read_capture 0x013c 
+    crsel_read_capture 0x013d 
+    crsel_read_capture 0x013e 
+    crsel_read_capture 0x6010 
+    crsel_read_capture 0x6011 
+    crsel_read_capture 0x6012 
+    crsel_read_capture 0x6090 
+    crsel_read_capture 0x6091 
+    crsel_read_capture 0x6092 
+    crsel_read_capture 0x6093 
+    crsel_read_capture 0x6094 
+    crsel_read_capture 0x6095 
+    crsel_read_capture 0x6096 
+    crsel_read_capture 0x6097 
+    crsel_read_capture 0x6098 
+    crsel_read_capture 0x6041 
+    crsel_read_capture 0x5029 
+    crsel_read_capture 0x50b3 
+    crsel_read_capture 0x6081 
+    iNote "  Checking SUP/CMN status"
+    crsel_read_capture 0x003e 
+    crsel_read_capture 0x0040 
+    crsel_read_capture 0x0082 
+    crsel_read_capture 0x00a2 
+    crsel_read_capture 0x010a 
+    crsel_read_capture 0x010c 
+    crsel_read_capture 0x0156 
+    crsel_read_capture 0x015c 
+    crsel_read_capture 0x015d 
+    crsel_read_capture 0x0178 
+    crsel_read_capture 0x0179 
+    crsel_read_capture 0x017a 
+    crsel_read_capture 0x017b 
+    crsel_read_capture 0x017d 
+    crsel_read_capture 0x017e 
+    crsel_read_capture 0x0184 
+    iNote "  Checking Lane0 status"
+    crsel_read_capture 0x2000 
+    crsel_read_capture 0x1009 
+    crsel_read_capture 0x100d 
+    crsel_read_capture 0x101b 
+    crsel_read_capture 0x101f 
+    crsel_read_capture 0x1020 
+    crsel_read_capture 0x1022 
+    crsel_read_capture 0x1023 
+    crsel_read_capture 0x1048 
+    crsel_read_capture 0x104a 
+    crsel_read_capture 0x104b 
+    crsel_read_capture 0x104d 
+    crsel_read_capture 0x2008 
+    crsel_read_capture 0x200c 
+    crsel_read_capture 0x201e 
+    crsel_read_capture 0x2045 
+    crsel_read_capture 0x301a 
+    crsel_read_capture 0x3041 
+    crsel_read_capture 0x3042 
+    crsel_read_capture 0x3043 
+    crsel_read_capture 0x3045 
+    crsel_read_capture 0x108d 
+    crsel_read_capture 0x1095 
+    crsel_read_capture 0x10a8 
+    crsel_read_capture 0x10b0 
+    crsel_read_capture 0x10b1 
+    crsel_read_capture 0x10bd 
+    crsel_read_capture 0x10cb 
+    crsel_read_capture 0x10cc 
+    crsel_read_capture 0x10cd 
+    crsel_read_capture 0x10ce 
+    crsel_read_capture 0x10ef 
+    crsel_read_capture 0x10f0 
+    crsel_read_capture 0x10f6 
+    crsel_read_capture 0x10f7 
+    crsel_read_capture 0x10f8 
+    crsel_read_capture 0x1109 
+    crsel_read_capture 0x10f9 
+    crsel_read_capture 0x10fa 
+    crsel_read_capture 0x10fb 
+    crsel_read_capture 0x10fc 
+    crsel_read_capture 0x10fd 
+    crsel_read_capture 0x10fe 
+    crsel_read_capture 0x10ff 
+    crsel_read_capture 0x112c 
+    crsel_read_capture 0x112e 
+    crsel_read_capture 0x112f 
+    crsel_read_capture 0x2085 
+    crsel_read_capture 0x208a 
+    crsel_read_capture 0x20ac 
+    crsel_read_capture 0x20a6 
+    crsel_read_capture 0x20a7 
+    crsel_read_capture 0x20e1 
+    crsel_read_capture 0x20e2 
+    crsel_read_capture 0x31c7 
+    crsel_read_capture 0x316e 
+    crsel_read_capture 0x2145 
+    crsel_read_capture 0x2145 
+    crsel_read_capture 0x2145 
+    crsel_read_capture 0x2145 
+    crsel_read_capture 0x2145 
+    crsel_read_capture 0x2145 
+    crsel_read_capture 0x2145 
+    crsel_read_capture 0x2145 
+    crsel_read_capture 0x2145 
+    crsel_read_capture 0x2145 
+    crsel_read_capture 0x2145 
+    crsel_read_capture 0x2145 
+    crsel_read_capture 0x2145 
+    crsel_read_capture 0x2145 
+    crsel_read_capture 0x2145 
+    crsel_read_capture 0x2145 
+    crsel_read_capture 0x2145 
+    crsel_read_capture 0x2145 
+    crsel_read_capture 0x2145 
+    crsel_read_capture 0x2145 
+    iNote "  Checking Lane1 status"
+    crsel_read_capture 0x2200 
+    crsel_read_capture 0x1209 
+    crsel_read_capture 0x120d 
+    crsel_read_capture 0x121b 
+    crsel_read_capture 0x121f 
+    crsel_read_capture 0x1220 
+    crsel_read_capture 0x1222 
+    crsel_read_capture 0x1223 
+    crsel_read_capture 0x1248 
+    crsel_read_capture 0x124a 
+    crsel_read_capture 0x124b 
+    crsel_read_capture 0x124d 
+    crsel_read_capture 0x2208 
+    crsel_read_capture 0x220c 
+    crsel_read_capture 0x221e 
+    crsel_read_capture 0x2245 
+    crsel_read_capture 0x321a 
+    crsel_read_capture 0x3241 
+    crsel_read_capture 0x3242 
+    crsel_read_capture 0x3243 
+    crsel_read_capture 0x3245 
+    crsel_read_capture 0x128d 
+    crsel_read_capture 0x1295 
+    crsel_read_capture 0x12a8 
+    crsel_read_capture 0x12b0 
+    crsel_read_capture 0x12b1 
+    crsel_read_capture 0x12bd 
+    crsel_read_capture 0x12cb 
+    crsel_read_capture 0x12cc 
+    crsel_read_capture 0x12cd 
+    crsel_read_capture 0x12ce 
+    crsel_read_capture 0x12ef 
+    crsel_read_capture 0x12f0 
+    crsel_read_capture 0x12f6 
+    crsel_read_capture 0x12f7 
+    crsel_read_capture 0x12f8 
+    crsel_read_capture 0x1309 
+    crsel_read_capture 0x12f9 
+    crsel_read_capture 0x12fa 
+    crsel_read_capture 0x12fb 
+    crsel_read_capture 0x12fc 
+    crsel_read_capture 0x12fd 
+    crsel_read_capture 0x12fe 
+    crsel_read_capture 0x12ff 
+    crsel_read_capture 0x132c 
+    crsel_read_capture 0x132e 
+    crsel_read_capture 0x132f 
+    crsel_read_capture 0x2285 
+    crsel_read_capture 0x228a 
+    crsel_read_capture 0x22ac 
+    crsel_read_capture 0x22a6 
+    crsel_read_capture 0x22a7 
+    crsel_read_capture 0x22e1 
+    crsel_read_capture 0x22e2 
+    crsel_read_capture 0x33c7 
+    crsel_read_capture 0x336e 
+    crsel_read_capture 0x2345 
+    crsel_read_capture 0x2345 
+    crsel_read_capture 0x2345 
+    crsel_read_capture 0x2345 
+    crsel_read_capture 0x2345 
+    crsel_read_capture 0x2345 
+    crsel_read_capture 0x2345 
+    crsel_read_capture 0x2345 
+    crsel_read_capture 0x2345 
+    crsel_read_capture 0x2345 
+    crsel_read_capture 0x2345 
+    crsel_read_capture 0x2345 
+    crsel_read_capture 0x2345 
+    crsel_read_capture 0x2345 
+    crsel_read_capture 0x2345 
+    crsel_read_capture 0x2345 
+    crsel_read_capture 0x2345 
+    crsel_read_capture 0x2345 
+    crsel_read_capture 0x2345 
+    crsel_read_capture 0x2345 
+    iNote "  Checking Lane2 status"
+    crsel_read_capture 0x2400 
+    crsel_read_capture 0x1409 
+    crsel_read_capture 0x140d 
+    crsel_read_capture 0x141b 
+    crsel_read_capture 0x141f 
+    crsel_read_capture 0x1420 
+    crsel_read_capture 0x1422 
+    crsel_read_capture 0x1423 
+    crsel_read_capture 0x1448 
+    crsel_read_capture 0x144a 
+    crsel_read_capture 0x144b 
+    crsel_read_capture 0x144d 
+    crsel_read_capture 0x2408 
+    crsel_read_capture 0x240c 
+    crsel_read_capture 0x241e 
+    crsel_read_capture 0x2445 
+    crsel_read_capture 0x341a 
+    crsel_read_capture 0x3441 
+    crsel_read_capture 0x3442 
+    crsel_read_capture 0x3443 
+    crsel_read_capture 0x3445 
+    crsel_read_capture 0x148d 
+    crsel_read_capture 0x1495 
+    crsel_read_capture 0x14a8 
+    crsel_read_capture 0x14b0 
+    crsel_read_capture 0x14b1 
+    crsel_read_capture 0x14bd 
+    crsel_read_capture 0x14cb 
+    crsel_read_capture 0x14cc 
+    crsel_read_capture 0x14cd 
+    crsel_read_capture 0x14ce 
+    crsel_read_capture 0x14ef 
+    crsel_read_capture 0x14f0 
+    crsel_read_capture 0x14f6 
+    crsel_read_capture 0x14f7 
+    crsel_read_capture 0x14f8 
+    crsel_read_capture 0x1509 
+    crsel_read_capture 0x14f9 
+    crsel_read_capture 0x14fa 
+    crsel_read_capture 0x14fb 
+    crsel_read_capture 0x14fc 
+    crsel_read_capture 0x14fd 
+    crsel_read_capture 0x14fe 
+    crsel_read_capture 0x14ff 
+    crsel_read_capture 0x152c 
+    crsel_read_capture 0x152e 
+    crsel_read_capture 0x152f 
+    crsel_read_capture 0x2485 
+    crsel_read_capture 0x248a 
+    crsel_read_capture 0x24ac 
+    crsel_read_capture 0x24a6 
+    crsel_read_capture 0x24a7 
+    crsel_read_capture 0x24e1 
+    crsel_read_capture 0x24e2 
+    crsel_read_capture 0x35c7 
+    crsel_read_capture 0x356e 
+    crsel_read_capture 0x2545 
+    crsel_read_capture 0x2545 
+    crsel_read_capture 0x2545 
+    crsel_read_capture 0x2545 
+    crsel_read_capture 0x2545 
+    crsel_read_capture 0x2545 
+    crsel_read_capture 0x2545 
+    crsel_read_capture 0x2545 
+    crsel_read_capture 0x2545 
+    crsel_read_capture 0x2545 
+    crsel_read_capture 0x2545 
+    crsel_read_capture 0x2545 
+    crsel_read_capture 0x2545 
+    crsel_read_capture 0x2545 
+    crsel_read_capture 0x2545 
+    crsel_read_capture 0x2545 
+    crsel_read_capture 0x2545 
+    crsel_read_capture 0x2545 
+    crsel_read_capture 0x2545 
+    crsel_read_capture 0x2545 
+    iNote "  Checking Lane3 status"
+    crsel_read_capture 0x2600 
+    crsel_read_capture 0x1609 
+    crsel_read_capture 0x160d 
+    crsel_read_capture 0x161b 
+    crsel_read_capture 0x161f 
+    crsel_read_capture 0x1620 
+    crsel_read_capture 0x1622 
+    crsel_read_capture 0x1623 
+    crsel_read_capture 0x1648 
+    crsel_read_capture 0x164a 
+    crsel_read_capture 0x164b 
+    crsel_read_capture 0x164d 
+    crsel_read_capture 0x2608 
+    crsel_read_capture 0x260c 
+    crsel_read_capture 0x261e 
+    crsel_read_capture 0x2645 
+    crsel_read_capture 0x361a 
+    crsel_read_capture 0x3641 
+    crsel_read_capture 0x3642 
+    crsel_read_capture 0x3643 
+    crsel_read_capture 0x3645 
+    crsel_read_capture 0x168d 
+    crsel_read_capture 0x1695 
+    crsel_read_capture 0x16a8 
+    crsel_read_capture 0x16b0 
+    crsel_read_capture 0x16b1 
+    crsel_read_capture 0x16bd 
+    crsel_read_capture 0x16cb 
+    crsel_read_capture 0x16cc 
+    crsel_read_capture 0x16cd 
+    crsel_read_capture 0x16ce 
+    crsel_read_capture 0x16ef 
+    crsel_read_capture 0x16f0 
+    crsel_read_capture 0x16f6 
+    crsel_read_capture 0x16f7 
+    crsel_read_capture 0x16f8 
+    crsel_read_capture 0x1709 
+    crsel_read_capture 0x16f9 
+    crsel_read_capture 0x16fa 
+    crsel_read_capture 0x16fb 
+    crsel_read_capture 0x16fc 
+    crsel_read_capture 0x16fd 
+    crsel_read_capture 0x16fe 
+    crsel_read_capture 0x16ff 
+    crsel_read_capture 0x172c 
+    crsel_read_capture 0x172e 
+    crsel_read_capture 0x172f 
+    crsel_read_capture 0x2685 
+    crsel_read_capture 0x268a 
+    crsel_read_capture 0x26ac 
+    crsel_read_capture 0x26a6 
+    crsel_read_capture 0x26a7 
+    crsel_read_capture 0x26e1 
+    crsel_read_capture 0x26e2 
+    crsel_read_capture 0x37c7 
+    crsel_read_capture 0x376e 
+    crsel_read_capture 0x2745 
+    crsel_read_capture 0x2745 
+    crsel_read_capture 0x2745 
+    crsel_read_capture 0x2745 
+    crsel_read_capture 0x2745 
+    crsel_read_capture 0x2745 
+    crsel_read_capture 0x2745 
+    crsel_read_capture 0x2745 
+    crsel_read_capture 0x2745 
+    crsel_read_capture 0x2745 
+    crsel_read_capture 0x2745 
+    crsel_read_capture 0x2745 
+    crsel_read_capture 0x2745 
+    crsel_read_capture 0x2745 
+    crsel_read_capture 0x2745 
+    crsel_read_capture 0x2745 
+    crsel_read_capture 0x2745 
+    crsel_read_capture 0x2745 
+    crsel_read_capture 0x2745 
+    crsel_read_capture 0x2745 
+    iNote "END_TASK <RX_ADAPTATION_READOUT>"
+    iNote "BEGIN_TASK <RESTORE@RX_ADAPTATION_READOUT@ATE_PCIECM_G1_20B@REFCLK_100M>"
+    iNote "END_TASK <RESTORE@RX_ADAPTATION_READOUT@ATE_PCIECM_G1_20B@REFCLK_100M>"
+    iNote "=================================================================="
+    iNote "   TEST STATUS : ATE TEST PASSED"
+    iNote "   Test Completed with zero e r r o r s"
+    iNote "=================================================================="
+}

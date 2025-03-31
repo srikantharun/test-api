@@ -1,0 +1,56 @@
+tests:
+  - name: cva6v_dv_breker_hello
+    description: "Breker Hello test"
+    labels: [CVA6V_DV_BREKER_TESTS]
+    requirement_ids: []
+    platforms: [cva6v.BREKER]
+    owner: Andrew Bond
+    cva6v: [tests_cva6v_dv/breker/cva6v_dv_breker_hello/trek_hello.c]
+
+  - name: cva6v_dv_breker_1st_example
+    description: "Breker test"
+    labels: [CVA6V_DV_BREKER_TESTS]
+    requirement_ids: []
+    platforms: [cva6v.BREKER]
+    owner: Andrew Bond
+    cva6v: [tests_cva6v_dv/breker/cva6v_dv_breker_1st_example/trek_test.c]
+
+  - name: cva6v_dv_breker_rvops
+    description: "Breker test"
+    labels: [CVA6V_DV_BREKER_TESTS]
+    requirement_ids: []
+    platforms: [cva6v.BREKER]
+    owner: Andrew Bond
+    cva6v: [tests_cva6v_dv/breker/cva6v_dv_breker_rvops/trek_rvops.c]
+
+  - name: cva6v_dv_breker_coherency
+    description: "Breker test"
+    labels: [CVA6V_DV_BREKER_TESTS]
+    requirement_ids: []
+    platforms: [cva6v.BREKER]
+    owner: Andrew Bond
+    cva6v: [tests_cva6v_dv/breker/cva6v_dv_breker_coherency/trek_coherency.c]
+
+#  - name: cva6v_dv_breker_mmu
+#    description: "Breker test"
+#    labels: [CVA6V_DV_BREKER_TESTS]
+#    requirement_ids: []
+#    platforms: [cva6v.BREKER]
+#    owner: Andrew Bond
+#    cva6v: [tests_cva6v_dv/breker/cva6v_dv_breker_mmu/trek_mmu.c]
+
+  - name: cva6v_dv_breker_soc
+    description: "Breker test"
+    labels: [CVA6V_DV_BREKER_TESTS]
+    requirement_ids: []
+    platforms: [cva6v.BREKER]
+    owner: Andrew Bond
+    cva6v: [tests_cva6v_dv/breker/cva6v_dv_breker_soc/trek_soc.c]
+
+  - name: cva6v_dv_breker_trek_test
+    description: "Breker test"
+    labels: [CVA6V_DV_BREKER_TESTS]
+    requirement_ids: []
+    platforms: [cva6v.BREKER]
+    owner: Andrew Bond
+    cva6v: [tests_cva6v_dv/breker/cva6v_dv_breker_trek_test/trek_test.c]

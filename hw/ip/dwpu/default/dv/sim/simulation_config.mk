@@ -1,0 +1,41 @@
+# Configuration
+IP_NAME            = dwpu
+TOP_LEVEL_MODULES  = hdl_top
+BENDER_MANI_LOC    = $(MAKEFILE_DIR)/../rtl
+
+ifdef UVM_TESTNAME
+	TESTNAME?=$(UVM_TESTNAME)
+else
+	TESTNAME?= ai_core_dwpu_ral_test
+endif
+
+SEED         ?= 1
+UVM          ?= 1
+
+# Design Specific
+GLOBAL_DEFINES += +define+AIC_DP_CMD_GEN_COMMAND_DEPTH=1024
+
+# UVM configuration
+GLOBAL_DEFINES += +define+UVM_NO_DEPRECATED
+GLOBAL_DEFINES += +define+UVM_NO_DPI
+GLOBAL_DEFINES += +define+UVM_DISABLE_AUTO_ITEM_RECORDING
+GLOBAL_DEFINES += +define+UVM_DEPRECATED_STARTING_PHASE
+# AXI VIP configuration defines
+GLOBAL_DEFINES += +define+AXI_VIP
+GLOBAL_DEFINES += +define+SYNOPSYS_SV
+
+# New for bender, as svt.uvm.pkg includes uvm pkg definition
+GLOBAL_DEFINES += +define+SVT_EXCLUDE_METHODOLOGY_PKG_INCLUDE
+GLOBAL_DEFINES += +define+SVT_UVM_12_OR_HIGHER
+GLOBAL_DEFINES += +define+SVT_UVM_TECHNOLOGY
+GLOBAL_DEFINES += +define+SVT_AXI_MAX_ADDR_WIDTH=36
+GLOBAL_DEFINES += +define+SVT_AXI_MAX_DATA_WIDTH=64
+GLOBAL_DEFINES += +define+SVT_AXI_MAX_TDATA_WIDTH=1664
+GLOBAL_DEFINES += +define+SVT_AXI_MAX_BURST_LENGTH_WIDTH=8
+GLOBAL_DEFINES += +define+SVT_AXI_MAX_ID_WIDTH=9
+GLOBAL_DEFINES += +define+SVT_AXI_RESP_WIDTH=2
+GLOBAL_DEFINES += +define+SVT_AXI_MAX_WRITE_RESP_REORDERING_DEPTH=8
+GLOBAL_DEFINES += +define+SVT_AXI_MAX_STREAM_BURST_LENGTH=262144 # 2**18
+#Enabling assertions
+#GLOBAL_DEFINES += +define+ASSERTIONS_ON //TODO this shall be enabled after fix on bypass testcase in RTL (https://git.axelera.ai/prod/europa/-/issues/1708)
+

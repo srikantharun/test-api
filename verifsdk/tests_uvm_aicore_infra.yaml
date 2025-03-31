@@ -1,0 +1,9 @@
+tests:
+  - name: ai_core_infra_axi_rnd_test 
+    description: "Execute write and reads into all internal and external ai_core addresses"
+    labels: [HW_IP_AICORE_INFRA_DEFAULT_DV_SIM_REGRE_MR]
+    requirement_ids: [AICORE_CONN_0, AICORE_CONN_1]
+    platforms: [uvm.HW_IP_AICORE_INFRA_DEFAULT_DV_SIM]
+    seeds: [1]
+    owner: Fernando Yokota
+

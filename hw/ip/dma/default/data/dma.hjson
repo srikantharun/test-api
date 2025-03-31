@@ -1,0 +1,124 @@
+// Copyright lowRISC contributors.
+// Licensed under the Apache License, Version 2.0, see LICENSE for details.
+// SPDX-License-Identifier: Apache-2.0
+{ name: "dma",
+  clocking: [{clock: "clk_i", reset: "rst_ni"}],
+  bus_interfaces: [
+    { protocol: "tlul", direction: "device" }
+  ],
+  regwidth: "64",
+  addrcap: "0x10000",
+  axi_intf: True
+  param_list : [
+    {name:"AXI_AW", type:"int", default:"40"} // upper limit
+    {name:"AXI_IDW", type:"int", default:"10"} // upper limit
+    {name:"AXI_LENW", type:"int", default:"8"}
+  ]
+  registers: [
+    { name: "CH_MODE",
+      desc: '''
+             This register  defines the mode in which each channel will operate.
+             Value 0 indicates that the channel can be operated via direct register accesses. In this mode the SW is responsible for setting the registers to the needed values one by one and for enabling the channel operation. Completion can be done either by SW poll of the status register or by monitoring the completion interrupt.
+             Value 1 indicates that the channel can be operated via CMD block and the command format integration. In this mode the tokens can be deployed.'''
+      swaccess: "rw",
+      hwaccess: "hro",
+      fields: [
+        {
+            bits: "0",
+            name: "CH0_MODE",
+            resval: 0,
+            desc: '''
+                  This bit configures the mode of operation for a  channel 0.
+                  Value:
+                  0 : Transfer is configured with direct register access
+                  1 : Transfer is configured with command format
+                  '''
+        }
+        {
+            bits: "1",
+            name: "CH1_MODE",
+            resval: 0,
+            desc: '''
+                  This bit configures the mode of operation for a  channel 1.
+                  Value:
+                  0 : Transfer is configured with direct register access
+                  1 : Transfer is configured with command format
+                  '''
+        }
+        {
+            bits: "2",
+            name: "CH2_MODE",
+            resval: 0,
+            desc: '''
+                  This bit configures the mode of operation for a  channel 2.
+                  Value:
+                  0 : Transfer is configured with direct register access
+                  1 : Transfer is configured with command format
+                  '''
+        }
+        {
+            bits: "3",
+            name: "CH3_MODE",
+            resval: 0,
+            desc: '''
+                  This bit configures the mode of operation for a  channel 3.
+                  Value:
+                  0 : Transfer is configured with direct register access
+                  1 : Transfer is configured with command format
+                  '''
+        }
+      ]
+    }
+    { name: "CH_STATUS",
+      desc: '''
+            This register indicates if the channels are busy.
+            '''
+      swaccess: "ro",
+      hwaccess: "hwo",
+      hwext: "true"
+      fields: [
+        {
+            bits: "0",
+            name: "CH0_BUSY",
+            desc: '''
+                  This bit indicates the status of the channel 0.
+                  Value:
+                  0 : Channel is idle
+                  1 : Channel is busy with transfer
+                  '''
+        }
+        {
+            bits: "1",
+            name: "CH1_BUSY",
+            desc: '''
+                  This bit indicates the status of the channel 1.
+                  Value:
+                  0 : Channel is idle
+                  1 : Channel is busy with transfer
+                  '''
+        }
+        {
+            bits: "2",
+            name: "CH2_BUSY",
+            desc: '''
+                  This bit indicates the status of the channel 2.
+                  Value:
+                  0 : Channel is idle
+                  1 : Channel is busy with transfer
+                  '''
+        }
+        {
+            bits: "3",
+            name: "CH3_BUSY",
+            desc: '''
+                  This bit indicates the status of the channel 3.
+                  Value:
+                  0 : Channel is idle
+                  1 : Channel is busy with transfer
+                  '''
+        }
+      ]
+    }
+  ]
+
+}

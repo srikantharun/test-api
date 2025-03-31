@@ -1,0 +1,16 @@
+# (C) Copyright 2024 Axelera AI B.V.
+# All Rights Reserved
+# *** Axelera AI Confidential ***
+
+package:
+  name: dv_common_properties
+  description: "Verification Common Properties"
+  authors:
+    - "andrew.bond@axelera.ai"
+
+sources:
+  - target: simulation
+    include_dirs:
+      - .
+    files:
+      - axe_properties_pkg.sv

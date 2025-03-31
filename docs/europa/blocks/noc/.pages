@@ -1,0 +1,7 @@
+nav:
+    - index.md
+    - baseband_interfaces.md
+    - clocks-resets-fences.md
+    - memory-macros.md
+    - rel-notes.md
+    - ...

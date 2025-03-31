@@ -1,0 +1,941 @@
+scenarios:
+  ### LP DMAs
+  - name: test_single_aic_lp_dma
+    description: "This test enables a single channel in the AICORE LP DMA."
+    data_check: True
+    data_random: True
+    perf_counter: True
+    noc_config:
+       - interleaving: "on/off" #TODO with Roel
+    label: [TOP_TREX_PERF]
+    requirement_ids: []
+    tasks:
+      - name: task1
+        resource: AI0
+        instance: LP_DMA_AI0
+        mode: CSR
+        num_channels: 1
+        channels: [0]
+        source_address: [SYS_SPM_BASE]
+        destination_address: [AICORE_0_SPM_BASE+0x20000]
+        burst_length: [64]
+        osr: [15]
+        src_xbytesize: [1024] # in bytes
+        dst_xbytesize: [1024] # in bytes
+        src_ms: [1]
+        dst_ms: [1]
+  - name: test_apu_lp_dma
+    description: "This test enables a single channel in the APU LP DMA."
+    data_check: True
+    data_random: True
+    perf_counter: True
+    noc_config:
+       - interleaving: "on/off" #TODO with Roel
+    label: [TOP_TREX_PERF]
+    requirement_ids: []
+    tasks:
+      - name: task1
+        resource: APU
+        instance: LP_DMA_APU
+        mode: CSR
+        num_channels: 1
+        channels: [0]
+        source_address: [SYS_SPM_BASE]
+        destination_address: [SYS_SPM_BASE+0x8000]
+        burst_length: [64]
+        osr: [15]
+        src_xbytesize: [16384] # in bytes
+        dst_xbytesize: [16384] # in bytes
+        src_ms: [0]
+        dst_ms: [0]
+  - name: test_all_lp_dmas
+    description: "This test enables a single channel in all LP DMAs in the system."
+    data_check: True
+    data_random: True
+    perf_counter: True
+    noc_config:
+       - interleaving: "on/off" #TODO with Roel
+    label: [TOP_TREX_PERF]
+    requirement_ids: []
+    tasks:
+      - name: task_apu
+        resource: APU
+        instance: LP_DMA_APU
+        mode: CSR
+        num_channels: 1
+        channels: [0]
+        source_address: [SYS_SPM_BASE]
+        destination_address: [SYS_SPM_BASE+0x8000]
+        burst_length: [64]
+        osr: [15]
+        src_xbytesize: [16384] # in bytes
+        dst_xbytesize: [16384] # in bytes
+        src_ms: [0]
+        dst_ms: [0]
+      - name: task_ai0
+        resource: AI0
+        instance: LP_DMA_AI0
+        mode: CSR
+        num_channels: 1
+        channels: [0]
+        source_address: [SYS_SPM_BASE]
+        destination_address: [AICORE_0_SPM_BASE+0x20000]
+        burst_length: [64]
+        osr: [15]
+        src_xbytesize: [16384] # in bytes
+        dst_xbytesize: [16384] # in bytes
+        src_ms: [0]
+        dst_ms: [0]
+      - name: task_ai1
+        resource: AI1
+        instance: LP_DMA_AI1
+        mode: CSR
+        num_channels: 1
+        channels: [0]
+        source_address: [SYS_SPM_BASE]
+        destination_address: [AICORE_1_SPM_BASE+0x20000]
+        burst_length: [64]
+        osr: [15]
+        src_xbytesize: [16384] # in bytes
+        dst_xbytesize: [16384] # in bytes
+        src_ms: [0]
+        dst_ms: [0]
+      - name: task_ai2
+        resource: AI2
+        instance: LP_DMA_AI2
+        mode: CSR
+        num_channels: 1
+        channels: [0]
+        source_address: [SYS_SPM_BASE]
+        destination_address: [AICORE_2_SPM_BASE+0x20000]
+        burst_length: [64]
+        osr: [15]
+        src_xbytesize: [16384] # in bytes
+        dst_xbytesize: [16384] # in bytes
+        src_ms: [0]
+        dst_ms: [0]
+      - name: task_ai3
+        resource: AI3
+        instance: LP_DMA_AI3
+        mode: CSR
+        num_channels: 1
+        channels: [0]
+        source_address: [SYS_SPM_BASE]
+        destination_address: [AICORE_3_SPM_BASE+0x20000]
+        burst_length: [64]
+        osr: [15]
+        src_xbytesize: [16384] # in bytes
+        dst_xbytesize: [16384] # in bytes
+        src_ms: [0]
+        dst_ms: [0]
+      - name: task_ai4
+        resource: AI4
+        instance: LP_DMA_AI4
+        mode: CSR
+        num_channels: 1
+        channels: [0]
+        source_address: [SYS_SPM_BASE]
+        destination_address: [AICORE_4_SPM_BASE+0x20000]
+        burst_length: [64]
+        osr: [15]
+        src_xbytesize: [16384] # in bytes
+        dst_xbytesize: [16384] # in bytes
+        src_ms: [0]
+        dst_ms: [0]
+      - name: task_ai5
+        resource: AI5
+        instance: LP_DMA_AI5
+        mode: CSR
+        num_channels: 1
+        channels: [0]
+        source_address: [SYS_SPM_BASE]
+        destination_address: [AICORE_5_SPM_BASE+0x20000]
+        burst_length: [64]
+        osr: [15]
+        src_xbytesize: [16384] # in bytes
+        dst_xbytesize: [16384] # in bytes
+        src_ms: [0]
+        dst_ms: [0]
+      - name: task_ai6
+        resource: AI6
+        instance: LP_DMA_AI6
+        mode: CSR
+        num_channels: 1
+        channels: [0]
+        source_address: [SYS_SPM_BASE]
+        destination_address: [AICORE_6_SPM_BASE+0x20000]
+        burst_length: [64]
+        osr: [15]
+        src_xbytesize: [16384] # in bytes
+        dst_xbytesize: [16384] # in bytes
+        src_ms: [0]
+        dst_ms: [0]
+      - name: task_ai7
+        resource: AI7
+        instance: LP_DMA_AI7
+        mode: CSR
+        num_channels: 1
+        channels: [0]
+        source_address: [SYS_SPM_BASE]
+        destination_address: [AICORE_7_SPM_BASE+0x20000]
+        burst_length: [64]
+        osr: [15]
+        src_xbytesize: [16384] # in bytes
+        dst_xbytesize: [16384] # in bytes
+        src_ms: [0]
+        dst_ms: [0]
+
+  ###AICORE HP DMAs
+  - name: test_single_aic_hp_dma_1chan
+    description: "This test enables a single AICORE HP DMA channel."
+    data_check: True
+    data_random: True
+    perf_counter: True
+    noc_config:
+       - interleaving: "on/off" #TODO with Roel
+    label: [TOP_TREX_PERF]
+    requirement_ids: []
+    tasks:
+      - name: task1
+        resource: AI0
+        instance: HP_DMA_AI0
+        mode: CSR # or CMD
+        num_channels: 1
+        channels: [0]
+        source_address: [L2_MODULE_0_BASE]
+        destination_address: [AICORE_0_L1_BASE]
+        burst_length: [64]
+        osr: [15]
+        src_xbytesize: [4096] # in bytes
+        dst_xbytesize: [4096] # in bytes
+        src_xaddrinc: [1]
+        dst_xaddrinc: [1]
+        tran_size: [0]
+        xtype:  [1]
+        ytype: [0,]
+        src_yrowsize: [0]
+        dst_yrowsize: [0]
+        src_yaddrstride: [0]
+        dst_yaddrstride: [0]
+        src_ms: [0]
+        dst_ms: [1]
+  - name: test_single_aic_hp_dma_2chan
+    description: "This test enables a single AICORE HP DMA channel."
+    data_check: True
+    data_random: True
+    perf_counter: True
+    noc_config:
+       - interleaving: "on/off" #TODO with Roel
+    label: [TOP_TREX_PERF]
+    requirement_ids: []
+    tasks:
+      - name: task1
+        resource: AI0
+        instance: HP_DMA_AI0
+        mode: CSR # or CMD
+        num_channels: 2
+        channels: [0,1]
+        source_address: [L2_MODULE_0_BASE,L2_MODULE_1_BASE]
+        destination_address: [AICORE_0_L1_BASE+0x8000,AICORE_0_L1_BASE+0x10000]
+        burst_length: [64,64]
+        osr: [15,15]
+        src_xbytesize: [4096,4096] # in bytes
+        dst_xbytesize: [4096,4096] # in bytes
+        src_xaddrinc: [1,1]
+        dst_xaddrinc: [1,1]
+        tran_size: [0,0]
+        xtype:  [1,1]
+        ytype: [0,0,]
+        src_yrowsize: [0,0]
+        dst_yrowsize: [0,0]
+        src_yaddrstride: [0,0]
+        dst_yaddrstride: [0,0]
+        src_ms: [0,0]
+        dst_ms: [1,1]
+  - name: test_all_aic_hp_dma_1chan
+    description: "This is a sanity test to verify that all the AICORE AXE-DMAs can concurrently do 1d aligned DMA transfers."
+    data_check: True
+    data_random: True
+    perf_counter: True
+    noc_config:
+       - interleaving: "on/off" #TODO with Roel
+    label: [TOP_TREX_PERF]
+    requirement_ids: []
+    tasks:
+      - name: task
+        resource: AI0
+        instance: HP_DMA_AI0
+        mode: CSR # or CMD
+        num_channels: 1
+        channels: [0]
+        source_address: [L2_MODULE_0_BASE]
+        destination_address: [AICORE_0_L1_BASE]
+        burst_length: [64]
+        osr: [15]
+        src_xbytesize: [4096] # in bytes
+        dst_xbytesize: [4096] # in bytes
+        src_xaddrinc: [1]
+        dst_xaddrinc: [1]
+        tran_size: [0]
+        xtype: [1]
+        ytype: [0]
+        src_yrowsize: [0]
+        dst_yrowsize: [0]
+        src_yaddrstride: [0]
+        dst_yaddrstride: [0]
+        src_ms: [0]
+        dst_ms: [1]
+      - name: task
+        resource: AI1
+        instance: HP_DMA_AI1
+        mode: CSR # or CMD
+        num_channels: 1
+        channels: [0]
+        source_address: [L2_MODULE_1_BASE]
+        destination_address: [AICORE_1_L1_BASE]
+        burst_length: [64]
+        osr: [15]
+        src_xbytesize: [4096] # in bytes
+        dst_xbytesize: [4096] # in bytes
+        src_xaddrinc: [1]
+        dst_xaddrinc: [1]
+        tran_size: [0]
+        xtype: [1]
+        ytype: [0]
+        src_yrowsize: [0]
+        dst_yrowsize: [0]
+        src_yaddrstride: [0]
+        dst_yaddrstride: [0]
+        src_ms: [0]
+        dst_ms: [1]
+      - name: task
+        resource: AI2
+        instance: HP_DMA_AI2
+        mode: CSR # or CMD
+        num_channels: 1
+        channels: [0]
+        source_address: [L2_MODULE_2_BASE]
+        destination_address: [AICORE_2_L1_BASE]
+        burst_length: [64]
+        osr: [15]
+        src_xbytesize: [4096] # in bytes
+        dst_xbytesize: [4096] # in bytes
+        src_xaddrinc: [1]
+        dst_xaddrinc: [1]
+        tran_size: [0]
+        xtype: [1]
+        ytype: [0]
+        src_yrowsize: [0]
+        dst_yrowsize: [0]
+        src_yaddrstride: [0]
+        dst_yaddrstride: [0]
+        src_ms: [0]
+        dst_ms: [1]
+      - name: task
+        resource: AI3
+        instance: HP_DMA_AI3
+        mode: CSR # or CMD
+        num_channels: 1
+        channels: [0]
+        source_address: [L2_MODULE_3_BASE]
+        destination_address: [AICORE_3_L1_BASE]
+        burst_length: [64]
+        osr: [15]
+        src_xbytesize: [4096] # in bytes
+        dst_xbytesize: [4096] # in bytes
+        src_xaddrinc: [1]
+        dst_xaddrinc: [1]
+        tran_size: [0]
+        xtype: [1]
+        ytype: [0]
+        src_yrowsize: [0]
+        dst_yrowsize: [0]
+        src_yaddrstride: [0]
+        dst_yaddrstride: [0]
+        src_ms: [0]
+        dst_ms: [1]
+      - name: task
+        resource: AI4
+        instance: HP_DMA_AI4
+        mode: CSR # or CMD
+        num_channels: 1
+        channels: [0]
+        source_address: [L2_MODULE_4_BASE]
+        destination_address: [AICORE_4_L1_BASE]
+        burst_length: [64]
+        osr: [15]
+        src_xbytesize: [4096] # in bytes
+        dst_xbytesize: [4096] # in bytes
+        src_xaddrinc: [1]
+        dst_xaddrinc: [1]
+        tran_size: [0]
+        xtype: [1]
+        ytype: [0]
+        src_yrowsize: [0]
+        dst_yrowsize: [0]
+        src_yaddrstride: [0]
+        dst_yaddrstride: [0]
+        src_ms: [0]
+        dst_ms: [1]
+      - name: task
+        resource: AI5
+        instance: HP_DMA_AI5
+        mode: CSR # or CMD
+        num_channels: 1
+        channels: [0]
+        source_address: [L2_MODULE_5_BASE]
+        destination_address: [AICORE_5_L1_BASE]
+        burst_length: [64]
+        osr: [15]
+        src_xbytesize: [4096] # in bytes
+        dst_xbytesize: [4096] # in bytes
+        src_xaddrinc: [1]
+        dst_xaddrinc: [1]
+        tran_size: [0]
+        xtype: [1]
+        ytype: [0]
+        src_yrowsize: [0]
+        dst_yrowsize: [0]
+        src_yaddrstride: [0]
+        dst_yaddrstride: [0]
+        src_ms: [0]
+        dst_ms: [1]
+      - name: task
+        resource: AI6
+        instance: HP_DMA_AI6
+        mode: CSR # or CMD
+        num_channels: 1
+        channels: [0]
+        source_address: [L2_MODULE_6_BASE]
+        destination_address: [AICORE_6_L1_BASE]
+        burst_length: [64]
+        osr: [15]
+        src_xbytesize: [4096] # in bytes
+        dst_xbytesize: [4096] # in bytes
+        src_xaddrinc: [1]
+        dst_xaddrinc: [1]
+        tran_size: [0]
+        xtype: [1]
+        ytype: [0]
+        src_yrowsize: [0]
+        dst_yrowsize: [0]
+        src_yaddrstride: [0]
+        dst_yaddrstride: [0]
+        src_ms: [0]
+        dst_ms: [1]
+      - name: task
+        resource: AI7
+        instance: HP_DMA_AI7
+        mode: CSR # or CMD
+        num_channels: 1
+        channels: [0]
+        source_address: [L2_MODULE_7_BASE]
+        destination_address: [AICORE_7_L1_BASE]
+        burst_length: [64]
+        osr: [15]
+        src_xbytesize: [4096] # in bytes
+        dst_xbytesize: [4096] # in bytes
+        src_xaddrinc: [1]
+        dst_xaddrinc: [1]
+        tran_size: [0]
+        xtype: [1]
+        ytype: [0]
+        src_yrowsize: [0]
+        dst_yrowsize: [0]
+        src_yaddrstride: [0]
+        dst_yaddrstride: [0]
+        src_ms: [0]
+        dst_ms: [1]
+  ###SDMAs
+  - name: test_all_sdmas
+    description: "This is a sanity test to verify that all the AXE-SDMAs can concurrently do 1d aligned DMA transfers."
+    data_check: True
+    data_random: True
+    perf_counter: True
+    noc_config:
+       - interleaving: "on/off" #TODO with Roel
+    label: [TOP_TREX_PERF]
+    requirement_ids: []
+    tasks:
+      - name: task1
+        resource: APU
+        instance: SDMA0
+        mode: CSR # or CMD
+        num_channels: 4
+        channels: [0,1,2,3]
+        source_address: [L2_MODULE_0_BASE,L2_MODULE_1_BASE,L2_MODULE_2_BASE,L2_MODULE_3_BASE]
+        destination_address: [L2_MODULE_4_BASE,L2_MODULE_5_BASE,L2_MODULE_6_BASE,L2_MODULE_7_BASE]
+        burst_length: [64,64,64,64]
+        osr: [15,15,15,15]
+        src_xbytesize: [4096,4096,4096,4096] # in bytes
+        dst_xbytesize: [4096,4096,4096,4096] # in bytes
+        src_xaddrinc: [1,1,1,1]
+        dst_xaddrinc: [1,1,1,1]
+        tran_size: [0,0,0,0]
+        xtype:  [1,1,1,1]
+        ytype: [0,0,0,0]
+        src_yrowsize: [0,0,0,0]
+        dst_yrowsize: [0,0,0,0]
+        src_yaddrstride: [0,0,0,0]
+        dst_yaddrstride: [0,0,0,0]
+        src_ms: [0,0,1,1]
+        dst_ms: [0,0,1,1]
+      - name: task2
+        resource: APU
+        instance: SDMA1
+        mode: CSR # or CMD
+        num_channels: 4
+        channels: [0,1,2,3]
+        source_address: [L2_MODULE_0_BASE,L2_MODULE_1_BASE,L2_MODULE_2_BASE,L2_MODULE_3_BASE]
+        destination_address: [L2_MODULE_4_BASE,L2_MODULE_5_BASE,L2_MODULE_6_BASE,L2_MODULE_7_BASE]
+        burst_length: [64,64,64,64]
+        osr: [15,15,15,15]
+        src_xbytesize: [4096,4096,4096,4096] # in bytes
+        dst_xbytesize: [4096,4096,4096,4096] # in bytes
+        src_xaddrinc: [1,1,1,1]
+        dst_xaddrinc: [1,1,1,1]
+        tran_size: [0,0,0,0]
+        xtype:  [1,1,1,1]
+        ytype: [0,0,0,0]
+        src_yrowsize: [0,0,0,0]
+        dst_yrowsize: [0,0,0,0]
+        src_yaddrstride: [0,0,0,0]
+        dst_yaddrstride: [0,0,0,0]
+        src_ms: [0,0,1,1]
+        dst_ms: [0,0,1,1]
+  - name: test_all_pve_dmas
+    description: "This is a sanity test to verify that all the AXE-DMAs in the PVEs can concurrently do 1d aligned DMA transfers."
+    data_check: True
+    data_random: True
+    perf_counter: True
+    noc_config:
+       - interleaving: "on/off" #TODO with Roel
+    label: [TOP_TREX_PERF]
+    requirement_ids: []
+    tasks:
+      - name: task1
+        resource: PVE0
+        instance: HP_DMA0_PVE0
+        mode: CSR # or CMD
+        num_channels: 4
+        channels: [0,1,2,3]
+        source_address: [L2_MODULE_0_BASE,L2_MODULE_1_BASE,L2_MODULE_2_BASE,L2_MODULE_3_BASE]
+        destination_address: [L2_MODULE_4_BASE,L2_MODULE_5_BASE,L2_MODULE_6_BASE,L2_MODULE_7_BASE]
+        burst_length: [64,64,64,64]
+        osr: [15,15,15,15]
+        src_xbytesize: [512,512,512,512] # in bytes
+        dst_xbytesize: [512,512,512,512] # in bytes
+        src_xaddrinc: [1,1,1,1]
+        dst_xaddrinc: [1,1,1,1]
+        tran_size: [0,0,0,0]
+        xtype:  [1,1,1,1]
+        ytype: [0,0,0,0]
+        src_yrowsize: [0,0,0,0]
+        dst_yrowsize: [0,0,0,0]
+        src_yaddrstride: [0,0,0,0]
+        dst_yaddrstride: [0,0,0,0]
+        src_ms: [0,0,1,1]
+        dst_ms: [0,0,1,1]
+      - name: task2
+        resource: PVE0
+        instance: HP_DMA1_PVE0
+        mode: CSR # or CMD
+        num_channels: 4
+        channels: [0,1,2,3]
+        source_address: [L2_MODULE_0_BASE,L2_MODULE_1_BASE,L2_MODULE_2_BASE,L2_MODULE_3_BASE]
+        destination_address: [L2_MODULE_4_BASE,L2_MODULE_5_BASE,L2_MODULE_6_BASE,L2_MODULE_7_BASE]
+        burst_length: [64,64,64,64]
+        osr: [15,15,15,15]
+        src_xbytesize: [512,512,512,512] # in bytes
+        dst_xbytesize: [512,512,512,512] # in bytes
+        src_xaddrinc: [1,1,1,1]
+        dst_xaddrinc: [1,1,1,1]
+        tran_size: [0,0,0,0]
+        xtype:  [1,1,1,1]
+        ytype: [0,0,0,0]
+        src_yrowsize: [0,0,0,0]
+        dst_yrowsize: [0,0,0,0]
+        src_yaddrstride: [0,0,0,0]
+        dst_yaddrstride: [0,0,0,0]
+        src_ms: [0,0,1,1]
+        dst_ms: [0,0,1,1]
+      - name: task3
+        resource: PVE1
+        instance: HP_DMA0_PVE1
+        mode: CSR # or CMD
+        num_channels: 4
+        channels: [0,1,2,3]
+        source_address: [L2_MODULE_0_BASE,L2_MODULE_1_BASE,L2_MODULE_2_BASE,L2_MODULE_3_BASE]
+        destination_address: [L2_MODULE_4_BASE,L2_MODULE_5_BASE,L2_MODULE_6_BASE,L2_MODULE_7_BASE]
+        burst_length: [64,64,64,64]
+        osr: [15,15,15,15]
+        src_xbytesize: [512,512,512,512] # in bytes
+        dst_xbytesize: [512,512,512,512] # in bytes
+        src_xaddrinc: [1,1,1,1]
+        dst_xaddrinc: [1,1,1,1]
+        tran_size: [0,0,0,0]
+        xtype:  [1,1,1,1]
+        ytype: [0,0,0,0]
+        src_yrowsize: [0,0,0,0]
+        dst_yrowsize: [0,0,0,0]
+        src_yaddrstride: [0,0,0,0]
+        dst_yaddrstride: [0,0,0,0]
+        src_ms: [0,0,1,1]
+        dst_ms: [0,0,1,1]
+      - name: task4
+        resource: PVE1
+        instance: HP_DMA1_PVE1
+        mode: CSR # or CMD
+        num_channels: 4
+        channels: [0,1,2,3]
+        source_address: [L2_MODULE_0_BASE,L2_MODULE_1_BASE,L2_MODULE_2_BASE,L2_MODULE_3_BASE]
+        destination_address: [L2_MODULE_4_BASE,L2_MODULE_5_BASE,L2_MODULE_6_BASE,L2_MODULE_7_BASE]
+        burst_length: [64,64,64,64]
+        osr: [15,15,15,15]
+        src_xbytesize: [512,512,512,512] # in bytes
+        dst_xbytesize: [512,512,512,512] # in bytes
+        src_xaddrinc: [1,1,1,1]
+        dst_xaddrinc: [1,1,1,1]
+        tran_size: [0,0,0,0]
+        xtype:  [1,1,1,1]
+        ytype: [0,0,0,0]
+        src_yrowsize: [0,0,0,0]
+        dst_yrowsize: [0,0,0,0]
+        src_yaddrstride: [0,0,0,0]
+        dst_yaddrstride: [0,0,0,0]
+        src_ms: [0,0,1,1]
+        dst_ms: [0,0,1,1]
+
+  - name: test_all_axe_dmas
+    description: "This is a sanity test to verify that all the AXE-DMAs can concurrently do 1d aligned DMA transfers."
+    data_check: True
+    data_random: True
+    perf_counter: True
+    noc_config:
+       - interleaving: "on/off" #TODO with Roel
+    label: [TOP_TREX_PERF]
+    requirement_ids: []
+    tasks:
+      - name: task
+        resource: AI0
+        instance: HP_DMA_AI0
+        mode: CSR # or CMD
+        num_channels: 1
+        channels: [0]
+        source_address: [L2_MODULE_0_BASE]
+        destination_address: [AICORE_0_L1_BASE]
+        burst_length: [64]
+        osr: [15]
+        src_xbytesize: [4096] # in bytes
+        dst_xbytesize: [4096] # in bytes
+        src_xaddrinc: [1]
+        dst_xaddrinc: [1]
+        tran_size: [0]
+        xtype: [1]
+        ytype: [0]
+        src_yrowsize: [0]
+        dst_yrowsize: [0]
+        src_yaddrstride: [0]
+        dst_yaddrstride: [0]
+        src_ms: [0]
+        dst_ms: [1]
+      - name: task
+        resource: AI1
+        instance: HP_DMA_AI1
+        mode: CSR # or CMD
+        num_channels: 1
+        channels: [0]
+        source_address: [L2_MODULE_1_BASE]
+        destination_address: [AICORE_1_L1_BASE]
+        burst_length: [64]
+        osr: [15]
+        src_xbytesize: [4096] # in bytes
+        dst_xbytesize: [4096] # in bytes
+        src_xaddrinc: [1]
+        dst_xaddrinc: [1]
+        tran_size: [0]
+        xtype: [1]
+        ytype: [0]
+        src_yrowsize: [0]
+        dst_yrowsize: [0]
+        src_yaddrstride: [0]
+        dst_yaddrstride: [0]
+        src_ms: [0]
+        dst_ms: [1]
+      - name: task
+        resource: AI2
+        instance: HP_DMA_AI2
+        mode: CSR # or CMD
+        num_channels: 1
+        channels: [0]
+        source_address: [L2_MODULE_2_BASE]
+        destination_address: [AICORE_2_L1_BASE]
+        burst_length: [64]
+        osr: [15]
+        src_xbytesize: [4096] # in bytes
+        dst_xbytesize: [4096] # in bytes
+        src_xaddrinc: [1]
+        dst_xaddrinc: [1]
+        tran_size: [0]
+        xtype: [1]
+        ytype: [0]
+        src_yrowsize: [0]
+        dst_yrowsize: [0]
+        src_yaddrstride: [0]
+        dst_yaddrstride: [0]
+        src_ms: [0]
+        dst_ms: [1]
+      - name: task
+        resource: AI3
+        instance: HP_DMA_AI3
+        mode: CSR # or CMD
+        num_channels: 1
+        channels: [0]
+        source_address: [L2_MODULE_3_BASE]
+        destination_address: [AICORE_3_L1_BASE]
+        burst_length: [64]
+        osr: [15]
+        src_xbytesize: [4096] # in bytes
+        dst_xbytesize: [4096] # in bytes
+        src_xaddrinc: [1]
+        dst_xaddrinc: [1]
+        tran_size: [0]
+        xtype: [1]
+        ytype: [0]
+        src_yrowsize: [0]
+        dst_yrowsize: [0]
+        src_yaddrstride: [0]
+        dst_yaddrstride: [0]
+        src_ms: [0]
+        dst_ms: [1]
+      - name: task
+        resource: AI4
+        instance: HP_DMA_AI4
+        mode: CSR # or CMD
+        num_channels: 1
+        channels: [0]
+        source_address: [L2_MODULE_4_BASE]
+        destination_address: [AICORE_4_L1_BASE]
+        burst_length: [64]
+        osr: [15]
+        src_xbytesize: [4096] # in bytes
+        dst_xbytesize: [4096] # in bytes
+        src_xaddrinc: [1]
+        dst_xaddrinc: [1]
+        tran_size: [0]
+        xtype: [1]
+        ytype: [0]
+        src_yrowsize: [0]
+        dst_yrowsize: [0]
+        src_yaddrstride: [0]
+        dst_yaddrstride: [0]
+        src_ms: [0]
+        dst_ms: [1]
+      - name: task
+        resource: AI5
+        instance: HP_DMA_AI5
+        mode: CSR # or CMD
+        num_channels: 1
+        channels: [0]
+        source_address: [L2_MODULE_5_BASE]
+        destination_address: [AICORE_5_L1_BASE]
+        burst_length: [64]
+        osr: [15]
+        src_xbytesize: [4096] # in bytes
+        dst_xbytesize: [4096] # in bytes
+        src_xaddrinc: [1]
+        dst_xaddrinc: [1]
+        tran_size: [0]
+        xtype: [1]
+        ytype: [0]
+        src_yrowsize: [0]
+        dst_yrowsize: [0]
+        src_yaddrstride: [0]
+        dst_yaddrstride: [0]
+        src_ms: [0]
+        dst_ms: [1]
+      - name: task
+        resource: AI6
+        instance: HP_DMA_AI6
+        mode: CSR # or CMD
+        num_channels: 1
+        channels: [0]
+        source_address: [L2_MODULE_6_BASE]
+        destination_address: [AICORE_6_L1_BASE]
+        burst_length: [64]
+        osr: [15]
+        src_xbytesize: [4096] # in bytes
+        dst_xbytesize: [4096] # in bytes
+        src_xaddrinc: [1]
+        dst_xaddrinc: [1]
+        tran_size: [0]
+        xtype: [1]
+        ytype: [0]
+        src_yrowsize: [0]
+        dst_yrowsize: [0]
+        src_yaddrstride: [0]
+        dst_yaddrstride: [0]
+        src_ms: [0]
+        dst_ms: [1]
+      - name: task
+        resource: AI7
+        instance: HP_DMA_AI7
+        mode: CSR # or CMD
+        num_channels: 1
+        channels: [0]
+        source_address: [L2_MODULE_7_BASE]
+        destination_address: [AICORE_7_L1_BASE]
+        burst_length: [64]
+        osr: [15]
+        src_xbytesize: [4096] # in bytes
+        dst_xbytesize: [4096] # in bytes
+        src_xaddrinc: [1]
+        dst_xaddrinc: [1]
+        tran_size: [0]
+        xtype: [1]
+        ytype: [0]
+        src_yrowsize: [0]
+        dst_yrowsize: [0]
+        src_yaddrstride: [0]
+        dst_yaddrstride: [0]
+        src_ms: [0]
+        dst_ms: [1]
+      - name: task
+        resource: APU
+        instance: SDMA0
+        mode: CSR # or CMD
+        num_channels: 4
+        channels: [0,1,2,3]
+        source_address: [L2_MODULE_0_BASE,L2_MODULE_1_BASE,L2_MODULE_2_BASE,L2_MODULE_3_BASE]
+        destination_address: [L2_MODULE_4_BASE,L2_MODULE_5_BASE,L2_MODULE_6_BASE,L2_MODULE_7_BASE]
+        burst_length: [64,64,64,64]
+        osr: [15,15,15,15]
+        src_xbytesize: [4096,4096,4096,4096] # in bytes
+        dst_xbytesize: [4096,4096,4096,4096] # in bytes
+        src_xaddrinc: [1,1,1,1]
+        dst_xaddrinc: [1,1,1,1]
+        tran_size: [0,0,0,0]
+        xtype:  [1,1,1,1]
+        ytype: [0,0,0,0]
+        src_yrowsize: [0,0,0,0]
+        dst_yrowsize: [0,0,0,0]
+        src_yaddrstride: [0,0,0,0]
+        dst_yaddrstride: [0,0,0,0]
+        src_ms: [0,0,1,1]
+        dst_ms: [0,0,1,1]
+      - name: task
+        resource: APU
+        instance: SDMA1
+        mode: CSR # or CMD
+        num_channels: 4
+        channels: [0,1,2,3]
+        source_address: [L2_MODULE_0_BASE,L2_MODULE_1_BASE,L2_MODULE_2_BASE,L2_MODULE_3_BASE]
+        destination_address: [L2_MODULE_4_BASE,L2_MODULE_5_BASE,L2_MODULE_6_BASE,L2_MODULE_7_BASE]
+        burst_length: [64,64,64,64]
+        osr: [15,15,15,15]
+        src_xbytesize: [4096,4096,4096,4096] # in bytes
+        dst_xbytesize: [4096,4096,4096,4096] # in bytes
+        src_xaddrinc: [1,1,1,1]
+        dst_xaddrinc: [1,1,1,1]
+        tran_size: [0,0,0,0]
+        xtype:  [1,1,1,1]
+        ytype: [0,0,0,0]
+        src_yrowsize: [0,0,0,0]
+        dst_yrowsize: [0,0,0,0]
+        src_yaddrstride: [0,0,0,0]
+        dst_yaddrstride: [0,0,0,0]
+        src_ms: [0,0,1,1]
+        dst_ms: [0,0,1,1]
+      - name: task
+        resource: PVE0
+        instance: HP_DMA0_PVE0
+        mode: CSR # or CMD
+        num_channels: 4
+        channels: [0,1,2,3]
+        source_address: [L2_MODULE_0_BASE,L2_MODULE_1_BASE,L2_MODULE_2_BASE,L2_MODULE_3_BASE]
+        destination_address: [L2_MODULE_4_BASE,L2_MODULE_5_BASE,L2_MODULE_6_BASE,L2_MODULE_7_BASE]
+        burst_length: [64,64,64,64]
+        osr: [15,15,15,15]
+        src_xbytesize: [512,512,512,512] # in bytes
+        dst_xbytesize: [512,512,512,512] # in bytes
+        src_xaddrinc: [1,1,1,1]
+        dst_xaddrinc: [1,1,1,1]
+        tran_size: [0,0,0,0]
+        xtype:  [1,1,1,1]
+        ytype: [0,0,0,0]
+        src_yrowsize: [0,0,0,0]
+        dst_yrowsize: [0,0,0,0]
+        src_yaddrstride: [0,0,0,0]
+        dst_yaddrstride: [0,0,0,0]
+        src_ms: [0,0,1,1]
+        dst_ms: [0,0,1,1]
+      - name: task
+        resource: PVE0
+        instance: HP_DMA1_PVE0
+        mode: CSR # or CMD
+        num_channels: 4
+        channels: [0,1,2,3]
+        source_address: [L2_MODULE_0_BASE,L2_MODULE_1_BASE,L2_MODULE_2_BASE,L2_MODULE_3_BASE]
+        destination_address: [L2_MODULE_4_BASE,L2_MODULE_5_BASE,L2_MODULE_6_BASE,L2_MODULE_7_BASE]
+        burst_length: [64,64,64,64]
+        osr: [15,15,15,15]
+        src_xbytesize: [512,512,512,512] # in bytes
+        dst_xbytesize: [512,512,512,512] # in bytes
+        src_xaddrinc: [1,1,1,1]
+        dst_xaddrinc: [1,1,1,1]
+        tran_size: [0,0,0,0]
+        xtype:  [1,1,1,1]
+        ytype: [0,0,0,0]
+        src_yrowsize: [0,0,0,0]
+        dst_yrowsize: [0,0,0,0]
+        src_yaddrstride: [0,0,0,0]
+        dst_yaddrstride: [0,0,0,0]
+        src_ms: [0,0,1,1]
+        dst_ms: [0,0,1,1]
+      - name: task
+        resource: PVE1
+        instance: HP_DMA0_PVE1
+        mode: CSR # or CMD
+        num_channels: 4
+        channels: [0,1,2,3]
+        source_address: [L2_MODULE_0_BASE,L2_MODULE_1_BASE,L2_MODULE_2_BASE,L2_MODULE_3_BASE]
+        destination_address: [L2_MODULE_4_BASE,L2_MODULE_5_BASE,L2_MODULE_6_BASE,L2_MODULE_7_BASE]
+        burst_length: [64,64,64,64]
+        osr: [15,15,15,15]
+        src_xbytesize: [512,512,512,512] # in bytes
+        dst_xbytesize: [512,512,512,512] # in bytes
+        src_xaddrinc: [1,1,1,1]
+        dst_xaddrinc: [1,1,1,1]
+        tran_size: [0,0,0,0]
+        xtype:  [1,1,1,1]
+        ytype: [0,0,0,0]
+        src_yrowsize: [0,0,0,0]
+        dst_yrowsize: [0,0,0,0]
+        src_yaddrstride: [0,0,0,0]
+        dst_yaddrstride: [0,0,0,0]
+        src_ms: [0,0,1,1]
+        dst_ms: [0,0,1,1]
+      - name: task
+        resource: PVE1
+        instance: HP_DMA1_PVE1
+        mode: CSR # or CMD
+        num_channels: 4
+        channels: [0,1,2,3]
+        source_address: [L2_MODULE_0_BASE,L2_MODULE_1_BASE,L2_MODULE_2_BASE,L2_MODULE_3_BASE]
+        destination_address: [L2_MODULE_4_BASE,L2_MODULE_5_BASE,L2_MODULE_6_BASE,L2_MODULE_7_BASE]
+        burst_length: [64,64,64,64]
+        osr: [15,15,15,15]
+        src_xbytesize: [512,512,512,512] # in bytes
+        dst_xbytesize: [512,512,512,512] # in bytes
+        src_xaddrinc: [1,1,1,1]
+        dst_xaddrinc: [1,1,1,1]
+        tran_size: [0,0,0,0]
+        xtype:  [1,1,1,1]
+        ytype: [0,0,0,0]
+        src_yrowsize: [0,0,0,0]
+        dst_yrowsize: [0,0,0,0]
+        src_yaddrstride: [0,0,0,0]
+        dst_yaddrstride: [0,0,0,0]
+        src_ms: [0,0,1,1]
+        dst_ms: [0,0,1,1]
+

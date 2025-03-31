@@ -1,0 +1,643 @@
+<category name="Control Words">
+
+    <config id="DWC_DDRCTL_CINIT_RC0F_LATENCY_ADDER_NLADD_TO_ALL_DRAM_CMD"
+            name="DDR4 RC0F: Command latency address control" type="single_choice" var_type="uint8">
+        <option id="DWC_DDRCTL_CINIT_RC0F_LATENCY_ADDER_NLADD_TO_ALL_DRAM_CMD_0" value="0" name="0"/>
+        <option id="DWC_DDRCTL_CINIT_RC0F_LATENCY_ADDER_NLADD_TO_ALL_DRAM_CMD_1" value="1" name="1"/>
+        <option id="DWC_DDRCTL_CINIT_RC0F_LATENCY_ADDER_NLADD_TO_ALL_DRAM_CMD_2" value="2" name="2"/>
+        <option id="DWC_DDRCTL_CINIT_RC0F_LATENCY_ADDER_NLADD_TO_ALL_DRAM_CMD_3" value="3" name="3"/>
+        <option id="DWC_DDRCTL_CINIT_RC0F_LATENCY_ADDER_NLADD_TO_ALL_DRAM_CMD_4" value="4" name="4"/>
+        <default value="@DWC_DDRCTL_CINIT_RC0F_LATENCY_ADDER_NLADD_TO_ALL_DRAM_CMD_0"/>
+    </config>
+    <config id="DWC_DDRCTL_CINIT_SDRAM_BUS_WIDTH" name="SDRAM bus width" type="single_choice" var_type="uint8">
+        <option id="DWC_DDRCTL_CINIT_SDRAM_BUS_WIDTH_FULL"    value="1" name="Full"/>
+        <option id="DWC_DDRCTL_CINIT_SDRAM_BUS_WIDTH_HALF"    value="2" name="Half"/>
+        <option id="DWC_DDRCTL_CINIT_SDRAM_BUS_WIDTH_QUARTER" value="3" name="Quarter"/>
+        <default value="@DWC_DDRCTL_CINIT_SDRAM_BUS_WIDTH_FULL"/>
+    </config>
+    <config id="DWC_DDRCTL_CINIT_CAPAR_RETRY_WINDOW_INTERNAL_DELAY_EXTRA" name="CA parity retry window: Extra delay"
+            depends="@DDRCTL_DDR" type="int" var_type="uint32">
+        <default value="0"/>
+    </config>
+
+    <category name="DDR4" depends="(@DWC_DDRCTL_CINIT_SDRAM_PROTOCOL==@DWC_DDRCTL_CINIT_SDRAM_PROTOCOL_DDR4) and
+                                   (@NUM_PSTATES gt {freq})">
+        <param name="freq" min="0" max="4"/>
+        <config id="DWC_DDRCTL_CINIT_DDR4_PSTATE{freq}_MR0_BURST_TYPE"
+                name="MR0: Read Burst Type" type="int" var_type="uint8">
+            <default value="0"/>
+        </config>
+        <config id="DWC_DDRCTL_CINIT_DDR4_PSTATE{freq}_MR0_CL"
+                name="MR0: CAS Latency" type="int" var_type="uint8">
+            <default value="0"/>
+        </config>
+        <config id="DWC_DDRCTL_CINIT_DDR4_PSTATE{freq}_MR0_DLL_RESET"
+                name="MR0: DLL Reset" type="int" var_type="uint8">
+            <default value="0"/>
+        </config>
+        <config id="DWC_DDRCTL_CINIT_DDR4_PSTATE{freq}_MR0_WR_RECOVERY"
+            name="MR0: Write Recovery and Read to Precharge for auto precharge" type="int" var_type="uint8">
+            <default value="0"/>
+        </config>
+        <config id="DWC_DDRCTL_CINIT_DDR4_PSTATE{freq}_MR1_RTT_NOM"
+                name="MR1: RTT NOM" type="int" var_type="uint8">
+            <default value="0"/>
+        </config>
+        <config id="DWC_DDRCTL_CINIT_DDR4_PSTATE{freq}_MR1_WR_LEVELING_ENABLE"
+                name="MR1: Write Leveling Enable" type="int" var_type="uint8">
+            <default value="0"/>
+        </config>
+        <config id="DWC_DDRCTL_CINIT_DDR4_PSTATE{freq}_MR1_AL"
+                name="MR1: Additive Latency" type="int" var_type="uint8">
+            <default value="0"/>
+        </config>
+        <config id="DWC_DDRCTL_CINIT_DDR4_PSTATE{freq}_MR1_OUTPUT_DRIVER_IMPEDANCE"
+                name="MR1: Output Driver Impedance Control" type="int" var_type="uint8">
+            <default value="0"/>
+        </config>
+        <config id="DWC_DDRCTL_CINIT_DDR4_PSTATE{freq}_MR2_RTT_WR"
+                name="MR2: RTT WR" type="int" var_type="uint8">
+            <default value="0"/>
+        </config>
+        <config id="DWC_DDRCTL_CINIT_DDR4_PSTATE{freq}_MR2_AUTO_SELF_REF"
+                name="MR2: Low Power Auto Self Refresh (LP ASR)" type="int" var_type="uint8">
+            <default value="0"/>
+        </config>
+        <config id="DWC_DDRCTL_CINIT_DDR4_PSTATE{freq}_MR2_CWL"
+                name="MR2: CAS Write Latency (CWL)" type="int" var_type="uint8">
+            <default value="0"/>
+        </config>
+        <config id="DWC_DDRCTL_CINIT_DDR4_PSTATE{freq}_MR3_WCL"
+                name="MR3: Write CMD Latency when CRC and DM are enabled" type="int" var_type="uint8">
+            <default value="0"/>
+        </config>
+        <config id="DWC_DDRCTL_CINIT_DDR4_PSTATE{freq}_MR3_MPR_OP"
+                name="MR3: MPR Operation" type="int" var_type="uint8">
+            <default value="0"/>
+        </config>
+        <config id="DWC_DDRCTL_CINIT_DDR4_PSTATE{freq}_MR3_MPR_PS"
+                name="MR3: MPR page Selection" type="int" var_type="uint8">
+            <default value="0"/>
+        </config>
+        <config id="DWC_DDRCTL_CINIT_DDR4_PSTATE{freq}_MR4_RD_PREAMBLE"
+                name="MR4: Read Preamble" type="int" var_type="uint8">
+            <default value="0"/>
+        </config>
+        <config id="DWC_DDRCTL_CINIT_DDR4_PSTATE{freq}_MR4_SELFREF_ABORT"
+                name="MR4: Self Refresh Abort" type="int" var_type="uint8">
+            <default value="0"/>
+        </config>
+        <config id="DWC_DDRCTL_CINIT_DDR4_PSTATE{freq}_MR4_CAL"
+                name="MR4: CS to CMD/ADDR Latency Mode (cycles)" type="int" var_type="uint8">
+            <default value="0"/>
+        </config>
+        <config id="DWC_DDRCTL_CINIT_DDR4_PSTATE{freq}_MR4_REFRESH_MODE"
+                name="MR4: Temperature Controlled Refresh Mode" type="int" var_type="uint8">
+            <default value="0"/>
+        </config>
+        <config id="DWC_DDRCTL_CINIT_DDR4_PSTATE{freq}_MR4_REFRESH_RANGE"
+                name="MR4: Temperature Controlled Refresh Range" type="int" var_type="uint8">
+            <default value="0"/>
+        </config>
+        <config id="DWC_DDRCTL_CINIT_DDR4_PSTATE{freq}_MR5_RTT_PARK"
+                name="MR5: RTT PARK" type="int" var_type="uint8">
+            <default value="0"/>
+        </config>
+        <config id="DWC_DDRCTL_CINIT_DDR4_PSTATE{freq}_MR5_DIS_ODT_INPUT_BUF_IN_PD"
+                name="MR5: ODT Input Buffer during Power Down mode" type="int" var_type="uint8">
+            <default value="0"/>
+        </config>
+        <config id="DWC_DDRCTL_CINIT_DDR4_PSTATE{freq}_MR5_PARITY_LATENCY_MODE"
+                name="MR5: C/A Parity Latency Mode" type="int" var_type="uint8">
+            <default value="0"/>
+        </config>
+        <config id="DWC_DDRCTL_CINIT_DDR4_PSTATE{freq}_MR6_TCCD_L"
+                name="MR6: tCCD_L" type="int" var_type="uint8">
+            <default value="0"/>
+        </config>
+    </category>
+
+    <category name="DDR5" depends="@DWC_DDRCTL_CINIT_SDRAM_PROTOCOL==@DWC_DDRCTL_CINIT_SDRAM_PROTOCOL_DDR5">
+        <config id="DWC_DDRCTL_CINIT_T_CCD_W_OFFSET_{freq}_{channel}"
+                name="Write delay offset in clock cycles frequency {freq} channel {channel}"
+                min="0" max="255" type="int" var_type="uint8"
+                depends="(@NUM_DCH gt {channel}) and (@NUM_PSTATES gt {freq})">
+            <param name="channel" min="0" max="1"/>
+            <param name="freq"    min="0" max="4"/>
+            <default value="0"/>
+        </config>
+        <config id="DWC_DDRCTL_CINIT_T_CCD_R_OFFSET_{freq}_{channel}"
+                name="Read delay offset in clock cycles frequency {freq} channel {channel}"
+                min="0" max="255" type="int" var_type="uint8"
+                depends="(@NUM_DCH gt {channel}) and (@NUM_PSTATES gt {freq})">
+            <param name="channel" min="0" max="1"/>
+            <param name="freq"    min="0" max="4"/>
+            <default value="0"/>
+        </config>
+        <config id="DWC_DDRCTL_CINIT_RW00_SDR_MODE"
+                name="RW00: SDR Mode" type="single_choice" var_type="uint8">
+            <option id="DWC_DDRCTL_CINIT_DDR5_RW00_SDR_MODE1"    value="0" name="SDR1 (additional setup time)"/>
+            <option id="DWC_DDRCTL_CINIT_DDR5_RW00_SDR_MODE2"    value="1" name="SDR2"/>
+            <default value="@DWC_DDRCTL_CINIT_DDR5_RW00_SDR_MODE1"/>
+        </config>
+        <config id="DWC_DDRCTL_CINIT_RW11_LATENCY_ADDER_NLADD_TO_ALL_DRAM_CMD"
+                name="RW11: Command Latency Adder Configuration" type="int" var_type="uint8">
+            <default value="0"/>
+        </config>
+
+        <category name="PSTATE {freq}" depends="@NUM_PSTATES gt {freq}">
+            <param name="freq" min="0" max="4"/>
+            <config id="DWC_DDRCTL_CINIT_DDR5_PSTATE{freq}_MR0_CL"
+                    name="MR0: CAS Latency (RL)" type="int" var_type="uint8">
+                <default value="0"/>
+            </config>
+            <config id="DWC_DDRCTL_CINIT_DDR5_PSTATE{freq}_MR2_RD_PREAMBLE_ENABLE"
+                    name="MR2: Read Preamble Training" type="int" var_type="uint8">
+                <default value="0"/>
+            </config>
+            <config id="DWC_DDRCTL_CINIT_DDR5_PSTATE{freq}_MR2_WR_LEVELING"
+                    name="MR2: Write Leveling Training" type="int" var_type="uint8">
+                <default value="0"/>
+            </config>
+            <config id="DWC_DDRCTL_CINIT_DDR5_PSTATE{freq}_MR2_DDR5_2N_MODE"
+                    name="MR2: 2N Mode" type="int" var_type="uint8">
+                <default value="0"/>
+            </config>
+            <config id="DWC_DDRCTL_CINIT_DDR5_PSTATE{freq}_MR2_MPSM"
+                    name="MR2: Max Power Saving Mode (MPSM)" type="int" var_type="uint8">
+                <default value="0"/>
+            </config>
+            <config id="DWC_DDRCTL_CINIT_DDR5_PSTATE{freq}_MR2_CS_ASSERTION_DURATION"
+                    name="MR2: CS Assertion Duration (MPC)" type="int" var_type="uint8">
+                <default value="0"/>
+            </config>
+            <config id="DWC_DDRCTL_CINIT_DDR5_PSTATE{freq}_MR2_DEV15_MPSM"
+                    name="MR2: Device 15 MPSM" type="int" var_type="uint8">
+                <default value="0"/>
+            </config>
+            <config id="DWC_DDRCTL_CINIT_DDR5_PSTATE{freq}_MR2_INTERNAL_WR_TIMING"
+                    name="MR2: Internal Write Timing" type="int" var_type="uint8">
+                <default value="1"/>
+            </config>
+            <config id="DWC_DDRCTL_CINIT_DDR5_PSTATE{freq}_MR3_WR_LEVELING_INTERNAL_LOWER_BYTE"
+                    name="MR3: Write Leveling Internal Cycle Alignment - Lower Byte" type="int" var_type="uint8">
+                <default value="0"/>
+            </config>
+            <config id="DWC_DDRCTL_CINIT_DDR5_PSTATE{freq}_MR3_WR_LEVELING_INTERNAL_UPPER_BYTE"
+                    name="MR3: Write Leveling Internal Cycle Alignment - Upper Byte" type="int" var_type="uint8">
+                <default value="0"/>
+            </config>
+            <config id="DWC_DDRCTL_CINIT_DDR5_PSTATE{freq}_MR4_REFRESH_RATE"
+                    name="MR4: Refresh Rate" type="int" var_type="uint8">
+                <default value="0"/>
+            </config>
+            <config id="DWC_DDRCTL_CINIT_DDR5_PSTATE{freq}_MR5_DATA_OUTPUT_DISABLE"
+                    name="MR5: Data Output Disable" type="int" var_type="uint8">
+                <default value="0"/>
+            </config>
+            <config id="DWC_DDRCTL_CINIT_DDR5_PSTATE{freq}_MR5_PULL_UP_OUTPUT_DRV_IMPEDANCE"
+                    name="MR5: Pull-up Output Driver Impedance" type="int" var_type="uint8">
+                <default value="0"/>
+            </config>
+            <config id="DWC_DDRCTL_CINIT_DDR5_PSTATE{freq}_MR5_TDQS_ENABLE"
+                    name="MR5: TDQS Enable" type="int" var_type="uint8">
+                <default value="0"/>
+            </config>
+            <config id="DWC_DDRCTL_CINIT_DDR5_PSTATE{freq}_MR5_DM_ENABLE"
+                    name="MR5: DM Enable" type="int" var_type="uint8">
+                <default value="0"/>
+            </config>
+            <config id="DWC_DDRCTL_CINIT_DDR5_PSTATE{freq}_MR5_PULL_DOWN_OUTPUT_DRV_IMPEDANCE"
+                    name="MR5: Pull-Down Output Driver Impedance" type="int" var_type="uint8">
+                <default value="0"/>
+            </config>
+            <config id="DWC_DDRCTL_CINIT_DDR5_PSTATE{freq}_MR6_TRTP"
+                    name="MR6: tRTP" type="int" var_type="uint8">
+                <default value="0"/>
+            </config>
+            <config id="DWC_DDRCTL_CINIT_DDR5_PSTATE{freq}_MR6_WR_RECOVERY"
+                    name="MR6: Write Recovery Time" type="int" var_type="uint8">
+                <default value="0"/>
+            </config>
+            <config id="DWC_DDRCTL_CINIT_DDR5_PSTATE{freq}_MR8_RD_PREAMBLE"
+                    name="MR8: Read Preamble Settings" type="int" var_type="uint8">
+                <default value="0"/>
+            </config>
+            <config id="DWC_DDRCTL_CINIT_DDR5_PSTATE{freq}_MR8_WR_PREAMBLE"
+                    name="MR8: Write Preamble Settings" type="int" var_type="uint8">
+                <default value="1"/>
+            </config>
+            <config id="DWC_DDRCTL_CINIT_DDR5_PSTATE{freq}_MR8_RD_POSTAMBLE"
+                    name="MR8: Read Postamble Settings" type="int" var_type="uint8">
+                <default value="0"/>
+            </config>
+            <config id="DWC_DDRCTL_CINIT_DDR5_PSTATE{freq}_MR8_WR_POSTAMBLE"
+                    name="MR8: Write Postamble Settings" type="int" var_type="uint8">
+                <default value="0"/>
+            </config>
+            <config id="DWC_DDRCTL_CINIT_DDR5_PSTATE{freq}_MR13_TCCD_L"
+                    name="MR13: tCCD_L / tDLLK" type="int" var_type="uint8">
+                <default value="0"/>
+            </config>
+            <config id="DWC_DDRCTL_CINIT_DDR5_PSTATE{freq}_MR34_RTT_PARK"
+                    name="MR34: RTT_PARK" type="int" var_type="uint8">
+                <default value="0"/>
+            </config>
+            <config id="DWC_DDRCTL_CINIT_DDR5_PSTATE{freq}_MR34_RTT_WR"
+                    name="MR34: RTT_WR" type="int" var_type="uint8">
+                <default value="0"/>
+            </config>
+            <config id="DWC_DDRCTL_CINIT_DDR5_PSTATE{freq}_MR35_RTT_NOM_WR"
+                    name="MR35: RTT_NOM_WR" type="int" var_type="uint8">
+                <default value="0"/>
+            </config>
+            <config id="DWC_DDRCTL_CINIT_DDR5_PSTATE{freq}_MR35_RTT_NOM_RD"
+                    name="MR35: RTT_NOM_RD" type="int" var_type="uint8">
+                <default value="0"/>
+            </config>
+            <config id="DWC_DDRCTL_CINIT_DDR5_PSTATE{freq}_MR37_ODTLON_WR_OFFSET"
+                    name="MR37: ODTLon_WR_offset" type="int" var_type="uint8">
+                <default value="0"/>
+            </config>
+            <config id="DWC_DDRCTL_CINIT_DDR5_PSTATE{freq}_MR37_ODTLOFF_WR_OFFSET"
+                    name="MR37: ODTLoff_WR_offset" type="int" var_type="uint8">
+                <default value="0"/>
+            </config>
+            <config id="DWC_DDRCTL_CINIT_DDR5_PSTATE{freq}_MR38_ODTLON_WR_NT_OFFSET"
+                    name="MR38: ODTLon_WR_NT_offset" type="int" var_type="uint8">
+                <default value="0"/>
+            </config>
+            <config id="DWC_DDRCTL_CINIT_DDR5_PSTATE{freq}_MR38_ODTLOFF_WR_NT_OFFSET"
+                    name="MR38: ODTLoff_WR_NT_offset" type="int" var_type="uint8">
+                <default value="0"/>
+            </config>
+            <config id="DWC_DDRCTL_CINIT_DDR5_PSTATE{freq}_MR39_ODTLON_RD_NT_OFFSET"
+                    name="MR39: ODTLon_RD_NT_offset" type="int" var_type="uint8">
+                <default value="0"/>
+            </config>
+            <config id="DWC_DDRCTL_CINIT_DDR5_PSTATE{freq}_MR39_ODTLOFF_RD_NT_OFFSET"
+                    name="MR39: ODTLoff_RD_NT_offset" type="int" var_type="uint8">
+                <default value="0"/>
+            </config>
+            <config id="DWC_DDRCTL_CINIT_DDR5_PSTATE{freq}_MR40_RD_DQS_OFFSET"
+                    name="MR40: Read DQS offset timing" type="int" var_type="uint8">
+                <default value="0"/>
+            </config>
+            <config id="DWC_DDRCTL_CINIT_DDR5_PSTATE{freq}_MR45_OSC_RUN_TIME"
+                    name="MR45: DQS Interval Timer Run Time" type="int" var_type="uint8">
+                <default value="0"/>
+            </config>
+            <config id="DWC_DDRCTL_CINIT_DDR5_PSTATE{freq}_MR50_WR_CRC_ERROR_STATUS"
+                    name="MR50: Write CRC error status" type="int" var_type="uint8">
+                <default value="0"/>
+            </config>
+            <config id="DWC_DDRCTL_CINIT_DDR5_PSTATE{freq}_MR50_WR_CRC_AUTO_DISABLE_ENABLE"
+                    name="MR50: Write CRC auto-disable enable" type="int" var_type="uint8">
+                <default value="0"/>
+            </config>
+            <config id="DWC_DDRCTL_CINIT_DDR5_PSTATE{freq}_MR50_WR_CRC_AUTO_DISABLE_STATUS"
+                    name="MR50: Write CRC auto-disable status" type="int" var_type="uint8">
+                <default value="0"/>
+            </config>
+            <config id="DWC_DDRCTL_CINIT_DDR5_PSTATE{freq}_MR51_WR_CRC_AUTO_DISABLE_THRE"
+                    name="MR51: Write CRC Auto-Disable Threshold" type="int" var_type="uint8">
+                <default value="0"/>
+            </config>
+            <config id="DWC_DDRCTL_CINIT_DDR5_PSTATE{freq}_MR52_WR_CRC_AUTO_DISABLE_WINDOW"
+                    name="MR52: Write CRC Auto-Disable Window" type="int" var_type="uint8">
+                <default value="0"/>
+            </config>
+
+            <category name="Rank {rank}" depends="@MEMC_NUM_RANKS gt {rank}">
+                <param name="rank" min="0" max="3"/>
+                <config id="DWC_DDRCTL_CINIT_DDR5_PSTATE{freq}_RANK{rank}_MR58_RFM_REQUIRED"
+                        name="MR58: RANK {rank} - RFM Required" type="int" var_type="uint8">
+                    <default value="0"/>
+                </config>
+                <config id="DWC_DDRCTL_CINIT_DDR5_PSTATE{freq}_RANK{rank}_MR58_RAA_INITIAL_MANAGEMENT_THRESHOLD"
+                        name="MR58: RANK {rank} - Rolling Accumulated ACT Initial Management Threshold"
+                        type="int" var_type="uint8">
+                    <default value="0"/>
+                </config>
+                <config id="DWC_DDRCTL_CINIT_DDR5_PSTATE{freq}_RANK{rank}_MR58_RAA_MAXIMUM_MANAGEMENT_THRESHOLD"
+                        name="MR58: RANK {rank} - Rolling Accumulated ACT Maximum Management Threshold"
+                        type="int" var_type="uint8">
+                    <default value="0"/>
+                </config>
+                <config id="DWC_DDRCTL_CINIT_DDR5_PSTATE{freq}_RANK{rank}_MR59_RAA_COUNTER_DECR_PER_REF_CMD"
+                        name="MR59: RANK {rank} - Rolling Accumulated ACT Maximum Management Threshold"
+                        type="int" var_type="uint8">
+                    <default value="0"/>
+                </config>
+            </category>
+
+        </category>
+
+    </category>
+
+    <category name="LPDDR4" depends="(@DWC_DDRCTL_CINIT_SDRAM_PROTOCOL==@DWC_DDRCTL_CINIT_SDRAM_PROTOCOL_LPDDR4) or
+                                     (@DWC_DDRCTL_CINIT_SDRAM_PROTOCOL==@DWC_DDRCTL_CINIT_SDRAM_PROTOCOL_LPDDR4X)">
+        <category name="Pstate {freq}"  depends="@UMCTL2_FREQUENCY_NUM gt {freq}">
+            <param name="freq" min="0" max="15"/>
+            <config id="DWC_DDRCTL_CINIT_LPDDR4_PSTATE{freq}_MR1_RD_POSTAMBLE"
+                    name="MR1: RPST - RD Post-Amble Length" type="int" var_type="uint8">
+                <default value="0"/>
+            </config>
+            <config id="DWC_DDRCTL_CINIT_LPDDR4_PSTATE{freq}_MR1_WR_RECOVERY"
+                    name="MR1: nWR - Write-Recovery for Auto Precharge commands" type="int" var_type="uint8">
+                <default value="0"/>
+            </config>
+            <config id="DWC_DDRCTL_CINIT_LPDDR4_PSTATE{freq}_MR1_RD_PREAMBLE"
+                    name="MR1: RD-PRE - RD Pre-amble Type" type="int" var_type="uint8">
+                <default value="0"/>
+            </config>
+            <config id="DWC_DDRCTL_CINIT_LPDDR4_PSTATE{freq}_MR1_WR_PREAMBLE"
+                    name="MR1: WR-PRE - WR Pre-amble Length" type="int" var_type="uint8">
+                <default value="0"/>
+            </config>
+            <config id="DWC_DDRCTL_CINIT_LPDDR4_PSTATE{freq}_MR1_BURST_LENGTH"
+                    name="MR1: BL - Burst Length" type="int" var_type="uint8">
+                <default value="0"/>
+            </config>
+            <config id="DWC_DDRCTL_CINIT_LPDDR4_PSTATE{freq}_MR2_WLS"
+                    name="MR2: WLS - Write Latency Set" type="int" var_type="uint8">
+                <default value="0"/>
+            </config>
+            <config id="DWC_DDRCTL_CINIT_LPDDR4_PSTATE{freq}_MR2_RL_WL"
+                    name="MR2: Read latency + Write latency" type="int" var_type="uint8">
+                <default value="0"/>
+            </config>
+            <config id="DWC_DDRCTL_CINIT_LPDDR4_PSTATE{freq}_MR3_PDDS"
+                    name="MR3: PDDS - Pull-Down Drive Strength" type="int" var_type="uint8">
+                <default value="0"/>
+            </config>
+            <config id="DWC_DDRCTL_CINIT_LPDDR4_PSTATE{freq}_MR3_PPRP"
+                    name="MR3: Post Package Repair Protection" type="int" var_type="uint8">
+                <default value="0"/>
+            </config>
+            <config id="DWC_DDRCTL_CINIT_LPDDR4_PSTATE{freq}_MR3_PU_CAL"
+                    name="MR3: PU-Cal - Pull-up Calibration Point" type="int" var_type="uint8">
+                <default value="0"/>
+            </config>
+            <config id="DWC_DDRCTL_CINIT_LPDDR4_PSTATE{freq}_MR11_CA_ODT"
+                    name="MR11: CA ODT - CA Bus Receiver On-Die Termination" type="int" var_type="uint8">
+                <default value="0"/>
+            </config>
+            <config id="DWC_DDRCTL_CINIT_LPDDR4_PSTATE{freq}_MR11_DQ_ODT"
+                    name="MR11: DQ ODT - DQ Bus Receiver On-Die Termination" type="int" var_type="uint8">
+                <default value="0"/>
+            </config>
+            <config id="DWC_DDRCTL_CINIT_LPDDR4_PSTATE{freq}_MR12_VR_CA"
+                    name="MR12: VR-CA - VREF(CA) Range" type="int" var_type="uint8">
+                <default value="0"/>
+            </config>
+            <config id="DWC_DDRCTL_CINIT_LPDDR4_PSTATE{freq}_MR12_VREF_CA"
+                    name="MR12: VREF(CA) - VREF(CA) Setting" type="int" var_type="uint8">
+                <default value="0"/>
+            </config>
+            <config id="DWC_DDRCTL_CINIT_LPDDR4_PSTATE{freq}_MR13_FSP_OP"
+                    name="MR13: FSP-OP - Frequency Set Point Operation Mode" type="int" var_type="uint8">
+                <default value="0"/>
+            </config>
+            <config id="DWC_DDRCTL_CINIT_LPDDR4_PSTATE{freq}_MR13_FSP_WR"
+                    name="MR13: FSP-WR - Frequency Set Point Write/Read" type="int" var_type="uint8">
+                <default value="0"/>
+            </config>
+            <config id="DWC_DDRCTL_CINIT_LPDDR4_PSTATE{freq}_MR14_VR_DQ"
+                    name="MR14: VR(dq) - VREF(DQ) Range" type="int" var_type="uint8">
+                <default value="0"/>
+            </config>
+            <config id="DWC_DDRCTL_CINIT_LPDDR4_PSTATE{freq}_MR14_VREF_DQ"
+                    name="MR14: VREF(DQ) - VREF(DQ) Setting" type="int" var_type="uint8">
+                <default value="0"/>
+            </config>
+            <config id="DWC_DDRCTL_CINIT_LPDDR4_PSTATE{freq}_MR22_ODTD"
+                    name="MR22: ODTD - CA/CK ODT termination disable" type="int" var_type="uint8">
+                <default value="0"/>
+            </config>
+            <config id="DWC_DDRCTL_CINIT_LPDDR4_PSTATE{freq}_MR22_ODTD_CA"
+                    name="MR22: ODTD-CA - CA ODT termination disable" type="int" var_type="uint8">
+                <default value="0"/>
+            </config>
+            <config id="DWC_DDRCTL_CINIT_LPDDR4_PSTATE{freq}_MR22_ODTD_CS"
+                    name="MR22: ODTE-CS - CS ODT enable for non terminating rank" type="int" var_type="uint8">
+                <default value="0"/>
+            </config>
+            <config id="DWC_DDRCTL_CINIT_LPDDR4_PSTATE{freq}_MR22_ODTD_CK"
+                    name="MR22: ODTE-CK - CK ODT enabled for non terminating rank" type="int" var_type="uint8">
+                <default value="0"/>
+            </config>
+            <config id="DWC_DDRCTL_CINIT_LPDDR4_PSTATE{freq}_MR22_SOC_ODT"
+                    name="MR22: SoC ODT - Controller ODT Value for VOH calibration" type="int" var_type="uint8">
+                <default value="0"/>
+            </config>
+        </category>
+    </category>
+    <category name="LPDDR5" depends="(@DWC_DDRCTL_CINIT_SDRAM_PROTOCOL==@DWC_DDRCTL_CINIT_SDRAM_PROTOCOL_LPDDR5) or
+                                     (@DWC_DDRCTL_CINIT_SDRAM_PROTOCOL==@DWC_DDRCTL_CINIT_SDRAM_PROTOCOL_LPDDR5X)">
+        <category name="Pstate {freq}" depends="@NUM_PSTATES gt {freq}">
+            <param name="freq" min="0" max="15"/>
+            <config id="DWC_DDRCTL_CINIT_LPDDR5_PSTATE{freq}_MR1_WRITE_LATENCY"
+                    name="MR1: WL - Write Latency" type="int" var_type="uint8">
+                <default value="0"/>
+            </config>
+            <config id="DWC_DDRCTL_CINIT_LPDDR5_PSTATE{freq}_MR1_CK_MODE"
+                    name="MR1: CK mode" type="int" var_type="uint8">
+                <default value="0"/>
+            </config>
+            <config id="DWC_DDRCTL_CINIT_LPDDR5_PSTATE{freq}_MR2_NWR"
+                    name="MR2: RL and nRBTP - Read latency and Read Burst end to Precharge delay"
+                    type="int" var_type="uint8">
+                <default value="0"/>
+            </config>
+            <config id="DWC_DDRCTL_CINIT_LPDDR5_PSTATE{freq}_MR2_RL_NRTP"
+                    name="MR2: nWR - Write recovery" type="int" var_type="uint8">
+                <default value="0"/>
+            </config>
+            <config id="DWC_DDRCTL_CINIT_LPDDR5_PSTATE{freq}_MR3_WLS"
+                    name="MR3: WLS - Write Latency Set" type="int" var_type="uint8">
+                <default value="0"/>
+            </config>
+            <config id="DWC_DDRCTL_CINIT_LPDDR5_PSTATE{freq}_MR3_BK_BG_ORG"
+                    name="MR3: BK/BG ORG - Bank/Bank Group Organization" type="int" var_type="uint8">
+                <default value="0"/>
+            </config>
+            <config id="DWC_DDRCTL_CINIT_LPDDR5_PSTATE{freq}_MR3_PDDS"
+                    name="MR3: PDDS - Pull-Down Drive Strength" type="int" var_type="uint8">
+                <default value="0"/>
+            </config>
+            <config id="DWC_DDRCTL_CINIT_LPDDR5_PSTATE{freq}_MR10_RDQS_PST_MODE"
+                    name="MR10: RDQS Post-amble mode" type="int" var_type="uint8">
+                <default value="0"/>
+            </config>
+            <config id="DWC_DDRCTL_CINIT_LPDDR5_PSTATE{freq}_MR10_RDQS_PST"
+                    name="MR10: RDQS PST - RD Post amble Length" type="int" var_type="uint8">
+                <default value="0"/>
+            </config>
+            <config id="DWC_DDRCTL_CINIT_LPDDR5_PSTATE{freq}_MR10_RDQS_PRE"
+                    name="MR10: RDQS PRE - RD Pre-amble Length" type="int" var_type="uint8">
+                <default value="0"/>
+            </config>
+            <config id="DWC_DDRCTL_CINIT_LPDDR5_PSTATE{freq}_MR10_RDQS_PRE_2"
+                    name="MR10: RDQS PRE-2 - RD Pre-amble Length" type="int" var_type="uint8">
+                <default value="0"/>
+            </config>
+            <config id="DWC_DDRCTL_CINIT_LPDDR5_PSTATE{freq}_MR10_WCK_PST"
+                    name="MR10: WCK PST - WCK Post-amble Length" type="int" var_type="uint8">
+                <default value="0"/>
+            </config>
+            <config id="DWC_DDRCTL_CINIT_LPDDR5_PSTATE{freq}_MR11_CS_ODT_OP"
+                    name="MR11: CA ODT OP - CA Bus Receiver On Die-Termination Op Code" type="int" var_type="uint8">
+                <default value="0"/>
+            </config>
+            <config id="DWC_DDRCTL_CINIT_LPDDR5_PSTATE{freq}_MR11_CA_ODT"
+                    name="MR11: CA ODT - CA Bus Receiver On Die-Termination" type="int" var_type="uint8">
+                <default value="0"/>
+            </config>
+            <config id="DWC_DDRCTL_CINIT_LPDDR5_PSTATE{freq}_MR11_NT_ODT"
+                    name="MR11: NT-ODT Enable - Non Target ODT Enable" type="int" var_type="uint8">
+                <default value="0"/>
+            </config>
+            <config id="DWC_DDRCTL_CINIT_LPDDR5_PSTATE{freq}_MR11_DQ_ODT"
+                    name="MR11: DQ ODT - DQ Bus Receiver On Die-Termination" type="int" var_type="uint8">
+                <default value="0"/>
+            </config>
+            <config id="DWC_DDRCTL_CINIT_LPDDR5_PSTATE{freq}_MR12_VBS"
+                    name="MR12: VBS - VREF(CA) Byte Select" type="int" var_type="uint8">
+                <default value="0"/>
+            </config>
+            <config id="DWC_DDRCTL_CINIT_LPDDR5_PSTATE{freq}_MR12_VREF_CA"
+                    name="MR12: VREF(CA) - VREF(CA) Setting" type="int" var_type="uint8">
+                <default value="0"/>
+            </config>
+            <config id="DWC_DDRCTL_CINIT_LPDDR5_PSTATE{freq}_MR13_DUAL_VDD2"
+                    name="MR13: Dual VDD2" type="int" var_type="uint8">
+                <default value="0"/>
+            </config>
+            <config id="DWC_DDRCTL_CINIT_LPDDR5_PSTATE{freq}_MR13_VRO"
+                    name="MR13: VRO - VREF Output" type="int" var_type="uint8">
+                <default value="0"/>
+            </config>
+            <config id="DWC_DDRCTL_CINIT_LPDDR5_PSTATE{freq}_MR13_THERMAL_OFFSET"
+                    name="MR13: Thermal Offset" type="int" var_type="uint8">
+                <default value="0"/>
+            </config>
+            <config id="DWC_DDRCTL_CINIT_LPDDR5_PSTATE{freq}_MR14_VDLC"
+                    name="MR14: VDLC - VREF DQ Lower byte copy" type="int" var_type="uint8">
+                <default value="0"/>
+            </config>
+            <config id="DWC_DDRCTL_CINIT_LPDDR5_PSTATE{freq}_MR14_VREF_DQ"
+                    name="MR14: VREF - VREF Setting" type="int" var_type="uint8">
+                <default value="0"/>
+            </config>
+            <config id="DWC_DDRCTL_CINIT_LPDDR5_PSTATE{freq}_MR15_VREF_DQ"
+                    name="MR15: VREF - VREF Setting" type="int" var_type="uint8">
+                <default value="0"/>
+            </config>
+            <config id="DWC_DDRCTL_CINIT_LPDDR5_PSTATE{freq}_MR16_CBT"
+                    name="MR16: CBT-Phase" type="int" var_type="uint8">
+                <default value="0"/>
+            </config>
+            <config id="DWC_DDRCTL_CINIT_LPDDR5_PSTATE{freq}_MR16_VRCG"
+                    name="MR16: VRCG - VREF Current Generator" type="int" var_type="uint8">
+                <default value="0"/>
+            </config>
+            <config id="DWC_DDRCTL_CINIT_LPDDR5_PSTATE{freq}_MR16_FSP_OP"
+                    name="MR16: FSP-OP - Frequency Set Point Operation Mode" type="int" var_type="uint8">
+                <default value="0"/>
+            </config>
+            <config id="DWC_DDRCTL_CINIT_LPDDR5_PSTATE{freq}_MR16_FSP_WR"
+                    name="MR16: FSP-WR - Frequency Set Point Write Enable" type="int" var_type="uint8">
+                <default value="0"/>
+            </config>
+            <config id="DWC_DDRCTL_CINIT_LPDDR5_PSTATE{freq}_MR17_ODTD"
+                    name="MR17: ODTD - CA/CS/CK ODT termination disable" type="int" var_type="uint8">
+                <default value="0"/>
+            </config>
+            <config id="DWC_DDRCTL_CINIT_LPDDR5_PSTATE{freq}_MR17_ODTD_CA"
+                    name="MR17: ODTD-CA - CA ODT termination" type="int" var_type="uint8">
+                <default value="0"/>
+            </config>
+            <config id="DWC_DDRCTL_CINIT_LPDDR5_PSTATE{freq}_MR17_ODTD_CS"
+                    name="MR17: ODTD-CS - CS ODT termination" type="int" var_type="uint8">
+                <default value="0"/>
+            </config>
+            <config id="DWC_DDRCTL_CINIT_LPDDR5_PSTATE{freq}_MR17_ODTD_CK"
+                    name="MR17: ODTD-CK - CK ODT termination" type="int" var_type="uint8">
+                <default value="0"/>
+            </config>
+            <config id="DWC_DDRCTL_CINIT_LPDDR5_PSTATE{freq}_MR17_SOC_ODT"
+                    name="MR17: SoC ODT - Controller ODT Value for VOH calibration" type="int" var_type="uint8">
+                <default value="0"/>
+            </config>
+            <config id="DWC_DDRCTL_CINIT_LPDDR5_PSTATE{freq}_MR18_WCK2CK_LEVELING"
+                    name="MR18: WCK2CK Leveling" type="int" var_type="uint8">
+                <default value="0"/>
+            </config>
+            <config id="DWC_DDRCTL_CINIT_LPDDR5_PSTATE{freq}_MR18_WCK_ODT"
+                    name="MR18: WCK ODT" type="int" var_type="uint8">
+                <default value="0"/>
+            </config>
+            <config id="DWC_DDRCTL_CINIT_LPDDR5_PSTATE{freq}_MR19_DVFSQ"
+                    name="MR19: DVFSQ - VDDQ Dynamic Voltage and Frequency Scaling VDDQ" type="int" var_type="uint8">
+                <default value="0"/>
+            </config>
+            <config id="DWC_DDRCTL_CINIT_LPDDR5_PSTATE{freq}_MR19_DVFSC"
+                    name="MR19: DVFSC - VDD2 Dynamic Voltage and Frequency Scaling Core" type="int" var_type="uint8">
+                <default value="0"/>
+            </config>
+            <config id="DWC_DDRCTL_CINIT_LPDDR5_PSTATE{freq}_MR20_WCK_MODE"
+                    name="WCK mode" type="int" var_type="uint8">
+                <default value="0"/>
+            </config>
+            <config id="DWC_DDRCTL_CINIT_LPDDR5_PSTATE{freq}_MR20_RDQS"
+                    name="MR20: RDQS - Read DQS" type="int" var_type="uint8">
+                <default value="0"/>
+            </config>
+            <config id="DWC_DDRCTL_CINIT_LPDDR5_PSTATE{freq}_MR21_DCFE"
+                    name="MR21: DCFE - WRITE and READ Data Copy Function Enable" type="int" var_type="uint8">
+                <default value="0"/>
+            </config>
+            <config id="DWC_DDRCTL_CINIT_LPDDR5_PSTATE{freq}_MR21_WXFS"
+                    name="MR21: WXFE - Write X Function Enable" type="int" var_type="uint8">
+                <default value="0"/>
+            </config>
+            <config id="DWC_DDRCTL_CINIT_LPDDR5_PSTATE{freq}_MR23_PASR_MASK"
+                    name="MR23: PASR Segment Mask" type="int" var_type="uint8">
+                <default value="0"/>
+            </config>
+            <config id="DWC_DDRCTL_CINIT_LPDDR5_PSTATE{freq}_MR24_DFEQL"
+                    name="MR24: DFE Quantity for Lower Byte (DFEQL)" type="int" var_type="uint8">
+                <default value="0"/>
+            </config>
+            <config id="DWC_DDRCTL_CINIT_LPDDR5_PSTATE{freq}_MR24_DFEQU"
+                    name="MR24: DFE Quantity for Upper Byte (DFEQU)" type="int" var_type="uint8">
+                <default value="0"/>
+            </config>
+            <config id="DWC_DDRCTL_CINIT_LPDDR5_PSTATE{freq}_MR25_CK_BUS_TERM"
+                    name="MR25: CK Pair TERM - Other Shared dies CK ODT Info" type="int" var_type="uint8">
+                <default value="0"/>
+            </config>
+            <config id="DWC_DDRCTL_CINIT_LPDDR5_PSTATE{freq}_MR25_CA_BUS_TERM"
+                    name="MR25: CA Inputs TERM - Other Shared dies CA ODT Info" type="int" var_type="uint8">
+                <default value="0"/>
+            </config>
+            <config id="DWC_DDRCTL_CINIT_LPDDR5_PSTATE{freq}_MR25_PARC"
+                    name="MR25: PARC - Partial Array Refresh Control" type="int" var_type="uint8">
+                <default value="0"/>
+            </config>
+            <config id="DWC_DDRCTL_CINIT_LPDDR5_PSTATE{freq}_MR28_ZQ_INT"
+                    name="MR28: ZQ Interval" type="int" var_type="uint8">
+                <default value="0"/>
+            </config>
+            <config id="DWC_DDRCTL_CINIT_LPDDR5_PSTATE{freq}_MR28_ZQ_STOP"
+                    name="MR28: ZQ Stop" type="int" var_type="uint8">
+                <default value="0"/>
+            </config>
+            <config id="DWC_DDRCTL_CINIT_LPDDR5_PSTATE{freq}_MR28_ZQ_RESET"
+                    name="MR28: ZQ Reset" type="int" var_type="uint8">
+                <default value="0"/>
+            </config>
+        </category>
+    </category>
+</category>

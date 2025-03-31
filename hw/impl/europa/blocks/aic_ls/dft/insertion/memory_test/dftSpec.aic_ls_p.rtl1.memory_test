@@ -1,0 +1,392 @@
+DftSpecification(aic_ls_p,rtl1) {
+  IjtagNetwork {
+    HostScanInterface(ijtag) {
+      Sib(sri) {
+        Attributes {
+          tessent_dft_function : scan_resource_instrument_host;
+        }
+        Sib(sri_ctrl) {
+          Tdr(sri_ctrl) {
+            Attributes {
+              tessent_dft_function : scan_resource_instrument_dft_control;
+            }
+          }
+        }
+      }
+      Sib(sti) {
+        Attributes {
+          tessent_dft_function : scan_tested_instrument_host;
+        }
+        Tdr(sti_ctrl) {
+          Attributes {
+            tessent_dft_function : scan_tested_instrument_dft_control;
+          }
+        }
+        Sib(mbist) {
+        }
+      }
+    }
+  }
+  MemoryBist {
+    ijtag_host_interface : Sib(mbist);
+    Controller(c0) {
+      clock_domain_label: i_clk;
+      Step {
+        MemoryInterface(m65) {
+          instance_name : u_aic_ls/u_dmc/g_ifd[4].u_ifd/u_defmem/gen_ram.u_tc_ram/gen_macro.u_macro;
+        }
+        ReusedMemoryInterface(m66) {
+          instance_name : u_aic_ls/u_dmc/g_ifd[5].u_ifd/u_defmem/gen_ram.u_tc_ram/gen_macro.u_macro;
+          reused_interface_id : c0:m65;
+        }
+        ReusedMemoryInterface(m67) {
+          instance_name : u_aic_ls/u_dmc/g_odr[7].u_odr/u_defmem/gen_ram.u_tc_ram/gen_macro.u_macro;
+          reused_interface_id : c0:m65;
+        }
+      }
+    }
+    Controller(c1) {
+      clock_domain_label: i_clk;
+      Step {
+        MemoryInterface(m1) {
+          instance_name : u_aic_ls/u_l1/u_l1_mem/g_sbank[3].u_sub_bank/g_mini_bank[11].u_mini_bank/g_macro[0].u_macro/gen_macro.u_macro;
+        }
+        ReusedMemoryInterface(m2) {
+          instance_name : u_aic_ls/u_l1/u_l1_mem/g_sbank[3].u_sub_bank/g_mini_bank[1].u_mini_bank/g_macro[0].u_macro/gen_macro.u_macro;
+          reused_interface_id : c1:m1;
+        }
+        ReusedMemoryInterface(m3) {
+          instance_name : u_aic_ls/u_l1/u_l1_mem/g_sbank[2].u_sub_bank/g_mini_bank[6].u_mini_bank/g_macro[0].u_macro/gen_macro.u_macro;
+          reused_interface_id : c1:m1;
+        }
+        ReusedMemoryInterface(m4) {
+          instance_name : u_aic_ls/u_l1/u_l1_mem/g_sbank[2].u_sub_bank/g_mini_bank[7].u_mini_bank/g_macro[0].u_macro/gen_macro.u_macro;
+          reused_interface_id : c1:m1;
+        }
+        ReusedMemoryInterface(m5) {
+          instance_name : u_aic_ls/u_l1/u_l1_mem/g_sbank[3].u_sub_bank/g_mini_bank[2].u_mini_bank/g_macro[0].u_macro/gen_macro.u_macro;
+          reused_interface_id : c1:m1;
+        }
+        ReusedMemoryInterface(m6) {
+          instance_name : u_aic_ls/u_l1/u_l1_mem/g_sbank[3].u_sub_bank/g_mini_bank[12].u_mini_bank/g_macro[0].u_macro/gen_macro.u_macro;
+          reused_interface_id : c1:m1;
+        }
+      }
+    }
+    Controller(c2) {
+      clock_domain_label: i_clk;
+      Step {
+        ReusedMemoryInterface(m7) {
+          instance_name : u_aic_ls/u_l1/u_l1_mem/g_sbank[3].u_sub_bank/g_mini_bank[13].u_mini_bank/g_macro[0].u_macro/gen_macro.u_macro;
+          reused_interface_id : c1:m1;
+        }
+        ReusedMemoryInterface(m8) {
+          instance_name : u_aic_ls/u_l1/u_l1_mem/g_sbank[3].u_sub_bank/g_mini_bank[3].u_mini_bank/g_macro[0].u_macro/gen_macro.u_macro;
+          reused_interface_id : c1:m1;
+        }
+        ReusedMemoryInterface(m9) {
+          instance_name : u_aic_ls/u_l1/u_l1_mem/g_sbank[2].u_sub_bank/g_mini_bank[8].u_mini_bank/g_macro[0].u_macro/gen_macro.u_macro;
+          reused_interface_id : c1:m1;
+        }
+        ReusedMemoryInterface(m10) {
+          instance_name : u_aic_ls/u_l1/u_l1_mem/g_sbank[2].u_sub_bank/g_mini_bank[9].u_mini_bank/g_macro[0].u_macro/gen_macro.u_macro;
+          reused_interface_id : c1:m1;
+        }
+        ReusedMemoryInterface(m11) {
+          instance_name : u_aic_ls/u_l1/u_l1_mem/g_sbank[3].u_sub_bank/g_mini_bank[4].u_mini_bank/g_macro[0].u_macro/gen_macro.u_macro;
+          reused_interface_id : c1:m1;
+        }
+        ReusedMemoryInterface(m12) {
+          instance_name : u_aic_ls/u_l1/u_l1_mem/g_sbank[3].u_sub_bank/g_mini_bank[14].u_mini_bank/g_macro[0].u_macro/gen_macro.u_macro;
+          reused_interface_id : c1:m1;
+        }
+      }
+    }
+    Controller(c3) {
+      clock_domain_label: i_clk;
+      Step {
+        ReusedMemoryInterface(m13) {
+          instance_name : u_aic_ls/u_l1/u_l1_mem/g_sbank[3].u_sub_bank/g_mini_bank[15].u_mini_bank/g_macro[0].u_macro/gen_macro.u_macro;
+          reused_interface_id : c1:m1;
+        }
+        ReusedMemoryInterface(m14) {
+          instance_name : u_aic_ls/u_l1/u_l1_mem/g_sbank[3].u_sub_bank/g_mini_bank[5].u_mini_bank/g_macro[0].u_macro/gen_macro.u_macro;
+          reused_interface_id : c1:m1;
+        }
+        ReusedMemoryInterface(m15) {
+          instance_name : u_aic_ls/u_l1/u_l1_mem/g_sbank[2].u_sub_bank/g_mini_bank[10].u_mini_bank/g_macro[0].u_macro/gen_macro.u_macro;
+          reused_interface_id : c1:m1;
+        }
+      }
+    }
+    Controller(c4) {
+      clock_domain_label: i_clk;
+      Step {
+        ReusedMemoryInterface(m16) {
+          instance_name : u_aic_ls/u_l1/u_l1_mem/g_sbank[1].u_sub_bank/g_mini_bank[15].u_mini_bank/g_macro[0].u_macro/gen_macro.u_macro;
+          reused_interface_id : c1:m1;
+        }
+        ReusedMemoryInterface(m17) {
+          instance_name : u_aic_ls/u_l1/u_l1_mem/g_sbank[1].u_sub_bank/g_mini_bank[4].u_mini_bank/g_macro[0].u_macro/gen_macro.u_macro;
+          reused_interface_id : c1:m1;
+        }
+        ReusedMemoryInterface(m18) {
+          instance_name : u_aic_ls/u_l1/u_l1_mem/g_sbank[0].u_sub_bank/g_mini_bank[9].u_mini_bank/g_macro[0].u_macro/gen_macro.u_macro;
+          reused_interface_id : c1:m1;
+        }
+      }
+    }
+    Controller(c5) {
+      clock_domain_label: i_clk;
+      Step {
+        ReusedMemoryInterface(m19) {
+          instance_name : u_aic_ls/u_l1/u_l1_mem/g_sbank[0].u_sub_bank/g_mini_bank[8].u_mini_bank/g_macro[0].u_macro/gen_macro.u_macro;
+          reused_interface_id : c1:m1;
+        }
+        ReusedMemoryInterface(m20) {
+          instance_name : u_aic_ls/u_l1/u_l1_mem/g_sbank[1].u_sub_bank/g_mini_bank[3].u_mini_bank/g_macro[0].u_macro/gen_macro.u_macro;
+          reused_interface_id : c1:m1;
+        }
+        ReusedMemoryInterface(m21) {
+          instance_name : u_aic_ls/u_l1/u_l1_mem/g_sbank[1].u_sub_bank/g_mini_bank[14].u_mini_bank/g_macro[0].u_macro/gen_macro.u_macro;
+          reused_interface_id : c1:m1;
+        }
+        ReusedMemoryInterface(m22) {
+          instance_name : u_aic_ls/u_l1/u_l1_mem/g_sbank[1].u_sub_bank/g_mini_bank[13].u_mini_bank/g_macro[0].u_macro/gen_macro.u_macro;
+          reused_interface_id : c1:m1;
+        }
+        ReusedMemoryInterface(m23) {
+          instance_name : u_aic_ls/u_l1/u_l1_mem/g_sbank[1].u_sub_bank/g_mini_bank[2].u_mini_bank/g_macro[0].u_macro/gen_macro.u_macro;
+          reused_interface_id : c1:m1;
+        }
+        ReusedMemoryInterface(m24) {
+          instance_name : u_aic_ls/u_l1/u_l1_mem/g_sbank[0].u_sub_bank/g_mini_bank[7].u_mini_bank/g_macro[0].u_macro/gen_macro.u_macro;
+          reused_interface_id : c1:m1;
+        }
+      }
+    }
+    Controller(c6) {
+      clock_domain_label: i_clk;
+      Step {
+        ReusedMemoryInterface(m25) {
+          instance_name : u_aic_ls/u_l1/u_l1_mem/g_sbank[0].u_sub_bank/g_mini_bank[6].u_mini_bank/g_macro[0].u_macro/gen_macro.u_macro;
+          reused_interface_id : c1:m1;
+        }
+        ReusedMemoryInterface(m26) {
+          instance_name : u_aic_ls/u_l1/u_l1_mem/g_sbank[1].u_sub_bank/g_mini_bank[1].u_mini_bank/g_macro[0].u_macro/gen_macro.u_macro;
+          reused_interface_id : c1:m1;
+        }
+        ReusedMemoryInterface(m27) {
+          instance_name : u_aic_ls/u_l1/u_l1_mem/g_sbank[1].u_sub_bank/g_mini_bank[12].u_mini_bank/g_macro[0].u_macro/gen_macro.u_macro;
+          reused_interface_id : c1:m1;
+        }
+        ReusedMemoryInterface(m28) {
+          instance_name : u_aic_ls/u_l1/u_l1_mem/g_sbank[1].u_sub_bank/g_mini_bank[11].u_mini_bank/g_macro[0].u_macro/gen_macro.u_macro;
+          reused_interface_id : c1:m1;
+        }
+        ReusedMemoryInterface(m29) {
+          instance_name : u_aic_ls/u_l1/u_l1_mem/g_sbank[1].u_sub_bank/g_mini_bank[0].u_mini_bank/g_macro[0].u_macro/gen_macro.u_macro;
+          reused_interface_id : c1:m1;
+        }
+      }
+    }
+    Controller(c7) {
+      clock_domain_label: i_clk;
+      Step {
+        ReusedMemoryInterface(m68) {
+          instance_name : u_aic_ls/u_dmc/g_ifd[0].u_ifd/u_defmem/gen_ram.u_tc_ram/gen_macro.u_macro;
+          reused_interface_id : c0:m65;
+        }
+        ReusedMemoryInterface(m69) {
+          instance_name : u_aic_ls/u_dmc/g_ifd[2].u_ifd/u_defmem/gen_ram.u_tc_ram/gen_macro.u_macro;
+          reused_interface_id : c0:m65;
+        }
+        ReusedMemoryInterface(m70) {
+          instance_name : u_aic_ls/u_dmc/g_ifd[3].u_ifd/u_defmem/gen_ram.u_tc_ram/gen_macro.u_macro;
+          reused_interface_id : c0:m65;
+        }
+        ReusedMemoryInterface(m71) {
+          instance_name : u_aic_ls/u_dmc/g_ifd[1].u_ifd/u_defmem/gen_ram.u_tc_ram/gen_macro.u_macro;
+          reused_interface_id : c0:m65;
+        }
+        ReusedMemoryInterface(m72) {
+          instance_name : u_aic_ls/u_dmc/g_odr[6].u_odr/u_defmem/gen_ram.u_tc_ram/gen_macro.u_macro;
+          reused_interface_id : c0:m65;
+        }
+      }
+    }
+    Controller(c8) {
+      clock_domain_label: i_clk;
+      Step {
+        ReusedMemoryInterface(m30) {
+          instance_name : u_aic_ls/u_l1/u_l1_mem/g_sbank[1].u_sub_bank/g_mini_bank[10].u_mini_bank/g_macro[0].u_macro/gen_macro.u_macro;
+          reused_interface_id : c1:m1;
+        }
+        ReusedMemoryInterface(m31) {
+          instance_name : u_aic_ls/u_l1/u_l1_mem/g_sbank[0].u_sub_bank/g_mini_bank[15].u_mini_bank/g_macro[0].u_macro/gen_macro.u_macro;
+          reused_interface_id : c1:m1;
+        }
+        ReusedMemoryInterface(m32) {
+          instance_name : u_aic_ls/u_l1/u_l1_mem/g_sbank[0].u_sub_bank/g_mini_bank[5].u_mini_bank/g_macro[0].u_macro/gen_macro.u_macro;
+          reused_interface_id : c1:m1;
+        }
+        ReusedMemoryInterface(m33) {
+          instance_name : u_aic_ls/u_l1/u_l1_mem/g_sbank[0].u_sub_bank/g_mini_bank[4].u_mini_bank/g_macro[0].u_macro/gen_macro.u_macro;
+          reused_interface_id : c1:m1;
+        }
+        ReusedMemoryInterface(m34) {
+          instance_name : u_aic_ls/u_l1/u_l1_mem/g_sbank[0].u_sub_bank/g_mini_bank[14].u_mini_bank/g_macro[0].u_macro/gen_macro.u_macro;
+          reused_interface_id : c1:m1;
+        }
+        ReusedMemoryInterface(m35) {
+          instance_name : u_aic_ls/u_l1/u_l1_mem/g_sbank[1].u_sub_bank/g_mini_bank[9].u_mini_bank/g_macro[0].u_macro/gen_macro.u_macro;
+          reused_interface_id : c1:m1;
+        }
+      }
+    }
+    Controller(c9) {
+      clock_domain_label: i_clk;
+      Step {
+        ReusedMemoryInterface(m36) {
+          instance_name : u_aic_ls/u_l1/u_l1_mem/g_sbank[1].u_sub_bank/g_mini_bank[8].u_mini_bank/g_macro[0].u_macro/gen_macro.u_macro;
+          reused_interface_id : c1:m1;
+        }
+        ReusedMemoryInterface(m37) {
+          instance_name : u_aic_ls/u_l1/u_l1_mem/g_sbank[0].u_sub_bank/g_mini_bank[13].u_mini_bank/g_macro[0].u_macro/gen_macro.u_macro;
+          reused_interface_id : c1:m1;
+        }
+        ReusedMemoryInterface(m38) {
+          instance_name : u_aic_ls/u_l1/u_l1_mem/g_sbank[0].u_sub_bank/g_mini_bank[3].u_mini_bank/g_macro[0].u_macro/gen_macro.u_macro;
+          reused_interface_id : c1:m1;
+        }
+        ReusedMemoryInterface(m39) {
+          instance_name : u_aic_ls/u_l1/u_l1_mem/g_sbank[0].u_sub_bank/g_mini_bank[2].u_mini_bank/g_macro[0].u_macro/gen_macro.u_macro;
+          reused_interface_id : c1:m1;
+        }
+        ReusedMemoryInterface(m40) {
+          instance_name : u_aic_ls/u_l1/u_l1_mem/g_sbank[0].u_sub_bank/g_mini_bank[12].u_mini_bank/g_macro[0].u_macro/gen_macro.u_macro;
+          reused_interface_id : c1:m1;
+        }
+        ReusedMemoryInterface(m41) {
+          instance_name : u_aic_ls/u_l1/u_l1_mem/g_sbank[1].u_sub_bank/g_mini_bank[7].u_mini_bank/g_macro[0].u_macro/gen_macro.u_macro;
+          reused_interface_id : c1:m1;
+        }
+      }
+    }
+    Controller(c10) {
+      clock_domain_label: i_clk;
+      Step {
+        ReusedMemoryInterface(m42) {
+          instance_name : u_aic_ls/u_l1/u_l1_mem/g_sbank[1].u_sub_bank/g_mini_bank[6].u_mini_bank/g_macro[0].u_macro/gen_macro.u_macro;
+          reused_interface_id : c1:m1;
+        }
+        ReusedMemoryInterface(m43) {
+          instance_name : u_aic_ls/u_l1/u_l1_mem/g_sbank[0].u_sub_bank/g_mini_bank[11].u_mini_bank/g_macro[0].u_macro/gen_macro.u_macro;
+          reused_interface_id : c1:m1;
+        }
+        ReusedMemoryInterface(m44) {
+          instance_name : u_aic_ls/u_l1/u_l1_mem/g_sbank[0].u_sub_bank/g_mini_bank[1].u_mini_bank/g_macro[0].u_macro/gen_macro.u_macro;
+          reused_interface_id : c1:m1;
+        }
+        ReusedMemoryInterface(m45) {
+          instance_name : u_aic_ls/u_l1/u_l1_mem/g_sbank[0].u_sub_bank/g_mini_bank[0].u_mini_bank/g_macro[0].u_macro/gen_macro.u_macro;
+          reused_interface_id : c1:m1;
+        }
+        ReusedMemoryInterface(m46) {
+          instance_name : u_aic_ls/u_l1/u_l1_mem/g_sbank[0].u_sub_bank/g_mini_bank[10].u_mini_bank/g_macro[0].u_macro/gen_macro.u_macro;
+          reused_interface_id : c1:m1;
+        }
+        ReusedMemoryInterface(m47) {
+          instance_name : u_aic_ls/u_l1/u_l1_mem/g_sbank[1].u_sub_bank/g_mini_bank[5].u_mini_bank/g_macro[0].u_macro/gen_macro.u_macro;
+          reused_interface_id : c1:m1;
+        }
+      }
+    }
+    Controller(c11) {
+      clock_domain_label: i_clk;
+      Step {
+        ReusedMemoryInterface(m48) {
+          instance_name : u_aic_ls/u_l1/u_l1_mem/g_sbank[2].u_sub_bank/g_mini_bank[0].u_mini_bank/g_macro[0].u_macro/gen_macro.u_macro;
+          reused_interface_id : c1:m1;
+        }
+        ReusedMemoryInterface(m49) {
+          instance_name : u_aic_ls/u_l1/u_l1_mem/g_sbank[2].u_sub_bank/g_mini_bank[11].u_mini_bank/g_macro[0].u_macro/gen_macro.u_macro;
+          reused_interface_id : c1:m1;
+        }
+        ReusedMemoryInterface(m50) {
+          instance_name : u_aic_ls/u_l1/u_l1_mem/g_sbank[3].u_sub_bank/g_mini_bank[6].u_mini_bank/g_macro[0].u_macro/gen_macro.u_macro;
+          reused_interface_id : c1:m1;
+        }
+        ReusedMemoryInterface(m51) {
+          instance_name : u_aic_ls/u_l1/u_l1_mem/g_sbank[3].u_sub_bank/g_mini_bank[7].u_mini_bank/g_macro[0].u_macro/gen_macro.u_macro;
+          reused_interface_id : c1:m1;
+        }
+        ReusedMemoryInterface(m52) {
+          instance_name : u_aic_ls/u_l1/u_l1_mem/g_sbank[2].u_sub_bank/g_mini_bank[12].u_mini_bank/g_macro[0].u_macro/gen_macro.u_macro;
+          reused_interface_id : c1:m1;
+        }
+        ReusedMemoryInterface(m53) {
+          instance_name : u_aic_ls/u_l1/u_l1_mem/g_sbank[2].u_sub_bank/g_mini_bank[1].u_mini_bank/g_macro[0].u_macro/gen_macro.u_macro;
+          reused_interface_id : c1:m1;
+        }
+      }
+    }
+    Controller(c12) {
+      clock_domain_label: i_clk;
+      Step {
+        ReusedMemoryInterface(m54) {
+          instance_name : u_aic_ls/u_l1/u_l1_mem/g_sbank[2].u_sub_bank/g_mini_bank[2].u_mini_bank/g_macro[0].u_macro/gen_macro.u_macro;
+          reused_interface_id : c1:m1;
+        }
+        ReusedMemoryInterface(m55) {
+          instance_name : u_aic_ls/u_l1/u_l1_mem/g_sbank[2].u_sub_bank/g_mini_bank[13].u_mini_bank/g_macro[0].u_macro/gen_macro.u_macro;
+          reused_interface_id : c1:m1;
+        }
+        ReusedMemoryInterface(m56) {
+          instance_name : u_aic_ls/u_l1/u_l1_mem/g_sbank[3].u_sub_bank/g_mini_bank[8].u_mini_bank/g_macro[0].u_macro/gen_macro.u_macro;
+          reused_interface_id : c1:m1;
+        }
+        ReusedMemoryInterface(m57) {
+          instance_name : u_aic_ls/u_l1/u_l1_mem/g_sbank[3].u_sub_bank/g_mini_bank[9].u_mini_bank/g_macro[0].u_macro/gen_macro.u_macro;
+          reused_interface_id : c1:m1;
+        }
+        ReusedMemoryInterface(m58) {
+          instance_name : u_aic_ls/u_l1/u_l1_mem/g_sbank[2].u_sub_bank/g_mini_bank[14].u_mini_bank/g_macro[0].u_macro/gen_macro.u_macro;
+          reused_interface_id : c1:m1;
+        }
+        ReusedMemoryInterface(m59) {
+          instance_name : u_aic_ls/u_l1/u_l1_mem/g_sbank[2].u_sub_bank/g_mini_bank[3].u_mini_bank/g_macro[0].u_macro/gen_macro.u_macro;
+          reused_interface_id : c1:m1;
+        }
+      }
+    }
+    Controller(c13) {
+      clock_domain_label: i_clk;
+      Step {
+        ReusedMemoryInterface(m60) {
+          instance_name : u_aic_ls/u_l1/u_l1_mem/g_sbank[2].u_sub_bank/g_mini_bank[4].u_mini_bank/g_macro[0].u_macro/gen_macro.u_macro;
+          reused_interface_id : c1:m1;
+        }
+        ReusedMemoryInterface(m61) {
+          instance_name : u_aic_ls/u_l1/u_l1_mem/g_sbank[2].u_sub_bank/g_mini_bank[15].u_mini_bank/g_macro[0].u_macro/gen_macro.u_macro;
+          reused_interface_id : c1:m1;
+        }
+        ReusedMemoryInterface(m62) {
+          instance_name : u_aic_ls/u_l1/u_l1_mem/g_sbank[3].u_sub_bank/g_mini_bank[10].u_mini_bank/g_macro[0].u_macro/gen_macro.u_macro;
+          reused_interface_id : c1:m1;
+        }
+        ReusedMemoryInterface(m63) {
+          instance_name : u_aic_ls/u_l1/u_l1_mem/g_sbank[3].u_sub_bank/g_mini_bank[0].u_mini_bank/g_macro[0].u_macro/gen_macro.u_macro;
+          reused_interface_id : c1:m1;
+        }
+        ReusedMemoryInterface(m64) {
+          instance_name : u_aic_ls/u_l1/u_l1_mem/g_sbank[2].u_sub_bank/g_mini_bank[5].u_mini_bank/g_macro[0].u_macro/gen_macro.u_macro;
+          reused_interface_id : c1:m1;
+        }
+      }
+    }
+  }
+  MemoryBisr {
+    bisr_segment_order_file : aic_ls_p.bisr_segment_order;
+  }
+}

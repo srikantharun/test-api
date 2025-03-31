@@ -1,0 +1,87 @@
+{
+  design_name: aic_infra
+  wrapper_name: aic_infra_p
+  design_file: "{REPO_ROOT}/hw/impl/europa/blocks/aic_infra/rtl/aic_infra.sv"
+  wrapper_file: "{REPO_ROOT}/hw/impl/europa/blocks/aic_infra/rtl/generated/aic_infra_p.sv"
+  wrap_p: true
+  ports: {
+    clk: [
+      i_clk
+    ]
+    rst: [
+      i_rst_n
+    ]
+    axi:
+    {
+      defaults : {
+        pipe : true
+        #TODO: support to be enabled from the wrapper script along with clock gate/divider
+        rate_adapter : false
+        clock : i_clk
+        reset : i_rst_n
+      }
+    }
+    token:
+    {
+      defaults : {
+        pipe : true
+        #TODO: support to be enabled from the wrapper script along with clock gate/divider
+        rate_adapter : false
+        clock : i_clk
+        reset : i_rst_n
+      }
+    }
+    ocpl:
+    {
+      defaults : {
+        pipe : 2
+        #TODO: support to be enabled from the wrapper script along with clock gate/divider
+        rate_adapter : false
+        clock : i_clk
+        reset : i_rst_n
+      }
+    }
+    bus: {
+    }
+    misc:
+    {
+      defaults : {
+        clock_edge : rising
+        pipe : false
+        clock : i_clk
+        reset : i_rst_n
+        static : false
+        multi_cycle : {}
+      }
+    }
+  }
+  # List all clocks with their frequency in MHz
+  # Indicate usage and connections of clock gate/divider
+  clocks : {
+    i_clk : {
+      freq : 1200
+      #TODO: support for clock divider to be enabled from the wrapper script
+      divider : {
+        reset : i_rst_n
+      }
+      gate : false
+    }
+  }
+  # List all resets and link with their respective clock
+  # Indicate whether they need reset sync
+  resets : {
+    i_rst_n : {
+      i_clk : {
+        synchronise : false
+      }
+    }
+  }
+  dft: default
+  pkg_info: [
+    "{REPO_ROOT}/hw/impl/europa/asic/rtl/pkg/chip_pkg.sv"
+    "{REPO_ROOT}/hw/ip/axi/default/rtl/pkg/axi_pkg.sv"
+    "{REPO_ROOT}/hw/ip/aic_common/default/rtl/pkg/aic_common_pkg.sv"
+    "{REPO_ROOT}/hw/ip/token_manager/default/rtl/pkg/build_token/token_mgr_mapping_aic_pkg.sv"
+  ]
+
+}

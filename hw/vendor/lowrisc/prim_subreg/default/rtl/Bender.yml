@@ -1,0 +1,35 @@
+# (C) Copyright Axelera AI 2021
+# All Rights Reserved
+# *** Axelera AI Confidential ***
+
+package:
+  name: lowrisc_prim_subreg
+  authors:
+    - "lowRISC contributors"
+
+dependencies:
+  lowrisc_prim_subreg_pkg: { path: "pkg" }
+
+export_include_dirs:
+  - include
+
+# Source files are grouped in levels. Files in level 0 have no dependencies on files in this package.
+# Files in level 1 only depend on files in level 0, fils in level 2 on files in 0 and 1, etc.
+# Files within a level are ordered alphanumerically.
+sources:
+  - target: rtl
+    include_dirs:
+      - include
+    files:
+      # Level 0
+      - prim_subreg_cdc.sv
+      - prim_subreg_ext.sv
+      - prim_max_tree.sv
+      # Level 1
+      - prim_subreg_arb.sv
+      - prim_subreg_ext_async.sv
+      # Level 2
+      - prim_subreg.sv
+      # Level 3
+      - prim_subreg_async.sv
+      - prim_subreg_shadow.sv

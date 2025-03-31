@@ -1,0 +1,18 @@
+# (C) Copyright 2024 Axelera AI B.V.
+# All Rights Reserved
+# *** Axelera AI Confidential ***
+
+package:
+  name: europa_aic_mid_dft_tb
+  description: "DFT Testbench for aic_mid"
+  authors:
+    - "Tiago Campos <tiago.campos@axelera.ai>"
+
+dependencies:
+  europa_aic_mid: { path: "../../rtl/dft" }
+  dft_aic_mid:    { path: "$DFT_HOME/aic_mid/Latest"}
+
+sources:
+  - target: all(rtl, simulation)
+    files:
+      - ${PATTERN_NAME}.sv

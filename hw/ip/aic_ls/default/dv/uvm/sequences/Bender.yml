@@ -1,0 +1,21 @@
+package:
+  name: aic_ls_uvm_seq
+  description: "UVM Sequences for DMC L1"
+  authors:
+    - "raymond.garcia@axelera.ai"
+
+dependencies:
+  aic_common_pkg:              { path: "$REPO_ROOT/hw/ip/aic_common/default/rtl/pkg/" }
+  svt_amba_vip:                { path: "$REPO_ROOT/hw/dv/svt_amba_vip"}
+  aic_ls_uvm_ral:              { path: "../ral" }
+  aic_ls_uvm_agent:            { path: "../agents/aic_ls" }
+  aic_ls_uvm_dmc_agt:          { path: "../agents/dmc_addr_gen" }
+  aic_ls_uvm_data_sb:          { path: "../scoreboards/dmc_addr_data_scbd" }
+  aic_ls_uvm_env:              { path: "../env" }
+
+sources:
+  - target: simulation
+    include_dirs:
+      - .
+    files:
+      - aic_ls_seq_pkg.sv

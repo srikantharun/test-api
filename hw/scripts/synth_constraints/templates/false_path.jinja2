@@ -1,0 +1,7 @@
+{% import 'arguments.jinja2' as arguments %}
+#############################
+# Set False Path Statements #
+#############################
+{% for path in data.false_path|filter_by_mode(constraint_mode) %}
+set_false_path {{ arguments.type(path.type) }} {{ arguments.from(path.from_object) }}{{ arguments.to(path.to_object) }}{{ arguments.through(path.through_object) }}
+{%- endfor %}

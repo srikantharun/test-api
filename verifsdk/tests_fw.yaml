@@ -1,0 +1,534 @@
+tests:
+  - name: test_ax65_bus_error
+    description: "Trigger bus errors and check they generate local interrupts on the APU (AX65)."
+    requirement_ids: []
+    labels: [ SIM_TOP_LIGHT_NIGHTLY, VELOCE_TOP_LIGHT_NIGHTLY]
+    platforms: [top.*]
+    owner: Max Wipfli
+    apu: [test_ax65/test_ax65_bus_error.c]
+
+  - name: test_coremark
+    description: "This test runs the coremark cpu benchmark."
+    labels: [SPIKE, VELOCE_TOP_LIGHT_NIGHTLY]
+    requirement_ids: []
+    platforms: [top.*]
+    owner: Max Wipfli
+    apu: [test_coremark/apu/core_list_join.c, test_coremark/apu/core_main.c, test_coremark/apu/core_matrix.c, test_coremark/apu/core_portme.c, test_coremark/apu/core_state.c, test_coremark/apu/core_util.c]
+
+  - name: test_dhrystone
+    description: "This test runs the Drhstone cpu benchmark."
+    labels: [SMOKE_SKYRAY, SPIKE, VELOCE_TOP_LIGHT_NIGHTLY]
+    requirement_ids: []
+    platforms: [top.*]
+    owner: Max Wipfli
+    apu: [test_dhrystone/apu/test_dhrystone.c, test_dhrystone/apu/dhrystone.c]
+
+  - name: test_framework
+    description: "This tests our in house testing framework. All other tests are based on this testing framework."
+    labels: [SMOKE_SKYRAY, SPIKE,  SIM_TOP_LIGHT_NIGHTLY, VELOCE_TOP_LIGHT_NIGHTLY]
+    requirement_ids: []
+    platforms: [top.*]
+    owner: Max Wipfli
+    apu: [test_framework/apu/test_framework.c]
+
+  - name: test_hello_world
+    description: "This tests just prints a 'Hello World' message. It can be used for manual printf testing."
+    labels: [SMOKE_SKYRAY, SOC_PERIPH_NIGHTLY, SPIKE, SKYRAY_DECODER_NIGHTLY, AICORE_TB_NIGHTLY, AICORE_TB_MR, VELOCE_TOP_LIGHT_NIGHTLY, VELOCE_TOP_AIC0_NIGHTLY]
+    requirement_ids: []
+    platforms: [top.*, aicore.*]
+    owner: Jovin Langenegger
+    apu: [test_hello_world/apu/hello.c, test_hello_world/apu/another_file.c]
+    aicore0: [test_hello_world/aicore0/test_hello_world.c]
+
+  - name: test_hello_uart
+    description: "This tests just prints a 'Hello World' message. It can be used for manual printf testing."
+    labels: [SMOKE_SKYRAY, SOC_PERIPH_NIGHTLY, SPIKE]
+    requirement_ids: []
+    platforms: [top.*, aicore.*]
+    owner: Jovin Langenegger
+    flavors: printf.UART
+    apu: [test_hello_world/apu/hello.c, test_hello_world/apu/another_file.c]
+    aicore0: [test_hello_world/aicore0/test_hello_world.c]
+
+  - name: test_math
+    description: "This test checks the correct integration of the math library."
+    labels: [SMOKE_SKYRAY, SPIKE, SIM_TOP_LIGHT_NIGHTLY, VELOCE_TOP_LIGHT_NIGHTLY]
+    requirement_ids: []
+    platforms: [top.*]
+    owner: Max Wipfli
+    apu: [test_math/apu/test_math.c]
+
+  - name: test_multithread
+    description: "This test runs a simple sanity test on all 6 cores of the APU. If there is only a single APU core, the test fails."
+    requirement_ids: [APU_FEAT_19, APU_FEAT_29]
+    labels: [ SIM_TOP_LIGHT_NIGHTLY, VELOCE_TOP_LIGHT_NIGHTLY]
+    platforms: [top.*]
+    owner: Max Wipfli
+    apu: [test_multithread/apu/test_multithread.c]
+
+  - name: sanity
+    description: "This test directly returns zero."
+    labels: [SMOKE_SKYRAY, SPIKE,  SIM_TOP_NIGHTLY, SIM_TOP_LIGHT_NIGHTLY, SIM_TOP_AIC0_NIGHTLY, VELOCE_TOP_LIGHT_NIGHTLY, VELOCE_TOP_AIC0_NIGHTLY]
+    requirement_ids: []
+    platforms: [top.*]
+    owner: Jovin Langenegger
+    apu: [sanity/apu/sanity.c]
+
+  - name: test_gpio
+    description: "Test SOC_PERIPH GPIO pin and interrupts"
+    requirement_ids: [TOP_SOC_PERIPH_FEAT_GPIO_4, TOP_SOC_PERIPH_FEAT_12]
+    labels: [SIM_TOP_LIGHT_NIGHTLY, VELOCE_TOP_LIGHT_NIGHTLY]
+    platforms: [top.*]
+    owner: Jovin Langenegger
+    apu: [test_gpio/apu/test_gpio.c]
+
+  - name: test_soc_periph_spike_sanity
+    description: "Access SOC_PERIPH IPs and read their version register"
+    requirement_ids: []
+    labels: [SOC_PERIPH_NIGHTLY,SOC_PERIPH_SANITY]
+    platforms: [top.SIM_SOC_PERIPH_SPIKE]
+    owner: Jerome Sauger
+    apu: [test_soc_periph_spike_sanity/apu/test.c]
+
+  - name: test_plmt
+    description: "This this tests the machine timer."
+    requirement_ids: [APU_FEAT_28]
+    labels: [SMOKE_SKYRAY, VELOCE_TOP_LIGHT_NIGHTLY]
+    platforms: [top.*]
+    owner: Alexandros Zekakos
+    apu: [test_plmt/apu/test_plmt.c]
+
+  - name: test_timer
+    description: "This this tests the soc periph machine timer."
+    requirement_ids: [TOP_SOC_PERIPH_FEAT_TIMER_6]
+    labels: [VELOCE_TOP_LIGHT_NIGHTLY]
+    platforms: [top.*]
+    owner: Jovin Langenegger
+    apu: [test_timer/apu/test_timer.c]
+
+  - name: test_whetstone
+    description: "This test runs the the Whetstone CPU benchmarking test."
+    labels: [SMOKE_SKYRAY, SPIKE, VELOCE_TOP_LIGHT_NIGHTLY]
+    requirement_ids: []
+    platforms: [top.*]
+    owner: Max Wipfli
+    apu: [test_whetstone/apu/test_whetstone.c, test_whetstone/apu/whetstone.c]
+
+  - name: test_uart
+    description: "This test prints characters to the UART expects some input. It verifies the UART integration."
+    requirement_ids: [TOP_SOC_PERIPH_FEAT_UART_2, TOP_SOC_PERIPH_FEAT_12]
+    labels: [MANUAL]
+    platforms: [top.*]
+    owner: Alexandros Zekakos
+    apu: [test_uart/apu/test_uart.c]
+
+  - name: test_uart_terminal
+    description: "Test ./uart by printing what you type. Type 'exit' to finish"
+    requirement_ids: []
+    labels: [MANUAL]
+    platforms: [top.*]
+    owner: Antoine Madec
+    apu: [test_uart_terminal/apu/test_uart_terminal.c]
+
+  - name: test_thread_print
+    description: "This test prints on all 6 cores simultaniosuly and checks if multi core printing works as expected."
+    requirement_ids: []
+    labels: [MANUAL]
+    platforms: [top.*]
+    owner: Alexandros Zekakos
+    apu: [test_printf/test_thread_print/apu/test_thread_print.c]
+
+  - name: test_thread_local_storage
+    description: "This test prints thread-local storage (TLS) information from all cores."
+    requirement_ids: []
+    labels: [VELOCE_TOP_LIGHT_NIGHTLY, MANUAL, AICORE_TB_NIGHTLY]
+    platforms: [top.*, aicore.*]
+    owner: Max Wipfli
+    apu: [test_thread_local_storage/apu/test_thread_local_storage.c]
+    aicore0: [test_thread_local_storage/simple/test_thread_local_storage.c]
+    pve0: [test_thread_local_storage/simple/test_thread_local_storage.c]
+    flags: [+sim_top_enable_pve_clk]
+
+  - name: test_reentrant
+    description: "This test demonstrates the functionality of a reentrant lock by acquiring it three consecutive times on a single hart. Verifies correct increment and decrement of the lock's recursion count.."
+    requirement_ids: []
+    labels: [SMOKE_SKYRAY, SPIKE]
+    platforms: [top.*]
+    owner: Alexandros Zekakos
+    apu: [test_printf/test_thread_print/apu/test_reentrant_lock.c]
+
+  - name: test_atomics
+    description: "This test verifies the functionality of various atomic operations. Additionally, it tests the acquisition and release of atomic locks."
+    requirement_ids: [PVE_FEAT_4]
+    labels: [SMOKE_SKYRAY, SPIKE,  SIM_TOP_LIGHT_NIGHTLY, VELOCE_TOP_LIGHT_NIGHTLY]
+    platforms: [top.*]
+    owner: Alexandros Zekakos
+    apu: [test_atomics/atomic_helper.c, test_atomics/apu/test_atomic_operations.c]
+    pve0: [test_atomics/atomic_helper.c, test_atomics/cva6v/test_atomic.c]
+    flags: [+sim_top_enable_pve_clk]
+
+  - name: test_atomics_lrsc
+    description: "This test verifies the functionality of LR/SC atomic instructions. It includes scenarios with and without reservation."
+    requirement_ids: []
+    labels: [SMOKE_SKYRAY, SPIKE,  SIM_TOP_LIGHT_NIGHTLY, VELOCE_TOP_LIGHT_NIGHTLY]
+    platforms: [top.*]
+    owner: Alexandros Zekakos
+    apu: [test_atomics/apu/test_atomics_lrsc.c]
+
+  - name: test_contention_atomics_basic
+    description: "This test verifies the behavior of atomic operations under contention. The test also includes interrupt handling to simulate real-world contention scenarios."
+    requirement_ids: []
+    labels: [SMOKE_SKYRAY,  SIM_TOP_LIGHT_NIGHTLY, VELOCE_TOP_LIGHT_NIGHTLY]
+    platforms: [top.*]
+    owner: Alexandros Zekakos
+    apu: [test_atomics/apu/test_contention_atomics_basic.c]
+
+  - name: test_contention_critical_section
+    description: "This test examines the performance and correctness of critical sections under contention. It ensures that the shared variable is correctly incremented in a controlled manner."
+    requirement_ids: []
+    labels: [SMOKE_SKYRAY,  SIM_TOP_LIGHT_NIGHTLY, VELOCE_TOP_LIGHT_NIGHTLY]
+    platforms: [top.*]
+    owner: Alexandros Zekakos
+    apu: [test_critical_section/apu/test_contention_critical_section.c]
+
+  - name: test_critical_section_irq_exclusivity
+    description: "This test evaluates the exclusivity and effectiveness of critical sections in preventing concurrent access to a shared variable, even in the presence of interrupts."
+    requirement_ids: []
+    labels: [SMOKE_SKYRAY,  SIM_TOP_LIGHT_NIGHTLY, VELOCE_TOP_LIGHT_NIGHTLY]
+    platforms: [top.*]
+    owner: Alexandros Zekakos
+    apu: [test_critical_section/apu/test_critical_section_irq_exclusivity.c]
+
+  - name: test_lock_interrupts
+    description: This test verifies the behavior of interrupt locking and unlocking in a critical section."
+    requirement_ids: []
+    labels: [SMOKE_SKYRAY,  SIM_TOP_LIGHT_NIGHTLY, VELOCE_TOP_LIGHT_NIGHTLY]
+    platforms: [top.*]
+    owner: Alexandros Zekakos
+    apu: [test_critical_section/apu/test_lock_interrupts.c]
+
+  - name: test_nested_critical_sections
+    description: "This test evaluates the functionality and performance of nested critical sections. It includes scenarios where critical sections are nested within each other and executed in various sequences."
+    requirement_ids: []
+    labels: [SMOKE_SKYRAY, SPIKE, VELOCE_TOP_LIGHT_NIGHTLY]
+    platforms: [top.*]
+    owner: Alexandros Zekakos
+    apu: [test_critical_section/apu/test_nested_critical_sections.c]
+
+  - name: test_uvm_sw_ipc_sanity
+    description: "This test verifies that the uvm_sw_ipc mechanimsm is working properly."
+    requirement_ids: []
+    labels: [UVM_APU_NIGHTLY, SIM_TOP_LIGHT_MERGE_REQUEST, SIM_TOP_NIGHTLY,  SIM_TOP_LIGHT_NIGHTLY, SIM_TOP_AIC0_MERGE_REQUEST, SIM_TOP_AIC0_NIGHTLY, SOC_PERIPH_SANITY, SOC_PERIPH_NIGHTLY, AICORE_TB_NIGHTLY, AICORE_TB_MR, SIM_TOP_SECURE_NIGHTLY]
+    platforms: [top.SIM_TOP, top.SIM_TOP_LIGHT, top.SIM_TOP_AIC0, top.SIM_SOC_PERIPH_SPIKE, top.SIM_SECURE_SPIKE, aicore.SIM]
+    flags: [--uvm_testname=fw_test_uvm_sw_ipc_sanity]
+    owner: Jorge Carvalho
+    apu: [test_uvm_sw_ipc/apu/test_uvm_sw_ipc_sanity.c, test_uvm_sw_ipc/test_uvm_sw_ipc_common.c]
+    aicore0: [test_uvm_sw_ipc/cva6v/test_uvm_sw_ipc_sanity.c, test_uvm_sw_ipc/test_uvm_sw_ipc_common.c]
+    aicore1: [test_uvm_sw_ipc/cva6v/test_uvm_sw_ipc_sanity.c, test_uvm_sw_ipc/test_uvm_sw_ipc_common.c]
+    aicore2: [test_uvm_sw_ipc/cva6v/test_uvm_sw_ipc_sanity.c, test_uvm_sw_ipc/test_uvm_sw_ipc_common.c]
+    aicore3: [test_uvm_sw_ipc/cva6v/test_uvm_sw_ipc_sanity.c, test_uvm_sw_ipc/test_uvm_sw_ipc_common.c]
+    aicore4: [test_uvm_sw_ipc/cva6v/test_uvm_sw_ipc_sanity.c, test_uvm_sw_ipc/test_uvm_sw_ipc_common.c]
+    aicore5: [test_uvm_sw_ipc/cva6v/test_uvm_sw_ipc_sanity.c, test_uvm_sw_ipc/test_uvm_sw_ipc_common.c]
+    aicore6: [test_uvm_sw_ipc/cva6v/test_uvm_sw_ipc_sanity.c, test_uvm_sw_ipc/test_uvm_sw_ipc_common.c]
+    aicore7: [test_uvm_sw_ipc/cva6v/test_uvm_sw_ipc_sanity.c, test_uvm_sw_ipc/test_uvm_sw_ipc_common.c]
+    pve0: [test_uvm_sw_ipc/cva6v/test_uvm_sw_ipc_sanity.c, test_uvm_sw_ipc/test_uvm_sw_ipc_common.c]
+    pve1: [test_uvm_sw_ipc/cva6v/test_uvm_sw_ipc_sanity.c, test_uvm_sw_ipc/test_uvm_sw_ipc_common.c]
+
+  - name: test_uvm_sw_ipc_sanity_first_core_only
+    description: "Faster version of test_uvm_sw_ipc_sanity. Only APU core 0, AICORE 0, PVE 0 cluster 0 core 0, PVE 1 cluster 0 core 0 are tested"
+    requirement_ids: []
+    labels: [SIM_TOP_MERGE_REQUEST]
+    platforms: [top.SIM_TOP]
+    flags: [--uvm_testname=fw_test_uvm_sw_ipc_sanity]
+    owner: Antoine Madec
+    apu: [test_uvm_sw_ipc/apu/test_uvm_sw_ipc_sanity_first_core_only.c, test_uvm_sw_ipc/test_uvm_sw_ipc_common.c]
+    aicore0: [test_uvm_sw_ipc/cva6v/test_uvm_sw_ipc_sanity.c, test_uvm_sw_ipc/test_uvm_sw_ipc_common.c]
+    pve0: [test_uvm_sw_ipc/cva6v/test_uvm_sw_ipc_sanity.c, test_uvm_sw_ipc/test_uvm_sw_ipc_common.c]
+    pve1: [test_uvm_sw_ipc/cva6v/test_uvm_sw_ipc_sanity.c, test_uvm_sw_ipc/test_uvm_sw_ipc_common.c]
+
+  - name: test_uvm_sw_ipc_printf
+    description: "This test verifies UVM printf integration."
+    requirement_ids: []
+    labels: [UVM_APU_NIGHTLY,  SOC_PERIPH_NIGHTLY, SOC_PERIPH_SANITY, AICORE_TB_NIGHTLY, AICORE_TB_MR]
+    platforms: [top.SIM_TOP, top.SIM_TOP_LIGHT, top.SIM_TOP_AIC0, top.SIM_SOC_PERIPH_SPIKE, aicore.SIM]
+    flags: []
+    owner: Jovin Langenegger
+    apu: [test_uvm_sw_ipc/apu/test_uvm_sw_ipc_printf.c, test_uvm_sw_ipc/test_uvm_sw_ipc_common.c]
+    aicore0: [test_uvm_sw_ipc/cva6v/test_uvm_sw_ipc_printf.c, test_uvm_sw_ipc/test_uvm_sw_ipc_common.c]
+    aicore1: [test_uvm_sw_ipc/cva6v/test_uvm_sw_ipc_printf.c, test_uvm_sw_ipc/test_uvm_sw_ipc_common.c]
+    aicore2: [test_uvm_sw_ipc/cva6v/test_uvm_sw_ipc_printf.c, test_uvm_sw_ipc/test_uvm_sw_ipc_common.c]
+    aicore3: [test_uvm_sw_ipc/cva6v/test_uvm_sw_ipc_printf.c, test_uvm_sw_ipc/test_uvm_sw_ipc_common.c]
+    aicore4: [test_uvm_sw_ipc/cva6v/test_uvm_sw_ipc_printf.c, test_uvm_sw_ipc/test_uvm_sw_ipc_common.c]
+    aicore5: [test_uvm_sw_ipc/cva6v/test_uvm_sw_ipc_printf.c, test_uvm_sw_ipc/test_uvm_sw_ipc_common.c]
+    aicore6: [test_uvm_sw_ipc/cva6v/test_uvm_sw_ipc_printf.c, test_uvm_sw_ipc/test_uvm_sw_ipc_common.c]
+    aicore7: [test_uvm_sw_ipc/cva6v/test_uvm_sw_ipc_printf.c, test_uvm_sw_ipc/test_uvm_sw_ipc_common.c]
+    pve0: [test_uvm_sw_ipc/cva6v/test_uvm_sw_ipc_printf.c, test_uvm_sw_ipc/test_uvm_sw_ipc_common.c]
+    pve1: [test_uvm_sw_ipc/cva6v/test_uvm_sw_ipc_printf.c, test_uvm_sw_ipc/test_uvm_sw_ipc_common.c]
+
+  - name: test_uvm_sw_ipc_mem
+    description: "This test verifies UVM mem{cmp,cpy,set} integration."
+    requirement_ids: []
+    labels: [SIM_TOP_LIGHT_MERGE_REQUEST, SIM_TOP_LIGHT_NIGHTLY, SOC_PERIPH_NIGHTLY, SOC_PERIPH_SANITY, AICORE_TB_NIGHTLY, AICORE_TB_MR]
+    platforms: [top.SIM_TOP_LIGHT, top.SIM_SOC_PERIPH_SPIKE, aicore.SIM]
+    flags: []
+    owner: Max Wipfli
+    apu: [test_uvm_sw_ipc/apu/test_uvm_sw_ipc_mem.c, test_uvm_sw_ipc/test_uvm_sw_ipc_common.c]
+    aicore0: [test_uvm_sw_ipc/cva6v/test_uvm_sw_ipc_mem.c, test_uvm_sw_ipc/test_uvm_sw_ipc_common.c]
+    aicore1: [test_uvm_sw_ipc/cva6v/test_uvm_sw_ipc_mem.c, test_uvm_sw_ipc/test_uvm_sw_ipc_common.c]
+    aicore2: [test_uvm_sw_ipc/cva6v/test_uvm_sw_ipc_mem.c, test_uvm_sw_ipc/test_uvm_sw_ipc_common.c]
+    aicore3: [test_uvm_sw_ipc/cva6v/test_uvm_sw_ipc_mem.c, test_uvm_sw_ipc/test_uvm_sw_ipc_common.c]
+    aicore4: [test_uvm_sw_ipc/cva6v/test_uvm_sw_ipc_mem.c, test_uvm_sw_ipc/test_uvm_sw_ipc_common.c]
+    aicore5: [test_uvm_sw_ipc/cva6v/test_uvm_sw_ipc_mem.c, test_uvm_sw_ipc/test_uvm_sw_ipc_common.c]
+    aicore6: [test_uvm_sw_ipc/cva6v/test_uvm_sw_ipc_mem.c, test_uvm_sw_ipc/test_uvm_sw_ipc_common.c]
+    aicore7: [test_uvm_sw_ipc/cva6v/test_uvm_sw_ipc_mem.c, test_uvm_sw_ipc/test_uvm_sw_ipc_common.c]
+    pve0: [test_uvm_sw_ipc/cva6v/test_uvm_sw_ipc_mem.c, test_uvm_sw_ipc/test_uvm_sw_ipc_common.c]
+    pve1: [test_uvm_sw_ipc/cva6v/test_uvm_sw_ipc_mem.c, test_uvm_sw_ipc/test_uvm_sw_ipc_common.c]
+
+  - name: test_uvm_sw_ipc_all_memories
+    description: "This test verifies UVM backdoor integration to all memories that support it."
+    requirement_ids: []
+    labels: [SIM_TOP_LIGHT_MERGE_REQUEST, SIM_TOP_LIGHT_NIGHTLY]
+    platforms: [top.*]
+    flags: []
+    owner: Max Wipfli
+    apu: [test_uvm_sw_ipc/apu/test_uvm_sw_ipc_all_memories.c]
+
+  - name: test_printf_float
+    description: "This test verifies the correct functionality of floating-point number printing"
+    requirement_ids: []
+    labels: [SMOKE_SKYRAY, SPIKE,  SIM_TOP_LIGHT_NIGHTLY, VELOCE_TOP_LIGHT_NIGHTLY]
+    platforms: [top.*]
+    owner: Alexandros Zekakos
+    apu: [test_printf/test_printf_float/apu/main.c]
+    pve0: [test_printf/test_printf_float/cva6v/cva6v.c]
+    flags: [+sim_top_enable_pve_clk]
+
+  - name: test_rv_exception
+    description: "Trigger different RISC-V exceptions and check they are handled properly"
+    requirement_ids: []
+    labels: [SMOKE_SKYRAY, SPIKE,  SIM_TOP_LIGHT_NIGHTLY, VELOCE_TOP_LIGHT_NIGHTLY]
+    platforms: [top.*]
+    owner: Max Wipfli
+    apu: [test_rv_exception/test_rv_exception.c]
+
+  - name: test_pve_clint_mtimer
+    description: "This test tests the MTIMER in the PVE CLINT."
+    labels: [VELOCE_TOP_NIGHTLY]
+    requirement_ids: [TOP_PVE_FEAT_9, PVE_FEAT_9, PVE_FEAT_11]
+    platforms: [top.*]
+    owner: Max Wipfli
+    apu: [test_pve_clint/apu/test_pve_clint_mtimer.c]
+    pve0: [test_pve_clint/pve/test_pve_clint_mtimer.c]
+    flags: [+sim_top_enable_pve_clk]
+
+  - name: test_l1_frontdoor_access
+    description: "This test toggles all address bits of every minibank within the L1"
+    labels: [AICORE_TB_NIGHTLY, VELOCE_TOP_AIC0_NIGHTLY, VELOCE_TOP_NIGHTLY]
+    requirement_ids: [AICORE_CONN_0, AICORE_FEAT_MEM_1]
+    platforms: [aicore.SIM, top.*]
+    owner: Roswin Benny
+    apu: [test_aicore_l1_access/apu/main.c]
+    aicore0: [test_aicore_l1_access/aicore/test_l1_frontdoor_access.c, test_aicore_l1_access/aicore/test_l1_common.c]
+    aicore1: [test_aicore_l1_access/aicore/test_l1_frontdoor_access.c, test_aicore_l1_access/aicore/test_l1_common.c]
+    aicore2: [test_aicore_l1_access/aicore/test_l1_frontdoor_access.c, test_aicore_l1_access/aicore/test_l1_common.c]
+    aicore3: [test_aicore_l1_access/aicore/test_l1_frontdoor_access.c, test_aicore_l1_access/aicore/test_l1_common.c]
+    aicore4: [test_aicore_l1_access/aicore/test_l1_frontdoor_access.c, test_aicore_l1_access/aicore/test_l1_common.c]
+    aicore5: [test_aicore_l1_access/aicore/test_l1_frontdoor_access.c, test_aicore_l1_access/aicore/test_l1_common.c]
+    aicore6: [test_aicore_l1_access/aicore/test_l1_frontdoor_access.c, test_aicore_l1_access/aicore/test_l1_common.c]
+    aicore7: [test_aicore_l1_access/aicore/test_l1_frontdoor_access.c, test_aicore_l1_access/aicore/test_l1_common.c]
+
+  - name: test_l1_backdoor_access
+    description: "This test verifies that all banks within L1 memory can be preloaded"
+    labels: [AICORE_TB_NIGHTLY, AICORE_TB_MR, VELOCE_TOP_AIC0_NIGHTLY, VELOCE_TOP_NIGHTLY]
+    requirement_ids: [AICORE_FEAT_MEM_0]
+    platforms: [aicore.SIM, top.*]
+    owner: Roswin Benny
+    pre_compilation: sw/src/tests/test_aicore_l1_access/aicore/gen_input_file.py
+    apu: [test_aicore_l1_access/apu/main.c]
+    aicore0: [test_aicore_l1_access/aicore/test_l1_backdoor_access.c, test_aicore_l1_access/aicore/aicore0_l1_buffer.c, test_aicore_l1_access/aicore/test_l1_common.c]
+    aicore1: [test_aicore_l1_access/aicore/test_l1_backdoor_access.c, test_aicore_l1_access/aicore/aicore1_l1_buffer.c, test_aicore_l1_access/aicore/test_l1_common.c]
+    aicore2: [test_aicore_l1_access/aicore/test_l1_backdoor_access.c, test_aicore_l1_access/aicore/aicore2_l1_buffer.c, test_aicore_l1_access/aicore/test_l1_common.c]
+    aicore3: [test_aicore_l1_access/aicore/test_l1_backdoor_access.c, test_aicore_l1_access/aicore/aicore3_l1_buffer.c, test_aicore_l1_access/aicore/test_l1_common.c]
+    aicore4: [test_aicore_l1_access/aicore/test_l1_backdoor_access.c, test_aicore_l1_access/aicore/aicore4_l1_buffer.c, test_aicore_l1_access/aicore/test_l1_common.c]
+    aicore5: [test_aicore_l1_access/aicore/test_l1_backdoor_access.c, test_aicore_l1_access/aicore/aicore5_l1_buffer.c, test_aicore_l1_access/aicore/test_l1_common.c]
+    aicore6: [test_aicore_l1_access/aicore/test_l1_backdoor_access.c, test_aicore_l1_access/aicore/aicore6_l1_buffer.c, test_aicore_l1_access/aicore/test_l1_common.c]
+    aicore7: [test_aicore_l1_access/aicore/test_l1_backdoor_access.c, test_aicore_l1_access/aicore/aicore7_l1_buffer.c, test_aicore_l1_access/aicore/test_l1_common.c]
+
+  - name: test_cycledelay
+    description: "This test evaluates the correctness of delay provided in cycles accross different cores."
+    labels: [SMOKE_SKYRAY, SPIKE, VELOCE_TOP_LIGHT_NIGHTLY]
+    requirement_ids: []
+    platforms: [top.*, cva6v.*]
+    owner: Bojan Drasko
+    apu: [test_cycledelay/apu/test_cycledelay.c, test_cycledelay/cycledelay.c]
+    cva6v: [test_cycledelay/cva6/test_cycledelay.c, test_cycledelay/cycledelay.c]
+    # aicore0: [test_cycledelay/test_cycledelay.c]
+
+  - name: test_lpddr_simple_write_read
+    description: "This test configures the LPDDR module and does simple direct write and read operations to some LPPDR addresses"
+    labels: [TODO, VELOCE_TOP_LIGHT_REAL_LPDDR_NIGHTLY]
+    requirement_ids: []
+    platforms: [top.*]
+    owner: Rodrigo Borges
+    flavors: lpddr.DEFAULT
+    apu: [test_lpddr_simple_write_read/apu/test_lpddr_simple_write_read.c]
+
+  - name: test_lpddr_apb_cfg_address_space
+    description: "This tests checks if we can access the full APB address configuration space on the LPDDR CTL"
+    labels: [SIM_TOP_LIGHT_REAL_LPDDR_NIGHTLY, VELOCE_TOP_LIGHT_REAL_LPDDR_NIGHTLY]
+    requirement_ids: []
+    platforms: [top.*]
+    owner: Rodrigo Borges
+    apu: [test_lpddr_apb_cfg_address_space/apu/test_lpddr_apb_cfg_address_space.c]
+
+  - name: test_printf_multicore
+    description: "This tests prints form all the 8 aicores, and 16 PVE cores."
+    labels: [VELOCE_TOP_NIGHTLY, SIM_TOP_NIGHTLY, VELOCE_TOP_LIGHT_NIGHTLY, SIM_TOP_LIGHT_NIGHTLY]
+    requirement_ids: []
+    platforms: [top.*]
+    owner: Jovin Langenegger
+    apu: [test_printf/test_printf_multicore/apu/main.c]
+    aicore0: [test_printf/test_printf_multicore/cva6v/main.c]
+    aicore1: [test_printf/test_printf_multicore/cva6v/main.c]
+    aicore2: [test_printf/test_printf_multicore/cva6v/main.c]
+    aicore3: [test_printf/test_printf_multicore/cva6v/main.c]
+    aicore4: [test_printf/test_printf_multicore/cva6v/main.c]
+    aicore5: [test_printf/test_printf_multicore/cva6v/main.c]
+    aicore6: [test_printf/test_printf_multicore/cva6v/main.c]
+    aicore7: [test_printf/test_printf_multicore/cva6v/main.c]
+    pve0: [test_printf/test_printf_multicore/cva6v/main.c]
+    pve1: [test_printf/test_printf_multicore/cva6v/main.c]
+    flags: [+sim_top_enable_pve_clk]
+
+  - name: test_multicore_ping_all_cores
+    description: "This tests pings all 8 Aicores, and 16 PVE cores."
+    labels: [SIM_TOP_MERGE_REQUEST, SIM_TOP_LIGHT_MERGE_REQUEST, SIM_TOP_AIC0_MERGE_REQUEST, VELOCE_TOP_NIGHTLY, VELOCE_TOP_LIGHT_NIGHTLY, VELOCE_TOP_AIC0_NIGHTLY, SIM_TOP_LIGHT_NIGHTLY, SIM_TOP_NIGHTLY]
+    requirement_ids: [APU_FEAT_29, PVE_FEAT_12, PVE_FEAT_31, AICORE_RST_0, AICORE_RST_1, AICORE_BOOT_0, AICORE_BOOT_1]
+    platforms: [top.*]
+    owner: Jovin Langenegger
+    apu: [test_multicore_ping_all_cores/apu/main.c]
+    aicore0: [test_multicore_ping_all_cores/cva6v/main.c]
+    aicore1: [test_multicore_ping_all_cores/cva6v/main.c]
+    aicore2: [test_multicore_ping_all_cores/cva6v/main.c]
+    aicore3: [test_multicore_ping_all_cores/cva6v/main.c]
+    aicore4: [test_multicore_ping_all_cores/cva6v/main.c]
+    aicore5: [test_multicore_ping_all_cores/cva6v/main.c]
+    aicore6: [test_multicore_ping_all_cores/cva6v/main.c]
+    aicore7: [test_multicore_ping_all_cores/cva6v/main.c]
+    pve0: [test_multicore_ping_all_cores/cva6v/main.c]
+    pve1: [test_multicore_ping_all_cores/cva6v/main.c]
+    flags: [+sim_top_enable_pve_clk]
+
+  - name: test_tlb
+    description: "This test verifies the setup uf the virtual memory."
+    labels: [SMOKE_SKYRAY]
+    requirement_ids: [APU_FEAT_21]
+    platforms: [top.*]
+    owner: Jovin Langenegger
+    apu: [test_tlb/apu/test_tlb.c]
+
+  - name: test_pmp
+    description: "This tests checks the memory protection unit on the AX65 cluster."
+    labels: [SMOKE_SKYRAY]
+    requirement_ids: []
+    platforms: [top.*]
+    owner: Jovin Langenegger
+    apu: [test_pmp/apu/test_pmp.c]
+
+  - name: test_andes_exclusive_access
+    description: "This tests checks the memory protection unit on the AX65 cluster."
+    labels: [SIM_TOP_NIGHTLY, VELOCE_TOP_NIGHTLY]
+    requirement_ids: []
+    platforms: [top.*]
+    owner: Jovin Langenegger
+    apu: [andes/test_exclusive_access/apu/test_exclusive_access.c]
+
+  - name: test_snps_dma_apu
+    description: "This tests runs Simple 16kB transfer over Low-Performance Synopsys DMA inside the APU."
+    labels: [ SIM_TOP_LIGHT_NIGHTLY]
+    requirement_ids: [APU_FEAT_12]
+    platforms: [top.*]
+    owner: Bojan Drasko
+    apu: [dma/dma_test_utils.c, dma/snps/snps_dma_test_utils.c, dma/snps/test_snps_dma_apu.c]
+
+  - name: test_snps_dma_aicore
+    description: "This tests runs Simple 16kB transfer over Low-Performance Synopsys DMA inside an AI Core."
+    labels: [AICORE_TB_NIGHTLY]
+    requirement_ids: [AICORE_CONN_2, AICORE_FEAT_LPDMA_1, AICORE_FEAT_LPDMA_2, AICORE_FEAT_LPDMA_3, AICORE_FEAT_LPDMA_4, AICORE_FEAT_LPDMA_5]
+    platforms: [aicore.*]
+    flags: [+define+DMA_TESTS]
+    owner: Bojan Drasko
+    aicore0: [dma/dma_test_utils.c, dma/snps/snps_dma_test_utils.c, dma/snps/test_snps_dma_aicore.c]
+
+  - name: test_pctl
+    description: "Test engages PCTL accross different blocks, and for each does a sequence of removing all resets, removing all fences, activating all fences, and finally again activating all the resets."
+    labels: [SIM_TOP_NIGHTLY]
+    requirement_ids: []
+    platforms: [top.*]
+    owner: Bojan Drasko
+    apu: [test_pctl/apu/test_pctl.c]
+
+  - name: test_thread_barrier
+    description: "Verifies that APU cores correctly synchronize using a barrier, ensuring all threads wait at the barrier until all have arrived, and then proceed together for multiple iterations."
+    labels: [VELOCE_TOP_LIGHT_NIGHTLY]
+    requirement_ids: [APU_FEAT_5]
+    platforms: [top.*]
+    owner: Alexandros Zekakos
+    apu: [test_thread_barrier/apu/test_thread_barrier.c]
+
+  - name: test_pve_exclusive_access
+    description: "Verifies that PVE cores correctly synchronize using a barrier, ensuring all cores wait at the barrier until all have arrived, and then proceed together for multiple iterations."
+    labels: [SIM_TOP_MERGE_REQUEST, SIM_TOP_LIGHT_MERGE_REQUEST, SIM_TOP_NIGHTLY, SIM_TOP_LIGHT_NIGHTLY, VELOCE_TOP_NIGHTLY, VELOCE_TOP_LIGHT_NIGHTLY]
+    requirement_ids: [PVE_FEAT_4, PVE_FEAT_8]
+    platforms: [top.*]
+    owner: Alexandros Zekakos
+    apu: [test_pve_exclusive_access/apu/main.c]
+    pve0: [test_pve_exclusive_access/cva6v/test_pve_exclusive_access.c]
+    pve1: [test_pve_exclusive_access/cva6v/test_pve_exclusive_access.c]
+    flags: [+sim_top_enable_pve_clk]
+
+  - name: test_pve_exclusive_access_custom
+    description: "Verifies that PVE cores correctly synchronize using a barrier."
+    labels: []
+    requirement_ids: []
+    platforms: [top.*]
+    owner: Alexandros Zekakos
+    apu: [test_pve_exclusive_access/apu/main.c]
+    pve0: [test_pve_exclusive_access/cva6v/test_pve_exclusive_access_custom.c]
+    flags: [+sim_top_enable_pve_clk]
+ 
+  - name: test_crosscore_exclusive_access
+    description: "Verifies that all cores accross the chip correctly synchronize using a barrier, ensuring all cores wait at the barrier until all have arrived, and then proceed together for multiple iterations."
+    labels: [SIM_TOP_NIGHTLY, SIM_TOP_LIGHT_NIGHTLY, VELOCE_TOP_NIGHTLY, VELOCE_TOP_LIGHT_NIGHTLY]
+    requirement_ids: []
+    platforms: [top.*]
+    owner: Bojan Drasko
+    apu: [test_crosscore_exclusive_access/apu/test_exclusive_access_crosscore.c, test_crosscore_exclusive_access/crosscore.c]
+    pve0: [test_crosscore_exclusive_access/cva6v/test_exclusive_access_crosscore.c, test_crosscore_exclusive_access/crosscore.c]
+    pve1: [test_crosscore_exclusive_access/cva6v/test_exclusive_access_crosscore.c, test_crosscore_exclusive_access/crosscore.c]
+    aicore0: [test_crosscore_exclusive_access/cva6v/test_exclusive_access_crosscore.c, test_crosscore_exclusive_access/crosscore.c]
+    aicore1: [test_crosscore_exclusive_access/cva6v/test_exclusive_access_crosscore.c, test_crosscore_exclusive_access/crosscore.c]
+    aicore2: [test_crosscore_exclusive_access/cva6v/test_exclusive_access_crosscore.c, test_crosscore_exclusive_access/crosscore.c]
+    aicore3: [test_crosscore_exclusive_access/cva6v/test_exclusive_access_crosscore.c, test_crosscore_exclusive_access/crosscore.c]
+    aicore4: [test_crosscore_exclusive_access/cva6v/test_exclusive_access_crosscore.c, test_crosscore_exclusive_access/crosscore.c]
+    aicore5: [test_crosscore_exclusive_access/cva6v/test_exclusive_access_crosscore.c, test_crosscore_exclusive_access/crosscore.c]
+    aicore6: [test_crosscore_exclusive_access/cva6v/test_exclusive_access_crosscore.c, test_crosscore_exclusive_access/crosscore.c]
+    aicore7: [test_crosscore_exclusive_access/cva6v/test_exclusive_access_crosscore.c, test_crosscore_exclusive_access/crosscore.c]
+
+  - name: test_e2e_identity
+    description: "This test provides an identity end to end tests."
+    labels: [VELOCE_TOP_NIGHTLY]
+    requirement_ids: []
+    platforms: [top.*]
+    owner: Jovin Langenegger
+    apu: [test_e2e_identity/main.c, test_e2e_identity/codec.c, test_e2e_identity/pcie_in.c, test_e2e_identity/pcie_out.c]
+    aicore0: [test_e2e_identity/aicore.c]
+    aicore1: [test_e2e_identity/aicore.c]
+    aicore2: [test_e2e_identity/aicore.c]
+    aicore3: [test_e2e_identity/aicore.c]
+    aicore4: [test_e2e_identity/aicore.c]
+    aicore5: [test_e2e_identity/aicore.c]
+    aicore6: [test_e2e_identity/aicore.c]
+    aicore7: [test_e2e_identity/aicore.c]
+    pve0: [test_e2e_identity/pre_proc.c]
+    pve1: [test_e2e_identity/post_proc.c]

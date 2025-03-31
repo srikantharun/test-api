@@ -1,0 +1,1104 @@
+- test: VFREDOSUM-VS-SEW16_LMUL1
+  iterations: 1
+  path_var: TESTS_PATH
+  gcc_opts: "-DVLEN=4096 -D rvtest_mtrap_routine -static -mcmodel=medany -fvisibility=hidden -nostdlib -nostartfiles -I<path_var>/../../asm/env"
+  asm_tests: <path_var>/imperas-riscv-tests/riscv-test-suite/rv64i_m/Vr/src/VFREDOSUM-VS-SEW16_LMUL1.S
+
+- test: VREDXOR-VS-SEW8_FRACLMUL
+  iterations: 1
+  path_var: TESTS_PATH
+  gcc_opts: "-DVLEN=4096 -D rvtest_mtrap_routine -static -mcmodel=medany -fvisibility=hidden -nostdlib -nostartfiles -I<path_var>/../../asm/env"
+  asm_tests: <path_var>/imperas-riscv-tests/riscv-test-suite/rv64i_m/Vr/src/VREDXOR-VS-SEW8_FRACLMUL.S
+
+- test: VREDMAX-VS-SEW16_LMUL1
+  iterations: 1
+  path_var: TESTS_PATH
+  gcc_opts: "-DVLEN=4096 -D rvtest_mtrap_routine -static -mcmodel=medany -fvisibility=hidden -nostdlib -nostartfiles -I<path_var>/../../asm/env"
+  asm_tests: <path_var>/imperas-riscv-tests/riscv-test-suite/rv64i_m/Vr/src/VREDMAX-VS-SEW16_LMUL1.S
+
+- test: VREDMINU-VS-SEW8_LMUL1
+  iterations: 1
+  path_var: TESTS_PATH
+  gcc_opts: "-DVLEN=4096 -D rvtest_mtrap_routine -static -mcmodel=medany -fvisibility=hidden -nostdlib -nostartfiles -I<path_var>/../../asm/env"
+  asm_tests: <path_var>/imperas-riscv-tests/riscv-test-suite/rv64i_m/Vr/src/VREDMINU-VS-SEW8_LMUL1.S
+
+- test: VREDMAX-VS-SEW8_LMUL1
+  iterations: 1
+  path_var: TESTS_PATH
+  gcc_opts: "-DVLEN=4096 -D rvtest_mtrap_routine -static -mcmodel=medany -fvisibility=hidden -nostdlib -nostartfiles -I<path_var>/../../asm/env"
+  asm_tests: <path_var>/imperas-riscv-tests/riscv-test-suite/rv64i_m/Vr/src/VREDMAX-VS-SEW8_LMUL1.S
+
+- test: VREDOR-VS-SEW8_LMUL2
+  iterations: 1
+  path_var: TESTS_PATH
+  gcc_opts: "-DVLEN=4096 -D rvtest_mtrap_routine -static -mcmodel=medany -fvisibility=hidden -nostdlib -nostartfiles -I<path_var>/../../asm/env"
+  asm_tests: <path_var>/imperas-riscv-tests/riscv-test-suite/rv64i_m/Vr/src/VREDOR-VS-SEW8_LMUL2.S
+
+- test: VFREDMAX-VS-SEW32_LMUL8
+  iterations: 1
+  path_var: TESTS_PATH
+  gcc_opts: "-DVLEN=4096 -D rvtest_mtrap_routine -static -mcmodel=medany -fvisibility=hidden -nostdlib -nostartfiles -I<path_var>/../../asm/env"
+  asm_tests: <path_var>/imperas-riscv-tests/riscv-test-suite/rv64i_m/Vr/src/VFREDMAX-VS-SEW32_LMUL8.S
+
+- test: VFREDOSUM-VS-SEW32_LMUL1
+  iterations: 1
+  path_var: TESTS_PATH
+  gcc_opts: "-DVLEN=4096 -D rvtest_mtrap_routine -static -mcmodel=medany -fvisibility=hidden -nostdlib -nostartfiles -I<path_var>/../../asm/env"
+  asm_tests: <path_var>/imperas-riscv-tests/riscv-test-suite/rv64i_m/Vr/src/VFREDOSUM-VS-SEW32_LMUL1.S
+
+- test: VREDOR-VS-SEW8_FRACLMUL
+  iterations: 1
+  path_var: TESTS_PATH
+  gcc_opts: "-DVLEN=4096 -D rvtest_mtrap_routine -static -mcmodel=medany -fvisibility=hidden -nostdlib -nostartfiles -I<path_var>/../../asm/env"
+  asm_tests: <path_var>/imperas-riscv-tests/riscv-test-suite/rv64i_m/Vr/src/VREDOR-VS-SEW8_FRACLMUL.S
+
+- test: VREDMAXU-VS-SEW16_FRACLMUL
+  iterations: 1
+  path_var: TESTS_PATH
+  gcc_opts: "-DVLEN=4096 -D rvtest_mtrap_routine -static -mcmodel=medany -fvisibility=hidden -nostdlib -nostartfiles -I<path_var>/../../asm/env"
+  asm_tests: <path_var>/imperas-riscv-tests/riscv-test-suite/rv64i_m/Vr/src/VREDMAXU-VS-SEW16_FRACLMUL.S
+
+- test: VWREDSUM-VS-SEW16_LMUL1
+  iterations: 1
+  path_var: TESTS_PATH
+  gcc_opts: "-DVLEN=4096 -D rvtest_mtrap_routine -static -mcmodel=medany -fvisibility=hidden -nostdlib -nostartfiles -I<path_var>/../../asm/env"
+  asm_tests: <path_var>/imperas-riscv-tests/riscv-test-suite/rv64i_m/Vr/src/VWREDSUM-VS-SEW16_LMUL1.S
+
+- test: VFREDMIN-VS-SEW32_LMUL2
+  iterations: 1
+  path_var: TESTS_PATH
+  gcc_opts: "-DVLEN=4096 -D rvtest_mtrap_routine -static -mcmodel=medany -fvisibility=hidden -nostdlib -nostartfiles -I<path_var>/../../asm/env"
+  asm_tests: <path_var>/imperas-riscv-tests/riscv-test-suite/rv64i_m/Vr/src/VFREDMIN-VS-SEW32_LMUL2.S
+
+- test: VFREDMAX-VS-SEW32_LMUL4
+  iterations: 1
+  path_var: TESTS_PATH
+  gcc_opts: "-DVLEN=4096 -D rvtest_mtrap_routine -static -mcmodel=medany -fvisibility=hidden -nostdlib -nostartfiles -I<path_var>/../../asm/env"
+  asm_tests: <path_var>/imperas-riscv-tests/riscv-test-suite/rv64i_m/Vr/src/VFREDMAX-VS-SEW32_LMUL4.S
+
+- test: VREDMIN-VS-SEW32_LMUL2
+  iterations: 1
+  path_var: TESTS_PATH
+  gcc_opts: "-DVLEN=4096 -D rvtest_mtrap_routine -static -mcmodel=medany -fvisibility=hidden -nostdlib -nostartfiles -I<path_var>/../../asm/env"
+  asm_tests: <path_var>/imperas-riscv-tests/riscv-test-suite/rv64i_m/Vr/src/VREDMIN-VS-SEW32_LMUL2.S
+
+- test: VFREDUSUM-VS-SEW32_LMUL1
+  iterations: 1
+  path_var: TESTS_PATH
+  gcc_opts: "-DVLEN=4096 -D rvtest_mtrap_routine -static -mcmodel=medany -fvisibility=hidden -nostdlib -nostartfiles -I<path_var>/../../asm/env"
+  asm_tests: <path_var>/imperas-riscv-tests/riscv-test-suite/rv64i_m/Vr/src/VFREDUSUM-VS-SEW32_LMUL1.S
+
+- test: VREDMIN-VS-SEW32_LMUL1
+  iterations: 1
+  path_var: TESTS_PATH
+  gcc_opts: "-DVLEN=4096 -D rvtest_mtrap_routine -static -mcmodel=medany -fvisibility=hidden -nostdlib -nostartfiles -I<path_var>/../../asm/env"
+  asm_tests: <path_var>/imperas-riscv-tests/riscv-test-suite/rv64i_m/Vr/src/VREDMIN-VS-SEW32_LMUL1.S
+
+- test: VREDSUM-VS-SEW32_LMUL4
+  iterations: 1
+  path_var: TESTS_PATH
+  gcc_opts: "-DVLEN=4096 -D rvtest_mtrap_routine -static -mcmodel=medany -fvisibility=hidden -nostdlib -nostartfiles -I<path_var>/../../asm/env"
+  asm_tests: <path_var>/imperas-riscv-tests/riscv-test-suite/rv64i_m/Vr/src/VREDSUM-VS-SEW32_LMUL4.S
+
+- test: VREDMAXU-VS-SEW8_LMUL8
+  iterations: 1
+  path_var: TESTS_PATH
+  gcc_opts: "-DVLEN=4096 -D rvtest_mtrap_routine -static -mcmodel=medany -fvisibility=hidden -nostdlib -nostartfiles -I<path_var>/../../asm/env"
+  asm_tests: <path_var>/imperas-riscv-tests/riscv-test-suite/rv64i_m/Vr/src/VREDMAXU-VS-SEW8_LMUL8.S
+
+- test: VREDMINU-VS-SEW16_LMUL8
+  iterations: 1
+  path_var: TESTS_PATH
+  gcc_opts: "-DVLEN=4096 -D rvtest_mtrap_routine -static -mcmodel=medany -fvisibility=hidden -nostdlib -nostartfiles -I<path_var>/../../asm/env"
+  asm_tests: <path_var>/imperas-riscv-tests/riscv-test-suite/rv64i_m/Vr/src/VREDMINU-VS-SEW16_LMUL8.S
+
+- test: VFWREDOSUM-VS-SEW16_LMUL4
+  iterations: 1
+  path_var: TESTS_PATH
+  gcc_opts: "-DVLEN=4096 -D rvtest_mtrap_routine -static -mcmodel=medany -fvisibility=hidden -nostdlib -nostartfiles -I<path_var>/../../asm/env"
+  asm_tests: <path_var>/imperas-riscv-tests/riscv-test-suite/rv64i_m/Vr/src/VFWREDOSUM-VS-SEW16_LMUL4.S
+
+- test: VREDMAXU-VS-SEW32_FRACLMUL
+  iterations: 1
+  path_var: TESTS_PATH
+  gcc_opts: "-DVLEN=4096 -D rvtest_mtrap_routine -static -mcmodel=medany -fvisibility=hidden -nostdlib -nostartfiles -I<path_var>/../../asm/env"
+  asm_tests: <path_var>/imperas-riscv-tests/riscv-test-suite/rv64i_m/Vr/src/VREDMAXU-VS-SEW32_FRACLMUL.S
+
+- test: VFREDOSUM-VS-SEW32_LMUL4
+  iterations: 1
+  path_var: TESTS_PATH
+  gcc_opts: "-DVLEN=4096 -D rvtest_mtrap_routine -static -mcmodel=medany -fvisibility=hidden -nostdlib -nostartfiles -I<path_var>/../../asm/env"
+  asm_tests: <path_var>/imperas-riscv-tests/riscv-test-suite/rv64i_m/Vr/src/VFREDOSUM-VS-SEW32_LMUL4.S
+
+- test: VFWREDOSUM-VS-SEW16_LMUL2
+  iterations: 1
+  path_var: TESTS_PATH
+  gcc_opts: "-DVLEN=4096 -D rvtest_mtrap_routine -static -mcmodel=medany -fvisibility=hidden -nostdlib -nostartfiles -I<path_var>/../../asm/env"
+  asm_tests: <path_var>/imperas-riscv-tests/riscv-test-suite/rv64i_m/Vr/src/VFWREDOSUM-VS-SEW16_LMUL2.S
+
+- test: VREDOR-VS-SEW8_LMUL4
+  iterations: 1
+  path_var: TESTS_PATH
+  gcc_opts: "-DVLEN=4096 -D rvtest_mtrap_routine -static -mcmodel=medany -fvisibility=hidden -nostdlib -nostartfiles -I<path_var>/../../asm/env"
+  asm_tests: <path_var>/imperas-riscv-tests/riscv-test-suite/rv64i_m/Vr/src/VREDOR-VS-SEW8_LMUL4.S
+
+- test: VFREDUSUM-VS-SEW16_LMUL8
+  iterations: 1
+  path_var: TESTS_PATH
+  gcc_opts: "-DVLEN=4096 -D rvtest_mtrap_routine -static -mcmodel=medany -fvisibility=hidden -nostdlib -nostartfiles -I<path_var>/../../asm/env"
+  asm_tests: <path_var>/imperas-riscv-tests/riscv-test-suite/rv64i_m/Vr/src/VFREDUSUM-VS-SEW16_LMUL8.S
+
+- test: VFREDMAX-VS-SEW16_LMUL8
+  iterations: 1
+  path_var: TESTS_PATH
+  gcc_opts: "-DVLEN=4096 -D rvtest_mtrap_routine -static -mcmodel=medany -fvisibility=hidden -nostdlib -nostartfiles -I<path_var>/../../asm/env"
+  asm_tests: <path_var>/imperas-riscv-tests/riscv-test-suite/rv64i_m/Vr/src/VFREDMAX-VS-SEW16_LMUL8.S
+
+- test: VREDSUM-VS-SEW16_LMUL4
+  iterations: 1
+  path_var: TESTS_PATH
+  gcc_opts: "-DVLEN=4096 -D rvtest_mtrap_routine -static -mcmodel=medany -fvisibility=hidden -nostdlib -nostartfiles -I<path_var>/../../asm/env"
+  asm_tests: <path_var>/imperas-riscv-tests/riscv-test-suite/rv64i_m/Vr/src/VREDSUM-VS-SEW16_LMUL4.S
+
+- test: VREDSUM-VS-SEW8_LMUL4
+  iterations: 1
+  path_var: TESTS_PATH
+  gcc_opts: "-DVLEN=4096 -D rvtest_mtrap_routine -static -mcmodel=medany -fvisibility=hidden -nostdlib -nostartfiles -I<path_var>/../../asm/env"
+  asm_tests: <path_var>/imperas-riscv-tests/riscv-test-suite/rv64i_m/Vr/src/VREDSUM-VS-SEW8_LMUL4.S
+
+- test: VFREDUSUM-VS-SEW32_LMUL8
+  iterations: 1
+  path_var: TESTS_PATH
+  gcc_opts: "-DVLEN=4096 -D rvtest_mtrap_routine -static -mcmodel=medany -fvisibility=hidden -nostdlib -nostartfiles -I<path_var>/../../asm/env"
+  asm_tests: <path_var>/imperas-riscv-tests/riscv-test-suite/rv64i_m/Vr/src/VFREDUSUM-VS-SEW32_LMUL8.S
+
+- test: VWREDSUMU-VS-SEW16_LMUL1
+  iterations: 1
+  path_var: TESTS_PATH
+  gcc_opts: "-DVLEN=4096 -D rvtest_mtrap_routine -static -mcmodel=medany -fvisibility=hidden -nostdlib -nostartfiles -I<path_var>/../../asm/env"
+  asm_tests: <path_var>/imperas-riscv-tests/riscv-test-suite/rv64i_m/Vr/src/VWREDSUMU-VS-SEW16_LMUL1.S
+
+- test: VREDSUM-VS-SEW16_LMUL1
+  iterations: 1
+  path_var: TESTS_PATH
+  gcc_opts: "-DVLEN=4096 -D rvtest_mtrap_routine -static -mcmodel=medany -fvisibility=hidden -nostdlib -nostartfiles -I<path_var>/../../asm/env"
+  asm_tests: <path_var>/imperas-riscv-tests/riscv-test-suite/rv64i_m/Vr/src/VREDSUM-VS-SEW16_LMUL1.S
+
+- test: VREDMINU-VS-SEW16_LMUL1
+  iterations: 1
+  path_var: TESTS_PATH
+  gcc_opts: "-DVLEN=4096 -D rvtest_mtrap_routine -static -mcmodel=medany -fvisibility=hidden -nostdlib -nostartfiles -I<path_var>/../../asm/env"
+  asm_tests: <path_var>/imperas-riscv-tests/riscv-test-suite/rv64i_m/Vr/src/VREDMINU-VS-SEW16_LMUL1.S
+
+- test: VFREDUSUM-VS-SEW16_LMUL4
+  iterations: 1
+  path_var: TESTS_PATH
+  gcc_opts: "-DVLEN=4096 -D rvtest_mtrap_routine -static -mcmodel=medany -fvisibility=hidden -nostdlib -nostartfiles -I<path_var>/../../asm/env"
+  asm_tests: <path_var>/imperas-riscv-tests/riscv-test-suite/rv64i_m/Vr/src/VFREDUSUM-VS-SEW16_LMUL4.S
+
+- test: VREDAND-VS-SEW32_LMUL4
+  iterations: 1
+  path_var: TESTS_PATH
+  gcc_opts: "-DVLEN=4096 -D rvtest_mtrap_routine -static -mcmodel=medany -fvisibility=hidden -nostdlib -nostartfiles -I<path_var>/../../asm/env"
+  asm_tests: <path_var>/imperas-riscv-tests/riscv-test-suite/rv64i_m/Vr/src/VREDAND-VS-SEW32_LMUL4.S
+
+- test: VREDAND-VS-SEW8_LMUL8
+  iterations: 1
+  path_var: TESTS_PATH
+  gcc_opts: "-DVLEN=4096 -D rvtest_mtrap_routine -static -mcmodel=medany -fvisibility=hidden -nostdlib -nostartfiles -I<path_var>/../../asm/env"
+  asm_tests: <path_var>/imperas-riscv-tests/riscv-test-suite/rv64i_m/Vr/src/VREDAND-VS-SEW8_LMUL8.S
+
+- test: VREDXOR-VS-SEW16_LMUL2
+  iterations: 1
+  path_var: TESTS_PATH
+  gcc_opts: "-DVLEN=4096 -D rvtest_mtrap_routine -static -mcmodel=medany -fvisibility=hidden -nostdlib -nostartfiles -I<path_var>/../../asm/env"
+  asm_tests: <path_var>/imperas-riscv-tests/riscv-test-suite/rv64i_m/Vr/src/VREDXOR-VS-SEW16_LMUL2.S
+
+- test: VREDXOR-VS-SEW32_FRACLMUL
+  iterations: 1
+  path_var: TESTS_PATH
+  gcc_opts: "-DVLEN=4096 -D rvtest_mtrap_routine -static -mcmodel=medany -fvisibility=hidden -nostdlib -nostartfiles -I<path_var>/../../asm/env"
+  asm_tests: <path_var>/imperas-riscv-tests/riscv-test-suite/rv64i_m/Vr/src/VREDXOR-VS-SEW32_FRACLMUL.S
+
+- test: VREDXOR-VS-SEW16_LMUL8
+  iterations: 1
+  path_var: TESTS_PATH
+  gcc_opts: "-DVLEN=4096 -D rvtest_mtrap_routine -static -mcmodel=medany -fvisibility=hidden -nostdlib -nostartfiles -I<path_var>/../../asm/env"
+  asm_tests: <path_var>/imperas-riscv-tests/riscv-test-suite/rv64i_m/Vr/src/VREDXOR-VS-SEW16_LMUL8.S
+
+- test: VREDOR-VS-SEW8_LMUL8
+  iterations: 1
+  path_var: TESTS_PATH
+  gcc_opts: "-DVLEN=4096 -D rvtest_mtrap_routine -static -mcmodel=medany -fvisibility=hidden -nostdlib -nostartfiles -I<path_var>/../../asm/env"
+  asm_tests: <path_var>/imperas-riscv-tests/riscv-test-suite/rv64i_m/Vr/src/VREDOR-VS-SEW8_LMUL8.S
+
+- test: VFREDMAX-VS-SEW16_LMUL2
+  iterations: 1
+  path_var: TESTS_PATH
+  gcc_opts: "-DVLEN=4096 -D rvtest_mtrap_routine -static -mcmodel=medany -fvisibility=hidden -nostdlib -nostartfiles -I<path_var>/../../asm/env"
+  asm_tests: <path_var>/imperas-riscv-tests/riscv-test-suite/rv64i_m/Vr/src/VFREDMAX-VS-SEW16_LMUL2.S
+
+- test: VFREDMIN-VS-SEW32_FRACLMUL
+  iterations: 1
+  path_var: TESTS_PATH
+  gcc_opts: "-DVLEN=4096 -D rvtest_mtrap_routine -static -mcmodel=medany -fvisibility=hidden -nostdlib -nostartfiles -I<path_var>/../../asm/env"
+  asm_tests: <path_var>/imperas-riscv-tests/riscv-test-suite/rv64i_m/Vr/src/VFREDMIN-VS-SEW32_FRACLMUL.S
+
+- test: VFREDUSUM-VS-SEW32_LMUL2
+  iterations: 1
+  path_var: TESTS_PATH
+  gcc_opts: "-DVLEN=4096 -D rvtest_mtrap_routine -static -mcmodel=medany -fvisibility=hidden -nostdlib -nostartfiles -I<path_var>/../../asm/env"
+  asm_tests: <path_var>/imperas-riscv-tests/riscv-test-suite/rv64i_m/Vr/src/VFREDUSUM-VS-SEW32_LMUL2.S
+
+- test: VREDMIN-VS-SEW32_LMUL4
+  iterations: 1
+  path_var: TESTS_PATH
+  gcc_opts: "-DVLEN=4096 -D rvtest_mtrap_routine -static -mcmodel=medany -fvisibility=hidden -nostdlib -nostartfiles -I<path_var>/../../asm/env"
+  asm_tests: <path_var>/imperas-riscv-tests/riscv-test-suite/rv64i_m/Vr/src/VREDMIN-VS-SEW32_LMUL4.S
+
+- test: VREDSUM-VS-SEW32_LMUL8
+  iterations: 1
+  path_var: TESTS_PATH
+  gcc_opts: "-DVLEN=4096 -D rvtest_mtrap_routine -static -mcmodel=medany -fvisibility=hidden -nostdlib -nostartfiles -I<path_var>/../../asm/env"
+  asm_tests: <path_var>/imperas-riscv-tests/riscv-test-suite/rv64i_m/Vr/src/VREDSUM-VS-SEW32_LMUL8.S
+
+- test: VREDAND-VS-SEW8_LMUL1
+  iterations: 1
+  path_var: TESTS_PATH
+  gcc_opts: "-DVLEN=4096 -D rvtest_mtrap_routine -static -mcmodel=medany -fvisibility=hidden -nostdlib -nostartfiles -I<path_var>/../../asm/env"
+  asm_tests: <path_var>/imperas-riscv-tests/riscv-test-suite/rv64i_m/Vr/src/VREDAND-VS-SEW8_LMUL1.S
+
+- test: VREDOR-VS-SEW32_LMUL4
+  iterations: 1
+  path_var: TESTS_PATH
+  gcc_opts: "-DVLEN=4096 -D rvtest_mtrap_routine -static -mcmodel=medany -fvisibility=hidden -nostdlib -nostartfiles -I<path_var>/../../asm/env"
+  asm_tests: <path_var>/imperas-riscv-tests/riscv-test-suite/rv64i_m/Vr/src/VREDOR-VS-SEW32_LMUL4.S
+
+- test: VFREDOSUM-VS-SEW32_LMUL2
+  iterations: 1
+  path_var: TESTS_PATH
+  gcc_opts: "-DVLEN=4096 -D rvtest_mtrap_routine -static -mcmodel=medany -fvisibility=hidden -nostdlib -nostartfiles -I<path_var>/../../asm/env"
+  asm_tests: <path_var>/imperas-riscv-tests/riscv-test-suite/rv64i_m/Vr/src/VFREDOSUM-VS-SEW32_LMUL2.S
+
+- test: VREDMAXU-VS-SEW8_LMUL4
+  iterations: 1
+  path_var: TESTS_PATH
+  gcc_opts: "-DVLEN=4096 -D rvtest_mtrap_routine -static -mcmodel=medany -fvisibility=hidden -nostdlib -nostartfiles -I<path_var>/../../asm/env"
+  asm_tests: <path_var>/imperas-riscv-tests/riscv-test-suite/rv64i_m/Vr/src/VREDMAXU-VS-SEW8_LMUL4.S
+
+- test: VREDMINU-VS-SEW32_FRACLMUL
+  iterations: 1
+  path_var: TESTS_PATH
+  gcc_opts: "-DVLEN=4096 -D rvtest_mtrap_routine -static -mcmodel=medany -fvisibility=hidden -nostdlib -nostartfiles -I<path_var>/../../asm/env"
+  asm_tests: <path_var>/imperas-riscv-tests/riscv-test-suite/rv64i_m/Vr/src/VREDMINU-VS-SEW32_FRACLMUL.S
+
+- test: VFREDUSUM-VS-SEW32_FRACLMUL
+  iterations: 1
+  path_var: TESTS_PATH
+  gcc_opts: "-DVLEN=4096 -D rvtest_mtrap_routine -static -mcmodel=medany -fvisibility=hidden -nostdlib -nostartfiles -I<path_var>/../../asm/env"
+  asm_tests: <path_var>/imperas-riscv-tests/riscv-test-suite/rv64i_m/Vr/src/VFREDUSUM-VS-SEW32_FRACLMUL.S
+
+- test: VWREDSUMU-VS-SEW16_LMUL2
+  iterations: 1
+  path_var: TESTS_PATH
+  gcc_opts: "-DVLEN=4096 -D rvtest_mtrap_routine -static -mcmodel=medany -fvisibility=hidden -nostdlib -nostartfiles -I<path_var>/../../asm/env"
+  asm_tests: <path_var>/imperas-riscv-tests/riscv-test-suite/rv64i_m/Vr/src/VWREDSUMU-VS-SEW16_LMUL2.S
+
+- test: VREDXOR-VS-SEW16_LMUL4
+  iterations: 1
+  path_var: TESTS_PATH
+  gcc_opts: "-DVLEN=4096 -D rvtest_mtrap_routine -static -mcmodel=medany -fvisibility=hidden -nostdlib -nostartfiles -I<path_var>/../../asm/env"
+  asm_tests: <path_var>/imperas-riscv-tests/riscv-test-suite/rv64i_m/Vr/src/VREDXOR-VS-SEW16_LMUL4.S
+
+- test: VREDMAXU-VS-SEW16_LMUL1
+  iterations: 1
+  path_var: TESTS_PATH
+  gcc_opts: "-DVLEN=4096 -D rvtest_mtrap_routine -static -mcmodel=medany -fvisibility=hidden -nostdlib -nostartfiles -I<path_var>/../../asm/env"
+  asm_tests: <path_var>/imperas-riscv-tests/riscv-test-suite/rv64i_m/Vr/src/VREDMAXU-VS-SEW16_LMUL1.S
+
+- test: VWREDSUM-VS-SEW8_LMUL4
+  iterations: 1
+  path_var: TESTS_PATH
+  gcc_opts: "-DVLEN=4096 -D rvtest_mtrap_routine -static -mcmodel=medany -fvisibility=hidden -nostdlib -nostartfiles -I<path_var>/../../asm/env"
+  asm_tests: <path_var>/imperas-riscv-tests/riscv-test-suite/rv64i_m/Vr/src/VWREDSUM-VS-SEW8_LMUL4.S
+
+- test: VREDXOR-VS-SEW8_LMUL2
+  iterations: 1
+  path_var: TESTS_PATH
+  gcc_opts: "-DVLEN=4096 -D rvtest_mtrap_routine -static -mcmodel=medany -fvisibility=hidden -nostdlib -nostartfiles -I<path_var>/../../asm/env"
+  asm_tests: <path_var>/imperas-riscv-tests/riscv-test-suite/rv64i_m/Vr/src/VREDXOR-VS-SEW8_LMUL2.S
+
+- test: VREDSUM-VS-SEW16_LMUL8
+  iterations: 1
+  path_var: TESTS_PATH
+  gcc_opts: "-DVLEN=4096 -D rvtest_mtrap_routine -static -mcmodel=medany -fvisibility=hidden -nostdlib -nostartfiles -I<path_var>/../../asm/env"
+  asm_tests: <path_var>/imperas-riscv-tests/riscv-test-suite/rv64i_m/Vr/src/VREDSUM-VS-SEW16_LMUL8.S
+
+- test: VREDAND-VS-SEW8_LMUL2
+  iterations: 1
+  path_var: TESTS_PATH
+  gcc_opts: "-DVLEN=4096 -D rvtest_mtrap_routine -static -mcmodel=medany -fvisibility=hidden -nostdlib -nostartfiles -I<path_var>/../../asm/env"
+  asm_tests: <path_var>/imperas-riscv-tests/riscv-test-suite/rv64i_m/Vr/src/VREDAND-VS-SEW8_LMUL2.S
+
+- test: VREDSUM-VS-SEW32_LMUL1
+  iterations: 1
+  path_var: TESTS_PATH
+  gcc_opts: "-DVLEN=4096 -D rvtest_mtrap_routine -static -mcmodel=medany -fvisibility=hidden -nostdlib -nostartfiles -I<path_var>/../../asm/env"
+  asm_tests: <path_var>/imperas-riscv-tests/riscv-test-suite/rv64i_m/Vr/src/VREDSUM-VS-SEW32_LMUL1.S
+
+- test: VREDMIN-VS-SEW8_LMUL4
+  iterations: 1
+  path_var: TESTS_PATH
+  gcc_opts: "-DVLEN=4096 -D rvtest_mtrap_routine -static -mcmodel=medany -fvisibility=hidden -nostdlib -nostartfiles -I<path_var>/../../asm/env"
+  asm_tests: <path_var>/imperas-riscv-tests/riscv-test-suite/rv64i_m/Vr/src/VREDMIN-VS-SEW8_LMUL4.S
+
+- test: VREDAND-VS-SEW16_LMUL1
+  iterations: 1
+  path_var: TESTS_PATH
+  gcc_opts: "-DVLEN=4096 -D rvtest_mtrap_routine -static -mcmodel=medany -fvisibility=hidden -nostdlib -nostartfiles -I<path_var>/../../asm/env"
+  asm_tests: <path_var>/imperas-riscv-tests/riscv-test-suite/rv64i_m/Vr/src/VREDAND-VS-SEW16_LMUL1.S
+
+- test: VWREDSUMU-VS-SEW8_FRACLMUL
+  iterations: 1
+  path_var: TESTS_PATH
+  gcc_opts: "-DVLEN=4096 -D rvtest_mtrap_routine -static -mcmodel=medany -fvisibility=hidden -nostdlib -nostartfiles -I<path_var>/../../asm/env"
+  asm_tests: <path_var>/imperas-riscv-tests/riscv-test-suite/rv64i_m/Vr/src/VWREDSUMU-VS-SEW8_FRACLMUL.S
+
+- test: VREDAND-VS-SEW32_LMUL2
+  iterations: 1
+  path_var: TESTS_PATH
+  gcc_opts: "-DVLEN=4096 -D rvtest_mtrap_routine -static -mcmodel=medany -fvisibility=hidden -nostdlib -nostartfiles -I<path_var>/../../asm/env"
+  asm_tests: <path_var>/imperas-riscv-tests/riscv-test-suite/rv64i_m/Vr/src/VREDAND-VS-SEW32_LMUL2.S
+
+- test: VREDMIN-VS-SEW32_LMUL8
+  iterations: 1
+  path_var: TESTS_PATH
+  gcc_opts: "-DVLEN=4096 -D rvtest_mtrap_routine -static -mcmodel=medany -fvisibility=hidden -nostdlib -nostartfiles -I<path_var>/../../asm/env"
+  asm_tests: <path_var>/imperas-riscv-tests/riscv-test-suite/rv64i_m/Vr/src/VREDMIN-VS-SEW32_LMUL8.S
+
+- test: VREDXOR-VS-SEW16_LMUL1
+  iterations: 1
+  path_var: TESTS_PATH
+  gcc_opts: "-DVLEN=4096 -D rvtest_mtrap_routine -static -mcmodel=medany -fvisibility=hidden -nostdlib -nostartfiles -I<path_var>/../../asm/env"
+  asm_tests: <path_var>/imperas-riscv-tests/riscv-test-suite/rv64i_m/Vr/src/VREDXOR-VS-SEW16_LMUL1.S
+
+- test: VREDMIN-VS-SEW16_FRACLMUL
+  iterations: 1
+  path_var: TESTS_PATH
+  gcc_opts: "-DVLEN=4096 -D rvtest_mtrap_routine -static -mcmodel=medany -fvisibility=hidden -nostdlib -nostartfiles -I<path_var>/../../asm/env"
+  asm_tests: <path_var>/imperas-riscv-tests/riscv-test-suite/rv64i_m/Vr/src/VREDMIN-VS-SEW16_FRACLMUL.S
+
+- test: VREDOR-VS-SEW16_LMUL2
+  iterations: 1
+  path_var: TESTS_PATH
+  gcc_opts: "-DVLEN=4096 -D rvtest_mtrap_routine -static -mcmodel=medany -fvisibility=hidden -nostdlib -nostartfiles -I<path_var>/../../asm/env"
+  asm_tests: <path_var>/imperas-riscv-tests/riscv-test-suite/rv64i_m/Vr/src/VREDOR-VS-SEW16_LMUL2.S
+
+- test: VREDOR-VS-SEW32_FRACLMUL
+  iterations: 1
+  path_var: TESTS_PATH
+  gcc_opts: "-DVLEN=4096 -D rvtest_mtrap_routine -static -mcmodel=medany -fvisibility=hidden -nostdlib -nostartfiles -I<path_var>/../../asm/env"
+  asm_tests: <path_var>/imperas-riscv-tests/riscv-test-suite/rv64i_m/Vr/src/VREDOR-VS-SEW32_FRACLMUL.S
+
+- test: VFWREDUSUM-VS-SEW16_FRACLMUL
+  iterations: 1
+  path_var: TESTS_PATH
+  gcc_opts: "-DVLEN=4096 -D rvtest_mtrap_routine -static -mcmodel=medany -fvisibility=hidden -nostdlib -nostartfiles -I<path_var>/../../asm/env"
+  asm_tests: <path_var>/imperas-riscv-tests/riscv-test-suite/rv64i_m/Vr/src/VFWREDUSUM-VS-SEW16_FRACLMUL.S
+
+- test: VREDMAXU-VS-SEW8_FRACLMUL
+  iterations: 1
+  path_var: TESTS_PATH
+  gcc_opts: "-DVLEN=4096 -D rvtest_mtrap_routine -static -mcmodel=medany -fvisibility=hidden -nostdlib -nostartfiles -I<path_var>/../../asm/env"
+  asm_tests: <path_var>/imperas-riscv-tests/riscv-test-suite/rv64i_m/Vr/src/VREDMAXU-VS-SEW8_FRACLMUL.S
+
+- test: VREDMAX-VS-SEW32_LMUL4
+  iterations: 1
+  path_var: TESTS_PATH
+  gcc_opts: "-DVLEN=4096 -D rvtest_mtrap_routine -static -mcmodel=medany -fvisibility=hidden -nostdlib -nostartfiles -I<path_var>/../../asm/env"
+  asm_tests: <path_var>/imperas-riscv-tests/riscv-test-suite/rv64i_m/Vr/src/VREDMAX-VS-SEW32_LMUL4.S
+
+- test: VREDMAX-VS-SEW16_LMUL4
+  iterations: 1
+  path_var: TESTS_PATH
+  gcc_opts: "-DVLEN=4096 -D rvtest_mtrap_routine -static -mcmodel=medany -fvisibility=hidden -nostdlib -nostartfiles -I<path_var>/../../asm/env"
+  asm_tests: <path_var>/imperas-riscv-tests/riscv-test-suite/rv64i_m/Vr/src/VREDMAX-VS-SEW16_LMUL4.S
+
+- test: VREDMIN-VS-SEW8_LMUL2
+  iterations: 1
+  path_var: TESTS_PATH
+  gcc_opts: "-DVLEN=4096 -D rvtest_mtrap_routine -static -mcmodel=medany -fvisibility=hidden -nostdlib -nostartfiles -I<path_var>/../../asm/env"
+  asm_tests: <path_var>/imperas-riscv-tests/riscv-test-suite/rv64i_m/Vr/src/VREDMIN-VS-SEW8_LMUL2.S
+
+- test: VWREDSUM-VS-SEW16_LMUL4
+  iterations: 1
+  path_var: TESTS_PATH
+  gcc_opts: "-DVLEN=4096 -D rvtest_mtrap_routine -static -mcmodel=medany -fvisibility=hidden -nostdlib -nostartfiles -I<path_var>/../../asm/env"
+  asm_tests: <path_var>/imperas-riscv-tests/riscv-test-suite/rv64i_m/Vr/src/VWREDSUM-VS-SEW16_LMUL4.S
+
+- test: VREDMAXU-VS-SEW16_LMUL8
+  iterations: 1
+  path_var: TESTS_PATH
+  gcc_opts: "-DVLEN=4096 -D rvtest_mtrap_routine -static -mcmodel=medany -fvisibility=hidden -nostdlib -nostartfiles -I<path_var>/../../asm/env"
+  asm_tests: <path_var>/imperas-riscv-tests/riscv-test-suite/rv64i_m/Vr/src/VREDMAXU-VS-SEW16_LMUL8.S
+
+- test: VREDMAX-VS-SEW8_LMUL8
+  iterations: 1
+  path_var: TESTS_PATH
+  gcc_opts: "-DVLEN=4096 -D rvtest_mtrap_routine -static -mcmodel=medany -fvisibility=hidden -nostdlib -nostartfiles -I<path_var>/../../asm/env"
+  asm_tests: <path_var>/imperas-riscv-tests/riscv-test-suite/rv64i_m/Vr/src/VREDMAX-VS-SEW8_LMUL8.S
+
+- test: VREDMAX-VS-SEW8_FRACLMUL
+  iterations: 1
+  path_var: TESTS_PATH
+  gcc_opts: "-DVLEN=4096 -D rvtest_mtrap_routine -static -mcmodel=medany -fvisibility=hidden -nostdlib -nostartfiles -I<path_var>/../../asm/env"
+  asm_tests: <path_var>/imperas-riscv-tests/riscv-test-suite/rv64i_m/Vr/src/VREDMAX-VS-SEW8_FRACLMUL.S
+
+- test: VWREDSUMU-VS-SEW8_LMUL1
+  iterations: 1
+  path_var: TESTS_PATH
+  gcc_opts: "-DVLEN=4096 -D rvtest_mtrap_routine -static -mcmodel=medany -fvisibility=hidden -nostdlib -nostartfiles -I<path_var>/../../asm/env"
+  asm_tests: <path_var>/imperas-riscv-tests/riscv-test-suite/rv64i_m/Vr/src/VWREDSUMU-VS-SEW8_LMUL1.S
+
+- test: VREDAND-VS-SEW32_LMUL1
+  iterations: 1
+  path_var: TESTS_PATH
+  gcc_opts: "-DVLEN=4096 -D rvtest_mtrap_routine -static -mcmodel=medany -fvisibility=hidden -nostdlib -nostartfiles -I<path_var>/../../asm/env"
+  asm_tests: <path_var>/imperas-riscv-tests/riscv-test-suite/rv64i_m/Vr/src/VREDAND-VS-SEW32_LMUL1.S
+
+- test: VREDSUM-VS-SEW8_LMUL2
+  iterations: 1
+  path_var: TESTS_PATH
+  gcc_opts: "-DVLEN=4096 -D rvtest_mtrap_routine -static -mcmodel=medany -fvisibility=hidden -nostdlib -nostartfiles -I<path_var>/../../asm/env"
+  asm_tests: <path_var>/imperas-riscv-tests/riscv-test-suite/rv64i_m/Vr/src/VREDSUM-VS-SEW8_LMUL2.S
+
+- test: VFREDMIN-VS-SEW16_LMUL2
+  iterations: 1
+  path_var: TESTS_PATH
+  gcc_opts: "-DVLEN=4096 -D rvtest_mtrap_routine -static -mcmodel=medany -fvisibility=hidden -nostdlib -nostartfiles -I<path_var>/../../asm/env"
+  asm_tests: <path_var>/imperas-riscv-tests/riscv-test-suite/rv64i_m/Vr/src/VFREDMIN-VS-SEW16_LMUL2.S
+
+- test: VFREDMIN-VS-SEW16_LMUL4
+  iterations: 1
+  path_var: TESTS_PATH
+  gcc_opts: "-DVLEN=4096 -D rvtest_mtrap_routine -static -mcmodel=medany -fvisibility=hidden -nostdlib -nostartfiles -I<path_var>/../../asm/env"
+  asm_tests: <path_var>/imperas-riscv-tests/riscv-test-suite/rv64i_m/Vr/src/VFREDMIN-VS-SEW16_LMUL4.S
+
+- test: VREDAND-VS-SEW16_LMUL8
+  iterations: 1
+  path_var: TESTS_PATH
+  gcc_opts: "-DVLEN=4096 -D rvtest_mtrap_routine -static -mcmodel=medany -fvisibility=hidden -nostdlib -nostartfiles -I<path_var>/../../asm/env"
+  asm_tests: <path_var>/imperas-riscv-tests/riscv-test-suite/rv64i_m/Vr/src/VREDAND-VS-SEW16_LMUL8.S
+
+- test: VREDMINU-VS-SEW16_FRACLMUL
+  iterations: 1
+  path_var: TESTS_PATH
+  gcc_opts: "-DVLEN=4096 -D rvtest_mtrap_routine -static -mcmodel=medany -fvisibility=hidden -nostdlib -nostartfiles -I<path_var>/../../asm/env"
+  asm_tests: <path_var>/imperas-riscv-tests/riscv-test-suite/rv64i_m/Vr/src/VREDMINU-VS-SEW16_FRACLMUL.S
+
+- test: VFREDMAX-VS-SEW16_FRACLMUL
+  iterations: 1
+  path_var: TESTS_PATH
+  gcc_opts: "-DVLEN=4096 -D rvtest_mtrap_routine -static -mcmodel=medany -fvisibility=hidden -nostdlib -nostartfiles -I<path_var>/../../asm/env"
+  asm_tests: <path_var>/imperas-riscv-tests/riscv-test-suite/rv64i_m/Vr/src/VFREDMAX-VS-SEW16_FRACLMUL.S
+
+- test: VFREDMIN-VS-SEW32_LMUL1
+  iterations: 1
+  path_var: TESTS_PATH
+  gcc_opts: "-DVLEN=4096 -D rvtest_mtrap_routine -static -mcmodel=medany -fvisibility=hidden -nostdlib -nostartfiles -I<path_var>/../../asm/env"
+  asm_tests: <path_var>/imperas-riscv-tests/riscv-test-suite/rv64i_m/Vr/src/VFREDMIN-VS-SEW32_LMUL1.S
+
+- test: VREDAND-VS-SEW16_LMUL2
+  iterations: 1
+  path_var: TESTS_PATH
+  gcc_opts: "-DVLEN=4096 -D rvtest_mtrap_routine -static -mcmodel=medany -fvisibility=hidden -nostdlib -nostartfiles -I<path_var>/../../asm/env"
+  asm_tests: <path_var>/imperas-riscv-tests/riscv-test-suite/rv64i_m/Vr/src/VREDAND-VS-SEW16_LMUL2.S
+
+- test: VFREDOSUM-VS-SEW32_LMUL8
+  iterations: 1
+  path_var: TESTS_PATH
+  gcc_opts: "-DVLEN=4096 -D rvtest_mtrap_routine -static -mcmodel=medany -fvisibility=hidden -nostdlib -nostartfiles -I<path_var>/../../asm/env"
+  asm_tests: <path_var>/imperas-riscv-tests/riscv-test-suite/rv64i_m/Vr/src/VFREDOSUM-VS-SEW32_LMUL8.S
+
+- test: VFREDMIN-VS-SEW16_LMUL8
+  iterations: 1
+  path_var: TESTS_PATH
+  gcc_opts: "-DVLEN=4096 -D rvtest_mtrap_routine -static -mcmodel=medany -fvisibility=hidden -nostdlib -nostartfiles -I<path_var>/../../asm/env"
+  asm_tests: <path_var>/imperas-riscv-tests/riscv-test-suite/rv64i_m/Vr/src/VFREDMIN-VS-SEW16_LMUL8.S
+
+- test: VFREDMAX-VS-SEW32_LMUL1
+  iterations: 1
+  path_var: TESTS_PATH
+  gcc_opts: "-DVLEN=4096 -D rvtest_mtrap_routine -static -mcmodel=medany -fvisibility=hidden -nostdlib -nostartfiles -I<path_var>/../../asm/env"
+  asm_tests: <path_var>/imperas-riscv-tests/riscv-test-suite/rv64i_m/Vr/src/VFREDMAX-VS-SEW32_LMUL1.S
+
+- test: VREDMAX-VS-SEW16_LMUL2
+  iterations: 1
+  path_var: TESTS_PATH
+  gcc_opts: "-DVLEN=4096 -D rvtest_mtrap_routine -static -mcmodel=medany -fvisibility=hidden -nostdlib -nostartfiles -I<path_var>/../../asm/env"
+  asm_tests: <path_var>/imperas-riscv-tests/riscv-test-suite/rv64i_m/Vr/src/VREDMAX-VS-SEW16_LMUL2.S
+
+- test: VFREDOSUM-VS-SEW16_LMUL2
+  iterations: 1
+  path_var: TESTS_PATH
+  gcc_opts: "-DVLEN=4096 -D rvtest_mtrap_routine -static -mcmodel=medany -fvisibility=hidden -nostdlib -nostartfiles -I<path_var>/../../asm/env"
+  asm_tests: <path_var>/imperas-riscv-tests/riscv-test-suite/rv64i_m/Vr/src/VFREDOSUM-VS-SEW16_LMUL2.S
+
+- test: VREDMINU-VS-SEW32_LMUL2
+  iterations: 1
+  path_var: TESTS_PATH
+  gcc_opts: "-DVLEN=4096 -D rvtest_mtrap_routine -static -mcmodel=medany -fvisibility=hidden -nostdlib -nostartfiles -I<path_var>/../../asm/env"
+  asm_tests: <path_var>/imperas-riscv-tests/riscv-test-suite/rv64i_m/Vr/src/VREDMINU-VS-SEW32_LMUL2.S
+
+- test: VFWREDOSUM-VS-SEW16_FRACLMUL
+  iterations: 1
+  path_var: TESTS_PATH
+  gcc_opts: "-DVLEN=4096 -D rvtest_mtrap_routine -static -mcmodel=medany -fvisibility=hidden -nostdlib -nostartfiles -I<path_var>/../../asm/env"
+  asm_tests: <path_var>/imperas-riscv-tests/riscv-test-suite/rv64i_m/Vr/src/VFWREDOSUM-VS-SEW16_FRACLMUL.S
+
+- test: VREDMAX-VS-SEW32_LMUL2
+  iterations: 1
+  path_var: TESTS_PATH
+  gcc_opts: "-DVLEN=4096 -D rvtest_mtrap_routine -static -mcmodel=medany -fvisibility=hidden -nostdlib -nostartfiles -I<path_var>/../../asm/env"
+  asm_tests: <path_var>/imperas-riscv-tests/riscv-test-suite/rv64i_m/Vr/src/VREDMAX-VS-SEW32_LMUL2.S
+
+- test: VREDMINU-VS-SEW32_LMUL4
+  iterations: 1
+  path_var: TESTS_PATH
+  gcc_opts: "-DVLEN=4096 -D rvtest_mtrap_routine -static -mcmodel=medany -fvisibility=hidden -nostdlib -nostartfiles -I<path_var>/../../asm/env"
+  asm_tests: <path_var>/imperas-riscv-tests/riscv-test-suite/rv64i_m/Vr/src/VREDMINU-VS-SEW32_LMUL4.S
+
+- test: VFREDMIN-VS-SEW32_LMUL8
+  iterations: 1
+  path_var: TESTS_PATH
+  gcc_opts: "-DVLEN=4096 -D rvtest_mtrap_routine -static -mcmodel=medany -fvisibility=hidden -nostdlib -nostartfiles -I<path_var>/../../asm/env"
+  asm_tests: <path_var>/imperas-riscv-tests/riscv-test-suite/rv64i_m/Vr/src/VFREDMIN-VS-SEW32_LMUL8.S
+
+- test: VFREDUSUM-VS-SEW16_LMUL1
+  iterations: 1
+  path_var: TESTS_PATH
+  gcc_opts: "-DVLEN=4096 -D rvtest_mtrap_routine -static -mcmodel=medany -fvisibility=hidden -nostdlib -nostartfiles -I<path_var>/../../asm/env"
+  asm_tests: <path_var>/imperas-riscv-tests/riscv-test-suite/rv64i_m/Vr/src/VFREDUSUM-VS-SEW16_LMUL1.S
+
+- test: VREDSUM-VS-SEW8_FRACLMUL
+  iterations: 1
+  path_var: TESTS_PATH
+  gcc_opts: "-DVLEN=4096 -D rvtest_mtrap_routine -static -mcmodel=medany -fvisibility=hidden -nostdlib -nostartfiles -I<path_var>/../../asm/env"
+  asm_tests: <path_var>/imperas-riscv-tests/riscv-test-suite/rv64i_m/Vr/src/VREDSUM-VS-SEW8_FRACLMUL.S
+
+- test: VFWREDOSUM-VS-SEW16_LMUL1
+  iterations: 1
+  path_var: TESTS_PATH
+  gcc_opts: "-DVLEN=4096 -D rvtest_mtrap_routine -static -mcmodel=medany -fvisibility=hidden -nostdlib -nostartfiles -I<path_var>/../../asm/env"
+  asm_tests: <path_var>/imperas-riscv-tests/riscv-test-suite/rv64i_m/Vr/src/VFWREDOSUM-VS-SEW16_LMUL1.S
+
+- test: VREDOR-VS-SEW32_LMUL8
+  iterations: 1
+  path_var: TESTS_PATH
+  gcc_opts: "-DVLEN=4096 -D rvtest_mtrap_routine -static -mcmodel=medany -fvisibility=hidden -nostdlib -nostartfiles -I<path_var>/../../asm/env"
+  asm_tests: <path_var>/imperas-riscv-tests/riscv-test-suite/rv64i_m/Vr/src/VREDOR-VS-SEW32_LMUL8.S
+
+- test: VREDOR-VS-SEW16_LMUL4
+  iterations: 1
+  path_var: TESTS_PATH
+  gcc_opts: "-DVLEN=4096 -D rvtest_mtrap_routine -static -mcmodel=medany -fvisibility=hidden -nostdlib -nostartfiles -I<path_var>/../../asm/env"
+  asm_tests: <path_var>/imperas-riscv-tests/riscv-test-suite/rv64i_m/Vr/src/VREDOR-VS-SEW16_LMUL4.S
+
+- test: VREDXOR-VS-SEW32_LMUL4
+  iterations: 1
+  path_var: TESTS_PATH
+  gcc_opts: "-DVLEN=4096 -D rvtest_mtrap_routine -static -mcmodel=medany -fvisibility=hidden -nostdlib -nostartfiles -I<path_var>/../../asm/env"
+  asm_tests: <path_var>/imperas-riscv-tests/riscv-test-suite/rv64i_m/Vr/src/VREDXOR-VS-SEW32_LMUL4.S
+
+- test: VREDMAXU-VS-SEW32_LMUL8
+  iterations: 1
+  path_var: TESTS_PATH
+  gcc_opts: "-DVLEN=4096 -D rvtest_mtrap_routine -static -mcmodel=medany -fvisibility=hidden -nostdlib -nostartfiles -I<path_var>/../../asm/env"
+  asm_tests: <path_var>/imperas-riscv-tests/riscv-test-suite/rv64i_m/Vr/src/VREDMAXU-VS-SEW32_LMUL8.S
+
+- test: VREDMAXU-VS-SEW32_LMUL4
+  iterations: 1
+  path_var: TESTS_PATH
+  gcc_opts: "-DVLEN=4096 -D rvtest_mtrap_routine -static -mcmodel=medany -fvisibility=hidden -nostdlib -nostartfiles -I<path_var>/../../asm/env"
+  asm_tests: <path_var>/imperas-riscv-tests/riscv-test-suite/rv64i_m/Vr/src/VREDMAXU-VS-SEW32_LMUL4.S
+
+- test: VREDMIN-VS-SEW32_FRACLMUL
+  iterations: 1
+  path_var: TESTS_PATH
+  gcc_opts: "-DVLEN=4096 -D rvtest_mtrap_routine -static -mcmodel=medany -fvisibility=hidden -nostdlib -nostartfiles -I<path_var>/../../asm/env"
+  asm_tests: <path_var>/imperas-riscv-tests/riscv-test-suite/rv64i_m/Vr/src/VREDMIN-VS-SEW32_FRACLMUL.S
+
+- test: VREDMINU-VS-SEW16_LMUL2
+  iterations: 1
+  path_var: TESTS_PATH
+  gcc_opts: "-DVLEN=4096 -D rvtest_mtrap_routine -static -mcmodel=medany -fvisibility=hidden -nostdlib -nostartfiles -I<path_var>/../../asm/env"
+  asm_tests: <path_var>/imperas-riscv-tests/riscv-test-suite/rv64i_m/Vr/src/VREDMINU-VS-SEW16_LMUL2.S
+
+- test: VFREDMIN-VS-SEW16_LMUL1
+  iterations: 1
+  path_var: TESTS_PATH
+  gcc_opts: "-DVLEN=4096 -D rvtest_mtrap_routine -static -mcmodel=medany -fvisibility=hidden -nostdlib -nostartfiles -I<path_var>/../../asm/env"
+  asm_tests: <path_var>/imperas-riscv-tests/riscv-test-suite/rv64i_m/Vr/src/VFREDMIN-VS-SEW16_LMUL1.S
+
+- test: VREDMINU-VS-SEW8_LMUL4
+  iterations: 1
+  path_var: TESTS_PATH
+  gcc_opts: "-DVLEN=4096 -D rvtest_mtrap_routine -static -mcmodel=medany -fvisibility=hidden -nostdlib -nostartfiles -I<path_var>/../../asm/env"
+  asm_tests: <path_var>/imperas-riscv-tests/riscv-test-suite/rv64i_m/Vr/src/VREDMINU-VS-SEW8_LMUL4.S
+
+- test: VREDOR-VS-SEW16_LMUL8
+  iterations: 1
+  path_var: TESTS_PATH
+  gcc_opts: "-DVLEN=4096 -D rvtest_mtrap_routine -static -mcmodel=medany -fvisibility=hidden -nostdlib -nostartfiles -I<path_var>/../../asm/env"
+  asm_tests: <path_var>/imperas-riscv-tests/riscv-test-suite/rv64i_m/Vr/src/VREDOR-VS-SEW16_LMUL8.S
+
+- test: VREDXOR-VS-SEW8_LMUL4
+  iterations: 1
+  path_var: TESTS_PATH
+  gcc_opts: "-DVLEN=4096 -D rvtest_mtrap_routine -static -mcmodel=medany -fvisibility=hidden -nostdlib -nostartfiles -I<path_var>/../../asm/env"
+  asm_tests: <path_var>/imperas-riscv-tests/riscv-test-suite/rv64i_m/Vr/src/VREDXOR-VS-SEW8_LMUL4.S
+
+- test: VREDMIN-VS-SEW8_LMUL1
+  iterations: 1
+  path_var: TESTS_PATH
+  gcc_opts: "-DVLEN=4096 -D rvtest_mtrap_routine -static -mcmodel=medany -fvisibility=hidden -nostdlib -nostartfiles -I<path_var>/../../asm/env"
+  asm_tests: <path_var>/imperas-riscv-tests/riscv-test-suite/rv64i_m/Vr/src/VREDMIN-VS-SEW8_LMUL1.S
+
+- test: VREDMINU-VS-SEW16_LMUL4
+  iterations: 1
+  path_var: TESTS_PATH
+  gcc_opts: "-DVLEN=4096 -D rvtest_mtrap_routine -static -mcmodel=medany -fvisibility=hidden -nostdlib -nostartfiles -I<path_var>/../../asm/env"
+  asm_tests: <path_var>/imperas-riscv-tests/riscv-test-suite/rv64i_m/Vr/src/VREDMINU-VS-SEW16_LMUL4.S
+
+- test: VWREDSUMU-VS-SEW8_LMUL2
+  iterations: 1
+  path_var: TESTS_PATH
+  gcc_opts: "-DVLEN=4096 -D rvtest_mtrap_routine -static -mcmodel=medany -fvisibility=hidden -nostdlib -nostartfiles -I<path_var>/../../asm/env"
+  asm_tests: <path_var>/imperas-riscv-tests/riscv-test-suite/rv64i_m/Vr/src/VWREDSUMU-VS-SEW8_LMUL2.S
+
+- test: VREDMINU-VS-SEW32_LMUL1
+  iterations: 1
+  path_var: TESTS_PATH
+  gcc_opts: "-DVLEN=4096 -D rvtest_mtrap_routine -static -mcmodel=medany -fvisibility=hidden -nostdlib -nostartfiles -I<path_var>/../../asm/env"
+  asm_tests: <path_var>/imperas-riscv-tests/riscv-test-suite/rv64i_m/Vr/src/VREDMINU-VS-SEW32_LMUL1.S
+
+- test: VFREDOSUM-VS-SEW16_LMUL4
+  iterations: 1
+  path_var: TESTS_PATH
+  gcc_opts: "-DVLEN=4096 -D rvtest_mtrap_routine -static -mcmodel=medany -fvisibility=hidden -nostdlib -nostartfiles -I<path_var>/../../asm/env"
+  asm_tests: <path_var>/imperas-riscv-tests/riscv-test-suite/rv64i_m/Vr/src/VFREDOSUM-VS-SEW16_LMUL4.S
+
+- test: VREDSUM-VS-SEW16_LMUL2
+  iterations: 1
+  path_var: TESTS_PATH
+  gcc_opts: "-DVLEN=4096 -D rvtest_mtrap_routine -static -mcmodel=medany -fvisibility=hidden -nostdlib -nostartfiles -I<path_var>/../../asm/env"
+  asm_tests: <path_var>/imperas-riscv-tests/riscv-test-suite/rv64i_m/Vr/src/VREDSUM-VS-SEW16_LMUL2.S
+
+- test: VREDAND-VS-SEW32_LMUL8
+  iterations: 1
+  path_var: TESTS_PATH
+  gcc_opts: "-DVLEN=4096 -D rvtest_mtrap_routine -static -mcmodel=medany -fvisibility=hidden -nostdlib -nostartfiles -I<path_var>/../../asm/env"
+  asm_tests: <path_var>/imperas-riscv-tests/riscv-test-suite/rv64i_m/Vr/src/VREDAND-VS-SEW32_LMUL8.S
+
+- test: VREDOR-VS-SEW32_LMUL2
+  iterations: 1
+  path_var: TESTS_PATH
+  gcc_opts: "-DVLEN=4096 -D rvtest_mtrap_routine -static -mcmodel=medany -fvisibility=hidden -nostdlib -nostartfiles -I<path_var>/../../asm/env"
+  asm_tests: <path_var>/imperas-riscv-tests/riscv-test-suite/rv64i_m/Vr/src/VREDOR-VS-SEW32_LMUL2.S
+
+- test: VREDMAX-VS-SEW8_LMUL2
+  iterations: 1
+  path_var: TESTS_PATH
+  gcc_opts: "-DVLEN=4096 -D rvtest_mtrap_routine -static -mcmodel=medany -fvisibility=hidden -nostdlib -nostartfiles -I<path_var>/../../asm/env"
+  asm_tests: <path_var>/imperas-riscv-tests/riscv-test-suite/rv64i_m/Vr/src/VREDMAX-VS-SEW8_LMUL2.S
+
+- test: VREDMIN-VS-SEW8_FRACLMUL
+  iterations: 1
+  path_var: TESTS_PATH
+  gcc_opts: "-DVLEN=4096 -D rvtest_mtrap_routine -static -mcmodel=medany -fvisibility=hidden -nostdlib -nostartfiles -I<path_var>/../../asm/env"
+  asm_tests: <path_var>/imperas-riscv-tests/riscv-test-suite/rv64i_m/Vr/src/VREDMIN-VS-SEW8_FRACLMUL.S
+
+- test: VREDMAXU-VS-SEW16_LMUL2
+  iterations: 1
+  path_var: TESTS_PATH
+  gcc_opts: "-DVLEN=4096 -D rvtest_mtrap_routine -static -mcmodel=medany -fvisibility=hidden -nostdlib -nostartfiles -I<path_var>/../../asm/env"
+  asm_tests: <path_var>/imperas-riscv-tests/riscv-test-suite/rv64i_m/Vr/src/VREDMAXU-VS-SEW16_LMUL2.S
+
+- test: VREDXOR-VS-SEW32_LMUL1
+  iterations: 1
+  path_var: TESTS_PATH
+  gcc_opts: "-DVLEN=4096 -D rvtest_mtrap_routine -static -mcmodel=medany -fvisibility=hidden -nostdlib -nostartfiles -I<path_var>/../../asm/env"
+  asm_tests: <path_var>/imperas-riscv-tests/riscv-test-suite/rv64i_m/Vr/src/VREDXOR-VS-SEW32_LMUL1.S
+
+- test: VFREDUSUM-VS-SEW16_FRACLMUL
+  iterations: 1
+  path_var: TESTS_PATH
+  gcc_opts: "-DVLEN=4096 -D rvtest_mtrap_routine -static -mcmodel=medany -fvisibility=hidden -nostdlib -nostartfiles -I<path_var>/../../asm/env"
+  asm_tests: <path_var>/imperas-riscv-tests/riscv-test-suite/rv64i_m/Vr/src/VFREDUSUM-VS-SEW16_FRACLMUL.S
+
+- test: VREDMAX-VS-SEW16_FRACLMUL
+  iterations: 1
+  path_var: TESTS_PATH
+  gcc_opts: "-DVLEN=4096 -D rvtest_mtrap_routine -static -mcmodel=medany -fvisibility=hidden -nostdlib -nostartfiles -I<path_var>/../../asm/env"
+  asm_tests: <path_var>/imperas-riscv-tests/riscv-test-suite/rv64i_m/Vr/src/VREDMAX-VS-SEW16_FRACLMUL.S
+
+- test: VREDMAX-VS-SEW16_LMUL8
+  iterations: 1
+  path_var: TESTS_PATH
+  gcc_opts: "-DVLEN=4096 -D rvtest_mtrap_routine -static -mcmodel=medany -fvisibility=hidden -nostdlib -nostartfiles -I<path_var>/../../asm/env"
+  asm_tests: <path_var>/imperas-riscv-tests/riscv-test-suite/rv64i_m/Vr/src/VREDMAX-VS-SEW16_LMUL8.S
+
+- test: VREDSUM-VS-SEW32_FRACLMUL
+  iterations: 1
+  path_var: TESTS_PATH
+  gcc_opts: "-DVLEN=4096 -D rvtest_mtrap_routine -static -mcmodel=medany -fvisibility=hidden -nostdlib -nostartfiles -I<path_var>/../../asm/env"
+  asm_tests: <path_var>/imperas-riscv-tests/riscv-test-suite/rv64i_m/Vr/src/VREDSUM-VS-SEW32_FRACLMUL.S
+
+- test: VREDAND-VS-SEW16_LMUL4
+  iterations: 1
+  path_var: TESTS_PATH
+  gcc_opts: "-DVLEN=4096 -D rvtest_mtrap_routine -static -mcmodel=medany -fvisibility=hidden -nostdlib -nostartfiles -I<path_var>/../../asm/env"
+  asm_tests: <path_var>/imperas-riscv-tests/riscv-test-suite/rv64i_m/Vr/src/VREDAND-VS-SEW16_LMUL4.S
+
+- test: VREDSUM-VS-SEW8_LMUL1
+  iterations: 1
+  path_var: TESTS_PATH
+  gcc_opts: "-DVLEN=4096 -D rvtest_mtrap_routine -static -mcmodel=medany -fvisibility=hidden -nostdlib -nostartfiles -I<path_var>/../../asm/env"
+  asm_tests: <path_var>/imperas-riscv-tests/riscv-test-suite/rv64i_m/Vr/src/VREDSUM-VS-SEW8_LMUL1.S
+
+- test: VREDAND-VS-SEW32_FRACLMUL
+  iterations: 1
+  path_var: TESTS_PATH
+  gcc_opts: "-DVLEN=4096 -D rvtest_mtrap_routine -static -mcmodel=medany -fvisibility=hidden -nostdlib -nostartfiles -I<path_var>/../../asm/env"
+  asm_tests: <path_var>/imperas-riscv-tests/riscv-test-suite/rv64i_m/Vr/src/VREDAND-VS-SEW32_FRACLMUL.S
+
+- test: VWREDSUMU-VS-SEW8_LMUL4
+  iterations: 1
+  path_var: TESTS_PATH
+  gcc_opts: "-DVLEN=4096 -D rvtest_mtrap_routine -static -mcmodel=medany -fvisibility=hidden -nostdlib -nostartfiles -I<path_var>/../../asm/env"
+  asm_tests: <path_var>/imperas-riscv-tests/riscv-test-suite/rv64i_m/Vr/src/VWREDSUMU-VS-SEW8_LMUL4.S
+
+- test: VREDSUM-VS-SEW16_FRACLMUL
+  iterations: 1
+  path_var: TESTS_PATH
+  gcc_opts: "-DVLEN=4096 -D rvtest_mtrap_routine -static -mcmodel=medany -fvisibility=hidden -nostdlib -nostartfiles -I<path_var>/../../asm/env"
+  asm_tests: <path_var>/imperas-riscv-tests/riscv-test-suite/rv64i_m/Vr/src/VREDSUM-VS-SEW16_FRACLMUL.S
+
+- test: VREDMAX-VS-SEW8_LMUL4
+  iterations: 1
+  path_var: TESTS_PATH
+  gcc_opts: "-DVLEN=4096 -D rvtest_mtrap_routine -static -mcmodel=medany -fvisibility=hidden -nostdlib -nostartfiles -I<path_var>/../../asm/env"
+  asm_tests: <path_var>/imperas-riscv-tests/riscv-test-suite/rv64i_m/Vr/src/VREDMAX-VS-SEW8_LMUL4.S
+
+- test: VFWREDUSUM-VS-SEW16_LMUL2
+  iterations: 1
+  path_var: TESTS_PATH
+  gcc_opts: "-DVLEN=4096 -D rvtest_mtrap_routine -static -mcmodel=medany -fvisibility=hidden -nostdlib -nostartfiles -I<path_var>/../../asm/env"
+  asm_tests: <path_var>/imperas-riscv-tests/riscv-test-suite/rv64i_m/Vr/src/VFWREDUSUM-VS-SEW16_LMUL2.S
+
+- test: VFREDMAX-VS-SEW32_FRACLMUL
+  iterations: 1
+  path_var: TESTS_PATH
+  gcc_opts: "-DVLEN=4096 -D rvtest_mtrap_routine -static -mcmodel=medany -fvisibility=hidden -nostdlib -nostartfiles -I<path_var>/../../asm/env"
+  asm_tests: <path_var>/imperas-riscv-tests/riscv-test-suite/rv64i_m/Vr/src/VFREDMAX-VS-SEW32_FRACLMUL.S
+
+- test: VREDMAXU-VS-SEW32_LMUL1
+  iterations: 1
+  path_var: TESTS_PATH
+  gcc_opts: "-DVLEN=4096 -D rvtest_mtrap_routine -static -mcmodel=medany -fvisibility=hidden -nostdlib -nostartfiles -I<path_var>/../../asm/env"
+  asm_tests: <path_var>/imperas-riscv-tests/riscv-test-suite/rv64i_m/Vr/src/VREDMAXU-VS-SEW32_LMUL1.S
+
+- test: VREDMIN-VS-SEW16_LMUL2
+  iterations: 1
+  path_var: TESTS_PATH
+  gcc_opts: "-DVLEN=4096 -D rvtest_mtrap_routine -static -mcmodel=medany -fvisibility=hidden -nostdlib -nostartfiles -I<path_var>/../../asm/env"
+  asm_tests: <path_var>/imperas-riscv-tests/riscv-test-suite/rv64i_m/Vr/src/VREDMIN-VS-SEW16_LMUL2.S
+
+- test: VREDMIN-VS-SEW16_LMUL4
+  iterations: 1
+  path_var: TESTS_PATH
+  gcc_opts: "-DVLEN=4096 -D rvtest_mtrap_routine -static -mcmodel=medany -fvisibility=hidden -nostdlib -nostartfiles -I<path_var>/../../asm/env"
+  asm_tests: <path_var>/imperas-riscv-tests/riscv-test-suite/rv64i_m/Vr/src/VREDMIN-VS-SEW16_LMUL4.S
+
+- test: VREDOR-VS-SEW16_LMUL1
+  iterations: 1
+  path_var: TESTS_PATH
+  gcc_opts: "-DVLEN=4096 -D rvtest_mtrap_routine -static -mcmodel=medany -fvisibility=hidden -nostdlib -nostartfiles -I<path_var>/../../asm/env"
+  asm_tests: <path_var>/imperas-riscv-tests/riscv-test-suite/rv64i_m/Vr/src/VREDOR-VS-SEW16_LMUL1.S
+
+- test: VFREDOSUM-VS-SEW16_FRACLMUL
+  iterations: 1
+  path_var: TESTS_PATH
+  gcc_opts: "-DVLEN=4096 -D rvtest_mtrap_routine -static -mcmodel=medany -fvisibility=hidden -nostdlib -nostartfiles -I<path_var>/../../asm/env"
+  asm_tests: <path_var>/imperas-riscv-tests/riscv-test-suite/rv64i_m/Vr/src/VFREDOSUM-VS-SEW16_FRACLMUL.S
+
+- test: VWREDSUM-VS-SEW16_LMUL2
+  iterations: 1
+  path_var: TESTS_PATH
+  gcc_opts: "-DVLEN=4096 -D rvtest_mtrap_routine -static -mcmodel=medany -fvisibility=hidden -nostdlib -nostartfiles -I<path_var>/../../asm/env"
+  asm_tests: <path_var>/imperas-riscv-tests/riscv-test-suite/rv64i_m/Vr/src/VWREDSUM-VS-SEW16_LMUL2.S
+
+- test: VWREDSUM-VS-SEW16_FRACLMUL
+  iterations: 1
+  path_var: TESTS_PATH
+  gcc_opts: "-DVLEN=4096 -D rvtest_mtrap_routine -static -mcmodel=medany -fvisibility=hidden -nostdlib -nostartfiles -I<path_var>/../../asm/env"
+  asm_tests: <path_var>/imperas-riscv-tests/riscv-test-suite/rv64i_m/Vr/src/VWREDSUM-VS-SEW16_FRACLMUL.S
+
+- test: VREDAND-VS-SEW8_LMUL4
+  iterations: 1
+  path_var: TESTS_PATH
+  gcc_opts: "-DVLEN=4096 -D rvtest_mtrap_routine -static -mcmodel=medany -fvisibility=hidden -nostdlib -nostartfiles -I<path_var>/../../asm/env"
+  asm_tests: <path_var>/imperas-riscv-tests/riscv-test-suite/rv64i_m/Vr/src/VREDAND-VS-SEW8_LMUL4.S
+
+- test: VWREDSUM-VS-SEW8_LMUL1
+  iterations: 1
+  path_var: TESTS_PATH
+  gcc_opts: "-DVLEN=4096 -D rvtest_mtrap_routine -static -mcmodel=medany -fvisibility=hidden -nostdlib -nostartfiles -I<path_var>/../../asm/env"
+  asm_tests: <path_var>/imperas-riscv-tests/riscv-test-suite/rv64i_m/Vr/src/VWREDSUM-VS-SEW8_LMUL1.S
+
+- test: VREDMAXU-VS-SEW32_LMUL2
+  iterations: 1
+  path_var: TESTS_PATH
+  gcc_opts: "-DVLEN=4096 -D rvtest_mtrap_routine -static -mcmodel=medany -fvisibility=hidden -nostdlib -nostartfiles -I<path_var>/../../asm/env"
+  asm_tests: <path_var>/imperas-riscv-tests/riscv-test-suite/rv64i_m/Vr/src/VREDMAXU-VS-SEW32_LMUL2.S
+
+- test: VREDMIN-VS-SEW16_LMUL8
+  iterations: 1
+  path_var: TESTS_PATH
+  gcc_opts: "-DVLEN=4096 -D rvtest_mtrap_routine -static -mcmodel=medany -fvisibility=hidden -nostdlib -nostartfiles -I<path_var>/../../asm/env"
+  asm_tests: <path_var>/imperas-riscv-tests/riscv-test-suite/rv64i_m/Vr/src/VREDMIN-VS-SEW16_LMUL8.S
+
+- test: VREDXOR-VS-SEW16_FRACLMUL
+  iterations: 1
+  path_var: TESTS_PATH
+  gcc_opts: "-DVLEN=4096 -D rvtest_mtrap_routine -static -mcmodel=medany -fvisibility=hidden -nostdlib -nostartfiles -I<path_var>/../../asm/env"
+  asm_tests: <path_var>/imperas-riscv-tests/riscv-test-suite/rv64i_m/Vr/src/VREDXOR-VS-SEW16_FRACLMUL.S
+
+- test: VREDMIN-VS-SEW8_LMUL8
+  iterations: 1
+  path_var: TESTS_PATH
+  gcc_opts: "-DVLEN=4096 -D rvtest_mtrap_routine -static -mcmodel=medany -fvisibility=hidden -nostdlib -nostartfiles -I<path_var>/../../asm/env"
+  asm_tests: <path_var>/imperas-riscv-tests/riscv-test-suite/rv64i_m/Vr/src/VREDMIN-VS-SEW8_LMUL8.S
+
+- test: VREDMAX-VS-SEW32_LMUL8
+  iterations: 1
+  path_var: TESTS_PATH
+  gcc_opts: "-DVLEN=4096 -D rvtest_mtrap_routine -static -mcmodel=medany -fvisibility=hidden -nostdlib -nostartfiles -I<path_var>/../../asm/env"
+  asm_tests: <path_var>/imperas-riscv-tests/riscv-test-suite/rv64i_m/Vr/src/VREDMAX-VS-SEW32_LMUL8.S
+
+- test: VREDOR-VS-SEW16_FRACLMUL
+  iterations: 1
+  path_var: TESTS_PATH
+  gcc_opts: "-DVLEN=4096 -D rvtest_mtrap_routine -static -mcmodel=medany -fvisibility=hidden -nostdlib -nostartfiles -I<path_var>/../../asm/env"
+  asm_tests: <path_var>/imperas-riscv-tests/riscv-test-suite/rv64i_m/Vr/src/VREDOR-VS-SEW16_FRACLMUL.S
+
+- test: VREDOR-VS-SEW8_LMUL1
+  iterations: 1
+  path_var: TESTS_PATH
+  gcc_opts: "-DVLEN=4096 -D rvtest_mtrap_routine -static -mcmodel=medany -fvisibility=hidden -nostdlib -nostartfiles -I<path_var>/../../asm/env"
+  asm_tests: <path_var>/imperas-riscv-tests/riscv-test-suite/rv64i_m/Vr/src/VREDOR-VS-SEW8_LMUL1.S
+
+- test: VREDXOR-VS-SEW32_LMUL2
+  iterations: 1
+  path_var: TESTS_PATH
+  gcc_opts: "-DVLEN=4096 -D rvtest_mtrap_routine -static -mcmodel=medany -fvisibility=hidden -nostdlib -nostartfiles -I<path_var>/../../asm/env"
+  asm_tests: <path_var>/imperas-riscv-tests/riscv-test-suite/rv64i_m/Vr/src/VREDXOR-VS-SEW32_LMUL2.S
+
+- test: VREDMAX-VS-SEW32_FRACLMUL
+  iterations: 1
+  path_var: TESTS_PATH
+  gcc_opts: "-DVLEN=4096 -D rvtest_mtrap_routine -static -mcmodel=medany -fvisibility=hidden -nostdlib -nostartfiles -I<path_var>/../../asm/env"
+  asm_tests: <path_var>/imperas-riscv-tests/riscv-test-suite/rv64i_m/Vr/src/VREDMAX-VS-SEW32_FRACLMUL.S
+
+- test: VREDSUM-VS-SEW8_LMUL8
+  iterations: 1
+  path_var: TESTS_PATH
+  gcc_opts: "-DVLEN=4096 -D rvtest_mtrap_routine -static -mcmodel=medany -fvisibility=hidden -nostdlib -nostartfiles -I<path_var>/../../asm/env"
+  asm_tests: <path_var>/imperas-riscv-tests/riscv-test-suite/rv64i_m/Vr/src/VREDSUM-VS-SEW8_LMUL8.S
+
+- test: VREDMINU-VS-SEW8_LMUL8
+  iterations: 1
+  path_var: TESTS_PATH
+  gcc_opts: "-DVLEN=4096 -D rvtest_mtrap_routine -static -mcmodel=medany -fvisibility=hidden -nostdlib -nostartfiles -I<path_var>/../../asm/env"
+  asm_tests: <path_var>/imperas-riscv-tests/riscv-test-suite/rv64i_m/Vr/src/VREDMINU-VS-SEW8_LMUL8.S
+
+- test: VREDXOR-VS-SEW8_LMUL8
+  iterations: 1
+  path_var: TESTS_PATH
+  gcc_opts: "-DVLEN=4096 -D rvtest_mtrap_routine -static -mcmodel=medany -fvisibility=hidden -nostdlib -nostartfiles -I<path_var>/../../asm/env"
+  asm_tests: <path_var>/imperas-riscv-tests/riscv-test-suite/rv64i_m/Vr/src/VREDXOR-VS-SEW8_LMUL8.S
+
+- test: VREDMAXU-VS-SEW16_LMUL4
+  iterations: 1
+  path_var: TESTS_PATH
+  gcc_opts: "-DVLEN=4096 -D rvtest_mtrap_routine -static -mcmodel=medany -fvisibility=hidden -nostdlib -nostartfiles -I<path_var>/../../asm/env"
+  asm_tests: <path_var>/imperas-riscv-tests/riscv-test-suite/rv64i_m/Vr/src/VREDMAXU-VS-SEW16_LMUL4.S
+
+- test: VFWREDUSUM-VS-SEW16_LMUL1
+  iterations: 1
+  path_var: TESTS_PATH
+  gcc_opts: "-DVLEN=4096 -D rvtest_mtrap_routine -static -mcmodel=medany -fvisibility=hidden -nostdlib -nostartfiles -I<path_var>/../../asm/env"
+  asm_tests: <path_var>/imperas-riscv-tests/riscv-test-suite/rv64i_m/Vr/src/VFWREDUSUM-VS-SEW16_LMUL1.S
+
+- test: VREDMINU-VS-SEW8_FRACLMUL
+  iterations: 1
+  path_var: TESTS_PATH
+  gcc_opts: "-DVLEN=4096 -D rvtest_mtrap_routine -static -mcmodel=medany -fvisibility=hidden -nostdlib -nostartfiles -I<path_var>/../../asm/env"
+  asm_tests: <path_var>/imperas-riscv-tests/riscv-test-suite/rv64i_m/Vr/src/VREDMINU-VS-SEW8_FRACLMUL.S
+
+- test: VREDXOR-VS-SEW8_LMUL1
+  iterations: 1
+  path_var: TESTS_PATH
+  gcc_opts: "-DVLEN=4096 -D rvtest_mtrap_routine -static -mcmodel=medany -fvisibility=hidden -nostdlib -nostartfiles -I<path_var>/../../asm/env"
+  asm_tests: <path_var>/imperas-riscv-tests/riscv-test-suite/rv64i_m/Vr/src/VREDXOR-VS-SEW8_LMUL1.S
+
+- test: VREDMAX-VS-SEW32_LMUL1
+  iterations: 1
+  path_var: TESTS_PATH
+  gcc_opts: "-DVLEN=4096 -D rvtest_mtrap_routine -static -mcmodel=medany -fvisibility=hidden -nostdlib -nostartfiles -I<path_var>/../../asm/env"
+  asm_tests: <path_var>/imperas-riscv-tests/riscv-test-suite/rv64i_m/Vr/src/VREDMAX-VS-SEW32_LMUL1.S
+
+- test: VFREDOSUM-VS-SEW32_FRACLMUL
+  iterations: 1
+  path_var: TESTS_PATH
+  gcc_opts: "-DVLEN=4096 -D rvtest_mtrap_routine -static -mcmodel=medany -fvisibility=hidden -nostdlib -nostartfiles -I<path_var>/../../asm/env"
+  asm_tests: <path_var>/imperas-riscv-tests/riscv-test-suite/rv64i_m/Vr/src/VFREDOSUM-VS-SEW32_FRACLMUL.S
+
+- test: VREDMINU-VS-SEW8_LMUL2
+  iterations: 1
+  path_var: TESTS_PATH
+  gcc_opts: "-DVLEN=4096 -D rvtest_mtrap_routine -static -mcmodel=medany -fvisibility=hidden -nostdlib -nostartfiles -I<path_var>/../../asm/env"
+  asm_tests: <path_var>/imperas-riscv-tests/riscv-test-suite/rv64i_m/Vr/src/VREDMINU-VS-SEW8_LMUL2.S
+
+- test: VREDOR-VS-SEW32_LMUL1
+  iterations: 1
+  path_var: TESTS_PATH
+  gcc_opts: "-DVLEN=4096 -D rvtest_mtrap_routine -static -mcmodel=medany -fvisibility=hidden -nostdlib -nostartfiles -I<path_var>/../../asm/env"
+  asm_tests: <path_var>/imperas-riscv-tests/riscv-test-suite/rv64i_m/Vr/src/VREDOR-VS-SEW32_LMUL1.S
+
+- test: VFREDMIN-VS-SEW16_FRACLMUL
+  iterations: 1
+  path_var: TESTS_PATH
+  gcc_opts: "-DVLEN=4096 -D rvtest_mtrap_routine -static -mcmodel=medany -fvisibility=hidden -nostdlib -nostartfiles -I<path_var>/../../asm/env"
+  asm_tests: <path_var>/imperas-riscv-tests/riscv-test-suite/rv64i_m/Vr/src/VFREDMIN-VS-SEW16_FRACLMUL.S
+
+- test: VWREDSUM-VS-SEW8_FRACLMUL
+  iterations: 1
+  path_var: TESTS_PATH
+  gcc_opts: "-DVLEN=4096 -D rvtest_mtrap_routine -static -mcmodel=medany -fvisibility=hidden -nostdlib -nostartfiles -I<path_var>/../../asm/env"
+  asm_tests: <path_var>/imperas-riscv-tests/riscv-test-suite/rv64i_m/Vr/src/VWREDSUM-VS-SEW8_FRACLMUL.S
+
+- test: VWREDSUMU-VS-SEW16_LMUL4
+  iterations: 1
+  path_var: TESTS_PATH
+  gcc_opts: "-DVLEN=4096 -D rvtest_mtrap_routine -static -mcmodel=medany -fvisibility=hidden -nostdlib -nostartfiles -I<path_var>/../../asm/env"
+  asm_tests: <path_var>/imperas-riscv-tests/riscv-test-suite/rv64i_m/Vr/src/VWREDSUMU-VS-SEW16_LMUL4.S
+
+- test: VREDMINU-VS-SEW32_LMUL8
+  iterations: 1
+  path_var: TESTS_PATH
+  gcc_opts: "-DVLEN=4096 -D rvtest_mtrap_routine -static -mcmodel=medany -fvisibility=hidden -nostdlib -nostartfiles -I<path_var>/../../asm/env"
+  asm_tests: <path_var>/imperas-riscv-tests/riscv-test-suite/rv64i_m/Vr/src/VREDMINU-VS-SEW32_LMUL8.S
+
+- test: VWREDSUMU-VS-SEW16_FRACLMUL
+  iterations: 1
+  path_var: TESTS_PATH
+  gcc_opts: "-DVLEN=4096 -D rvtest_mtrap_routine -static -mcmodel=medany -fvisibility=hidden -nostdlib -nostartfiles -I<path_var>/../../asm/env"
+  asm_tests: <path_var>/imperas-riscv-tests/riscv-test-suite/rv64i_m/Vr/src/VWREDSUMU-VS-SEW16_FRACLMUL.S
+
+- test: VFREDOSUM-VS-SEW16_LMUL8
+  iterations: 1
+  path_var: TESTS_PATH
+  gcc_opts: "-DVLEN=4096 -D rvtest_mtrap_routine -static -mcmodel=medany -fvisibility=hidden -nostdlib -nostartfiles -I<path_var>/../../asm/env"
+  asm_tests: <path_var>/imperas-riscv-tests/riscv-test-suite/rv64i_m/Vr/src/VFREDOSUM-VS-SEW16_LMUL8.S
+
+- test: VREDAND-VS-SEW8_FRACLMUL
+  iterations: 1
+  path_var: TESTS_PATH
+  gcc_opts: "-DVLEN=4096 -D rvtest_mtrap_routine -static -mcmodel=medany -fvisibility=hidden -nostdlib -nostartfiles -I<path_var>/../../asm/env"
+  asm_tests: <path_var>/imperas-riscv-tests/riscv-test-suite/rv64i_m/Vr/src/VREDAND-VS-SEW8_FRACLMUL.S
+
+- test: VREDMIN-VS-SEW16_LMUL1
+  iterations: 1
+  path_var: TESTS_PATH
+  gcc_opts: "-DVLEN=4096 -D rvtest_mtrap_routine -static -mcmodel=medany -fvisibility=hidden -nostdlib -nostartfiles -I<path_var>/../../asm/env"
+  asm_tests: <path_var>/imperas-riscv-tests/riscv-test-suite/rv64i_m/Vr/src/VREDMIN-VS-SEW16_LMUL1.S
+
+- test: VWREDSUM-VS-SEW8_LMUL2
+  iterations: 1
+  path_var: TESTS_PATH
+  gcc_opts: "-DVLEN=4096 -D rvtest_mtrap_routine -static -mcmodel=medany -fvisibility=hidden -nostdlib -nostartfiles -I<path_var>/../../asm/env"
+  asm_tests: <path_var>/imperas-riscv-tests/riscv-test-suite/rv64i_m/Vr/src/VWREDSUM-VS-SEW8_LMUL2.S
+
+- test: VREDSUM-VS-SEW32_LMUL2
+  iterations: 1
+  path_var: TESTS_PATH
+  gcc_opts: "-DVLEN=4096 -D rvtest_mtrap_routine -static -mcmodel=medany -fvisibility=hidden -nostdlib -nostartfiles -I<path_var>/../../asm/env"
+  asm_tests: <path_var>/imperas-riscv-tests/riscv-test-suite/rv64i_m/Vr/src/VREDSUM-VS-SEW32_LMUL2.S
+
+- test: VFREDMIN-VS-SEW32_LMUL4
+  iterations: 1
+  path_var: TESTS_PATH
+  gcc_opts: "-DVLEN=4096 -D rvtest_mtrap_routine -static -mcmodel=medany -fvisibility=hidden -nostdlib -nostartfiles -I<path_var>/../../asm/env"
+  asm_tests: <path_var>/imperas-riscv-tests/riscv-test-suite/rv64i_m/Vr/src/VFREDMIN-VS-SEW32_LMUL4.S
+
+- test: VFREDUSUM-VS-SEW16_LMUL2
+  iterations: 1
+  path_var: TESTS_PATH
+  gcc_opts: "-DVLEN=4096 -D rvtest_mtrap_routine -static -mcmodel=medany -fvisibility=hidden -nostdlib -nostartfiles -I<path_var>/../../asm/env"
+  asm_tests: <path_var>/imperas-riscv-tests/riscv-test-suite/rv64i_m/Vr/src/VFREDUSUM-VS-SEW16_LMUL2.S
+
+- test: VREDAND-VS-SEW16_FRACLMUL
+  iterations: 1
+  path_var: TESTS_PATH
+  gcc_opts: "-DVLEN=4096 -D rvtest_mtrap_routine -static -mcmodel=medany -fvisibility=hidden -nostdlib -nostartfiles -I<path_var>/../../asm/env"
+  asm_tests: <path_var>/imperas-riscv-tests/riscv-test-suite/rv64i_m/Vr/src/VREDAND-VS-SEW16_FRACLMUL.S
+
+- test: VREDMAXU-VS-SEW8_LMUL2
+  iterations: 1
+  path_var: TESTS_PATH
+  gcc_opts: "-DVLEN=4096 -D rvtest_mtrap_routine -static -mcmodel=medany -fvisibility=hidden -nostdlib -nostartfiles -I<path_var>/../../asm/env"
+  asm_tests: <path_var>/imperas-riscv-tests/riscv-test-suite/rv64i_m/Vr/src/VREDMAXU-VS-SEW8_LMUL2.S
+
+- test: VFREDUSUM-VS-SEW32_LMUL4
+  iterations: 1
+  path_var: TESTS_PATH
+  gcc_opts: "-DVLEN=4096 -D rvtest_mtrap_routine -static -mcmodel=medany -fvisibility=hidden -nostdlib -nostartfiles -I<path_var>/../../asm/env"
+  asm_tests: <path_var>/imperas-riscv-tests/riscv-test-suite/rv64i_m/Vr/src/VFREDUSUM-VS-SEW32_LMUL4.S
+
+- test: VFREDMAX-VS-SEW16_LMUL4
+  iterations: 1
+  path_var: TESTS_PATH
+  gcc_opts: "-DVLEN=4096 -D rvtest_mtrap_routine -static -mcmodel=medany -fvisibility=hidden -nostdlib -nostartfiles -I<path_var>/../../asm/env"
+  asm_tests: <path_var>/imperas-riscv-tests/riscv-test-suite/rv64i_m/Vr/src/VFREDMAX-VS-SEW16_LMUL4.S
+
+- test: VFWREDUSUM-VS-SEW16_LMUL4
+  iterations: 1
+  path_var: TESTS_PATH
+  gcc_opts: "-DVLEN=4096 -D rvtest_mtrap_routine -static -mcmodel=medany -fvisibility=hidden -nostdlib -nostartfiles -I<path_var>/../../asm/env"
+  asm_tests: <path_var>/imperas-riscv-tests/riscv-test-suite/rv64i_m/Vr/src/VFWREDUSUM-VS-SEW16_LMUL4.S
+
+- test: VREDMAXU-VS-SEW8_LMUL1
+  iterations: 1
+  path_var: TESTS_PATH
+  gcc_opts: "-DVLEN=4096 -D rvtest_mtrap_routine -static -mcmodel=medany -fvisibility=hidden -nostdlib -nostartfiles -I<path_var>/../../asm/env"
+  asm_tests: <path_var>/imperas-riscv-tests/riscv-test-suite/rv64i_m/Vr/src/VREDMAXU-VS-SEW8_LMUL1.S
+
+- test: VFREDMAX-VS-SEW16_LMUL1
+  iterations: 1
+  path_var: TESTS_PATH
+  gcc_opts: "-DVLEN=4096 -D rvtest_mtrap_routine -static -mcmodel=medany -fvisibility=hidden -nostdlib -nostartfiles -I<path_var>/../../asm/env"
+  asm_tests: <path_var>/imperas-riscv-tests/riscv-test-suite/rv64i_m/Vr/src/VFREDMAX-VS-SEW16_LMUL1.S
+
+- test: VREDXOR-VS-SEW32_LMUL8
+  iterations: 1
+  path_var: TESTS_PATH
+  gcc_opts: "-DVLEN=4096 -D rvtest_mtrap_routine -static -mcmodel=medany -fvisibility=hidden -nostdlib -nostartfiles -I<path_var>/../../asm/env"
+  asm_tests: <path_var>/imperas-riscv-tests/riscv-test-suite/rv64i_m/Vr/src/VREDXOR-VS-SEW32_LMUL8.S
+
+- test: VFREDMAX-VS-SEW32_LMUL2
+  iterations: 1
+  path_var: TESTS_PATH
+  gcc_opts: "-DVLEN=4096 -D rvtest_mtrap_routine -static -mcmodel=medany -fvisibility=hidden -nostdlib -nostartfiles -I<path_var>/../../asm/env"
+  asm_tests: <path_var>/imperas-riscv-tests/riscv-test-suite/rv64i_m/Vr/src/VFREDMAX-VS-SEW32_LMUL2.S
+

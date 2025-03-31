@@ -1,0 +1,9 @@
+aicore6_tohost tohost
+aicore6_fromhost fromhost
+aicore6_multicore_sync multicore_sync
+aicore6_multicore_printf multicore_printf
+aicore6__thread_pointer _thread_pointer
+aicore6_stack_addrs stack_addrs
+aicore6_barrier_vars barrier_vars
+aicore6_exclusive_access_vars exclusive_access_vars
+aicore6_pipeline pipeline

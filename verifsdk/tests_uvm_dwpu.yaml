@@ -1,0 +1,207 @@
+tests:
+  - name: ai_core_dwpu_ral_test
+    description: This testcase access all CSRs (expect RO) and check that the data and response are accordingly to the RAL specification
+    labels: [HW_IP_DWPU_DV_SIM_NIGHTLY_TEST, HW_IP_DWPU_DV_SIM_WEEKLY_TEST]
+    requirement_ids: [DWPU_RAL_0]
+    platforms: [uvm.HW_IP_DWPU_DEFAULT_DV_SIM]
+    owner: Dhanusuya Mahendran
+    flags: ["+RAL_TEST"]
+    repeat_count: 1
+    seeds: [1]
+
+  - name: ai_core_dwpu_ral_custom_test
+    description: This testcase access all CSRs and check that response is accordingly to the RAL specification. Done to check that RO registers answer correctly when beign written.
+    labels: [HW_IP_DWPU_DV_SIM_NIGHTLY_TEST, HW_IP_DWPU_DV_SIM_WEEKLY_TEST]
+    requirement_ids: [DWPU_RAL_1]
+    platforms: [uvm.HW_IP_DWPU_DEFAULT_DV_SIM]
+    owner: Jorge Carvalho
+    flags: ["+RAL_TEST"]
+    repeat_count: 1
+    seeds: [1]
+
+  - name: ai_core_dwpu_address_map_holes_resp_test
+    description: This testcase checks that accesses to addresses that are not assigned are answered correctly (SLVERR)
+    labels: [HW_IP_DWPU_DV_SIM_NIGHTLY_TEST, HW_IP_DWPU_DV_SIM_WEEKLY_TEST, HW_IP_DWPU_DV_SIM_MERGE_REQUEST]
+    requirement_ids: [AICORE_FEAT_DATAPATH_11, DWPU_RAL_2, DWPU_RAL_3]
+    platforms: [uvm.HW_IP_DWPU_DEFAULT_DV_SIM]
+    owner: Jorge Carvalho
+    flags: []
+    repeat_count: 1
+    seeds: [1]
+
+  - name: ai_core_dwpu_prog_mem_access_test
+    description: This testcase checks that the accesses (RD/WR) to program memory are done succefully. The value written is the value read.
+    labels: [HW_IP_DWPU_DV_SIM_WEEKLY_TEST]
+    requirement_ids: [DWPU_FEAT_3]
+    platforms: [uvm.HW_IP_DWPU_DEFAULT_DV_SIM]
+    owner: Jorge Carvalho
+    flags: []
+    repeat_count: 1
+    seeds: [1]
+
+  - name: ai_core_dwpu_irq_test
+    description: This testcase checks that each IRQ is triggered when the specified stimuli is done.
+    labels: [HW_IP_DWPU_DV_SIM_NIGHTLY_TEST, HW_IP_DWPU_DV_SIM_WEEKLY_TEST]
+    requirement_ids: [DWPU_CMDBLK_3]
+    platforms: [uvm.HW_IP_DWPU_DEFAULT_DV_SIM]
+    owner: Jorge Carvalho
+    flags: []
+    repeat_count: 10
+    seeds: [1]
+
+  - name: ai_core_dwpu_stream_bypass_test
+    description: This testcase checks that the bypass command works as specified.
+    labels: [HW_IP_DWPU_DV_SIM_WEEKLY_TEST]
+    requirement_ids: [DWPU_CMDBLK_6, DWPU_CMDBLK_7]
+    platforms: [uvm.HW_IP_DWPU_DEFAULT_DV_SIM]
+    owner: Jorge Carvalho
+    flags: []
+    repeat_count: 1
+    seeds: [1]
+
+  - name: ai_core_dwpu_loop_test
+    description: This testcase checks that when all loops are enabled DWPU works accordingly to specification
+    labels: [HW_IP_DWPU_DV_SIM_WEEKLY_TEST]
+    requirement_ids: [DWPU_CMDBLK_7]
+    platforms: [uvm.HW_IP_DWPU_DEFAULT_DV_SIM]
+    owner: Jorge Carvalho
+    flags: []
+    repeat_count: 20
+    seeds: [1]
+
+  - name: ai_core_dwpu_parallel_loops_wo_interlog_test
+    description: This testcase checks that when running a scenario with parallel loop that does not have interlog, DWPU works accordingly to specification.
+    labels: [HW_IP_DWPU_DV_SIM_WEEKLY_TEST]
+    requirement_ids: [DWPU_CMDBLK_7]
+    platforms: [uvm.HW_IP_DWPU_DEFAULT_DV_SIM]
+    owner: Jorge Carvalho
+    flags: []
+    repeat_count: 1
+    seeds: [1]
+
+  - name: ai_core_dwpu_standard_test
+    description: This testcase is the sanity testcase that randomizes all cases of DWPU command.
+    labels: [HW_IP_DWPU_DV_SIM_NIGHTLY_TEST, HW_IP_DWPU_DV_SIM_WEEKLY_TEST, HW_IP_DWPU_DV_SIM_MERGE_REQUEST]
+    requirement_ids: [DWPU_FEAT_0, DWPU_FEAT_1, DWPU_FEAT_2, DWPU_FEAT_3,  DWPU_FEAT_4, DWPU_FEAT_5, DWPU_FEAT_6, DWPU_FEAT_7, DWPU_FEAT_8, DWPU_FEAT_9, DWPU_FEAT_10, DWPU_FEAT_11, DWPU_FEAT_12, DWPU_FEAT_13, DWPU_FEAT_14,  DWPU_CMDBLK_0, DWPU_CMDBLK_1, DWPU_CMDBLK_2, DWPU_CMDBLK_7]
+    platforms: [uvm.HW_IP_DWPU_DEFAULT_DV_SIM]
+    owner: Jorge Carvalho
+    flags: []
+    repeat_count: 1
+    seeds: [1]
+
+  - name: ai_core_dwpu_extensive_standard_test
+    description: This testcase is equal to ai_core_dwpu_standard_test except the number of iterations (higher number) that a program/command is randomized and ran on DWPU. This testcase is ran for coverage purposes.
+    labels: [HW_IP_DWPU_DV_SIM_WEEKLY_TEST]
+    requirement_ids: [DWPU_FEAT_0, DWPU_FEAT_1, DWPU_FEAT_2, DWPU_FEAT_3,  DWPU_FEAT_4, DWPU_FEAT_5, DWPU_FEAT_6, DWPU_FEAT_7, DWPU_FEAT_8, DWPU_FEAT_9, DWPU_FEAT_10, DWPU_FEAT_11, DWPU_FEAT_12, DWPU_FEAT_13, DWPU_FEAT_14,  DWPU_CMDBLK_0, DWPU_CMDBLK_1, DWPU_CMDBLK_2, DWPU_CMDBLK_7]
+    platforms: [uvm.HW_IP_DWPU_DEFAULT_DV_SIM]
+    owner: Jorge Carvalho
+    flags: []
+    repeat_count: 100
+    seeds: [1]
+
+  - name: ai_core_dwpu_cmd_fifo_overflow_test
+    description: This testcase checks that when the commmand fifo suffers an overflow, all commands after the being full are discarded, and the ones inside command fifo run correctly.
+    labels: [HW_IP_DWPU_DV_SIM_NIGHTLY_TEST, HW_IP_DWPU_DV_SIM_WEEKLY_TEST]
+    requirement_ids: [DWPU_CMDBLK_4, DWPU_CMDBLK_5]
+    platforms: [uvm.HW_IP_DWPU_DEFAULT_DV_SIM]
+    owner: Jorge Carvalho
+    flags: []
+    repeat_count: 10
+    seeds: [1]
+
+  - name: ai_core_dwpu_small_cmds_fifo_overflow_test
+    description: This testcase is equal to ai_core_dwpu_cmd_fifo_overflow_test but with small programs (only init section).
+    labels: [HW_IP_DWPU_DV_SIM_WEEKLY_TEST]
+    requirement_ids: [DWPU_CMDBLK_4, DWPU_CMDBLK_5]
+    platforms: [uvm.HW_IP_DWPU_DEFAULT_DV_SIM]
+    owner: Jorge Carvalho
+    flags: []
+    repeat_count: 10
+    seeds: [1]
+
+  - name: ai_core_dwpu_standard_greater_init_iter_num_test
+    description: This testcase checks that when init iteration number is set to its maximum value, DWPU works correctly
+    labels: [TODO]
+    requirement_ids: []
+    platforms: [uvm.HW_IP_DWPU_DEFAULT_DV_SIM]
+    owner: Jorge Carvalho
+    flags: []
+    repeat_count: 1
+    seeds: [1]
+
+  - name: ai_core_dwpu_standard_greater_outer_iter_num_test
+    description: This testcase checks that when outer iteration number is set to its maximum value, DWPU works correctly
+    labels: [TODO]
+    requirement_ids: []
+    platforms: [uvm.HW_IP_DWPU_DEFAULT_DV_SIM]
+    owner: Jorge Carvalho
+    flags: []
+    repeat_count: 1
+    seeds: [1]
+
+  - name: ai_core_dwpu_standard_greater_inner0_iter_num_test
+    description: This testcase checks that when inner0 iteration number is set to its maximum value, DWPU works correctly
+    labels: [TODO]
+    requirement_ids: []
+    platforms: [uvm.HW_IP_DWPU_DEFAULT_DV_SIM]
+    owner: Jorge Carvalho
+    flags: []
+    repeat_count: 1
+    seeds: [1]
+
+  - name: ai_core_dwpu_standard_greater_inner1_iter_num_test
+    description: This testcase checks that when inner1 iteration number is set to its maximum value, DWPU works correctly
+    labels: [TODO]
+    requirement_ids: []
+    platforms: [uvm.HW_IP_DWPU_DEFAULT_DV_SIM]
+    owner: Jorge Carvalho
+    flags: []
+    repeat_count: 1
+    seeds: [1]
+
+  - name: ai_core_dwpu_axi_access_coverage_test
+    description: This testcase was created to achieve code coverage corner cases of AXI path into DWPU
+    labels: [HW_IP_DWPU_DV_SIM_WEEKLY_TEST]
+    requirement_ids: []
+    platforms: [uvm.HW_IP_DWPU_DEFAULT_DV_SIM]
+    owner: Jorge Carvalho
+    flags: []
+    repeat_count: 2
+    seeds: [1]
+
+  - name: ai_core_dwpu_single_instr_no_input_no_output_test
+    description: This testcase checks that DWPU works correclty when running a program with a single instruction that does not consume any input, neither send any data to output.
+    labels: [HW_IP_DWPU_DV_SIM_WEEKLY_TEST]
+    requirement_ids: [DWPU_FEAT_10, DWPU_FEAT_11, DWPU_FEAT_13]
+    platforms: [uvm.HW_IP_DWPU_DEFAULT_DV_SIM]
+    owner: Jorge Carvalho
+    flags: []
+    repeat_count: 1
+    seeds: [1]
+
+  - name: ai_core_dwpu_in_word_ptr_test
+    description: This testcase checks that the behavior of field IN_WORD_PTR into CMDBLK_STATUS register is accordingly to the specification.
+    labels: [HW_IP_DWPU_DV_SIM_WEEKLY_TEST]
+    requirement_ids: []
+    platforms: [uvm.HW_IP_DWPU_DEFAULT_DV_SIM]
+    owner: Jorge Carvalho
+    flags: []
+    repeat_count: 1
+    seeds: [1]
+
+  - name: ai_core_dwpu_icdf_test
+    description: This testcase runs the ICDF quickly regression.
+    labels: [HW_IP_DWPU_DV_SIM_WEEKLY_TEST]
+    requirement_ids: []
+    platforms: [uvm.HW_IP_DWPU_DEFAULT_DV_SIM]
+    owner: Jorge Carvalho
+    seeds: [1]
+
+  - name: ai_core_dwpu_extensive_icdf_test
+    description: This testcase runs the ICDF extensive regression.
+    flags : [+ICDF_EXTENSIVE_TEST, UVM_TESTNAME="ai_core_dwpu_icdf_test"]
+    labels: [HW_IP_DWPU_DV_SIM_WEEKLY_TEST]
+    requirement_ids: []
+    platforms: [uvm.HW_IP_DWPU_DEFAULT_DV_SIM]
+    owner: Jorge Carvalho
+    seeds: [1]

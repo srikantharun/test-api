@@ -1,0 +1,22 @@
+# (C) Copyright 2024 Axelera AI B.V.
+# All Rights Reserved
+# *** Axelera AI Confidential ***
+
+package:
+  name: soc_mgmt_func_cov
+  description: "soc_mgmt verification functional model"
+  authors:
+    - "timir.soni@axelera.ai"
+
+dependencies:
+  svt_amba_vip:      { path: "../../../../../../../dv/svt_amba_vip"}
+  soc_mgmt_uvm_common:    { path: "../common" }
+  soc_mgmt_uvm_ral:       { path: "../ral" }
+
+
+sources:
+  - target: simulation
+    include_dirs:
+      - .
+    files:
+      - soc_mgmt_func_cov_pkg.sv

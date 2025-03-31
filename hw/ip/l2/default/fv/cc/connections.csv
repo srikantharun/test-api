@@ -1,0 +1,6 @@
+Connection Name,From,To,Enable Condition
+// Adding the connections here
+// If no condition required, fill the cell with 1
+// CLKs
+clk_bridge,l2.i_clk,l2.u_l2_axi2mmio.i_clk,1
+clk_mem_cfg_sync,l2.i_clk,l2.u_mem_config_sync.i_clk,1

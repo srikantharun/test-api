@@ -1,0 +1,15 @@
+package:
+  name: axe_csv_tb
+  description: "Verification Common Testbenches"
+  authors:
+    - "andrew.bond@axelera.ai"
+
+dependencies:
+  dv_common:   { path: "../../" }
+
+sources:
+  - target: simulation
+    include_dirs:
+      - .
+    files:
+      - tb.sv

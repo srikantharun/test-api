@@ -1,0 +1,27 @@
+# (C) Copyright 2024 Axelera AI B.V.
+# All Rights Reserved
+# *** Axelera AI Confidential ***
+
+package:
+  name: ai_core_mvm_uvm_test
+  description: "Tests for AI CORE MVM"
+  authors:
+    - "timir.soni@axelera.ai"
+
+dependencies:
+  aic_common_pkg             : { path: "../../../../../aic_common/default/rtl/" }
+  svt_amba_vip               : { path: "../../../../../../dv/svt_amba_vip"}
+  ai_core_token_agent_uvm_pkg: { path: "../../../../../../dv/token_agent"}
+  cc_clk_div_agent_uvm_pkg:    { path: "../../../../../../dv/cc_lib/cc_clk_div_agent"}
+  axi_icdf_pkg      :          { path : "../../../../../../dv/icdf/uvm"}
+  ai_core_mvm_uvm_env:         { path: "../env" }
+  ai_core_mvm_uvm_ral:         { path: "../ral" }
+  ai_core_mvm_uvm_seq:         { path: "../sequences" }
+  ai_core_mvm_uvm_common:      { path: "../common" }
+
+sources:
+  - target: simulation
+    include_dirs:
+      - .
+    files:
+      - ai_core_mvm_test_pkg.sv

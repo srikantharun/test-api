@@ -1,0 +1,1644 @@
+tests:
+  - name: cva6v_oss_riscv_compliance_rv64im-REMUW
+    description: "TODO"
+    labels: [CVA6V_DV_MR_TESTS, CVA6V_DV_TESTS, CVA6V_DV_OSS_TESTS, CVA6V_DV_OSS_COMPLIANCE_TESTS]
+    requirement_ids: []
+    platforms: [cva6v.*]
+    owner: Abhilash Chadhar
+    flags: [ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/riscv-compliance/riscv-test-suite/rv64im/src/REMUW, RUN_SCRIPT_ONLY]
+
+
+  - name: cva6v_oss_riscv_compliance_rv64im-MULW
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_OSS_TESTS, CVA6V_DV_OSS_COMPLIANCE_TESTS]
+    requirement_ids: []
+    platforms: [cva6v.*]
+    owner: Abhilash Chadhar
+    flags: [ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/riscv-compliance/riscv-test-suite/rv64im/src/MULW, RUN_SCRIPT_ONLY]
+
+
+  - name: cva6v_oss_riscv_compliance_rv64i-SRAW
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_OSS_TESTS, CVA6V_DV_OSS_COMPLIANCE_TESTS]
+    requirement_ids: []
+    platforms: [cva6v.*]
+    owner: Abhilash Chadhar
+    flags: [ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/riscv-compliance/riscv-test-suite/rv64i/src/SRAW, RUN_SCRIPT_ONLY]
+
+
+  - name: cva6v_oss_riscv_compliance_rv64i-ADDW
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_OSS_TESTS, CVA6V_DV_OSS_COMPLIANCE_TESTS]
+    requirement_ids: []
+    platforms: [cva6v.*]
+    owner: Abhilash Chadhar
+    flags: [ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/riscv-compliance/riscv-test-suite/rv64i/src/ADDW, RUN_SCRIPT_ONLY]
+
+
+  - name: cva6v_oss_riscv_compliance_rv64i-ADDIW
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_OSS_TESTS, CVA6V_DV_OSS_COMPLIANCE_TESTS]
+    requirement_ids: []
+    platforms: [cva6v.*]
+    owner: Abhilash Chadhar
+    flags: [ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/riscv-compliance/riscv-test-suite/rv64i/src/ADDIW, RUN_SCRIPT_ONLY]
+
+
+  - name: cva6v_oss_riscv_compliance_rv64i-SLLW
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_OSS_TESTS, CVA6V_DV_OSS_COMPLIANCE_TESTS]
+    requirement_ids: []
+    platforms: [cva6v.*]
+    owner: Abhilash Chadhar
+    flags: [ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/riscv-compliance/riscv-test-suite/rv64i/src/SLLW, RUN_SCRIPT_ONLY]
+
+
+  - name: cva6v_oss_riscv_compliance_rv64i-SUBW
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_OSS_TESTS, CVA6V_DV_OSS_COMPLIANCE_TESTS]
+    requirement_ids: []
+    platforms: [cva6v.*]
+    owner: Abhilash Chadhar
+    flags: [ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/riscv-compliance/riscv-test-suite/rv64i/src/SUBW, RUN_SCRIPT_ONLY]
+
+
+  - name: cva6v_oss_riscv_compliance_rv64i-SRLW
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_OSS_TESTS, CVA6V_DV_OSS_COMPLIANCE_TESTS]
+    requirement_ids: []
+    platforms: [cva6v.*]
+    owner: Abhilash Chadhar
+    flags: [ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/riscv-compliance/riscv-test-suite/rv64i/src/SRLW, RUN_SCRIPT_ONLY]
+
+
+  - name: cva6v_oss_riscv_compliance_rv64i-SLLIW
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_OSS_TESTS, CVA6V_DV_OSS_COMPLIANCE_TESTS]
+    requirement_ids: []
+    platforms: [cva6v.*]
+    owner: Abhilash Chadhar
+    flags: [ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/riscv-compliance/riscv-test-suite/rv64i/src/SLLIW, RUN_SCRIPT_ONLY]
+
+
+  - name: cva6v_oss_riscv_compliance_rv64i-SRLIW
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_OSS_TESTS, CVA6V_DV_OSS_COMPLIANCE_TESTS]
+    requirement_ids: []
+    platforms: [cva6v.*]
+    owner: Abhilash Chadhar
+    flags: [ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/riscv-compliance/riscv-test-suite/rv64i/src/SRLIW, RUN_SCRIPT_ONLY]
+
+
+  - name: cva6v_oss_riscv_compliance_rv64i-SRAIW
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_OSS_TESTS, CVA6V_DV_OSS_COMPLIANCE_TESTS]
+    requirement_ids: []
+    platforms: [cva6v.*]
+    owner: Abhilash Chadhar
+    flags: [ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/riscv-compliance/riscv-test-suite/rv64i/src/SRAIW, RUN_SCRIPT_ONLY]
+
+
+  - name: cva6v_oss_riscv_compliance_rv32uc-rvc
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_OSS_TESTS, CVA6V_DV_OSS_COMPLIANCE_TESTS]
+    requirement_ids: []
+    platforms: [cva6v.*]
+    owner: Abhilash Chadhar
+    flags: [ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/riscv-compliance/riscv-test-suite/rv32uc/src/rvc, RUN_SCRIPT_ONLY]
+
+
+  # - name: cva6v_oss_riscv_compliance_rv32Zifencei-I-FENCE.I-01
+  #   description: "TODO"
+  #   labels: [CVA6V_DV_TESTS, CVA6V_DV_OSS_TESTS, CVA6V_DV_OSS_COMPLIANCE_TESTS]
+  #   requirement_ids: []
+  #   platforms: [cva6v.*]
+  #   owner: Abhilash Chadhar
+  #   flags: [ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/riscv-compliance/riscv-test-suite/rv32Zifencei/src/I-FENCE.I-01]
+
+
+  - name: cva6v_oss_riscv_compliance_rv32im-MULHSU
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_OSS_TESTS, CVA6V_DV_OSS_COMPLIANCE_TESTS]
+    requirement_ids: []
+    platforms: [cva6v.*]
+    owner: Abhilash Chadhar
+    flags: [ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/riscv-compliance/riscv-test-suite/rv32im/src/MULHSU, RUN_SCRIPT_ONLY]
+
+
+  - name: cva6v_oss_riscv_compliance_rv32im-DIVU
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_OSS_TESTS, CVA6V_DV_OSS_COMPLIANCE_TESTS]
+    requirement_ids: []
+    platforms: [cva6v.*]
+    owner: Abhilash Chadhar
+    flags: [ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/riscv-compliance/riscv-test-suite/rv32im/src/DIVU, RUN_SCRIPT_ONLY]
+
+
+  - name: cva6v_oss_riscv_compliance_rv32im-REMU
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_OSS_TESTS, CVA6V_DV_OSS_COMPLIANCE_TESTS]
+    requirement_ids: []
+    platforms: [cva6v.*]
+    owner: Abhilash Chadhar
+    flags: [ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/riscv-compliance/riscv-test-suite/rv32im/src/REMU, RUN_SCRIPT_ONLY]
+
+
+  - name: cva6v_oss_riscv_compliance_rv32im-MUL
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_OSS_TESTS, CVA6V_DV_OSS_COMPLIANCE_TESTS]
+    requirement_ids: []
+    platforms: [cva6v.*]
+    owner: Abhilash Chadhar
+    flags: [ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/riscv-compliance/riscv-test-suite/rv32im/src/MUL, RUN_SCRIPT_ONLY]
+
+
+  - name: cva6v_oss_riscv_compliance_rv32im-DIV
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_OSS_TESTS, CVA6V_DV_OSS_COMPLIANCE_TESTS]
+    requirement_ids: []
+    platforms: [cva6v.*]
+    owner: Abhilash Chadhar
+    flags: [ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/riscv-compliance/riscv-test-suite/rv32im/src/DIV, RUN_SCRIPT_ONLY]
+
+
+  - name: cva6v_oss_riscv_compliance_rv32im-MULH
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_OSS_TESTS, CVA6V_DV_OSS_COMPLIANCE_TESTS]
+    requirement_ids: []
+    platforms: [cva6v.*]
+    owner: Abhilash Chadhar
+    flags: [ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/riscv-compliance/riscv-test-suite/rv32im/src/MULH, RUN_SCRIPT_ONLY]
+
+
+  - name: cva6v_oss_riscv_compliance_rv32im-MULHU
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_OSS_TESTS, CVA6V_DV_OSS_COMPLIANCE_TESTS]
+    requirement_ids: []
+    platforms: [cva6v.*]
+    owner: Abhilash Chadhar
+    flags: [ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/riscv-compliance/riscv-test-suite/rv32im/src/MULHU, RUN_SCRIPT_ONLY]
+
+
+  - name: cva6v_oss_riscv_compliance_rv32im-REM
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_OSS_TESTS, CVA6V_DV_OSS_COMPLIANCE_TESTS]
+    requirement_ids: []
+    platforms: [cva6v.*]
+    owner: Abhilash Chadhar
+    flags: [ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/riscv-compliance/riscv-test-suite/rv32im/src/REM, RUN_SCRIPT_ONLY]
+
+
+  - name: cva6v_oss_riscv_compliance_rv32ui-jal
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_OSS_TESTS, CVA6V_DV_OSS_COMPLIANCE_TESTS]
+    requirement_ids: []
+    platforms: [cva6v.*]
+    owner: Abhilash Chadhar
+    flags: [ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/riscv-compliance/riscv-test-suite/rv32ui/src/jal, RUN_SCRIPT_ONLY]
+
+
+  - name: cva6v_oss_riscv_compliance_rv32ui-bge
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_OSS_TESTS, CVA6V_DV_OSS_COMPLIANCE_TESTS]
+    requirement_ids: []
+    platforms: [cva6v.*]
+    owner: Abhilash Chadhar
+    flags: [ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/riscv-compliance/riscv-test-suite/rv32ui/src/bge, RUN_SCRIPT_ONLY]
+
+
+  - name: cva6v_oss_riscv_compliance_rv32ui-blt
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_OSS_TESTS, CVA6V_DV_OSS_COMPLIANCE_TESTS]
+    requirement_ids: []
+    platforms: [cva6v.*]
+    owner: Abhilash Chadhar
+    flags: [ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/riscv-compliance/riscv-test-suite/rv32ui/src/blt, RUN_SCRIPT_ONLY]
+
+
+  - name: cva6v_oss_riscv_compliance_rv32ui-bgeu
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_OSS_TESTS, CVA6V_DV_OSS_COMPLIANCE_TESTS]
+    requirement_ids: []
+    platforms: [cva6v.*]
+    owner: Abhilash Chadhar
+    flags: [ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/riscv-compliance/riscv-test-suite/rv32ui/src/bgeu, RUN_SCRIPT_ONLY]
+
+
+  - name: cva6v_oss_riscv_compliance_rv32ui-sw
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_OSS_TESTS, CVA6V_DV_OSS_COMPLIANCE_TESTS]
+    requirement_ids: []
+    platforms: [cva6v.*]
+    owner: Abhilash Chadhar
+    flags: [ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/riscv-compliance/riscv-test-suite/rv32ui/src/sw, RUN_SCRIPT_ONLY]
+
+
+  - name: cva6v_oss_riscv_compliance_rv32ui-lbu
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_OSS_TESTS, CVA6V_DV_OSS_COMPLIANCE_TESTS]
+    requirement_ids: []
+    platforms: [cva6v.*]
+    owner: Abhilash Chadhar
+    flags: [ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/riscv-compliance/riscv-test-suite/rv32ui/src/lbu, RUN_SCRIPT_ONLY]
+
+
+  - name: cva6v_oss_riscv_compliance_rv32ui-sb
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_OSS_TESTS, CVA6V_DV_OSS_COMPLIANCE_TESTS]
+    requirement_ids: []
+    platforms: [cva6v.*]
+    owner: Abhilash Chadhar
+    flags: [ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/riscv-compliance/riscv-test-suite/rv32ui/src/sb, RUN_SCRIPT_ONLY]
+
+
+  - name: cva6v_oss_riscv_compliance_rv32ui-sra
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_OSS_TESTS, CVA6V_DV_OSS_COMPLIANCE_TESTS]
+    requirement_ids: []
+    platforms: [cva6v.*]
+    owner: Abhilash Chadhar
+    flags: [ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/riscv-compliance/riscv-test-suite/rv32ui/src/sra, RUN_SCRIPT_ONLY]
+
+
+  - name: cva6v_oss_riscv_compliance_rv32ui-srl
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_OSS_TESTS, CVA6V_DV_OSS_COMPLIANCE_TESTS]
+    requirement_ids: []
+    platforms: [cva6v.*]
+    owner: Abhilash Chadhar
+    flags: [ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/riscv-compliance/riscv-test-suite/rv32ui/src/srl, RUN_SCRIPT_ONLY]
+
+
+  - name: cva6v_oss_riscv_compliance_rv32ui-sh
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_OSS_TESTS, CVA6V_DV_OSS_COMPLIANCE_TESTS]
+    requirement_ids: []
+    platforms: [cva6v.*]
+    owner: Abhilash Chadhar
+    flags: [ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/riscv-compliance/riscv-test-suite/rv32ui/src/sh, RUN_SCRIPT_ONLY]
+
+
+  - name: cva6v_oss_riscv_compliance_rv32ui-lw
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_OSS_TESTS, CVA6V_DV_OSS_COMPLIANCE_TESTS]
+    requirement_ids: []
+    platforms: [cva6v.*]
+    owner: Abhilash Chadhar
+    flags: [ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/riscv-compliance/riscv-test-suite/rv32ui/src/lw, RUN_SCRIPT_ONLY]
+
+
+  - name: cva6v_oss_riscv_compliance_rv32ui-andi
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_OSS_TESTS, CVA6V_DV_OSS_COMPLIANCE_TESTS]
+    requirement_ids: []
+    platforms: [cva6v.*]
+    owner: Abhilash Chadhar
+    flags: [ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/riscv-compliance/riscv-test-suite/rv32ui/src/andi, RUN_SCRIPT_ONLY]
+
+
+  - name: cva6v_oss_riscv_compliance_rv32ui-srli
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_OSS_TESTS, CVA6V_DV_OSS_COMPLIANCE_TESTS]
+    requirement_ids: []
+    platforms: [cva6v.*]
+    owner: Abhilash Chadhar
+    flags: [ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/riscv-compliance/riscv-test-suite/rv32ui/src/srli, RUN_SCRIPT_ONLY]
+
+
+  - name: cva6v_oss_riscv_compliance_rv32ui-slli
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_OSS_TESTS, CVA6V_DV_OSS_COMPLIANCE_TESTS]
+    requirement_ids: []
+    platforms: [cva6v.*]
+    owner: Abhilash Chadhar
+    flags: [ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/riscv-compliance/riscv-test-suite/rv32ui/src/slli, RUN_SCRIPT_ONLY]
+
+
+  - name: cva6v_oss_riscv_compliance_rv32ui-beq
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_OSS_TESTS, CVA6V_DV_OSS_COMPLIANCE_TESTS]
+    requirement_ids: []
+    platforms: [cva6v.*]
+    owner: Abhilash Chadhar
+    flags: [ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/riscv-compliance/riscv-test-suite/rv32ui/src/beq, RUN_SCRIPT_ONLY]
+
+
+  - name: cva6v_oss_riscv_compliance_rv32ui-sll
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_OSS_TESTS, CVA6V_DV_OSS_COMPLIANCE_TESTS]
+    requirement_ids: []
+    platforms: [cva6v.*]
+    owner: Abhilash Chadhar
+    flags: [ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/riscv-compliance/riscv-test-suite/rv32ui/src/sll, RUN_SCRIPT_ONLY]
+
+
+  - name: cva6v_oss_riscv_compliance_rv32ui-addi
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_OSS_TESTS, CVA6V_DV_OSS_COMPLIANCE_TESTS]
+    requirement_ids: []
+    platforms: [cva6v.*]
+    owner: Abhilash Chadhar
+    flags: [ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/riscv-compliance/riscv-test-suite/rv32ui/src/addi, RUN_SCRIPT_ONLY]
+
+
+  - name: cva6v_oss_riscv_compliance_rv32ui-lh
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_OSS_TESTS, CVA6V_DV_OSS_COMPLIANCE_TESTS]
+    requirement_ids: []
+    platforms: [cva6v.*]
+    owner: Abhilash Chadhar
+    flags: [ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/riscv-compliance/riscv-test-suite/rv32ui/src/lh, RUN_SCRIPT_ONLY]
+
+
+  - name: cva6v_oss_riscv_compliance_rv32ui-and
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_OSS_TESTS, CVA6V_DV_OSS_COMPLIANCE_TESTS]
+    requirement_ids: []
+    platforms: [cva6v.*]
+    owner: Abhilash Chadhar
+    flags: [ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/riscv-compliance/riscv-test-suite/rv32ui/src/and, RUN_SCRIPT_ONLY]
+
+
+  - name: cva6v_oss_riscv_compliance_rv32ui-xori
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_OSS_TESTS, CVA6V_DV_OSS_COMPLIANCE_TESTS]
+    requirement_ids: []
+    platforms: [cva6v.*]
+    owner: Abhilash Chadhar
+    flags: [ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/riscv-compliance/riscv-test-suite/rv32ui/src/xori, RUN_SCRIPT_ONLY]
+
+
+  - name: cva6v_oss_riscv_compliance_rv32ui-sub
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_OSS_TESTS, CVA6V_DV_OSS_COMPLIANCE_TESTS]
+    requirement_ids: []
+    platforms: [cva6v.*]
+    owner: Abhilash Chadhar
+    flags: [ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/riscv-compliance/riscv-test-suite/rv32ui/src/sub, RUN_SCRIPT_ONLY]
+
+
+  - name: cva6v_oss_riscv_compliance_rv32ui-slt
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_OSS_TESTS, CVA6V_DV_OSS_COMPLIANCE_TESTS]
+    requirement_ids: []
+    platforms: [cva6v.*]
+    owner: Abhilash Chadhar
+    flags: [ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/riscv-compliance/riscv-test-suite/rv32ui/src/slt, RUN_SCRIPT_ONLY]
+
+
+  - name: cva6v_oss_riscv_compliance_rv32ui-lb
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_OSS_TESTS, CVA6V_DV_OSS_COMPLIANCE_TESTS]
+    requirement_ids: []
+    platforms: [cva6v.*]
+    owner: Abhilash Chadhar
+    flags: [ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/riscv-compliance/riscv-test-suite/rv32ui/src/lb, RUN_SCRIPT_ONLY]
+
+
+  - name: cva6v_oss_riscv_compliance_rv32ui-or
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_OSS_TESTS, CVA6V_DV_OSS_COMPLIANCE_TESTS]
+    requirement_ids: []
+    platforms: [cva6v.*]
+    owner: Abhilash Chadhar
+    flags: [ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/riscv-compliance/riscv-test-suite/rv32ui/src/or, RUN_SCRIPT_ONLY]
+
+
+  - name: cva6v_oss_riscv_compliance_rv32ui-lui
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_OSS_TESTS, CVA6V_DV_OSS_COMPLIANCE_TESTS]
+    requirement_ids: []
+    platforms: [cva6v.*]
+    owner: Abhilash Chadhar
+    flags: [ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/riscv-compliance/riscv-test-suite/rv32ui/src/lui, RUN_SCRIPT_ONLY]
+
+
+  - name: cva6v_oss_riscv_compliance_rv32ui-ori
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_OSS_TESTS, CVA6V_DV_OSS_COMPLIANCE_TESTS]
+    requirement_ids: []
+    platforms: [cva6v.*]
+    owner: Abhilash Chadhar
+    flags: [ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/riscv-compliance/riscv-test-suite/rv32ui/src/ori, RUN_SCRIPT_ONLY]
+
+
+  - name: cva6v_oss_riscv_compliance_rv32ui-bltu
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_OSS_TESTS, CVA6V_DV_OSS_COMPLIANCE_TESTS]
+    requirement_ids: []
+    platforms: [cva6v.*]
+    owner: Abhilash Chadhar
+    flags: [ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/riscv-compliance/riscv-test-suite/rv32ui/src/bltu, RUN_SCRIPT_ONLY]
+
+
+  - name: cva6v_oss_riscv_compliance_rv32ui-fence_i
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_OSS_TESTS, CVA6V_DV_OSS_COMPLIANCE_TESTS]
+    requirement_ids: []
+    platforms: [cva6v.*]
+    owner: Abhilash Chadhar
+    flags: [ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/riscv-compliance/riscv-test-suite/rv32ui/src/fence_i, RUN_SCRIPT_ONLY]
+
+
+  - name: cva6v_oss_riscv_compliance_rv32ui-auipc
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_OSS_TESTS, CVA6V_DV_OSS_COMPLIANCE_TESTS]
+    requirement_ids: []
+    platforms: [cva6v.*]
+    owner: Abhilash Chadhar
+    flags: [ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/riscv-compliance/riscv-test-suite/rv32ui/src/auipc, RUN_SCRIPT_ONLY]
+
+
+  - name: cva6v_oss_riscv_compliance_rv32ui-srai
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_OSS_TESTS, CVA6V_DV_OSS_COMPLIANCE_TESTS]
+    requirement_ids: []
+    platforms: [cva6v.*]
+    owner: Abhilash Chadhar
+    flags: [ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/riscv-compliance/riscv-test-suite/rv32ui/src/srai, RUN_SCRIPT_ONLY]
+
+
+  - name: cva6v_oss_riscv_compliance_rv32ui-jalr
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_OSS_TESTS, CVA6V_DV_OSS_COMPLIANCE_TESTS]
+    requirement_ids: []
+    platforms: [cva6v.*]
+    owner: Abhilash Chadhar
+    flags: [ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/riscv-compliance/riscv-test-suite/rv32ui/src/jalr, RUN_SCRIPT_ONLY]
+
+
+  - name: cva6v_oss_riscv_compliance_rv32ui-xor
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_OSS_TESTS, CVA6V_DV_OSS_COMPLIANCE_TESTS]
+    requirement_ids: []
+    platforms: [cva6v.*]
+    owner: Abhilash Chadhar
+    flags: [ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/riscv-compliance/riscv-test-suite/rv32ui/src/xor, RUN_SCRIPT_ONLY]
+
+
+  - name: cva6v_oss_riscv_compliance_rv32ui-simple
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_OSS_TESTS, CVA6V_DV_OSS_COMPLIANCE_TESTS]
+    requirement_ids: []
+    platforms: [cva6v.*]
+    owner: Abhilash Chadhar
+    flags: [ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/riscv-compliance/riscv-test-suite/rv32ui/src/simple, RUN_SCRIPT_ONLY]
+
+
+  - name: cva6v_oss_riscv_compliance_rv32ui-lhu
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_OSS_TESTS, CVA6V_DV_OSS_COMPLIANCE_TESTS]
+    requirement_ids: []
+    platforms: [cva6v.*]
+    owner: Abhilash Chadhar
+    flags: [ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/riscv-compliance/riscv-test-suite/rv32ui/src/lhu, RUN_SCRIPT_ONLY]
+
+
+  - name: cva6v_oss_riscv_compliance_rv32ui-bne
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_OSS_TESTS, CVA6V_DV_OSS_COMPLIANCE_TESTS]
+    requirement_ids: []
+    platforms: [cva6v.*]
+    owner: Abhilash Chadhar
+    flags: [ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/riscv-compliance/riscv-test-suite/rv32ui/src/bne, RUN_SCRIPT_ONLY]
+
+
+  - name: cva6v_oss_riscv_compliance_rv32ui-add
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_OSS_TESTS, CVA6V_DV_OSS_COMPLIANCE_TESTS]
+    requirement_ids: []
+    platforms: [cva6v.*]
+    owner: Abhilash Chadhar
+    flags: [ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/riscv-compliance/riscv-test-suite/rv32ui/src/add, RUN_SCRIPT_ONLY]
+
+  - name: cva6v_oss_riscv_compliance_rv32ui-slti
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_OSS_TESTS, CVA6V_DV_OSS_COMPLIANCE_TESTS]
+    requirement_ids: []
+    platforms: [cva6v.*]
+    owner: Abhilash Chadhar
+    flags: [ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/riscv-compliance/riscv-test-suite/rv32ui/src/slti, RUN_SCRIPT_ONLY]
+
+  - name: cva6v_oss_riscv_compliance_rv32ui-sltiu
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_OSS_TESTS, CVA6V_DV_OSS_COMPLIANCE_TESTS]
+    requirement_ids: []
+    platforms: [cva6v.*]
+    owner: Abhilash Chadhar
+    flags: [ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/riscv-compliance/riscv-test-suite/rv32ui/src/sltiu, RUN_SCRIPT_ONLY]
+
+
+  - name: cva6v_oss_riscv_compliance_rv32ui-sltu
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_OSS_TESTS, CVA6V_DV_OSS_COMPLIANCE_TESTS]
+    requirement_ids: []
+    platforms: [cva6v.*]
+    owner: Abhilash Chadhar
+    flags: [ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/riscv-compliance/riscv-test-suite/rv32ui/src/sltu, RUN_SCRIPT_ONLY]
+
+
+  - name: cva6v_oss_riscv_compliance_rv32mi-sbreak
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_OSS_TESTS, CVA6V_DV_OSS_COMPLIANCE_TESTS]
+    requirement_ids: []
+    platforms: [cva6v.*]
+    owner: Abhilash Chadhar
+    flags: [ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/riscv-compliance/riscv-test-suite/rv32mi/src/sbreak, RUN_SCRIPT_ONLY]
+
+
+  # - name: cva6v_oss_riscv_compliance_rv32mi-breakpoint
+  #   description: "TODO"
+  #   labels: [CVA6V_DV_TESTS, CVA6V_DV_OSS_TESTS, CVA6V_DV_OSS_COMPLIANCE_TESTS]
+  #   requirement_ids: []
+  #   platforms: [cva6v.*]
+  #   owner: Abhilash Chadhar
+  #   flags: [ELF=$REPO_ROOT/hw/vendor/axelera/cvav/default/dv/deps/tests/build/riscv-compliance/riscv-test-suite/rv32mi/src/breakpoint]
+
+
+  - name: cva6v_oss_riscv_compliance_rv32mi-scall
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_OSS_TESTS, CVA6V_DV_OSS_COMPLIANCE_TESTS]
+    requirement_ids: []
+    platforms: [cva6v.*]
+    owner: Abhilash Chadhar
+    flags: [ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/riscv-compliance/riscv-test-suite/rv32mi/src/scall, RUN_SCRIPT_ONLY]
+
+
+  - name: cva6v_oss_riscv_compliance_rv32mi-ma_addr
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_OSS_TESTS, CVA6V_DV_OSS_COMPLIANCE_TESTS]
+    requirement_ids: []
+    platforms: [cva6v.*]
+    owner: Abhilash Chadhar
+    flags: [ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/riscv-compliance/riscv-test-suite/rv32mi/src/ma_addr, RUN_SCRIPT_ONLY]
+
+
+  # - name: cva6v_oss_riscv_compliance_rv32mi-mcsr
+  #   description: "TODO"
+  #   labels: [CVA6V_DV_TESTS, CVA6V_DV_OSS_TESTS, CVA6V_DV_OSS_COMPLIANCE_TESTS]
+  #   requirement_ids: []
+  #   platforms: [cva6v.*]
+  #   owner: Abhilash Chadhar
+  #   flags: [ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/riscv-compliance/riscv-test-suite/rv32mi/src/mcsr]
+
+
+  # - name: cva6v_oss_riscv_compliance_rv32mi-ma_fetch
+  #   description: "TODO"
+  #   labels: [CVA6V_DV_TESTS, CVA6V_DV_OSS_TESTS, CVA6V_DV_OSS_COMPLIANCE_TESTS]
+  #   requirement_ids: []
+  #   platforms: [cva6v.*]
+  #   owner: Abhilash Chadhar
+  #   flags: [ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/riscv-compliance/riscv-test-suite/rv32mi/src/ma_fetch]
+
+
+  - name: cva6v_oss_riscv_compliance_rv32mi-shamt
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_OSS_TESTS, CVA6V_DV_OSS_COMPLIANCE_TESTS]
+    requirement_ids: []
+    platforms: [cva6v.*]
+    owner: Abhilash Chadhar
+    flags: [ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/riscv-compliance/riscv-test-suite/rv32mi/src/shamt, RUN_SCRIPT_ONLY]
+
+
+  # - name: cva6v_oss_riscv_compliance_rv32mi-illegal
+  #   description: "TODO"
+  #   labels: [CVA6V_DV_TESTS, CVA6V_DV_OSS_TESTS, CVA6V_DV_OSS_COMPLIANCE_TESTS]
+  #   requirement_ids: []
+  #   platforms: [cva6v.*]
+  #   owner: Abhilash Chadhar
+  #   flags: [ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/riscv-compliance/riscv-test-suite/rv32mi/src/illegal]
+
+  - name: cva6v_oss_riscv_compliance_rv32mi-csr
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_OSS_TESTS, CVA6V_DV_OSS_COMPLIANCE_TESTS]
+    requirement_ids: []
+    platforms: [cva6v.*]
+    owner: Abhilash Chadhar
+    flags: [ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/riscv-compliance/riscv-test-suite/rv32mi/src/csr, RUN_SCRIPT_ONLY]
+
+
+  - name: cva6v_oss_riscv_compliance_rv32i-I-AND-01
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_OSS_TESTS, CVA6V_DV_OSS_COMPLIANCE_TESTS]
+    requirement_ids: []
+    platforms: [cva6v.*]
+    owner: Abhilash Chadhar
+    flags: [ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/riscv-compliance/riscv-test-suite/rv32i/src/I-AND-01, RUN_SCRIPT_ONLY]
+
+
+  - name: cva6v_oss_riscv_compliance_rv32i-I-BNE-01
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_OSS_TESTS, CVA6V_DV_OSS_COMPLIANCE_TESTS]
+    requirement_ids: []
+    platforms: [cva6v.*]
+    owner: Abhilash Chadhar
+    flags: [ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/riscv-compliance/riscv-test-suite/rv32i/src/I-BNE-01, RUN_SCRIPT_ONLY]
+
+
+  - name: cva6v_oss_riscv_compliance_rv32i-I-IO
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_OSS_TESTS, CVA6V_DV_OSS_COMPLIANCE_TESTS]
+    requirement_ids: []
+    platforms: [cva6v.*]
+    owner: Abhilash Chadhar
+    flags: [ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/riscv-compliance/riscv-test-suite/rv32i/src/I-IO, RUN_SCRIPT_ONLY]
+
+
+  - name: cva6v_oss_riscv_compliance_rv32i-I-BLT-01
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_OSS_TESTS, CVA6V_DV_OSS_COMPLIANCE_TESTS]
+    requirement_ids: []
+    platforms: [cva6v.*]
+    owner: Abhilash Chadhar
+    flags: [ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/riscv-compliance/riscv-test-suite/rv32i/src/I-BLT-01, RUN_SCRIPT_ONLY]
+
+
+  - name: cva6v_oss_riscv_compliance_rv32i-I-SB-01
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_OSS_TESTS, CVA6V_DV_OSS_COMPLIANCE_TESTS]
+    requirement_ids: []
+    platforms: [cva6v.*]
+    owner: Abhilash Chadhar
+    flags: [ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/riscv-compliance/riscv-test-suite/rv32i/src/I-SB-01, RUN_SCRIPT_ONLY]
+
+
+  - name: cva6v_oss_riscv_compliance_rv32i-I-MISALIGN_LDST-01
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_OSS_TESTS, CVA6V_DV_OSS_COMPLIANCE_TESTS]
+    requirement_ids: []
+    platforms: [cva6v.*]
+    owner: Abhilash Chadhar
+    flags: [ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/riscv-compliance/riscv-test-suite/rv32i/src/I-MISALIGN_LDST-01, RUN_SCRIPT_ONLY]
+
+
+  - name: cva6v_oss_riscv_compliance_rv32i-I-ECALL-01
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_OSS_TESTS, CVA6V_DV_OSS_COMPLIANCE_TESTS]
+    requirement_ids: []
+    platforms: [cva6v.*]
+    owner: Abhilash Chadhar
+    flags: [ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/riscv-compliance/riscv-test-suite/rv32i/src/I-ECALL-01, RUN_SCRIPT_ONLY]
+
+
+  - name: cva6v_oss_riscv_compliance_rv32i-I-LHU-01
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_OSS_TESTS, CVA6V_DV_OSS_COMPLIANCE_TESTS]
+    requirement_ids: []
+    platforms: [cva6v.*]
+    owner: Abhilash Chadhar
+    flags: [ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/riscv-compliance/riscv-test-suite/rv32i/src/I-LHU-01, RUN_SCRIPT_ONLY]
+
+
+  - name: cva6v_oss_riscv_compliance_rv32i-I-SRLI-01
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_OSS_TESTS, CVA6V_DV_OSS_COMPLIANCE_TESTS]
+    requirement_ids: []
+    platforms: [cva6v.*]
+    owner: Abhilash Chadhar
+    flags: [ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/riscv-compliance/riscv-test-suite/rv32i/src/I-SRLI-01, RUN_SCRIPT_ONLY]
+
+
+  - name: cva6v_oss_riscv_compliance_rv32i-I-BLTU-01
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_OSS_TESTS, CVA6V_DV_OSS_COMPLIANCE_TESTS]
+    requirement_ids: []
+    platforms: [cva6v.*]
+    owner: Abhilash Chadhar
+    flags: [ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/riscv-compliance/riscv-test-suite/rv32i/src/I-BLTU-01, RUN_SCRIPT_ONLY]
+
+
+  - name: cva6v_oss_riscv_compliance_rv32i-I-LH-01
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_OSS_TESTS, CVA6V_DV_OSS_COMPLIANCE_TESTS]
+    requirement_ids: []
+    platforms: [cva6v.*]
+    owner: Abhilash Chadhar
+    flags: [ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/riscv-compliance/riscv-test-suite/rv32i/src/I-LH-01, RUN_SCRIPT_ONLY]
+
+
+  - name: cva6v_oss_riscv_compliance_rv32i-I-AUIPC-01
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_OSS_TESTS, CVA6V_DV_OSS_COMPLIANCE_TESTS]
+    requirement_ids: []
+    platforms: [cva6v.*]
+    owner: Abhilash Chadhar
+    flags: [ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/riscv-compliance/riscv-test-suite/rv32i/src/I-AUIPC-01, RUN_SCRIPT_ONLY]
+
+
+  - name: cva6v_oss_riscv_compliance_rv32i-I-ORI-01
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_OSS_TESTS, CVA6V_DV_OSS_COMPLIANCE_TESTS]
+    requirement_ids: []
+    platforms: [cva6v.*]
+    owner: Abhilash Chadhar
+    flags: [ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/riscv-compliance/riscv-test-suite/rv32i/src/I-ORI-01, RUN_SCRIPT_ONLY]
+
+
+  - name: cva6v_oss_riscv_compliance_rv32i-I-SLLI-01
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_OSS_TESTS, CVA6V_DV_OSS_COMPLIANCE_TESTS]
+    requirement_ids: []
+    platforms: [cva6v.*]
+    owner: Abhilash Chadhar
+    flags: [ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/riscv-compliance/riscv-test-suite/rv32i/src/I-SLLI-01, RUN_SCRIPT_ONLY]
+
+
+  - name: cva6v_oss_riscv_compliance_rv32i-I-RF_width-01
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_OSS_TESTS, CVA6V_DV_OSS_COMPLIANCE_TESTS]
+    requirement_ids: []
+    platforms: [cva6v.*]
+    owner: Abhilash Chadhar
+    flags: [ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/riscv-compliance/riscv-test-suite/rv32i/src/I-RF_width-01, RUN_SCRIPT_ONLY]
+
+
+  - name: cva6v_oss_riscv_compliance_rv32i-I-XOR-01
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_OSS_TESTS, CVA6V_DV_OSS_COMPLIANCE_TESTS]
+    requirement_ids: []
+    platforms: [cva6v.*]
+    owner: Abhilash Chadhar
+    flags: [ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/riscv-compliance/riscv-test-suite/rv32i/src/I-XOR-01, RUN_SCRIPT_ONLY]
+
+
+  - name: cva6v_oss_riscv_compliance_rv32i-I-DELAY_SLOTS-01
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_OSS_TESTS, CVA6V_DV_OSS_COMPLIANCE_TESTS]
+    requirement_ids: []
+    platforms: [cva6v.*]
+    owner: Abhilash Chadhar
+    flags: [ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/riscv-compliance/riscv-test-suite/rv32i/src/I-DELAY_SLOTS-01, RUN_SCRIPT_ONLY]
+
+
+  # - name: cva6v_oss_riscv_compliance_rv32i-I-EBREAK-01
+  #   description: "TODO"
+  #   labels: [CVA6V_DV_TESTS, CVA6V_DV_OSS_TESTS, CVA6V_DV_OSS_COMPLIANCE_TESTS]
+  #   requirement_ids: []
+  #   platforms: [cva6v.*]
+  #   owner: Abhilash Chadhar
+  #   flags: [ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/riscv-compliance/riscv-test-suite/rv32i/src/I-EBREAK-01]
+
+
+  - name: cva6v_oss_riscv_compliance_rv32i-I-SRAI-01
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_OSS_TESTS, CVA6V_DV_OSS_COMPLIANCE_TESTS]
+    requirement_ids: []
+    platforms: [cva6v.*]
+    owner: Abhilash Chadhar
+    flags: [ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/riscv-compliance/riscv-test-suite/rv32i/src/I-SRAI-01, RUN_SCRIPT_ONLY]
+
+
+  - name: cva6v_oss_riscv_compliance_rv32i-I-SLTU-01
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_OSS_TESTS, CVA6V_DV_OSS_COMPLIANCE_TESTS]
+    requirement_ids: []
+    platforms: [cva6v.*]
+    owner: Abhilash Chadhar
+    flags: [ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/riscv-compliance/riscv-test-suite/rv32i/src/I-SLTU-01, RUN_SCRIPT_ONLY]
+
+
+  - name: cva6v_oss_riscv_compliance_rv32i-I-OR-01
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_OSS_TESTS, CVA6V_DV_OSS_COMPLIANCE_TESTS]
+    requirement_ids: []
+    platforms: [cva6v.*]
+    owner: Abhilash Chadhar
+    flags: [ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/riscv-compliance/riscv-test-suite/rv32i/src/I-OR-01, RUN_SCRIPT_ONLY]
+
+
+  # - name: cva6v_oss_riscv_compliance_rv32i-I-MISALIGN_JMP-01
+  #   description: "TODO"
+  #   labels: [CVA6V_DV_TESTS, CVA6V_DV_OSS_TESTS, CVA6V_DV_OSS_COMPLIANCE_TESTS]
+  #   requirement_ids: []
+  #   platforms: [cva6v.*]
+  #   owner: Abhilash Chadhar
+  #   flags: [ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/riscv-compliance/riscv-test-suite/rv32i/src/I-MISALIGN_JMP-01]
+
+
+  - name: cva6v_oss_riscv_compliance_rv32i-I-JALR-01
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_OSS_TESTS, CVA6V_DV_OSS_COMPLIANCE_TESTS]
+    requirement_ids: []
+    platforms: [cva6v.*]
+    owner: Abhilash Chadhar
+    flags: [ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/riscv-compliance/riscv-test-suite/rv32i/src/I-JALR-01, RUN_SCRIPT_ONLY]
+
+
+  - name: cva6v_oss_riscv_compliance_rv32i-I-XORI-01
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_OSS_TESTS, CVA6V_DV_OSS_COMPLIANCE_TESTS]
+    requirement_ids: []
+    platforms: [cva6v.*]
+    owner: Abhilash Chadhar
+    flags: [ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/riscv-compliance/riscv-test-suite/rv32i/src/I-XORI-01, RUN_SCRIPT_ONLY]
+
+
+  - name: cva6v_oss_riscv_compliance_rv32i-I-ADDI-01
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_OSS_TESTS, CVA6V_DV_OSS_COMPLIANCE_TESTS]
+    requirement_ids: []
+    platforms: [cva6v.*]
+    owner: Abhilash Chadhar
+    flags: [ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/riscv-compliance/riscv-test-suite/rv32i/src/I-ADDI-01, RUN_SCRIPT_ONLY]
+
+
+  - name: cva6v_oss_riscv_compliance_rv32i-I-BGE-01
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_OSS_TESTS, CVA6V_DV_OSS_COMPLIANCE_TESTS]
+    requirement_ids: []
+    platforms: [cva6v.*]
+    owner: Abhilash Chadhar
+    flags: [ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/riscv-compliance/riscv-test-suite/rv32i/src/I-BGE-01, RUN_SCRIPT_ONLY]
+
+
+  - name: cva6v_oss_riscv_compliance_rv32i-I-ANDI-01
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_OSS_TESTS, CVA6V_DV_OSS_COMPLIANCE_TESTS]
+    requirement_ids: []
+    platforms: [cva6v.*]
+    owner: Abhilash Chadhar
+    flags: [ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/riscv-compliance/riscv-test-suite/rv32i/src/I-ANDI-01, RUN_SCRIPT_ONLY]
+
+
+  - name: cva6v_oss_riscv_compliance_rv32i-I-SH-01
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_OSS_TESTS, CVA6V_DV_OSS_COMPLIANCE_TESTS]
+    requirement_ids: []
+    platforms: [cva6v.*]
+    owner: Abhilash Chadhar
+    flags: [ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/riscv-compliance/riscv-test-suite/rv32i/src/I-SH-01, RUN_SCRIPT_ONLY]
+
+
+  - name: cva6v_oss_riscv_compliance_rv32i-I-SLT-01
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_OSS_TESTS, CVA6V_DV_OSS_COMPLIANCE_TESTS]
+    requirement_ids: []
+    platforms: [cva6v.*]
+    owner: Abhilash Chadhar
+    flags: [ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/riscv-compliance/riscv-test-suite/rv32i/src/I-SLT-01, RUN_SCRIPT_ONLY]
+
+
+  - name: cva6v_oss_riscv_compliance_rv32i-I-SLTIU-01
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_OSS_TESTS, CVA6V_DV_OSS_COMPLIANCE_TESTS]
+    requirement_ids: []
+    platforms: [cva6v.*]
+    owner: Abhilash Chadhar
+    flags: [ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/riscv-compliance/riscv-test-suite/rv32i/src/I-SLTIU-01, RUN_SCRIPT_ONLY]
+
+
+  - name: cva6v_oss_riscv_compliance_rv32i-I-SLL-01
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_OSS_TESTS, CVA6V_DV_OSS_COMPLIANCE_TESTS]
+    requirement_ids: []
+    platforms: [cva6v.*]
+    owner: Abhilash Chadhar
+    flags: [ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/riscv-compliance/riscv-test-suite/rv32i/src/I-SLL-01, RUN_SCRIPT_ONLY]
+
+
+  - name: cva6v_oss_riscv_compliance_rv32i-I-SRL-01
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_OSS_TESTS, CVA6V_DV_OSS_COMPLIANCE_TESTS]
+    requirement_ids: []
+    platforms: [cva6v.*]
+    owner: Abhilash Chadhar
+    flags: [ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/riscv-compliance/riscv-test-suite/rv32i/src/I-SRL-01, RUN_SCRIPT_ONLY]
+
+
+  - name: cva6v_oss_riscv_compliance_rv32i-I-LUI-01
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_OSS_TESTS, CVA6V_DV_OSS_COMPLIANCE_TESTS]
+    requirement_ids: []
+    platforms: [cva6v.*]
+    owner: Abhilash Chadhar
+    flags: [ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/riscv-compliance/riscv-test-suite/rv32i/src/I-LUI-01, RUN_SCRIPT_ONLY]
+
+
+  - name: cva6v_oss_riscv_compliance_rv32i-I-SUB-01
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_OSS_TESTS, CVA6V_DV_OSS_COMPLIANCE_TESTS]
+    requirement_ids: []
+    platforms: [cva6v.*]
+    owner: Abhilash Chadhar
+    flags: [ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/riscv-compliance/riscv-test-suite/rv32i/src/I-SUB-01, RUN_SCRIPT_ONLY]
+
+
+  - name: cva6v_oss_riscv_compliance_rv32i-I-LB-01
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_OSS_TESTS, CVA6V_DV_OSS_COMPLIANCE_TESTS]
+    requirement_ids: []
+    platforms: [cva6v.*]
+    owner: Abhilash Chadhar
+    flags: [ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/riscv-compliance/riscv-test-suite/rv32i/src/I-LB-01, RUN_SCRIPT_ONLY]
+
+
+  - name: cva6v_oss_riscv_compliance_rv32i-I-LW-01
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_OSS_TESTS, CVA6V_DV_OSS_COMPLIANCE_TESTS]
+    requirement_ids: []
+    platforms: [cva6v.*]
+    owner: Abhilash Chadhar
+    flags: [ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/riscv-compliance/riscv-test-suite/rv32i/src/I-LW-01, RUN_SCRIPT_ONLY]
+
+
+  - name: cva6v_oss_riscv_compliance_rv32i-I-SW-01
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_OSS_TESTS, CVA6V_DV_OSS_COMPLIANCE_TESTS]
+    requirement_ids: []
+    platforms: [cva6v.*]
+    owner: Abhilash Chadhar
+    flags: [ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/riscv-compliance/riscv-test-suite/rv32i/src/I-SW-01, RUN_SCRIPT_ONLY]
+
+
+  - name: cva6v_oss_riscv_compliance_rv32i-I-SLTI-01
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_OSS_TESTS, CVA6V_DV_OSS_COMPLIANCE_TESTS]
+    requirement_ids: []
+    platforms: [cva6v.*]
+    owner: Abhilash Chadhar
+    flags: [ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/riscv-compliance/riscv-test-suite/rv32i/src/I-SLTI-01, RUN_SCRIPT_ONLY]
+
+
+  - name: cva6v_oss_riscv_compliance_rv32i-I-SRA-01
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_OSS_TESTS, CVA6V_DV_OSS_COMPLIANCE_TESTS]
+    requirement_ids: []
+    platforms: [cva6v.*]
+    owner: Abhilash Chadhar
+    flags: [ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/riscv-compliance/riscv-test-suite/rv32i/src/I-SRA-01, RUN_SCRIPT_ONLY]
+
+
+  - name: cva6v_oss_riscv_compliance_rv32i-I-RF_size-01
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_OSS_TESTS, CVA6V_DV_OSS_COMPLIANCE_TESTS]
+    requirement_ids: []
+    platforms: [cva6v.*]
+    owner: Abhilash Chadhar
+    flags: [ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/riscv-compliance/riscv-test-suite/rv32i/src/I-RF_size-01, RUN_SCRIPT_ONLY]
+
+
+  - name: cva6v_oss_riscv_compliance_rv32i-I-BEQ-01
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_OSS_TESTS, CVA6V_DV_OSS_COMPLIANCE_TESTS]
+    requirement_ids: []
+    platforms: [cva6v.*]
+    owner: Abhilash Chadhar
+    flags: [ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/riscv-compliance/riscv-test-suite/rv32i/src/I-BEQ-01, RUN_SCRIPT_ONLY]
+
+
+  - name: cva6v_oss_riscv_compliance_rv32i-I-BGEU-01
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_OSS_TESTS, CVA6V_DV_OSS_COMPLIANCE_TESTS]
+    requirement_ids: []
+    platforms: [cva6v.*]
+    owner: Abhilash Chadhar
+    flags: [ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/riscv-compliance/riscv-test-suite/rv32i/src/I-BGEU-01, RUN_SCRIPT_ONLY]
+
+
+  - name: cva6v_oss_riscv_compliance_rv32i-I-JAL-01
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_OSS_TESTS, CVA6V_DV_OSS_COMPLIANCE_TESTS]
+    requirement_ids: []
+    platforms: [cva6v.*]
+    owner: Abhilash Chadhar
+    flags: [ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/riscv-compliance/riscv-test-suite/rv32i/src/I-JAL-01, RUN_SCRIPT_ONLY]
+
+
+  - name: cva6v_oss_riscv_compliance_rv32i-I-LBU-01
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_OSS_TESTS, CVA6V_DV_OSS_COMPLIANCE_TESTS]
+    requirement_ids: []
+    platforms: [cva6v.*]
+    owner: Abhilash Chadhar
+    flags: [ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/riscv-compliance/riscv-test-suite/rv32i/src/I-LBU-01, RUN_SCRIPT_ONLY]
+
+
+  - name: cva6v_oss_riscv_compliance_rv32i-I-ENDIANESS-01
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_OSS_TESTS, CVA6V_DV_OSS_COMPLIANCE_TESTS]
+    requirement_ids: []
+    platforms: [cva6v.*]
+    owner: Abhilash Chadhar
+    flags: [ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/riscv-compliance/riscv-test-suite/rv32i/src/I-ENDIANESS-01, RUN_SCRIPT_ONLY]
+
+
+  # - name: cva6v_oss_riscv_compliance_rv32i-I-RF_x0-01
+  #   description: "TODO"
+  #   labels: [CVA6V_DV_TESTS, CVA6V_DV_OSS_TESTS, CVA6V_DV_OSS_COMPLIANCE_TESTS]
+  #   requirement_ids: []
+  #   platforms: [cva6v.*]
+  #   owner: Abhilash Chadhar
+  #   flags: [ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/riscv-compliance/riscv-test-suite/rv32i/src/I-RF_x0-01]
+
+
+  - name: cva6v_oss_riscv_compliance_rv32i-I-NOP-01
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_OSS_TESTS, CVA6V_DV_OSS_COMPLIANCE_TESTS]
+    requirement_ids: []
+    platforms: [cva6v.*]
+    owner: Abhilash Chadhar
+    flags: [ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/riscv-compliance/riscv-test-suite/rv32i/src/I-NOP-01, RUN_SCRIPT_ONLY]
+
+
+  - name: cva6v_oss_riscv_compliance_rv32i-I-ADD-01
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_OSS_TESTS, CVA6V_DV_OSS_COMPLIANCE_TESTS]
+    requirement_ids: []
+    platforms: [cva6v.*]
+    owner: Abhilash Chadhar
+    flags: [ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/riscv-compliance/riscv-test-suite/rv32i/src/I-ADD-01, RUN_SCRIPT_ONLY]
+
+
+  - name: cva6v_oss_riscv_compliance_rv32si-sbreak
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_OSS_TESTS, CVA6V_DV_OSS_COMPLIANCE_TESTS]
+    requirement_ids: []
+    platforms: [cva6v.*]
+    owner: Abhilash Chadhar
+    flags: [ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/riscv-compliance/riscv-test-suite/rv32si/src/sbreak, RUN_SCRIPT_ONLY]
+
+
+  - name: cva6v_oss_riscv_compliance_rv32si-scall
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_OSS_TESTS, CVA6V_DV_OSS_COMPLIANCE_TESTS]
+    requirement_ids: []
+    platforms: [cva6v.*]
+    owner: Abhilash Chadhar
+    flags: [ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/riscv-compliance/riscv-test-suite/rv32si/src/scall, RUN_SCRIPT_ONLY]
+
+
+  - name: cva6v_oss_riscv_compliance_rv32si-ma_fetch
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_OSS_TESTS, CVA6V_DV_OSS_COMPLIANCE_TESTS]
+    requirement_ids: []
+    platforms: [cva6v.*]
+    owner: Abhilash Chadhar
+    flags: [ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/riscv-compliance/riscv-test-suite/rv32si/src/ma_fetch, RUN_SCRIPT_ONLY]
+
+
+  - name: cva6v_oss_riscv_compliance_rv32si-wfi
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_OSS_TESTS, CVA6V_DV_OSS_COMPLIANCE_TESTS]
+    requirement_ids: []
+    platforms: [cva6v.*]
+    owner: Abhilash Chadhar
+    flags: [ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/riscv-compliance/riscv-test-suite/rv32si/src/wfi, RUN_SCRIPT_ONLY]
+
+
+  # - name: cva6v_oss_riscv_compliance_rv32si-dirty
+  #   description: "TODO"
+  #   labels: [CVA6V_DV_TESTS, CVA6V_DV_OSS_TESTS, CVA6V_DV_OSS_COMPLIANCE_TESTS]
+  #   requirement_ids: []
+  #   platforms: [cva6v.*]
+  #   owner: Abhilash Chadhar
+  #   flags: [ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/riscv-compliance/riscv-test-suite/rv32si/src/dirty]
+
+  - name: cva6v_oss_riscv_compliance_rv32si-csr
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_OSS_TESTS, CVA6V_DV_OSS_COMPLIANCE_TESTS]
+    requirement_ids: []
+    platforms: [cva6v.*]
+    owner: Abhilash Chadhar
+    flags: [ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/riscv-compliance/riscv-test-suite/rv32si/src/csr, RUN_SCRIPT_ONLY]
+
+
+  - name: cva6v_oss_riscv_compliance_rv32imc-C-LW
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_OSS_TESTS, CVA6V_DV_OSS_COMPLIANCE_TESTS]
+    requirement_ids: []
+    platforms: [cva6v.*]
+    owner: Abhilash Chadhar
+    flags: [ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/riscv-compliance/riscv-test-suite/rv32imc/src/C-LW, RUN_SCRIPT_ONLY]
+
+
+  - name: cva6v_oss_riscv_compliance_rv32imc-C-LWSP
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_OSS_TESTS, CVA6V_DV_OSS_COMPLIANCE_TESTS]
+    requirement_ids: []
+    platforms: [cva6v.*]
+    owner: Abhilash Chadhar
+    flags: [ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/riscv-compliance/riscv-test-suite/rv32imc/src/C-LWSP, RUN_SCRIPT_ONLY]
+
+
+  - name: cva6v_oss_riscv_compliance_rv32imc-C-ADD
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_OSS_TESTS, CVA6V_DV_OSS_COMPLIANCE_TESTS]
+    requirement_ids: []
+    platforms: [cva6v.*]
+    owner: Abhilash Chadhar
+    flags: [ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/riscv-compliance/riscv-test-suite/rv32imc/src/C-ADD, RUN_SCRIPT_ONLY]
+
+
+  # - name: cva6v_oss_riscv_compliance_rv32imc-C-JAL
+  #   description: "TODO"
+  #   labels: [CVA6V_DV_TESTS, CVA6V_DV_OSS_TESTS, CVA6V_DV_OSS_COMPLIANCE_TESTS]
+  #   requirement_ids: []
+  #   platforms: [cva6v.*]
+  #   owner: Abhilash Chadhar
+  #   flags: [ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/riscv-compliance/riscv-test-suite/rv32imc/src/C-JAL]
+
+
+  - name: cva6v_oss_riscv_compliance_rv32imc-C-SRAI
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_OSS_TESTS, CVA6V_DV_OSS_COMPLIANCE_TESTS]
+    requirement_ids: []
+    platforms: [cva6v.*]
+    owner: Abhilash Chadhar
+    flags: [ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/riscv-compliance/riscv-test-suite/rv32imc/src/C-SRAI, RUN_SCRIPT_ONLY]
+
+
+  - name: cva6v_oss_riscv_compliance_rv32imc-C-JALR
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_OSS_TESTS, CVA6V_DV_OSS_COMPLIANCE_TESTS]
+    requirement_ids: []
+    platforms: [cva6v.*]
+    owner: Abhilash Chadhar
+    flags: [ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/riscv-compliance/riscv-test-suite/rv32imc/src/C-JALR, RUN_SCRIPT_ONLY]
+
+
+  - name: cva6v_oss_riscv_compliance_rv32imc-C-XOR
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_OSS_TESTS, CVA6V_DV_OSS_COMPLIANCE_TESTS]
+    requirement_ids: []
+    platforms: [cva6v.*]
+    owner: Abhilash Chadhar
+    flags: [ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/riscv-compliance/riscv-test-suite/rv32imc/src/C-XOR, RUN_SCRIPT_ONLY]
+
+
+  - name: cva6v_oss_riscv_compliance_rv32imc-C-SUB
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_OSS_TESTS, CVA6V_DV_OSS_COMPLIANCE_TESTS]
+    requirement_ids: []
+    platforms: [cva6v.*]
+    owner: Abhilash Chadhar
+    flags: [ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/riscv-compliance/riscv-test-suite/rv32imc/src/C-SUB, RUN_SCRIPT_ONLY]
+
+
+  - name: cva6v_oss_riscv_compliance_rv32imc-C-ADDI
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_OSS_TESTS, CVA6V_DV_OSS_COMPLIANCE_TESTS]
+    requirement_ids: []
+    platforms: [cva6v.*]
+    owner: Abhilash Chadhar
+    flags: [ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/riscv-compliance/riscv-test-suite/rv32imc/src/C-ADDI, RUN_SCRIPT_ONLY]
+
+
+  - name: cva6v_oss_riscv_compliance_rv32imc-C-BEQZ
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_OSS_TESTS, CVA6V_DV_OSS_COMPLIANCE_TESTS]
+    requirement_ids: []
+    platforms: [cva6v.*]
+    owner: Abhilash Chadhar
+    flags: [ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/riscv-compliance/riscv-test-suite/rv32imc/src/C-BEQZ, RUN_SCRIPT_ONLY]
+
+
+  - name: cva6v_oss_riscv_compliance_rv32imc-C-ADDI16SP
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_OSS_TESTS, CVA6V_DV_OSS_COMPLIANCE_TESTS]
+    requirement_ids: []
+    platforms: [cva6v.*]
+    owner: Abhilash Chadhar
+    flags: [ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/riscv-compliance/riscv-test-suite/rv32imc/src/C-ADDI16SP, RUN_SCRIPT_ONLY]
+
+
+  - name: cva6v_oss_riscv_compliance_rv32imc-C-LI
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_OSS_TESTS, CVA6V_DV_OSS_COMPLIANCE_TESTS]
+    requirement_ids: []
+    platforms: [cva6v.*]
+    owner: Abhilash Chadhar
+    flags: [ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/riscv-compliance/riscv-test-suite/rv32imc/src/C-LI, RUN_SCRIPT_ONLY]
+
+
+  - name: cva6v_oss_riscv_compliance_rv32imc-C-SW
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_OSS_TESTS, CVA6V_DV_OSS_COMPLIANCE_TESTS]
+    requirement_ids: []
+    platforms: [cva6v.*]
+    owner: Abhilash Chadhar
+    flags: [ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/riscv-compliance/riscv-test-suite/rv32imc/src/C-SW, RUN_SCRIPT_ONLY]
+
+
+  - name: cva6v_oss_riscv_compliance_rv32imc-C-OR
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_OSS_TESTS, CVA6V_DV_OSS_COMPLIANCE_TESTS]
+    requirement_ids: []
+    platforms: [cva6v.*]
+    owner: Abhilash Chadhar
+    flags: [ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/riscv-compliance/riscv-test-suite/rv32imc/src/C-OR, RUN_SCRIPT_ONLY]
+
+
+  - name: cva6v_oss_riscv_compliance_rv32imc-C-ADDI4SPN
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_OSS_TESTS, CVA6V_DV_OSS_COMPLIANCE_TESTS]
+    requirement_ids: []
+    platforms: [cva6v.*]
+    owner: Abhilash Chadhar
+    flags: [ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/riscv-compliance/riscv-test-suite/rv32imc/src/C-ADDI4SPN, RUN_SCRIPT_ONLY]
+
+
+  - name: cva6v_oss_riscv_compliance_rv32imc-C-AND
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_OSS_TESTS, CVA6V_DV_OSS_COMPLIANCE_TESTS]
+    requirement_ids: []
+    platforms: [cva6v.*]
+    owner: Abhilash Chadhar
+    flags: [ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/riscv-compliance/riscv-test-suite/rv32imc/src/C-AND, RUN_SCRIPT_ONLY]
+
+
+  - name: cva6v_oss_riscv_compliance_rv32imc-C-SRLI
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_OSS_TESTS, CVA6V_DV_OSS_COMPLIANCE_TESTS]
+    requirement_ids: []
+    platforms: [cva6v.*]
+    owner: Abhilash Chadhar
+    flags: [ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/riscv-compliance/riscv-test-suite/rv32imc/src/C-SRLI, RUN_SCRIPT_ONLY]
+
+
+  - name: cva6v_oss_riscv_compliance_rv32imc-C-SWSP
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_OSS_TESTS, CVA6V_DV_OSS_COMPLIANCE_TESTS]
+    requirement_ids: []
+    platforms: [cva6v.*]
+    owner: Abhilash Chadhar
+    flags: [ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/riscv-compliance/riscv-test-suite/rv32imc/src/C-SWSP, RUN_SCRIPT_ONLY]
+
+
+  - name: cva6v_oss_riscv_compliance_rv32imc-C-SLLI
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_OSS_TESTS, CVA6V_DV_OSS_COMPLIANCE_TESTS]
+    requirement_ids: []
+    platforms: [cva6v.*]
+    owner: Abhilash Chadhar
+    flags: [ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/riscv-compliance/riscv-test-suite/rv32imc/src/C-SLLI, RUN_SCRIPT_ONLY]
+
+
+  - name: cva6v_oss_riscv_compliance_rv32imc-C-JR
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_OSS_TESTS, CVA6V_DV_OSS_COMPLIANCE_TESTS]
+    requirement_ids: []
+    platforms: [cva6v.*]
+    owner: Abhilash Chadhar
+    flags: [ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/riscv-compliance/riscv-test-suite/rv32imc/src/C-JR, RUN_SCRIPT_ONLY]
+
+
+  - name: cva6v_oss_riscv_compliance_rv32imc-C-BNEZ
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_OSS_TESTS, CVA6V_DV_OSS_COMPLIANCE_TESTS]
+    requirement_ids: []
+    platforms: [cva6v.*]
+    owner: Abhilash Chadhar
+    flags: [ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/riscv-compliance/riscv-test-suite/rv32imc/src/C-BNEZ, RUN_SCRIPT_ONLY]
+
+
+  - name: cva6v_oss_riscv_compliance_rv32imc-C-MV
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_OSS_TESTS, CVA6V_DV_OSS_COMPLIANCE_TESTS]
+    requirement_ids: []
+    platforms: [cva6v.*]
+    owner: Abhilash Chadhar
+    flags: [ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/riscv-compliance/riscv-test-suite/rv32imc/src/C-MV, RUN_SCRIPT_ONLY]
+
+
+  - name: cva6v_oss_riscv_compliance_rv32imc-C-LUI
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_OSS_TESTS, CVA6V_DV_OSS_COMPLIANCE_TESTS]
+    requirement_ids: []
+    platforms: [cva6v.*]
+    owner: Abhilash Chadhar
+    flags: [ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/riscv-compliance/riscv-test-suite/rv32imc/src/C-LUI, RUN_SCRIPT_ONLY]
+
+
+  - name: cva6v_oss_riscv_compliance_rv32imc-C-J
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_OSS_TESTS, CVA6V_DV_OSS_COMPLIANCE_TESTS]
+    requirement_ids: []
+    platforms: [cva6v.*]
+    owner: Abhilash Chadhar
+    flags: [ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/riscv-compliance/riscv-test-suite/rv32imc/src/C-J, RUN_SCRIPT_ONLY]
+
+
+  - name: cva6v_oss_riscv_compliance_rv32imc-C-ANDI
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_OSS_TESTS, CVA6V_DV_OSS_COMPLIANCE_TESTS]
+    requirement_ids: []
+    platforms: [cva6v.*]
+    owner: Abhilash Chadhar
+    flags: [ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/riscv-compliance/riscv-test-suite/rv32imc/src/C-ANDI, RUN_SCRIPT_ONLY]
+
+
+  - name: cva6v_oss_riscv_compliance_rv32Zicsr-I-CSRRC-01
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_OSS_TESTS, CVA6V_DV_OSS_COMPLIANCE_TESTS]
+    requirement_ids: []
+    platforms: [cva6v.*]
+    owner: Abhilash Chadhar
+    flags: [ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/riscv-compliance/riscv-test-suite/rv32Zicsr/src/I-CSRRC-01, RUN_SCRIPT_ONLY]
+
+
+  - name: cva6v_oss_riscv_compliance_rv32Zicsr-I-CSRRS-01
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_OSS_TESTS, CVA6V_DV_OSS_COMPLIANCE_TESTS]
+    requirement_ids: []
+    platforms: [cva6v.*]
+    owner: Abhilash Chadhar
+    flags: [ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/riscv-compliance/riscv-test-suite/rv32Zicsr/src/I-CSRRS-01, RUN_SCRIPT_ONLY]
+
+
+  - name: cva6v_oss_riscv_compliance_rv32Zicsr-I-CSRRSI-01
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_OSS_TESTS, CVA6V_DV_OSS_COMPLIANCE_TESTS]
+    requirement_ids: []
+    platforms: [cva6v.*]
+    owner: Abhilash Chadhar
+    flags: [ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/riscv-compliance/riscv-test-suite/rv32Zicsr/src/I-CSRRSI-01, RUN_SCRIPT_ONLY]
+
+
+  - name: cva6v_oss_riscv_compliance_rv32Zicsr-I-CSRRW-01
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_OSS_TESTS, CVA6V_DV_OSS_COMPLIANCE_TESTS]
+    requirement_ids: []
+    platforms: [cva6v.*]
+    owner: Abhilash Chadhar
+    flags: [ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/riscv-compliance/riscv-test-suite/rv32Zicsr/src/I-CSRRW-01, RUN_SCRIPT_ONLY]
+
+
+  - name: cva6v_oss_riscv_compliance_rv32Zicsr-I-CSRRCI-01
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_OSS_TESTS, CVA6V_DV_OSS_COMPLIANCE_TESTS]
+    requirement_ids: []
+    platforms: [cva6v.*]
+    owner: Abhilash Chadhar
+    flags: [ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/riscv-compliance/riscv-test-suite/rv32Zicsr/src/I-CSRRCI-01, RUN_SCRIPT_ONLY]
+
+
+  - name: cva6v_oss_riscv_compliance_rv32Zicsr-I-CSRRWI-01
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_OSS_TESTS, CVA6V_DV_OSS_COMPLIANCE_TESTS]
+    requirement_ids: []
+    platforms: [cva6v.*]
+    owner: Abhilash Chadhar
+    flags: [ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/riscv-compliance/riscv-test-suite/rv32Zicsr/src/I-CSRRWI-01, RUN_SCRIPT_ONLY]
+
+
+  - name: cva6v_oss_riscv_compliance_rv32ua-amoxor_w
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_OSS_TESTS, CVA6V_DV_OSS_COMPLIANCE_TESTS]
+    requirement_ids: []
+    platforms: [cva6v.*]
+    owner: Abhilash Chadhar
+    flags: [ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/riscv-compliance/riscv-test-suite/rv32ua/src/amoxor_w, RUN_SCRIPT_ONLY]
+
+
+  - name: cva6v_oss_riscv_compliance_rv32ua-amoadd_w
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_OSS_TESTS, CVA6V_DV_OSS_COMPLIANCE_TESTS]
+    requirement_ids: []
+    platforms: [cva6v.*]
+    owner: Abhilash Chadhar
+    flags: [ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/riscv-compliance/riscv-test-suite/rv32ua/src/amoadd_w, RUN_SCRIPT_ONLY]
+
+
+  - name: cva6v_oss_riscv_compliance_rv32ua-amoor_w
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_OSS_TESTS, CVA6V_DV_OSS_COMPLIANCE_TESTS]
+    requirement_ids: []
+    platforms: [cva6v.*]
+    owner: Abhilash Chadhar
+    flags: [ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/riscv-compliance/riscv-test-suite/rv32ua/src/amoor_w, RUN_SCRIPT_ONLY]
+
+
+  - name: cva6v_oss_riscv_compliance_rv32ua-amomin_w
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_OSS_TESTS, CVA6V_DV_OSS_COMPLIANCE_TESTS]
+    requirement_ids: []
+    platforms: [cva6v.*]
+    owner: Abhilash Chadhar
+    flags: [ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/riscv-compliance/riscv-test-suite/rv32ua/src/amomin_w, RUN_SCRIPT_ONLY]
+
+
+  - name: cva6v_oss_riscv_compliance_rv32ua-amoand_w
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_OSS_TESTS, CVA6V_DV_OSS_COMPLIANCE_TESTS]
+    requirement_ids: []
+    platforms: [cva6v.*]
+    owner: Abhilash Chadhar
+    flags: [ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/riscv-compliance/riscv-test-suite/rv32ua/src/amoand_w, RUN_SCRIPT_ONLY]
+
+
+  - name: cva6v_oss_riscv_compliance_rv32ua-amomaxu_w
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_OSS_TESTS, CVA6V_DV_OSS_COMPLIANCE_TESTS]
+    requirement_ids: []
+    platforms: [cva6v.*]
+    owner: Abhilash Chadhar
+    flags: [ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/riscv-compliance/riscv-test-suite/rv32ua/src/amomaxu_w, RUN_SCRIPT_ONLY]
+
+
+  - name: cva6v_oss_riscv_compliance_rv32ua-amoswap_w
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_OSS_TESTS, CVA6V_DV_OSS_COMPLIANCE_TESTS]
+    requirement_ids: []
+    platforms: [cva6v.*]
+    owner: Abhilash Chadhar
+    flags: [ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/riscv-compliance/riscv-test-suite/rv32ua/src/amoswap_w, RUN_SCRIPT_ONLY]
+
+
+  - name: cva6v_oss_riscv_compliance_rv32ua-amominu_w
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_OSS_TESTS, CVA6V_DV_OSS_COMPLIANCE_TESTS]
+    requirement_ids: []
+    platforms: [cva6v.*]
+    owner: Abhilash Chadhar
+    flags: [ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/riscv-compliance/riscv-test-suite/rv32ua/src/amominu_w, RUN_SCRIPT_ONLY]
+
+
+  - name: cva6v_oss_riscv_compliance_rv32ua-amomax_w
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_OSS_TESTS, CVA6V_DV_OSS_COMPLIANCE_TESTS]
+    requirement_ids: []
+    platforms: [cva6v.*]
+    owner: Abhilash Chadhar
+    flags: [ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/riscv-compliance/riscv-test-suite/rv32ua/src/amomax_w, RUN_SCRIPT_ONLY]
+
+
+  - name: cva6v_oss_riscv_compliance_rv32uf-fclass
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_OSS_TESTS, CVA6V_DV_OSS_COMPLIANCE_TESTS]
+    requirement_ids: []
+    platforms: [cva6v.*]
+    owner: Abhilash Chadhar
+    flags: [ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/riscv-compliance/riscv-test-suite/rv32uf/src/fclass, RUN_SCRIPT_ONLY]
+
+
+  - name: cva6v_oss_riscv_compliance_rv32uf-ldst
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_OSS_TESTS, CVA6V_DV_OSS_COMPLIANCE_TESTS]
+    requirement_ids: []
+    platforms: [cva6v.*]
+    owner: Abhilash Chadhar
+    flags: [ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/riscv-compliance/riscv-test-suite/rv32uf/src/ldst, RUN_SCRIPT_ONLY]
+
+
+  - name: cva6v_oss_riscv_compliance_rv32uf-fmadd
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_OSS_TESTS, CVA6V_DV_OSS_COMPLIANCE_TESTS]
+    requirement_ids: []
+    platforms: [cva6v.*]
+    owner: Abhilash Chadhar
+    flags: [ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/riscv-compliance/riscv-test-suite/rv32uf/src/fmadd, RUN_SCRIPT_ONLY]
+
+
+  - name: cva6v_oss_riscv_compliance_rv32uf-recoding
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_OSS_TESTS, CVA6V_DV_OSS_COMPLIANCE_TESTS]
+    requirement_ids: []
+    platforms: [cva6v.*]
+    owner: Abhilash Chadhar
+    flags: [ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/riscv-compliance/riscv-test-suite/rv32uf/src/recoding, RUN_SCRIPT_ONLY]
+
+
+  - name: cva6v_oss_riscv_compliance_rv32uf-fcvt
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_OSS_TESTS, CVA6V_DV_OSS_COMPLIANCE_TESTS]
+    requirement_ids: []
+    platforms: [cva6v.*]
+    owner: Abhilash Chadhar
+    flags: [ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/riscv-compliance/riscv-test-suite/rv32uf/src/fcvt, RUN_SCRIPT_ONLY]
+
+
+  - name: cva6v_oss_riscv_compliance_rv32uf-fcmp
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_OSS_TESTS, CVA6V_DV_OSS_COMPLIANCE_TESTS]
+    requirement_ids: []
+    platforms: [cva6v.*]
+    owner: Abhilash Chadhar
+    flags: [ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/riscv-compliance/riscv-test-suite/rv32uf/src/fcmp, RUN_SCRIPT_ONLY]
+
+
+  - name: cva6v_oss_riscv_compliance_rv32uf-fcvt_w
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_OSS_TESTS, CVA6V_DV_OSS_COMPLIANCE_TESTS]
+    requirement_ids: []
+    platforms: [cva6v.*]
+    owner: Abhilash Chadhar
+    flags: [ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/riscv-compliance/riscv-test-suite/rv32uf/src/fcvt_w, RUN_SCRIPT_ONLY]
+
+
+  - name: cva6v_oss_riscv_compliance_rv32uf-fadd
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_OSS_TESTS, CVA6V_DV_OSS_COMPLIANCE_TESTS]
+    requirement_ids: []
+    platforms: [cva6v.*]
+    owner: Abhilash Chadhar
+    flags: [ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/riscv-compliance/riscv-test-suite/rv32uf/src/fadd, RUN_SCRIPT_ONLY]
+
+
+  - name: cva6v_oss_riscv_compliance_rv32uf-fmin
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_OSS_TESTS, CVA6V_DV_OSS_COMPLIANCE_TESTS]
+    requirement_ids: []
+    platforms: [cva6v.*]
+    owner: Abhilash Chadhar
+    flags: [ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/riscv-compliance/riscv-test-suite/rv32uf/src/fmin, RUN_SCRIPT_ONLY]
+
+
+  - name: cva6v_oss_riscv_compliance_rv32uf-move
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_OSS_TESTS, CVA6V_DV_OSS_COMPLIANCE_TESTS]
+    requirement_ids: []
+    platforms: [cva6v.*]
+    owner: Abhilash Chadhar
+    flags: [ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/riscv-compliance/riscv-test-suite/rv32uf/src/move, RUN_SCRIPT_ONLY]
+
+
+  - name: cva6v_oss_riscv_compliance_rv32uf-fdiv
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_OSS_TESTS, CVA6V_DV_OSS_COMPLIANCE_TESTS]
+    requirement_ids: []
+    platforms: [cva6v.*]
+    owner: Abhilash Chadhar
+    flags: [ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/riscv-compliance/riscv-test-suite/rv32uf/src/fdiv, RUN_SCRIPT_ONLY]
+
+  # ABOND - Don't support double precision FP
+  #- name: cva6v_oss_riscv_compliance_rv32ud-fclass
+  #  description: "TODO"
+  #  labels: [CVA6V_DV_TESTS, CVA6V_DV_OSS_TESTS, CVA6V_DV_OSS_COMPLIANCE_TESTS]
+  #  requirement_ids: []
+  #  platforms: [cva6v.*]
+  #  owner: Abhilash Chadhar
+  #  flags: [ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/riscv-compliance/riscv-test-suite/rv32ud/src/fclass]
+
+
+  #- name: cva6v_oss_riscv_compliance_rv32ud-ldst
+  #  description: "TODO"
+  #  labels: [CVA6V_DV_TESTS, CVA6V_DV_OSS_TESTS, CVA6V_DV_OSS_COMPLIANCE_TESTS]
+  #  requirement_ids: []
+  #  platforms: [cva6v.*]
+  #  owner: Abhilash Chadhar
+  #  flags: [ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/riscv-compliance/riscv-test-suite/rv32ud/src/ldst]
+
+
+  #- name: cva6v_oss_riscv_compliance_rv32ud-fmadd
+  #  description: "TODO"
+  #  labels: [CVA6V_DV_TESTS, CVA6V_DV_OSS_TESTS, CVA6V_DV_OSS_COMPLIANCE_TESTS]
+  #  requirement_ids: []
+  #  platforms: [cva6v.*]
+  #  owner: Abhilash Chadhar
+  #  flags: [ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/riscv-compliance/riscv-test-suite/rv32ud/src/fmadd]
+
+
+  #- name: cva6v_oss_riscv_compliance_rv32ud-recoding
+  #  description: "TODO"
+  #  labels: [CVA6V_DV_TESTS, CVA6V_DV_OSS_TESTS, CVA6V_DV_OSS_COMPLIANCE_TESTS]
+  #  requirement_ids: []
+  #  platforms: [cva6v.*]
+  #  owner: Abhilash Chadhar
+  #  flags: [ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/riscv-compliance/riscv-test-suite/rv32ud/src/recoding]
+
+
+  #- name: cva6v_oss_riscv_compliance_rv32ud-fcvt
+  #  description: "TODO"
+  #  labels: [CVA6V_DV_TESTS, CVA6V_DV_OSS_TESTS, CVA6V_DV_OSS_COMPLIANCE_TESTS]
+  #  requirement_ids: []
+  #  platforms: [cva6v.*]
+  #  owner: Abhilash Chadhar
+  #  flags: [ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/riscv-compliance/riscv-test-suite/rv32ud/src/fcvt]
+
+
+  #- name: cva6v_oss_riscv_compliance_rv32ud-fcmp
+  #  description: "TODO"
+  #  labels: [CVA6V_DV_TESTS, CVA6V_DV_OSS_TESTS, CVA6V_DV_OSS_COMPLIANCE_TESTS]
+  #  requirement_ids: []
+  #  platforms: [cva6v.*]
+  #  owner: Abhilash Chadhar
+  #  flags: [ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/riscv-compliance/riscv-test-suite/rv32ud/src/fcmp]
+
+
+  #- name: cva6v_oss_riscv_compliance_rv32ud-fadd
+  #  description: "TODO"
+  #  labels: [CVA6V_DV_TESTS, CVA6V_DV_OSS_TESTS, CVA6V_DV_OSS_COMPLIANCE_TESTS]
+  #  requirement_ids: []
+  #  platforms: [cva6v.*]
+  #  owner: Abhilash Chadhar
+  #  flags: [ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/riscv-compliance/riscv-test-suite/rv32ud/src/fadd]
+
+
+  #- name: cva6v_oss_riscv_compliance_rv32ud-fmin
+  #  description: "TODO"
+  #  labels: [CVA6V_DV_TESTS, CVA6V_DV_OSS_TESTS, CVA6V_DV_OSS_COMPLIANCE_TESTS]
+  #  requirement_ids: []
+  #  platforms: [cva6v.*]
+  #  owner: Abhilash Chadhar
+  #  flags: [ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/riscv-compliance/riscv-test-suite/rv32ud/src/fmin]
+
+
+  #- name: cva6v_oss_riscv_compliance_rv32ud-fdiv
+  #  description: "TODO"
+  #  labels: [CVA6V_DV_TESTS, CVA6V_DV_OSS_TESTS, CVA6V_DV_OSS_COMPLIANCE_TESTS]
+  #  requirement_ids: []
+  #  platforms: [cva6v.*]
+  #  owner: Abhilash Chadhar
+  #  flags: [ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/riscv-compliance/riscv-test-suite/rv32ud/src/fdiv]
+
+

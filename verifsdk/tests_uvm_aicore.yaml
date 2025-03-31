@@ -1,0 +1,45 @@
+tests:
+  - name: test_ai_core_lp_dma_l2_to_spm
+    description: "This test checks LP DMA access from L2 to AICORE SPM"
+    labels: [AICORE_TB_NIGHTLY]
+    requirement_ids: [AICORE_FEAT_LPDMA_2]
+    platforms: [aicore.SIM]
+    flags: [--uvm_testname=ai_core_lp_dma_l2_to_spm_test +define+DMA_TESTS]
+    owner: Roswin Benny
+    aicore0: [test_aicore_lp_dma/aicore/test_ai_core_lp_dma_l2_to_spm.c]
+
+  - name: test_ai_core_lp_dma_ddr_to_spm
+    description: "This test checks LP DMA access from DDR to AICORE SPM"
+    labels: [AICORE_TB_NIGHTLY]
+    requirement_ids: [AICORE_FEAT_LPDMA_2]
+    platforms: [aicore.SIM]
+    flags: [--uvm_testname=ai_core_lp_dma_ddr_to_spm_test +define+DMA_TESTS]
+    owner: Roswin Benny
+    aicore0: [test_aicore_lp_dma/aicore/test_ai_core_lp_dma_ddr_to_spm.c]
+
+  - name: ai_core_dwpu_bypass_test
+    description: "This test checks LP DMA access from SYS SPM to AICORE SPM"
+    labels: [AICORE_TB_NIGHTLY]
+    requirement_ids: [AICORE_FEAT_LPDMA_1]
+    platforms: [aicore.SIM]
+    flags: [--uvm_testname=ai_core_lp_dma_sysspm_to_spm_test +define+DMA_TESTS]
+    owner: Roswin Benny
+    aicore0: [test_aicore_lp_dma/aicore/test_ai_core_lp_dma_sysspm_to_spm.c]
+
+  - name: test_ai_core_mvm_bypass
+    description: "This test checks MVM bypass. MVM,IAU,DPU in bypass mode"
+    labels: [AICORE_TB_NIGHTLY]
+    requirement_ids: [AICORE_FEAT_DATAPATH_0]
+    platforms: [aicore.SIM]
+    flags: [--uvm_testname=ai_core_mvm_bypass_test]
+    owner: Roswin Benny
+    aicore0: [test_aicore_l1_access/aicore/test_ai_core_base_test.c]
+  
+  - name: test_ai_core_dwpu_bypass
+    description: "This test checks DWPU bypass. DWPU,IAU,DPU in bypass mode"
+    labels: [AICORE_TB_NIGHTLY]
+    requirement_ids: [AICORE_FEAT_DATAPATH_1]
+    platforms: [aicore.SIM]
+    flags: [--uvm_testname=ai_core_dwpu_bypass_test]
+    owner: Roswin Benny
+    aicore0: [test_aicore_l1_access/aicore/test_ai_core_base_test.c]

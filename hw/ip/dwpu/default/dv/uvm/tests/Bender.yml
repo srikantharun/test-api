@@ -1,0 +1,27 @@
+package:
+  name: ai_core_dwpu_uvm_test
+  description: "Tests for AI CORE DWPU"
+  authors:
+    - "jorge.carvalho@axelera.ai"
+
+dependencies:
+  aic_common_pkg:              { path: "" }
+  svt_amba_vip:                { path: "" }
+  ai_core_dwpu_uvm_env:        { path: "" }
+  ai_core_dwpu_uvm_ral:        { path: "" }
+  ai_core_dwpu_uvm_seq:        { path: "" }
+  cc_clk_div_agent_uvm_pkg:    { path: "" }
+  ai_core_token_agent_uvm_pkg: { path: "" }
+  ai_core_dwpu_uvm_dwpu_agent: { path: "" }
+  ai_core_dwpu_uvm_common:     { path: "" }
+  axi_icdf_pkg:                { path: "" }
+  ai_core_dp_cmd_uvm:          { path: "" }
+
+sources:
+  - target: simulation
+    include_dirs:
+      - .
+      - $REPO_ROOT/hw/ip/aic_common/default/dv/uvm/ai_core_dp_cmd_gen/cmdb
+    files:
+      - ai_core_dwpu_test_pkg.sv
+

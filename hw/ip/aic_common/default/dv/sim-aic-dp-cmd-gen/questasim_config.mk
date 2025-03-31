@@ -1,0 +1,7 @@
+#Supressible errors
+VSIM_VLOG_OPTS_EXT += -suppress 2897,2577,13262,2147,13022,2923
+
+VSIM_VOPT_OPTS_EXT += -suppress 3838,706
+
+VSIM_ELAB_OPTS_EXT += -suppress 8451,3838,3839
+

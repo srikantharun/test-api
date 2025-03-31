@@ -1,0 +1,19 @@
+# {{ HEADER_AUTOGEN }}
+# Set the root of the bender ivocation
+set BENDER_SCRIPT_ROOT "{{ root }}"
+{# Non Separate mode not supported #}
+{% if compilation_mode != 'separate' %}
+echo 'This template does not support --compilation-mode'
+exit 1
+{% endif %}
+{# Loop over sources #}
+{% for group in srcs %}
+SetMacros "{% for define in group.defines %} {{ define.0 | upper }}{% if define.1 %}={{ define.1 }}{% endif %} \
+  {% endfor %}"{#                                                                                              Add group's defines #}
+SetIncDirPath . {% for incdir in group.incdirs %}{{ incdir | replace(from=root, to='$BENDER_SCRIPT_ROOT') }} \
+  {% endfor %}{#                                                                                              Add group's include directories #}
+{% if group.file_type == 'verilog' %}CompileFile -type verilog -sv true -file "\
+{% elif group.file_type == 'vhdl' %}CompileFile -type vhdl -2008 yes -file "{% endif %} \
+{% for file in group.files %}{{ file | replace(from=root, to='$BENDER_SCRIPT_ROOT') }} \
+{% endfor %}"
+{% endfor %}

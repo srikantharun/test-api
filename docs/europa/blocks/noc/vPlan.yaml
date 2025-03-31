@@ -1,0 +1,724 @@
+  -
+    block: NOC
+    category: FEAT
+    index: NOC_DV_00
+    description: The connectivity matrix will be mostly fully connected. However, specific links might be removed for various reasons such as deadlock prevention, security, not being relevant,… The exact connectivity is defined by the connectivity matrix document NoC connectivity sheet
+    criticality: bronze
+    owner: Srini
+    priority: critical
+    comment: This is ensured by sending randomized AXI traffic from all the initiators to all the targets irrespective of their connections and responses are compared with the matrix  
+  -
+    block: NOC
+    category: FEAT
+    index: NOC_DV_01
+    description: The NoC avoids mixing different types of data (i.e. program and data transactions) where possible. Practically this means no mixing on the AIC/L2 side of the die, and controlled mixing on the PPP side of the die.
+    criticality: bronze
+    owner: Srini
+    priority: p0
+    comment: Ignored - This is a design guideline, not really a requirement that can be checked 
+  -
+    block: NOC
+    category: FEAT
+    index: NOC_DV_02
+    description: The NoC distributes all data traffic over a high-throughput-fabric (HTF). The HTF guarantees full throughput for traffic scenarios described later in this document. Latency should be minimised, but does not have a specific requirement as long as it does not impede the full throughput requirement. There is no guarantee that endpoints in the same memmap region have exactly the same latency. 
+    criticality: bronze
+    owner: Srini
+    priority: p0
+    comment: This is ensured by sending HTF traffic from all the legal HT INITs to L2 & DDR and comparing the observed throughput with the expected one
+  -
+    block: NOC
+    category: FEAT
+    index: NOC_DV_03
+    description: The NOC distributes all control traffic over a low-throughput-fabric (LTF) that only guarantees a limited amount of simultaneous LT traffic. For specific INIT/TARG pairs latency will be optimised, APU (also MIX) ↔︎ SYS-SPM, APU (also MIX) ↔︎ LPDDR PPP, DCD ↔︎ LPDDR PPP
+    criticality: bronze
+    owner: Srini
+    priority: p0
+    comment: This is ensured by sending LTF traffic from DEC to SPM/DDR_PPP, the observed latency will be discussed and evaluated to see whether they are acceptable
+  -
+    block: NOC
+    category: FEAT
+    index: NOC_DV_04
+    description: The NoC supports MIX traffic where it is unavoidable that HTF and LTF traffic collide. In these places, specific care will be taken to ensure that both traffic types do not impact each other excessively. HTF performance only degrades with the amount of BW that is taken up by LT transactions on it. LTF latency does not spike because of a single HTF transaction.
+    criticality: bronze
+    owner: Srini
+    priority: p0
+    comment: This is ensured by sending HTF & MTF traffic inbetween LTF traffic from All INITs to same Targs iteratively, the observed latency will be discussed and evaluated to see whether they are acceptable
+  -
+    block: NOC
+    category: FEAT
+    index: NOC_DV_05
+    description: The NoC has an observability network that allows error logging. It raises a single IRQ flag when an error is detected. After which the IRQ handling can read the fault vector and error logger content through the NoC's internal CSRs
+    criticality: bronze
+    owner: Srini
+    priority: p0
+    comment: This is ensured by sending erroneous traffic and checking the appropriate IRQs are asserted with respect to the logged errors (single & multiple error scenarios) 
+  -
+    block: NOC
+    category: FEAT
+    index: NOC_DV_06
+    description: The NoC IRQs should be maskable, i.e. SW should be able to configure which errors/faults actually lead to the outgoing IRQ flag being raised
+    criticality: bronze
+    owner: Srini
+    priority: p0
+    comment: This can be ensured by accessing NOCs CSRs from APU to configure which outgoing IRQs flag can be raised
+  -
+    block: NOC
+    category: FEAT
+    index: NOC_DV_07
+    description: The NoC supports the following address modes for L2 selectable through its internal CSRs, 1x8 interleaving (default), 2x4 interleaving (top/bottom groups), 8x1 (contiguous)
+    criticality: bronze
+    owner: Srini
+    priority: p0
+    comment: This is ensured by sending exhaustive traffic from all the legal Inits to L2 Targs while exercising all the address modes
+  -
+    block: NOC
+    category: FEAT
+    index: NOC_DV_08.0
+    description: 1x8 / 4K (default/reset state) interleaving is used for the L2 targets which is configurable through NOCs internal CSRs.
+    criticality: bronze
+    owner: Srini
+    priority: critical
+    comment: This is ensured by sending exhaustive traffic from all the legal Inits to L2 Targs while exercising 4k interleaving mode
+  -
+    block: NOC
+    category: FEAT
+    index: NOC_DV_08.1
+    description: 1x8 / 2K, 1K and 2x4 / 4K, 2K, 1K and contiguous (8x1) interleaving is used for the L2 targets which is configurable through NOCs internal CSRs.
+    criticality: bronze
+    owner: Srini
+    priority: p1
+    comment: This is ensured by sending exhaustive traffic from all the legal Inits to L2 Targs while exercising 2k interleaving mode
+  -
+    block: NOC
+    category: FEAT
+    index: NOC_DV_09.0
+    description: The NoC supports the 2x4 / 4K default address modes for the LPDDR (MT) targets selectable through the NoC's internal CSRs
+    criticality: bronze
+    owner: Srini
+    priority: critical
+    comment: This is ensured by sending exhaustive traffic from all the legal Inits to L2 Targs while exercising default interleaving mode
+  -
+    block: NOC
+    category: FEAT
+    index: NOC_DV_09.1
+    description: The NoC supports the following address modes for the LPDDR (MT) targets selectable through the NoC's internal CSRs, 2x4 / 2K, 1K interleaving (west/east side groups), 4x2 / 4K, 2K, 1K interleaving (west/east split in 2 groups) and 8x1 (contiguous)
+    criticality: bronze
+    owner: Srini
+    priority: p1
+    comment: This is ensured by sending exhaustive traffic from all the legal Inits to DDR Targs while exercising all other modes
+  -
+    block: NOC
+    category: FEAT
+    index: NOC_DV_10
+    description: When interleaving is used for the LPDDR targets, the NoC supports 3 granularities 4K (default/reset state), 2K and 1K. These can be configured individually for west and east DDR targets in the NoC's internal CSRs
+    criticality: bronze
+    owner: Srini
+    priority: p0
+    comment: This is ensured by sending exhaustive traffic from all the legal Inits to DDR Targs while exercising all 3 interleaving modes where 4k is default mode    
+  -
+    block: NOC
+    category: FEAT
+    index: NOC_DV_11
+    description: The NoC supports exclusive accesses on memory locations (SYS-SPM, LPDDR) used to store ctrl-data by cpus that use caching. 
+    criticality: bronze
+    owner: Srini
+    priority: p0
+    comment: This is ensured by sending exclusive accesses from LT-AIC, APU & PVE to SPM & DDR Targs, also non-exclusive targs will be exercised
+  -
+    block: NOC
+    category: FEAT
+    index: NOC_DV_12
+    description: The NoC supports the token network as a mostly standalone network that meets the requirements described in the token manager related requirements below
+    criticality: bronze
+    owner: Srini
+    priority: p0
+    comment: This is ensured by forcing token interface to create artificial backpressure and check across NOC partitions 
+  -
+    block: NOC
+    category: FEAT
+    index: NOC_DV_13
+    description: The NoC supports configuring users bits through its internal CSRs for each initiator that encode a priority for that initiator. This priority is used in the LPDDR controller as QoS input to arbitrate between transactions that arrive simultaneously.
+    criticality: bronze
+    owner: Srini
+    priority: p1
+    comment: This is ensured by programming NOC CSRs to set priority for any supported Inits and send exhaustive traffic from all the Inits targetting DDR PPP & Graph where these priorities will be acting as AxQOS. Also check with different interleaving modes
+  -
+    block: NOC
+    category: FEAT
+    index: NOC_DV_14
+    description: NoC configuration settings given through its internal CSRs are quasi static. If they are updated while transactions are in flight in the NoC, this can lead to unexpected behaviour. Configuration settings include Memory Interleaving Modes, LPDDR QoS bits, Urgent bit and Firewall configurations.
+    criticality: bronze
+    owner: Srini
+    priority: p0
+    comment: This is ensured by sending config traffic to NOCs CSRs inbetween normal traffic which should cause hang and apply reset to see NOCs recovery
+  -
+    block: NOC
+    category: FEAT
+    index: NOC_DV_15
+    description: For targets that are not AO targets, the NoC provides fencing capabilities. A fence prohibits transactions from reaching a target when it is not ready to handle transactions. Fenced Targets do not see the transaction at all. The fence provides an AXI error response towards the initiator of the transaction. The fence is automatically raised and lowered by the isolation signals coming from the AO CSR of the IP.
+    criticality: bronze
+    owner: Srini
+    priority: critical
+    comment: This is ensured by lowering fences of non AO Targs when transactions are in flight and checking the responses as the following traffic should be dropped
+  -
+    block: NOC
+    category: FEAT
+    index: NOC_DV_16
+    description: The NoC's internal CSRs are reached through an internal NoC target that can be reached from the APU_LT_INIT and the SOC_MGMT_LT_INIT
+    criticality: bronze
+    owner: Srini
+    priority: p0
+    comment: This is ensured by sending config traffic from all the Inits to NOCs internal CSRs and check if only APU/SOC_MGMT_LT_INITs are only accessible
+  -
+    block: NOC
+    category: FEAT
+    index: NOC_DV_17
+    description: Each initiator in the NoC has a firewall (except for the APU LT, as it needs to unfirewall all others) that needs to be lifted by the APU before it can communicate with Targets.
+    criticality: bronze
+    owner: Srini
+    priority: critical
+    comment: This is ensured by sending config traffic from APU_LT_INIT to all Targs including NOCs CSRs just after reset (before removing fences/firewalls)
+  -
+    block: NOC
+    category: FEAT
+    index: NOC_DV_18
+    description: Each firewall allows for the following configurations, Allow all/no traffic to go through, Allow partial access (wr/rd) to the address space by defining up to 32 allow-list address regions
+    criticality: bronze
+    owner: Srini
+    priority: p0
+    comment: This is ensured by sending config traffic to NOCs CSRs to check partial/full/no access by programming firewall allow lists
+  -
+    block: NOC
+    category: FEAT
+    index: NOC_DV_19
+    description: Europa firewall has 32 regions and each can have control to partial or full accesses (wr/rd)
+    criticality: bronze
+    priority: p0
+    comment: This is ensured by sending config traffic from APU to en/disable firwalls and check wr/rd partial/full accesses
+  -
+    block: NOC
+    category: FEAT
+    index: NOC_DV_20
+    description: Any rate-adapting point should be setup such that the full width of the wider link is properly used by buffering the smaller link into wider chunk. Additionally, the smaller link still needs to be able to reach it full throughput.
+    criticality: bronze
+    priority: p1
+    comment: This is ensured by sending narrow & wide traffic across all the NIU ports
+  -
+    block: NOC
+    category: FEAT
+    index: NOC_DV_21
+    description: The NoC can be fully configured over its service network using its internal CSRs. Changing these configuration settings should always be done in a quasi static state. There are no functional sideband signals configuring the NoC
+    criticality: bronze
+    owner: Srini
+    priority: p0
+    comment: This is ensured by initially configuring NOCs CSRs and exercising some rand traffic, after receiving appropriate responses again the NOCs CSRs are changed and expected behaviour is observed
+  -
+    block: NOC
+    category: FEAT
+    index: NOC_DV_22
+    description: Each NoC partition (see NOC_207) will be wrapped into an _p version. The wrapping can include Spill reg on interfaces, DFT elements, AO CSRs, PPMU
+    criticality: bronze
+    owner: Srini
+    priority: critical
+    comment: This is ensured by integrating _p wrapper and check for sanity. since SDMA is instantiated inside NOC, PPMU operations will also be exercised and checked
+  -
+    block: NOC
+    category: FEAT
+    index: NOC_DV_23
+    description: The internal NoC elements all run on the same global NoC_CLK with a max freq of 1.2GHz
+    criticality: bronze
+    owner: Srini
+    priority: critical
+    comment: This is ensured by changing the clk to slower rate and by checking the requests are handled as expected
+  -
+    block: NOC
+    category: FEAT
+    index: NOC_DV_24
+    description: The NoC only supports a single global reset signal that resets all NoC elements driven by the global NoC_clk. This reset is driven through a dedicated NoC_rst signal
+    criticality: bronze
+    owner: Srini
+    priority: critical
+    comment: This is ensured by applying the reset in-between and check the pre/post reset requests is handled/dropped as expected
+  -
+    block: NOC
+    category: FEAT
+    index: NOC_DV_25
+    description: The NoC should be deadlock free by design provided inits and targets act along their specifications
+    criticality: bronze
+    owner: Srini
+    priority: critical
+    comment: This is ensured by checking no Initiator has a active loopback connection to itself as a Target
+  -
+    block: NOC
+    category: FEAT
+    index: NOC_DV_26
+    description: The LTF (+APU MIX init) is optimized for low-latency core-to-core communication, low-latency polling and as-fast-as-possible cache refilling
+    criticality: bronze
+    owner: Srini
+    priority: p0
+    comment: This is ensured by sending LTF & MTF traffic from APU to legal memories (spm..etc) which should have latency critical requirements and monitored using perf_tracker
+  -
+    block: NOC
+    category: FEAT
+    index: NOC_DV_27
+    description: The HTF is optimized for high-throughput core-to-memory, and dma-to-memory transfers. The scenarios described later in this document should be met
+    criticality: bronze
+    owner: Srini
+    priority: p0
+    comment: This is ensured by sending HTF & MTF traffic from all Inits to legal memories which should have throughput critical requirements and monitored using perf_tracker
+  -
+    block: NOC
+    category: FEAT
+    index: NOC_DV_28
+    description: The NoC subsystem shall provide an DCD/SLV error when the access doesn't map to a valid memory region.
+    criticality: bronze
+    owner: Srini
+    priority: critical
+    comment: This is ensured by sending illegal traffic addressed to invalid memory region which should be reported as DEC/SLV Err
+  -
+    block: NOC
+    category: FEAT
+    index: NOC_DV_29
+    description: Traffic traversing from LTF to HTF shall pass through a rate-adapting buffer at full throughput regardless of burst-size (within the 4KiB axi limitation).
+    criticality: bronze
+    owner: Srini
+    priority: p0
+    comment: Redundant, already taken care by NOC_DV_20 
+  -
+    block: NOC
+    category: FEAT
+    index: NOC_DV_30
+    description: The NoC shall contain memory macro's for rate-adapter and store-n-forward buffers.
+    criticality: bronze
+    owner: Srini
+    priority: p1
+    comment: This is ensured by sending Full duplex traffic to half duplex links and vice versa to check the transactions are handled gracefully
+  -
+    block: NOC
+    category: FEAT
+    index: NOC_DV_31
+    description: The NoC design is split into multiple partitions and the signals/interfaces that passed through these partitions shall not be modified/changed by NOC, EX,Token infra
+    criticality: bronze
+    owner: Srini
+    priority: critical
+    comment: This is ensured by forcing & checking if the sideband signals are routed correctly upto noc_top_p
+  -
+    block: NOC
+    category: FEAT
+    index: NOC_DV_32
+    description: On the LTF latency is optimised. Specifically between LT APU → SYS-SPM, LT APU → SDMA (ctrl), LT APU → LPDDR (east), DCD → SYS-SPM, DCD → LPDDR (east)
+    criticality: bronze
+    owner: Srini
+    priority: p1
+    comment: This is ensured by sending LTF traffic from following Inits to Targs, the observed latency will be discussed and evaluated to see whether they are acceptable
+  -
+    block: NOC
+    category: FEAT
+    index: NOC_DV_33
+    description: The NoC (or parts of it) shall be clock gated when not in use.
+    criticality: bronze
+    owner: Srini
+    priority: p0
+    comment: This is ensured by pushing NOC to an idle state where its clk shall be gated
+  -
+    block: NOC
+    category: FEAT
+    index: NOC_DV_34
+    description: The data transfers that the L1 will be accommodates are the following between L2 ↔︎ L1 via AICORE HP DMA transfers, DDR ↔︎ L1 ia AICORE HP DMA transfers, L1 ↔︎ MVM via MVM IFD/ODR transfers, L1 ↔︎ DWPU via DWPU IFD/ODR transfers, L1 ↔︎ RVV via direct memory access, L1 ↔︎ AICORE CPU via direct memory access 
+    criticality: bronze
+    owner: Srini
+    priority: p0
+    comment: This can be ensured by sending exhaustive traffic from AICs Inits to throughput critical Targs as listed above and comparing the observed result with expected ones using perf_tracker
+  -
+    block: NOC
+    category: FEAT
+    index: NOC_DV_35
+    description: AICORE HT Init fabrics are full duplex AXI4 interface that is connected to the NoC.
+    criticality: bronze
+    owner: Srini
+    priority: p0
+    comment: This can be ensured by randomizing all the AXI attributes from/to AIC NIUs with simultaneous traffic and check the requests are handled gracefully
+  -
+    block: NOC
+    category: FEAT
+    index: NOC_DV_36
+    description: APU must have access to all the memory space in the system, except for the security subsystem. The CPU shall have full throughput to all LPDDR memories from its memory bus. 
+    criticality: bronze
+    owner: Srini
+    priority: p0
+    comment: This can be ensured by sending exhaustive traffic from APU to DDR & security subsystem (should not be accessible) and compare the observed throughput with expected ones using perf_tracker
+  -
+    block: NOC
+    category: FEAT
+    index: NOC_DV_37
+    description: The DDR has a single NIU that supports both read and write. This means the NoC already does some arbitration between read and write, but still allows full duplex data (but not full duplex request + response). 
+    criticality: bronze
+    owner: Srini
+    priority: p0
+    comment: This can be ensured by sending simultaneous traffic (wr+rd) from legal Inits to DDR and check the order of transactions and exclusive accesses
+  -
+    block: NOC
+    category: FEAT
+    index: NOC_DV_38
+    description: One interrupt is defined for AXI_DLOCK and two more interrupts for NOC.
+    criticality: bronze
+    owner: Srini
+    priority: p0
+    comment: Timeout feature is dropped w.r.t issue-1626 and hence this requirement can be ignored
+  -
+    block: NOC
+    category: FEAT
+    index: NOC_DV_39
+    description: PCIe AXI interfaces must saturate the 8GB/s full-duplex bandwidth. 
+    criticality: bronze
+    owner: Srini
+    priority: p0
+    comment: This can be ensured by sending exhaustive traffic from PCIe Inits to legal Targs, monitor & compare the throughput using perf_tracker
+  -
+    block: NOC
+    category: FEAT
+    index: NOC_DV_40
+    description: Driving NoC inputs (e.g. AXI USER) using AO CSRs are not used and cannot be verified
+    criticality: bronze
+    owner: Srini
+    priority: p2
+    comment: This can be ensured by sending config traffic from APU & SOC_MGMT and check the appropriate AxUSER values are driven correctly
+  -
+    block: NOC
+    category: FEAT
+    index: NOC_DV_41
+    description: The APU manages the Decoder power states and initialization
+    criticality: bronze
+    owner: Srini
+    priority: p0
+    comment: This can be ensured by sending random config traffic from APU to Decoder's config interface
+  -
+    block: NOC
+    category: FEAT
+    index: NOC_DV_42
+    description: The Decoder's AXI masters need high-throughput access to DDR and L2 memories, with at least 32 outstanding transactions per master
+    criticality: bronze
+    owner: Srini
+    priority: p0
+    comment: This can be ensured by sending exhaustive traffic from from Decoder to DDR & L2 w/wo interleaving modes and check the supported outstanding transactions with throughput using perf_tracker
+  -
+    block: NOC
+    category: FEAT
+    index: NOC_DV_43
+    description: The Decoder's MCU AXI master needs low-latency access to DDR and L2 memories max 500 dec cycles
+    criticality: bronze
+    owner: Srini
+    priority: p0
+    comment: This can be ensured by sending exhaustive traffic from Decoder to DDR & L2 w/wo interleaving modes, check and compare latency requirement using perf_tracker
+  -
+    block: NOC
+    category: FEAT
+    index: NOC_DV_44
+    description: The Codec Susbsytem can be disabled and isolated from the rest of the system, to reduce power or system interference
+    criticality: bronze
+    owner: Srini
+    priority: p0
+    comment: This can be ensured by sending config traffic from APU to codec config interface and check the fencing behaviour
+  -
+    block: NOC
+    category: FEAT
+    index: NOC_DV_45
+    description: The SDMA needs to be able to perform simultaneous transfers to/from all master/slaves.
+    criticality: bronze
+    owner: Srini
+    priority: p0
+    comment: This can be ensured by sending exhaustive simultaneous traffic to/from all Inits/Targs
+  -
+    block: NOC
+    category: FEAT
+    index: NOC_DV_46
+    description: The SDMA will need to be configurable by the APU
+    criticality: bronze
+    owner: Srini
+    priority: p0
+    comment: This is ensured by sending APU config traffic (including power/clk gating) to SDMA config interface (since SDMA is instantiated inside NOC)
+  -
+    block: NOC
+    category: FEAT
+    index: NOC_DV_47
+    description: The SDMA will need to be configurable by AICORE CPUs 
+    criticality: bronze
+    owner: Srini
+    priority: p0
+    comment: This is ensured by sending AIC config traffic (including power/clk gating) to SDMA config interface (since SDMA is instantiated inside NOC)
+  -
+    block: NOC
+    category: FEAT
+    index: NOC_DV_48
+    description: The SDMA instances need to be able to reach the SYS-SPM memory with as low latency as possible
+    criticality: bronze
+    owner: Srini
+    priority: p1
+    comment: This is ensured by sending exhaustive simultaneous traffic to SPM Targ and compare the observed latency with expected one using perf_tracker
+  -
+    block: NOC
+    category: FEAT
+    index: NOC_DV_49
+    description: The SDMA shall saturate both Master interfaces in terms of throughput. It maintains 76.8GB/s streaming from M0->M1 or M1->M0 and aggregates 153.6GB/s when simultaneously streaming from M0->M1 and M1->M0, 76.8GB/s in each direction.
+    criticality: bronze
+    owner: Srini
+    priority: p1
+    comment: This is ensured by sending exhaustive simultaneous traffic from/to SDMA Init/Targ, compare the observed throughput with expected one using perf_tracker
+  -
+    block: NOC
+    category: FEAT
+    index: NOC_DV_50
+    description: The SDMA shall be implemented with clock gating to reduce power consumption when not in use
+    criticality: bronze
+    owner: Srini
+    priority: p1
+    comment: This can be ensured by keeping the SDMA bus in idle state and check whether the SDMA clk is gated
+  -
+    block: NOC
+    category: FEAT
+    index: NOC_DV_51
+    description: The L2 subsystem shall have a full duplex AXI4 interface towards the NoC. 
+    criticality: bronze
+    owner: Srini
+    priority: p0
+    comment: This is ensured by sending 1beat simultaneous traffic from all Inits to L2, compare the observed throughput/latency with expected one using perf_tracker
+  -
+    block: NOC
+    category: FEAT
+    index: NOC_DV_52
+    description: The L2 subsystem should support aligned and unaligned accesses. Unaligned accesses are done via masked writes.
+    criticality: bronze
+    owner: Srini
+    priority: p0
+    comment: This is ensured by sending randomized traffic to L2 and check if its handled gracefully
+  -
+    block: NOC
+    category: FEAT
+    index: NOC_DV_53
+    description: The L2 memories shall be power & clk gated when not in use.  
+    criticality: bronze
+    owner: Srini
+    priority: p0
+    comment: This is ensured by integrating real L2 with the NOC and checked the gating behaviour when in idle
+  -
+    block: NOC
+    category: FEAT
+    index: NOC_DV_54
+    description: DDR<->L2 via SYS-DMA transfers, DDR<->L2 via AIC-DMA transfers, AIC-L1<->L2 via AIC-DMA transfers, DDR<->L2 via PVE-DMA transfers, PVE-L1<->L2 via PVE-DMA transfers, CODEC<->L2 via CODEC transfers, HOST<->L2 via PCIE transfers
+    criticality: bronze
+    owner: Srini
+    priority: p0
+    comment: This is ensured by sending exhaustive traffic (sequential & simultaneous) from the listed Inits to L2 while exercising all the interleaving modes
+  -
+    block: NOC
+    category: FEAT
+    index: NOC_DV_55
+    description: The cores within the PVE shall be able to synchronize with the other RISC-V cores (outside of the PVE) using atomic memory operations and LR/SC on SYS-SPM and DDR memory. Only the LTF port needs to support exclusives transactions.
+    criticality: bronze
+    owner: Srini
+    priority: p0
+    comment: This is ensured by sending exclusive & atops traffic (sequential & simultaneous) from/to PVE and check NOC & PVE handles these requests gracefully
+  -
+    block: NOC
+    category: FEAT
+    index: NOC_DV_56
+    description: The DMA shall be able to utilize a minimum of 90% of the bandwidth into one LPDDR, assuming no negative effects on the LPDDR controller (re-fresh, page-openings, etc.).
+    criticality: bronze
+    owner: Srini
+    priority: p0
+    comment: This is ensured by sending exhaustive traffic from PVE DMA to DDR, check and compare the bandwidth using perf_tracker 
+  -
+    block: NOC
+    category: FEAT
+    index: NOC_DV_57
+    description: Programming DMA should not be allowed to access the region of the SYS-SPM dedicated to semaphores. So this region should be set to the DMA ATU.
+    criticality: bronze
+    owner: Srini
+    priority: p0
+    comment: Ignored as this is not a NOC requirement
+  -
+    block: NOC
+    category: FEAT
+    index: NOC_DV_58
+    description: The APU DMA needs to support unaligned and aligned accesses.
+    criticality: bronze
+    owner: Srini
+    priority: p0
+    comment: This is ensured by sending randomized traffic to APU and check if its handled gracefully
+  -
+    block: NOC
+    category: FEAT
+    index: NOC_DV_59
+    description: The SYS-SPM module AXI4 interface shall be half duplex. This is done to ensure that there is a single NIU in the NOC with an exclusive monitor. 
+    criticality: bronze
+    owner: Srini
+    priority: p0
+    comment: This is ensured by sending exhaustive simultaneous traffic from all Inits to SPM, check if its handled gracefully
+  -
+    block: NOC
+    category: FEAT
+    index: NOC_DV_60
+    description: The SYS-SPM module shall support exclusives/atomics accesses. 
+    criticality: bronze
+    owner: Srini
+    priority: p0
+    comment: This is ensured by sending exclusives/atomics traffic from all Inits to SPM, check if its handled gracefully
+  -
+    block: NOC
+    category: FEAT
+    index: NOC_DV_61
+    description: The SYS-SPM memory shall support Sleep modes (Light Sleep/Deep Sleep/Shut Down Modes).
+    criticality: bronze
+    owner: Srini
+    priority: p1
+    comment: This is ensured by integrating real SPM with the NOC and check these different sleep modes by using config interface
+  -
+    block: NOC
+    category: FEAT
+    index: NOC_DV_62
+    description: Data will be transferred between the DDR<->SYS-SPM via SDMA transfer, PCIE ↔︎ SYS-SPM via PCIE transferss, L2 ↔︎SYS-SPM via SDMA transfers, APU ↔︎ SYS-SPM via direct access, AICORE CPUs ↔︎ SYS-SPM via direct access, SYS-SPM ↔︎ AICORE SPM via SDMA transfer, SYS-SPM ↔︎ PCIE via SDMA transfer
+    criticality: bronze
+    owner: Srini
+    priority: p0
+    comment: This is ensured by exercising the above scenarios using real SPM with the NOC, check & compare BW & latency using perf tracker against expected requirement
+  -
+    block: NOC
+    category: FEAT
+    index: NOC_DV_63
+    description: The need to synchronize memory usage and avoid RaW and WaR hazards on the shared memories
+    criticality: bronze
+    owner: Srini
+    priority: p0
+    comment: This is ensured by sending simultaneous random traffic from all Inits to all the Memories iteratively and check the data is not corrupted by RaW/WaR
+  -
+    block: NOC
+    category: FEAT
+    index: NOC_DV_64
+    description: Use of APB PProt signal in cfg_intf
+    criticality: bronze
+    owner: Srini
+    priority: p0
+    comment: This is ensured by sending randomizing APB traffic from all Inits to all config interfaces and check whether they are handled gracefully
+  -
+    block: NOC
+    category: FEAT
+    index: NOC_DV_65
+    description: Narrow WRAP & FIXED burst_type with exclusives shall hang-up NOC, applying all the resets shall recover the NOC
+    criticality: bronze
+    owner: Srini
+    priority: p0
+    comment: This is ensured by sending illegal traffic from all Inits to all Targs and check whether NOC recovers from the unexpected behaviour after applying reset
+  -
+    block: NOC
+    category: FEAT
+    index: NOC_DV_66
+    description: Backpressure from HTF -> LTF
+    criticality: bronze
+    owner: Srini
+    comment: This is ensured by sending randomized traffic from all Inits to all Targs and creating a artificial backpressure from VIP to check how NOC reacts to it
+  -
+    block: NOC
+    category: FEAT
+    index: NOC_DV_67
+    description: Exercise AxRegion, AxQOS, AxCache etc
+    criticality: bronze
+    owner: Srini
+    comment: This is ensured by sending randomized exhaustive traffic from all Inits to all Targs and check if NOC handles them gracefully
+  -
+    block: NOC
+    category: FEAT
+    index: NOC_DV_68
+    description:  Exercise with DFT=1 from all Inits ports
+    criticality: bronze
+    owner: Srini
+    priority: critical
+    comment: This is ensured by enabling DFT signals and check the desired behaviour
+  -
+    block: NOC
+    category: FEAT
+    index: NOC_DV_69
+    description: Ordering of writes and their responses with Mix traffic exercising AwQOS & urgent bits
+    criticality: bronze
+    owner: Srini
+    priority: p1
+    comment: This is ensured by sending sending simultaneous writes from all Inits to all Targs iteratively to check the response ordering 
+  -
+    block: NOC
+    category: FEAT
+    index: NOC_DV_70
+    description: Ordering of reads interleave and their responses with Mix traffic (including urgent bits)
+    criticality: bronze
+    owner: Srini
+    priority: p1
+    comment: This is ensured by sending sending simultaneous reads in interleaved manner from all SVIP to check the impact of QOS, Urgent bits
+  -
+    block: NOC
+    category: FEAT
+    index: NOC_DV_71
+    description: Performance test with fixed/incr with varying lenghts and size
+    criticality: bronze
+    owner: Srini
+    priority: p1
+    comment: This is ensured by sending stress traffic in random manner to check outstanding transactions of each NIU
+  -
+    block: NOC
+    category: FEAT
+    index: NOC_DV_72
+    description: Illegal use of AxProt
+    criticality: bronze
+    owner: Srini
+    priority: p2
+    comment: This is ensured by exerising all the bits of AxProt to check whether NOC handles it gracefully
+  -
+    block: NOC
+    category: FEAT
+    index: NOC_DV_73
+    description: PCIE & APU has access to all CFG_INTFs
+    criticality: bronze
+    owner: Srini
+    comment: This is ensured by sending config traffic from PCIe & APU to all config interfaces and expect valid response and behaviour
+  -
+    block: NOC
+    category: FEAT
+    index: NOC_DV_74
+    description: AXI Modifiable attribute, critical for FIFO endpoints (not respected by the NoC & NoC will resize regardless of the Modifiable bit)
+    criticality: bronze
+    owner: Srini
+    comment: This is ensured in Top level and is skipped for the Block level
+  -
+    block: NOC
+    category: FEAT
+    index: NOC_DV_75
+    description: Reading multiple Errors queued in the Observer FIFOs instead of dropping if the IRQ is raised
+    criticality: bronze
+    owner: Srini
+    priority: p1
+    comment: This is ensured by triggering multiple errors and expecting the error loggers to log all the triggered errors without dropping any
+  -
+    block: NOC
+    category: 
+    index: NOC_DV_76
+    description: Verify token network's memory map
+    criticality: bronze
+    owner: Srini
+    priority: p1
+    comment: This is ensured by writing to all the targets from all the legal inits
+  -
+    block: NOC
+    category: 
+    index: NOC_DV_77
+    description: Verify token network's connectivity
+    criticality: bronze
+    owner: Srini
+    priority: p1
+    comment: This is ensured by exercising the legal connectivity matrix and check loopback does not exists
+  -
+    block: NOC
+    category: 
+    index: NOC_DV_78
+    description: Verify token network's datapath integrity
+    criticality: bronze
+    owner: Srini
+    priority: p1
+    comment: This is ensured by writing random data to all the Targets and comparing it with backdoor reads
+    

@@ -1,0 +1,20 @@
+# (C) Copyright 2024 Axelera AI B.V.
+# All Rights Reserved
+# *** Axelera AI Confidential ***
+
+package:
+  name: europa_apu_dft
+  description: "DFT Physical partition wrapper for apu"
+  authors:
+    - "Redouan Tahraoui <redouan.tahraoui@axelera.ai>"
+
+dependencies:
+  europa_apu:      { path: ".." }
+  dft_apu_core:    { path: "$DFT_HOME/apu_core/Latest"}
+  dft_apu_l2c:     { path: "$DFT_HOME/apu_l2c/Latest"}
+  dft_apu:         { path: "$DFT_HOME/apu/Latest"}
+
+sources:
+  - target: rtl
+    files:
+

@@ -1,0 +1,21 @@
+waivers:
+  -
+    requirement_id: TOP_L2_FEAT_0
+    description: "L2 is a memory, it can be used to store whatever we want."
+    owner: Antoine Madec
+  -
+    requirement_id: TOP_L2_FEAT_4
+    description: "This is an LD integration requirement. Verified on waveforms."
+    owner: Antoine Madec
+  -
+    requirement_id: TOP_L2_FEAT_15
+    description: "This is more of PD related requirement than verif."
+    owner: Dhanusuya Mahendran
+  -
+    requirement_id: TOP_SYS_SPM_FEAT_0
+    description: "SYS_SPM is a memory, it can be used to store whatever we want."
+    owner: Antoine Madec
+  -
+    requirement_id: TOP_SYS_SPM_FEAT_2
+    description: "This is an LD integration requirement. Verified on waveforms."
+    owner: Antoine Madec

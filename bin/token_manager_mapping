@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+
+set -e
+
+VENV=.venv/token_manager_mapping
+
+make -C $REPO_ROOT/bin venv VENV=$VENV FILE=$REPO_ROOT/hw/ip/token_manager/default/scripts/requirements.txt > $REPO_ROOT/bin/token_manager_mapping_venv.log 2>&1 || (cat $REPO_ROOT/bin/token_manager_mapping_venv.log && exit 1)
+
+source $REPO_ROOT/bin/$VENV/bin/activate
+$REPO_ROOT/hw/ip/token_manager/default/scripts/conv_mapping.py $@
+deactivate

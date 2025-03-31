@@ -1,0 +1,18 @@
+# (C) Copyright 2024 Axelera AI B.V.
+# All Rights Reserved
+# *** Axelera AI Confidential ***
+
+package:
+  name: europa_aic_ls_dft
+  description: "DFT Physical partition wrapper for aic_ls"
+  authors:
+    - "Tiago Campos <tiago.campos@axelera.ai>"
+
+dependencies:
+  europa_aic_ls: { path: ".." }
+  dft_aic_ls:    { path: "$DFT_HOME/aic_ls/Latest"}
+
+sources:
+  - target: rtl
+    files:
+

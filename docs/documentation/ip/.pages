@@ -1,0 +1,7 @@
+nav:
+  - "AXE_CCL: Common Cell Library":     axe_ccl
+  - "AIC_CD: AI-Core Control Dispatcher": aic_cd
+  - "AIC_DP_CMD_GEN: AI-Core Datapath Command Generator": aic_dp_cmd_gen
+  - "DWPU: Depth-Wise Processing Unit": dwpu
+  - "TimestampLogger: Timestamp Logger" : timestamp_logger
+  - ...

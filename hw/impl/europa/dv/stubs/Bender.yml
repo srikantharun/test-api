@@ -1,0 +1,14 @@
+package:
+  name: europa_stubs
+  description: "Gather all IP stubs"
+  authors:
+    - "stephane.gros@axelera.ai"
+
+dependencies:
+  europa_ai_core_stub:   { path: "" }
+  europa_l2_stub:        { path: "" }
+  europa_lpddr_stub:     { path: "" }
+  europa_pcie_stub:      { path: "" }
+  europa_pve_stub:       { path: "" }
+  europa_soc_mgmt_stub:  { path: "" }
+  europa_dcd_stub:       { path: "" }

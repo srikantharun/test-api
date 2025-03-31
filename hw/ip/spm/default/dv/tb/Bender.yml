@@ -1,0 +1,27 @@
+package:
+  name: spm_verif_uvm_tb
+  description: "spm verification UVM testbench"
+  authors:
+    - "Vito Luca Guglielmi - vito.guglielmi@axelera.ai"
+
+dependencies:
+    spm:                      { path: "" }
+    spm_pkg:                  { path: "" }
+    svt_amba_vip:             { path: "" }
+    spm_verif_uvm_env:        { path: "" }
+    spm_verif_uvm_sequences:  { path: "" }
+    spm_verif_uvm_tests:      { path: "" }
+    dv_common_rtl:            { path: "" }
+    axi_pkg:                  { path: "" }
+    axi4pc:                   { path: "" }
+    axi_tracker:              { path: "" }
+
+
+sources:
+  - target: simulation
+    include_dirs:
+      - .
+    files:
+      - spm_if.sv
+      - spm_assertions.sv
+      - hdl_top.sv

@@ -1,0 +1,21 @@
+package:
+  name: axi_tracker
+  description: "AXI4 Performance tracker to bind with any DUTs interface"
+  authors:
+    - "srinivas.prakash@axelera.ai"
+
+dependencies:
+  axi_pkg:        { path: "" } # AXI pkg
+          
+export_include_dirs:
+  - include
+
+sources:
+  - target: simulation
+    defines: 
+      INT_WIDTH: 32
+    include_dirs:
+      - .
+    files:
+      - axi_tracker_pkg.sv
+      - axi_tracker.sv

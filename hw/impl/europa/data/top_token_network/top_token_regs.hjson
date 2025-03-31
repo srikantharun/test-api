@@ -1,0 +1,595 @@
+    { name: "VUID_TO_UID_AIC0",
+      desc: '''
+       VUID to UID mapping table for AI Core 0.
+      ''',
+      swaccess: "rw",
+      hwaccess: "hro",
+      fields: [
+        {
+          bits: "5:0"
+          name: "CD"
+          desc: "UID value for Control Dispatcher"
+          resval: 4
+        }
+        {
+          bits: "13:8"
+          name: "DMA_CH0"
+          desc: "UID value for DMA Channel 0"
+          resval: 5
+        }
+        {
+          bits: "21:16"
+          name: "DMA_CH1"
+          desc: "UID value for DMA Channel 1"
+          resval: 6
+        }
+      ]
+    },
+    { name: "VUID_TO_UID_AIC1",
+      desc: '''
+       VUID to UID mapping table for AI Core 1.
+      ''',
+      swaccess: "rw",
+      hwaccess: "hro",
+      fields: [
+        {
+          bits: "5:0"
+          name: "CD"
+          desc: "UID value for Control Dispatcher"
+          resval: 8
+        }
+        {
+          bits: "13:8"
+          name: "DMA_CH0"
+          desc: "UID value for DMA Channel 0"
+          resval: 9
+        }
+        {
+          bits: "21:16"
+          name: "DMA_CH1"
+          desc: "UID value for DMA Channel 1"
+          resval: 10
+        }
+      ]
+    },
+    { name: "VUID_TO_UID_AIC2",
+      desc: '''
+       VUID to UID mapping table for AI Core 2.
+      ''',
+      swaccess: "rw",
+      hwaccess: "hro",
+      fields: [
+        {
+          bits: "5:0"
+          name: "CD"
+          desc: "UID value for Control Dispatcher"
+          resval: 12
+        }
+        {
+          bits: "13:8"
+          name: "DMA_CH0"
+          desc: "UID value for DMA Channel 0"
+          resval: 13
+        }
+        {
+          bits: "21:16"
+          name: "DMA_CH1"
+          desc: "UID value for DMA Channel 1"
+          resval: 14
+        }
+      ]
+    },
+    { name: "VUID_TO_UID_AIC3",
+      desc: '''
+       VUID to UID mapping table for AI Core 3.
+      ''',
+      swaccess: "rw",
+      hwaccess: "hro",
+      fields: [
+        {
+          bits: "5:0"
+          name: "CD"
+          desc: "UID value for Control Dispatcher"
+          resval: 16
+        }
+        {
+          bits: "13:8"
+          name: "DMA_CH0"
+          desc: "UID value for DMA Channel 0"
+          resval: 17
+        }
+        {
+          bits: "21:16"
+          name: "DMA_CH1"
+          desc: "UID value for DMA Channel 1"
+          resval: 18
+        }
+      ]
+    },
+    { name: "VUID_TO_UID_AIC4",
+      desc: '''
+       VUID to UID mapping table for AI Core 4.
+      ''',
+      swaccess: "rw",
+      hwaccess: "hro",
+      fields: [
+        {
+          bits: "5:0"
+          name: "CD"
+          desc: "UID value for Control Dispatcher"
+          resval: 20
+        }
+        {
+          bits: "13:8"
+          name: "DMA_CH0"
+          desc: "UID value for DMA Channel 0"
+          resval: 21
+        }
+        {
+          bits: "21:16"
+          name: "DMA_CH1"
+          desc: "UID value for DMA Channel 1"
+          resval: 22
+        }
+      ]
+    },
+    { name: "VUID_TO_UID_AIC5",
+      desc: '''
+       VUID to UID mapping table for AI Core 5.
+      ''',
+      swaccess: "rw",
+      hwaccess: "hro",
+      fields: [
+        {
+          bits: "5:0"
+          name: "CD"
+          desc: "UID value for Control Dispatcher"
+          resval: 24
+        }
+        {
+          bits: "13:8"
+          name: "DMA_CH0"
+          desc: "UID value for DMA Channel 0"
+          resval: 25
+        }
+        {
+          bits: "21:16"
+          name: "DMA_CH1"
+          desc: "UID value for DMA Channel 1"
+          resval: 26
+        }
+      ]
+    },
+    { name: "VUID_TO_UID_AIC6",
+      desc: '''
+       VUID to UID mapping table for AI Core 6.
+      ''',
+      swaccess: "rw",
+      hwaccess: "hro",
+      fields: [
+        {
+          bits: "5:0"
+          name: "CD"
+          desc: "UID value for Control Dispatcher"
+          resval: 28
+        }
+        {
+          bits: "13:8"
+          name: "DMA_CH0"
+          desc: "UID value for DMA Channel 0"
+          resval: 29
+        }
+        {
+          bits: "21:16"
+          name: "DMA_CH1"
+          desc: "UID value for DMA Channel 1"
+          resval: 30
+        }
+      ]
+    },
+    { name: "VUID_TO_UID_AIC7",
+      desc: '''
+       VUID to UID mapping table for AI Core 7.
+      ''',
+      swaccess: "rw",
+      hwaccess: "hro",
+      fields: [
+        {
+          bits: "5:0"
+          name: "CD"
+          desc: "UID value for Control Dispatcher"
+          resval: 32
+        }
+        {
+          bits: "13:8"
+          name: "DMA_CH0"
+          desc: "UID value for DMA Channel 0"
+          resval: 33
+        }
+        {
+          bits: "21:16"
+          name: "DMA_CH1"
+          desc: "UID value for DMA Channel 1"
+          resval: 34
+        }
+      ]
+    },
+    { name: "VUID_TO_UID_SDMA0",
+      desc: '''
+       VUID to UID mapping table for SDMA0.
+      ''',
+      swaccess: "rw",
+      hwaccess: "hro",
+      fields: [
+        {
+          bits: "5:0"
+          name: "CH0"
+          desc: "UID value for DMA Channel 0"
+          resval: 36
+        }
+        {
+          bits: "13:8"
+          name: "CH1"
+          desc: "UID value for DMA Channel 1"
+          resval: 37
+        }
+        {
+          bits: "21:16"
+          name: "CH2"
+          desc: "UID value for DMA Channel 2"
+          resval: 38
+        }
+        {
+          bits: "29:24"
+          name: "CH3"
+          desc: "UID value for DMA Channel 3"
+          resval: 39
+        }
+      ]
+    },
+    { name: "VUID_TO_UID_SDMA1",
+      desc: '''
+       VUID to UID mapping table for SDMA1.
+      ''',
+      swaccess: "rw",
+      hwaccess: "hro",
+      fields: [
+        {
+          bits: "5:0"
+          name: "CH0"
+          desc: "UID value for DMA Channel 0"
+          resval: 40
+        }
+        {
+          bits: "13:8"
+          name: "CH1"
+          desc: "UID value for DMA Channel 1"
+          resval: 41
+        }
+        {
+          bits: "21:16"
+          name: "CH2"
+          desc: "UID value for DMA Channel 2"
+          resval: 42
+        }
+        {
+          bits: "29:24"
+          name: "CH3"
+          desc: "UID value for DMA Channel 3"
+          resval: 43
+        }
+      ]
+    },
+    { name: "VUID_TO_UID_APU",
+      desc: '''
+       VUID to UID mapping table for APU.
+      ''',
+      swaccess: "rw",
+      hwaccess: "hro",
+      fields: [
+        {
+          bits: "5:0"
+          name: "SWEP"
+          desc: "UID value for SW Endpoint"
+          resval: 44
+        }
+      ]
+    },
+
+    { name: "UID_TO_VUID_AIC0",
+      desc: '''
+       UID to VUID mapping table for AI Core 0.
+      ''',
+      swaccess: "rw",
+      hwaccess: "hro",
+      fields: [
+        {
+          bits: "5:0"
+          name: "CD"
+          desc: "VUID value for Control Dispatcher"
+          resval: 4
+        }
+        {
+          bits: "13:8"
+          name: "DMA_CH0"
+          desc: "VUID value for DMA Channel 0"
+          resval: 5
+        }
+        {
+          bits: "21:16"
+          name: "DMA_CH1"
+          desc: "VUID value for DMA Channel 1"
+          resval: 6
+        }
+      ]
+    },
+    { name: "UID_TO_VUID_AIC1",
+      desc: '''
+       UID to VUID mapping table for AI Core 1.
+      ''',
+      swaccess: "rw",
+      hwaccess: "hro",
+      fields: [
+        {
+          bits: "5:0"
+          name: "CD"
+          desc: "VUID value for Control Dispatcher"
+          resval: 8
+        }
+        {
+          bits: "13:8"
+          name: "DMA_CH0"
+          desc: "VUID value for DMA Channel 0"
+          resval: 9
+        }
+        {
+          bits: "21:16"
+          name: "DMA_CH1"
+          desc: "VUID value for DMA Channel 1"
+          resval: 10
+        }
+      ]
+    },
+    { name: "UID_TO_VUID_AIC2",
+      desc: '''
+       UID to VUID mapping table for AI Core 2.
+      ''',
+      swaccess: "rw",
+      hwaccess: "hro",
+      fields: [
+        {
+          bits: "5:0"
+          name: "CD"
+          desc: "VUID value for Control Dispatcher"
+          resval: 12
+        }
+        {
+          bits: "13:8"
+          name: "DMA_CH0"
+          desc: "VUID value for DMA Channel 0"
+          resval: 13
+        }
+        {
+          bits: "21:16"
+          name: "DMA_CH1"
+          desc: "VUID value for DMA Channel 1"
+          resval: 14
+        }
+      ]
+    },
+    { name: "UID_TO_VUID_AIC3",
+      desc: '''
+       UID to VUID mapping table for AI Core 3.
+      ''',
+      swaccess: "rw",
+      hwaccess: "hro",
+      fields: [
+        {
+          bits: "5:0"
+          name: "CD"
+          desc: "VUID value for Control Dispatcher"
+          resval: 16
+        }
+        {
+          bits: "13:8"
+          name: "DMA_CH0"
+          desc: "VUID value for DMA Channel 0"
+          resval: 17
+        }
+        {
+          bits: "21:16"
+          name: "DMA_CH1"
+          desc: "VUID value for DMA Channel 1"
+          resval: 18
+        }
+      ]
+    },
+    { name: "UID_TO_VUID_AIC4",
+      desc: '''
+       UID to VUID mapping table for AI Core 4.
+      ''',
+      swaccess: "rw",
+      hwaccess: "hro",
+      fields: [
+        {
+          bits: "5:0"
+          name: "CD"
+          desc: "VUID value for Control Dispatcher"
+          resval: 20
+        }
+        {
+          bits: "13:8"
+          name: "DMA_CH0"
+          desc: "VUID value for DMA Channel 0"
+          resval: 21
+        }
+        {
+          bits: "21:16"
+          name: "DMA_CH1"
+          desc: "VUID value for DMA Channel 1"
+          resval: 22
+        }
+      ]
+    },
+    { name: "UID_TO_VUID_AIC5",
+      desc: '''
+       UID to VUID mapping table for AI Core 5.
+      ''',
+      swaccess: "rw",
+      hwaccess: "hro",
+      fields: [
+        {
+          bits: "5:0"
+          name: "CD"
+          desc: "VUID value for Control Dispatcher"
+          resval: 24
+        }
+        {
+          bits: "13:8"
+          name: "DMA_CH0"
+          desc: "VUID value for DMA Channel 0"
+          resval: 25
+        }
+        {
+          bits: "21:16"
+          name: "DMA_CH1"
+          desc: "VUID value for DMA Channel 1"
+          resval: 26
+        }
+      ]
+    },
+    { name: "UID_TO_VUID_AIC6",
+      desc: '''
+       UID to VUID mapping table for AI Core 6.
+      ''',
+      swaccess: "rw",
+      hwaccess: "hro",
+      fields: [
+        {
+          bits: "5:0"
+          name: "CD"
+          desc: "VUID value for Control Dispatcher"
+          resval: 28
+        }
+        {
+          bits: "13:8"
+          name: "DMA_CH0"
+          desc: "VUID value for DMA Channel 0"
+          resval: 29
+        }
+        {
+          bits: "21:16"
+          name: "DMA_CH1"
+          desc: "VUID value for DMA Channel 1"
+          resval: 30
+        }
+      ]
+    },
+    { name: "UID_TO_VUID_AIC7",
+      desc: '''
+       UID to VUID mapping table for AI Core 7.
+      ''',
+      swaccess: "rw",
+      hwaccess: "hro",
+      fields: [
+        {
+          bits: "5:0"
+          name: "CD"
+          desc: "VUID value for Control Dispatcher"
+          resval: 32
+        }
+        {
+          bits: "13:8"
+          name: "DMA_CH0"
+          desc: "VUID value for DMA Channel 0"
+          resval: 33
+        }
+        {
+          bits: "21:16"
+          name: "DMA_CH1"
+          desc: "VUID value for DMA Channel 1"
+          resval: 34
+        }
+      ]
+    },
+    { name: "UID_TO_VUID_SDMA0",
+      desc: '''
+       UID to VUID mapping table for SDMA0.
+      ''',
+      swaccess: "rw",
+      hwaccess: "hro",
+      fields: [
+        {
+          bits: "5:0"
+          name: "CH0"
+          desc: "VUID value for DMA Channel 0"
+          resval: 36
+        }
+        {
+          bits: "13:8"
+          name: "CH1"
+          desc: "VUID value for DMA Channel 1"
+          resval: 37
+        }
+        {
+          bits: "21:16"
+          name: "CH2"
+          desc: "VUID value for DMA Channel 2"
+          resval: 38
+        }
+        {
+          bits: "29:24"
+          name: "CH3"
+          desc: "VUID value for DMA Channel 3"
+          resval: 39
+        }
+      ]
+    },
+    { name: "UID_TO_VUID_SDMA1",
+      desc: '''
+       UID to VUID mapping table for SDMA1.
+      ''',
+      swaccess: "rw",
+      hwaccess: "hro",
+      fields: [
+        {
+          bits: "5:0"
+          name: "CH0"
+          desc: "VUID value for DMA Channel 0"
+          resval: 40
+        }
+        {
+          bits: "13:8"
+          name: "CH1"
+          desc: "VUID value for DMA Channel 1"
+          resval: 41
+        }
+        {
+          bits: "21:16"
+          name: "CH2"
+          desc: "VUID value for DMA Channel 2"
+          resval: 42
+        }
+        {
+          bits: "29:24"
+          name: "CH3"
+          desc: "VUID value for DMA Channel 3"
+          resval: 43
+        }
+      ]
+    },
+    { name: "UID_TO_VUID_APU",
+      desc: '''
+       UID to VUID mapping table for APU.
+      ''',
+      swaccess: "rw",
+      hwaccess: "hro",
+      fields: [
+        {
+          bits: "5:0"
+          name: "SWEP"
+          desc: "VUID value for SW Endpoint"
+          resval: 44
+        }
+      ]
+    },

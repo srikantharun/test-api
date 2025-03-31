@@ -1,0 +1,34 @@
+# (C) Copyright 2024 Axelera AI B.V.
+# All Rights Reserved
+# *** Axelera AI Confidential ***
+
+package:
+  name: axi4_common
+  description: "AXI4 common blocks"
+  authors:
+    - "Manuel Oliveira <manuel.oliveira@axelera.ai>"
+
+dependencies:
+  axi_pkg:         { path: "hw/ip/axi/default/rtl/pkg" }
+  axi4_common_pkg: { path: "pkg" }
+  cc_lib:          { path: "hw/ip/common_cell_library/default/rtl" }
+
+  lowrisc_prim_subreg: { path: "hw/vendor/lowrisc/prim_subreg/default/rtl/" }
+
+# Source files grouped in levels.
+# Files in level 0 have no dependencies on files in this package.
+# Files in level 1 only depend on files in level 0, files in level 2 on files in levels 1 and 0, etc.
+# Files within a level are ordered alphabetically.
+sources:
+  - target: rtl
+    files:
+    # Level 0
+    - axi2reg_path.sv
+    - simple_axi_demux_path.sv
+    # Level 1
+    - axi2reg.sv
+    - simple_axi_demux.sv
+    # Level 2
+    - build_reg/axi_mailbox_csr_reg_top.sv
+    # Level 3
+    - axi_mailbox.sv

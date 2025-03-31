@@ -1,0 +1,57 @@
+tests:
+  - name: cva6v_asm_ld_misaligned
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_ASM_TESTS]
+    requirement_ids: []
+    platforms: [cva6v.*]
+    owner: Pawel Wiecha
+    flags: [ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/asm/tests/build/directed/ld_misaligned, RUN_SCRIPT_ONLY]
+
+  - name: cva6v_asm_ld_st_hazards
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_ASM_TESTS]
+    requirement_ids: []
+    platforms: [cva6v.*]
+    owner: Pawel Wiecha
+    flags: [ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/asm/tests/build/directed/ld_st_hazards, RUN_SCRIPT_ONLY]
+
+  - name: cva6v_asm_sanity_ld_st
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_ASM_TESTS]
+    requirement_ids: []
+    platforms: [cva6v.*]
+    owner: Pawel Wiecha
+    flags: [ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/asm/tests/build/directed/sanity_ld_st, RUN_SCRIPT_ONLY]
+
+  - name: cva6v_asm_sanity_st
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_ASM_TESTS]
+    requirement_ids: []
+    platforms: [cva6v.*]
+    owner: Pawel Wiecha
+    flags: [ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/asm/tests/build/directed/sanity_st, RUN_SCRIPT_ONLY]
+
+  - name: cva6v_asm_sanity_fp
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_ASM_TESTS]
+    requirement_ids: []
+    platforms: [cva6v.*]
+    owner: Pawel Wiecha
+    flags: [ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/asm/tests/build/directed/sanity_fp, RUN_SCRIPT_ONLY]
+
+  - name: cva6v_asm_sanity
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_ASM_TESTS]
+    requirement_ids: []
+    platforms: [cva6v.*]
+    owner: Pawel Wiecha
+    flags: [ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/asm/tests/build/directed/sanity, RUN_SCRIPT_ONLY]
+
+  - name: cva6v_fp_cmp
+    description: "Asm fp compare test"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_ASM_TESTS]
+    requirement_ids: []
+    platforms: [cva6v.*]
+    owner: Abhilash Chadhar
+    flags: [ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/asm/tests/build/directed/cva6v_fp_cmp, RUN_SCRIPT_ONLY]
+

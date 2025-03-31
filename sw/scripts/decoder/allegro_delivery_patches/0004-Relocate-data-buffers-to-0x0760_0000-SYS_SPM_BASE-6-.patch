@@ -1,0 +1,27 @@
+From a74c0d721ba1707becf2f22a0e4a1485019df87a Mon Sep 17 00:00:00 2001
+From: Max Wipfli <max.wipfli@axelera.ai>
+Date: Wed, 3 Jul 2024 15:09:26 +0000
+Subject: [PATCH 4/9] Relocate data buffers to 0x28_0000_0000 (DDR_0_BASE)
+
+This change should not impact functionality, and is required for
+integration into our address map.
+---
+ bin/generateTraces.pl | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/bin/generateTraces.pl b/bin/generateTraces.pl
+index e8a7972..038c028 100755
+--- a/bin/generateTraces.pl
++++ b/bin/generateTraces.pl
+@@ -292,7 +292,7 @@ sub GenerateTraces {
+       }
+     }
+     if($usemcu) {
+-      $exe.=" --libref-base-addr 0xC0000000 ";
++      $exe.=" --libref-base-addr 0x2800000000 ";
+     } else {
+       if($idx % 2) {
+         $exe.=" --libref-base-addr 0x5A5A5A5A5A500000";
+-- 
+2.43.0
+

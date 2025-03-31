@@ -1,0 +1,291 @@
+{
+    # Our name for the AXI interface
+    axi: lpddr_axi_m
+    # Our name for the APB interface
+    apb: lpddr_cfg_apb_m
+    # Rename individual ports, left side is the new name, right side is the old name or a list of old names in case you want to broadcast the new name to multiple old names (only allowed for inputs)
+    rename_ports : {
+        i_cfg_rst_n : [
+            presetn
+        ] 
+        i_ctrl_rst_n : [
+            core_ddrc_rstn
+            aresetn_0
+            sbr_resetn
+        ]
+        i_phy_rst : [
+            Reset
+            Reset_async
+        ]
+    }
+    dont_prefix : [
+        BP_*
+    ]
+    dont_expose : [
+        VIO_TIEHI
+    ]
+    # Internal connections in the subsys wrapper
+    connect_to : {
+        BP_PWROK : VIO_TIEHI
+    }
+    tie_to : {
+        RxBypassPadEn* : "'0" #DFT will connect
+        RxBypassRcvEn* : "'0" #DFT will connect
+        TxBypassData* : "'0" #DFT will connect
+        TxBypassMode* : "'0" #DFT will connect
+        TxBypassOE* : "'0" #DFT will connect
+        *CRE1 : "'0" #DFT will connect
+        *CRE2 : "'0" #DFT will connect
+        *FCA1 : "'0" #DFT will connect
+        *FCA2 : "'0" #DFT will connect
+        *RREN1 : "'0" #DFT will connect
+        *RREN2 : "'0" #DFT will connect
+        *FRA1 : "'0" #DFT will connect
+        *FRA2 : "'0" #DFT will connect
+        *MCS  : "axe_tcl_pkg::MCS" # Axelera default settings
+        *MCSRD : "axe_tcl_pkg::MCS" # Axelera default settings
+        *MCSWR : "axe_tcl_pkg::MCS" # Axelera default settings
+        *MCSW : "axe_tcl_pkg::MCSW" # Axelera default settings
+        *ADME : "axe_tcl_pkg::ADME" # Axelera default settings
+        *KCS: "'0" # Axelera default settings
+        dfi_reset_n_in: "'1" # From CTRL databook: only supported in LPDDR4 mode, tie 1 if not used.
+        init_mr_done_in: "'1" # From CTRL databook: only supported in LPDDR4 mode, tie 1 if not used.
+        pa_rmask : "'0"  # from snps databook, signal masks request from port to port arbiter. Since axelera has only 1 AXI port, masking should not be required.
+        pa_wmask : "'0"  # from snps databook, signal masks request from port to port arbiter. Since axelera has only 1 AXI port, masking should not be required.
+        arpoison_0: "'0" # from snps databook, signal to mark axi transaction as invalid. Not used by axelera.
+        awpoison_0: "'0" # from snps databook, signal to mark axi transaction as invalid. Not used by axelera.
+        arautopre_0: "'0" # from snps databook, port not supported for LPDDR5, must be tied low.
+        awautopre_0: "'0" # from snps databook, port not supported for LPDDR5, must be tied low.
+        DdrPhyCsr*: "'0" # Yassine's DFT flow will connect JTAG tab
+        scan_*: "'0" # Yassine's DFT flow will connect JTAG tab
+        TDRCLK : "'0" # Yassine's DFT flow will connect
+        WRSTN : "'0" # Yassine's DFT flow will connect
+        WSI : "'0" # Yassine's DFT flow will connect
+        BurnIn : "'0" # Yassine's DFT flow will connect
+        Iddq_mode : "'0" # Yassine's DFT flow will connect
+    }
+    unconnected_list :[
+        "RxBypassDataPad*" # DFT will connect
+        "RxBypassDataRcv*" # DFT will connect
+        "dfi_reset_n_ref" # From CTRL databook: only supported in LPDDR4 mode
+        "init_mr_done_out" # From CTRL databook: only supported in LPDDR4 mode
+        "stat_ddrc_reg_selfref_type" # From CTRL databook: equivalent to stat.selfref_type register, information is accesible through register no connectio needed.
+        "dbg_dfi_ie_cmd_type" #FROM CTRL databook: debug signal only valid when DFI command to PHY is valid. TODO: check if we need this, sounds complex to read at the right time.
+        "prdata_par" # We will not use data parity check on APB from PHY
+        "hif_refresh_req_bank" # From CTRL databook: debug only signal indicating the next bank to be refershed. TODO: check if we need this.
+        "arpoison_intr_0" # From CTRL databook, irq to flag transaction being marked as invalid. Invalid marking not used by axelera.
+        "awpoison_intr_0" # From CTRL databook, irq to flag transaction being marked as invalid. Invalid marking not used by axelera.
+        "DdrPhyCsr*" # Yassine's DFT flow will connect JTAG tab
+        "scan_so"  # Yassine's DFT flow will connect
+        "*_fault" # interrupt fault signals are a non-maskable 2b version of the normal interrupt signals. Not used by axelera.
+    ]
+    ends_in_p_wrapper :[
+        pclk
+        pclk_apbrw
+        aclk_0
+        core_ddrc_core_clk
+        core_ddrc_core_clk_apbrw
+        DfiClk
+        sbr_clk
+        PllBypClk
+        PllRefClk
+        presetn
+        aresetn_0
+        core_ddrc_rstn
+        sbr_resetn
+        Reset_async
+        Reset
+        "perf_*" # All perf signals are connected to counters in the _p wrapper. A force will be required to get them to the inv_wrapper
+        dis_regs_ecc_syndrome
+        hpr_credit_cnt
+        lpr_credit_cnt
+        wr_credit_cnt
+        wrecc_credit_cnt
+        hif_mrr_data
+        hif_mrr_data_valid
+        acsm_PDE
+        acsm_RET
+        bc_PDE
+        bc_RET
+        dccm_PDE
+        dccm_RET
+        gs_PDE
+        gs_RET
+        iccm_PDE
+        iccm_RET
+        pie_PDE
+        pie_RET
+        wdata_PDE
+        wdata_RET
+        acsm_PRN
+        bc_PRN
+        dccm_PRN
+        gs_PRN
+        iccm_PRN
+        pie_PRN
+        wdata_PRN
+        awurgent_0
+        arurgentb_0
+        arurgentr_0
+        raqb_wcount_0
+        raqr_wcount_0
+        waq_wcount_0
+        raq_split_0
+        raqb_pop_0
+        raqb_push_0
+        raqr_pop_0
+        raqr_push_0
+        waq_pop_0
+        waq_push_0
+        waq_split_0
+        "csysreq_ddrc" # DDRC low power interface will not be used. Tie is in _p wrapper.
+        "csysdiscamdrain_ddrc" # DDRC low power interface will not be used. Tie is in _p wrapper.
+        "csysfrequency_ddrc" # DDRC low power interface will not be used. Tie is in _p wrapper.
+        "csysfsp_ddrc" # DDRC low power interface will not be used. Tie is in _p wrapper.
+        "csysmode_ddrc" # DDRC low power interface will not be used. Tie is in _p wrapper.
+        "csysreq_0" # AXI lower power interface will not be used.  Tie is in _p wrapper.
+        "cactive_ddrc" # DDRC lower power interface will not be used. Tie is in _p wrapper.
+        "csysack_ddrc" # DDRC lower power interface will not be used. Tie is in _p wrapper.
+        "cactive_0" # AXI lower power interface will not be used. Tie is in _p wrapper.
+        "csysack_0" # AXI lower power interface will not be used. Tie is in _p wrapper.
+        pprot_pin
+        PhyInt_n
+        dwc_lpddr5xphy_pll_lock
+        dwc_lpddr5xphy_pmu_busy
+        dwc_lpddr5xphy_dto
+    ]
+    # List ports that are added in the p_wrapper that are not directly a pass through of snps ports.
+    # Required for inverse wrapper.
+    # Left hand side, wrapper port name, right hand side connection in inverse wrapper, can be open or tie.
+    added_in_p_wrapper : {
+        i_ao_clk : i_clk
+        i_lpddr_clk : pclk
+        i_ao_rst_n : presetn
+        i_global_rst_n : presetn
+        o_ao_rst_sync_n : ""
+        o_noc_async_idle_req : ""
+        i_noc_async_idle_ack : "'0"
+        i_noc_async_idle_val : ""
+        o_noc_clken : ""
+        o_noc_rst_n : ""
+        i_lpddr_axi_m_aruser : "'0"
+        i_lpddr_axi_m_awuser : "'0"
+        i_lpddr_axi_m_wuser : "'0"
+        o_lpddr_axi_m_ruser : ""
+        o_lpddr_axi_m_buser : ""
+        i_lpddr_syscfg_apb4_s_paddr : "'0"
+        i_lpddr_syscfg_apb4_s_pwdata : "'0"
+        i_lpddr_syscfg_apb4_s_pwrite : "'0"
+        i_lpddr_syscfg_apb4_s_psel : "'0"
+        i_lpddr_syscfg_apb4_s_penable : "'0"
+        i_lpddr_syscfg_apb4_s_pstrb : "'0"
+        i_lpddr_syscfg_apb4_s_pprot : "'0"
+        o_lpddr_syscfg_apb4_s_pready : ""
+        o_lpddr_syscfg_apb4_s_prdata : ""
+        o_lpddr_syscfg_apb4_s_pslverr : ""
+        o_phy_pie_prog_err_intr : ""
+        o_phy_ecc_err_intr : ""
+        o_phy_rdfptrchk_err_intr : ""
+        o_phy_pie_parity_err_intr : ""
+        o_phy_acsm_parity_err_intr : ""
+        o_phy_trng_fail_intr : ""
+        o_phy_init_cmplt_intr : ""
+        o_phy_trng_cmplt_intr : ""
+        tck : "'0"
+        trst : "'0"
+        tms : "'0"
+        tdi : "'0"
+        tdo_en : ""
+        tdo : ""
+        ssn_bus_clk : "'0"
+        ssn_bus_data_in : "'0"
+        ssn_bus_data_out : ""
+        bisr_clk : "'0"
+        bisr_reset : "'0"
+        bisr_shift_en : "'0"
+        bisr_si : "'0"
+        bisr_so : ""
+        o_lpddr_obs : ""
+    }
+    renamed_in_p_wrapper : {
+        i_lpddr_cfg_apb_m_pprot : i_lpddr_cfg_apb4_s_pprot
+        i_lpddr_cfg_apb_m_paddr : i_lpddr_cfg_apb4_s_paddr
+        i_lpddr_cfg_apb_m_penable : i_lpddr_cfg_apb4_s_penable
+        i_lpddr_cfg_apb_m_psel : i_lpddr_cfg_apb4_s_psel
+        i_lpddr_cfg_apb_m_pstrb : i_lpddr_cfg_apb4_s_pstrb
+        i_lpddr_cfg_apb_m_pwdata : i_lpddr_cfg_apb4_s_pwdata
+        i_lpddr_cfg_apb_m_pwrite : i_lpddr_cfg_apb4_s_pwrite
+        o_lpddr_cfg_apb_m_prdata : o_lpddr_cfg_apb4_s_prdata
+        o_lpddr_cfg_apb_m_pready : o_lpddr_cfg_apb4_s_pready
+        o_lpddr_cfg_apb_m_pslverr : o_lpddr_cfg_apb4_s_pslverr
+        o_sbr_done_intr  : o_ctrl_sbr_done_intr
+        o_derate_temp_limit_intr  : o_ctrl_derate_temp_limit_intr
+        o_ecc_ap_err_intr  : o_ctrl_ecc_ap_err_intr
+        o_ecc_corrected_err_intr  : o_ctrl_ecc_corrected_err_intr
+        o_ecc_uncorrected_err_intr  : o_ctrl_ecc_uncorrected_err_intr
+        o_rd_linkecc_corr_err_intr  : o_ctrl_rd_linkecc_corr_err_intr
+        o_rd_linkecc_uncorr_err_intr  : o_ctrl_rd_linkecc_uncorr_err_intr
+    }
+
+    
+    snps_postfix_removal : [
+        _0
+    ]
+    axi_port_naming : [
+        araddr
+        arburst
+        arcache
+        arid
+        arlen
+        arlock
+        arprot
+        arqos
+        arregion
+        arsize
+        arvalid
+        arready
+        rready
+        rdata
+        rid
+        rlast
+        rresp
+        rvalid
+        awaddr
+        awburst
+        awcache
+        awid
+        awlen
+        awlock
+        awprot
+        awqos
+        awregion
+        awsize
+        awvalid
+        awready
+        wdata
+        wlast
+        wstrb
+        wvalid
+        wready
+        bready
+        bid
+        bresp
+        bvalid
+    ]
+    apb_port_naming : [
+        paddr
+        penable
+        pprot
+        psel
+        pstrb
+        pwdata
+        pwrite
+        prdata
+        pready
+        pslverr
+    ]
+    use_wires : [
+        BP_*
+        VIO_TIEHI
+    ]
+}

@@ -1,0 +1,181 @@
+tests:
+  # Sanity tests
+  - name: test_decoder_sanity_custom
+    description: "Prebuilt test provided by Allegro DVT (g_custom/custom)"
+    labels: [CODEC, DECODER_NIGHTLY]
+    requirement_ids: [DECODER_FEAT_DEC_300_0, DECODER_FEAT_DEC_301_0]
+    platforms: [uvm.SIM_DECODER_ALLEGRO_TB]
+    flags: [+ALLEGRO_TEST_PATH=$DECODER_TESTS_PATH/tests/g_custom/custom]
+    owner: Stephane Gros
+
+  - name: test_decoder_sanity_custom_axi_mcu
+    description: "Prebuilt test provided by Allegro DVT (g_custom/custom_axi_mcu)"
+    labels: [CODEC, DECODER_SANITY]
+    requirement_ids: [DECODER_FEAT_DEC_300_0, DECODER_FEAT_DEC_301_0]
+    platforms: [uvm.SIM_DECODER_ALLEGRO_TB]
+    flags: [+ALLEGRO_TEST_PATH=$DECODER_TESTS_PATH/tests/g_custom/custom_axi_mcu]
+    owner: Stephane Gros
+
+  - name: test_decoder_sanity_custom_mcu
+    description: "Prebuilt test provided by Allegro DVT (g_custom/custom_mcu)"
+    labels: [CODEC, DECODER_SANITY]
+    requirement_ids: [DECODER_FEAT_DEC_300_0, DECODER_FEAT_DEC_301_0]
+    platforms: [uvm.SIM_DECODER_ALLEGRO_TB]
+    flags: [+ALLEGRO_TEST_PATH=$DECODER_TESTS_PATH/tests/g_custom/custom_mcu]
+    owner: Stephane Gros
+
+  - name: test_decoder_sanity_custom_mcu_dm
+    description: "Prebuilt test provided by Allegro DVT (g_custom/custom_mcu_dm)"
+    labels: [CODEC, DECODER_SANITY]
+    requirement_ids: [DECODER_FEAT_DEC_300_0, DECODER_FEAT_DEC_301_0]
+    platforms: [uvm.SIM_DECODER_ALLEGRO_TB]
+    flags: [+ALLEGRO_TEST_PATH=$DECODER_TESTS_PATH/tests/g_custom/custom_mcu_dm]
+    owner: Stephane Gros
+
+  - name: test_decoder_sanity_custom_reg
+    description: "Prebuilt test provided by Allegro DVT (g_custom/custom_reg)"
+    labels: [CODEC, DECODER_SANITY]
+    requirement_ids: [DECODER_FEAT_DEC_300_0, DECODER_FEAT_DEC_301_0]
+    platforms: [uvm.SIM_DECODER_ALLEGRO_TB]
+    flags: [+ALLEGRO_TEST_PATH=$DECODER_TESTS_PATH/tests/g_custom/custom_reg]
+    owner: Stephane Gros
+
+  # RAM integration tests (block level)
+  - name: test_decoder_ram_integration_hevc_3840x64_420_8_1c0
+    description: "RAM integration test provided by Allegro DVT (g_ram_integration/HEVC_3840x64_420_8_1c0.cfg)"
+    labels: [CODEC, DECODER_NIGHTLY]
+    requirement_ids: [DECODER_FEAT_DEC_300_0, DECODER_FEAT_DEC_301_0]
+    platforms: [uvm.SIM_DECODER_ALLEGRO_TB]
+    flags: [+ALLEGRO_TEST_PATH=$DECODER_TESTS_PATH/tests/g_ram_integration/HEVC_3840x64_420_8_1c0]
+    owner: Stephane Gros
+
+  - name: test_decoder_ram_integration_hevc_3840x64_420_8_1c1
+    description: "RAM integration test provided by Allegro DVT (g_ram_integration/HEVC_3840x64_420_8_1c1.cfg)"
+    labels: [CODEC, DECODER_NIGHTLY]
+    requirement_ids: [DECODER_FEAT_DEC_300_0, DECODER_FEAT_DEC_301_0]
+    platforms: [uvm.SIM_DECODER_ALLEGRO_TB]
+    flags: [+ALLEGRO_TEST_PATH=$DECODER_TESTS_PATH/tests/g_ram_integration/HEVC_3840x64_420_8_1c1]
+    owner: Stephane Gros
+
+  - name: test_decoder_ram_integration_hevc_4216x128_420_8_2c0
+    description: "RAM integration test provided by Allegro DVT (g_ram_integration/HEVC_4216x128_420_8_2c0.cfg)"
+    labels: [CODEC, DECODER_NIGHTLY]
+    requirement_ids: [DECODER_FEAT_DEC_300_0, DECODER_FEAT_DEC_301_0]
+    platforms: [uvm.SIM_DECODER_ALLEGRO_TB]
+    flags: [+ALLEGRO_TEST_PATH=$DECODER_TESTS_PATH/tests/g_ram_integration/HEVC_4216x128_420_8_2c0]
+    owner: Stephane Gros
+
+  - name: test_decoder_ram_integration_hevc_7680x144_420_8_2c0
+    description: "RAM integration test provided by Allegro DVT (g_ram_integration/HEVC_7680x144_420_8_2c0.cfg)"
+    labels: [CODEC, DECODER_NIGHTLY]
+    requirement_ids: [DECODER_FEAT_DEC_300_0, DECODER_FEAT_DEC_301_0]
+    platforms: [uvm.SIM_DECODER_ALLEGRO_TB]
+    flags: [+ALLEGRO_TEST_PATH=$DECODER_TESTS_PATH/tests/g_ram_integration/HEVC_7680x144_420_8_2c0 SIM_RUN_TIME_MINUTES=80]
+    owner: Stephane Gros
+
+  - name: test_decoder_ram_integration_custom_mcu
+    description: "RAM integration test provided by Allegro DVT (g_ram_integration/custom_mcu.cfg)"
+    labels: [CODEC, DECODER_NIGHTLY]
+    requirement_ids: [DECODER_FEAT_DEC_300_0, DECODER_FEAT_DEC_301_0]
+    platforms: [uvm.SIM_DECODER_ALLEGRO_TB]
+    flags: [+ALLEGRO_TEST_PATH=$DECODER_TESTS_PATH/tests/g_ram_integration/custom_mcu]
+    owner: Stephane Gros
+
+  - name: test_decoder_ram_integration_hevc_512x576_420_8_1c0
+    description: "RAM integration test provided by Allegro DVT (g_ram_integration/HEVC_512x576_420_8_1c0.cfg)"
+    labels: [CODEC, DECODER_NIGHTLY]
+    requirement_ids: [DECODER_FEAT_DEC_300_0, DECODER_FEAT_DEC_301_0]
+    platforms: [uvm.SIM_DECODER_ALLEGRO_TB]
+    flags: [+ALLEGRO_TEST_PATH=$DECODER_TESTS_PATH/tests/g_ram_integration/HEVC_512x576_420_8_1c0 SIM_RUN_TIME_MINUTES=120]
+    owner: Stephane Gros
+
+  - name: test_decoder_ram_integration_jpg_128x256_420_8_1c0
+    description: "RAM integration test provided by Allegro DVT (g_ram_integration/JPG_128x256_420_8_1c0.cfg)"
+    labels: [CODEC, DECODER_NIGHTLY]
+    requirement_ids: [DECODER_FEAT_DEC_300_0, DECODER_FEAT_DEC_301_0]
+    platforms: [uvm.SIM_DECODER_ALLEGRO_TB]
+    flags: [+ALLEGRO_TEST_PATH=$DECODER_TESTS_PATH/tests/g_ram_integration/JPG_128x256_420_8_1c0]
+    owner: Stephane Gros
+
+  - name: test_decoder_ram_integration_hevc_512x576_420_8_1c1
+    description: "RAM integration test provided by Allegro DVT (g_ram_integration/HEVC_512x576_420_8_1c1.cfg)"
+    labels: [CODEC, DECODER_NIGHTLY]
+    requirement_ids: [DECODER_FEAT_DEC_300_0, DECODER_FEAT_DEC_301_0]
+    platforms: [uvm.SIM_DECODER_ALLEGRO_TB]
+    flags: [+ALLEGRO_TEST_PATH=$DECODER_TESTS_PATH/tests/g_ram_integration/HEVC_512x576_420_8_1c1 SIM_RUN_TIME_MINUTES=80]
+    owner: Stephane Gros
+
+  - name: test_decoder_ram_integration_jpg_128x256_420_8_1c1
+    description: "RAM integration test provided by Allegro DVT (g_ram_integration/JPG_128x256_420_8_1c1.cfg)"
+    labels: [CODEC, DECODER_NIGHTLY]
+    requirement_ids: [DECODER_FEAT_DEC_300_0, DECODER_FEAT_DEC_301_0]
+    platforms: [uvm.SIM_DECODER_ALLEGRO_TB]
+    flags: [+ALLEGRO_TEST_PATH=$DECODER_TESTS_PATH/tests/g_ram_integration/JPG_128x256_420_8_1c1]
+    owner: Stephane Gros
+
+  - name: test_decoder_ram_integration_pp_3840x128_420_8_1c0
+    description: "RAM integration test provided by Allegro DVT (g_ram_integration/PP_3840x128_420_8_1c0.cfg)"
+    labels: [CODEC, DECODER_NIGHTLY]
+    requirement_ids: [DECODER_FEAT_DEC_300_0, DECODER_FEAT_DEC_301_0]
+    platforms: [uvm.SIM_DECODER_ALLEGRO_TB]
+    flags: [+ALLEGRO_TEST_PATH=$DECODER_TESTS_PATH/tests/g_ram_integration/PP_3840x128_420_8_1c0]
+    owner: Stephane Gros
+
+
+  # Power tests
+  - name: test_decoder_power_avc_256x192_420_8_1c0
+    description: "Power/clock test provided by Allegro DVT (g_power/AVC_256x192_420_8_1c0_custom.cfg)"
+    labels: [CODEC, DECODER_NIGHTLY]
+    requirement_ids: [DECODER_FEAT_DEC_300_0]
+    platforms: [uvm.SIM_DECODER_ALLEGRO_TB]
+    flags: [+ALLEGRO_TEST_PATH=$DECODER_TESTS_PATH/tests/g_power/AVC_256x192_420_8_1c0_custom]
+    owner: Stephane Gros
+
+  - name: test_decoder_power_hevc_256x192_420_8_1c0
+    description: "Power/clock test provided by Allegro DVT (g_power/HEVC_256x192_420_8_1c0_custom.cfg)"
+    labels: [CODEC, DECODER_NIGHTLY]
+    requirement_ids: [DECODER_FEAT_DEC_300_0]
+    platforms: [uvm.SIM_DECODER_ALLEGRO_TB]
+    flags: [+ALLEGRO_TEST_PATH=$DECODER_TESTS_PATH/tests/g_power/HEVC_256x192_420_8_1c0_custom]
+    owner: Stephane Gros
+
+  - name: test_decoder_power_jpg_256x192_420_8_1c0
+    description: "Power/clock test provided by Allegro DVT (g_power/JPG_256x192_420_8_1c0_custom.cfg)"
+    labels: [CODEC, DECODER_NIGHTLY]
+    requirement_ids: [DECODER_FEAT_DEC_300_0]
+    platforms: [uvm.SIM_DECODER_ALLEGRO_TB]
+    flags: [+ALLEGRO_TEST_PATH=$DECODER_TESTS_PATH/tests/g_power/JPG_256x192_420_8_1c0_custom]
+    owner: Stephane Gros
+
+  - name: test_decoder_power_pp_256x192_420_8_1c0
+    description: "Power/clock test provided by Allegro DVT (g_power/PP_256x192_420_8_1c0_custom.cfg)"
+    labels: [CODEC, DECODER_NIGHTLY]
+    requirement_ids: [DECODER_FEAT_DEC_300_0]
+    platforms: [uvm.SIM_DECODER_ALLEGRO_TB]
+    flags: [+ALLEGRO_TEST_PATH=$DECODER_TESTS_PATH/tests/g_power/PP_256x192_420_8_1c0_custom]
+    owner: Stephane Gros
+
+  - name: test_decoder_power_custom_idle_clock
+    description: "Power/clock test provided by Allegro DVT (g_power/custom_idle_clock.cfg)"
+    labels: [CODEC, DECODER_NIGHTLY]
+    requirement_ids: [DECODER_FEAT_DEC_300_0]
+    platforms: [uvm.SIM_DECODER_ALLEGRO_TB]
+    flags: [+ALLEGRO_TEST_PATH=$DECODER_TESTS_PATH/tests/g_power/custom_idle_clock]
+    owner: Stephane Gros
+
+  - name: test_decoder_power_custom_idle_noclock
+    description: "Power/clock test provided by Allegro DVT (g_power/custom_idle_noclock.cfg)"
+    labels: [CODEC, DECODER_NIGHTLY]
+    requirement_ids: [DECODER_FEAT_DEC_300_0]
+    platforms: [uvm.SIM_DECODER_ALLEGRO_TB]
+    flags: [+ALLEGRO_TEST_PATH=$DECODER_TESTS_PATH/tests/g_power/custom_idle_noclock]
+    owner: Stephane Gros
+
+  # Debug tests
+  - name: test_decoder_mbist
+    description: "Run MBIST using the JTAG interface"
+    labels: [TODO]
+    requirement_ids: [DECODER_MBIST_DEC_304_0]
+    platforms: [top.*]
+    owner: Stephane Gros
+

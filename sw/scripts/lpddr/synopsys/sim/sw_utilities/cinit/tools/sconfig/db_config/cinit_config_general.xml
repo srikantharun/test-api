@@ -1,0 +1,56 @@
+<category name="General">
+    <config id="SNPS_DEFCONFIG" name="Config Name" type="str" var_type="str">
+        <default value="None"/>
+    </config>
+    <config id="MEM_CTL_BASE_ADDRESS_CH{channel}" name="Memory controller channel {channel} base address"
+            type="hex" var_type="uint64" depends="(@DDRCTL_SINGLE_INST_DUALCH) or ({channel} == 0)">
+        <param name="channel" min="0" max="1"/>
+        <help>Memory controller base address</help>
+        <default value="0x00000000" depends="({channel} == 0)"/>
+        <default value="0x01810000" depends="({channel} == 1)"/>
+    </config>
+    <config id="NUM_PSTATES" name="Number of frequencies sets per DDRCTL"
+        min="1" max="@UMCTL2_FREQUENCY_NUM" type="int" var_type="uint8">
+        <default value="1"/>
+    </config>
+    <config id="NUM_AMAP" name="Number of address maps" type="single_choice" var_type="uint8">
+        <option id="CONFIG_NUM_AMAP_1" name="1" value="1"/>
+        <option id="CONFIG_NUM_AMAP_2" name="2" value="2" depends="@UMCTL2_HET_RANK == 1"/>
+        <default value="@CONFIG_NUM_AMAP_1"/>
+    </config>
+    <config id="NUM_DCH" name="Number of data channels" type="single_choice" var_type="uint8">
+        <option id="CONFIG_NUM_DCH_1" name="1" value="1"/>
+        <option id="CONFIG_NUM_DCH_2" name="2" value="2"
+            depends="@DDRCTL_DDR_DUAL_CHANNEL__OR__SINGLE_INST_DUALCH" />
+        <default value="@CONFIG_NUM_DCH_1"/>
+    </config>
+    <config id="DWC_DDRCTL_CINIT_NUM_DIMM" name="Number DIMM" type="int" var_type="uint32">
+        <default value="1"/>
+    </config>
+    <config id="DWC_DDRCTL_CINIT_DDRPHYTYPE_M" name="DDR PHY type" type="single_choice" var_type="uint8">
+        <help>
+            When 3rd-Party PHY is selected configure DFI timing registers manually:
+            DFITMG0..7 / DFIPTMG0..1 / DFIUPTMG0..1 / DFIMSGTMG0 in SW settings
+        </help>
+        <option id="CONFIG_DWC_DDR54_TYPE_PHY"     value="1" name="DWC_DDR54_PHY" />
+        <option id="CONFIG_DWC_LPDDR54_TYPE_PHY"   value="2" name="DWC_LPDDR54_PHY"/>
+        <option id="CONFIG_DWC_DDR54_TYPE_PHY_V2"  value="3" name="DWC_DDR54_PHY_V2"/>
+        <option id="CONFIG_DWC_LPDDR5X4_TYPE_PHY"  value="4" name="DWC_LPDDR5X4"/>
+        <option id="CONFIG_DWC_DDR5_TYPE_PHY"      value="5" name="DWC_DDR5_PHY"/>
+        <option id="CONFIG_DWC_3RD_PARTY_TYPE_PHY" value="6" name="3rd-party PHY"/>
+        <default value="@CONFIG_DWC_DDR54_TYPE_PHY" depends="@DDRCTL_DDR"/>
+        <default value="@CONFIG_DWC_LPDDR54_TYPE_PHY" depends="@DDRCTL_LPDDR"/>
+    </config>
+    <config id="SCONFIG_PHY_TRAINING" name="DDR controller training" type="single_choice" var_type="uint8">
+        <help>
+            Full training - Firmware training is executed
+            Skip training - Training is skipped and registers are programed to work with zero board delay
+            Device/PHY initialization - Training is used to skip training but execute the firmware to 
+                initialize the DRAM state while registers are programed to work with zero board delay
+        </help>
+        <option id="CONFIG_DWC_FULL_TRAINING" name="Full training"             value="0"/>
+        <option id="CONFIG_DWC_SKIP_TRAINING" name="Skip training"             value="1"/>
+        <option id="CONFIG_DWC_DEVICE_PHY"    name="Device/PHY initialization" value="2"/>
+        <default value="@CONFIG_DWC_SKIP_TRAINING"/>
+    </config>
+</category>

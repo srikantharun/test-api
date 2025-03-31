@@ -1,0 +1,203 @@
+// (C) Copyright Axelera AI 2021
+// All Rights Reserved
+// *** Axelera AI Confidential ***
+{ name: "soc_mgmt_secu_aor_csr",
+  clocking: [{clock: "clk_i", reset: "rst_ni"}],
+  bus_interfaces: [
+    { protocol: "tlul", direction: "device" }
+  ],
+  regwidth: "32",
+  addrcap: "0x10000",
+  registers: [
+    { name: "SOC_CONFIG0",
+      desc: "SoC Config (DAP/TAP).",
+      swaccess: "rw",
+      hwaccess: "hro",
+      fields: [
+        {
+          bits: "7:0",
+          resval: "0"
+        }
+      ],
+    },
+    { name: "SOC_CONFIG0_INV",
+      desc: "SOC_CONFIG0 inverse values.",
+      swaccess: "rw",
+      hwaccess: "hro",
+      fields: [
+        {
+          bits: "7:0",
+          resval: "0xFF"
+        }
+      ],
+    },
+    { name: "SOC_CONFIG1",
+      desc: "SoC Config (DAP/TAP).",
+      swaccess: "rw",
+      hwaccess: "hro",
+      fields: [
+        {
+          bits: "7:0",
+          resval: "0"
+        }
+      ],
+    },
+    { name: "SOC_CONFIG1_INV",
+      desc: "SOC_CONFIG1 inverse values.",
+      swaccess: "rw",
+      hwaccess: "hro",
+      fields: [
+        {
+          bits: "7:0",
+          resval: "0xFF"
+        }
+      ],
+    },
+    { name: "PLT_CONFIG",
+      desc: "Platform Config.",
+      swaccess: "rw",
+      hwaccess: "hro",
+      fields: [
+        {
+          bits: "7:0",
+          resval: "0"
+        }
+      ],
+    },
+    { name: "PLT_CONFIG_INV",
+      desc: "PLT_CONFIG inverse values.",
+      swaccess: "rw",
+      hwaccess: "hro",
+      fields: [
+        {
+          bits: "7:0",
+          resval: "0xFF"
+        }
+      ],
+    },
+    { name: "KSE3_STATE",
+      desc: "Internal Security State.",
+      swaccess: "rw",
+      hwaccess: "hro",
+      fields: [
+        {
+          bits: "7:0",
+          resval: "0"
+        }
+      ],
+    },
+    { name: "KSE3_STATE_INV",
+      desc: "KSE3_STATE inverse values.",
+      swaccess: "rw",
+      hwaccess: "hro",
+      fields: [
+        {
+          bits: "7:0",
+          resval: "0"
+        }
+      ],
+    },
+    { name: "KSE3_FR0",
+      desc: "Fast Resume (optional).",
+      swaccess: "rw",
+      hwaccess: "hro",
+      fields: [
+        {
+          bits: "7:0",
+          resval: "0"
+        }
+      ],
+    },
+    { name: "KSE3_FR1",
+      desc: "Fast Resume (optional).",
+      swaccess: "rw",
+      hwaccess: "hro",
+      fields: [
+        {
+          bits: "7:0",
+          resval: "0"
+        }
+      ],
+    },
+    { name: "KSE3_FR2",
+      desc: "Fast Resume (optional).",
+      swaccess: "rw",
+      hwaccess: "hro",
+      fields: [
+        {
+          bits: "7:0",
+          resval: "0"
+        }
+      ],
+    },
+    { name: "KSE3_FR3",
+      desc: "Fast Resume (optional).",
+      swaccess: "rw",
+      hwaccess: "hro",
+      fields: [
+        {
+          bits: "7:0",
+          resval: "0"
+        }
+      ],
+    },
+    { name: "KSE3_FR4",
+      desc: "Fast Resume (optional).",
+      swaccess: "rw",
+      hwaccess: "hro",
+      fields: [
+        {
+          bits: "7:0",
+          resval: "0"
+        }
+      ],
+    },
+    { name: "KSE3_FR5",
+      desc: "Fast Resume (optional).",
+      swaccess: "rw",
+      hwaccess: "hro",
+      fields: [
+        {
+          bits: "7:0",
+          resval: "0"
+        }
+      ],
+    },
+    { name: "KSE3_FR6",
+      desc: "Fast Resume (optional).",
+      swaccess: "rw",
+      hwaccess: "hro",
+      fields: [
+        {
+          bits: "7:0",
+          resval: "0"
+        }
+      ],
+    },
+    { name: "KSE3_FR7",
+      desc: "Fast Resume (optional).",
+      swaccess: "rw",
+      hwaccess: "hro",
+      fields: [
+        {
+          bits: "7:0",
+          resval: "0"
+        }
+      ],
+    },
+    { name: "JTAG_DBG",
+      desc: "JTAG_DBG value from KSE3 JTAG TDR.",
+      swaccess: "ro",
+      hwaccess: "hwo",
+      hwext: "true",
+      fields: [
+        {
+          bits: "0",
+          resval: "0",
+          desc: "This bit is written exclusively through JTAG, any 0->1 / 1->0 transition is made through TDR. When 1 the KSE3 JTAG TAP shall have exclusive access to the KSE3 AHB mailbox, when 0 the APU shall have exclusive access to the KSE3 AHB mailbox. APU shall check this bit at boot and stop any operation if its value is 1. Default value is 0, anytime this value is changed via JTAG a warm reset is triggered by HW."
+        }
+      ],
+    },
+  ]
+}
+

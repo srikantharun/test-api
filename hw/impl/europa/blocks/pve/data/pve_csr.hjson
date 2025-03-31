@@ -1,0 +1,354 @@
+// (C) Copyright 2024 Axelera AI B.V.
+// All Rights Reserved
+// *** Axelera AI Confidential ***
+//
+// Owner: Milos Stanisavljevic <milos.stanisavljevic@axelera.ai>
+//
+// Description: hjson desc for pve_csr reg
+
+// Copyright lowRISC contributors.
+// Licensed under the Apache License, Version 2.0, see LICENSE for details.
+// SPDX-License-Identifier: Apache-2.0
+{ name: "pve_csr",
+  clocking: [{clock: "clk_i", reset: "rst_ni"}],
+  bus_interfaces: [{protocol: "tlul", direction: "device"}],
+  regwidth: "32",
+  addrcap: "0x10000",
+  axi_intf: False
+  param_list : [
+    {name:"PR1_NB_MONITOR", type:"int", default:"14"}
+    {name:"PR2_NB_MONITOR", type:"int", default:"43"}
+    {name:"SVS_NB_MONITOR", type:"int", default:"30"}
+    {name:"TOT_NUM_CORES", type:"int", default:"8"},
+  ]
+  registers: [
+    { skipto: "0x200" }
+    { multireg: {name: "BOOT_ADDR_LSB",
+      count: "TOT_NUM_CORES",
+      cname: "corecnt",
+      compact: false,
+      desc: "CVA6V core boot address. LSB part of it (31..0)",
+      swaccess: "rw",
+      hwaccess: "hro",
+      fields: [
+        {
+          name: "boot_addr_lsb",
+          bits: "31:0",
+          desc: '''This will be the address for CVA6V core to boot from.'''
+        }
+      ]
+    }},
+    { multireg: {name: "BOOT_ADDR_MSB",
+      count: "TOT_NUM_CORES",
+      cname: "coreid",
+      compact: false,
+      desc: "CVA6V core boot address. MSB part of it (39..32)",
+      swaccess: "rw",
+      hwaccess: "hro",
+      fields: [
+        {
+          name: "boot_addr_msb",
+          bits: "7:0",
+          desc: '''This will be the address for CVA6V core to boot from.'''
+        }
+      ]
+    }},
+    { name: "CLK_EN",
+      desc: "CVA6V core clk enable.",
+      swaccess: "rw",
+      hwaccess: "hro",
+      fields: [
+        {
+          name: "clk_en_array",
+          bits: "7:0",
+          resval: 0
+          desc: '''This will be clk enable signal for CVA6V.'''
+        }
+      ]
+    },
+    { multireg: {name: "MEMREG0_LSB",
+      count: "TOT_NUM_CORES",
+      cname: "coreid",
+      compact: false,
+      desc: "Mem region 0 config. LSB part of it (31..0)"
+      swaccess: "rw",
+      hwaccess: "hro",
+      hwqe: "true",
+      fields: [
+        { bits: "31:0",
+          name: "ADDR",
+          desc: "The base address of a region. I.e. L1 of any PVE cluster. Reset values not used as a default, only values after reg write are used."
+          resval: "0x0",
+        },
+      ]
+    }},
+    { multireg: {name: "MEMREG0_MSB",
+      count: "TOT_NUM_CORES",
+      cname: "coreid",
+      compact: false,
+      desc: "Mem region 0 config. MSB part of it (46..32)"
+      swaccess: "rw",
+      hwaccess: "hro",
+      hwqe: "true",
+      fields: [
+        { bits: "7:0",
+          name: "ADDR",
+          desc: "The base address of a region. I.e. L1 of any PVE cluster. Reset values not used as a default, only values after reg write are used."
+          resval: "0x0",
+        },
+        { bits: "13:8",
+          name: "SIZE",
+          desc: "The size of the region. Must be the log2 of the byte size."
+          resval: "0x15",
+        },
+        { bits: "14",
+          name: "TCDM",
+          desc: "If this region is a tightly coupled data memory.",
+          resval: "0x1",
+        },
+      ]
+    }},
+    { multireg: {name: "MEMREG1_LSB",
+      count: "TOT_NUM_CORES",
+      cname: "coreid",
+      compact: false,
+      desc: "Mem region 0 config. LSB part of it (31..0)"
+      swaccess: "rw",
+      hwaccess: "hro",
+      hwqe: "true",
+      fields: [
+        { bits: "31:0",
+          name: "ADDR",
+          desc: "The base address of a region. I.e. L1 of any PVE cluster. Reset values not used as a default, only values after reg write are used."
+          resval: "0x0",
+        },
+      ]
+    }},
+    { multireg: {name: "MEMREG1_MSB",
+      count: "TOT_NUM_CORES",
+      cname: "coreid",
+      compact: false,
+      desc: "Mem region 0 config. MSB part of it (46..32)"
+      swaccess: "rw",
+      hwaccess: "hro",
+      hwqe: "true",
+      fields: [
+        { bits: "7:0",
+          name: "ADDR",
+          desc: "The base address of a region. I.e. L1 of any PVE cluster. Reset values not used as a default, only values after reg write are used."
+          resval: "0x0",
+        },
+        { bits: "13:8",
+          name: "SIZE",
+          desc: "The size of the region. Must be the log2 of the byte size."
+          resval: "0x15",
+        },
+        { bits: "14",
+          name: "TCDM",
+          desc: "If this region is a tightly coupled data memory.",
+          resval: "0x1",
+        },
+      ]
+    }},
+    { name: "DEBUG_STOP_TIME",
+      desc: "CVA6V core debug stop time reached.",
+      swaccess: "ro",
+      hwaccess: "hwo",
+      fields: [
+        {
+          name: "debug_stop_time_array",
+          bits: "7:0",
+          resval: 0
+          desc: '''This will be debug stop time signal for CVA6V.'''
+        }
+      ]
+    },
+
+    { name: "P1_CONTROL"
+      desc: "Control signals for P1 Monitor"
+      swaccess: "rw"
+      hwaccess: "hro"
+      fields: [
+        {
+          name: "enable"
+          bits: "0"
+          resval: 0
+          desc: '''
+                0: initialises the macro
+                1: starts measurement
+                Must stay at 1 until measurement has completed.
+                '''
+        }
+        {
+          name: "target"
+          bits: "3:1"
+          resval: 0
+          desc: '''
+                Measure during `2**target` ref_clk cycles.
+                '''
+        }
+      ]
+    }
+    { multireg: { name: "P1_RO_SELECT"
+      count: "PR1_NB_MONITOR"
+      cname: "p1cntid"
+      compact: false
+      desc: "Bit-mask indicating which ring oscillators to use. Use[k]=0: do not use RO k."
+      swaccess: "rw"
+      hwaccess: "hro"
+      fields: [
+        {
+          name: "use_ro"
+          bits: "0"
+          resval: 0
+          desc: '''
+                Bit-mask indicating which ring oscillators to use. Use[k]=0: do not use RO k.
+                '''
+        }
+      ]
+    }}
+    { multireg: {name: "P1_COUNTERS"
+      count: "PR1_NB_MONITOR"
+      cname: "p1cntid"
+      compact: false
+      desc: "Measure results per counter"
+      swaccess: "ro"
+      hwaccess: "hrw"
+      fields: [
+        {
+            bits: "15:0"
+            name: "count"
+            resval: 0
+            desc: '''
+                  Measurement result for RO with index k
+                  X whenever valid=0
+                  0 if use[k] was 0 when starting the measurement
+                  '''
+        }
+      ]
+    }}
+    { name: "P2_CONTROL"
+      desc: "Control signals for P2 Monitor"
+      swaccess: "rw"
+      hwaccess: "hro"
+      fields: [
+        {
+          name: "enable"
+          bits: "0"
+          resval: 0
+          desc: '''
+                0: initialises the macro
+                1: starts measurement
+                Must stay at 1 until measurement has completed.
+                '''
+        }
+        {
+          name: "target"
+          bits: "3:1"
+          resval: 0
+          desc: '''
+                Measure during `2**target` ref_clk cycles.
+                '''
+        }
+      ]
+    }
+    { multireg: { name: "P2_RO_SELECT"
+      count: "PR2_NB_MONITOR"
+      cname: "p2cntid"
+      compact: false
+      desc: "Bit-mask indicating which ring oscillators to use. Use[k]=0: do not use RO k."
+      swaccess: "rw"
+      hwaccess: "hro"
+      fields: [
+        {
+          name: "use_ro"
+          bits: "0"
+          resval: 0
+          desc: '''
+                Bit-mask indicating which ring oscillators to use. Use[k]=0: do not use RO k.
+                '''
+        }
+      ]
+    }}
+    { multireg: {name: "P2_COUNTERS"
+      count: "PR2_NB_MONITOR"
+      cname: "p2cntid"
+      compact: false
+      desc: "Measure results per counter"
+      swaccess: "ro"
+      hwaccess: "hrw"
+      fields: [
+        {
+            bits: "15:0"
+            name: "count"
+            resval: 0
+            desc: '''
+                  Measurement result for RO with index k
+                  X whenever valid=0
+                  0 if use[k] was 0 when starting the measurement
+                  '''
+        }
+      ]
+    }}
+    { name: "SVS_CONTROL"
+      desc: "Control signals for SVS Core Monitor"
+      swaccess: "rw"
+      hwaccess: "hro"
+      fields: [
+        {
+          name: "enable"
+          bits: "0"
+          resval: 0
+          desc: '''
+                0: initialises the macro
+                1: starts measurement
+                Must stay at 1 until measurement has completed.
+                '''
+        }
+        {
+          name: "target"
+          bits: "3:1"
+          resval: 0
+          desc: '''
+                Measure during `2**target` ref_clk cycles.
+                '''
+        }
+      ]
+    }
+    { name: "SVS_RO_SELECT"
+      desc: "Bit-mask indicating which ring oscillators to use. Use[k]=0: do not use RO k."
+      swaccess: "rw"
+      hwaccess: "hro"
+      fields: [
+        {
+          name: "use_ro"
+          bits: "29:0"
+          resval: 0
+          desc: '''
+                Bit-mask indicating which ring oscillators to use. Use[k]=0: do not use RO k.
+                '''
+        }
+      ]
+    }
+    { multireg: {name: "SVS_COUNTERS"
+      count: "SVS_NB_MONITOR"
+      cname: "svscntid"
+      compact: false
+      desc: "Measure results per counter"
+      swaccess: "ro"
+      hwaccess: "hrw"
+      fields: [
+        {
+            bits: "15:0"
+            name: "count"
+            resval: 0
+            desc: '''
+                  Measurement result for RO with index k
+                  X whenever valid=0
+                  0 if use[k] was 0 when starting the measurement
+                  '''
+        }
+      ]
+    }}
+  ]
+}

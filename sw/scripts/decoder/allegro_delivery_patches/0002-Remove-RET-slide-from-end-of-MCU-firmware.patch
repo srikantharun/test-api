@@ -1,0 +1,52 @@
+From 343575a5fd936c1a6278db009f5a63bea250a6e3 Mon Sep 17 00:00:00 2001
+From: Max Wipfli <max.wipfli@axelera.ai>
+Date: Wed, 3 Jul 2024 15:02:59 +0000
+Subject: [PATCH 2/9] Remove RET-slide from end of MCU firmware
+
+This series of RET instructions and associated code seem no to do
+anything useful. Removing them reduces the memory footprint of the
+MCU firmware significantly.
+
+This change should not impact functionality.
+---
+ bin/mcu/Makefile   | 6 +-----
+ bin/mcu/src/main.c | 6 ------
+ 2 files changed, 1 insertion(+), 11 deletions(-)
+
+diff --git a/bin/mcu/Makefile b/bin/mcu/Makefile
+index 3d39b2e..916cc8a 100644
+--- a/bin/mcu/Makefile
++++ b/bin/mcu/Makefile
+@@ -50,11 +50,7 @@ sram_0000.MCU.mem	: ${PROJECT}.bin
+ 	echo //@000000000 // size: 30592 > $@
+ 	echo @000000080 // mcu >> $@
+ 	hexdump -v -e '1/4 "%08X\n"' $< | awk -v words=8 '{ v="";for(i=1;i<words;i++) {v="_"$$0v;getline;};v=$$0v;print v}' >> $@
+-	for i in {1..24576};do echo 00000000_00000000_00000000_00000000_00000000_00000000_00000000_00000000 >> $@; done
+-	echo @3FFFFFF80 // last add >> $@
+-	for i in {1..2};do echo 80828082_80828082_80828082_80828082_80828082_80828082_80828082_80828082 >> $@; done
+-	echo @3FFFFFFFE // last add >> $@
+-	for i in {1..2};do echo 80828082_80828082_80828082_80828082_80828082_80828082_80828082_80828082 >> $@; done
++	for i in {1..256};do echo 00000000_00000000_00000000_00000000_00000000_00000000_00000000_00000000 >> $@; done
+ else
+ sram_0000.MCU.mem	: ${PROJECT}.elf
+ 	$(OBJMEM) --hide-base --mode mem --include-as as_all --as-all as_all:64:8 --base 16 $^ -o tmp.mem
+diff --git a/bin/mcu/src/main.c b/bin/mcu/src/main.c
+index 75c638d..ba4fb30 100644
+--- a/bin/mcu/src/main.c
++++ b/bin/mcu/src/main.c
+@@ -146,12 +146,6 @@ int main( int argc, char* argv[] )
+   hal_interrupt_enable();
+ #endif
+ 
+-#if AL_NEWMCU
+-  ret=*last_data;
+-  if(ret==0x80828082) {
+-    last_instr();
+-  }
+-#endif
+   ret=*reg_id;
+ 
+   if(ret==0x30AB6E51) {
+-- 
+2.43.0
+

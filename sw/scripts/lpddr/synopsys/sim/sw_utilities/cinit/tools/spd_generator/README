@@ -1,0 +1,82 @@
+Syntax:
+
+SPDGenerator -p <protocol> -i <input file configuration> -o <output binary SPD file>
+
+Parameters:
+ - protocol:
+   * 4 for DDR4
+   * 5 for DDR5
+
+Example:
+ ./SPDGenerator -p -i ./DDR4_16GB_3200MTs_1x72_x16_UDIMMM.ini -o SPD.bin
+
+For DDR4 configuration file:
+	type 2
+	capacity 6
+	device_ranks 3
+	col_address 0
+	row_address 0
+	banks 0
+	bank_group 0
+	device_width 2
+	bus_width 0
+	ecc 1
+	address_mirror 0
+	package_type 0
+	die_count 0
+	signal_loading 0
+	CL_supported 8704
+	tCKAVGmin 625
+	tCKAVGmax 625
+	tAAmin 13750
+	tRCDmin 12500
+	tRPmin 12500
+	tRASmin 32000
+	tRCmin 44500
+	tRFC1min 550000
+	tRFC2min 350000
+	tRFC4min 260000
+	tRRD_S_min 5500
+	tRRD_L_min 6500
+	tWRmin 15000
+	tWTR_S_min 2500
+	tWTR_L_min 7500
+	tCCD_L_min 5000
+	tFAWmin 30000
+
+The options encoded accordingly to JEDEC DDR4 specification options for each byte.
+
+For DDR5 configuration file:
+	type 2
+	first_capacity 4
+	second_capacity 4
+	first_banks 1
+	second_banks 0
+	first_col_address 0
+	second_col_address 0
+	first_row_address 0
+	second_row_address 0
+	first_bank_group 0
+	second_bank_group 0
+	first_device_width 2
+	second_device_width 2
+	CL_supported 2048
+	tCKAVGmin 416
+	tCKAVGmax 416
+	tAAmin 13750
+	tRCDmin 17472
+	tRPmin 17472
+	tRASmin 32000
+	tRCmin 49472
+	tWRmin 29952
+	tRFC1_slr_min 295
+	tRFC2_slr_min 160
+	tRFCsb_slr_min 13
+	tRFC1_dlr_min 99
+	tRFC2_dlr_min 99
+	tRFCsb_dlr_min 99
+	number_package_ranks_channel 4
+	primary_bus_width 2
+	bus_width_extension 1
+
+The options encoded accordingly to JEDEC DDR5 specification options for each byte.

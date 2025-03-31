@@ -1,0 +1,78 @@
+- test: DIVUW-01
+  iterations: 1
+  path_var: TESTS_PATH
+  gcc_opts: "-DVLEN=4096 -static -mcmodel=medany -fvisibility=hidden -nostdlib -nostartfiles -I<path_var>/../../asm/env"
+  asm_tests: <path_var>/imperas-riscv-tests/riscv-test-suite/rv64i_m/M/src/DIVUW-01.S
+
+- test: DIVU-01
+  iterations: 1
+  path_var: TESTS_PATH
+  gcc_opts: "-DVLEN=4096 -static -mcmodel=medany -fvisibility=hidden -nostdlib -nostartfiles -I<path_var>/../../asm/env"
+  asm_tests: <path_var>/imperas-riscv-tests/riscv-test-suite/rv64i_m/M/src/DIVU-01.S
+
+- test: MULW-01
+  iterations: 1
+  path_var: TESTS_PATH
+  gcc_opts: "-DVLEN=4096 -static -mcmodel=medany -fvisibility=hidden -nostdlib -nostartfiles -I<path_var>/../../asm/env"
+  asm_tests: <path_var>/imperas-riscv-tests/riscv-test-suite/rv64i_m/M/src/MULW-01.S
+
+- test: REMU-01
+  iterations: 1
+  path_var: TESTS_PATH
+  gcc_opts: "-DVLEN=4096 -static -mcmodel=medany -fvisibility=hidden -nostdlib -nostartfiles -I<path_var>/../../asm/env"
+  asm_tests: <path_var>/imperas-riscv-tests/riscv-test-suite/rv64i_m/M/src/REMU-01.S
+
+- test: REMUW-01
+  iterations: 1
+  path_var: TESTS_PATH
+  gcc_opts: "-DVLEN=4096 -static -mcmodel=medany -fvisibility=hidden -nostdlib -nostartfiles -I<path_var>/../../asm/env"
+  asm_tests: <path_var>/imperas-riscv-tests/riscv-test-suite/rv64i_m/M/src/REMUW-01.S
+
+- test: MUL-01
+  iterations: 1
+  path_var: TESTS_PATH
+  gcc_opts: "-DVLEN=4096 -static -mcmodel=medany -fvisibility=hidden -nostdlib -nostartfiles -I<path_var>/../../asm/env"
+  asm_tests: <path_var>/imperas-riscv-tests/riscv-test-suite/rv64i_m/M/src/MUL-01.S
+
+- test: DIV-01
+  iterations: 1
+  path_var: TESTS_PATH
+  gcc_opts: "-DVLEN=4096 -static -mcmodel=medany -fvisibility=hidden -nostdlib -nostartfiles -I<path_var>/../../asm/env"
+  asm_tests: <path_var>/imperas-riscv-tests/riscv-test-suite/rv64i_m/M/src/DIV-01.S
+
+- test: REMW-01
+  iterations: 1
+  path_var: TESTS_PATH
+  gcc_opts: "-DVLEN=4096 -static -mcmodel=medany -fvisibility=hidden -nostdlib -nostartfiles -I<path_var>/../../asm/env"
+  asm_tests: <path_var>/imperas-riscv-tests/riscv-test-suite/rv64i_m/M/src/REMW-01.S
+
+- test: DIVW-01
+  iterations: 1
+  path_var: TESTS_PATH
+  gcc_opts: "-DVLEN=4096 -static -mcmodel=medany -fvisibility=hidden -nostdlib -nostartfiles -I<path_var>/../../asm/env"
+  asm_tests: <path_var>/imperas-riscv-tests/riscv-test-suite/rv64i_m/M/src/DIVW-01.S
+
+- test: MULHU-01
+  iterations: 1
+  path_var: TESTS_PATH
+  gcc_opts: "-DVLEN=4096 -static -mcmodel=medany -fvisibility=hidden -nostdlib -nostartfiles -I<path_var>/../../asm/env"
+  asm_tests: <path_var>/imperas-riscv-tests/riscv-test-suite/rv64i_m/M/src/MULHU-01.S
+
+- test: MULH-01
+  iterations: 1
+  path_var: TESTS_PATH
+  gcc_opts: "-DVLEN=4096 -static -mcmodel=medany -fvisibility=hidden -nostdlib -nostartfiles -I<path_var>/../../asm/env"
+  asm_tests: <path_var>/imperas-riscv-tests/riscv-test-suite/rv64i_m/M/src/MULH-01.S
+
+- test: REM-01
+  iterations: 1
+  path_var: TESTS_PATH
+  gcc_opts: "-DVLEN=4096 -static -mcmodel=medany -fvisibility=hidden -nostdlib -nostartfiles -I<path_var>/../../asm/env"
+  asm_tests: <path_var>/imperas-riscv-tests/riscv-test-suite/rv64i_m/M/src/REM-01.S
+
+- test: MULHSU-01
+  iterations: 1
+  path_var: TESTS_PATH
+  gcc_opts: "-DVLEN=4096 -static -mcmodel=medany -fvisibility=hidden -nostdlib -nostartfiles -I<path_var>/../../asm/env"
+  asm_tests: <path_var>/imperas-riscv-tests/riscv-test-suite/rv64i_m/M/src/MULHSU-01.S
+

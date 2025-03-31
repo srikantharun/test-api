@@ -1,0 +1,21 @@
+package:
+  name: ai_core_verif_uvm_env
+  description: "UVM enviroment setup for ai_core"
+  authors:
+    - "roswin.benny@axelera.ai"
+
+dependencies:
+  europa_ai_core_pkg:           { path: "../../../../../../impl/europa/blocks/ai_core/rtl/pkg" } # ai_core_pkg is used
+  svt_amba_vip:                 { path: "../../../../../../dv/svt_amba_vip"}
+  ai_core_uvm_ral:              { path: "../ral" }
+  aic_ls_uvm_env:               { path: "" }
+  aic_ls_uvm_seq:               { path: "" }
+
+export_include_dirs:
+  - .
+
+sources:
+  - target: simulation
+
+    files:
+      - ai_core_top_env_pkg.sv

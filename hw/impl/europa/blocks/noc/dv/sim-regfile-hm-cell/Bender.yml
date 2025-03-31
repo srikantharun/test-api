@@ -1,0 +1,22 @@
+package:
+  name: noc_mem_tb
+  description: "NOC MEM Testbench"
+  authors:
+    - "andrew.bond@axelera.ai"
+
+dependencies:
+  axe_tcl_pkg:              { path: "" }
+  axe_tcl:                  { path: "" }
+  dv_common:                { path: "" }
+  europa_noc_common:        { path: "" }
+
+sources:
+  - target: simulation
+    include_dirs:
+      - ./rtl
+      - ./uvm
+
+    files:
+      - ./rtl/hdl_if.sv
+      - ./uvm/noc_mem_uvm_pkg.sv
+      - ./rtl/hdl_top.sv

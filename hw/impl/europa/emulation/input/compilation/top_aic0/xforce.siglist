@@ -1,0 +1,10 @@
+hdl_top/enable_ax65_instruction_dump
+hdl_top/new_file_ax65_instruction_dump
+
+hdl_top/enable_cva6v_instruction_dump
+hdl_top/new_file_cva6v_instruction_dump
+
+hdl_top/i_por_rst_n
+hdl_top/i_trst_n
+
+hdl_top/i_europa/u_aipu/u_soc_periph_p/u_soc_periph/u_peripherals/soc_periph_dw_uart/fast_printf_en

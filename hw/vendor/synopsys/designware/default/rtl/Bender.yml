@@ -1,0 +1,51 @@
+# (C) Copyright 2024 Axelera AI B.V.
+# All Rights Reserved
+# *** Axelera AI Confidential ***
+
+package:
+  name: designware
+  description: "Vendorization layer for DW component modules"
+  authors:
+    - "Tiago Campos <tiago.campos@axelera.ai>"
+
+# Source files grouped in levels.
+# Files in level 0 have no dependencies on files in this package.
+# Files in level 1 only depend on files in level 0, files in level 2 on files in levels 1 and 0, etc.
+# Files within a level are ordered alphabetically.
+sources:
+  - target: all(not(fpga), not(gate), any(simulation, emulation))
+    include_dirs:
+      - $SYNOPSYS/dw/dw01/src_ver
+    files:
+      # JTAG
+      - $SYNOPSYS/dw/dw04/src_ver/DW_tap.v
+      - $SYNOPSYS/dw/dw04/src_ver/DW_bc_1.v
+      # Minmax selector
+      - $SYNOPSYS/dw/dw01/src_ver/DW_minmax.v
+      # Priority encoder
+      - $SYNOPSYS/dw/dw01/src_ver/DW01_prienc.v
+      # Math
+      - $SYNOPSYS/dw/dw01/src_ver/DW01_add.v
+      - $SYNOPSYS/dw/dw01/src_ver/DW01_sub.v
+      # DPU FP models
+      - $SYNOPSYS/dw/dw02/src_ver/DW_fp_i2flt.v
+      - $SYNOPSYS/dw/dw02/src_ver/DW_fp_flt2i.v
+      - $SYNOPSYS/dw/dw02/src_ver/DW_fp_addsub.v
+      - $SYNOPSYS/dw/dw02/src_ver/DW_fp_add.v
+      - $SYNOPSYS/dw/dw02/src_ver/DW_fp_mult.v
+      - $SYNOPSYS/dw/dw05/src_ver/DW_arb_sp.v
+      - $SYNOPSYS/dw/dw02/src_ver/DW02_mult_2_stage.v
+
+  # DW_lp_fp_multifunc verilog model is only supported by VCS (encrypted)
+  # see: $SYNOPSYS/dw/doc/datasheets/dw_lp_fp_multifunc.pdf
+  - target: all(not(fpga), not(gate), any(simulation, emulation), not(vcs))
+    files:
+      - DW_lp_fp_multifunc_intf_only.v
+
+  - target: all(not(fpga), not(gate), any(simulation, emulation), vcs)
+    include_dirs:
+      - $SYNOPSYS/dw/sim_ver
+    files:
+      - $SYNOPSYS/dw/dw01/src_ver/DW01_ash.v
+      - $SYNOPSYS/dw/dw01/src_ver/DW_lzd.v
+      - $SYNOPSYS/dw/dw02/src_ver/DW_lp_fp_multifunc.v

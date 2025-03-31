@@ -1,0 +1,943 @@
+#----------------------------------------------------------
+#                           Config
+#----------------------------------------------------------
+
+
+#----------------------------------------------------------
+#                    Memory configuration
+#----------------------------------------------------------
+
+#  Config:              Memory configuration option
+#  Identifier:          DWC_DDRCTL_CINIT_MEMORY_DESCRIPTOR_TYPE
+#  Category:            Memory configuration
+#  Default:             DWC_DDRCTL_CINIT_SPD_STATIC_SPEED_GRADE
+DWC_DDRCTL_CINIT_SPD_STATIC_SPEED_GRADE=y    #Speed Bin/Grade
+#DWC_DDRCTL_CINIT_SPD_DYNAMIC_JEDEC=y         #SPD data
+#DWC_DDRCTL_CINIT_SPD_STATIC_JEDEC=y          #User input (Expert mode)
+
+
+#  Config:              SDRAM device type
+#  Identifier:          DWC_DDRCTL_CINIT_SDRAM_PROTOCOL
+#  Category:            Memory configuration
+#  Default:             DWC_DDRCTL_CINIT_SDRAM_PROTOCOL_DDR4 if DDRCTL_DDR
+#                       DWC_DDRCTL_CINIT_SDRAM_PROTOCOL_LPDDR4 if DDRCTL_LPDDR
+#DWC_DDRCTL_CINIT_SDRAM_PROTOCOL_DDR4=y       #DDR4
+#DWC_DDRCTL_CINIT_SDRAM_PROTOCOL_DDR5=y       #DDR5
+#DWC_DDRCTL_CINIT_SDRAM_PROTOCOL_LPDDR4=y     #LPDDR4
+#DWC_DDRCTL_CINIT_SDRAM_PROTOCOL_LPDDR4X=y    #LPDDR4X
+DWC_DDRCTL_CINIT_SDRAM_PROTOCOL_LPDDR5=y     #LPDDR5
+#DWC_DDRCTL_CINIT_SDRAM_PROTOCOL_LPDDR5X=y    #LPDDR5X
+
+
+#  Config:              Custom tCK
+#  Identifier:          DWC_DDRCTL_CINIT_CUSTOM_TCK
+#  Category:            Memory configuration
+#  Default:             0
+DWC_DDRCTL_CINIT_CUSTOM_TCK=1
+
+
+#  Config:              [pState 0] Application tCK (ps)
+#  Identifier:          DWC_DDRCTL_CINIT_TCK_PS_0
+#  Category:            Memory configuration
+#  Dependencies:
+#  - Requires:          (@DWC_DDRCTL_CINIT_CUSTOM_TCK or                      (@DWC_DDRCTL_CINIT_MEMORY_DESCRIPTOR_TYPE==@DWC_DDRCTL_CINIT_SPD_STATIC_JEDEC)) and                      (@NUM_PSTATES  >  0)
+#  Default:             0
+DWC_DDRCTL_CINIT_TCK_PS_0=1250
+
+
+#  Config:              [pState 0] Phy clock frequency ratio
+#  Identifier:          DDRCTL_PSTATE0_FREQUENCY_RATIO
+#  Category:            Memory configuration
+#  Dependencies:
+#  - Requires:          @NUM_PSTATES  >  0
+#  Default:             DDRCTL_PSTATE0_FREQUENCY_RATIO_1_2 if (DWC_DDRCTL_CINIT_SDRAM_PROTOCOL==DWC_DDRCTL_CINIT_SDRAM_PROTOCOL_DDR4) or                      (DWC_DDRCTL_CINIT_SDRAM_PROTOCOL==DWC_DDRCTL_CINIT_SDRAM_PROTOCOL_LPDDR4) or                      (DWC_DDRCTL_CINIT_SDRAM_PROTOCOL==DWC_DDRCTL_CINIT_SDRAM_PROTOCOL_LPDDR4X) or                      (DWC_DDRCTL_CINIT_SDRAM_PROTOCOL==DWC_DDRCTL_CINIT_SDRAM_PROTOCOL_DDR5 and MEMC_FREQ_RATIO_2)
+#                       DDRCTL_PSTATE0_FREQUENCY_RATIO_1_4 if DWC_DDRCTL_CINIT_SDRAM_PROTOCOL==DWC_DDRCTL_CINIT_SDRAM_PROTOCOL_DDR5 and MEMC_FREQ_RATIO_4
+#                       DDRCTL_PSTATE0_FREQUENCY_RATIO_2_1 if (DWC_DDRCTL_CINIT_SDRAM_PROTOCOL==DWC_DDRCTL_CINIT_SDRAM_PROTOCOL_LPDDR5) or                       (DWC_DDRCTL_CINIT_SDRAM_PROTOCOL==DWC_DDRCTL_CINIT_SDRAM_PROTOCOL_LPDDR5X)
+#DDRCTL_PSTATE0_FREQUENCY_RATIO_1_2=y    #1:2
+#DDRCTL_PSTATE0_FREQUENCY_RATIO_1_4=y    #1:4
+#DDRCTL_PSTATE0_FREQUENCY_RATIO_2_1=y    #2:1
+DDRCTL_PSTATE0_FREQUENCY_RATIO_4_1=y    #4:1
+
+
+#  Config:              [pState 1] Phy clock frequency ratio
+#  Identifier:          DDRCTL_PSTATE1_FREQUENCY_RATIO
+#  Category:            Memory configuration
+#  Dependencies:
+#  - Requires:          @NUM_PSTATES  >  1
+#  Default:             DDRCTL_PSTATE1_FREQUENCY_RATIO_1_2 if (DWC_DDRCTL_CINIT_SDRAM_PROTOCOL==DWC_DDRCTL_CINIT_SDRAM_PROTOCOL_DDR4) or                      (DWC_DDRCTL_CINIT_SDRAM_PROTOCOL==DWC_DDRCTL_CINIT_SDRAM_PROTOCOL_LPDDR4) or                      (DWC_DDRCTL_CINIT_SDRAM_PROTOCOL==DWC_DDRCTL_CINIT_SDRAM_PROTOCOL_LPDDR4X) or                      (DWC_DDRCTL_CINIT_SDRAM_PROTOCOL==DWC_DDRCTL_CINIT_SDRAM_PROTOCOL_DDR5 and MEMC_FREQ_RATIO_2)
+#                       DDRCTL_PSTATE1_FREQUENCY_RATIO_1_4 if DWC_DDRCTL_CINIT_SDRAM_PROTOCOL==DWC_DDRCTL_CINIT_SDRAM_PROTOCOL_DDR5 and MEMC_FREQ_RATIO_4
+#                       DDRCTL_PSTATE1_FREQUENCY_RATIO_2_1 if (DWC_DDRCTL_CINIT_SDRAM_PROTOCOL==DWC_DDRCTL_CINIT_SDRAM_PROTOCOL_LPDDR5) or                       (DWC_DDRCTL_CINIT_SDRAM_PROTOCOL==DWC_DDRCTL_CINIT_SDRAM_PROTOCOL_LPDDR5X)
+#DDRCTL_PSTATE1_FREQUENCY_RATIO_1_2=y    #1:2
+#DDRCTL_PSTATE1_FREQUENCY_RATIO_1_4=y    #1:4
+#DDRCTL_PSTATE1_FREQUENCY_RATIO_2_1=y    #2:1
+DDRCTL_PSTATE1_FREQUENCY_RATIO_4_1=y    #4:1
+
+
+#  Config:              [pState 2] Phy clock frequency ratio
+#  Identifier:          DDRCTL_PSTATE2_FREQUENCY_RATIO
+#  Category:            Memory configuration
+#  Dependencies:
+#  - Requires:          @NUM_PSTATES  >  2
+#  Default:             DDRCTL_PSTATE2_FREQUENCY_RATIO_1_2 if (DWC_DDRCTL_CINIT_SDRAM_PROTOCOL==DWC_DDRCTL_CINIT_SDRAM_PROTOCOL_DDR4) or                      (DWC_DDRCTL_CINIT_SDRAM_PROTOCOL==DWC_DDRCTL_CINIT_SDRAM_PROTOCOL_LPDDR4) or                      (DWC_DDRCTL_CINIT_SDRAM_PROTOCOL==DWC_DDRCTL_CINIT_SDRAM_PROTOCOL_LPDDR4X) or                      (DWC_DDRCTL_CINIT_SDRAM_PROTOCOL==DWC_DDRCTL_CINIT_SDRAM_PROTOCOL_DDR5 and MEMC_FREQ_RATIO_2)
+#                       DDRCTL_PSTATE2_FREQUENCY_RATIO_1_4 if DWC_DDRCTL_CINIT_SDRAM_PROTOCOL==DWC_DDRCTL_CINIT_SDRAM_PROTOCOL_DDR5 and MEMC_FREQ_RATIO_4
+#                       DDRCTL_PSTATE2_FREQUENCY_RATIO_2_1 if (DWC_DDRCTL_CINIT_SDRAM_PROTOCOL==DWC_DDRCTL_CINIT_SDRAM_PROTOCOL_LPDDR5) or                       (DWC_DDRCTL_CINIT_SDRAM_PROTOCOL==DWC_DDRCTL_CINIT_SDRAM_PROTOCOL_LPDDR5X)
+#DDRCTL_PSTATE2_FREQUENCY_RATIO_1_2=y    #1:2
+#DDRCTL_PSTATE2_FREQUENCY_RATIO_1_4=y    #1:4
+#DDRCTL_PSTATE2_FREQUENCY_RATIO_2_1=y    #2:1
+DDRCTL_PSTATE2_FREQUENCY_RATIO_4_1=y    #4:1
+
+
+#  Config:              [pState 3] Phy clock frequency ratio
+#  Identifier:          DDRCTL_PSTATE3_FREQUENCY_RATIO
+#  Category:            Memory configuration
+#  Dependencies:
+#  - Requires:          @NUM_PSTATES  >  3
+#  Default:             DDRCTL_PSTATE3_FREQUENCY_RATIO_1_2 if (DWC_DDRCTL_CINIT_SDRAM_PROTOCOL==DWC_DDRCTL_CINIT_SDRAM_PROTOCOL_DDR4) or                      (DWC_DDRCTL_CINIT_SDRAM_PROTOCOL==DWC_DDRCTL_CINIT_SDRAM_PROTOCOL_LPDDR4) or                      (DWC_DDRCTL_CINIT_SDRAM_PROTOCOL==DWC_DDRCTL_CINIT_SDRAM_PROTOCOL_LPDDR4X) or                      (DWC_DDRCTL_CINIT_SDRAM_PROTOCOL==DWC_DDRCTL_CINIT_SDRAM_PROTOCOL_DDR5 and MEMC_FREQ_RATIO_2)
+#                       DDRCTL_PSTATE3_FREQUENCY_RATIO_1_4 if DWC_DDRCTL_CINIT_SDRAM_PROTOCOL==DWC_DDRCTL_CINIT_SDRAM_PROTOCOL_DDR5 and MEMC_FREQ_RATIO_4
+#                       DDRCTL_PSTATE3_FREQUENCY_RATIO_2_1 if (DWC_DDRCTL_CINIT_SDRAM_PROTOCOL==DWC_DDRCTL_CINIT_SDRAM_PROTOCOL_LPDDR5) or                       (DWC_DDRCTL_CINIT_SDRAM_PROTOCOL==DWC_DDRCTL_CINIT_SDRAM_PROTOCOL_LPDDR5X)
+#DDRCTL_PSTATE3_FREQUENCY_RATIO_1_2=y    #1:2
+#DDRCTL_PSTATE3_FREQUENCY_RATIO_1_4=y    #1:4
+#DDRCTL_PSTATE3_FREQUENCY_RATIO_2_1=y    #2:1
+DDRCTL_PSTATE3_FREQUENCY_RATIO_4_1=y    #4:1
+
+
+
+#----------------------------------------------------------
+#                         Data Rate
+#----------------------------------------------------------
+
+#  Config:              LPDDR5 Max data rate
+#  Identifier:          DWC_DDRCTL_CINIT_LPDDR5_DATA_RATE
+#  Category:            Data Rate
+#  Dependencies:
+#  - Requires:          (@DDRCTL_LPDDR and                       (@DWC_DDRCTL_CINIT_MEMORY_DESCRIPTOR_TYPE==@DWC_DDRCTL_CINIT_SPD_STATIC_SPEED_GRADE)) and ((@DWC_DDRCTL_CINIT_SDRAM_PROTOCOL==@DWC_DDRCTL_CINIT_SDRAM_PROTOCOL_LPDDR5) or                                       (@DWC_DDRCTL_CINIT_SDRAM_PROTOCOL==@DWC_DDRCTL_CINIT_SDRAM_PROTOCOL_LPDDR5X))
+#  Default:             DWC_DDRCTL_CINIT_LPDDR5_DATA_RATE_4800
+#DWC_DDRCTL_CINIT_LPDDR5_DATA_RATE_533=y     #533
+#DWC_DDRCTL_CINIT_LPDDR5_DATA_RATE_1067=y    #1067
+#DWC_DDRCTL_CINIT_LPDDR5_DATA_RATE_1600=y    #1600
+#DWC_DDRCTL_CINIT_LPDDR5_DATA_RATE_2133=y    #2133
+#DWC_DDRCTL_CINIT_LPDDR5_DATA_RATE_2750=y    #2750
+#DWC_DDRCTL_CINIT_LPDDR5_DATA_RATE_3200=y    #3200
+#DWC_DDRCTL_CINIT_LPDDR5_DATA_RATE_3733=y    #3733
+#DWC_DDRCTL_CINIT_LPDDR5_DATA_RATE_4267=y    #4267
+#DWC_DDRCTL_CINIT_LPDDR5_DATA_RATE_4800=y    #4800
+#DWC_DDRCTL_CINIT_LPDDR5_DATA_RATE_5500=y    #5500
+#DWC_DDRCTL_CINIT_LPDDR5_DATA_RATE_6000=y    #6000
+DWC_DDRCTL_CINIT_LPDDR5_DATA_RATE_6400=y    #6400
+#DWC_DDRCTL_CINIT_LPDDR5_DATA_RATE_7500=y    #7500
+#DWC_DDRCTL_CINIT_LPDDR5_DATA_RATE_8533=y    #8533
+#DWC_DDRCTL_CINIT_LPDDR5_DATA_RATE_9600=y    #9600
+
+
+
+#----------------------------------------------------------
+#                    Main configurations
+#----------------------------------------------------------
+
+#  Config:              Number of ranks
+#  Identifier:          DWC_DDRCTL_CINIT_NUM_RANKS
+#  Category:            Main configurations
+#  Dependencies:
+#  - Requires:          (@DWC_DDRCTL_CINIT_MEMORY_DESCRIPTOR_TYPE==@DWC_DDRCTL_CINIT_SPD_STATIC_JEDEC) or                        (@DWC_DDRCTL_CINIT_MEMORY_DESCRIPTOR_TYPE==@DWC_DDRCTL_CINIT_SPD_STATIC_SPEED_GRADE)
+#  Default:             DWC_DDRCTL_CINIT_NUM_RANKS_1_RANK
+#DWC_DDRCTL_CINIT_NUM_RANKS_1_RANK=y    #1
+DWC_DDRCTL_CINIT_NUM_RANKS_2_RANK=y    #2
+#DWC_DDRCTL_CINIT_NUM_RANKS_4_RANK=y    #4
+#DWC_DDRCTL_CINIT_NUM_RANKS_8_RANK=y    #8
+
+
+
+#----------------------------------------------------------
+#                   Device 0 configuration
+#----------------------------------------------------------
+
+#  Config:              [Device 0] SDRAM Density
+#  Identifier:          DWC_DDRCTL_CINIT_SDRAM_CAPACITY_MBITS_0
+#  Category:            Device 0 configuration
+#  Dependencies:
+#  - Requires:          ((@DWC_DDRCTL_CINIT_MEMORY_DESCRIPTOR_TYPE==@DWC_DDRCTL_CINIT_SPD_STATIC_JEDEC) or                         (@DWC_DDRCTL_CINIT_MEMORY_DESCRIPTOR_TYPE==@DWC_DDRCTL_CINIT_SPD_STATIC_SPEED_GRADE)) and                          @DDRCTL_NUM_ADDR_MAP  >  0
+#  Default:             DWC_DDRCTL_CINIT_SDRAM_CAPACITY_MBIT_0_2_GB if DWC_DDRCTL_CINIT_SDRAM_PROTOCOL==DWC_DDRCTL_CINIT_SDRAM_PROTOCOL_DDR4
+#                       DWC_DDRCTL_CINIT_SDRAM_CAPACITY_MBIT_0_4_GB if DDRCTL_LPDDR
+#                       DWC_DDRCTL_CINIT_SDRAM_CAPACITY_MBIT_0_8_GB if DWC_DDRCTL_CINIT_SDRAM_PROTOCOL==DWC_DDRCTL_CINIT_SDRAM_PROTOCOL_DDR5
+#DWC_DDRCTL_CINIT_SDRAM_CAPACITY_MBIT_0_2_GB=y     #2 Gbits
+DWC_DDRCTL_CINIT_SDRAM_CAPACITY_MBIT_0_4_GB=y     #4 Gbits
+#DWC_DDRCTL_CINIT_SDRAM_CAPACITY_MBIT_0_8_GB=y     #8 Gbits
+#DWC_DDRCTL_CINIT_SDRAM_CAPACITY_MBIT_0_16_GB=y    #16 Gbits
+#DWC_DDRCTL_CINIT_SDRAM_CAPACITY_MBIT_0_24_GB=y    #24 Gbits
+#DWC_DDRCTL_CINIT_SDRAM_CAPACITY_MBIT_0_32_GB=y    #32 Gbits
+#DWC_DDRCTL_CINIT_SDRAM_CAPACITY_MBIT_0_64_GB=y    #64 Gbits
+
+
+#  Config:              [Device 0] SDRAM width
+#  Identifier:          DWC_DDRCTL_CINIT_SDRAM_WIDTH_BITS_0
+#  Category:            Device 0 configuration
+#  Dependencies:
+#  - Requires:          ((@DWC_DDRCTL_CINIT_MEMORY_DESCRIPTOR_TYPE==@DWC_DDRCTL_CINIT_SPD_STATIC_JEDEC) or                         (@DWC_DDRCTL_CINIT_MEMORY_DESCRIPTOR_TYPE==@DWC_DDRCTL_CINIT_SPD_STATIC_SPEED_GRADE)) and                          @DDRCTL_NUM_ADDR_MAP  >  0
+#  Default:             DWC_DDRCTL_CINIT_SDRAM_WIDTH_BITS_0_4_BITS
+#DWC_DDRCTL_CINIT_SDRAM_WIDTH_BITS_0_4_BITS=y     #4 bits
+#DWC_DDRCTL_CINIT_SDRAM_WIDTH_BITS_0_8_BITS=y     #8 bits
+DWC_DDRCTL_CINIT_SDRAM_WIDTH_BITS_0_16_BITS=y    #16 bits
+#DWC_DDRCTL_CINIT_SDRAM_WIDTH_BITS_0_32_BITS=y    #32 bits
+
+
+
+#----------------------------------------------------------
+#                           LPDDR5
+#----------------------------------------------------------
+
+#  Config:              [pState 0] Bank/Group organization
+#  Identifier:          DWC_DDRCTL_CINIT_LPDDR5_PSTATE0_BK_BG
+#  Category:            LPDDR5
+#  Dependencies:
+#  - Requires:          ((@DWC_DDRCTL_CINIT_SDRAM_PROTOCOL==@DWC_DDRCTL_CINIT_SDRAM_PROTOCOL_LPDDR5) or                         (@DWC_DDRCTL_CINIT_SDRAM_PROTOCOL==@DWC_DDRCTL_CINIT_SDRAM_PROTOCOL_LPDDR5X)) and                        (@NUM_PSTATES  >  0)
+#  Default:             DWC_DDRCTL_CINIT_LPDDR5_PSTATE0_BK_BG_4BK_4BG
+DWC_DDRCTL_CINIT_LPDDR5_PSTATE0_BK_BG_4BK_4BG=y    #4 banks / 4 bank groups
+#DWC_DDRCTL_CINIT_LPDDR5_PSTATE0_BK_BG_8BK=y        #8 banks
+#DWC_DDRCTL_CINIT_LPDDR5_PSTATE0_BK_BG_16BK=y       #16 banks
+
+
+
+#----------------------------------------------------------
+#                       Control Words
+#----------------------------------------------------------
+
+#  Config:              SDRAM bus width
+#  Identifier:          DWC_DDRCTL_CINIT_SDRAM_BUS_WIDTH
+#  Category:            Control Words
+#  Default:             DWC_DDRCTL_CINIT_SDRAM_BUS_WIDTH_FULL
+DWC_DDRCTL_CINIT_SDRAM_BUS_WIDTH_FULL=y       #Full
+#DWC_DDRCTL_CINIT_SDRAM_BUS_WIDTH_HALF=y       #Half
+#DWC_DDRCTL_CINIT_SDRAM_BUS_WIDTH_QUARTER=y    #Quarter
+
+
+
+#----------------------------------------------------------
+#                           LPDDR5
+#----------------------------------------------------------
+
+
+#----------------------------------------------------------
+#                          Pstate 0
+#----------------------------------------------------------
+
+#  Config:              MR1: CK mode
+#  Identifier:          DWC_DDRCTL_CINIT_LPDDR5_PSTATE0_MR1_CK_MODE
+#  Category:            Pstate 0
+#  Dependencies:
+#  - Requires:          ((@DWC_DDRCTL_CINIT_SDRAM_PROTOCOL==@DWC_DDRCTL_CINIT_SDRAM_PROTOCOL_LPDDR5) or                                      (@DWC_DDRCTL_CINIT_SDRAM_PROTOCOL==@DWC_DDRCTL_CINIT_SDRAM_PROTOCOL_LPDDR5X)) and (@NUM_PSTATES  >  0)
+#  Default:             0
+DWC_DDRCTL_CINIT_LPDDR5_PSTATE0_MR1_CK_MODE=0
+
+
+#  Config:              MR3: PDDS - Pull-Down Drive Strength
+#  Identifier:          DWC_DDRCTL_CINIT_LPDDR5_PSTATE0_MR3_PDDS
+#  Category:            Pstate 0
+#  Dependencies:
+#  - Requires:          ((@DWC_DDRCTL_CINIT_SDRAM_PROTOCOL==@DWC_DDRCTL_CINIT_SDRAM_PROTOCOL_LPDDR5) or                                      (@DWC_DDRCTL_CINIT_SDRAM_PROTOCOL==@DWC_DDRCTL_CINIT_SDRAM_PROTOCOL_LPDDR5X)) and (@NUM_PSTATES  >  0)
+#  Default:             0
+DWC_DDRCTL_CINIT_LPDDR5_PSTATE0_MR3_PDDS=6
+
+
+#  Config:              MR10: RDQS PST - RD Post amble Length
+#  Identifier:          DWC_DDRCTL_CINIT_LPDDR5_PSTATE0_MR10_RDQS_PST
+#  Category:            Pstate 0
+#  Dependencies:
+#  - Requires:          ((@DWC_DDRCTL_CINIT_SDRAM_PROTOCOL==@DWC_DDRCTL_CINIT_SDRAM_PROTOCOL_LPDDR5) or                                      (@DWC_DDRCTL_CINIT_SDRAM_PROTOCOL==@DWC_DDRCTL_CINIT_SDRAM_PROTOCOL_LPDDR5X)) and (@NUM_PSTATES  >  0)
+#  Default:             0
+DWC_DDRCTL_CINIT_LPDDR5_PSTATE0_MR10_RDQS_PST=1
+
+
+#  Config:              MR10: RDQS PRE - RD Pre-amble Length
+#  Identifier:          DWC_DDRCTL_CINIT_LPDDR5_PSTATE0_MR10_RDQS_PRE
+#  Category:            Pstate 0
+#  Dependencies:
+#  - Requires:          ((@DWC_DDRCTL_CINIT_SDRAM_PROTOCOL==@DWC_DDRCTL_CINIT_SDRAM_PROTOCOL_LPDDR5) or                                      (@DWC_DDRCTL_CINIT_SDRAM_PROTOCOL==@DWC_DDRCTL_CINIT_SDRAM_PROTOCOL_LPDDR5X)) and (@NUM_PSTATES  >  0)
+#  Default:             0
+DWC_DDRCTL_CINIT_LPDDR5_PSTATE0_MR10_RDQS_PRE=1
+
+
+#  Config:              MR10: WCK PST - WCK Post-amble Length
+#  Identifier:          DWC_DDRCTL_CINIT_LPDDR5_PSTATE0_MR10_WCK_PST
+#  Category:            Pstate 0
+#  Dependencies:
+#  - Requires:          ((@DWC_DDRCTL_CINIT_SDRAM_PROTOCOL==@DWC_DDRCTL_CINIT_SDRAM_PROTOCOL_LPDDR5) or                                      (@DWC_DDRCTL_CINIT_SDRAM_PROTOCOL==@DWC_DDRCTL_CINIT_SDRAM_PROTOCOL_LPDDR5X)) and (@NUM_PSTATES  >  0)
+#  Default:             0
+DWC_DDRCTL_CINIT_LPDDR5_PSTATE0_MR10_WCK_PST=2
+
+
+#  Config:              MR11: CA ODT - CA Bus Receiver On Die-Termination
+#  Identifier:          DWC_DDRCTL_CINIT_LPDDR5_PSTATE0_MR11_CA_ODT
+#  Category:            Pstate 0
+#  Dependencies:
+#  - Requires:          ((@DWC_DDRCTL_CINIT_SDRAM_PROTOCOL==@DWC_DDRCTL_CINIT_SDRAM_PROTOCOL_LPDDR5) or                                      (@DWC_DDRCTL_CINIT_SDRAM_PROTOCOL==@DWC_DDRCTL_CINIT_SDRAM_PROTOCOL_LPDDR5X)) and (@NUM_PSTATES  >  0)
+#  Default:             0
+DWC_DDRCTL_CINIT_LPDDR5_PSTATE0_MR11_CA_ODT=1
+
+
+#  Config:              MR11: DQ ODT - DQ Bus Receiver On Die-Termination
+#  Identifier:          DWC_DDRCTL_CINIT_LPDDR5_PSTATE0_MR11_DQ_ODT
+#  Category:            Pstate 0
+#  Dependencies:
+#  - Requires:          ((@DWC_DDRCTL_CINIT_SDRAM_PROTOCOL==@DWC_DDRCTL_CINIT_SDRAM_PROTOCOL_LPDDR5) or                                      (@DWC_DDRCTL_CINIT_SDRAM_PROTOCOL==@DWC_DDRCTL_CINIT_SDRAM_PROTOCOL_LPDDR5X)) and (@NUM_PSTATES  >  0)
+#  Default:             0
+DWC_DDRCTL_CINIT_LPDDR5_PSTATE0_MR11_DQ_ODT=1
+
+
+#  Config:              MR12: VREF(CA) - VREF(CA) Setting
+#  Identifier:          DWC_DDRCTL_CINIT_LPDDR5_PSTATE0_MR12_VREF_CA
+#  Category:            Pstate 0
+#  Dependencies:
+#  - Requires:          ((@DWC_DDRCTL_CINIT_SDRAM_PROTOCOL==@DWC_DDRCTL_CINIT_SDRAM_PROTOCOL_LPDDR5) or                                      (@DWC_DDRCTL_CINIT_SDRAM_PROTOCOL==@DWC_DDRCTL_CINIT_SDRAM_PROTOCOL_LPDDR5X)) and (@NUM_PSTATES  >  0)
+#  Default:             0
+DWC_DDRCTL_CINIT_LPDDR5_PSTATE0_MR12_VREF_CA=0
+
+
+#  Config:              MR17: ODTD-CA - CA ODT termination
+#  Identifier:          DWC_DDRCTL_CINIT_LPDDR5_PSTATE0_MR17_ODTD_CA
+#  Category:            Pstate 0
+#  Dependencies:
+#  - Requires:          ((@DWC_DDRCTL_CINIT_SDRAM_PROTOCOL==@DWC_DDRCTL_CINIT_SDRAM_PROTOCOL_LPDDR5) or                                      (@DWC_DDRCTL_CINIT_SDRAM_PROTOCOL==@DWC_DDRCTL_CINIT_SDRAM_PROTOCOL_LPDDR5X)) and (@NUM_PSTATES  >  0)
+#  Default:             0
+DWC_DDRCTL_CINIT_LPDDR5_PSTATE0_MR17_ODTD_CA=1
+
+
+#  Config:              MR17: ODTD-CK - CK ODT termination
+#  Identifier:          DWC_DDRCTL_CINIT_LPDDR5_PSTATE0_MR17_ODTD_CK
+#  Category:            Pstate 0
+#  Dependencies:
+#  - Requires:          ((@DWC_DDRCTL_CINIT_SDRAM_PROTOCOL==@DWC_DDRCTL_CINIT_SDRAM_PROTOCOL_LPDDR5) or                                      (@DWC_DDRCTL_CINIT_SDRAM_PROTOCOL==@DWC_DDRCTL_CINIT_SDRAM_PROTOCOL_LPDDR5X)) and (@NUM_PSTATES  >  0)
+#  Default:             0
+DWC_DDRCTL_CINIT_LPDDR5_PSTATE0_MR17_ODTD_CK=1
+
+
+#  Config:              MR20: RDQS - Read DQS
+#  Identifier:          DWC_DDRCTL_CINIT_LPDDR5_PSTATE0_MR20_RDQS
+#  Category:            Pstate 0
+#  Dependencies:
+#  - Requires:          ((@DWC_DDRCTL_CINIT_SDRAM_PROTOCOL==@DWC_DDRCTL_CINIT_SDRAM_PROTOCOL_LPDDR5) or                                      (@DWC_DDRCTL_CINIT_SDRAM_PROTOCOL==@DWC_DDRCTL_CINIT_SDRAM_PROTOCOL_LPDDR5X)) and (@NUM_PSTATES  >  0)
+#  Default:             0
+DWC_DDRCTL_CINIT_LPDDR5_PSTATE0_MR20_RDQS=2
+
+
+
+#----------------------------------------------------------
+#                          Pstate 1
+#----------------------------------------------------------
+
+#  Config:              MR1: CK mode
+#  Identifier:          DWC_DDRCTL_CINIT_LPDDR5_PSTATE1_MR1_CK_MODE
+#  Category:            Pstate 1
+#  Dependencies:
+#  - Requires:          ((@DWC_DDRCTL_CINIT_SDRAM_PROTOCOL==@DWC_DDRCTL_CINIT_SDRAM_PROTOCOL_LPDDR5) or                                      (@DWC_DDRCTL_CINIT_SDRAM_PROTOCOL==@DWC_DDRCTL_CINIT_SDRAM_PROTOCOL_LPDDR5X)) and (@NUM_PSTATES  >  1)
+#  Default:             0
+DWC_DDRCTL_CINIT_LPDDR5_PSTATE1_MR1_CK_MODE=0
+
+
+#  Config:              MR3: PDDS - Pull-Down Drive Strength
+#  Identifier:          DWC_DDRCTL_CINIT_LPDDR5_PSTATE1_MR3_PDDS
+#  Category:            Pstate 1
+#  Dependencies:
+#  - Requires:          ((@DWC_DDRCTL_CINIT_SDRAM_PROTOCOL==@DWC_DDRCTL_CINIT_SDRAM_PROTOCOL_LPDDR5) or                                      (@DWC_DDRCTL_CINIT_SDRAM_PROTOCOL==@DWC_DDRCTL_CINIT_SDRAM_PROTOCOL_LPDDR5X)) and (@NUM_PSTATES  >  1)
+#  Default:             0
+DWC_DDRCTL_CINIT_LPDDR5_PSTATE1_MR3_PDDS=6
+
+
+#  Config:              MR10: RDQS PST - RD Post amble Length
+#  Identifier:          DWC_DDRCTL_CINIT_LPDDR5_PSTATE1_MR10_RDQS_PST
+#  Category:            Pstate 1
+#  Dependencies:
+#  - Requires:          ((@DWC_DDRCTL_CINIT_SDRAM_PROTOCOL==@DWC_DDRCTL_CINIT_SDRAM_PROTOCOL_LPDDR5) or                                      (@DWC_DDRCTL_CINIT_SDRAM_PROTOCOL==@DWC_DDRCTL_CINIT_SDRAM_PROTOCOL_LPDDR5X)) and (@NUM_PSTATES  >  1)
+#  Default:             0
+DWC_DDRCTL_CINIT_LPDDR5_PSTATE1_MR10_RDQS_PST=1
+
+
+#  Config:              MR10: RDQS PRE - RD Pre-amble Length
+#  Identifier:          DWC_DDRCTL_CINIT_LPDDR5_PSTATE1_MR10_RDQS_PRE
+#  Category:            Pstate 1
+#  Dependencies:
+#  - Requires:          ((@DWC_DDRCTL_CINIT_SDRAM_PROTOCOL==@DWC_DDRCTL_CINIT_SDRAM_PROTOCOL_LPDDR5) or                                      (@DWC_DDRCTL_CINIT_SDRAM_PROTOCOL==@DWC_DDRCTL_CINIT_SDRAM_PROTOCOL_LPDDR5X)) and (@NUM_PSTATES  >  1)
+#  Default:             0
+DWC_DDRCTL_CINIT_LPDDR5_PSTATE1_MR10_RDQS_PRE=1
+
+
+#  Config:              MR10: WCK PST - WCK Post-amble Length
+#  Identifier:          DWC_DDRCTL_CINIT_LPDDR5_PSTATE1_MR10_WCK_PST
+#  Category:            Pstate 1
+#  Dependencies:
+#  - Requires:          ((@DWC_DDRCTL_CINIT_SDRAM_PROTOCOL==@DWC_DDRCTL_CINIT_SDRAM_PROTOCOL_LPDDR5) or                                      (@DWC_DDRCTL_CINIT_SDRAM_PROTOCOL==@DWC_DDRCTL_CINIT_SDRAM_PROTOCOL_LPDDR5X)) and (@NUM_PSTATES  >  1)
+#  Default:             0
+DWC_DDRCTL_CINIT_LPDDR5_PSTATE1_MR10_WCK_PST=2
+
+
+#  Config:              MR11: CA ODT - CA Bus Receiver On Die-Termination
+#  Identifier:          DWC_DDRCTL_CINIT_LPDDR5_PSTATE1_MR11_CA_ODT
+#  Category:            Pstate 1
+#  Dependencies:
+#  - Requires:          ((@DWC_DDRCTL_CINIT_SDRAM_PROTOCOL==@DWC_DDRCTL_CINIT_SDRAM_PROTOCOL_LPDDR5) or                                      (@DWC_DDRCTL_CINIT_SDRAM_PROTOCOL==@DWC_DDRCTL_CINIT_SDRAM_PROTOCOL_LPDDR5X)) and (@NUM_PSTATES  >  1)
+#  Default:             0
+DWC_DDRCTL_CINIT_LPDDR5_PSTATE1_MR11_CA_ODT=1
+
+
+#  Config:              MR11: DQ ODT - DQ Bus Receiver On Die-Termination
+#  Identifier:          DWC_DDRCTL_CINIT_LPDDR5_PSTATE1_MR11_DQ_ODT
+#  Category:            Pstate 1
+#  Dependencies:
+#  - Requires:          ((@DWC_DDRCTL_CINIT_SDRAM_PROTOCOL==@DWC_DDRCTL_CINIT_SDRAM_PROTOCOL_LPDDR5) or                                      (@DWC_DDRCTL_CINIT_SDRAM_PROTOCOL==@DWC_DDRCTL_CINIT_SDRAM_PROTOCOL_LPDDR5X)) and (@NUM_PSTATES  >  1)
+#  Default:             0
+DWC_DDRCTL_CINIT_LPDDR5_PSTATE1_MR11_DQ_ODT=1
+
+
+#  Config:              MR12: VREF(CA) - VREF(CA) Setting
+#  Identifier:          DWC_DDRCTL_CINIT_LPDDR5_PSTATE1_MR12_VREF_CA
+#  Category:            Pstate 1
+#  Dependencies:
+#  - Requires:          ((@DWC_DDRCTL_CINIT_SDRAM_PROTOCOL==@DWC_DDRCTL_CINIT_SDRAM_PROTOCOL_LPDDR5) or                                      (@DWC_DDRCTL_CINIT_SDRAM_PROTOCOL==@DWC_DDRCTL_CINIT_SDRAM_PROTOCOL_LPDDR5X)) and (@NUM_PSTATES  >  1)
+#  Default:             0
+DWC_DDRCTL_CINIT_LPDDR5_PSTATE1_MR12_VREF_CA=0
+
+
+#  Config:              MR17: ODTD-CA - CA ODT termination
+#  Identifier:          DWC_DDRCTL_CINIT_LPDDR5_PSTATE1_MR17_ODTD_CA
+#  Category:            Pstate 1
+#  Dependencies:
+#  - Requires:          ((@DWC_DDRCTL_CINIT_SDRAM_PROTOCOL==@DWC_DDRCTL_CINIT_SDRAM_PROTOCOL_LPDDR5) or                                      (@DWC_DDRCTL_CINIT_SDRAM_PROTOCOL==@DWC_DDRCTL_CINIT_SDRAM_PROTOCOL_LPDDR5X)) and (@NUM_PSTATES  >  1)
+#  Default:             0
+DWC_DDRCTL_CINIT_LPDDR5_PSTATE1_MR17_ODTD_CA=1
+
+
+#  Config:              MR17: ODTD-CK - CK ODT termination
+#  Identifier:          DWC_DDRCTL_CINIT_LPDDR5_PSTATE1_MR17_ODTD_CK
+#  Category:            Pstate 1
+#  Dependencies:
+#  - Requires:          ((@DWC_DDRCTL_CINIT_SDRAM_PROTOCOL==@DWC_DDRCTL_CINIT_SDRAM_PROTOCOL_LPDDR5) or                                      (@DWC_DDRCTL_CINIT_SDRAM_PROTOCOL==@DWC_DDRCTL_CINIT_SDRAM_PROTOCOL_LPDDR5X)) and (@NUM_PSTATES  >  1)
+#  Default:             0
+DWC_DDRCTL_CINIT_LPDDR5_PSTATE1_MR17_ODTD_CK=1
+
+
+#  Config:              MR20: RDQS - Read DQS
+#  Identifier:          DWC_DDRCTL_CINIT_LPDDR5_PSTATE1_MR20_RDQS
+#  Category:            Pstate 1
+#  Dependencies:
+#  - Requires:          ((@DWC_DDRCTL_CINIT_SDRAM_PROTOCOL==@DWC_DDRCTL_CINIT_SDRAM_PROTOCOL_LPDDR5) or                                      (@DWC_DDRCTL_CINIT_SDRAM_PROTOCOL==@DWC_DDRCTL_CINIT_SDRAM_PROTOCOL_LPDDR5X)) and (@NUM_PSTATES  >  1)
+#  Default:             0
+DWC_DDRCTL_CINIT_LPDDR5_PSTATE1_MR20_RDQS=2
+
+
+
+#----------------------------------------------------------
+#                          Pstate 2
+#----------------------------------------------------------
+
+#  Config:              MR1: CK mode
+#  Identifier:          DWC_DDRCTL_CINIT_LPDDR5_PSTATE2_MR1_CK_MODE
+#  Category:            Pstate 2
+#  Dependencies:
+#  - Requires:          ((@DWC_DDRCTL_CINIT_SDRAM_PROTOCOL==@DWC_DDRCTL_CINIT_SDRAM_PROTOCOL_LPDDR5) or                                      (@DWC_DDRCTL_CINIT_SDRAM_PROTOCOL==@DWC_DDRCTL_CINIT_SDRAM_PROTOCOL_LPDDR5X)) and (@NUM_PSTATES  >  2)
+#  Default:             0
+DWC_DDRCTL_CINIT_LPDDR5_PSTATE2_MR1_CK_MODE=0
+
+
+#  Config:              MR3: PDDS - Pull-Down Drive Strength
+#  Identifier:          DWC_DDRCTL_CINIT_LPDDR5_PSTATE2_MR3_PDDS
+#  Category:            Pstate 2
+#  Dependencies:
+#  - Requires:          ((@DWC_DDRCTL_CINIT_SDRAM_PROTOCOL==@DWC_DDRCTL_CINIT_SDRAM_PROTOCOL_LPDDR5) or                                      (@DWC_DDRCTL_CINIT_SDRAM_PROTOCOL==@DWC_DDRCTL_CINIT_SDRAM_PROTOCOL_LPDDR5X)) and (@NUM_PSTATES  >  2)
+#  Default:             0
+DWC_DDRCTL_CINIT_LPDDR5_PSTATE2_MR3_PDDS=6
+
+
+#  Config:              MR10: RDQS PST - RD Post amble Length
+#  Identifier:          DWC_DDRCTL_CINIT_LPDDR5_PSTATE2_MR10_RDQS_PST
+#  Category:            Pstate 2
+#  Dependencies:
+#  - Requires:          ((@DWC_DDRCTL_CINIT_SDRAM_PROTOCOL==@DWC_DDRCTL_CINIT_SDRAM_PROTOCOL_LPDDR5) or                                      (@DWC_DDRCTL_CINIT_SDRAM_PROTOCOL==@DWC_DDRCTL_CINIT_SDRAM_PROTOCOL_LPDDR5X)) and (@NUM_PSTATES  >  2)
+#  Default:             0
+DWC_DDRCTL_CINIT_LPDDR5_PSTATE2_MR10_RDQS_PST=1
+
+
+#  Config:              MR10: RDQS PRE - RD Pre-amble Length
+#  Identifier:          DWC_DDRCTL_CINIT_LPDDR5_PSTATE2_MR10_RDQS_PRE
+#  Category:            Pstate 2
+#  Dependencies:
+#  - Requires:          ((@DWC_DDRCTL_CINIT_SDRAM_PROTOCOL==@DWC_DDRCTL_CINIT_SDRAM_PROTOCOL_LPDDR5) or                                      (@DWC_DDRCTL_CINIT_SDRAM_PROTOCOL==@DWC_DDRCTL_CINIT_SDRAM_PROTOCOL_LPDDR5X)) and (@NUM_PSTATES  >  2)
+#  Default:             0
+DWC_DDRCTL_CINIT_LPDDR5_PSTATE2_MR10_RDQS_PRE=1
+
+
+#  Config:              MR10: WCK PST - WCK Post-amble Length
+#  Identifier:          DWC_DDRCTL_CINIT_LPDDR5_PSTATE2_MR10_WCK_PST
+#  Category:            Pstate 2
+#  Dependencies:
+#  - Requires:          ((@DWC_DDRCTL_CINIT_SDRAM_PROTOCOL==@DWC_DDRCTL_CINIT_SDRAM_PROTOCOL_LPDDR5) or                                      (@DWC_DDRCTL_CINIT_SDRAM_PROTOCOL==@DWC_DDRCTL_CINIT_SDRAM_PROTOCOL_LPDDR5X)) and (@NUM_PSTATES  >  2)
+#  Default:             0
+DWC_DDRCTL_CINIT_LPDDR5_PSTATE2_MR10_WCK_PST=2
+
+
+#  Config:              MR11: CA ODT - CA Bus Receiver On Die-Termination
+#  Identifier:          DWC_DDRCTL_CINIT_LPDDR5_PSTATE2_MR11_CA_ODT
+#  Category:            Pstate 2
+#  Dependencies:
+#  - Requires:          ((@DWC_DDRCTL_CINIT_SDRAM_PROTOCOL==@DWC_DDRCTL_CINIT_SDRAM_PROTOCOL_LPDDR5) or                                      (@DWC_DDRCTL_CINIT_SDRAM_PROTOCOL==@DWC_DDRCTL_CINIT_SDRAM_PROTOCOL_LPDDR5X)) and (@NUM_PSTATES  >  2)
+#  Default:             0
+DWC_DDRCTL_CINIT_LPDDR5_PSTATE2_MR11_CA_ODT=1
+
+
+#  Config:              MR11: DQ ODT - DQ Bus Receiver On Die-Termination
+#  Identifier:          DWC_DDRCTL_CINIT_LPDDR5_PSTATE2_MR11_DQ_ODT
+#  Category:            Pstate 2
+#  Dependencies:
+#  - Requires:          ((@DWC_DDRCTL_CINIT_SDRAM_PROTOCOL==@DWC_DDRCTL_CINIT_SDRAM_PROTOCOL_LPDDR5) or                                      (@DWC_DDRCTL_CINIT_SDRAM_PROTOCOL==@DWC_DDRCTL_CINIT_SDRAM_PROTOCOL_LPDDR5X)) and (@NUM_PSTATES  >  2)
+#  Default:             0
+DWC_DDRCTL_CINIT_LPDDR5_PSTATE2_MR11_DQ_ODT=1
+
+
+#  Config:              MR12: VREF(CA) - VREF(CA) Setting
+#  Identifier:          DWC_DDRCTL_CINIT_LPDDR5_PSTATE2_MR12_VREF_CA
+#  Category:            Pstate 2
+#  Dependencies:
+#  - Requires:          ((@DWC_DDRCTL_CINIT_SDRAM_PROTOCOL==@DWC_DDRCTL_CINIT_SDRAM_PROTOCOL_LPDDR5) or                                      (@DWC_DDRCTL_CINIT_SDRAM_PROTOCOL==@DWC_DDRCTL_CINIT_SDRAM_PROTOCOL_LPDDR5X)) and (@NUM_PSTATES  >  2)
+#  Default:             0
+DWC_DDRCTL_CINIT_LPDDR5_PSTATE2_MR12_VREF_CA=0
+
+
+#  Config:              MR17: ODTD-CA - CA ODT termination
+#  Identifier:          DWC_DDRCTL_CINIT_LPDDR5_PSTATE2_MR17_ODTD_CA
+#  Category:            Pstate 2
+#  Dependencies:
+#  - Requires:          ((@DWC_DDRCTL_CINIT_SDRAM_PROTOCOL==@DWC_DDRCTL_CINIT_SDRAM_PROTOCOL_LPDDR5) or                                      (@DWC_DDRCTL_CINIT_SDRAM_PROTOCOL==@DWC_DDRCTL_CINIT_SDRAM_PROTOCOL_LPDDR5X)) and (@NUM_PSTATES  >  2)
+#  Default:             0
+DWC_DDRCTL_CINIT_LPDDR5_PSTATE2_MR17_ODTD_CA=1
+
+
+#  Config:              MR17: ODTD-CK - CK ODT termination
+#  Identifier:          DWC_DDRCTL_CINIT_LPDDR5_PSTATE2_MR17_ODTD_CK
+#  Category:            Pstate 2
+#  Dependencies:
+#  - Requires:          ((@DWC_DDRCTL_CINIT_SDRAM_PROTOCOL==@DWC_DDRCTL_CINIT_SDRAM_PROTOCOL_LPDDR5) or                                      (@DWC_DDRCTL_CINIT_SDRAM_PROTOCOL==@DWC_DDRCTL_CINIT_SDRAM_PROTOCOL_LPDDR5X)) and (@NUM_PSTATES  >  2)
+#  Default:             0
+DWC_DDRCTL_CINIT_LPDDR5_PSTATE2_MR17_ODTD_CK=1
+
+
+#  Config:              MR20: RDQS - Read DQS
+#  Identifier:          DWC_DDRCTL_CINIT_LPDDR5_PSTATE2_MR20_RDQS
+#  Category:            Pstate 2
+#  Dependencies:
+#  - Requires:          ((@DWC_DDRCTL_CINIT_SDRAM_PROTOCOL==@DWC_DDRCTL_CINIT_SDRAM_PROTOCOL_LPDDR5) or                                      (@DWC_DDRCTL_CINIT_SDRAM_PROTOCOL==@DWC_DDRCTL_CINIT_SDRAM_PROTOCOL_LPDDR5X)) and (@NUM_PSTATES  >  2)
+#  Default:             0
+DWC_DDRCTL_CINIT_LPDDR5_PSTATE2_MR20_RDQS=2
+
+
+
+#----------------------------------------------------------
+#                          Pstate 3
+#----------------------------------------------------------
+
+#  Config:              MR1: CK mode
+#  Identifier:          DWC_DDRCTL_CINIT_LPDDR5_PSTATE3_MR1_CK_MODE
+#  Category:            Pstate 3
+#  Dependencies:
+#  - Requires:          ((@DWC_DDRCTL_CINIT_SDRAM_PROTOCOL==@DWC_DDRCTL_CINIT_SDRAM_PROTOCOL_LPDDR5) or                                      (@DWC_DDRCTL_CINIT_SDRAM_PROTOCOL==@DWC_DDRCTL_CINIT_SDRAM_PROTOCOL_LPDDR5X)) and (@NUM_PSTATES  >  3)
+#  Default:             0
+DWC_DDRCTL_CINIT_LPDDR5_PSTATE3_MR1_CK_MODE=0
+
+
+#  Config:              MR3: PDDS - Pull-Down Drive Strength
+#  Identifier:          DWC_DDRCTL_CINIT_LPDDR5_PSTATE3_MR3_PDDS
+#  Category:            Pstate 3
+#  Dependencies:
+#  - Requires:          ((@DWC_DDRCTL_CINIT_SDRAM_PROTOCOL==@DWC_DDRCTL_CINIT_SDRAM_PROTOCOL_LPDDR5) or                                      (@DWC_DDRCTL_CINIT_SDRAM_PROTOCOL==@DWC_DDRCTL_CINIT_SDRAM_PROTOCOL_LPDDR5X)) and (@NUM_PSTATES  >  3)
+#  Default:             0
+DWC_DDRCTL_CINIT_LPDDR5_PSTATE3_MR3_PDDS=6
+
+
+#  Config:              MR10: RDQS PST - RD Post amble Length
+#  Identifier:          DWC_DDRCTL_CINIT_LPDDR5_PSTATE3_MR10_RDQS_PST
+#  Category:            Pstate 3
+#  Dependencies:
+#  - Requires:          ((@DWC_DDRCTL_CINIT_SDRAM_PROTOCOL==@DWC_DDRCTL_CINIT_SDRAM_PROTOCOL_LPDDR5) or                                      (@DWC_DDRCTL_CINIT_SDRAM_PROTOCOL==@DWC_DDRCTL_CINIT_SDRAM_PROTOCOL_LPDDR5X)) and (@NUM_PSTATES  >  3)
+#  Default:             0
+DWC_DDRCTL_CINIT_LPDDR5_PSTATE3_MR10_RDQS_PST=1
+
+
+#  Config:              MR10: RDQS PRE - RD Pre-amble Length
+#  Identifier:          DWC_DDRCTL_CINIT_LPDDR5_PSTATE3_MR10_RDQS_PRE
+#  Category:            Pstate 3
+#  Dependencies:
+#  - Requires:          ((@DWC_DDRCTL_CINIT_SDRAM_PROTOCOL==@DWC_DDRCTL_CINIT_SDRAM_PROTOCOL_LPDDR5) or                                      (@DWC_DDRCTL_CINIT_SDRAM_PROTOCOL==@DWC_DDRCTL_CINIT_SDRAM_PROTOCOL_LPDDR5X)) and (@NUM_PSTATES  >  3)
+#  Default:             0
+DWC_DDRCTL_CINIT_LPDDR5_PSTATE3_MR10_RDQS_PRE=1
+
+
+#  Config:              MR10: WCK PST - WCK Post-amble Length
+#  Identifier:          DWC_DDRCTL_CINIT_LPDDR5_PSTATE3_MR10_WCK_PST
+#  Category:            Pstate 3
+#  Dependencies:
+#  - Requires:          ((@DWC_DDRCTL_CINIT_SDRAM_PROTOCOL==@DWC_DDRCTL_CINIT_SDRAM_PROTOCOL_LPDDR5) or                                      (@DWC_DDRCTL_CINIT_SDRAM_PROTOCOL==@DWC_DDRCTL_CINIT_SDRAM_PROTOCOL_LPDDR5X)) and (@NUM_PSTATES  >  3)
+#  Default:             0
+DWC_DDRCTL_CINIT_LPDDR5_PSTATE3_MR10_WCK_PST=2
+
+
+#  Config:              MR11: CA ODT - CA Bus Receiver On Die-Termination
+#  Identifier:          DWC_DDRCTL_CINIT_LPDDR5_PSTATE3_MR11_CA_ODT
+#  Category:            Pstate 3
+#  Dependencies:
+#  - Requires:          ((@DWC_DDRCTL_CINIT_SDRAM_PROTOCOL==@DWC_DDRCTL_CINIT_SDRAM_PROTOCOL_LPDDR5) or                                      (@DWC_DDRCTL_CINIT_SDRAM_PROTOCOL==@DWC_DDRCTL_CINIT_SDRAM_PROTOCOL_LPDDR5X)) and (@NUM_PSTATES  >  3)
+#  Default:             0
+DWC_DDRCTL_CINIT_LPDDR5_PSTATE3_MR11_CA_ODT=1
+
+
+#  Config:              MR11: DQ ODT - DQ Bus Receiver On Die-Termination
+#  Identifier:          DWC_DDRCTL_CINIT_LPDDR5_PSTATE3_MR11_DQ_ODT
+#  Category:            Pstate 3
+#  Dependencies:
+#  - Requires:          ((@DWC_DDRCTL_CINIT_SDRAM_PROTOCOL==@DWC_DDRCTL_CINIT_SDRAM_PROTOCOL_LPDDR5) or                                      (@DWC_DDRCTL_CINIT_SDRAM_PROTOCOL==@DWC_DDRCTL_CINIT_SDRAM_PROTOCOL_LPDDR5X)) and (@NUM_PSTATES  >  3)
+#  Default:             0
+DWC_DDRCTL_CINIT_LPDDR5_PSTATE3_MR11_DQ_ODT=1
+
+
+#  Config:              MR12: VREF(CA) - VREF(CA) Setting
+#  Identifier:          DWC_DDRCTL_CINIT_LPDDR5_PSTATE3_MR12_VREF_CA
+#  Category:            Pstate 3
+#  Dependencies:
+#  - Requires:          ((@DWC_DDRCTL_CINIT_SDRAM_PROTOCOL==@DWC_DDRCTL_CINIT_SDRAM_PROTOCOL_LPDDR5) or                                      (@DWC_DDRCTL_CINIT_SDRAM_PROTOCOL==@DWC_DDRCTL_CINIT_SDRAM_PROTOCOL_LPDDR5X)) and (@NUM_PSTATES  >  3)
+#  Default:             0
+DWC_DDRCTL_CINIT_LPDDR5_PSTATE3_MR12_VREF_CA=0
+
+
+#  Config:              MR17: ODTD-CA - CA ODT termination
+#  Identifier:          DWC_DDRCTL_CINIT_LPDDR5_PSTATE3_MR17_ODTD_CA
+#  Category:            Pstate 3
+#  Dependencies:
+#  - Requires:          ((@DWC_DDRCTL_CINIT_SDRAM_PROTOCOL==@DWC_DDRCTL_CINIT_SDRAM_PROTOCOL_LPDDR5) or                                      (@DWC_DDRCTL_CINIT_SDRAM_PROTOCOL==@DWC_DDRCTL_CINIT_SDRAM_PROTOCOL_LPDDR5X)) and (@NUM_PSTATES  >  3)
+#  Default:             0
+DWC_DDRCTL_CINIT_LPDDR5_PSTATE3_MR17_ODTD_CA=1
+
+
+#  Config:              MR17: ODTD-CK - CK ODT termination
+#  Identifier:          DWC_DDRCTL_CINIT_LPDDR5_PSTATE3_MR17_ODTD_CK
+#  Category:            Pstate 3
+#  Dependencies:
+#  - Requires:          ((@DWC_DDRCTL_CINIT_SDRAM_PROTOCOL==@DWC_DDRCTL_CINIT_SDRAM_PROTOCOL_LPDDR5) or                                      (@DWC_DDRCTL_CINIT_SDRAM_PROTOCOL==@DWC_DDRCTL_CINIT_SDRAM_PROTOCOL_LPDDR5X)) and (@NUM_PSTATES  >  3)
+#  Default:             0
+DWC_DDRCTL_CINIT_LPDDR5_PSTATE3_MR17_ODTD_CK=1
+
+
+#  Config:              MR20: RDQS - Read DQS
+#  Identifier:          DWC_DDRCTL_CINIT_LPDDR5_PSTATE3_MR20_RDQS
+#  Category:            Pstate 3
+#  Dependencies:
+#  - Requires:          ((@DWC_DDRCTL_CINIT_SDRAM_PROTOCOL==@DWC_DDRCTL_CINIT_SDRAM_PROTOCOL_LPDDR5) or                                      (@DWC_DDRCTL_CINIT_SDRAM_PROTOCOL==@DWC_DDRCTL_CINIT_SDRAM_PROTOCOL_LPDDR5X)) and (@NUM_PSTATES  >  3)
+#  Default:             0
+DWC_DDRCTL_CINIT_LPDDR5_PSTATE3_MR20_RDQS=2
+
+
+
+#----------------------------------------------------------
+#                          General
+#----------------------------------------------------------
+
+#  Config:              Config Name
+#  Identifier:          SNPS_DEFCONFIG
+#  Category:            General
+#  Default:             None
+SNPS_DEFCONFIG="LPDDR5_DEMO_6400_4G_x16_4BK4BG_1_4_defconfig"
+
+
+#  Config:              Number of frequencies sets per DDRCTL
+#  Identifier:          NUM_PSTATES
+#  Category:            General
+#  Default:             1
+NUM_PSTATES=4
+
+
+#  Config:              DDR PHY type
+#  Identifier:          DWC_DDRCTL_CINIT_DDRPHYTYPE_M
+#  Category:            General
+#  Default:             CONFIG_DWC_DDR54_TYPE_PHY if DDRCTL_DDR
+#                       CONFIG_DWC_LPDDR54_TYPE_PHY if DDRCTL_LPDDR
+#CONFIG_DWC_DDR54_TYPE_PHY=y        #DWC_DDR54_PHY
+CONFIG_DWC_LPDDR54_TYPE_PHY=y      #DWC_LPDDR54_PHY
+#CONFIG_DWC_DDR54_TYPE_PHY_V2=y     #DWC_DDR54_PHY_V2
+#CONFIG_DWC_LPDDR5X4_TYPE_PHY=y     #DWC_LPDDR5X4
+#CONFIG_DWC_DDR5_TYPE_PHY=y         #DWC_DDR5_PHY
+#CONFIG_DWC_3RD_PARTY_TYPE_PHY=y    #3rd-party PHY
+
+
+#  Config:              DDR controller training
+#  Identifier:          SCONFIG_PHY_TRAINING
+#  Category:            General
+#  Default:             CONFIG_DWC_SKIP_TRAINING
+#CONFIG_DWC_FULL_TRAINING=y    #Full training
+CONFIG_DWC_SKIP_TRAINING=y    #Skip training
+#CONFIG_DWC_DEVICE_PHY=y       #Device/PHY initialization
+
+
+
+#----------------------------------------------------------
+#                      Register control
+#----------------------------------------------------------
+
+
+#----------------------------------------------------------
+#                       REGB_DDRC_CH0
+#----------------------------------------------------------
+
+
+#----------------------------------------------------------
+#                           MSTR0
+#----------------------------------------------------------
+
+#  Config:              active_ranks
+#  Identifier:          DWC_DDRCTL_CINIT_REGB_DDRC_CH0_MSTR0_ACTIVE_RANKS
+#  Category:            MSTR0
+#  Dependencies:
+#  - Requires:          @DDRCTL_DDR_DUAL_CHANNEL__OR__SINGLE_INST_DUALCH or (0 == 0)
+#  Default:             3
+DWC_DDRCTL_CINIT_REGB_DDRC_CH0_MSTR0_ACTIVE_RANKS=3
+
+
+
+#----------------------------------------------------------
+#                           PWRCTL
+#----------------------------------------------------------
+
+#  Config:              selfref_en
+#  Identifier:          DWC_DDRCTL_CINIT_REGB_DDRC_CH0_PWRCTL_SELFREF_EN
+#  Category:            PWRCTL
+#  Dependencies:
+#  - Requires:          @DDRCTL_DDR_DUAL_CHANNEL__OR__SINGLE_INST_DUALCH or (0 == 0)
+#  Default:             0
+DWC_DDRCTL_CINIT_REGB_DDRC_CH0_PWRCTL_SELFREF_EN=1
+
+
+#  Config:              powerdown_en
+#  Identifier:          DWC_DDRCTL_CINIT_REGB_DDRC_CH0_PWRCTL_POWERDOWN_EN
+#  Category:            PWRCTL
+#  Dependencies:
+#  - Requires:          @DDRCTL_DDR_DUAL_CHANNEL__OR__SINGLE_INST_DUALCH or (0 == 0)
+#  Default:             0
+DWC_DDRCTL_CINIT_REGB_DDRC_CH0_PWRCTL_POWERDOWN_EN=1
+
+
+
+#----------------------------------------------------------
+#                          DFIUPD0
+#----------------------------------------------------------
+
+#  Config:              dis_auto_ctrlupd
+#  Identifier:          DWC_DDRCTL_CINIT_REGB_DDRC_CH0_DFIUPD0_DIS_AUTO_CTRLUPD
+#  Category:            DFIUPD0
+#  Dependencies:
+#  - Requires:          @DDRCTL_DDR_DUAL_CHANNEL__OR__SINGLE_INST_DUALCH or (0 == 0)
+#  Default:             0
+DWC_DDRCTL_CINIT_REGB_DDRC_CH0_DFIUPD0_DIS_AUTO_CTRLUPD=1
+
+
+#  Config:              dfi_phyupd_en
+#  Identifier:          DWC_DDRCTL_CINIT_REGB_DDRC_CH0_DFIUPD0_DFI_PHYUPD_EN
+#  Category:            DFIUPD0
+#  Dependencies:
+#  - Requires:          @DDRCTL_DDR_DUAL_CHANNEL__OR__SINGLE_INST_DUALCH or (0 == 0)
+#  Default:             1
+DWC_DDRCTL_CINIT_REGB_DDRC_CH0_DFIUPD0_DFI_PHYUPD_EN=0
+
+
+#  Config:              dis_auto_ctrlupd_srx
+#  Identifier:          DWC_DDRCTL_CINIT_REGB_DDRC_CH0_DFIUPD0_DIS_AUTO_CTRLUPD_SRX
+#  Category:            DFIUPD0
+#  Dependencies:
+#  - Requires:          @DDRCTL_DDR_DUAL_CHANNEL__OR__SINGLE_INST_DUALCH or (0 == 0)
+#  Default:             0
+DWC_DDRCTL_CINIT_REGB_DDRC_CH0_DFIUPD0_DIS_AUTO_CTRLUPD_SRX=1
+
+
+
+#----------------------------------------------------------
+#                          DFIMISC
+#----------------------------------------------------------
+
+#  Config:              dfi_data_cs_polarity
+#  Identifier:          DWC_DDRCTL_CINIT_REGB_DDRC_CH0_DFIMISC_DFI_DATA_CS_POLARITY
+#  Category:            DFIMISC
+#  Dependencies:
+#  - Requires:          @DDRCTL_DDR_DUAL_CHANNEL__OR__SINGLE_INST_DUALCH or (0 == 0)
+#  Default:             0
+DWC_DDRCTL_CINIT_REGB_DDRC_CH0_DFIMISC_DFI_DATA_CS_POLARITY=1
+
+
+#  Config:              dfi_channel_mode
+#  Identifier:          DWC_DDRCTL_CINIT_REGB_DDRC_CH0_DFIMISC_DFI_CHANNEL_MODE
+#  Category:            DFIMISC
+#  Dependencies:
+#  - Requires:          @DDRCTL_DDR_DUAL_CHANNEL__OR__SINGLE_INST_DUALCH or (0 == 0)
+#  Default:             0
+DWC_DDRCTL_CINIT_REGB_DDRC_CH0_DFIMISC_DFI_CHANNEL_MODE=1
+
+
+
+#----------------------------------------------------------
+#                         DFIPHYMSTR
+#----------------------------------------------------------
+
+#  Config:              dfi_phymstr_en
+#  Identifier:          DWC_DDRCTL_CINIT_REGB_DDRC_CH0_DFIPHYMSTR_DFI_PHYMSTR_EN
+#  Category:            DFIPHYMSTR
+#  Dependencies:
+#  - Requires:          @DDRCTL_DDR_DUAL_CHANNEL__OR__SINGLE_INST_DUALCH or (0 == 0)
+#  Default:             1
+DWC_DDRCTL_CINIT_REGB_DDRC_CH0_DFIPHYMSTR_DFI_PHYMSTR_EN=0
+
+
+
+#----------------------------------------------------------
+#                          ECCCFG0
+#----------------------------------------------------------
+
+#  Config:              ecc_ap_en
+#  Identifier:          DWC_DDRCTL_CINIT_REGB_DDRC_CH0_ECCCFG0_ECC_AP_EN
+#  Category:            ECCCFG0
+#  Dependencies:
+#  - Requires:          @DDRCTL_DDR_DUAL_CHANNEL__OR__SINGLE_INST_DUALCH or (0 == 0)
+#  Default:             1
+DWC_DDRCTL_CINIT_REGB_DDRC_CH0_ECCCFG0_ECC_AP_EN=1
+
+
+#  Config:              ecc_mode
+#  Identifier:          DWC_DDRCTL_CINIT_REGB_DDRC_CH0_ECCCFG0_ECC_MODE
+#  Category:            ECCCFG0
+#  Dependencies:
+#  - Requires:          @DDRCTL_DDR_DUAL_CHANNEL__OR__SINGLE_INST_DUALCH or (0 == 0)
+#  Default:             0
+DWC_DDRCTL_CINIT_REGB_DDRC_CH0_ECCCFG0_ECC_MODE=0
+
+
+#  Config:              ecc_region_map
+#  Identifier:          DWC_DDRCTL_CINIT_REGB_DDRC_CH0_ECCCFG0_ECC_REGION_MAP
+#  Category:            ECCCFG0
+#  Dependencies:
+#  - Requires:          @DDRCTL_DDR_DUAL_CHANNEL__OR__SINGLE_INST_DUALCH or (0 == 0)
+#  Default:             127
+DWC_DDRCTL_CINIT_REGB_DDRC_CH0_ECCCFG0_ECC_REGION_MAP=127
+
+
+
+#----------------------------------------------------------
+#                           CHCTL
+#----------------------------------------------------------
+
+#  Config:              dual_channel_en
+#  Identifier:          DWC_DDRCTL_CINIT_REGB_DDRC_CH0_CHCTL_DUAL_CHANNEL_EN
+#  Category:            CHCTL
+#  Dependencies:
+#  - Requires:          @DDRCTL_DDR_DUAL_CHANNEL__OR__SINGLE_INST_DUALCH or (0 == 0)
+#  Default:             1
+DWC_DDRCTL_CINIT_REGB_DDRC_CH0_CHCTL_DUAL_CHANNEL_EN=0
+
+
+
+#----------------------------------------------------------
+#                          INITTMG0
+#----------------------------------------------------------
+
+#  Config:              pre_cke_x1024
+#  Identifier:          DWC_DDRCTL_CINIT_REGB_DDRC_CH0_INITTMG0_PRE_CKE_X1024
+#  Category:            INITTMG0
+#  Dependencies:
+#  - Requires:          @DDRCTL_DDR_DUAL_CHANNEL__OR__SINGLE_INST_DUALCH or (0 == 0)
+#  Default:             78
+DWC_DDRCTL_CINIT_REGB_DDRC_CH0_INITTMG0_PRE_CKE_X1024=2
+
+
+#  Config:              post_cke_x1024
+#  Identifier:          DWC_DDRCTL_CINIT_REGB_DDRC_CH0_INITTMG0_POST_CKE_X1024
+#  Category:            INITTMG0
+#  Dependencies:
+#  - Requires:          @DDRCTL_DDR_DUAL_CHANNEL__OR__SINGLE_INST_DUALCH or (0 == 0)
+#  Default:             2
+DWC_DDRCTL_CINIT_REGB_DDRC_CH0_INITTMG0_POST_CKE_X1024=2
+
+
+#  Config:              skip_dram_init
+#  Identifier:          DWC_DDRCTL_CINIT_REGB_DDRC_CH0_INITTMG0_SKIP_DRAM_INIT
+#  Category:            INITTMG0
+#  Dependencies:
+#  - Requires:          @DDRCTL_DDR_DUAL_CHANNEL__OR__SINGLE_INST_DUALCH or (0 == 0)
+#  Default:             0
+DWC_DDRCTL_CINIT_REGB_DDRC_CH0_INITTMG0_SKIP_DRAM_INIT=1
+
+
+
+#----------------------------------------------------------
+#                       REGB_FREQ0_CH0
+#----------------------------------------------------------
+
+
+#----------------------------------------------------------
+#                       DRAMSET1TMG14
+#----------------------------------------------------------
+
+#  Config:              t_xsr
+#  Identifier:          DWC_DDRCTL_CINIT_REGB_FREQ0_CH0_DRAMSET1TMG14_T_XSR
+#  Category:            DRAMSET1TMG14
+#  Dependencies:
+#  - Requires:          @UMCTL2_FREQUENCY_NUM > 0 and (@DDRCTL_DDR_DUAL_CHANNEL__OR__SINGLE_INST_DUALCH or (0 == 0))
+#  Default:             160
+DWC_DDRCTL_CINIT_REGB_FREQ0_CH0_DRAMSET1TMG14_T_XSR=800
+
+
+
+#----------------------------------------------------------
+#                       REGB_FREQ1_CH0
+#----------------------------------------------------------
+
+
+#----------------------------------------------------------
+#                       DRAMSET1TMG14
+#----------------------------------------------------------
+
+#  Config:              t_xsr
+#  Identifier:          DWC_DDRCTL_CINIT_REGB_FREQ1_CH0_DRAMSET1TMG14_T_XSR
+#  Category:            DRAMSET1TMG14
+#  Dependencies:
+#  - Requires:          @UMCTL2_FREQUENCY_NUM > 1 and (@DDRCTL_DDR_DUAL_CHANNEL__OR__SINGLE_INST_DUALCH or (0 == 0))
+#  Default:             160
+DWC_DDRCTL_CINIT_REGB_FREQ1_CH0_DRAMSET1TMG14_T_XSR=800
+
+
+
+#----------------------------------------------------------
+#                       REGB_FREQ2_CH0
+#----------------------------------------------------------
+
+
+#----------------------------------------------------------
+#                       DRAMSET1TMG14
+#----------------------------------------------------------
+
+#  Config:              t_xsr
+#  Identifier:          DWC_DDRCTL_CINIT_REGB_FREQ2_CH0_DRAMSET1TMG14_T_XSR
+#  Category:            DRAMSET1TMG14
+#  Dependencies:
+#  - Requires:          @UMCTL2_FREQUENCY_NUM > 2 and (@DDRCTL_DDR_DUAL_CHANNEL__OR__SINGLE_INST_DUALCH or (0 == 0))
+#  Default:             160
+DWC_DDRCTL_CINIT_REGB_FREQ2_CH0_DRAMSET1TMG14_T_XSR=800
+
+
+
+#----------------------------------------------------------
+#                       REGB_FREQ3_CH0
+#----------------------------------------------------------
+
+
+#----------------------------------------------------------
+#                       DRAMSET1TMG14
+#----------------------------------------------------------
+
+#  Config:              t_xsr
+#  Identifier:          DWC_DDRCTL_CINIT_REGB_FREQ3_CH0_DRAMSET1TMG14_T_XSR
+#  Category:            DRAMSET1TMG14
+#  Dependencies:
+#  - Requires:          @UMCTL2_FREQUENCY_NUM > 3 and (@DDRCTL_DDR_DUAL_CHANNEL__OR__SINGLE_INST_DUALCH or (0 == 0))
+#  Default:             160
+DWC_DDRCTL_CINIT_REGB_FREQ3_CH0_DRAMSET1TMG14_T_XSR=800
+

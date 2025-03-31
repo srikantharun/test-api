@@ -1,0 +1,16 @@
+package:
+  name: rvv_agent_uvm_pkg
+  description: "RVV agent package"
+  authors:
+    - "rafael.frangulian@axelera.ai"
+
+dependencies:
+  mmio_agent_uvm_pkg:      { path: "$REPO_ROOT/hw/dv/mmio_agent"}
+
+sources:
+  - target: simulation
+    include_dirs:
+      - .
+    files:
+      - rvv_agent_pkg.sv
+

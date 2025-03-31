@@ -1,0 +1,36 @@
+From ddf0925462852091144cad02f919a4144afb9a9f Mon Sep 17 00:00:00 2001
+From: Max Wipfli <max.wipfli@axelera.ai>
+Date: Thu, 18 Jul 2024 15:48:25 +0000
+Subject: [PATCH 8/9] Do not enable MCU2CPU interrupt in the MCU PLIC
+
+This prevents the MCU from acknowledging the IRQ before the host CPU
+(APU) has had time to poll it.
+
+I belive this is not an issue in the vendor testbench as they can
+immediately detect and acknowledge the interrupt as soon as it is
+raised, without any delay.
+
+This is a functional change that should possibly be reverted.
+---
+ bin/mcu/src/main.c | 5 +++++
+ 1 file changed, 5 insertions(+)
+
+diff --git a/bin/mcu/src/main.c b/bin/mcu/src/main.c
+index ba4fb30..9cba494 100644
+--- a/bin/mcu/src/main.c
++++ b/bin/mcu/src/main.c
+@@ -129,6 +129,11 @@ int main( int argc, char* argv[] )
+ #if AL_NEWMCU
+   PlicInit(0x08000000);
+ 	for (i = 0; i < 32; i++) {
++    if (i == 30) {
++      // Axelera: Do not enable the MCU2CPU IRQ, to avoid it being acknowledged
++      //          by the MCU. This is the job of the host CPU (APU).
++      continue;
++    }
+     PlicEnable(i);
+   }
+     PlicEnable(35);
+-- 
+2.43.0
+

@@ -1,0 +1,23 @@
+# (C) Copyright Axelera AI 2021
+# All Rights Reserved
+# *** Axelera AI Confidential ***
+
+# THIS IS NOT A BENDER FILE BECAUSE THIS IP NEEDS FIXING AND IM TAKING IT OUT OF BENDERS WORLD !!
+
+package:
+  name: reset_gen
+  authors:
+  - "Florian Zaruba <florian.zaruba@axelera.ai>"
+
+dependencies:
+  reset_gen_pkg: { path: "../../../../../subip/common/ai_rtl_lib/reset_gen/rtl/pkg" }
+  reset_sync:   { path: "../../../../../subip/common/ai_rtl_lib/reset_sync/rtl" }
+  lowrisc_prim: { path: "../../../../../subip/common/lowrisc_prim/rtl" }
+
+sources:
+  - target: rtl
+    files:
+      - reset_gen_reg_top.sv
+      - reset_gen_basic_block.sv
+      - signal_debounce.sv
+      - reset_gen.sv

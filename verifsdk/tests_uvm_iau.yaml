@@ -1,0 +1,186 @@
+tests:
+  - name: iau_axi_m_aligned_addr_test
+    description: TODO
+    labels: [HW_IP_IAU_DEFAULT_DV_SIM_REGRE_WEEKLY, HW_IP_IAU_DEFAULT_DV_SIM_REGRE_MR,
+      HW_IP_IAU_DEFAULT_DV_SIM_REGRE_NIGHTLY]
+    requirement_ids: []
+    platforms: [uvm.HW_IP_IAU_DEFAULT_DV_SIM]
+    owner: Fernando Yokota
+
+  - name: iau_axi_m_write_data_bfr_addr_test
+    description: TODO
+    labels: [HW_IP_IAU_DEFAULT_DV_SIM_REGRE_WEEKLY, HW_IP_IAU_DEFAULT_DV_SIM_REGRE_MR,
+      HW_IP_IAU_DEFAULT_DV_SIM_REGRE_NIGHTLY]
+    requirement_ids: []
+    platforms: [uvm.HW_IP_IAU_DEFAULT_DV_SIM]
+    owner: Fernando Yokota
+
+  - name: iau_ral_hw_rst_test
+    description: TODO
+    labels: [HW_IP_IAU_DEFAULT_DV_SIM_REGRE_WEEKLY, HW_IP_IAU_DEFAULT_DV_SIM_REGRE_MR,
+      HW_IP_IAU_DEFAULT_DV_SIM_REGRE_NIGHTLY]
+    requirement_ids: []
+    platforms: [uvm.HW_IP_IAU_DEFAULT_DV_SIM]
+    owner: Fernando Yokota
+
+# FIXME: Getting uvm_link_transaction errors, going to fix later
+#  - name: mr_iau_axi_rnd_test
+#    description: TODO
+#    flags : [UVM_TESTNAME="iau_axi_rnd_test"]
+#    labels: [HW_IP_IAU_DEFAULT_DV_SIM_REGRE_MR]
+#    requirement_ids: []
+#    platforms: [uvm.HW_IP_IAU_DEFAULT_DV_SIM]
+#    owner: Fernando Yokota
+#    repeat_count: 1
+#    seeds: []
+
+  - name: mr_iau_register_test
+    description: TODO
+    flags : [UVM_TESTNAME="iau_register_test"]
+    labels: [HW_IP_IAU_DEFAULT_DV_SIM_REGRE_MR]
+    requirement_ids: []
+    platforms: [uvm.HW_IP_IAU_DEFAULT_DV_SIM]
+    owner: Fernando Yokota
+    repeat_count: 1
+    seeds: []
+
+  - name: mr_iau_stream_bypass_test
+    description: TODO
+    flags : [UVM_TESTNAME="iau_stream_bypass_test"]
+    labels: [HW_IP_IAU_DEFAULT_DV_SIM_REGRE_MR]
+    requirement_ids: []
+    platforms: [uvm.HW_IP_IAU_DEFAULT_DV_SIM]
+    owner: Fernando Yokota
+    repeat_count: 1
+    seeds: []
+
+  - name: mr_iau_loop_test
+    description: TODO
+    flags : [UVM_TESTNAME="iau_loop_test"]
+    labels: [HW_IP_IAU_DEFAULT_DV_SIM_REGRE_MR]
+    requirement_ids: []
+    platforms: [uvm.HW_IP_IAU_DEFAULT_DV_SIM]
+    owner: Fernando Yokota
+    repeat_count: 1
+    seeds: []
+
+  - name: mr_iau_rfs_test
+    description: TODO
+    flags : [UVM_TESTNAME="iau_rfs_test"]
+    labels: [HW_IP_IAU_DEFAULT_DV_SIM_REGRE_MR]
+    requirement_ids: []
+    platforms: [uvm.HW_IP_IAU_DEFAULT_DV_SIM]
+    owner: Fernando Yokota
+    repeat_count: 1
+    seeds: []
+
+#  - name: mr_iau_irq_test
+#    description: TODO
+#    flags : [UVM_TESTNAME="iau_irq_test"]
+#    labels: [HW_IP_IAU_DEFAULT_DV_SIM_REGRE_MR]
+#    requirement_ids: []
+#    platforms: [uvm.HW_IP_IAU_DEFAULT_DV_SIM]
+#    owner: Fernando Yokota
+#    repeat_count: 1 
+#    seeds: []
+
+  - name: mr_iau_standard_test
+    description: TODO
+    flags : [UVM_TESTNAME="iau_standard_test"]
+    labels: [HW_IP_IAU_DEFAULT_DV_SIM_REGRE_MR]
+    requirement_ids: []
+    platforms: [uvm.HW_IP_IAU_DEFAULT_DV_SIM]
+    owner: Fernando Yokota
+    repeat_count: 1
+    seeds: []
+
+  - name: mr_d_iau_standard_test
+    description: TODO
+    flags : [UVM_TESTNAME="iau_standard_test"]
+    labels: [HW_IP_IAU_DEFAULT_DV_SIM_REGRE_MR]
+    requirement_ids: []
+    platforms: [uvm.HW_IP_D_IAU_DEFAULT_DV_SIM]
+    owner: Fernando Yokota
+    repeat_count: 1
+    seeds: []
+
+  - name: iau_icdf_test
+    description: TODO
+    labels: [HW_IP_IAU_DEFAULT_DV_SIM_REGRE_WEEKLY]
+    requirement_ids: []
+    platforms: [uvm.HW_IP_IAU_DEFAULT_DV_SIM]
+    owner: Fernando Yokota
+    seeds: [1]
+
+  - name: iau_icdf_extensive_test
+    description: TODO
+    flags : [+ICDF_EXTENSIVE_TEST, UVM_TESTNAME="iau_icdf_test"]
+    labels: [HW_IP_IAU_DEFAULT_DV_SIM_REGRE_WEEKLY]
+    requirement_ids: []
+    platforms: [uvm.HW_IP_IAU_DEFAULT_DV_SIM]
+    owner: Fernando Yokota
+    seeds: [1]
+
+#  - name: iau_axi_rnd_test
+#    description: TODO
+#    labels: [HW_IP_IAU_DEFAULT_DV_SIM_REGRE_WEEKLY, HW_IP_IAU_DEFAULT_DV_SIM_REGRE_NIGHTLY]
+#    requirement_ids: []
+#    platforms: [uvm.HW_IP_IAU_DEFAULT_DV_SIM]
+#    owner: Fernando Yokota
+#    repeat_count: 10
+#    seeds: []
+
+  - name: iau_register_test
+    description: TODO
+    labels: [HW_IP_IAU_DEFAULT_DV_SIM_REGRE_WEEKLY, HW_IP_IAU_DEFAULT_DV_SIM_REGRE_NIGHTLY]
+    requirement_ids: []
+    platforms: [uvm.HW_IP_IAU_DEFAULT_DV_SIM]
+    owner: Fernando Yokota
+    repeat_count: 10
+    seeds: []
+
+  - name: iau_stream_bypass_test
+    description: TODO
+    labels: [HW_IP_IAU_DEFAULT_DV_SIM_REGRE_WEEKLY, HW_IP_IAU_DEFAULT_DV_SIM_REGRE_NIGHTLY]
+    requirement_ids: []
+    platforms: [uvm.HW_IP_IAU_DEFAULT_DV_SIM]
+    owner: Fernando Yokota
+    repeat_count: 10
+    seeds: []
+
+  - name: iau_loop_test
+    description: TODO
+    labels: [HW_IP_IAU_DEFAULT_DV_SIM_REGRE_WEEKLY, HW_IP_IAU_DEFAULT_DV_SIM_REGRE_NIGHTLY]
+    requirement_ids: []
+    platforms: [uvm.HW_IP_IAU_DEFAULT_DV_SIM]
+    owner: Fernando Yokota
+    repeat_count: 10
+    seeds: []
+
+  - name: iau_rfs_test
+    description: TODO
+    labels: [HW_IP_IAU_DEFAULT_DV_SIM_REGRE_WEEKLY, HW_IP_IAU_DEFAULT_DV_SIM_REGRE_NIGHTLY]
+    requirement_ids: []
+    platforms: [uvm.HW_IP_IAU_DEFAULT_DV_SIM]
+    owner: Fernando Yokota
+    repeat_count: 10
+    seeds: []
+
+#  - name: iau_irq_test
+#    description: TODO
+#    labels: [HW_IP_IAU_DEFAULT_DV_SIM_REGRE_WEEKLY, HW_IP_IAU_DEFAULT_DV_SIM_REGRE_NIGHTLY]
+#    requirement_ids: []
+#    platforms: [uvm.HW_IP_IAU_DEFAULT_DV_SIM]
+#    owner: Fernando Yokota
+#    repeat_count: 10
+#    seeds: []
+
+  - name: iau_standard_test
+    description: TODO
+    labels: [HW_IP_IAU_DEFAULT_DV_SIM_REGRE_WEEKLY, HW_IP_IAU_DEFAULT_DV_SIM_REGRE_NIGHTLY]
+    requirement_ids: []
+    platforms: [uvm.HW_IP_IAU_DEFAULT_DV_SIM]
+    owner: Fernando Yokota
+    repeat_count: 30
+    seeds: []
+

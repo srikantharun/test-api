@@ -1,0 +1,13 @@
+waivers:
+  -
+    requirement_id: SOC_PERIPH_FEAT_19
+    description: "Covered by the spike testbench: no specific reset procedure is put in place."
+    owner: Jerome Sauger
+  -
+    requirement_id: SOC_PERIPH_FEAT_21
+    description: "SW constraint partially covered by the EMMC PHY, since it needs to be reset to be reprogrammed."
+    owner: Jerome Sauger
+  -
+    requirement_id: SOC_PERIPH_FEAT_23
+    description: "Design requirement, not covered by verification"
+    owner: Jerome Sauger

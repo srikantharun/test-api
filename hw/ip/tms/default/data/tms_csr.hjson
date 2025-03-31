@@ -1,0 +1,480 @@
+// Copyright lowRISC contributors.
+// Licensed under the Apache License, Version 2.0, see LICENSE for details.
+// SPDX-License-Identifier: Apache-2.0
+{ name: "tms_csr",
+  clocking: [{clock: "clk_i", reset: "rst_ni"}],
+  bus_interfaces: [
+    { protocol: "tlul", direction: "device" }
+  ],
+  regwidth: "32",
+  addrcap: "0x1000",
+  axi_intf: False
+  param_list : [
+    {  name:"AW",
+       type:"int",
+       default:"16"
+    },
+    { name: "NB_TEMP_SENSE",
+      desc: "Number of temperature sensors",
+      type: "int",
+      default: "12",
+    },
+  ]
+  registers: [
+    { name: "PVT_MODE_CTRL",
+      desc: '''
+             PVT Sensor Mode Control.
+            ''',
+      swaccess: "rw",
+      hwaccess: "hro",
+      fields: [
+        {
+            bits: "0",
+            name: "pvt_en_ts",
+            resval: "1",
+            desc: '''
+                  Temp and voltage sensor enable signal
+                  1 = Enable
+                  0 = Disable
+                  ''',
+        }
+        {
+            bits: "1",
+            name: "pvt_en_adc_ts",
+            desc: '''
+                  ADC enable signal
+                  ''',
+        }
+        {
+            bits: "2",
+            name: "pvt_soc_ts",
+            desc: '''
+                  Start the conversion process.
+                  ''',
+        }
+        {
+            bits: "8:3",
+            name: "pvt_bjt_sel_ts",
+            resval: "0"
+            desc: '''
+                  Remote probe selection
+                  0x01: Select main probe inside pvt sensor to
+                  0x3F: Select probe[62]
+                  ''',
+        }
+        {
+            bits: "12:9",
+            name: "pvt_sel_ts",
+            resval: "0"
+            desc: '''
+                  ADC input control signal. Temperature Sensor mode:
+                  0x0: Voltage sensor mode.
+                  0x1 to 0xE: ADC
+                  0xF: ADC Test mode
+                  ''',
+        }
+        {
+            bits: "15:13",
+            name: "pvt_mux_addr_ts",
+            resval: "0"
+            desc: '''
+                  Mux control signal for test mode:
+                  0x0: Default.
+                  0x1: VREF Monitoring
+                  0x2: VPTAT Monitoring
+                  0x3: VBE Monitoring
+                  0x5: DAC Test
+                  0x7: ADC Test
+                  ''',
+        }
+        {
+            bits: "17:16",
+            name: "pvt_avg_mode_ts",
+            resval: "3"
+            desc: '''
+                  Average mode control for digital offset cancellation.
+                  0x1: 2 sample average
+                  0x2: 4 sample average
+                  0x3: 8 sample average - Default
+                  ''',
+        }
+        {
+            bits: "18",
+            name: "pvt_soc_ps",
+            desc: '''
+                  Start conversion for process sensor.
+                  ''',
+        }
+        {
+            bits: "21:19",
+            name: "pvt_en_ps",
+            resval: "0"
+            desc: '''
+                  Process sensor enable.
+                  0x0: Default
+                  0x1: Process LVT NMOS and PMOS
+                  0x2: Process LVT NMOS
+                  0x3: Process LVT PMOS
+                  0x5: Process RVT NMOS and PMOS
+                  0x6: Process RBT NMOS
+                  0x7: Process RVT PMOS
+                  ''',
+        }
+        {
+            bits: "22",
+            name: "pvt_mode",
+            desc: '''
+                  Set PVT mode select.
+                  0: Automatic control
+                  1: SW Control
+                  ''',
+        }
+      ]
+    },
+    { name: "PVT_CTRL",
+      desc: "PVT Control"
+      swaccess: "rw",
+      hwaccess: "hro",
+      fields: [
+        {
+            bits: "3:0",
+            name: "pvt_bgr_trim_ts",
+            desc: '''
+                  PVT BGR Trim Control.
+                  ''',
+        }
+        {
+            bits: "7:4",
+            name: "pvt_vref_trim_ts",
+            desc: '''
+                  PVT VREF Trim Control.
+                  ''',
+        }
+        {
+            bits: "11:8",
+            name: "pvt_vbe_trim_ts",
+            desc: '''
+                  PVT VBE Trim Control.
+                  ''',
+        }
+        {
+            bits: "16:12",
+            name: "pvt_buf_vref_sel_ts",
+            resval: "1",
+            desc: '''
+                  Offset control for temperature output code.
+                  ''',
+        }
+        {
+            bits: "21:17",
+            name: "pvt_buf_slope_sel_ts",
+            resval: "1",
+            desc: '''
+                  Slope control for temperature output code.
+                  ''',
+        }
+        {
+            bits: "23:22",
+            name: "pvt_avg_mode_ts",
+            resval: "3",
+            desc: '''
+                  Average mode control input signal for digital offset cancellation.
+                  ''',
+        }
+        {
+            bits: "26:24",
+            name: "pvt_adc_cctrl_ts",
+            resval: "4",
+            desc: '''
+                  ADC cap control signal.
+                  ''',
+        }
+        {
+            bits: "29:27",
+            name: "pvt_adc_ictrl_ts",
+            resval: "3",
+            desc: '''
+                  ADC current control signal.
+                  ''',
+        }
+      ]
+    },
+    { name: "PVT_DATA",
+      desc: "PVT Sensor Data",
+      swaccess: "ro",
+      hwaccess: "hwo",
+      fields: [
+        {
+            bits: "11:0",
+            name: "pvt_out_12bit_ts",
+            desc: '''PVT temperature and voltage Sensor Data'''
+        }
+        {
+            bits: "12",
+            name: "pvt_eoc_ts",
+            desc: '''End of conversion of temperatures and processor sensor'''
+        }
+        {
+            bits: "24:13",
+            name: "pvt_out_12bit_ps",
+            desc: '''PVT process Data'''
+        }
+        {
+            bits: "25",
+            name: "pvt_eoc_ps",
+            desc: '''End of conversion of processor sensor'''
+        }
+      ]
+    },
+    { multireg: 
+      { name: "CTM_OFFSET_COMP",
+        desc: '''
+               CTM Offset Compensation Register.
+              ''',
+        count: "NB_TEMP_SENSE",
+        cname: "channel",
+        swaccess: "rw",
+        hwaccess: "hro",
+        fields: [
+          {
+              bits: "11:0",
+              name: "offset_comp",
+              desc: '''
+                    Offset compensation.
+                    '''
+          }
+        ]
+      },
+    },
+    { multireg:
+      { name: "CTM_THRM_SHTDWN_THRESH",
+        desc: '''
+               CTM thermal shutdown threshold value Register.
+              '''
+        count: "NB_TEMP_SENSE",
+        cname: "channel",
+        swaccess: "rw",
+        hwaccess: "hro",
+        fields: [
+          {
+              bits: "11:0",
+              name: "threshold",
+              desc: '''
+                    Shutdown threshold value.
+                    '''
+          }
+        ]
+      },
+    }
+    { multireg:
+      { name: "CTM_THRM_WARN_THRESH",
+        desc: '''
+               CTM thermal warning threshold value Register.
+              '''
+        count: "NB_TEMP_SENSE",
+        cname: "channel",
+        swaccess: "rw",
+        hwaccess: "hro",
+        fields: [
+          {
+              bits: "11:0",
+              name: "threshold",
+              desc: '''
+                    warning threshold value.
+                    '''
+          }
+        ]
+      },
+    }
+    { multireg:
+      { name: "CTM_THRTL_ON_TEMP",
+        desc: '''
+               CTM throttle on temperature value Register.
+              '''
+        count: "NB_TEMP_SENSE",
+        cname: "channel",
+        swaccess: "rw",
+        hwaccess: "hro",
+        fields: [
+          {
+              bits: "11:0",
+              name: "temperature",
+              desc: '''
+                    throttle on temperature value.
+                    '''
+          }
+        ]
+      },
+    }
+    { multireg:
+      { name: "CTM_THRTL_OFF_TEMP",
+        desc: '''
+               CTM throttle off temperature value Register.
+              '''
+        count: "NB_TEMP_SENSE",
+        cname: "channel",
+        swaccess: "rw",
+        hwaccess: "hro",
+        fields: [
+          {
+              bits: "11:0",
+              name: "temperature",
+              desc: '''
+                    throttle off temperature value.
+                    '''
+          }
+        ]
+      },
+    }
+    { multireg:
+      { name: "CTM_MIN_TEMP",
+        desc: '''
+               CTM minimum temperature measured value Register.
+              '''
+        count: "NB_TEMP_SENSE",
+        cname: "channel",
+        swaccess: "rc",
+        hwaccess: "hrw",
+        fields: [
+          {
+              bits: "11:0",
+              name: "temperature",
+              desc: '''
+                    throttle off temperature value.
+                    '''
+          }
+        ]
+      },
+    }
+    { multireg:
+      { name: "CTM_MAX_TEMP",
+        desc: '''
+               CTM maximum temperature measured value Register.
+              '''
+        count: "NB_TEMP_SENSE",
+        cname: "channel",
+        swaccess: "rc",
+        hwaccess: "hrw",
+        fields: [
+          {
+              bits: "11:0",
+              name: "temperature",
+              desc: '''
+                    throttle off temperature value.
+                    '''
+          }
+        ]
+      },
+    }
+    { multireg:
+      { name: "CTM_CUR_TEMP",
+        desc: '''
+               CTM current temperature value Register.
+              '''
+        count: "NB_TEMP_SENSE",
+        cname: "channel",
+        swaccess: "rc",
+        hwaccess: "hrw",
+        fields: [
+          {
+              bits: "11:0",
+              name: "temperature",
+              desc: '''
+                    throttle off temperature value.
+                    '''
+          }
+        ]
+      },
+    }
+    { multireg:
+      { name: "CTM_THERMAL_CTRL",
+        desc: '''
+               CTM thermal control register. To enable thermal control outupts.
+              '''
+        count: "NB_TEMP_SENSE",
+        cname: "channel",
+        swaccess: "rw",
+        hwaccess: "hro",
+        fields: [
+          {
+              bits: "0",
+              name: "shtdwn_ena",
+              resval: "1",
+              desc: '''
+                    Enable thermal shutdown output.
+                    '''
+          }
+          {
+              bits: "1",
+              name: "warn_ena",
+              resval: "1",
+              desc: '''
+                    Enable thermal warning output.
+                    '''
+          }
+          {
+              bits: "2",
+              name: "thrtl_ena",
+              resval: "1",
+              desc: '''
+                    Enable thermal throttle warning output.
+                    '''
+          }
+        ]
+      },
+    }
+    {multireg:
+      { name: "CTM_THERMAL_STATUS",
+        desc: '''
+               CTM thermal status register. To monitor thermal control values.
+              '''
+        count: "NB_TEMP_SENSE",
+        cname: "channel",
+        swaccess: "ro",
+        hwaccess: "hwo",
+        fields: [
+          {
+              bits: "0",
+              name: "shtdwn_status",
+              desc: '''
+                    thermal shutdown status.
+                    '''
+          }
+          {
+              bits: "1",
+              name: "warn_status",
+              desc: '''
+                    thermal warning status.
+                    '''
+          }
+          {
+              bits: "2",
+              name: "thrtl_status",
+              desc: '''
+                    thermal throttle status.
+                    '''
+          }
+        ]
+      },
+    }
+    { name: "THERMAL_WARNING_CTRL",
+      desc: '''
+             Select source for thermal warning output.
+            '''
+      swaccess: "rw",
+      hwaccess: "hro",
+      fields: [
+        {
+            bits: "0",
+            name: "warn_src_sel",
+            desc: '''
+                  Set source for thermal warning overheating output
+                  0: select thermal warning  as source for warning.
+                  1: select thermal throttle as source for warning.
+                  '''
+        }
+      ]
+    }
+  ]
+}
+

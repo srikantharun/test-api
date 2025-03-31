@@ -1,0 +1,18 @@
+# (C) Copyright 2024 Axelera AI B.V.
+# All Rights Reserved
+# *** Axelera AI Confidential ***
+
+package:
+  name: europa_soc_mgmt_dft
+  description: "DFT Physical partition wrapper for soc_mgmt"
+  authors:
+    - "Redouan Tahraoui <redouan.tahraoui@axelera.ai>"
+
+dependencies:
+  europa_soc_mgmt: { path: ".." }
+  dft_soc_mgmt:    { path: "$DFT_HOME/soc_mgmt/Latest"}
+
+sources:
+  - target: rtl
+    files:
+

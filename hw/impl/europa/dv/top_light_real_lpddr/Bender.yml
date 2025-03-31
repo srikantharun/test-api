@@ -1,0 +1,25 @@
+# (C) Copyright 2024 Axelera AI B.V.
+# All Rights Reserved
+# *** Axelera AI Confidential ***
+
+package:
+  name: simulation_europa_top_light_real_lpddr
+  description: "Simulation dut=top_light"
+  authors:
+    - "Antoine Madec <antoine.madec@axelera.ai>"
+    - "Stephane Gros <stephane.gros@axelera.ai>"
+
+dependencies:
+  veloce_europa_top_light_real_lpddr: { path: "" }
+  dv_common_rtl:  { path: "" }
+  memory_preloading_pkg: {path: ""}
+  europa_top_uvm_sw_ipc:  { path: "" }
+
+sources:
+  - target: simulation
+    include_dirs:
+      - ../uvm
+      - ../uvm/tests
+    files:
+      - ../uvm/tests/top_level_test_pkg.sv
+      - ../top/sim_top.sv

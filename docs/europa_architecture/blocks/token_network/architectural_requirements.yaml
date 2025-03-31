@@ -1,0 +1,246 @@
+requirements:
+  -
+    block: TOK_NET
+    category: FEAT
+    index: 0
+    description: "Europa shall have top level token management structures that creates a token exchange network between AICORE DMA channels, the AICORE ACD units, the SDMA instances and the APU."
+    criticality: silver
+    owner: Spyridoula Koumousi
+  -
+    block: TOK_NET
+    category: FEAT
+    index: 1
+    description: "The Europa top level token network will provide token exchange between the AICORE DMA channels and the SDMA channels."
+    criticality: silver
+    owner: Spyridoula Koumousi
+  -
+    block: TOK_NET
+    category: FEAT
+    index: 2
+    description: "The Europa top level token network will provide the token exchange network between the AICORE ACDs units."
+    criticality: silver
+    owner: Spyridoula Koumousi
+  -
+    block: TOK_NET
+    category: FEAT
+    index: 3
+    description: "The Europa top level token network shall provide the token interconnect between the SDMA channels and an APU SW endpoint. The token network shall also provide the token connectivity between SDMA channels of the same SDMA instance. "
+    criticality: silver
+    owner: Spyridoula Koumousi
+  -
+    block: TOK_NET
+    category: FEAT
+    index: 4
+    description: "The Europa top level token network shall not provide token interconnect between AICORE units and the APU SW endpoint."
+    criticality: silver
+    owner: Spyridoula Koumousi
+  -
+    block: TOK_NET
+    category: FEAT
+    index: 5
+    description: "The Europa top level network shall follow a different implementation approach than the AICORE token network. The top level token will be distributed among the blocks that participate to the network.This is done to reduce the area overhead needed for wiring the unique channel interactions between every producer and consumer."
+    criticality: silver
+    owner: Spyridoula Koumousi
+  -
+    block: TOK_NET
+    category: FEAT
+    index: 6
+    description: "The Europa top level tokens will be produced by the respective units, they will be aggregated and serialized towards the producer interface of the block."
+    criticality: silver
+    owner: Spyridoula Koumousi
+  -
+    block: TOK_NET
+    category: FEAT
+    index: 7
+    description: "Token are received in a block via the consumer interface of the block and are distributed to the respective producer-consumer counter pair."
+    criticality: silver
+    owner: Spyridoula Koumousi
+  -
+    block: TOK_NET
+    category: FEAT
+    index: 8
+    description: "Each producer consumer pair in the network will be represented by a token counter. The token counter will always be in the destination partition (consumer). This will allow the de-coupling of the produced tokens in the consumer side."
+    criticality: silver
+    owner: Spyridoula Koumousi
+  -
+    block: TOK_NET
+    category: FEAT
+    index: 9
+    description: "The consumer will be able to receive and consume multiple tokens. No dependency or ordering in the way that the tokens are consumed."
+    criticality: silver
+    owner: Spyridoula Koumousi
+  -
+    block: TOK_NET
+    category: FEAT
+    index: 10
+    description: "The Europa top network token counters shall be limited to 5’bit width. TBD if these better be increased only for the top level network counters."
+    criticality: silver
+    owner: Spyridoula Koumousi
+  -
+    block: TOK_NET
+    category: FEAT
+    index: 11
+    description: "When the token counter is full it shall back-pressure the receipt of new tokens for this producer consumer pair."
+    criticality: silver
+    owner: Spyridoula Koumousi
+  -
+    block: TOK_NET
+    category: FEAT
+    index: 12
+    description: "A token counter overflow shall trigger an IRQ of the respective block. A IRQ status register shall be updated to indicate the exact prod-consumer pair counter that has overflown."
+    criticality: silver
+    owner: Spyridoula Koumousi
+  -
+    block: TOK_NET
+    category: FEAT
+    index: 13
+    description: "If a token counter has overflown then there is no guarantee that the system can operate correctly. The APU will need to reset the AICOREs/SDMAs and flush any APU token logic."
+    criticality: silver
+    owner: Spyridoula Koumousi
+  -
+    block: TOK_NET
+    category: FEAT
+    index: 14
+    description: "The APU shall provide a CSR that will be able to flush all the token related logic in the APU partition. In case of error in the token system, the APU will be responsible for resetting the AICOREs and the SDMAs. It will be also responsible for flushing any counter values from the APU token logic as well as clearing the CSRs dedicated to the token generation."
+    criticality: silver
+    owner: Spyridoula Koumousi
+  -
+    block: TOK_NET
+    category: FEAT
+    index: 15
+    description: "All the token logic in any of the partitions will be connecting to the block reset for this partition. So the AICORE token logic will be reset fully when the AICORE reset is asserted. The same applies for the SDMA instances. "
+    criticality: silver
+    owner: Spyridoula Koumousi
+  -
+    block: TOK_NET
+    category: FEAT
+    index: 16
+    description: "Each token counter current value will be routed to a dedicated status register to be able to indicate the amount of pending tokens. These CSRs will be located in the register file of each of the blocks."
+    criticality: silver
+    owner: Spyridoula Koumousi
+  -
+    block: TOK_NET
+    category: FEAT
+    index: 17
+    description: "The APU token production and consumption is done via a SW endpoint interface. Dedicated CSRs are used to generate and consume tokens."
+    criticality: silver
+    owner: Spyridoula Koumousi
+  -
+    block: TOK_NET
+    category: FEAT
+    index: 18
+    description: "APU CSR will contain a CSR and a producer counter per token destination ( APU can only communicate with the 8 SDMA channels : 4 in each instance). The SWEP producer counter is increased with the increase value being written through the CSR. The producer counter will be decremented as the tokens will be serialized out of the producer block. Every time the CSR is written is shall cause a counter increment based on the incr_value. The CSR read will be destructive. "
+    criticality: silver
+    owner: Spyridoula Koumousi
+  -
+    block: TOK_NET
+    category: FEAT
+    index: 19
+    description: "APU CSR will contain a CSR and a consumer counter per token source ( APU can only communicate with the 8 SDMA channels : 4 in each instance). The SWEP consumer counter is increased every time a token is received that related to the respective SDMA channel. When the consumer counter value is larger than 0, the content of the CSR will be incremented by 1 and the consumer counter will be decremented.The CSR read will be destructive.As a result the counter value shall never exceed value=1. "
+    criticality: silver
+    owner: Spyridoula Koumousi
+  -
+    block: TOK_NET
+    category: FEAT
+    index: 20
+    description: "The Europa tokens are always produced using the virtual ID of the consumer and the physical ID of the producer. The tokens need to be translated into the physical ID information of the consumer before being sent out of the producer block."
+    criticality: silver
+    owner: Spyridoula Koumousi
+  -
+    block: TOK_NET
+    category: FEAT
+    index: 21
+    description: "The token re-mapping will be done via the usage dedicated secure CSRs that will contain information about the virtual and physical ID info of each producer and consumer. The tables are uniquer per context. The table shall be stored in dedicated registers. The VCID should match the CID right after reset."
+    criticality: silver
+    owner: Spyridoula Koumousi
+  -
+    block: TOK_NET
+    category: FEAT
+    index: 22
+    description: "Once received on the producer side the tokens need to be remapped into their virtual notion in order to increment the right set of counters that keep track of virtual relationships."
+    criticality: silver
+    owner: Spyridoula Koumousi
+  -
+    block: TOK_NET
+    category: FEAT
+    index: 23
+    description: "The token re-mapping will be done via the usage dedicated secure CSRs that will contain information about the translation of physical ID into virtual ID info of each producer and consumer. The table is common for all resources regardless of the context. The table shall be stored in dedicated registers. The VCID should match the CID right after reset."
+    criticality: silver
+    owner: Spyridoula Koumousi
+  -
+    block: TOK_NET
+    category: FEAT
+    index: 24
+    description: "Each block participating in the network (AICOREs,SDMAs and APU) shall have registers indicating the remapping info."
+    criticality: silver
+    owner: Spyridoula Koumousi
+  -
+    block: TOK_NET
+    category: FEAT
+    index: 25
+    description: "The APU shall be responsible for writing the secure registers that contain the remapping information inside the AICOREs,SDMAs and APU CSR file."
+    criticality: silver
+    owner: Spyridoula Koumousi
+  -
+    block: TOK_NET
+    category: FEAT
+    index: 26
+    description: "The APU SW is responsible for maintaining the context specific translation tables in the resources."
+    criticality: silver
+    owner: Spyridoula Koumousi
+  -
+    block: TOK_NET
+    category: FEAT
+    index: 27
+    description: "The token distribution among producers and consumers will happen via the Europa NoC interconnect."
+    criticality: silver
+    owner: Spyridoula Koumousi
+  -
+    block: TOK_NET
+    category: FEAT
+    index: 28
+    description: "The token exchange network interconnect in the NoC shall be using the OCP-Lite interface which is composed by the following signals. Each signal of the protocol shall be mapped to indicate the producer or consumer information. `MAddr`: 8b (to indicate Physical Consumer Target. `MCmd`: 1b (valid). `SCmdAccept`: 1b (ready). `MData`: 8b (to indicate Producer Originator).The response bus will not be used as all Writes shall be treated as posted. Each OCP-lite interface is composed by 18 bits.We have 22 OCP-lite interfaces in the top level token NoC so we will have 396 wires associated with the full token network."
+    criticality: silver
+    owner: Spyridoula Koumousi
+  -
+    block: TOK_NET
+    category: FEAT
+    index: 29
+    description: "All tokens shall be treated as posted write. If an error response occurs the NoC shall raise an IRQ. | SW can then read NoC CSRs and identify the Error."
+    criticality: silver
+    owner: Spyridoula Koumousi
+  -
+    block: TOK_NET
+    category: FEAT
+    index: 30
+    description: "The Europa NoC shall provide a fully connected network where all targets can be reached by all initiators by decoding the address (physical consumer ID). In addition the SDMA connectivity shall allow loopback between master ans slave OCP-lite interfaces of the same SDMA instance."
+    criticality: silver
+    owner: Spyridoula Koumousi
+  -
+    block: TOK_NET
+    category: FEAT
+    index: 31
+    description: "The Europa NoC shall have: 11 Initiator OCP-lite ports (8x AICORE, 2x SDMAx , 1 APU) and 11 target OCP-Lite ports (8x AICORE, 2x SDMAx , 1 APU)."
+    criticality: silver
+    owner: Spyridoula Koumousi
+  -
+    block: TOK_NET
+    category: FEAT
+    index: 32
+    description: "The token production and serialization on the producer side does not have tight performance requirements as long as tokens can be generated and accepted by the NoC interconnect on every cycle."
+    criticality: silver
+    owner: Spyridoula Koumousi
+  -
+    block: TOK_NET
+    category: FEAT
+    index: 33
+    description: "The tokens on the consumer side need to always be able to be accepted. This should always be the case with the exception when a timer has saturated. | see proposed method in NOTES section of the block diagram to try to delay such incident"
+    criticality: silver
+    owner: Spyridoula Koumousi
+  -
+    block: TOK_NET
+    category: FEAT
+    index: 34
+    description: "All the token logic in any of the block partitions will be using the block clock (frequency 1.2GHz).Any clock domain crossing will be handled internally in the NoC with CDCs."
+    criticality: silver
+    owner: Spyridoula Koumousi

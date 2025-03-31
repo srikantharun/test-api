@@ -1,0 +1,20 @@
+# (C) Copyright 2024 Axelera AI B.V.
+# All Rights Reserved
+# *** Axelera AI Confidential ***
+
+package:
+  name: europa_pve_dft
+  description: "DFT Physical partition wrapper for pve"
+  authors:
+    - "Leonidas Katselas <leonidas.katselas@axelera.ai>"
+
+dependencies:
+  europa_pve:     { path: ".." }
+  dft_pve_cva6v:  { path: "$DFT_HOME/pve_cva6v/Latest"}
+  dft_pve_l1:     { path: "$DFT_HOME/pve_l1/Latest"}
+  dft_pve:        { path: "$DFT_HOME/pve/Latest"}
+
+sources:
+  - target: rtl
+    files:
+

@@ -1,0 +1,308 @@
+requirements:
+  -
+    block: NOC
+    category: FEAT
+    index: 0
+    description: The NoC connects the protocol interfaces of all toplevel subsystems. Subsystems should not have direct connections to each other.
+    criticality: bronze
+    owner: Roel Uytterhoeven
+  -
+    block: NOC
+    category: FEAT
+    index: 1
+    description: The noc connects block interfaces according to the connectivity matrix in https://axeleraai.sharepoint.com/:x:/r/sites/AXELERAAI-ResearchandDevelopment/_layouts/15/Doc.aspx?sourcedoc=%7B8C2FFF85-C57B-41AB-A951-4CB51E13FA37%7D&file=NoC_connectivity.xlsx&action=default&mobileredirect=true
+    criticality: silver
+    owner: Roel Uytterhoeven
+  -
+    block: NOC
+    category: FEAT
+    index: 2
+    description: The NoC inits and targets are categorised in different types, based on interface width and traffic types.|
+      * High Throughput (HT) processing data (AXI 512b & 256b).
+      * Low Throughput (LT) ctrl data (AXI 64b).
+      * Mixed Throughput (MT) processing+ctrl data (AXI 128b/256b).
+      * Config (CFG) always on connections to configure AO CSR of blocks (APB 32b).
+      * Token, OCP-Lite interfaces.
+    criticality: bronze
+    owner: Roel Uytterhoeven
+  -
+    block: NOC
+    category: FEAT
+    index: 3
+    description: The NoC avoids mixing different types of data (i.e. program and data transactions) where possible.
+    criticality: bronze
+    owner: Roel Uytterhoeven
+  -
+    block: NOC
+    category: FEAT
+    index: 4
+    description: The NoC distributes all data traffic over a high-throughput-fabric (HTF). The HTF guarantees full throughput for traffic scenarios described in the arch spec. Latency should be minimised, but does not have a specific requirement as long as it does not impede the full throughput requirement. There is no guarantee that endpoints in the same memmap region have exactly the same latency. E.g DDR modules can have different latencies per module.
+    criticality: bronze
+    owner: Roel Uytterhoeven
+  -
+    block: NOC
+    category: FEAT
+    index: 5
+    description: The NOC distributes all control traffic over a low-throughput-fabric (LTF) that only guarantees a limited amount of simultaneous LT traffic. For specific INIT/TARG pairs latency will be optimised. APU (also MIX) ↔︎ SYS-SPM, APU (also MIX) ↔︎ LPDDR PPP, DCD ↔︎ LPDDR PPP (max 500 DCD cycles)
+    criticality: bronze
+    owner: Roel Uytterhoeven
+  -
+    block: NOC
+    category: FEAT
+    index: 6
+    description: The NoC supports MIX traffic where it is unavoidable that HTF and LTF traffic collide. In these places, specific care will be taken to ensure that both traffic types do not impact each other excessively, and the arch spec performance scenarios are met.
+    criticality: bronze
+    owner: Roel Uytterhoeven
+  -
+    block: NOC
+    category: DBG
+    index: 8
+    description: The NoC has an observability network that allows error logging. It raises a single IRQ flag when an error is detected. After which the IRQ handling can read the fault vector and error logger content through the NoC's internal CSRs Strategy set by [https://git.axelera.ai/prod/europa/-/issues/558](https://git.axelera.ai/prod/europa/-/issues/558).
+    criticality: silver
+    owner: Roel Uytterhoeven
+  -
+    block: NOC
+    category: DBG
+    index: 9
+    description: The NoC IRQs should be maskable. i.e. SW should be able to configure which IRQ sourceThe NoC IRQs should be maskable. i.e. SW should be able to configure which errors/faults actually lead to the outgoing IRQ flag being raised.
+    criticality: silver
+    owner: Roel Uytterhoeven
+  -
+    block: NOC
+    category: FEAT
+    index: 10
+    description: The NoC supports the following address modes for L2 selectable through its internal CSRS. 1x8 interleaving (default), 2x4 interleaving (top/bottom groups), 8x1 (contiguous). Details on addressing modes can be found in the arch spec document. Switching address mode is considered a quasi static operation
+    criticality: bronze
+    owner: Roel Uytterhoeven
+  -
+    block: NOC
+    category: FEAT
+    index: 11
+    description: When interleaving is used for the L2 targets, the NoC supports 3 granularities 4K (default/reset state), 2K and 1K configurable through its internal CSRs. Switching interleaving mode is considered a quasi static operation.
+    criticality: bronze
+    owner: Roel Uytterhoeven
+  -
+    block: NOC
+    category: FEAT
+    index: 12
+    description: The NoC supports the following address modes for the LPDDR (MT) targets selectable through the NoC's internal CSRs. 2x4 interleaving (default, west/east side groups), 4x2 interleaving (west/east split in 2 groups), 8x1 (contiguous). Different modes required for partial population support of LPDDR devices. Details on addressing modes can be found in the arch spec document. Switching address mode is considered a quasi static operation
+    criticality: bronze
+    owner: Roel Uytterhoeven
+  -
+    block: NOC
+    category: FEAT
+    index: 13
+    description: When interleaving is used for the LPDDR targets, the NoC supports 3 granularities 4K (default/reset state), 2K and 1K. These can be configured individually for west and east DDR targets in the NoC's internal CSRs. Switching interleaving mode is considered a quasi static operation
+    criticality: bronze
+    owner: Roel Uytterhoeven
+  -
+    block: NOC
+    category: FEAT
+    index: 14
+    description: The NoC supports exclusive accesses and locked transactions on memory locations used to store ctrl-data by cpus that use caching -> SYS-SPM, LPDDR. Support is for all initiators that are driven by a CPU source -> LT AI cores, LT APU, LT PVE. Related implementation issue [https://git.axelera.ai/prod/europa/-/issues/488](https://git.axelera.ai/prod/europa/-/issues/488)
+    criticality: bronze
+    owner: Roel Uytterhoeven
+  -
+    block: NOC
+    category: FEAT
+    index: 15
+    description: The NoC supports the token network. TODO, full details of the token network.
+    criticality: silver
+    owner: Roel Uytterhoeven
+  -
+    block: NOC
+    category: FEAT
+    index: 16
+    description: The NoC supports configuring users bits through its internal CSRs for each initiator that encode a priority for that initiator. This priority is used in the LPDDR controller as QoS input to arbitrate between transactions that arrive simultaneously. Other targets could also use these priority bits if they do an arbitration between transactions.
+    criticality: silver
+    owner: Roel Uytterhoeven
+  -
+    block: NOC
+    category: FEAT
+    index: 17
+    description: NoC configuration settings given through its internal CSRs are quasi static. If they are updated while transactions are in flight in the NoC, this can lead to unexpected behaviour.
+    criticality: bronze
+    owner: Roel Uytterhoeven
+  -
+    block: NOC
+    category: FEAT
+    index: 18
+    description: For targets that are not AO targets, the NoC provides fencing capabilities. A fence prohibits transactions from reaching a target when it is not ready to handle transactions. Targets do not see the transaction at all. The fence provides an AXI error response towards the initiator of the transaction. The fence is automatically raised and lowered by the isolation signals coming from the AO CSR of the IP.
+    criticality: bronze
+    owner: Roel Uytterhoeven
+  -
+    block: NOC
+    category: FEAT
+    index: 19
+    description: The NoC's internal CSRs are reached through an internal NoC target that can be reached from the `APU_LT_INIT` and the `SOC_MGMT_LT_INIT`.
+    criticality: bronze
+    owner: Roel Uytterhoeven
+  -
+    block: NOC
+    category: FEAT
+    index: 20
+    description: The NoC is fully compliant with the ports it is attached to. This means the NoC is compliant with AXI4, APB3, APB4. If specific features are not supported, they need to be explicitly waived.
+    criticality: bronze
+    owner: Roel Uytterhoeven
+  -
+    block: NOC
+    category: FEAT
+    index: 21
+    description: The NoC supports the required protocol settings for each port. Details discussed in  [https://git.axelera.ai/prod/europa/-/issues/955](https://git.axelera.ai/prod/europa/-/issues/955#note_209917) and [https://git.axelera.ai/prod/europa/-/issues/1004](https://git.axelera.ai/prod/europa/-/issues/1004)
+    criticality: bronze
+    owner: Roel Uytterhoeven
+  -
+    block: NOC
+    category: FEAT
+    index: 22
+    description: Each initiator in the NoC has a firewall (except for the APU LT, as it needs to unfirewall all others) that needs to be lifted by the APU before it can communicate with Targets. `APU_LT_INIT` confirmed to do initial config of the firewalls in [https://git.axelera.ai/prod/europa/-/issues/1055](https://git.axelera.ai/prod/europa/-/issues/1055)
+    criticality: silver
+    owner: Roel Uytterhoeven
+  -
+    block: NOC
+    category: FEAT
+    index: 23
+    description: Each firewall allows for the following configurations. Allow all/no traffic to go through. Allow partial access to the address space by defining up to 32 allow-list address regions
+    criticality: silver
+    owner: Roel Uytterhoeven
+  -
+    block: NOC
+    category: FEAT
+    index: 24
+    description: For the PCIE init, the firewall has the “Hide” feature that blocks a transaction but still sends on OKAY response.
+    criticality: silver
+    owner: Roel Uytterhoeven
+  -
+    block: NOC
+    category: FEAT
+    index: 25
+    description: All firewall settings are configurable through the NoC's internal CSRs
+    criticality: silver
+    owner: Roel Uytterhoeven
+  -
+    block: NOC
+    category: FEAT
+    index: 26
+    description: The NoC subsystem shall have the minimal size required to achieve it's performance targets.
+    criticality: gold
+    owner: Roel Uytterhoeven
+  -
+    block: NOC
+    category: PERF
+    index: 27
+    description: The NoC should meet the performance requirements as described in the scenarios in the arch spec.
+    criticality: gold
+    owner: Roel Uytterhoeven
+  -
+    block: NOC
+    category: FEAT
+    index: 28
+    description: Any rate-adapting point should be setup such that the full width of the wider link is properly used by buffering the smaller link into wider chunk. Additionally, the smaller link still needs to be able to reach it full throughput.
+    criticality: silver
+    owner: Roel Uytterhoeven
+  -
+    block: NOC
+    category: FEAT
+    index: 29
+    description: The NoC can be fully configured over its service network using its internal CSRs. Changing these configuration settings should always be done in a quasi static state. There are no functional sideband signals configuring the NoC
+    criticality: bronze
+    owner: Roel Uytterhoeven
+  -
+    block: NOC
+    category: DBG
+    index: 30
+    description: The NoC should allow visibility on Time-Outs to all targets through a (diseablable) watch-dog timer that raises an SoC level interrupt. The timer considers 8K cycles the trigger point.
+    criticality: silver
+    owner: Roel Uytterhoeven
+  -
+    block: NOC
+    category: FEAT
+    index: 31
+    description: Each NoC partition will be wrapped into an _p version. The wrapping includes additional pipelines if required to meet timing, but no PPMU, CLK div or AO CSRs.
+    criticality: bronze
+    owner: Roel Uytterhoeven
+  -
+    block: NOC
+    category: CLK
+    index: 32
+    description: The internal NoC elements all run on the same global NoC\_CLK with a max freq of 1.2GHz.
+    criticality: bronze
+    owner: Roel Uytterhoeven
+  -
+    block: NOC
+    category: CLK
+    index: 33
+    description: The NIU clocks are synchronous to the clock driving the interface on the connecting IP side. If the IP clock changes, the NIU clock follows automatically by taking in the clock gate enable signal from the IP side to replicate the IP's clock on the NoC side.
+    criticality: bronze
+    owner: Roel Uytterhoeven
+  -
+    block: NOC
+    category: RST
+    index: 34
+    description: The NoC only supports a single global reset signal that resets all NoC elements driven by the global NoC\_clk. This reset is driven through a dedicated NoC\_rst signal. The PPMU + CLK div in the SoC-MNGT ensure quasi static deasssertion of the NoC\_rst signal similar to how this is done for other IPs. Further, it has to guarantee that the NoC\_rst is released before other IPs are released out of reset
+    criticality: bronze
+    owner: Roel Uytterhoeven
+  -
+    block: NOC
+    category: FEAT
+    index: 35
+    description: The NoC should be deadlock free by design provided inits and targets act along their specifications.
+    criticality: gold
+    owner: Roel Uytterhoeven
+  -
+    block: NOC
+    category: FEAT
+    index: 36
+    description: The NoC subsystem shall provide an DEC/SLV error when the access doesn't map to a valid memory region.
+    criticality: bronze
+    owner: Roel Uytterhoeven
+  -
+    block: NOC
+    category: CLK
+    index: 37
+    description: The NoC can contain multiple clock domains to allow for flexibility in the PD of the clocking infrastructure. The clock speeds will have to match speeds that guarantee the 100% throughput requirement on HTF links. Generally, this means 1.2GHz is required. Towards DDR targets, a slower speed of 800 MHz can be considered. The exact boundary between both speeds depends on the topology chosen during implementation. For PCIE which runs at 600 MHz the same reasoning applies. On top of the naturally emerging clock domains based on init/targ operating frequency, additional clock domains can be created to ease skew requirements for physical design. Those do come at a cost of 6 cycles RTT latency and are thus not for free.
+    criticality: bronze
+    owner: Roel Uytterhoeven
+  -
+    block: NOC
+    category: CLK
+    index: 38
+    description: The NoC is synchronously connected to all IPs.
+    criticality: bronze
+    owner: Roel Uytterhoeven
+  -
+    block: NOC
+    category: FEAT
+    index: 39
+    description: When there is no congestion (only one init is sending data) on the LTF, BW is limited by the init/target, not the NoC
+    criticality: bronze
+    owner: Roel Uytterhoeven
+  -
+    block: NOC
+    category: PWR
+    index: 40
+    description: The NoC (or parts of it) shall be clock gated when not in use. Arteris automatic clock gating can be used for this.
+    criticality: bronze
+    owner: Roel Uytterhoeven
+  -
+    block: NOC
+    category: DFT
+    index: 41
+    description: Any NoC memories serving as buffers/fifo/rate-adapters shall be repairable if they are implemented as SRAM or REGFILE macros, both at test-time and in-field by an on-chip controller.
+    criticality: silver
+    owner: Roel Uytterhoeven
+  -
+    block: NOC
+    category: FEAT
+    index: 42
+    description: Any NoC memories serving as buffers/fifo/rate-adapters shall not be ECC protected
+    criticality: silver
+    owner: Roel Uytterhoeven
+  -
+    block: NOC
+    category: PWR
+    index: 43
+    description: The NoC shall have as low as possible power consumption.
+    criticality: gold
+    owner: Roel Uytterhoeven
+

@@ -1,0 +1,90 @@
+Name	Type	Req_id	Description	Measure	Source	Coverpoints if applicable	Remarks	STATUS
+AI_CORE_CON	UVM	AI_CORE__CONN__0	CVA6V Master can access full memory map (internal/external/other AI Cores), external requests are routed to correct NOC port	Group	ai_core_top_access_test, europa_mem_access_cg		Test for all core ids	
+AI_CORE_CON	UVM	AI_CORE__CONN__0_1	Accesing the ilm dlm memory space  using noc master and ai core control master	test.percent_pass	ai_core_top_access_ilm_dlm_test			
+AI_CORE_CSR	UVM	AI_CORE__CSR__0	AI core can identify its core ID	Group	ai_core_core_id_test,ai_core_core_id_cg		read the csr	
+AI_CORE	ICDF and uvm	AI_CORE__DP__0	The IFD -> MVM -> IAU/DPU -> ODR path is working in bypass	NA				
+AI_CORE	ICDF and uvm	AI_CORE__DP__1	The IFDW -> MVM path is working	NA				
+AI_CORE	{ICDF} and UVM	AI_CORE__DP__3	The IFD -> DPU -> ODR (MVM) path is working in bypass	NA				
+AI_CORE	{ICDF} and UVM	AI_CORE__DP__4	The IFD -> DWPU -> IAU/DPU -> ODR path is working in bypass	NA				
+AI_CORE	{ICDF} and UVM	AI_CORE__DP__5	The IFD -> DPU -> ODR (DWPU) path is working in bypass	NA				
+AI_CORE	ICDF and UVM	AI_CORE__DP__6	All CMD FIFOs are working (pushing command)	NA				
+AI_CORE	UVM	AI_CORE__DP__9	All Datapath Descr Memories are accessible (check range).Writes to and reads from the instruction memories of the modules that have one. Checks access to the first and the last address (i.e. beginning and end) of the instruction memory. 	Group	ai_core_top_access_test,descr_mem_access_cg			
+AI_CORE	UVM	AI_CORE__DP__10	All Datapath Descr Memories can be written to while the datapath is active (given accessed memory regions are not overlapping)	Group	ai_core_all_descriptor_mem_write_datapath_alive_test,ai_core_all_descriptor_mem_write_datapath_alive_cg			
+AI_CORE	UVM	AI_CORE__DP__11	MVM can be programmed while executing				Present in mvm block level. Should bring to top level.	
+AI_CORE	UVM	AI_CORE__DP__12	DWPU and MVM datapaths can be concurrnetly active	Group	ai_core_dwpu_mvm_active_test, ai_core_dwpu_mvm_active_cg			
+AI_CORE	UVM	AI_CORE__DP__13	DWPU and MVM datapaths can be concurrently active while MVM is beeing reprogrammed	Group	ai_core_dwpu_mvm_active_while_mvm_reprogrammed,ai_core_dwpu_mvm_active_while_mvm_reprogrammed_cg			
+AI_CORE_TOKEN	{ICDF} ,UVM	AI_CORE__DP__14	All units can issue a software token	test.percent_pass	ai_core_top_ifd_odr_token_chain_test, ai_core_top_swep_token_for_mvm_test , ai_core_top_swep_token_for_dwpu_test, ai_core_top_swep_token_for_ddpu_test, ai_core_top_swep_token_for_mdpu_test			
+AI_CORE_TOKEN	UVM	AI_CORE__DP__15	Token mechanism works to prevent MVM programming and exeuction hazards	NA	ai_core_mvm_random_matrix_multiplication_token_test.sv		 Covered in mvm block. Should bring to top	
+AI_CORE_TOKEN	UVM	AI_CORE__DP__16	IFD/ODR Token mechanism works to prevent memory hazards	NA	ai_core_ls_tkn_mgr_swep_* on LS environment		Covered in LS.Should bring to top	
+AI_CORE_TOKEN	UVM	AI_CORE__DP__17	All units can have their commands gated by a software token	NA	ai_core_top_ifd_odr_token_chain_test, ai_core_top_swep_token_for_mvm_test , ai_core_top_swep_token_for_dwpu_test, ai_core_top_swep_token_for_ddpu_test, ai_core_top_swep_token_for_mdpu_test			
+AI_CORE	ICDF	AI_CORE__DP__18	All VTRSP modes are working for odr and IFDW	NA			Update test names  checking in dmc_l1	
+AI_CORE	{ICDF}	AI_CORE__DP__19	Compression unit is working in IFDW	NA			Update test names. Checking in dmc_l1	
+AI_CORE	ICDF	AI_CORE__DP__20	All units confirm that they are working with their instructions not placed at address 0 in descriptor memory	NA			Update test names	
+AI_CORE	ICDF and UVM	AI_CORE__DP__21	IFD and ODR can access L2	test.percent_pass	ai_core_accessing_l2_mem_test		Corresponding fiat test - test_dp_l2_feed_drain	
+AI_CORE	ICDF	AI_CORE__DP__22	Verify that Squeezenet can run on the AI core	NA				
+AI_CORE	{ICDF}	AI_CORE__DP__23	Verify that Resnet15 & 50 can run on the AI core	NA				
+AI_CORE	ICDF	AI_CORE__DP__24	Verify that Mobilenetv2 can run on the AI core	NA				
+AI_CORE	UVM	TRITON__AI_CORE_0__CONN__0	All sideband signals of this ai_core are correctly connected	Group	ai_core_top_power_mode,ai_core_pvt_random_test,ai_core_l1_lc_ifds_dlock_test,ai_core_lp_dlock_test,ai_core_hp_dlock_test,ai_core_dlock_multiple_slaves_test,ai_core_sideband_signals_cg		Should be on europa top level ??	
+AI_CORE		TRITON__AI_CORE_0__DMA__0	This ai_core subsystem generates high-bandwidth traffic to all other subsystems using the `ai_core_infra_dma`	test.percent_pass			Should be on europa top level ??	
+AI_CORE		TRITON__AI_CORE_0__CTRL__0	This ai_core subsystem generates control traffic (uint8, uint16, uint32 and uint64 transactions) to the `sys_ctrl` SPM, the L2, the `ai_core` SPM, mailbox and L1 memories	test.percent_pass			Should be on europa top level ??	
+AI_CORE		TRITON__AI_CORE_0__BOOT__0	This ai_core subsystem should boot from an internal memory (internal to this ai-core subsystem, such as it's SPM or L1)	test.percent_pass			Should be on europa top level ??	
+AI_CORE		TRITON__AI_CORE_0__BOOT__1	This ai_core subsystem should boot from an external memory (such as the sys_ctrl's SPM, L2 or DDR)	test.percent_pass			Should be on europa top level ??	
+AI_CORE	ICDF	TRITON__AI_CORE_0__BOOT__2	This ai_core subsystem should run the full ai-core firmware regression at toplevel. These are the tests with the SIM_AI_CORE flag in the sw/CMakeLists.txt file	NA			Should be on europa top level ??	
+AI_CORE	UVM	AI_CORE_AXI_ACCESS_0	Access through NOC AXI master and cross all the 4k boundaries available on address range and receive SLV_ERR on the response (for reads and writes). For example: Send an incremental burst read/write starting on address 0xFFE8 with a burst length of 4 words.	test.percent_pass	ai_core_top_4k_boundary_crossing		test for all possible 4K boundaries	
+AI_CORE	UVM	AI_CORE_AXI_ACCESS_0	Access through Core Ctrl AXI master and cross all the 4k boundaries available on address range and receive SLV_ERR on the response (for reads and writes). For example: Send an incremental burst read/write starting on address 0xFFE8 with a burst length of 4 words.	test.percent_pass	ai_core_top_core_ctrl_4k_boundary_crossing		test for all possible 4K boundaries	
+AI_CORE_RAL	UVM	AI_CORE_RAL__0	NOC master - ral bit bash testcase	test.percent_pass	"ai_core_top_ral_bit_bash_test
+
+
+
+"			
+AI_CORE_RAL	UVM	AI_CORE_RAL__1	AI core control master (CVA6V) -ral bit bash test	test.percent_pass	ai_core_top_core_ctrl_ral_bit_bash_test			
+AI_CORE_RAL	UVM	AI_CORE_RAL__2	NOC master - hardware reset bit bash test	test.percent_pass	ai_core_top_ral_hw_rst_test			
+AI_CORE_RAL	UVM	AI_CORE_RAL__3	AI core control master (CVA6V) - hardware reset bit bash test	test.percent_pass	"
+ai_core_top_core_ctrl_ral_hw_rst_test"			
+AI_CORE_RAL	UVM	AI_CORE_RAL__4	NOC master - read write to all the registers 	test.percent_pass	ai_core_top_register_test			
+AI_CORE_RAL	UVM	AI_CORE_RAL__5	AI core control master - read write to all the registers	test.percent_pass	ai_core_top_core_ctrl_register_test			
+AI_CORE_RAL	UVM	AI_CORE_RAL__6	checking the other cores register accesses are happening properly from aicore0,the transaction will reach the noc lp slave. Check whethe that is coming properly.	test.percent_pass	ai_core_top_core_ctrl_other_core_register_access_test			
+								
+AI_CORE_THROTTLE	UVM	AI_CORE_THROTTLE__0	When Throttle unit is disabled (default mode), check that MVM can run at full utilization, e.g. `avg_utils_i = 64`	test.percent_pass	ai_core_top_throttle_non_static_mvm_test			
+AI_CORE_THROTTLE	UVM	AI_CORE_THROTTLE__1	When Throttle unit is in `max limit mode`, check that MVM average utilization (`avg_utils_i`) is not exceeding specified value (`max_limit_i`). Test values for `max_limit_i`: 1,2,4,16,32,64. Test that value can be changed during MVM operation.	test.percent_pass	ai_core_top_max_limit_throttle_test			
+AI_CORE_THROTTLE	UVM	AI_CORE_THROTTLE__2	When Throttle unit is in 'Hard throttle mode', check that (a) the MVM average utilization (`avg_utils_i`) does never exceed `max_limit_i` irrespective of the throttle input and (b) that the MVM average utilization (`avg_utils_i`) does not exceed `throttle_limit` when the throttle is enagaged. Test value for `throttle_limit` in 0,16,32,64, with a `max_limit_i` >=  `throttle_limit`.	test.percent_pass	ai_core_top_hard_throttle_verif_test			
+AI_CORE_THROTTLE	UVM	AI_CORE_THROTTLE__3	When Throttle unit is in 'Soft throttle mode', check that (a) the MVM average utilization (`avg_utils_i`) does never exceed `max_limit_i` irrespective of the throttle input and (b) that the MVM average utilization (`avg_utils_i`) ramps to `throttle_limit` when the throttle is enagaged, and (c) ramps back to `max_limit_i`  when the throttle is disengage again. Test value for `throttle_limit` = 8, with a `max_limit_i` = 32  `throttle_limit`. Test a few different settings for soft_throttle_incr_time_i / soft_throttle_decr_time_i / soft_throttle_prescale_i, which results in a resonable ramp of `util_limit_o`	test.percent_pass	ai_core_top_soft_throttle_verif_test		The last part of this requirement is verifified in the ai_core_infra	
+AI_CORE_THROTTLE	UVM	AI_CORE_THROTTLE__4	Software throttling works - Check that the throttling can be engaged/disengade using the AI core CSR -> verify on the MVM  (`avg_utils_i`) [recommend to use the hard throtting mode with max=32 and limit=6]	test.percent_pass	ai_core_top_*_throttle_verif_test			
+AI_CORE_THROTTLE	UVM	AI_CORE_THROTTLE__5	Externalthrottling works - Check that the throttling can be engaged/disengade using the input from sys ctrl. Check for hard and soft throttle modes	test.percent_pass	ai_core_top_external_throttle_test			
+AI_CORE_THROTTLE	UVM	AI_CORE_THROTTLE__6	Check that the temperature throttling works. Force PVT temperure below throttle_on_temp_i, check that MVM runs at max_util. Increase PVT temperture above throttle_on_temp_i, confirm that MVM utilization is below avg_utils_i. Decrease temperture again below throttle_off_temp, check that throttle disengages again. [recommend to use the hard throtting mode with max=32 and limit=6]	test.percent_pass	ai_core_top_temp_throttle_test			
+AI_CORE_THROTTLE	UVM	AI_CORE_THROTTLE__7	Check that the voltage supervisor throttling works (repeat procedure of AI_CORE_THROTTLE__6 with the voltages supervisor)	test.percent_pass	ai_core_top_volt_throttle_test			
+AI_CORE_THROTTLE	UVM	AI_CORE_THROTTLE__8	Check during test AI_CORE_THROTTLE__6 that the min/max temperature observation works w.r.t to the test parameter(the min-max value register),,	test.percent_pass	ai_core_top_temp_throttle_test			
+AI_CORE_THROTTLE	UVM	AI_CORE_THROTTLE__9	Check during test AI_CORE_THROTTLE__77 that the min/max voltage observation works w.r.t. to the test parameter	test.percent_pass	ai_core_top_volt_throttle_test			
+AI_CORE_THROTTLE	UVM	AI_CORE_THROTTLE__10	Complex test with non-static MVM. the matrix size will be changing in the testcase.	test.percent_pass	ai_core_top_throttle_non_static_mvm_test			
+AICORE-DMA	UVM	AICDMA_002	Verify that AICORE DMA performs simultaneous Read and Write transfers from DDR and/or L2  to L1 memory with maximum possible throughput and no bubbles in between. This requirement applies to each DMA channel.					
+AICORE-DMA	UVM	AICDMA_003	Verify that AICORE-DMA  supports 2 different configuration methods. One will be command based including tokens  and one via direct CPU access.					
+AICORE-DMA	UVM	AICDMA_100 , AICDMA_102	Verify that 2 AXI4 master ports in AICORE DMA  have access to the full memory map and full duplex in order to allow simultaneous read/write operations.					
+AICORE-DMA	UVM	AICDMA_103	Verify that  AICORE DMA  receives commands from the CPU through AXI4 configuration interface.					
+AICORE-DMA	UVM	AICDMA_107	Verify the token lines are working properly along with tokens from IFD,ODR tokens of both MVM and DWPU					
+AICORE-DMA	UVM	AICDMA_111	Verify that AICORE-DMA instance will  be able to reach the SPM memory with as low latency as possible.					
+AICORE-PRG-DMA	UVM	AICPDMA_000	Verify that AICORE PRG DMA ( loads control data)  performs simultaneous Read and Write transfers from the external to the AICORE memories (DDR/L2/SYS-SPM)  to the internal to the AICORE control memories (SPM).					
+AICORE-PRG-DMA	UVM	AICPDMA_000	Verify that AICORE PRG DMA ( loads control data)  performs simultaneous Read and Write transfers from SPM to AICORE datapath units					
+AICORE-PRG-DMA	UVM	AICPDMA_103	Verify that  AICORE PRG DMA  receives commands from the CPU through AXI4 configuration interface.					
+AI_CORE_IRQ	UVM	AI_CORE_IRQ__0	Check the DBG_SW interrupt of all subblocks.Also check the registers corresponding to that.	test.percent_pass	ai_core_top_dwpu_irq_test,ai_core_top_mvm_irq_test,ai_core_top_iau_dpu_irq_test		 corresponding fiat test - test_dp_sw_irq	
+AI_CORE_IRQ	UVM	AI_CORE_IRQ__1	Check the command fifo overfill scenario for all sub block's cmd fifo. Check the cmd dropped interrupt is coming.Verify the corresponding status registers as well.	test.percent_pass	ai_core_top_cmd_fifo_overfill_test		 corresponding fiat test - test_dp_cmd_fifo	
+AI_CORE_IRQ	??	AI_CORE_IRQ__2	"IRQ LIST:                                                                                                                   MVM
+IAU (MVM one)
+DPU (MVM one)
+DWPU
+IAU (DWPU one)
+DPU (DWPU one)
+6 IFD's (m_ifd0-2, m_ifdw, d_ifd0-1)
+2 ODR's (m_odr, d_odr)
+TokenMgr (maybe 2, for non-zero SWEP?)
+2 for DMA lt (common + channel)
+5(3) for DMA ht (common + 4(2) channels)
+Thermal warning
+Thermal shutdown.                                                                                                           Throttling ??"	??	??	??	https://git.axelera.ai/prod/europa/-/issues/165  ->  no. of irq lines	
+AI_CORE_PLIC	 ?? FW test ??	AI_CORE_PLIC__0	The PLIC integration will need to be verified to ensure that interrupts are still working as expected. Most likely to be done by the FW verification side.	??	??	??	https://git.axelera.ai/prod/europa/-/issues/360      ->plic integration from design side	
+AI_CORE_TRACING	??	AI_CORE_TRACING__0	Timestamp logging                                                                                       Performance counters                                                                               Tracing infrastruture                                                                        	??	??	??	Not verified in triton.  Do we need block level??                                                                                                          Specification:                                                                                                                                                                  https://axeleraai.atlassian.net/wiki/spaces/archrd/pages/405143691/Tracing  Issue:                                                                                                                               https://git.axelera.ai/prod/europa/-/issues/134	
+AI_CORE	UVM	AI_CORE_MVM_SW_TESTMODE__0	Check all sw testmodes of mvm. (TODO: Add checker)	test.percent_pass	ai_core_top_mvm_sw_test_mode_test		corresponding fiat test - test_dp_mvm_test_modes . Prashanthi adding checker for mvm block level. Port that to the top level. ( https://git.axelera.ai/ai-dv-team/dv-europa-planning/AIC-MVM/-/issues/41)	
+AI_CORE	UVM	AI_CORE_BLOCK_ID__0	Checks the block id of all blocks in ai core. Also checks scratch pad register accesses	test.percent_pass	ai_core_top_block_id_read_test		 corresponding fiat test - test_dp_csr	
+AI_CORE	UVM	AI_CORE_INTERLEAVING__0	axi master read interleaving test case	test.percent_pass	ai_core_top_axi_master_read_interleaving_test			
+AI_CORE	UVM	AI_CORE_B2B_BACKPRESSURE__0	ai_core backpressuring scenario	test.percent_pass	ai_core_top_b2b_backpressure_test			
+AI_CORE_CD	UVM	??	??	??	??	??	Need to have a block level tb                                                                                                                        https://git.axelera.ai/prod/europa/-/issues/115	
+AI_CORE_CLK_GATING	??	??	??	??	??	??	https://git.axelera.ai/prod/europa/-/issues/145	

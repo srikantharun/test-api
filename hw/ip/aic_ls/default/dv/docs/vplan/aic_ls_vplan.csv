@@ -1,0 +1,22 @@
+Name,Type,Req_id,Priority,Description,Measure,Source,Coverpoints if applicable
+Remove tkn mngr + trace unit,UVM,DMC_L1_CLEANUP,High,"remove code related to token manager ref model and trace unit, if exists",,,
+remove Sideband Fabric Sel,UVM,DMC_L1_SIDEBAND_FABRIC_SEL_CLEANUP,High,The sideband signal doesn't exist in design anymore and should be deleted,Group,DMC_L1_fabric_sel_test DMC_L1_fabric_sel_lc_test DMC_L1_sideband_cg,fabric_sel [0 1 2 3]
+token manager,UVM,DMC_L1_TOKEN_MANAGING,High,token manager ref model should be replaced by some token generation. Similar mechanisms exist in other blocks so copying should be possible.,,,
+Register Access Layer,UVM,DMC_L1_RAL,Medium,Run register tests on IFD ODR Trace Unit and Token Manager CSR's.,test.percent_pass,DMC_L1_ral_*test,
+Clock and Reset,UVM,DMC_L1_CLK_AND_RESET,Medium,All tests will run at prescribed clock frequency (800 MHz). Do random reset timing when all IFD ODR and Token Manager are active.,test.percent_pass,DMC_L1_reset_test,
+MVM_IFD0,UVM,DMC_L1_MVM_IFD0,Medium,Verify Instance of MVM IFD0 by testing all req_id related to IFD.,ifd_odr_vplan,,
+MVM_IFD1,UVM,DMC_L1_MVM_IFD1,Medium,Verify Instance of MVM IFD1 by testing all req_id related to IFD.,ifd_odr_vplan,,
+MVM_IFD2,UVM,DMC_L1_MVM_IFD2,High,Verify Instance of MVM IFD2 by testing all req_id related to IFD.,ifd_odr_vplan,,
+MVM_IFDW,UVM,DMC_L1_MVM_IFDW,Medium,Verify Instance of MVM IFDW by testing all req_id related to IFD.,ifd_odr_vplan,,
+DWPU_IFD0,UVM,DMC_L1_DWPU_IFD0,Medium,Verify Instance of DWPU IFD0 by testing all req_id related to IFD.,ifd_odr_vplan,,
+DWPU_IFD1,UVM,DMC_L1_DWPU_IFD1,Medium,Verify Instance of DWPU IFD1 by testing all req_id related to IFD.,ifd_odr_vplan,,
+MVM_ODR,UVM,DMC_L1_MVM_ODR,Medium,Verify Instance of MVM ODR by testing all req_id related to ODR.,ifd_odr_vplan,,
+DWPU_ODR,UVM,DMC_L1_DWPU_ODR,Medium,Verify Instance of DWPU ODR by testing all req_id related to ODR.,ifd_odr_vplan,,
+L1,UVM,DMC_L1_L1,Medium,Verify Instance of L1 by testing all req_id related to L1.,l1_vplan,,
+Interrupts,UVM,DMC_L1_INTERRUPTS,Medium,Cover all the interrupt conditions for each sub-block.,Group,ALL IRQ or Error tests in each LS sub block. DMC_L1_irq_cg,cp_irq [MVM_IFD0 MVM_IFD1 MVM_IFD2 MVM_IFDW MVM_ODR DWPU_IFD0 DWPU_IFD1 DWPU_ODR TOKEN_MGR]
+Sideband CID,UVM,DMC_L1_SIDEBAND_CID,Medium,Drive sideband CID signal via virtual interface. Verify by accessing L1.,Group,DMC_L1_ifd_odr_*_test DMC_L1_tkn_mgr_*_test DMC_L1_sideband_cg,cp_cid [AI_CORE1 AI_CORE_2 AI_CORE_3 AI_CORE_4]
+Sideband PMU Signals,UVM,DMC_L1_SIDEBAND_PMU,Medium,PMU Signals will be driven according to the boot-up sequence. Any test using L1 indirectly verifies proper boot-up.  PMU signals are tested in AI Core top level.,Group,DMC_L1_l1_power_test DMC_L1_sideband_cg,cp_light_sleep [ENABLED DISABLED] cp_deep_sleep [ENABLED DISABLED] cp_shutdown [ENABLED DISABLED]
+Address Space,UVM,DMC_L1_ADDR_SPACE,Medium,The address space for each IFD ODR are tested by accessing address boundaries.,test.percent_pass,DMC_L1_ral_*test,
+Linear Address Pattern,UVM,DMC_L1_LINEAR_ADDR_PATTERN,Medium,Generate pattern of 1x1x1 size for ABC dimensions.,ifd_odr_vplan,,
+Non Linear Address Pattern,UVM,DMC_L1_NON_LINEAR_ADDR_PATTERN,Medium,Generate non-linear address pattern based randomized address generator parameters.,ifd_odr_vplan,,
+Clock Gating,UVM,DMC_L1_CLOCK_GATE,Medium,Test Clock Gating Enable. Gate and resume the clock randomly during operation.,test.percent_pass,DMC_L1_clock_gate_test,

@@ -1,0 +1,21 @@
+# (C) Copyright Axelera AI 2024
+# All Rights Reserved
+# *** Axelera AI Confidential ***
+#
+# Description: verif_cva6v_vector_fabric manifest
+# Owner: Domenic Wüthrich <domenic.wuethrich@axelera.ai>
+
+package:
+  name: verif_cva6v_vector_fabric
+
+dependencies:
+  cc_lib:
+    path: ../../../../../../ip/common_cell_library/default/rtl
+
+export_include_dirs:
+  - include
+
+sources:
+  - target: rtl
+    files:
+      - src/cva6v_vector_fabric.sv

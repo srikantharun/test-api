@@ -1,0 +1,25 @@
+# (C) Copyright 2024 Axelera AI B.V.
+# All Rights Reserved
+# *** Axelera AI Confidential ***
+
+package:
+  name: soc_mgmt_uvm_tb
+  description: "soc_mgmt verification testbench"
+  authors:
+    - "timir.soni@axelera.ai"
+
+dependencies:
+  europa_soc_mgmt_pkg:   { path: "../../rtl/pkg" }
+  europa_soc_mgmt     :  { path: "../../rtl/"  }  # call in DUT RTL
+  soc_mgmt_uvm_test   :  { path: "../uvm/tests/"    }  
+  axi_pkg             :  { path: "../../../../../../ip/axi/default/rtl/" }
+  dv_common_rtl       :  { path: "../../../../../../dv/common/rtl/" } 
+  samsung_pvt_probe_wrapper: { path: "${REPO_ROOT}/hw/vendor/samsung/pvt_probe/default/rtl" }
+  
+sources:
+  - target: simulation
+    include_dirs:
+      - .
+    files:
+      - soc_mgmt_cust_if.sv
+      - hdl_top.sv

@@ -1,0 +1,25 @@
+# (C) Copyright 2024 Axelera AI B.V.
+# All Rights Reserved
+# *** Axelera AI Confidential ***
+
+package:
+  name: dpu_uvm_common
+  description: "DPU common verification definitions"
+  authors:
+    - "fernando.yokota@axelera.ai"
+
+dependencies:
+  aic_common          : { path : "../../../../../aic_common/default/rtl" }
+  europa_asic_pkg     : { path : "../../../../../../../hw/impl/europa/asic/rtl/pkg"}
+  ai_core_dp_cmd_uvm  : { path : "../../../../../aic_common/default/dv/uvm"}
+  svt_amba_vip        : { path : "../../../../../../dv/svt_amba_vip"}
+  dpu_uvm_ral         : { path : "../ral" }
+  dpu                 : { path : "../../rtl" }
+
+sources:
+  - target: simulation
+    include_dirs:
+      - .
+    files:
+      - dpu_common_pkg.sv
+

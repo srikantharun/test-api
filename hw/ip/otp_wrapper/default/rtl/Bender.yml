@@ -1,0 +1,27 @@
+# (C) Copyright 2024 Axelera AI B.V.
+# All Rights Reserved
+# *** Axelera AI Confidential ***
+
+package:
+  name: otp_wrapper
+  description: "One Time Programmable Memory Wrapper"
+  authors:
+    - "Kevin Luciani <kevin.luciani@axelera.ai>"
+
+dependencies:
+  otp_wrapper_pkg:        { path: "" }
+  samsung_otp_wrapper:    { path: "" }
+  axe_tcl:                { path: "" }
+  lowrisc_prim_subreg:    { path: "" }
+
+# Source files grouped in levels.
+# Files in level 0 have no dependencies on files in this package.
+# Files in level 1 only depend on files in level 0, files in level 2 on files in levels 1 and 0, etc.
+# Files within a level are ordered alphabetically.
+sources:
+  - target: rtl
+    files:
+    # Level 0
+    - build_reg/otp_wrapper_csr_reg_top.sv
+    # Level 1
+    - otp_wrapper.sv

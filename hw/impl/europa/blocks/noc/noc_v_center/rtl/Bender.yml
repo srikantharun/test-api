@@ -1,0 +1,29 @@
+# (C) Copyright 2024 Axelera AI B.V.
+# All Rights Reserved
+# *** Axelera AI Confidential ***
+
+package:
+  name: europa_noc_v_center
+  description: "Europa NoC Center Sub-partition"
+  authors:
+    - "Joao Martins <joao.martins@axelera.ai>"
+    - "Tasos Psarras <anastasios.psarras@axelera.ai>"
+
+dependencies:
+  axi_pkg: { path: "" }
+  axe_apb_pkg: { path: "" }
+  cc_lib: { path: "" }
+  europa_sdma_pkg: { path: "" }
+  europa_asic_pkg: { path: "" }
+  europa_noc_common: { path: "" }
+  noc_tok_v_center: { path: "${EUROPA_NOC_HOME}/noc_tok_v_center/rtl"}
+  noc_v_center: { path: "${EUROPA_NOC_HOME}/noc_v_center/rtl"}
+
+sources:
+  - target: rtl
+    files:
+    - noc_tok_v_center.sv
+    - noc_v_center.sv
+  - target: all(rtl, not(dft))
+    files:
+    - noc_v_center_p.sv

@@ -1,0 +1,14 @@
+package:
+  name: mmio_agent_uvm_pkg
+  description: "MMIO agent package"
+  authors:
+    - "raymond.garcia@axelera.ai"
+
+sources:
+  - target: simulation
+    include_dirs:
+      - .
+    files:
+      - mmio_if.sv
+      - mmio_agent_pkg.sv
+

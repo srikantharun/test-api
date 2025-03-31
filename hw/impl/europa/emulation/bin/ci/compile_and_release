@@ -1,0 +1,15 @@
+#!/usr/bin/env bash
+
+set -e
+
+output_dirname="$1"
+shift 1
+compile_args="$@"
+
+
+./compile $compile_args -o $output_dirname --silent_compilation
+chmod a+r -R $output_dirname/veloce.med
+
+build_release_path="/home/data2/builds/release/europa/$output_dirname"
+rm -rf "$build_release_path"
+$output_dirname/copy_db "$build_release_path"

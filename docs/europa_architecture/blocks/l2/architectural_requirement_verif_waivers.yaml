@@ -1,0 +1,25 @@
+waivers:
+  -
+    requirement_id: L2_FEAT_15
+    description: "No specific requirement for the verif and more for the PD"
+    owner: Dhanusuya Mahendran
+  -
+    requirement_id: L2_DBG_0
+    description: "No debug interface is connected in l2 and it can be waived"
+    owner: Dhanusuya Mahendran
+  -
+    requirement_id: L2_FEAT_18
+    description: "Untestable at block-level, this is a top-level requirement"
+    owner: Dhanusuya Mahendran
+  -
+    requirement_id: L2_DBG_JTAG_1
+    description: "Untestable at block-level, this is a top-level requirement"
+    owner: Dhanusuya Mahendran
+  -
+    requirement_id: L2_MBIST_REPAIR_0
+    description: "Untestable at block-level, this is a top-level requirement"
+    owner: Dhanusuya Mahendran
+  -
+    requirement_id: L2_CONN_0
+    description: "Untestable at block-level, this is a top-level requirement"
+    owner: Dhanusuya Mahendran

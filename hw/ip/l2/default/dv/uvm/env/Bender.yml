@@ -1,0 +1,25 @@
+package:
+  name: l2_verif_uvm_env
+  description: "l2 verification UVM testbench"
+  authors:
+    - "dhanusuya.mahendran@axelera.ai"
+
+dependencies:
+  europa_l2:           { path: "../../../../../../impl/europa/blocks/l2/rtl/"                                    }
+  svt_amba_vip:        { path: "../../../../../../dv/svt_amba_vip"               } # AMBA VIP is used
+  axi4pc:              { path: "../../../../../../dv/axi4pc"                     }
+  axi:                 { path: "../../../../../ip/axi/default/rtl"               }
+  v_utils_pkg:         { path: "../../../../../dv/v_utils"                       }
+  lowrisc_dv_base_reg: { path: "$REPO_ROOT/hw/vendor/axelera/lowrisc_dv/dv_base_reg"}
+  europa_l2_pkg:       { path: "../../../../../../impl/europa/blocks/l2/rtl/pkg" }
+  
+
+
+
+sources:
+  - target: simulation
+    include_dirs:
+      - .
+    files:
+      - ../../../../../../impl/europa/blocks/l2/dv/build_ral/l2_csr_ral_pkg.sv
+      - l2_uvm_pkg.sv

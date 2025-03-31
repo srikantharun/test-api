@@ -1,0 +1,16 @@
+package:
+  name: ai_core_dwpu_uvm_ral
+  description: "UVM Register Access Layer for AI CORE DWPU"
+  authors:
+    - "jorge.carvalho@axelera.ai"
+
+dependencies:
+  lowrisc_dv_base_reg:         { path: "../../../../../../vendor/axelera/lowrisc_dv/dv_base_reg"}
+  v_utils_pkg:                 { path: "../../../../../../dv/v_utils"}
+  svt_amba_vip:                { path: "../../../../../../dv/svt_amba_vip"}
+
+
+sources:
+  - target: simulation
+    files:
+      - ../../build_ral/dwpu_csr_ral_pkg.sv

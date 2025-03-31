@@ -1,0 +1,70 @@
+# (C) Copyright 2024 Axelera AI B.V.
+# All Rights Reserved
+# *** Axelera AI Confidential ***
+
+package:
+  name: allegro_tb_p
+  description: "TODO: add description"
+  authors:
+    - "Stephane Gros   <stephane.gros@axelera.ai>"
+
+dependencies:
+  europa_dcd:        { path: ""     }
+  decoder_uvm_pkg:   { path: ""     }
+
+
+# Source files grouped in levels.
+# Files in level 0 have no dependencies on files in this package.
+# Files in level 1 only depend on files in level 0, files in level 2 on files in levels 1 and 0, etc.
+# Files within a level are ordered alphabetically.
+sources:
+  - target: simulation
+    files:
+    # Level 0
+    - ../uvm/allegro_tb_uvm_pkg/allegro_tb_uvm_pkg.sv
+    - ../allegro_tb/tbench/alg_amba_apbmux.sv
+    - ../allegro_tb/tbench/alg_amba_axi.sv
+    - ../allegro_tb/tbench/alg_amba_axi2axi_async.sv
+    - ../allegro_tb/tbench/alg_amba_axi2sram.sv
+    - ../allegro_tb/tbench/alg_amba_axi_raster_ram.sv
+    - ../allegro_tb/tbench/alg_amba_bufcheck.sv
+    - ../allegro_tb/tbench/alg_amba_check_syncy.sv
+    - ../allegro_tb/tbench/alg_amba_ctrl.sv
+    - ../allegro_tb/tbench/alg_amba_fifo_async.sv
+    - ../allegro_tb/tbench/alg_amba_fifo_fwft.sv
+    - ../allegro_tb/tbench/alg_amba_jtag.sv
+    - ../allegro_tb/tbench/alg_amba_sram.sv
+    - ../allegro_tb/tbench/alg_amba_uram.sv
+    - ../allegro_tb/tbench/alg_amba_vip.sv
+    - ../allegro_tb/tbench/alg_amba_vip_apbdemux.sv
+    - ../allegro_tb/tbench/alg_amba_vip_base_apb_stage.sv
+    - ../allegro_tb/tbench/alg_amba_vip_base_delay_stats.sv
+    - ../allegro_tb/tbench/alg_amba_vip_base_delayline.sv
+    - ../allegro_tb/tbench/alg_amba_vip_base_delayline_channel.sv
+    - ../allegro_tb/tbench/alg_amba_vip_base_delayline_channel_shift.vhd
+    - ../allegro_tb/tbench/alg_amba_vip_base_fault.sv
+    - ../allegro_tb/tbench/alg_amba_vip_base_fifo.vhd
+    - ../allegro_tb/tbench/alg_amba_vip_base_fifo_fwft.sv
+    - ../allegro_tb/tbench/alg_amba_vip_base_latency.sv
+    - ../allegro_tb/tbench/alg_amba_vip_base_vldrdy_pipe.sv
+    - ../allegro_tb/tbench/alg_amba_vip_channel.sv
+    - ../allegro_tb/tbench/alg_amba_vip_filter.sv
+    - ../allegro_tb/tbench/alg_amba_vip_interfaces.sv
+    - ../allegro_tb/tbench/alg_amba_vip_pipe.sv
+    - ../allegro_tb/tbench/alg_amba_vip_regs.sv
+    - ../allegro_tb/tbench/alg_amba_vip_regs_generated.sv
+    - ../allegro_tb/tbench/alg_amba_vip_wrapper.sv
+    - ../allegro_tb/tbench/alg_ip_top.sv
+    - ../allegro_tb/tbench/alg_ip_top_tb.sv
+    - ../allegro_tb/tbench/alg_ip_waves.sv
+    #- tbench/alg_ram.sv
+    #- tbench/alg_ram_dpr.sv
+    #- tbench/alg_ram_dual.sv
+    #- tbench/alg_ram_worden.sv
+    #- tbench/alg_ram_worden_dpr.sv
+
+    include_dirs:
+    - ../uvm
+    - ../uvm/decoder_uvm_pkg
+    - ../uvm/allegro_tb_uvm_pkg
+    - /$EUROPA_VIP_HOME/amba_system_env_svt/include/sverilog

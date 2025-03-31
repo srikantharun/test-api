@@ -1,0 +1,74 @@
+//-------------------------------------------------
+//  File created by: Tessent Shell
+//          Version: 2024.2
+//       Created on: Wed Oct  9 13:31:13 UTC 2024
+//-------------------------------------------------
+
+
+BisrSegmentOrderSpecification {
+  PowerDomainGroup(-) {
+    OrderedElements {
+      u_aic_mid/u_dpu/i_dpu_dp/i_dpu_bstore/u_axe_tcl_sram/gen_macro.gen_data_banks[0].u_macro;
+      u_aic_mid/u_dpu/i_dpu_dp/i_dpu_bstore/u_axe_tcl_sram/gen_macro.gen_data_banks[1].u_macro;
+      u_aic_mid/u_dpu/i_dpu_dp/i_dpu_bstore/u_axe_tcl_sram/gen_macro.gen_data_banks[2].u_macro;
+      u_aic_mid/u_dpu/i_dpu_dp/i_dpu_bstore/u_axe_tcl_sram/gen_macro.gen_data_banks[3].u_macro;
+      u_aic_mid/u_dpu/i_dpu_dp/i_dpu_cstore/u_axe_tcl_sram[0]/gen_macro.gen_data_banks[0].u_macro;
+      u_aic_mid/u_dpu/i_dpu_dp/i_dpu_cstore/u_axe_tcl_sram[0]/gen_macro.gen_data_banks[1].u_macro;
+      u_aic_mid/u_dpu/i_dpu_dp/i_dpu_cstore/u_axe_tcl_sram[0]/gen_macro.gen_data_banks[2].u_macro;
+      u_aic_mid/u_dpu/i_dpu_dp/i_dpu_cstore/u_axe_tcl_sram[0]/gen_macro.gen_data_banks[3].u_macro;
+      u_aic_mid/u_dpu/i_dpu_dp/i_dpu_cstore/u_axe_tcl_sram[1]/gen_macro.gen_data_banks[0].u_macro;
+      u_aic_mid/u_dpu/i_dpu_dp/i_dpu_cstore/u_axe_tcl_sram[1]/gen_macro.gen_data_banks[1].u_macro;
+      u_aic_mid/u_dpu/i_dpu_dp/i_dpu_cstore/u_axe_tcl_sram[1]/gen_macro.gen_data_banks[2].u_macro;
+      u_aic_mid/u_dpu/i_dpu_dp/i_dpu_cstore/u_axe_tcl_sram[1]/gen_macro.gen_data_banks[3].u_macro;
+      u_aic_mid/u_dpu/u_dpu_dpcmd_gen/u_cmdblock_desc_mem/gen_ram.u_tc_ram/gen_macro.u_macro;
+      u_aic_mid/u_dpu/i_dpu_dp/i_dpu_bstore/u_axe_tcl_sram/gen_macro.gen_data_banks[4].u_macro;
+      u_aic_mid/u_dpu/i_dpu_dp/i_dpu_bstore/u_axe_tcl_sram/gen_macro.gen_data_banks[5].u_macro;
+      u_aic_mid/u_dpu/i_dpu_dp/i_dpu_bstore/u_axe_tcl_sram/gen_macro.gen_data_banks[6].u_macro;
+      u_aic_mid/u_dpu/i_dpu_dp/i_dpu_bstore/u_axe_tcl_sram/gen_macro.gen_data_banks[7].u_macro;
+      u_aic_mid/u_dpu/i_dpu_dp/i_dpu_cstore/u_axe_tcl_sram[0]/gen_macro.gen_data_banks[4].u_macro;
+      u_aic_mid/u_dpu/i_dpu_dp/i_dpu_cstore/u_axe_tcl_sram[0]/gen_macro.gen_data_banks[5].u_macro;
+      u_aic_mid/u_dpu/i_dpu_dp/i_dpu_cstore/u_axe_tcl_sram[0]/gen_macro.gen_data_banks[6].u_macro;
+      u_aic_mid/u_dpu/i_dpu_dp/i_dpu_cstore/u_axe_tcl_sram[0]/gen_macro.gen_data_banks[7].u_macro;
+      u_aic_mid/u_dpu/i_dpu_dp/i_dpu_cstore/u_axe_tcl_sram[1]/gen_macro.gen_data_banks[4].u_macro;
+      u_aic_mid/u_dpu/i_dpu_dp/i_dpu_cstore/u_axe_tcl_sram[1]/gen_macro.gen_data_banks[5].u_macro;
+      u_aic_mid/u_dpu/i_dpu_dp/i_dpu_cstore/u_axe_tcl_sram[1]/gen_macro.gen_data_banks[6].u_macro;
+      u_aic_mid/u_dpu/i_dpu_dp/i_dpu_cstore/u_axe_tcl_sram[1]/gen_macro.gen_data_banks[7].u_macro;
+    }
+  }
+  PowerDomainGroup(imc) {
+    OrderedElements {
+      u_aic_mid/u_mvm/i_mvm_dp/inst_mvm_imc_acc/g_imc_acc_pairs[0].inst_mvm_imc_acc_pair/inst_imc_bank_acc_a/inst_imc_w_acc/u_mvm_imc_bank_combiner/g_imc_bank_wrapper[1].u_mvm_imc_bank_wrapper/u_imc_bisr_hook/u_bisr_hook_core/SI;
+      u_aic_mid/u_mvm/i_mvm_dp/inst_mvm_imc_acc/g_imc_acc_pairs[0].inst_mvm_imc_acc_pair/inst_imc_bank_acc_a/inst_imc_w_acc/u_mvm_imc_bank_combiner/g_imc_bank_wrapper[0].u_mvm_imc_bank_wrapper/u_imc_bisr_hook/u_bisr_hook_core/SI;
+      u_aic_mid/u_mvm/i_mvm_dp/inst_mvm_imc_acc/g_imc_acc_pairs[0].inst_mvm_imc_acc_pair/inst_imc_bank_acc_b/inst_imc_w_acc/u_mvm_imc_bank_combiner/g_imc_bank_wrapper[1].u_mvm_imc_bank_wrapper/u_imc_bisr_hook/u_bisr_hook_core/SI;
+      u_aic_mid/u_mvm/i_mvm_dp/inst_mvm_imc_acc/g_imc_acc_pairs[0].inst_mvm_imc_acc_pair/inst_imc_bank_acc_b/inst_imc_w_acc/u_mvm_imc_bank_combiner/g_imc_bank_wrapper[0].u_mvm_imc_bank_wrapper/u_imc_bisr_hook/u_bisr_hook_core/SI;
+      u_aic_mid/u_mvm/i_mvm_dp/inst_mvm_imc_acc/g_imc_acc_pairs[2].inst_mvm_imc_acc_pair/inst_imc_bank_acc_a/inst_imc_w_acc/u_mvm_imc_bank_combiner/g_imc_bank_wrapper[1].u_mvm_imc_bank_wrapper/u_imc_bisr_hook/u_bisr_hook_core/SI;
+      u_aic_mid/u_mvm/i_mvm_dp/inst_mvm_imc_acc/g_imc_acc_pairs[2].inst_mvm_imc_acc_pair/inst_imc_bank_acc_a/inst_imc_w_acc/u_mvm_imc_bank_combiner/g_imc_bank_wrapper[0].u_mvm_imc_bank_wrapper/u_imc_bisr_hook/u_bisr_hook_core/SI;
+      u_aic_mid/u_mvm/i_mvm_dp/inst_mvm_imc_acc/g_imc_acc_pairs[2].inst_mvm_imc_acc_pair/inst_imc_bank_acc_b/inst_imc_w_acc/u_mvm_imc_bank_combiner/g_imc_bank_wrapper[1].u_mvm_imc_bank_wrapper/u_imc_bisr_hook/u_bisr_hook_core/SI;
+      u_aic_mid/u_mvm/i_mvm_dp/inst_mvm_imc_acc/g_imc_acc_pairs[2].inst_mvm_imc_acc_pair/inst_imc_bank_acc_b/inst_imc_w_acc/u_mvm_imc_bank_combiner/g_imc_bank_wrapper[0].u_mvm_imc_bank_wrapper/u_imc_bisr_hook/u_bisr_hook_core/SI;
+      u_aic_mid/u_mvm/i_mvm_dp/inst_mvm_imc_acc/g_imc_acc_pairs[4].inst_mvm_imc_acc_pair/inst_imc_bank_acc_a/inst_imc_w_acc/u_mvm_imc_bank_combiner/g_imc_bank_wrapper[1].u_mvm_imc_bank_wrapper/u_imc_bisr_hook/u_bisr_hook_core/SI;
+      u_aic_mid/u_mvm/i_mvm_dp/inst_mvm_imc_acc/g_imc_acc_pairs[4].inst_mvm_imc_acc_pair/inst_imc_bank_acc_a/inst_imc_w_acc/u_mvm_imc_bank_combiner/g_imc_bank_wrapper[0].u_mvm_imc_bank_wrapper/u_imc_bisr_hook/u_bisr_hook_core/SI;
+      u_aic_mid/u_mvm/i_mvm_dp/inst_mvm_imc_acc/g_imc_acc_pairs[4].inst_mvm_imc_acc_pair/inst_imc_bank_acc_b/inst_imc_w_acc/u_mvm_imc_bank_combiner/g_imc_bank_wrapper[1].u_mvm_imc_bank_wrapper/u_imc_bisr_hook/u_bisr_hook_core/SI;
+      u_aic_mid/u_mvm/i_mvm_dp/inst_mvm_imc_acc/g_imc_acc_pairs[4].inst_mvm_imc_acc_pair/inst_imc_bank_acc_b/inst_imc_w_acc/u_mvm_imc_bank_combiner/g_imc_bank_wrapper[0].u_mvm_imc_bank_wrapper/u_imc_bisr_hook/u_bisr_hook_core/SI;
+      u_aic_mid/u_mvm/i_mvm_dp/inst_mvm_imc_acc/g_imc_acc_pairs[6].inst_mvm_imc_acc_pair/inst_imc_bank_acc_a/inst_imc_w_acc/u_mvm_imc_bank_combiner/g_imc_bank_wrapper[1].u_mvm_imc_bank_wrapper/u_imc_bisr_hook/u_bisr_hook_core/SI;
+      u_aic_mid/u_mvm/i_mvm_dp/inst_mvm_imc_acc/g_imc_acc_pairs[6].inst_mvm_imc_acc_pair/inst_imc_bank_acc_a/inst_imc_w_acc/u_mvm_imc_bank_combiner/g_imc_bank_wrapper[0].u_mvm_imc_bank_wrapper/u_imc_bisr_hook/u_bisr_hook_core/SI;
+      u_aic_mid/u_mvm/i_mvm_dp/inst_mvm_imc_acc/g_imc_acc_pairs[6].inst_mvm_imc_acc_pair/inst_imc_bank_acc_b/inst_imc_w_acc/u_mvm_imc_bank_combiner/g_imc_bank_wrapper[1].u_mvm_imc_bank_wrapper/u_imc_bisr_hook/u_bisr_hook_core/SI;
+      u_aic_mid/u_mvm/i_mvm_dp/inst_mvm_imc_acc/g_imc_acc_pairs[6].inst_mvm_imc_acc_pair/inst_imc_bank_acc_b/inst_imc_w_acc/u_mvm_imc_bank_combiner/g_imc_bank_wrapper[0].u_mvm_imc_bank_wrapper/u_imc_bisr_hook/u_bisr_hook_core/SI;
+      u_aic_mid/u_mvm/i_mvm_dp/inst_mvm_imc_acc/g_imc_acc_pairs[1].inst_mvm_imc_acc_pair/inst_imc_bank_acc_a/inst_imc_w_acc/u_mvm_imc_bank_combiner/g_imc_bank_wrapper[1].u_mvm_imc_bank_wrapper/u_imc_bisr_hook/u_bisr_hook_core/SI;
+      u_aic_mid/u_mvm/i_mvm_dp/inst_mvm_imc_acc/g_imc_acc_pairs[1].inst_mvm_imc_acc_pair/inst_imc_bank_acc_a/inst_imc_w_acc/u_mvm_imc_bank_combiner/g_imc_bank_wrapper[0].u_mvm_imc_bank_wrapper/u_imc_bisr_hook/u_bisr_hook_core/SI;
+      u_aic_mid/u_mvm/i_mvm_dp/inst_mvm_imc_acc/g_imc_acc_pairs[1].inst_mvm_imc_acc_pair/inst_imc_bank_acc_b/inst_imc_w_acc/u_mvm_imc_bank_combiner/g_imc_bank_wrapper[1].u_mvm_imc_bank_wrapper/u_imc_bisr_hook/u_bisr_hook_core/SI;
+      u_aic_mid/u_mvm/i_mvm_dp/inst_mvm_imc_acc/g_imc_acc_pairs[1].inst_mvm_imc_acc_pair/inst_imc_bank_acc_b/inst_imc_w_acc/u_mvm_imc_bank_combiner/g_imc_bank_wrapper[0].u_mvm_imc_bank_wrapper/u_imc_bisr_hook/u_bisr_hook_core/SI;
+      u_aic_mid/u_mvm/i_mvm_dp/inst_mvm_imc_acc/g_imc_acc_pairs[3].inst_mvm_imc_acc_pair/inst_imc_bank_acc_a/inst_imc_w_acc/u_mvm_imc_bank_combiner/g_imc_bank_wrapper[1].u_mvm_imc_bank_wrapper/u_imc_bisr_hook/u_bisr_hook_core/SI;
+      u_aic_mid/u_mvm/i_mvm_dp/inst_mvm_imc_acc/g_imc_acc_pairs[3].inst_mvm_imc_acc_pair/inst_imc_bank_acc_a/inst_imc_w_acc/u_mvm_imc_bank_combiner/g_imc_bank_wrapper[0].u_mvm_imc_bank_wrapper/u_imc_bisr_hook/u_bisr_hook_core/SI;
+      u_aic_mid/u_mvm/i_mvm_dp/inst_mvm_imc_acc/g_imc_acc_pairs[3].inst_mvm_imc_acc_pair/inst_imc_bank_acc_b/inst_imc_w_acc/u_mvm_imc_bank_combiner/g_imc_bank_wrapper[1].u_mvm_imc_bank_wrapper/u_imc_bisr_hook/u_bisr_hook_core/SI;
+      u_aic_mid/u_mvm/i_mvm_dp/inst_mvm_imc_acc/g_imc_acc_pairs[3].inst_mvm_imc_acc_pair/inst_imc_bank_acc_b/inst_imc_w_acc/u_mvm_imc_bank_combiner/g_imc_bank_wrapper[0].u_mvm_imc_bank_wrapper/u_imc_bisr_hook/u_bisr_hook_core/SI;
+      u_aic_mid/u_mvm/i_mvm_dp/inst_mvm_imc_acc/g_imc_acc_pairs[5].inst_mvm_imc_acc_pair/inst_imc_bank_acc_a/inst_imc_w_acc/u_mvm_imc_bank_combiner/g_imc_bank_wrapper[1].u_mvm_imc_bank_wrapper/u_imc_bisr_hook/u_bisr_hook_core/SI;
+      u_aic_mid/u_mvm/i_mvm_dp/inst_mvm_imc_acc/g_imc_acc_pairs[5].inst_mvm_imc_acc_pair/inst_imc_bank_acc_a/inst_imc_w_acc/u_mvm_imc_bank_combiner/g_imc_bank_wrapper[0].u_mvm_imc_bank_wrapper/u_imc_bisr_hook/u_bisr_hook_core/SI;
+      u_aic_mid/u_mvm/i_mvm_dp/inst_mvm_imc_acc/g_imc_acc_pairs[5].inst_mvm_imc_acc_pair/inst_imc_bank_acc_b/inst_imc_w_acc/u_mvm_imc_bank_combiner/g_imc_bank_wrapper[1].u_mvm_imc_bank_wrapper/u_imc_bisr_hook/u_bisr_hook_core/SI;
+      u_aic_mid/u_mvm/i_mvm_dp/inst_mvm_imc_acc/g_imc_acc_pairs[5].inst_mvm_imc_acc_pair/inst_imc_bank_acc_b/inst_imc_w_acc/u_mvm_imc_bank_combiner/g_imc_bank_wrapper[0].u_mvm_imc_bank_wrapper/u_imc_bisr_hook/u_bisr_hook_core/SI;
+      u_aic_mid/u_mvm/i_mvm_dp/inst_mvm_imc_acc/g_imc_acc_pairs[7].inst_mvm_imc_acc_pair/inst_imc_bank_acc_a/inst_imc_w_acc/u_mvm_imc_bank_combiner/g_imc_bank_wrapper[1].u_mvm_imc_bank_wrapper/u_imc_bisr_hook/u_bisr_hook_core/SI;
+      u_aic_mid/u_mvm/i_mvm_dp/inst_mvm_imc_acc/g_imc_acc_pairs[7].inst_mvm_imc_acc_pair/inst_imc_bank_acc_a/inst_imc_w_acc/u_mvm_imc_bank_combiner/g_imc_bank_wrapper[0].u_mvm_imc_bank_wrapper/u_imc_bisr_hook/u_bisr_hook_core/SI;
+      u_aic_mid/u_mvm/i_mvm_dp/inst_mvm_imc_acc/g_imc_acc_pairs[7].inst_mvm_imc_acc_pair/inst_imc_bank_acc_b/inst_imc_w_acc/u_mvm_imc_bank_combiner/g_imc_bank_wrapper[1].u_mvm_imc_bank_wrapper/u_imc_bisr_hook/u_bisr_hook_core/SI;
+      u_aic_mid/u_mvm/i_mvm_dp/inst_mvm_imc_acc/g_imc_acc_pairs[7].inst_mvm_imc_acc_pair/inst_imc_bank_acc_b/inst_imc_w_acc/u_mvm_imc_bank_combiner/g_imc_bank_wrapper[0].u_mvm_imc_bank_wrapper/u_imc_bisr_hook/u_bisr_hook_core/SI;
+    }
+  }
+}

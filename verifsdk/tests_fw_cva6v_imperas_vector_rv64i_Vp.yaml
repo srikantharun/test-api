@@ -1,0 +1,1697 @@
+tests:
+  - name: cva6v_imperas_Vp_rv64i_VSLIDEUP-VX-SEW16_LMUL4
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_IMPERAS_TESTS, CVA6V_DV_IMPERAS_V_TESTS, CVA6V_DV_IMPERAS_VP_TESTS]
+    requirement_ids: [CVA6V_FEAT_11, CVA6V_FEAT_12, CVA6V_FEAT_13, CVA6V_FEAT_14]
+    platforms: [cva6v.*]
+    owner: Raymond Garcia
+    flags: [ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/imperas-riscv-tests/riscv-test-suite/rv64i_m/Vp/src/VSLIDEUP-VX-SEW16_LMUL4, RUN_SCRIPT_ONLY]
+
+  - name: cva6v_imperas_Vp_rv64i_VSLIDE1UP-VX-SEW16_LMUL4
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_IMPERAS_TESTS, CVA6V_DV_IMPERAS_V_TESTS, CVA6V_DV_IMPERAS_VP_TESTS]
+    requirement_ids: [CVA6V_FEAT_11, CVA6V_FEAT_12, CVA6V_FEAT_13, CVA6V_FEAT_14]
+    platforms: [cva6v.*]
+    owner: Raymond Garcia
+    flags: [ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/imperas-riscv-tests/riscv-test-suite/rv64i_m/Vp/src/VSLIDE1UP-VX-SEW16_LMUL4, RUN_SCRIPT_ONLY]
+
+  - name: cva6v_imperas_Vp_rv64i_VFSLIDE1UP-VF-SEW32_LMUL4
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_IMPERAS_TESTS, CVA6V_DV_IMPERAS_V_TESTS, CVA6V_DV_IMPERAS_VP_TESTS]
+    requirement_ids: [CVA6V_FEAT_11, CVA6V_FEAT_12, CVA6V_FEAT_13, CVA6V_FEAT_14]
+    platforms: [cva6v.*]
+    owner: Raymond Garcia
+    flags: [ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/imperas-riscv-tests/riscv-test-suite/rv64i_m/Vp/src/VFSLIDE1UP-VF-SEW32_LMUL4, RUN_SCRIPT_ONLY]
+
+  - name: cva6v_imperas_Vp_rv64i_VRGATHER-VI-SEW8_LMUL1
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_IMPERAS_TESTS, CVA6V_DV_IMPERAS_V_TESTS, CVA6V_DV_IMPERAS_VP_TESTS]
+    requirement_ids: [CVA6V_FEAT_11, CVA6V_FEAT_12, CVA6V_FEAT_13, CVA6V_FEAT_14]
+    platforms: [cva6v.*]
+    owner: Raymond Garcia
+    flags: [ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/imperas-riscv-tests/riscv-test-suite/rv64i_m/Vp/src/VRGATHER-VI-SEW8_LMUL1, RUN_SCRIPT_ONLY]
+
+  - name: cva6v_imperas_Vp_rv64i_VRGATHER-VV-SEW32_LMUL8
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_IMPERAS_TESTS, CVA6V_DV_IMPERAS_V_TESTS, CVA6V_DV_IMPERAS_VP_TESTS]
+    requirement_ids: [CVA6V_FEAT_11, CVA6V_FEAT_12, CVA6V_FEAT_13, CVA6V_FEAT_14]
+    platforms: [cva6v.*]
+    owner: Raymond Garcia
+    flags: [ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/imperas-riscv-tests/riscv-test-suite/rv64i_m/Vp/src/VRGATHER-VV-SEW32_LMUL8, RUN_SCRIPT_ONLY]
+
+  - name: cva6v_imperas_Vp_rv64i_VSLIDE1UP-VX-SEW8_FRACLMUL
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_IMPERAS_TESTS, CVA6V_DV_IMPERAS_V_TESTS, CVA6V_DV_IMPERAS_VP_TESTS]
+    requirement_ids: [CVA6V_FEAT_11, CVA6V_FEAT_12, CVA6V_FEAT_13, CVA6V_FEAT_14]
+    platforms: [cva6v.*]
+    owner: Raymond Garcia
+    flags: [ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/imperas-riscv-tests/riscv-test-suite/rv64i_m/Vp/src/VSLIDE1UP-VX-SEW8_FRACLMUL, RUN_SCRIPT_ONLY]
+
+  - name: cva6v_imperas_Vp_rv64i_VSLIDEDOWN-VI-SEW32_LMUL2
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_IMPERAS_TESTS, CVA6V_DV_IMPERAS_V_TESTS, CVA6V_DV_IMPERAS_VP_TESTS]
+    requirement_ids: [CVA6V_FEAT_11, CVA6V_FEAT_12, CVA6V_FEAT_13, CVA6V_FEAT_14]
+    platforms: [cva6v.*]
+    owner: Raymond Garcia
+    flags: [ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/imperas-riscv-tests/riscv-test-suite/rv64i_m/Vp/src/VSLIDEDOWN-VI-SEW32_LMUL2, RUN_SCRIPT_ONLY]
+
+  - name: cva6v_imperas_Vp_rv64i_VSLIDE1DOWN-VX-SEW16_FRACLMUL
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_IMPERAS_TESTS, CVA6V_DV_IMPERAS_V_TESTS, CVA6V_DV_IMPERAS_VP_TESTS]
+    requirement_ids: [CVA6V_FEAT_11, CVA6V_FEAT_12, CVA6V_FEAT_13, CVA6V_FEAT_14]
+    platforms: [cva6v.*]
+    owner: Raymond Garcia
+    flags: [ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/imperas-riscv-tests/riscv-test-suite/rv64i_m/Vp/src/VSLIDE1DOWN-VX-SEW16_FRACLMUL, RUN_SCRIPT_ONLY]
+
+  - name: cva6v_imperas_Vp_rv64i_VSLIDEDOWN-VX-SEW32_LMUL4
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_IMPERAS_TESTS, CVA6V_DV_IMPERAS_V_TESTS, CVA6V_DV_IMPERAS_VP_TESTS]
+    requirement_ids: [CVA6V_FEAT_11, CVA6V_FEAT_12, CVA6V_FEAT_13, CVA6V_FEAT_14]
+    platforms: [cva6v.*]
+    owner: Raymond Garcia
+    flags: [ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/imperas-riscv-tests/riscv-test-suite/rv64i_m/Vp/src/VSLIDEDOWN-VX-SEW32_LMUL4, RUN_SCRIPT_ONLY]
+
+  - name: cva6v_imperas_Vp_rv64i_VSLIDEUP-VI-SEW8_LMUL4
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_IMPERAS_TESTS, CVA6V_DV_IMPERAS_V_TESTS, CVA6V_DV_IMPERAS_VP_TESTS]
+    requirement_ids: [CVA6V_FEAT_11, CVA6V_FEAT_12, CVA6V_FEAT_13, CVA6V_FEAT_14]
+    platforms: [cva6v.*]
+    owner: Raymond Garcia
+    flags: [ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/imperas-riscv-tests/riscv-test-suite/rv64i_m/Vp/src/VSLIDEUP-VI-SEW8_LMUL4, RUN_SCRIPT_ONLY]
+
+  - name: cva6v_imperas_Vp_rv64i_VSLIDEUP-VX-SEW8_LMUL4
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_IMPERAS_TESTS, CVA6V_DV_IMPERAS_V_TESTS, CVA6V_DV_IMPERAS_VP_TESTS]
+    requirement_ids: [CVA6V_FEAT_11, CVA6V_FEAT_12, CVA6V_FEAT_13, CVA6V_FEAT_14]
+    platforms: [cva6v.*]
+    owner: Raymond Garcia
+    flags: [ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/imperas-riscv-tests/riscv-test-suite/rv64i_m/Vp/src/VSLIDEUP-VX-SEW8_LMUL4, RUN_SCRIPT_ONLY]
+
+  - name: cva6v_imperas_Vp_rv64i_VRGATHER-VV-SEW32_FRACLMUL
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_IMPERAS_TESTS, CVA6V_DV_IMPERAS_V_TESTS, CVA6V_DV_IMPERAS_VP_TESTS]
+    requirement_ids: [CVA6V_FEAT_11, CVA6V_FEAT_12, CVA6V_FEAT_13, CVA6V_FEAT_14]
+    platforms: [cva6v.*]
+    owner: Raymond Garcia
+    flags: [ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/imperas-riscv-tests/riscv-test-suite/rv64i_m/Vp/src/VRGATHER-VV-SEW32_FRACLMUL, RUN_SCRIPT_ONLY]
+
+  - name: cva6v_imperas_Vp_rv64i_VFSLIDE1UP-VF-SEW16_LMUL4
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_IMPERAS_TESTS, CVA6V_DV_IMPERAS_V_TESTS, CVA6V_DV_IMPERAS_VP_TESTS]
+    requirement_ids: [CVA6V_FEAT_11, CVA6V_FEAT_12, CVA6V_FEAT_13, CVA6V_FEAT_14]
+    platforms: [cva6v.*]
+    owner: Raymond Garcia
+    flags: [ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/imperas-riscv-tests/riscv-test-suite/rv64i_m/Vp/src/VFSLIDE1UP-VF-SEW16_LMUL4, RUN_SCRIPT_ONLY]
+
+  - name: cva6v_imperas_Vp_rv64i_VRGATHER-VI-SEW16_LMUL8
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_IMPERAS_TESTS, CVA6V_DV_IMPERAS_V_TESTS, CVA6V_DV_IMPERAS_VP_TESTS]
+    requirement_ids: [CVA6V_FEAT_11, CVA6V_FEAT_12, CVA6V_FEAT_13, CVA6V_FEAT_14]
+    platforms: [cva6v.*]
+    owner: Raymond Garcia
+    flags: [ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/imperas-riscv-tests/riscv-test-suite/rv64i_m/Vp/src/VRGATHER-VI-SEW16_LMUL8, RUN_SCRIPT_ONLY]
+
+  - name: cva6v_imperas_Vp_rv64i_VCOMPRESS-VM-SEW32_FRACLMUL
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_IMPERAS_TESTS, CVA6V_DV_IMPERAS_V_TESTS, CVA6V_DV_IMPERAS_VP_TESTS]
+    requirement_ids: [CVA6V_FEAT_11, CVA6V_FEAT_12, CVA6V_FEAT_13, CVA6V_FEAT_14]
+    platforms: [cva6v.*]
+    owner: Raymond Garcia
+    flags: [ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/imperas-riscv-tests/riscv-test-suite/rv64i_m/Vp/src/VCOMPRESS-VM-SEW32_FRACLMUL, RUN_SCRIPT_ONLY]
+
+  - name: cva6v_imperas_Vp_rv64i_VCOMPRESS-VM-SEW16_FRACLMUL
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_IMPERAS_TESTS, CVA6V_DV_IMPERAS_V_TESTS, CVA6V_DV_IMPERAS_VP_TESTS]
+    requirement_ids: [CVA6V_FEAT_11, CVA6V_FEAT_12, CVA6V_FEAT_13, CVA6V_FEAT_14]
+    platforms: [cva6v.*]
+    owner: Raymond Garcia
+    flags: [ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/imperas-riscv-tests/riscv-test-suite/rv64i_m/Vp/src/VCOMPRESS-VM-SEW16_FRACLMUL, RUN_SCRIPT_ONLY]
+
+  - name: cva6v_imperas_Vp_rv64i_VMV-X-S-SEW8_LMUL1
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_IMPERAS_TESTS, CVA6V_DV_IMPERAS_V_TESTS, CVA6V_DV_IMPERAS_VP_TESTS]
+    requirement_ids: [CVA6V_FEAT_11, CVA6V_FEAT_12, CVA6V_FEAT_13, CVA6V_FEAT_14]
+    platforms: [cva6v.*]
+    owner: Raymond Garcia
+    flags: [ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/imperas-riscv-tests/riscv-test-suite/rv64i_m/Vp/src/VMV-X-S-SEW8_LMUL1, RUN_SCRIPT_ONLY]
+
+  - name: cva6v_imperas_Vp_rv64i_VSLIDEUP-VX-SEW32_LMUL1
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_IMPERAS_TESTS, CVA6V_DV_IMPERAS_V_TESTS, CVA6V_DV_IMPERAS_VP_TESTS]
+    requirement_ids: [CVA6V_FEAT_11, CVA6V_FEAT_12, CVA6V_FEAT_13, CVA6V_FEAT_14]
+    platforms: [cva6v.*]
+    owner: Raymond Garcia
+    flags: [ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/imperas-riscv-tests/riscv-test-suite/rv64i_m/Vp/src/VSLIDEUP-VX-SEW32_LMUL1, RUN_SCRIPT_ONLY]
+
+  - name: cva6v_imperas_Vp_rv64i_VSLIDE1DOWN-VX-SEW16_LMUL2
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_IMPERAS_TESTS, CVA6V_DV_IMPERAS_V_TESTS, CVA6V_DV_IMPERAS_VP_TESTS]
+    requirement_ids: [CVA6V_FEAT_11, CVA6V_FEAT_12, CVA6V_FEAT_13, CVA6V_FEAT_14]
+    platforms: [cva6v.*]
+    owner: Raymond Garcia
+    flags: [ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/imperas-riscv-tests/riscv-test-suite/rv64i_m/Vp/src/VSLIDE1DOWN-VX-SEW16_LMUL2, RUN_SCRIPT_ONLY]
+
+  - name: cva6v_imperas_Vp_rv64i_VSLIDEUP-VX-SEW8_LMUL1
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_IMPERAS_TESTS, CVA6V_DV_IMPERAS_V_TESTS, CVA6V_DV_IMPERAS_VP_TESTS]
+    requirement_ids: [CVA6V_FEAT_11, CVA6V_FEAT_12, CVA6V_FEAT_13, CVA6V_FEAT_14]
+    platforms: [cva6v.*]
+    owner: Raymond Garcia
+    flags: [ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/imperas-riscv-tests/riscv-test-suite/rv64i_m/Vp/src/VSLIDEUP-VX-SEW8_LMUL1, RUN_SCRIPT_ONLY]
+
+  - name: cva6v_imperas_Vp_rv64i_VSLIDEUP-VI-SEW32_LMUL1
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_IMPERAS_TESTS, CVA6V_DV_IMPERAS_V_TESTS, CVA6V_DV_IMPERAS_VP_TESTS]
+    requirement_ids: [CVA6V_FEAT_11, CVA6V_FEAT_12, CVA6V_FEAT_13, CVA6V_FEAT_14]
+    platforms: [cva6v.*]
+    owner: Raymond Garcia
+    flags: [ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/imperas-riscv-tests/riscv-test-suite/rv64i_m/Vp/src/VSLIDEUP-VI-SEW32_LMUL1, RUN_SCRIPT_ONLY]
+
+  - name: cva6v_imperas_Vp_rv64i_VFMV-S-F-SEW32_LMUL8
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_IMPERAS_TESTS, CVA6V_DV_IMPERAS_V_TESTS, CVA6V_DV_IMPERAS_VP_TESTS]
+    requirement_ids: [CVA6V_FEAT_11, CVA6V_FEAT_12, CVA6V_FEAT_13, CVA6V_FEAT_14]
+    platforms: [cva6v.*]
+    owner: Raymond Garcia
+    flags: [ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/imperas-riscv-tests/riscv-test-suite/rv64i_m/Vp/src/VFMV-S-F-SEW32_LMUL8, RUN_SCRIPT_ONLY]
+
+  - name: cva6v_imperas_Vp_rv64i_VSLIDEDOWN-VX-SEW32_LMUL2
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_IMPERAS_TESTS, CVA6V_DV_IMPERAS_V_TESTS, CVA6V_DV_IMPERAS_VP_TESTS]
+    requirement_ids: [CVA6V_FEAT_11, CVA6V_FEAT_12, CVA6V_FEAT_13, CVA6V_FEAT_14]
+    platforms: [cva6v.*]
+    owner: Raymond Garcia
+    flags: [ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/imperas-riscv-tests/riscv-test-suite/rv64i_m/Vp/src/VSLIDEDOWN-VX-SEW32_LMUL2, RUN_SCRIPT_ONLY]
+
+  - name: cva6v_imperas_Vp_rv64i_VMV-X-S-SEW32_LMUL1
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_IMPERAS_TESTS, CVA6V_DV_IMPERAS_V_TESTS, CVA6V_DV_IMPERAS_VP_TESTS]
+    requirement_ids: [CVA6V_FEAT_11, CVA6V_FEAT_12, CVA6V_FEAT_13, CVA6V_FEAT_14]
+    platforms: [cva6v.*]
+    owner: Raymond Garcia
+    flags: [ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/imperas-riscv-tests/riscv-test-suite/rv64i_m/Vp/src/VMV-X-S-SEW32_LMUL1, RUN_SCRIPT_ONLY]
+
+  - name: cva6v_imperas_Vp_rv64i_VSLIDEUP-VX-SEW32_LMUL8
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_IMPERAS_TESTS, CVA6V_DV_IMPERAS_V_TESTS, CVA6V_DV_IMPERAS_VP_TESTS]
+    requirement_ids: [CVA6V_FEAT_11, CVA6V_FEAT_12, CVA6V_FEAT_13, CVA6V_FEAT_14]
+    platforms: [cva6v.*]
+    owner: Raymond Garcia
+    flags: [ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/imperas-riscv-tests/riscv-test-suite/rv64i_m/Vp/src/VSLIDEUP-VX-SEW32_LMUL8, RUN_SCRIPT_ONLY]
+
+  - name: cva6v_imperas_Vp_rv64i_VRGATHER-VX-SEW16_LMUL4
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_IMPERAS_TESTS, CVA6V_DV_IMPERAS_V_TESTS, CVA6V_DV_IMPERAS_VP_TESTS]
+    requirement_ids: [CVA6V_FEAT_11, CVA6V_FEAT_12, CVA6V_FEAT_13, CVA6V_FEAT_14]
+    platforms: [cva6v.*]
+    owner: Raymond Garcia
+    flags: [ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/imperas-riscv-tests/riscv-test-suite/rv64i_m/Vp/src/VRGATHER-VX-SEW16_LMUL4, RUN_SCRIPT_ONLY]
+
+  - name: cva6v_imperas_Vp_rv64i_VMV-S-X-SEW32_FRACLMUL
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_IMPERAS_TESTS, CVA6V_DV_IMPERAS_V_TESTS, CVA6V_DV_IMPERAS_VP_TESTS]
+    requirement_ids: [CVA6V_FEAT_11, CVA6V_FEAT_12, CVA6V_FEAT_13, CVA6V_FEAT_14]
+    platforms: [cva6v.*]
+    owner: Raymond Garcia
+    flags: [ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/imperas-riscv-tests/riscv-test-suite/rv64i_m/Vp/src/VMV-S-X-SEW32_FRACLMUL, RUN_SCRIPT_ONLY]
+
+  - name: cva6v_imperas_Vp_rv64i_VSLIDEDOWN-VI-SEW8_LMUL4
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_IMPERAS_TESTS, CVA6V_DV_IMPERAS_V_TESTS, CVA6V_DV_IMPERAS_VP_TESTS]
+    requirement_ids: [CVA6V_FEAT_11, CVA6V_FEAT_12, CVA6V_FEAT_13, CVA6V_FEAT_14]
+    platforms: [cva6v.*]
+    owner: Raymond Garcia
+    flags: [ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/imperas-riscv-tests/riscv-test-suite/rv64i_m/Vp/src/VSLIDEDOWN-VI-SEW8_LMUL4, RUN_SCRIPT_ONLY]
+
+  - name: cva6v_imperas_Vp_rv64i_VFSLIDE1DOWN-VF-SEW16_FRACLMUL
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_IMPERAS_TESTS, CVA6V_DV_IMPERAS_V_TESTS, CVA6V_DV_IMPERAS_VP_TESTS]
+    requirement_ids: [CVA6V_FEAT_11, CVA6V_FEAT_12, CVA6V_FEAT_13, CVA6V_FEAT_14]
+    platforms: [cva6v.*]
+    owner: Raymond Garcia
+    flags: [ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/imperas-riscv-tests/riscv-test-suite/rv64i_m/Vp/src/VFSLIDE1DOWN-VF-SEW16_FRACLMUL, RUN_SCRIPT_ONLY]
+
+  - name: cva6v_imperas_Vp_rv64i_VSLIDEDOWN-VX-SEW16_LMUL4
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_IMPERAS_TESTS, CVA6V_DV_IMPERAS_V_TESTS, CVA6V_DV_IMPERAS_VP_TESTS]
+    requirement_ids: [CVA6V_FEAT_11, CVA6V_FEAT_12, CVA6V_FEAT_13, CVA6V_FEAT_14]
+    platforms: [cva6v.*]
+    owner: Raymond Garcia
+    flags: [ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/imperas-riscv-tests/riscv-test-suite/rv64i_m/Vp/src/VSLIDEDOWN-VX-SEW16_LMUL4, RUN_SCRIPT_ONLY]
+
+  - name: cva6v_imperas_Vp_rv64i_VRGATHEREI16-VV-SEW8_LMUL1
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_IMPERAS_TESTS, CVA6V_DV_IMPERAS_V_TESTS, CVA6V_DV_IMPERAS_VP_TESTS]
+    requirement_ids: [CVA6V_FEAT_11, CVA6V_FEAT_12, CVA6V_FEAT_13, CVA6V_FEAT_14]
+    platforms: [cva6v.*]
+    owner: Raymond Garcia
+    flags: [ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/imperas-riscv-tests/riscv-test-suite/rv64i_m/Vp/src/VRGATHEREI16-VV-SEW8_LMUL1, RUN_SCRIPT_ONLY]
+
+  - name: cva6v_imperas_Vp_rv64i_VRGATHER-VV-SEW16_LMUL4
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_IMPERAS_TESTS, CVA6V_DV_IMPERAS_V_TESTS, CVA6V_DV_IMPERAS_VP_TESTS]
+    requirement_ids: [CVA6V_FEAT_11, CVA6V_FEAT_12, CVA6V_FEAT_13, CVA6V_FEAT_14]
+    platforms: [cva6v.*]
+    owner: Raymond Garcia
+    flags: [ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/imperas-riscv-tests/riscv-test-suite/rv64i_m/Vp/src/VRGATHER-VV-SEW16_LMUL4, RUN_SCRIPT_ONLY]
+
+  - name: cva6v_imperas_Vp_rv64i_VSLIDEDOWN-VX-SEW8_LMUL2
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_IMPERAS_TESTS, CVA6V_DV_IMPERAS_V_TESTS, CVA6V_DV_IMPERAS_VP_TESTS]
+    requirement_ids: [CVA6V_FEAT_11, CVA6V_FEAT_12, CVA6V_FEAT_13, CVA6V_FEAT_14]
+    platforms: [cva6v.*]
+    owner: Raymond Garcia
+    flags: [ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/imperas-riscv-tests/riscv-test-suite/rv64i_m/Vp/src/VSLIDEDOWN-VX-SEW8_LMUL2, RUN_SCRIPT_ONLY]
+
+  - name: cva6v_imperas_Vp_rv64i_VRGATHER-VX-SEW8_FRACLMUL
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_IMPERAS_TESTS, CVA6V_DV_IMPERAS_V_TESTS, CVA6V_DV_IMPERAS_VP_TESTS]
+    requirement_ids: [CVA6V_FEAT_11, CVA6V_FEAT_12, CVA6V_FEAT_13, CVA6V_FEAT_14]
+    platforms: [cva6v.*]
+    owner: Raymond Garcia
+    flags: [ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/imperas-riscv-tests/riscv-test-suite/rv64i_m/Vp/src/VRGATHER-VX-SEW8_FRACLMUL, RUN_SCRIPT_ONLY]
+
+  - name: cva6v_imperas_Vp_rv64i_VMV-S-X-SEW16_LMUL1
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_IMPERAS_TESTS, CVA6V_DV_IMPERAS_V_TESTS, CVA6V_DV_IMPERAS_VP_TESTS]
+    requirement_ids: [CVA6V_FEAT_11, CVA6V_FEAT_12, CVA6V_FEAT_13, CVA6V_FEAT_14]
+    platforms: [cva6v.*]
+    owner: Raymond Garcia
+    flags: [ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/imperas-riscv-tests/riscv-test-suite/rv64i_m/Vp/src/VMV-S-X-SEW16_LMUL1, RUN_SCRIPT_ONLY]
+
+  - name: cva6v_imperas_Vp_rv64i_VCOMPRESS-VM-SEW16_LMUL4
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_IMPERAS_TESTS, CVA6V_DV_IMPERAS_V_TESTS, CVA6V_DV_IMPERAS_VP_TESTS]
+    requirement_ids: [CVA6V_FEAT_11, CVA6V_FEAT_12, CVA6V_FEAT_13, CVA6V_FEAT_14]
+    platforms: [cva6v.*]
+    owner: Raymond Garcia
+    flags: [ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/imperas-riscv-tests/riscv-test-suite/rv64i_m/Vp/src/VCOMPRESS-VM-SEW16_LMUL4, RUN_SCRIPT_ONLY]
+
+  - name: cva6v_imperas_Vp_rv64i_VRGATHER-VV-SEW32_LMUL2
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_IMPERAS_TESTS, CVA6V_DV_IMPERAS_V_TESTS, CVA6V_DV_IMPERAS_VP_TESTS]
+    requirement_ids: [CVA6V_FEAT_11, CVA6V_FEAT_12, CVA6V_FEAT_13, CVA6V_FEAT_14]
+    platforms: [cva6v.*]
+    owner: Raymond Garcia
+    flags: [ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/imperas-riscv-tests/riscv-test-suite/rv64i_m/Vp/src/VRGATHER-VV-SEW32_LMUL2, RUN_SCRIPT_ONLY]
+
+  - name: cva6v_imperas_Vp_rv64i_VSLIDEUP-VI-SEW32_LMUL8
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_IMPERAS_TESTS, CVA6V_DV_IMPERAS_V_TESTS, CVA6V_DV_IMPERAS_VP_TESTS]
+    requirement_ids: [CVA6V_FEAT_11, CVA6V_FEAT_12, CVA6V_FEAT_13, CVA6V_FEAT_14]
+    platforms: [cva6v.*]
+    owner: Raymond Garcia
+    flags: [ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/imperas-riscv-tests/riscv-test-suite/rv64i_m/Vp/src/VSLIDEUP-VI-SEW32_LMUL8, RUN_SCRIPT_ONLY]
+
+  - name: cva6v_imperas_Vp_rv64i_VRGATHER-VX-SEW16_LMUL2
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_IMPERAS_TESTS, CVA6V_DV_IMPERAS_V_TESTS, CVA6V_DV_IMPERAS_VP_TESTS]
+    requirement_ids: [CVA6V_FEAT_11, CVA6V_FEAT_12, CVA6V_FEAT_13, CVA6V_FEAT_14]
+    platforms: [cva6v.*]
+    owner: Raymond Garcia
+    flags: [ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/imperas-riscv-tests/riscv-test-suite/rv64i_m/Vp/src/VRGATHER-VX-SEW16_LMUL2, RUN_SCRIPT_ONLY]
+
+  - name: cva6v_imperas_Vp_rv64i_VCOMPRESS-VM-SEW16_LMUL1
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_IMPERAS_TESTS, CVA6V_DV_IMPERAS_V_TESTS, CVA6V_DV_IMPERAS_VP_TESTS]
+    requirement_ids: [CVA6V_FEAT_11, CVA6V_FEAT_12, CVA6V_FEAT_13, CVA6V_FEAT_14]
+    platforms: [cva6v.*]
+    owner: Raymond Garcia
+    flags: [ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/imperas-riscv-tests/riscv-test-suite/rv64i_m/Vp/src/VCOMPRESS-VM-SEW16_LMUL1, RUN_SCRIPT_ONLY]
+
+  - name: cva6v_imperas_Vp_rv64i_VRGATHER-VX-SEW32_LMUL8
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_IMPERAS_TESTS, CVA6V_DV_IMPERAS_V_TESTS, CVA6V_DV_IMPERAS_VP_TESTS]
+    requirement_ids: [CVA6V_FEAT_11, CVA6V_FEAT_12, CVA6V_FEAT_13, CVA6V_FEAT_14]
+    platforms: [cva6v.*]
+    owner: Raymond Garcia
+    flags: [ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/imperas-riscv-tests/riscv-test-suite/rv64i_m/Vp/src/VRGATHER-VX-SEW32_LMUL8, RUN_SCRIPT_ONLY]
+
+  - name: cva6v_imperas_Vp_rv64i_VMV4R-V-SEW32_FRACLMUL
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_IMPERAS_TESTS, CVA6V_DV_IMPERAS_V_TESTS, CVA6V_DV_IMPERAS_VP_TESTS]
+    requirement_ids: [CVA6V_FEAT_11, CVA6V_FEAT_12, CVA6V_FEAT_13, CVA6V_FEAT_14]
+    platforms: [cva6v.*]
+    owner: Raymond Garcia
+    flags: [ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/imperas-riscv-tests/riscv-test-suite/rv64i_m/Vp/src/VMV4R-V-SEW32_FRACLMUL, RUN_SCRIPT_ONLY]
+
+  - name: cva6v_imperas_Vp_rv64i_VSLIDEDOWN-VI-SEW16_LMUL1
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_IMPERAS_TESTS, CVA6V_DV_IMPERAS_V_TESTS, CVA6V_DV_IMPERAS_VP_TESTS]
+    requirement_ids: [CVA6V_FEAT_11, CVA6V_FEAT_12, CVA6V_FEAT_13, CVA6V_FEAT_14]
+    platforms: [cva6v.*]
+    owner: Raymond Garcia
+    flags: [ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/imperas-riscv-tests/riscv-test-suite/rv64i_m/Vp/src/VSLIDEDOWN-VI-SEW16_LMUL1, RUN_SCRIPT_ONLY]
+
+  - name: cva6v_imperas_Vp_rv64i_VMV-X-S-SEW32_FRACLMUL
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_IMPERAS_TESTS, CVA6V_DV_IMPERAS_V_TESTS, CVA6V_DV_IMPERAS_VP_TESTS]
+    requirement_ids: [CVA6V_FEAT_11, CVA6V_FEAT_12, CVA6V_FEAT_13, CVA6V_FEAT_14]
+    platforms: [cva6v.*]
+    owner: Raymond Garcia
+    flags: [ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/imperas-riscv-tests/riscv-test-suite/rv64i_m/Vp/src/VMV-X-S-SEW32_FRACLMUL, RUN_SCRIPT_ONLY]
+
+  - name: cva6v_imperas_Vp_rv64i_VCOMPRESS-VM-SEW32_LMUL4
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_IMPERAS_TESTS, CVA6V_DV_IMPERAS_V_TESTS, CVA6V_DV_IMPERAS_VP_TESTS]
+    requirement_ids: [CVA6V_FEAT_11, CVA6V_FEAT_12, CVA6V_FEAT_13, CVA6V_FEAT_14]
+    platforms: [cva6v.*]
+    owner: Raymond Garcia
+    flags: [ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/imperas-riscv-tests/riscv-test-suite/rv64i_m/Vp/src/VCOMPRESS-VM-SEW32_LMUL4, RUN_SCRIPT_ONLY]
+
+  - name: cva6v_imperas_Vp_rv64i_VRGATHEREI16-VV-SEW16_LMUL1
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_IMPERAS_TESTS, CVA6V_DV_IMPERAS_V_TESTS, CVA6V_DV_IMPERAS_VP_TESTS]
+    requirement_ids: [CVA6V_FEAT_11, CVA6V_FEAT_12, CVA6V_FEAT_13, CVA6V_FEAT_14]
+    platforms: [cva6v.*]
+    owner: Raymond Garcia
+    flags: [ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/imperas-riscv-tests/riscv-test-suite/rv64i_m/Vp/src/VRGATHEREI16-VV-SEW16_LMUL1, RUN_SCRIPT_ONLY]
+
+  - name: cva6v_imperas_Vp_rv64i_VSLIDE1UP-VX-SEW32_LMUL1
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_IMPERAS_TESTS, CVA6V_DV_IMPERAS_V_TESTS, CVA6V_DV_IMPERAS_VP_TESTS]
+    requirement_ids: [CVA6V_FEAT_11, CVA6V_FEAT_12, CVA6V_FEAT_13, CVA6V_FEAT_14]
+    platforms: [cva6v.*]
+    owner: Raymond Garcia
+    flags: [ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/imperas-riscv-tests/riscv-test-suite/rv64i_m/Vp/src/VSLIDE1UP-VX-SEW32_LMUL1, RUN_SCRIPT_ONLY]
+
+  - name: cva6v_imperas_Vp_rv64i_VSLIDE1DOWN-VX-SEW32_LMUL1
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_IMPERAS_TESTS, CVA6V_DV_IMPERAS_V_TESTS, CVA6V_DV_IMPERAS_VP_TESTS]
+    requirement_ids: [CVA6V_FEAT_11, CVA6V_FEAT_12, CVA6V_FEAT_13, CVA6V_FEAT_14]
+    platforms: [cva6v.*]
+    owner: Raymond Garcia
+    flags: [ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/imperas-riscv-tests/riscv-test-suite/rv64i_m/Vp/src/VSLIDE1DOWN-VX-SEW32_LMUL1, RUN_SCRIPT_ONLY]
+
+  - name: cva6v_imperas_Vp_rv64i_VSLIDE1DOWN-VX-SEW16_LMUL4
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_IMPERAS_TESTS, CVA6V_DV_IMPERAS_V_TESTS, CVA6V_DV_IMPERAS_VP_TESTS]
+    requirement_ids: [CVA6V_FEAT_11, CVA6V_FEAT_12, CVA6V_FEAT_13, CVA6V_FEAT_14]
+    platforms: [cva6v.*]
+    owner: Raymond Garcia
+    flags: [ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/imperas-riscv-tests/riscv-test-suite/rv64i_m/Vp/src/VSLIDE1DOWN-VX-SEW16_LMUL4, RUN_SCRIPT_ONLY]
+
+  - name: cva6v_imperas_Vp_rv64i_VRGATHER-VI-SEW8_FRACLMUL
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_IMPERAS_TESTS, CVA6V_DV_IMPERAS_V_TESTS, CVA6V_DV_IMPERAS_VP_TESTS]
+    requirement_ids: [CVA6V_FEAT_11, CVA6V_FEAT_12, CVA6V_FEAT_13, CVA6V_FEAT_14]
+    platforms: [cva6v.*]
+    owner: Raymond Garcia
+    flags: [ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/imperas-riscv-tests/riscv-test-suite/rv64i_m/Vp/src/VRGATHER-VI-SEW8_FRACLMUL, RUN_SCRIPT_ONLY]
+
+  - name: cva6v_imperas_Vp_rv64i_VCOMPRESS-VM-SEW8_FRACLMUL
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_IMPERAS_TESTS, CVA6V_DV_IMPERAS_V_TESTS, CVA6V_DV_IMPERAS_VP_TESTS]
+    requirement_ids: [CVA6V_FEAT_11, CVA6V_FEAT_12, CVA6V_FEAT_13, CVA6V_FEAT_14]
+    platforms: [cva6v.*]
+    owner: Raymond Garcia
+    flags: [ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/imperas-riscv-tests/riscv-test-suite/rv64i_m/Vp/src/VCOMPRESS-VM-SEW8_FRACLMUL, RUN_SCRIPT_ONLY]
+
+  - name: cva6v_imperas_Vp_rv64i_VRGATHER-VV-SEW8_LMUL2
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_IMPERAS_TESTS, CVA6V_DV_IMPERAS_V_TESTS, CVA6V_DV_IMPERAS_VP_TESTS]
+    requirement_ids: [CVA6V_FEAT_11, CVA6V_FEAT_12, CVA6V_FEAT_13, CVA6V_FEAT_14]
+    platforms: [cva6v.*]
+    owner: Raymond Garcia
+    flags: [ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/imperas-riscv-tests/riscv-test-suite/rv64i_m/Vp/src/VRGATHER-VV-SEW8_LMUL2, RUN_SCRIPT_ONLY]
+
+  - name: cva6v_imperas_Vp_rv64i_VFMV-S-F-SEW32_FRACLMUL
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_IMPERAS_TESTS, CVA6V_DV_IMPERAS_V_TESTS, CVA6V_DV_IMPERAS_VP_TESTS]
+    requirement_ids: [CVA6V_FEAT_11, CVA6V_FEAT_12, CVA6V_FEAT_13, CVA6V_FEAT_14]
+    platforms: [cva6v.*]
+    owner: Raymond Garcia
+    flags: [ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/imperas-riscv-tests/riscv-test-suite/rv64i_m/Vp/src/VFMV-S-F-SEW32_FRACLMUL, RUN_SCRIPT_ONLY]
+
+  - name: cva6v_imperas_Vp_rv64i_VFSLIDE1UP-VF-SEW32_LMUL8
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_IMPERAS_TESTS, CVA6V_DV_IMPERAS_V_TESTS, CVA6V_DV_IMPERAS_VP_TESTS]
+    requirement_ids: [CVA6V_FEAT_11, CVA6V_FEAT_12, CVA6V_FEAT_13, CVA6V_FEAT_14]
+    platforms: [cva6v.*]
+    owner: Raymond Garcia
+    flags: [ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/imperas-riscv-tests/riscv-test-suite/rv64i_m/Vp/src/VFSLIDE1UP-VF-SEW32_LMUL8, RUN_SCRIPT_ONLY]
+
+  - name: cva6v_imperas_Vp_rv64i_VMV-S-X-SEW8_FRACLMUL
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_IMPERAS_TESTS, CVA6V_DV_IMPERAS_V_TESTS, CVA6V_DV_IMPERAS_VP_TESTS]
+    requirement_ids: [CVA6V_FEAT_11, CVA6V_FEAT_12, CVA6V_FEAT_13, CVA6V_FEAT_14]
+    platforms: [cva6v.*]
+    owner: Raymond Garcia
+    flags: [ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/imperas-riscv-tests/riscv-test-suite/rv64i_m/Vp/src/VMV-S-X-SEW8_FRACLMUL, RUN_SCRIPT_ONLY]
+
+  - name: cva6v_imperas_Vp_rv64i_VFSLIDE1UP-VF-SEW32_FRACLMUL
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_IMPERAS_TESTS, CVA6V_DV_IMPERAS_V_TESTS, CVA6V_DV_IMPERAS_VP_TESTS]
+    requirement_ids: [CVA6V_FEAT_11, CVA6V_FEAT_12, CVA6V_FEAT_13, CVA6V_FEAT_14]
+    platforms: [cva6v.*]
+    owner: Raymond Garcia
+    flags: [ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/imperas-riscv-tests/riscv-test-suite/rv64i_m/Vp/src/VFSLIDE1UP-VF-SEW32_FRACLMUL, RUN_SCRIPT_ONLY]
+
+  - name: cva6v_imperas_Vp_rv64i_VSLIDE1DOWN-VX-SEW32_LMUL4
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_IMPERAS_TESTS, CVA6V_DV_IMPERAS_V_TESTS, CVA6V_DV_IMPERAS_VP_TESTS]
+    requirement_ids: [CVA6V_FEAT_11, CVA6V_FEAT_12, CVA6V_FEAT_13, CVA6V_FEAT_14]
+    platforms: [cva6v.*]
+    owner: Raymond Garcia
+    flags: [ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/imperas-riscv-tests/riscv-test-suite/rv64i_m/Vp/src/VSLIDE1DOWN-VX-SEW32_LMUL4, RUN_SCRIPT_ONLY]
+
+  - name: cva6v_imperas_Vp_rv64i_VMV-S-X-SEW16_FRACLMUL
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_IMPERAS_TESTS, CVA6V_DV_IMPERAS_V_TESTS, CVA6V_DV_IMPERAS_VP_TESTS]
+    requirement_ids: [CVA6V_FEAT_11, CVA6V_FEAT_12, CVA6V_FEAT_13, CVA6V_FEAT_14]
+    platforms: [cva6v.*]
+    owner: Raymond Garcia
+    flags: [ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/imperas-riscv-tests/riscv-test-suite/rv64i_m/Vp/src/VMV-S-X-SEW16_FRACLMUL, RUN_SCRIPT_ONLY]
+
+  - name: cva6v_imperas_Vp_rv64i_VSLIDE1DOWN-VX-SEW32_LMUL2
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_IMPERAS_TESTS, CVA6V_DV_IMPERAS_V_TESTS, CVA6V_DV_IMPERAS_VP_TESTS]
+    requirement_ids: [CVA6V_FEAT_11, CVA6V_FEAT_12, CVA6V_FEAT_13, CVA6V_FEAT_14]
+    platforms: [cva6v.*]
+    owner: Raymond Garcia
+    flags: [ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/imperas-riscv-tests/riscv-test-suite/rv64i_m/Vp/src/VSLIDE1DOWN-VX-SEW32_LMUL2, RUN_SCRIPT_ONLY]
+
+  - name: cva6v_imperas_Vp_rv64i_VSLIDE1UP-VX-SEW16_LMUL8
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_IMPERAS_TESTS, CVA6V_DV_IMPERAS_V_TESTS, CVA6V_DV_IMPERAS_VP_TESTS]
+    requirement_ids: [CVA6V_FEAT_11, CVA6V_FEAT_12, CVA6V_FEAT_13, CVA6V_FEAT_14]
+    platforms: [cva6v.*]
+    owner: Raymond Garcia
+    flags: [ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/imperas-riscv-tests/riscv-test-suite/rv64i_m/Vp/src/VSLIDE1UP-VX-SEW16_LMUL8, RUN_SCRIPT_ONLY]
+
+  - name: cva6v_imperas_Vp_rv64i_VSLIDEUP-VI-SEW8_LMUL2
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_IMPERAS_TESTS, CVA6V_DV_IMPERAS_V_TESTS, CVA6V_DV_IMPERAS_VP_TESTS]
+    requirement_ids: [CVA6V_FEAT_11, CVA6V_FEAT_12, CVA6V_FEAT_13, CVA6V_FEAT_14]
+    platforms: [cva6v.*]
+    owner: Raymond Garcia
+    flags: [ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/imperas-riscv-tests/riscv-test-suite/rv64i_m/Vp/src/VSLIDEUP-VI-SEW8_LMUL2, RUN_SCRIPT_ONLY]
+
+  - name: cva6v_imperas_Vp_rv64i_VSLIDEUP-VI-SEW32_LMUL2
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_IMPERAS_TESTS, CVA6V_DV_IMPERAS_V_TESTS, CVA6V_DV_IMPERAS_VP_TESTS]
+    requirement_ids: [CVA6V_FEAT_11, CVA6V_FEAT_12, CVA6V_FEAT_13, CVA6V_FEAT_14]
+    platforms: [cva6v.*]
+    owner: Raymond Garcia
+    flags: [ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/imperas-riscv-tests/riscv-test-suite/rv64i_m/Vp/src/VSLIDEUP-VI-SEW32_LMUL2, RUN_SCRIPT_ONLY]
+
+  - name: cva6v_imperas_Vp_rv64i_VRGATHER-VX-SEW32_LMUL2
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_IMPERAS_TESTS, CVA6V_DV_IMPERAS_V_TESTS, CVA6V_DV_IMPERAS_VP_TESTS]
+    requirement_ids: [CVA6V_FEAT_11, CVA6V_FEAT_12, CVA6V_FEAT_13, CVA6V_FEAT_14]
+    platforms: [cva6v.*]
+    owner: Raymond Garcia
+    flags: [ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/imperas-riscv-tests/riscv-test-suite/rv64i_m/Vp/src/VRGATHER-VX-SEW32_LMUL2, RUN_SCRIPT_ONLY]
+
+  - name: cva6v_imperas_Vp_rv64i_VFSLIDE1DOWN-VF-SEW32_LMUL1
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_IMPERAS_TESTS, CVA6V_DV_IMPERAS_V_TESTS, CVA6V_DV_IMPERAS_VP_TESTS]
+    requirement_ids: [CVA6V_FEAT_11, CVA6V_FEAT_12, CVA6V_FEAT_13, CVA6V_FEAT_14]
+    platforms: [cva6v.*]
+    owner: Raymond Garcia
+    flags: [ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/imperas-riscv-tests/riscv-test-suite/rv64i_m/Vp/src/VFSLIDE1DOWN-VF-SEW32_LMUL1, RUN_SCRIPT_ONLY]
+
+  - name: cva6v_imperas_Vp_rv64i_VRGATHER-VV-SEW8_LMUL8
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_IMPERAS_TESTS, CVA6V_DV_IMPERAS_V_TESTS, CVA6V_DV_IMPERAS_VP_TESTS]
+    requirement_ids: [CVA6V_FEAT_11, CVA6V_FEAT_12, CVA6V_FEAT_13, CVA6V_FEAT_14]
+    platforms: [cva6v.*]
+    owner: Raymond Garcia
+    flags: [ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/imperas-riscv-tests/riscv-test-suite/rv64i_m/Vp/src/VRGATHER-VV-SEW8_LMUL8, RUN_SCRIPT_ONLY]
+
+  - name: cva6v_imperas_Vp_rv64i_VSLIDEUP-VI-SEW16_LMUL1
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_IMPERAS_TESTS, CVA6V_DV_IMPERAS_V_TESTS, CVA6V_DV_IMPERAS_VP_TESTS]
+    requirement_ids: [CVA6V_FEAT_11, CVA6V_FEAT_12, CVA6V_FEAT_13, CVA6V_FEAT_14]
+    platforms: [cva6v.*]
+    owner: Raymond Garcia
+    flags: [ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/imperas-riscv-tests/riscv-test-suite/rv64i_m/Vp/src/VSLIDEUP-VI-SEW16_LMUL1, RUN_SCRIPT_ONLY]
+
+  - name: cva6v_imperas_Vp_rv64i_VCOMPRESS-VM-SEW16_LMUL2
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_IMPERAS_TESTS, CVA6V_DV_IMPERAS_V_TESTS, CVA6V_DV_IMPERAS_VP_TESTS]
+    requirement_ids: [CVA6V_FEAT_11, CVA6V_FEAT_12, CVA6V_FEAT_13, CVA6V_FEAT_14]
+    platforms: [cva6v.*]
+    owner: Raymond Garcia
+    flags: [ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/imperas-riscv-tests/riscv-test-suite/rv64i_m/Vp/src/VCOMPRESS-VM-SEW16_LMUL2, RUN_SCRIPT_ONLY]
+
+  - name: cva6v_imperas_Vp_rv64i_VSLIDEUP-VX-SEW16_LMUL2
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_IMPERAS_TESTS, CVA6V_DV_IMPERAS_V_TESTS, CVA6V_DV_IMPERAS_VP_TESTS]
+    requirement_ids: [CVA6V_FEAT_11, CVA6V_FEAT_12, CVA6V_FEAT_13, CVA6V_FEAT_14]
+    platforms: [cva6v.*]
+    owner: Raymond Garcia
+    flags: [ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/imperas-riscv-tests/riscv-test-suite/rv64i_m/Vp/src/VSLIDEUP-VX-SEW16_LMUL2, RUN_SCRIPT_ONLY]
+
+  - name: cva6v_imperas_Vp_rv64i_VRGATHEREI16-VV-SEW8_FRACLMUL
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_IMPERAS_TESTS, CVA6V_DV_IMPERAS_V_TESTS, CVA6V_DV_IMPERAS_VP_TESTS]
+    requirement_ids: [CVA6V_FEAT_11, CVA6V_FEAT_12, CVA6V_FEAT_13, CVA6V_FEAT_14]
+    platforms: [cva6v.*]
+    owner: Raymond Garcia
+    flags: [ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/imperas-riscv-tests/riscv-test-suite/rv64i_m/Vp/src/VRGATHEREI16-VV-SEW8_FRACLMUL, RUN_SCRIPT_ONLY]
+
+  - name: cva6v_imperas_Vp_rv64i_VMV8R-V-SEW32_LMUL1
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_IMPERAS_TESTS, CVA6V_DV_IMPERAS_V_TESTS, CVA6V_DV_IMPERAS_VP_TESTS]
+    requirement_ids: [CVA6V_FEAT_11, CVA6V_FEAT_12, CVA6V_FEAT_13, CVA6V_FEAT_14]
+    platforms: [cva6v.*]
+    owner: Raymond Garcia
+    flags: [ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/imperas-riscv-tests/riscv-test-suite/rv64i_m/Vp/src/VMV8R-V-SEW32_LMUL1, RUN_SCRIPT_ONLY]
+
+  - name: cva6v_imperas_Vp_rv64i_VMV8R-V-SEW32_FRACLMUL
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_IMPERAS_TESTS, CVA6V_DV_IMPERAS_V_TESTS, CVA6V_DV_IMPERAS_VP_TESTS]
+    requirement_ids: [CVA6V_FEAT_11, CVA6V_FEAT_12, CVA6V_FEAT_13, CVA6V_FEAT_14]
+    platforms: [cva6v.*]
+    owner: Raymond Garcia
+    flags: [ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/imperas-riscv-tests/riscv-test-suite/rv64i_m/Vp/src/VMV8R-V-SEW32_FRACLMUL, RUN_SCRIPT_ONLY]
+
+  - name: cva6v_imperas_Vp_rv64i_VRGATHEREI16-VV-SEW16_FRACLMUL
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_IMPERAS_TESTS, CVA6V_DV_IMPERAS_V_TESTS, CVA6V_DV_IMPERAS_VP_TESTS]
+    requirement_ids: [CVA6V_FEAT_11, CVA6V_FEAT_12, CVA6V_FEAT_13, CVA6V_FEAT_14]
+    platforms: [cva6v.*]
+    owner: Raymond Garcia
+    flags: [ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/imperas-riscv-tests/riscv-test-suite/rv64i_m/Vp/src/VRGATHEREI16-VV-SEW16_FRACLMUL, RUN_SCRIPT_ONLY]
+
+  - name: cva6v_imperas_Vp_rv64i_VSLIDEUP-VI-SEW16_LMUL4
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_IMPERAS_TESTS, CVA6V_DV_IMPERAS_V_TESTS, CVA6V_DV_IMPERAS_VP_TESTS]
+    requirement_ids: [CVA6V_FEAT_11, CVA6V_FEAT_12, CVA6V_FEAT_13, CVA6V_FEAT_14]
+    platforms: [cva6v.*]
+    owner: Raymond Garcia
+    flags: [ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/imperas-riscv-tests/riscv-test-suite/rv64i_m/Vp/src/VSLIDEUP-VI-SEW16_LMUL4, RUN_SCRIPT_ONLY]
+
+  - name: cva6v_imperas_Vp_rv64i_VMV4R-V-SEW32_LMUL1
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_IMPERAS_TESTS, CVA6V_DV_IMPERAS_V_TESTS, CVA6V_DV_IMPERAS_VP_TESTS]
+    requirement_ids: [CVA6V_FEAT_11, CVA6V_FEAT_12, CVA6V_FEAT_13, CVA6V_FEAT_14]
+    platforms: [cva6v.*]
+    owner: Raymond Garcia
+    flags: [ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/imperas-riscv-tests/riscv-test-suite/rv64i_m/Vp/src/VMV4R-V-SEW32_LMUL1, RUN_SCRIPT_ONLY]
+
+  - name: cva6v_imperas_Vp_rv64i_VRGATHER-VX-SEW8_LMUL4
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_IMPERAS_TESTS, CVA6V_DV_IMPERAS_V_TESTS, CVA6V_DV_IMPERAS_VP_TESTS]
+    requirement_ids: [CVA6V_FEAT_11, CVA6V_FEAT_12, CVA6V_FEAT_13, CVA6V_FEAT_14]
+    platforms: [cva6v.*]
+    owner: Raymond Garcia
+    flags: [ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/imperas-riscv-tests/riscv-test-suite/rv64i_m/Vp/src/VRGATHER-VX-SEW8_LMUL4, RUN_SCRIPT_ONLY]
+
+  - name: cva6v_imperas_Vp_rv64i_VSLIDE1UP-VX-SEW32_LMUL8
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_IMPERAS_TESTS, CVA6V_DV_IMPERAS_V_TESTS, CVA6V_DV_IMPERAS_VP_TESTS]
+    requirement_ids: [CVA6V_FEAT_11, CVA6V_FEAT_12, CVA6V_FEAT_13, CVA6V_FEAT_14]
+    platforms: [cva6v.*]
+    owner: Raymond Garcia
+    flags: [ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/imperas-riscv-tests/riscv-test-suite/rv64i_m/Vp/src/VSLIDE1UP-VX-SEW32_LMUL8, RUN_SCRIPT_ONLY]
+
+  - name: cva6v_imperas_Vp_rv64i_VSLIDEDOWN-VI-SEW32_LMUL4
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_IMPERAS_TESTS, CVA6V_DV_IMPERAS_V_TESTS, CVA6V_DV_IMPERAS_VP_TESTS]
+    requirement_ids: [CVA6V_FEAT_11, CVA6V_FEAT_12, CVA6V_FEAT_13, CVA6V_FEAT_14]
+    platforms: [cva6v.*]
+    owner: Raymond Garcia
+    flags: [ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/imperas-riscv-tests/riscv-test-suite/rv64i_m/Vp/src/VSLIDEDOWN-VI-SEW32_LMUL4, RUN_SCRIPT_ONLY]
+
+  - name: cva6v_imperas_Vp_rv64i_VRGATHER-VI-SEW16_FRACLMUL
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_IMPERAS_TESTS, CVA6V_DV_IMPERAS_V_TESTS, CVA6V_DV_IMPERAS_VP_TESTS]
+    requirement_ids: [CVA6V_FEAT_11, CVA6V_FEAT_12, CVA6V_FEAT_13, CVA6V_FEAT_14]
+    platforms: [cva6v.*]
+    owner: Raymond Garcia
+    flags: [ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/imperas-riscv-tests/riscv-test-suite/rv64i_m/Vp/src/VRGATHER-VI-SEW16_FRACLMUL, RUN_SCRIPT_ONLY]
+
+  - name: cva6v_imperas_Vp_rv64i_VFSLIDE1DOWN-VF-SEW16_LMUL8
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_IMPERAS_TESTS, CVA6V_DV_IMPERAS_V_TESTS, CVA6V_DV_IMPERAS_VP_TESTS]
+    requirement_ids: [CVA6V_FEAT_11, CVA6V_FEAT_12, CVA6V_FEAT_13, CVA6V_FEAT_14]
+    platforms: [cva6v.*]
+    owner: Raymond Garcia
+    flags: [ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/imperas-riscv-tests/riscv-test-suite/rv64i_m/Vp/src/VFSLIDE1DOWN-VF-SEW16_LMUL8, RUN_SCRIPT_ONLY]
+
+  - name: cva6v_imperas_Vp_rv64i_VFSLIDE1DOWN-VF-SEW16_LMUL2
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_IMPERAS_TESTS, CVA6V_DV_IMPERAS_V_TESTS, CVA6V_DV_IMPERAS_VP_TESTS]
+    requirement_ids: [CVA6V_FEAT_11, CVA6V_FEAT_12, CVA6V_FEAT_13, CVA6V_FEAT_14]
+    platforms: [cva6v.*]
+    owner: Raymond Garcia
+    flags: [ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/imperas-riscv-tests/riscv-test-suite/rv64i_m/Vp/src/VFSLIDE1DOWN-VF-SEW16_LMUL2, RUN_SCRIPT_ONLY]
+
+  - name: cva6v_imperas_Vp_rv64i_VSLIDEDOWN-VX-SEW16_FRACLMUL
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_IMPERAS_TESTS, CVA6V_DV_IMPERAS_V_TESTS, CVA6V_DV_IMPERAS_VP_TESTS]
+    requirement_ids: [CVA6V_FEAT_11, CVA6V_FEAT_12, CVA6V_FEAT_13, CVA6V_FEAT_14]
+    platforms: [cva6v.*]
+    owner: Raymond Garcia
+    flags: [ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/imperas-riscv-tests/riscv-test-suite/rv64i_m/Vp/src/VSLIDEDOWN-VX-SEW16_FRACLMUL, RUN_SCRIPT_ONLY]
+
+  - name: cva6v_imperas_Vp_rv64i_VSLIDEUP-VI-SEW8_LMUL8
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_IMPERAS_TESTS, CVA6V_DV_IMPERAS_V_TESTS, CVA6V_DV_IMPERAS_VP_TESTS]
+    requirement_ids: [CVA6V_FEAT_11, CVA6V_FEAT_12, CVA6V_FEAT_13, CVA6V_FEAT_14]
+    platforms: [cva6v.*]
+    owner: Raymond Garcia
+    flags: [ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/imperas-riscv-tests/riscv-test-suite/rv64i_m/Vp/src/VSLIDEUP-VI-SEW8_LMUL8, RUN_SCRIPT_ONLY]
+
+  - name: cva6v_imperas_Vp_rv64i_VSLIDEDOWN-VX-SEW32_LMUL8
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_IMPERAS_TESTS, CVA6V_DV_IMPERAS_V_TESTS, CVA6V_DV_IMPERAS_VP_TESTS]
+    requirement_ids: [CVA6V_FEAT_11, CVA6V_FEAT_12, CVA6V_FEAT_13, CVA6V_FEAT_14]
+    platforms: [cva6v.*]
+    owner: Raymond Garcia
+    flags: [ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/imperas-riscv-tests/riscv-test-suite/rv64i_m/Vp/src/VSLIDEDOWN-VX-SEW32_LMUL8, RUN_SCRIPT_ONLY]
+
+  - name: cva6v_imperas_Vp_rv64i_VSLIDEDOWN-VI-SEW32_LMUL8
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_IMPERAS_TESTS, CVA6V_DV_IMPERAS_V_TESTS, CVA6V_DV_IMPERAS_VP_TESTS]
+    requirement_ids: [CVA6V_FEAT_11, CVA6V_FEAT_12, CVA6V_FEAT_13, CVA6V_FEAT_14]
+    platforms: [cva6v.*]
+    owner: Raymond Garcia
+    flags: [ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/imperas-riscv-tests/riscv-test-suite/rv64i_m/Vp/src/VSLIDEDOWN-VI-SEW32_LMUL8, RUN_SCRIPT_ONLY]
+
+  - name: cva6v_imperas_Vp_rv64i_VSLIDEDOWN-VI-SEW16_LMUL8
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_IMPERAS_TESTS, CVA6V_DV_IMPERAS_V_TESTS, CVA6V_DV_IMPERAS_VP_TESTS]
+    requirement_ids: [CVA6V_FEAT_11, CVA6V_FEAT_12, CVA6V_FEAT_13, CVA6V_FEAT_14]
+    platforms: [cva6v.*]
+    owner: Raymond Garcia
+    flags: [ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/imperas-riscv-tests/riscv-test-suite/rv64i_m/Vp/src/VSLIDEDOWN-VI-SEW16_LMUL8, RUN_SCRIPT_ONLY]
+
+  - name: cva6v_imperas_Vp_rv64i_VSLIDEDOWN-VX-SEW32_LMUL1
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_IMPERAS_TESTS, CVA6V_DV_IMPERAS_V_TESTS, CVA6V_DV_IMPERAS_VP_TESTS]
+    requirement_ids: [CVA6V_FEAT_11, CVA6V_FEAT_12, CVA6V_FEAT_13, CVA6V_FEAT_14]
+    platforms: [cva6v.*]
+    owner: Raymond Garcia
+    flags: [ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/imperas-riscv-tests/riscv-test-suite/rv64i_m/Vp/src/VSLIDEDOWN-VX-SEW32_LMUL1, RUN_SCRIPT_ONLY]
+
+  - name: cva6v_imperas_Vp_rv64i_VSLIDEDOWN-VI-SEW8_FRACLMUL
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_IMPERAS_TESTS, CVA6V_DV_IMPERAS_V_TESTS, CVA6V_DV_IMPERAS_VP_TESTS]
+    requirement_ids: [CVA6V_FEAT_11, CVA6V_FEAT_12, CVA6V_FEAT_13, CVA6V_FEAT_14]
+    platforms: [cva6v.*]
+    owner: Raymond Garcia
+    flags: [ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/imperas-riscv-tests/riscv-test-suite/rv64i_m/Vp/src/VSLIDEDOWN-VI-SEW8_FRACLMUL, RUN_SCRIPT_ONLY]
+
+  - name: cva6v_imperas_Vp_rv64i_VRGATHER-VX-SEW32_FRACLMUL
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_IMPERAS_TESTS, CVA6V_DV_IMPERAS_V_TESTS, CVA6V_DV_IMPERAS_VP_TESTS]
+    requirement_ids: [CVA6V_FEAT_11, CVA6V_FEAT_12, CVA6V_FEAT_13, CVA6V_FEAT_14]
+    platforms: [cva6v.*]
+    owner: Raymond Garcia
+    flags: [ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/imperas-riscv-tests/riscv-test-suite/rv64i_m/Vp/src/VRGATHER-VX-SEW32_FRACLMUL, RUN_SCRIPT_ONLY]
+
+  - name: cva6v_imperas_Vp_rv64i_VSLIDEDOWN-VX-SEW8_LMUL4
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_IMPERAS_TESTS, CVA6V_DV_IMPERAS_V_TESTS, CVA6V_DV_IMPERAS_VP_TESTS]
+    requirement_ids: [CVA6V_FEAT_11, CVA6V_FEAT_12, CVA6V_FEAT_13, CVA6V_FEAT_14]
+    platforms: [cva6v.*]
+    owner: Raymond Garcia
+    flags: [ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/imperas-riscv-tests/riscv-test-suite/rv64i_m/Vp/src/VSLIDEDOWN-VX-SEW8_LMUL4, RUN_SCRIPT_ONLY]
+
+  - name: cva6v_imperas_Vp_rv64i_VFSLIDE1DOWN-VF-SEW16_LMUL4
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_IMPERAS_TESTS, CVA6V_DV_IMPERAS_V_TESTS, CVA6V_DV_IMPERAS_VP_TESTS]
+    requirement_ids: [CVA6V_FEAT_11, CVA6V_FEAT_12, CVA6V_FEAT_13, CVA6V_FEAT_14]
+    platforms: [cva6v.*]
+    owner: Raymond Garcia
+    flags: [ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/imperas-riscv-tests/riscv-test-suite/rv64i_m/Vp/src/VFSLIDE1DOWN-VF-SEW16_LMUL4, RUN_SCRIPT_ONLY]
+
+  - name: cva6v_imperas_Vp_rv64i_VSLIDEDOWN-VI-SEW16_LMUL2
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_IMPERAS_TESTS, CVA6V_DV_IMPERAS_V_TESTS, CVA6V_DV_IMPERAS_VP_TESTS]
+    requirement_ids: [CVA6V_FEAT_11, CVA6V_FEAT_12, CVA6V_FEAT_13, CVA6V_FEAT_14]
+    platforms: [cva6v.*]
+    owner: Raymond Garcia
+    flags: [ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/imperas-riscv-tests/riscv-test-suite/rv64i_m/Vp/src/VSLIDEDOWN-VI-SEW16_LMUL2, RUN_SCRIPT_ONLY]
+
+  - name: cva6v_imperas_Vp_rv64i_VMV-X-S-SEW16_FRACLMUL
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_IMPERAS_TESTS, CVA6V_DV_IMPERAS_V_TESTS, CVA6V_DV_IMPERAS_VP_TESTS]
+    requirement_ids: [CVA6V_FEAT_11, CVA6V_FEAT_12, CVA6V_FEAT_13, CVA6V_FEAT_14]
+    platforms: [cva6v.*]
+    owner: Raymond Garcia
+    flags: [ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/imperas-riscv-tests/riscv-test-suite/rv64i_m/Vp/src/VMV-X-S-SEW16_FRACLMUL, RUN_SCRIPT_ONLY]
+
+  - name: cva6v_imperas_Vp_rv64i_VRGATHER-VI-SEW32_FRACLMUL
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_IMPERAS_TESTS, CVA6V_DV_IMPERAS_V_TESTS, CVA6V_DV_IMPERAS_VP_TESTS]
+    requirement_ids: [CVA6V_FEAT_11, CVA6V_FEAT_12, CVA6V_FEAT_13, CVA6V_FEAT_14]
+    platforms: [cva6v.*]
+    owner: Raymond Garcia
+    flags: [ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/imperas-riscv-tests/riscv-test-suite/rv64i_m/Vp/src/VRGATHER-VI-SEW32_FRACLMUL, RUN_SCRIPT_ONLY]
+
+  - name: cva6v_imperas_Vp_rv64i_VSLIDEUP-VI-SEW16_LMUL2
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_IMPERAS_TESTS, CVA6V_DV_IMPERAS_V_TESTS, CVA6V_DV_IMPERAS_VP_TESTS]
+    requirement_ids: [CVA6V_FEAT_11, CVA6V_FEAT_12, CVA6V_FEAT_13, CVA6V_FEAT_14]
+    platforms: [cva6v.*]
+    owner: Raymond Garcia
+    flags: [ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/imperas-riscv-tests/riscv-test-suite/rv64i_m/Vp/src/VSLIDEUP-VI-SEW16_LMUL2, RUN_SCRIPT_ONLY]
+
+  - name: cva6v_imperas_Vp_rv64i_VFSLIDE1UP-VF-SEW16_LMUL2
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_IMPERAS_TESTS, CVA6V_DV_IMPERAS_V_TESTS, CVA6V_DV_IMPERAS_VP_TESTS]
+    requirement_ids: [CVA6V_FEAT_11, CVA6V_FEAT_12, CVA6V_FEAT_13, CVA6V_FEAT_14]
+    platforms: [cva6v.*]
+    owner: Raymond Garcia
+    flags: [ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/imperas-riscv-tests/riscv-test-suite/rv64i_m/Vp/src/VFSLIDE1UP-VF-SEW16_LMUL2, RUN_SCRIPT_ONLY]
+
+  - name: cva6v_imperas_Vp_rv64i_VMV-S-X-SEW8_LMUL1
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_IMPERAS_TESTS, CVA6V_DV_IMPERAS_V_TESTS, CVA6V_DV_IMPERAS_VP_TESTS]
+    requirement_ids: [CVA6V_FEAT_11, CVA6V_FEAT_12, CVA6V_FEAT_13, CVA6V_FEAT_14]
+    platforms: [cva6v.*]
+    owner: Raymond Garcia
+    flags: [ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/imperas-riscv-tests/riscv-test-suite/rv64i_m/Vp/src/VMV-S-X-SEW8_LMUL1, RUN_SCRIPT_ONLY]
+
+  - name: cva6v_imperas_Vp_rv64i_VRGATHER-VX-SEW32_LMUL1
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_IMPERAS_TESTS, CVA6V_DV_IMPERAS_V_TESTS, CVA6V_DV_IMPERAS_VP_TESTS]
+    requirement_ids: [CVA6V_FEAT_11, CVA6V_FEAT_12, CVA6V_FEAT_13, CVA6V_FEAT_14]
+    platforms: [cva6v.*]
+    owner: Raymond Garcia
+    flags: [ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/imperas-riscv-tests/riscv-test-suite/rv64i_m/Vp/src/VRGATHER-VX-SEW32_LMUL1, RUN_SCRIPT_ONLY]
+
+  - name: cva6v_imperas_Vp_rv64i_VRGATHER-VX-SEW8_LMUL2
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_IMPERAS_TESTS, CVA6V_DV_IMPERAS_V_TESTS, CVA6V_DV_IMPERAS_VP_TESTS]
+    requirement_ids: [CVA6V_FEAT_11, CVA6V_FEAT_12, CVA6V_FEAT_13, CVA6V_FEAT_14]
+    platforms: [cva6v.*]
+    owner: Raymond Garcia
+    flags: [ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/imperas-riscv-tests/riscv-test-suite/rv64i_m/Vp/src/VRGATHER-VX-SEW8_LMUL2, RUN_SCRIPT_ONLY]
+
+  - name: cva6v_imperas_Vp_rv64i_VSLIDEUP-VI-SEW8_LMUL1
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_IMPERAS_TESTS, CVA6V_DV_IMPERAS_V_TESTS, CVA6V_DV_IMPERAS_VP_TESTS]
+    requirement_ids: [CVA6V_FEAT_11, CVA6V_FEAT_12, CVA6V_FEAT_13, CVA6V_FEAT_14]
+    platforms: [cva6v.*]
+    owner: Raymond Garcia
+    flags: [ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/imperas-riscv-tests/riscv-test-suite/rv64i_m/Vp/src/VSLIDEUP-VI-SEW8_LMUL1, RUN_SCRIPT_ONLY]
+
+  - name: cva6v_imperas_Vp_rv64i_VSLIDE1UP-VX-SEW16_LMUL1
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_IMPERAS_TESTS, CVA6V_DV_IMPERAS_V_TESTS, CVA6V_DV_IMPERAS_VP_TESTS]
+    requirement_ids: [CVA6V_FEAT_11, CVA6V_FEAT_12, CVA6V_FEAT_13, CVA6V_FEAT_14]
+    platforms: [cva6v.*]
+    owner: Raymond Garcia
+    flags: [ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/imperas-riscv-tests/riscv-test-suite/rv64i_m/Vp/src/VSLIDE1UP-VX-SEW16_LMUL1, RUN_SCRIPT_ONLY]
+
+  - name: cva6v_imperas_Vp_rv64i_VCOMPRESS-VM-SEW8_LMUL8
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_IMPERAS_TESTS, CVA6V_DV_IMPERAS_V_TESTS, CVA6V_DV_IMPERAS_VP_TESTS]
+    requirement_ids: [CVA6V_FEAT_11, CVA6V_FEAT_12, CVA6V_FEAT_13, CVA6V_FEAT_14]
+    platforms: [cva6v.*]
+    owner: Raymond Garcia
+    flags: [ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/imperas-riscv-tests/riscv-test-suite/rv64i_m/Vp/src/VCOMPRESS-VM-SEW8_LMUL8, RUN_SCRIPT_ONLY]
+
+  - name: cva6v_imperas_Vp_rv64i_VSLIDE1UP-VX-SEW8_LMUL8
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_IMPERAS_TESTS, CVA6V_DV_IMPERAS_V_TESTS, CVA6V_DV_IMPERAS_VP_TESTS]
+    requirement_ids: [CVA6V_FEAT_11, CVA6V_FEAT_12, CVA6V_FEAT_13, CVA6V_FEAT_14]
+    platforms: [cva6v.*]
+    owner: Raymond Garcia
+    flags: [ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/imperas-riscv-tests/riscv-test-suite/rv64i_m/Vp/src/VSLIDE1UP-VX-SEW8_LMUL8, RUN_SCRIPT_ONLY]
+
+  - name: cva6v_imperas_Vp_rv64i_VFSLIDE1DOWN-VF-SEW32_FRACLMUL
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_IMPERAS_TESTS, CVA6V_DV_IMPERAS_V_TESTS, CVA6V_DV_IMPERAS_VP_TESTS]
+    requirement_ids: [CVA6V_FEAT_11, CVA6V_FEAT_12, CVA6V_FEAT_13, CVA6V_FEAT_14]
+    platforms: [cva6v.*]
+    owner: Raymond Garcia
+    flags: [ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/imperas-riscv-tests/riscv-test-suite/rv64i_m/Vp/src/VFSLIDE1DOWN-VF-SEW32_FRACLMUL, RUN_SCRIPT_ONLY]
+
+  - name: cva6v_imperas_Vp_rv64i_VFMV-S-F-SEW16_LMUL2
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_IMPERAS_TESTS, CVA6V_DV_IMPERAS_V_TESTS, CVA6V_DV_IMPERAS_VP_TESTS]
+    requirement_ids: [CVA6V_FEAT_11, CVA6V_FEAT_12, CVA6V_FEAT_13, CVA6V_FEAT_14]
+    platforms: [cva6v.*]
+    owner: Raymond Garcia
+    flags: [ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/imperas-riscv-tests/riscv-test-suite/rv64i_m/Vp/src/VFMV-S-F-SEW16_LMUL2, RUN_SCRIPT_ONLY]
+
+  - name: cva6v_imperas_Vp_rv64i_VSLIDE1UP-VX-SEW32_FRACLMUL
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_IMPERAS_TESTS, CVA6V_DV_IMPERAS_V_TESTS, CVA6V_DV_IMPERAS_VP_TESTS]
+    requirement_ids: [CVA6V_FEAT_11, CVA6V_FEAT_12, CVA6V_FEAT_13, CVA6V_FEAT_14]
+    platforms: [cva6v.*]
+    owner: Raymond Garcia
+    flags: [ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/imperas-riscv-tests/riscv-test-suite/rv64i_m/Vp/src/VSLIDE1UP-VX-SEW32_FRACLMUL, RUN_SCRIPT_ONLY]
+
+  - name: cva6v_imperas_Vp_rv64i_VRGATHER-VI-SEW16_LMUL2
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_IMPERAS_TESTS, CVA6V_DV_IMPERAS_V_TESTS, CVA6V_DV_IMPERAS_VP_TESTS]
+    requirement_ids: [CVA6V_FEAT_11, CVA6V_FEAT_12, CVA6V_FEAT_13, CVA6V_FEAT_14]
+    platforms: [cva6v.*]
+    owner: Raymond Garcia
+    flags: [ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/imperas-riscv-tests/riscv-test-suite/rv64i_m/Vp/src/VRGATHER-VI-SEW16_LMUL2, RUN_SCRIPT_ONLY]
+
+  - name: cva6v_imperas_Vp_rv64i_VFSLIDE1UP-VF-SEW16_FRACLMUL
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_IMPERAS_TESTS, CVA6V_DV_IMPERAS_V_TESTS, CVA6V_DV_IMPERAS_VP_TESTS]
+    requirement_ids: [CVA6V_FEAT_11, CVA6V_FEAT_12, CVA6V_FEAT_13, CVA6V_FEAT_14]
+    platforms: [cva6v.*]
+    owner: Raymond Garcia
+    flags: [ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/imperas-riscv-tests/riscv-test-suite/rv64i_m/Vp/src/VFSLIDE1UP-VF-SEW16_FRACLMUL, RUN_SCRIPT_ONLY]
+
+  - name: cva6v_imperas_Vp_rv64i_VFMV-S-F-SEW16_LMUL1
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_IMPERAS_TESTS, CVA6V_DV_IMPERAS_V_TESTS, CVA6V_DV_IMPERAS_VP_TESTS]
+    requirement_ids: [CVA6V_FEAT_11, CVA6V_FEAT_12, CVA6V_FEAT_13, CVA6V_FEAT_14]
+    platforms: [cva6v.*]
+    owner: Raymond Garcia
+    flags: [ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/imperas-riscv-tests/riscv-test-suite/rv64i_m/Vp/src/VFMV-S-F-SEW16_LMUL1, RUN_SCRIPT_ONLY]
+
+  - name: cva6v_imperas_Vp_rv64i_VSLIDEUP-VX-SEW32_LMUL2
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_IMPERAS_TESTS, CVA6V_DV_IMPERAS_V_TESTS, CVA6V_DV_IMPERAS_VP_TESTS]
+    requirement_ids: [CVA6V_FEAT_11, CVA6V_FEAT_12, CVA6V_FEAT_13, CVA6V_FEAT_14]
+    platforms: [cva6v.*]
+    owner: Raymond Garcia
+    flags: [ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/imperas-riscv-tests/riscv-test-suite/rv64i_m/Vp/src/VSLIDEUP-VX-SEW32_LMUL2, RUN_SCRIPT_ONLY]
+
+  - name: cva6v_imperas_Vp_rv64i_VRGATHEREI16-VV-SEW16_LMUL2
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_IMPERAS_TESTS, CVA6V_DV_IMPERAS_V_TESTS, CVA6V_DV_IMPERAS_VP_TESTS]
+    requirement_ids: [CVA6V_FEAT_11, CVA6V_FEAT_12, CVA6V_FEAT_13, CVA6V_FEAT_14]
+    platforms: [cva6v.*]
+    owner: Raymond Garcia
+    flags: [ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/imperas-riscv-tests/riscv-test-suite/rv64i_m/Vp/src/VRGATHEREI16-VV-SEW16_LMUL2, RUN_SCRIPT_ONLY]
+
+  - name: cva6v_imperas_Vp_rv64i_VSLIDEDOWN-VI-SEW16_FRACLMUL
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_IMPERAS_TESTS, CVA6V_DV_IMPERAS_V_TESTS, CVA6V_DV_IMPERAS_VP_TESTS]
+    requirement_ids: [CVA6V_FEAT_11, CVA6V_FEAT_12, CVA6V_FEAT_13, CVA6V_FEAT_14]
+    platforms: [cva6v.*]
+    owner: Raymond Garcia
+    flags: [ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/imperas-riscv-tests/riscv-test-suite/rv64i_m/Vp/src/VSLIDEDOWN-VI-SEW16_FRACLMUL, RUN_SCRIPT_ONLY]
+
+  - name: cva6v_imperas_Vp_rv64i_VSLIDEDOWN-VI-SEW8_LMUL2
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_IMPERAS_TESTS, CVA6V_DV_IMPERAS_V_TESTS, CVA6V_DV_IMPERAS_VP_TESTS]
+    requirement_ids: [CVA6V_FEAT_11, CVA6V_FEAT_12, CVA6V_FEAT_13, CVA6V_FEAT_14]
+    platforms: [cva6v.*]
+    owner: Raymond Garcia
+    flags: [ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/imperas-riscv-tests/riscv-test-suite/rv64i_m/Vp/src/VSLIDEDOWN-VI-SEW8_LMUL2, RUN_SCRIPT_ONLY]
+
+  - name: cva6v_imperas_Vp_rv64i_VSLIDEUP-VX-SEW32_FRACLMUL
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_IMPERAS_TESTS, CVA6V_DV_IMPERAS_V_TESTS, CVA6V_DV_IMPERAS_VP_TESTS]
+    requirement_ids: [CVA6V_FEAT_11, CVA6V_FEAT_12, CVA6V_FEAT_13, CVA6V_FEAT_14]
+    platforms: [cva6v.*]
+    owner: Raymond Garcia
+    flags: [ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/imperas-riscv-tests/riscv-test-suite/rv64i_m/Vp/src/VSLIDEUP-VX-SEW32_FRACLMUL, RUN_SCRIPT_ONLY]
+
+  - name: cva6v_imperas_Vp_rv64i_VRGATHER-VI-SEW8_LMUL2
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_IMPERAS_TESTS, CVA6V_DV_IMPERAS_V_TESTS, CVA6V_DV_IMPERAS_VP_TESTS]
+    requirement_ids: [CVA6V_FEAT_11, CVA6V_FEAT_12, CVA6V_FEAT_13, CVA6V_FEAT_14]
+    platforms: [cva6v.*]
+    owner: Raymond Garcia
+    flags: [ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/imperas-riscv-tests/riscv-test-suite/rv64i_m/Vp/src/VRGATHER-VI-SEW8_LMUL2, RUN_SCRIPT_ONLY]
+
+  - name: cva6v_imperas_Vp_rv64i_VSLIDEUP-VI-SEW16_LMUL8
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_IMPERAS_TESTS, CVA6V_DV_IMPERAS_V_TESTS, CVA6V_DV_IMPERAS_VP_TESTS]
+    requirement_ids: [CVA6V_FEAT_11, CVA6V_FEAT_12, CVA6V_FEAT_13, CVA6V_FEAT_14]
+    platforms: [cva6v.*]
+    owner: Raymond Garcia
+    flags: [ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/imperas-riscv-tests/riscv-test-suite/rv64i_m/Vp/src/VSLIDEUP-VI-SEW16_LMUL8, RUN_SCRIPT_ONLY]
+
+  - name: cva6v_imperas_Vp_rv64i_VCOMPRESS-VM-SEW8_LMUL4
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_IMPERAS_TESTS, CVA6V_DV_IMPERAS_V_TESTS, CVA6V_DV_IMPERAS_VP_TESTS]
+    requirement_ids: [CVA6V_FEAT_11, CVA6V_FEAT_12, CVA6V_FEAT_13, CVA6V_FEAT_14]
+    platforms: [cva6v.*]
+    owner: Raymond Garcia
+    flags: [ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/imperas-riscv-tests/riscv-test-suite/rv64i_m/Vp/src/VCOMPRESS-VM-SEW8_LMUL4, RUN_SCRIPT_ONLY]
+
+  - name: cva6v_imperas_Vp_rv64i_VSLIDE1DOWN-VX-SEW16_LMUL1
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_IMPERAS_TESTS, CVA6V_DV_IMPERAS_V_TESTS, CVA6V_DV_IMPERAS_VP_TESTS]
+    requirement_ids: [CVA6V_FEAT_11, CVA6V_FEAT_12, CVA6V_FEAT_13, CVA6V_FEAT_14]
+    platforms: [cva6v.*]
+    owner: Raymond Garcia
+    flags: [ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/imperas-riscv-tests/riscv-test-suite/rv64i_m/Vp/src/VSLIDE1DOWN-VX-SEW16_LMUL1, RUN_SCRIPT_ONLY]
+
+  - name: cva6v_imperas_Vp_rv64i_VSLIDEUP-VX-SEW8_LMUL2
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_IMPERAS_TESTS, CVA6V_DV_IMPERAS_V_TESTS, CVA6V_DV_IMPERAS_VP_TESTS]
+    requirement_ids: [CVA6V_FEAT_11, CVA6V_FEAT_12, CVA6V_FEAT_13, CVA6V_FEAT_14]
+    platforms: [cva6v.*]
+    owner: Raymond Garcia
+    flags: [ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/imperas-riscv-tests/riscv-test-suite/rv64i_m/Vp/src/VSLIDEUP-VX-SEW8_LMUL2, RUN_SCRIPT_ONLY]
+
+  - name: cva6v_imperas_Vp_rv64i_VMV1R-V-SEW32_FRACLMUL
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_IMPERAS_TESTS, CVA6V_DV_IMPERAS_V_TESTS, CVA6V_DV_IMPERAS_VP_TESTS]
+    requirement_ids: [CVA6V_FEAT_11, CVA6V_FEAT_12, CVA6V_FEAT_13, CVA6V_FEAT_14]
+    platforms: [cva6v.*]
+    owner: Raymond Garcia
+    flags: [ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/imperas-riscv-tests/riscv-test-suite/rv64i_m/Vp/src/VMV1R-V-SEW32_FRACLMUL, RUN_SCRIPT_ONLY]
+
+  - name: cva6v_imperas_Vp_rv64i_VRGATHER-VV-SEW16_LMUL2
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_IMPERAS_TESTS, CVA6V_DV_IMPERAS_V_TESTS, CVA6V_DV_IMPERAS_VP_TESTS]
+    requirement_ids: [CVA6V_FEAT_11, CVA6V_FEAT_12, CVA6V_FEAT_13, CVA6V_FEAT_14]
+    platforms: [cva6v.*]
+    owner: Raymond Garcia
+    flags: [ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/imperas-riscv-tests/riscv-test-suite/rv64i_m/Vp/src/VRGATHER-VV-SEW16_LMUL2, RUN_SCRIPT_ONLY]
+
+  - name: cva6v_imperas_Vp_rv64i_VRGATHER-VV-SEW8_LMUL4
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_IMPERAS_TESTS, CVA6V_DV_IMPERAS_V_TESTS, CVA6V_DV_IMPERAS_VP_TESTS]
+    requirement_ids: [CVA6V_FEAT_11, CVA6V_FEAT_12, CVA6V_FEAT_13, CVA6V_FEAT_14]
+    platforms: [cva6v.*]
+    owner: Raymond Garcia
+    flags: [ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/imperas-riscv-tests/riscv-test-suite/rv64i_m/Vp/src/VRGATHER-VV-SEW8_LMUL4, RUN_SCRIPT_ONLY]
+
+  - name: cva6v_imperas_Vp_rv64i_VSLIDE1UP-VX-SEW16_LMUL2
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_IMPERAS_TESTS, CVA6V_DV_IMPERAS_V_TESTS, CVA6V_DV_IMPERAS_VP_TESTS]
+    requirement_ids: [CVA6V_FEAT_11, CVA6V_FEAT_12, CVA6V_FEAT_13, CVA6V_FEAT_14]
+    platforms: [cva6v.*]
+    owner: Raymond Garcia
+    flags: [ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/imperas-riscv-tests/riscv-test-suite/rv64i_m/Vp/src/VSLIDE1UP-VX-SEW16_LMUL2, RUN_SCRIPT_ONLY]
+
+  - name: cva6v_imperas_Vp_rv64i_VRGATHER-VV-SEW32_LMUL1
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_IMPERAS_TESTS, CVA6V_DV_IMPERAS_V_TESTS, CVA6V_DV_IMPERAS_VP_TESTS]
+    requirement_ids: [CVA6V_FEAT_11, CVA6V_FEAT_12, CVA6V_FEAT_13, CVA6V_FEAT_14]
+    platforms: [cva6v.*]
+    owner: Raymond Garcia
+    flags: [ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/imperas-riscv-tests/riscv-test-suite/rv64i_m/Vp/src/VRGATHER-VV-SEW32_LMUL1, RUN_SCRIPT_ONLY]
+
+  - name: cva6v_imperas_Vp_rv64i_VFMV-S-F-SEW16_LMUL4
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_IMPERAS_TESTS, CVA6V_DV_IMPERAS_V_TESTS, CVA6V_DV_IMPERAS_VP_TESTS]
+    requirement_ids: [CVA6V_FEAT_11, CVA6V_FEAT_12, CVA6V_FEAT_13, CVA6V_FEAT_14]
+    platforms: [cva6v.*]
+    owner: Raymond Garcia
+    flags: [ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/imperas-riscv-tests/riscv-test-suite/rv64i_m/Vp/src/VFMV-S-F-SEW16_LMUL4, RUN_SCRIPT_ONLY]
+
+  - name: cva6v_imperas_Vp_rv64i_VSLIDEUP-VI-SEW16_FRACLMUL
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_IMPERAS_TESTS, CVA6V_DV_IMPERAS_V_TESTS, CVA6V_DV_IMPERAS_VP_TESTS]
+    requirement_ids: [CVA6V_FEAT_11, CVA6V_FEAT_12, CVA6V_FEAT_13, CVA6V_FEAT_14]
+    platforms: [cva6v.*]
+    owner: Raymond Garcia
+    flags: [ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/imperas-riscv-tests/riscv-test-suite/rv64i_m/Vp/src/VSLIDEUP-VI-SEW16_FRACLMUL, RUN_SCRIPT_ONLY]
+
+  - name: cva6v_imperas_Vp_rv64i_VRGATHER-VX-SEW32_LMUL4
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_IMPERAS_TESTS, CVA6V_DV_IMPERAS_V_TESTS, CVA6V_DV_IMPERAS_VP_TESTS]
+    requirement_ids: [CVA6V_FEAT_11, CVA6V_FEAT_12, CVA6V_FEAT_13, CVA6V_FEAT_14]
+    platforms: [cva6v.*]
+    owner: Raymond Garcia
+    flags: [ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/imperas-riscv-tests/riscv-test-suite/rv64i_m/Vp/src/VRGATHER-VX-SEW32_LMUL4, RUN_SCRIPT_ONLY]
+
+  - name: cva6v_imperas_Vp_rv64i_VRGATHER-VX-SEW16_FRACLMUL
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_IMPERAS_TESTS, CVA6V_DV_IMPERAS_V_TESTS, CVA6V_DV_IMPERAS_VP_TESTS]
+    requirement_ids: [CVA6V_FEAT_11, CVA6V_FEAT_12, CVA6V_FEAT_13, CVA6V_FEAT_14]
+    platforms: [cva6v.*]
+    owner: Raymond Garcia
+    flags: [ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/imperas-riscv-tests/riscv-test-suite/rv64i_m/Vp/src/VRGATHER-VX-SEW16_FRACLMUL, RUN_SCRIPT_ONLY]
+
+  - name: cva6v_imperas_Vp_rv64i_VSLIDEDOWN-VI-SEW32_FRACLMUL
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_IMPERAS_TESTS, CVA6V_DV_IMPERAS_V_TESTS, CVA6V_DV_IMPERAS_VP_TESTS]
+    requirement_ids: [CVA6V_FEAT_11, CVA6V_FEAT_12, CVA6V_FEAT_13, CVA6V_FEAT_14]
+    platforms: [cva6v.*]
+    owner: Raymond Garcia
+    flags: [ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/imperas-riscv-tests/riscv-test-suite/rv64i_m/Vp/src/VSLIDEDOWN-VI-SEW32_FRACLMUL, RUN_SCRIPT_ONLY]
+
+  - name: cva6v_imperas_Vp_rv64i_VSLIDE1UP-VX-SEW32_LMUL4
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_IMPERAS_TESTS, CVA6V_DV_IMPERAS_V_TESTS, CVA6V_DV_IMPERAS_VP_TESTS]
+    requirement_ids: [CVA6V_FEAT_11, CVA6V_FEAT_12, CVA6V_FEAT_13, CVA6V_FEAT_14]
+    platforms: [cva6v.*]
+    owner: Raymond Garcia
+    flags: [ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/imperas-riscv-tests/riscv-test-suite/rv64i_m/Vp/src/VSLIDE1UP-VX-SEW32_LMUL4, RUN_SCRIPT_ONLY]
+
+  - name: cva6v_imperas_Vp_rv64i_VSLIDEUP-VX-SEW16_LMUL1
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_IMPERAS_TESTS, CVA6V_DV_IMPERAS_V_TESTS, CVA6V_DV_IMPERAS_VP_TESTS]
+    requirement_ids: [CVA6V_FEAT_11, CVA6V_FEAT_12, CVA6V_FEAT_13, CVA6V_FEAT_14]
+    platforms: [cva6v.*]
+    owner: Raymond Garcia
+    flags: [ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/imperas-riscv-tests/riscv-test-suite/rv64i_m/Vp/src/VSLIDEUP-VX-SEW16_LMUL1, RUN_SCRIPT_ONLY]
+
+  - name: cva6v_imperas_Vp_rv64i_VRGATHER-VV-SEW16_LMUL8
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_IMPERAS_TESTS, CVA6V_DV_IMPERAS_V_TESTS, CVA6V_DV_IMPERAS_VP_TESTS]
+    requirement_ids: [CVA6V_FEAT_11, CVA6V_FEAT_12, CVA6V_FEAT_13, CVA6V_FEAT_14]
+    platforms: [cva6v.*]
+    owner: Raymond Garcia
+    flags: [ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/imperas-riscv-tests/riscv-test-suite/rv64i_m/Vp/src/VRGATHER-VV-SEW16_LMUL8, RUN_SCRIPT_ONLY]
+
+  - name: cva6v_imperas_Vp_rv64i_VSLIDEUP-VI-SEW32_FRACLMUL
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_IMPERAS_TESTS, CVA6V_DV_IMPERAS_V_TESTS, CVA6V_DV_IMPERAS_VP_TESTS]
+    requirement_ids: [CVA6V_FEAT_11, CVA6V_FEAT_12, CVA6V_FEAT_13, CVA6V_FEAT_14]
+    platforms: [cva6v.*]
+    owner: Raymond Garcia
+    flags: [ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/imperas-riscv-tests/riscv-test-suite/rv64i_m/Vp/src/VSLIDEUP-VI-SEW32_FRACLMUL, RUN_SCRIPT_ONLY]
+
+  - name: cva6v_imperas_Vp_rv64i_VSLIDEUP-VX-SEW32_LMUL4
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_IMPERAS_TESTS, CVA6V_DV_IMPERAS_V_TESTS, CVA6V_DV_IMPERAS_VP_TESTS]
+    requirement_ids: [CVA6V_FEAT_11, CVA6V_FEAT_12, CVA6V_FEAT_13, CVA6V_FEAT_14]
+    platforms: [cva6v.*]
+    owner: Raymond Garcia
+    flags: [ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/imperas-riscv-tests/riscv-test-suite/rv64i_m/Vp/src/VSLIDEUP-VX-SEW32_LMUL4, RUN_SCRIPT_ONLY]
+
+  - name: cva6v_imperas_Vp_rv64i_VFSLIDE1UP-VF-SEW32_LMUL1
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_IMPERAS_TESTS, CVA6V_DV_IMPERAS_V_TESTS, CVA6V_DV_IMPERAS_VP_TESTS]
+    requirement_ids: [CVA6V_FEAT_11, CVA6V_FEAT_12, CVA6V_FEAT_13, CVA6V_FEAT_14]
+    platforms: [cva6v.*]
+    owner: Raymond Garcia
+    flags: [ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/imperas-riscv-tests/riscv-test-suite/rv64i_m/Vp/src/VFSLIDE1UP-VF-SEW32_LMUL1, RUN_SCRIPT_ONLY]
+
+  - name: cva6v_imperas_Vp_rv64i_VRGATHEREI16-VV-SEW32_LMUL8
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_IMPERAS_TESTS, CVA6V_DV_IMPERAS_V_TESTS, CVA6V_DV_IMPERAS_VP_TESTS]
+    requirement_ids: [CVA6V_FEAT_11, CVA6V_FEAT_12, CVA6V_FEAT_13, CVA6V_FEAT_14]
+    platforms: [cva6v.*]
+    owner: Raymond Garcia
+    flags: [ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/imperas-riscv-tests/riscv-test-suite/rv64i_m/Vp/src/VRGATHEREI16-VV-SEW32_LMUL8, RUN_SCRIPT_ONLY]
+
+  - name: cva6v_imperas_Vp_rv64i_VSLIDEUP-VX-SEW16_FRACLMUL
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_IMPERAS_TESTS, CVA6V_DV_IMPERAS_V_TESTS, CVA6V_DV_IMPERAS_VP_TESTS]
+    requirement_ids: [CVA6V_FEAT_11, CVA6V_FEAT_12, CVA6V_FEAT_13, CVA6V_FEAT_14]
+    platforms: [cva6v.*]
+    owner: Raymond Garcia
+    flags: [ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/imperas-riscv-tests/riscv-test-suite/rv64i_m/Vp/src/VSLIDEUP-VX-SEW16_FRACLMUL, RUN_SCRIPT_ONLY]
+
+  - name: cva6v_imperas_Vp_rv64i_VSLIDEDOWN-VX-SEW8_FRACLMUL
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_IMPERAS_TESTS, CVA6V_DV_IMPERAS_V_TESTS, CVA6V_DV_IMPERAS_VP_TESTS]
+    requirement_ids: [CVA6V_FEAT_11, CVA6V_FEAT_12, CVA6V_FEAT_13, CVA6V_FEAT_14]
+    platforms: [cva6v.*]
+    owner: Raymond Garcia
+    flags: [ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/imperas-riscv-tests/riscv-test-suite/rv64i_m/Vp/src/VSLIDEDOWN-VX-SEW8_FRACLMUL, RUN_SCRIPT_ONLY]
+
+  - name: cva6v_imperas_Vp_rv64i_VSLIDEUP-VI-SEW32_LMUL4
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_IMPERAS_TESTS, CVA6V_DV_IMPERAS_V_TESTS, CVA6V_DV_IMPERAS_VP_TESTS]
+    requirement_ids: [CVA6V_FEAT_11, CVA6V_FEAT_12, CVA6V_FEAT_13, CVA6V_FEAT_14]
+    platforms: [cva6v.*]
+    owner: Raymond Garcia
+    flags: [ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/imperas-riscv-tests/riscv-test-suite/rv64i_m/Vp/src/VSLIDEUP-VI-SEW32_LMUL4, RUN_SCRIPT_ONLY]
+
+  - name: cva6v_imperas_Vp_rv64i_VSLIDEDOWN-VX-SEW16_LMUL8
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_IMPERAS_TESTS, CVA6V_DV_IMPERAS_V_TESTS, CVA6V_DV_IMPERAS_VP_TESTS]
+    requirement_ids: [CVA6V_FEAT_11, CVA6V_FEAT_12, CVA6V_FEAT_13, CVA6V_FEAT_14]
+    platforms: [cva6v.*]
+    owner: Raymond Garcia
+    flags: [ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/imperas-riscv-tests/riscv-test-suite/rv64i_m/Vp/src/VSLIDEDOWN-VX-SEW16_LMUL8, RUN_SCRIPT_ONLY]
+
+  - name: cva6v_imperas_Vp_rv64i_VSLIDE1DOWN-VX-SEW8_LMUL1
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_IMPERAS_TESTS, CVA6V_DV_IMPERAS_V_TESTS, CVA6V_DV_IMPERAS_VP_TESTS]
+    requirement_ids: [CVA6V_FEAT_11, CVA6V_FEAT_12, CVA6V_FEAT_13, CVA6V_FEAT_14]
+    platforms: [cva6v.*]
+    owner: Raymond Garcia
+    flags: [ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/imperas-riscv-tests/riscv-test-suite/rv64i_m/Vp/src/VSLIDE1DOWN-VX-SEW8_LMUL1, RUN_SCRIPT_ONLY]
+
+  - name: cva6v_imperas_Vp_rv64i_VSLIDEDOWN-VX-SEW8_LMUL1
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_IMPERAS_TESTS, CVA6V_DV_IMPERAS_V_TESTS, CVA6V_DV_IMPERAS_VP_TESTS]
+    requirement_ids: [CVA6V_FEAT_11, CVA6V_FEAT_12, CVA6V_FEAT_13, CVA6V_FEAT_14]
+    platforms: [cva6v.*]
+    owner: Raymond Garcia
+    flags: [ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/imperas-riscv-tests/riscv-test-suite/rv64i_m/Vp/src/VSLIDEDOWN-VX-SEW8_LMUL1, RUN_SCRIPT_ONLY]
+
+  - name: cva6v_imperas_Vp_rv64i_VMV-S-X-SEW32_LMUL1
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_IMPERAS_TESTS, CVA6V_DV_IMPERAS_V_TESTS, CVA6V_DV_IMPERAS_VP_TESTS]
+    requirement_ids: [CVA6V_FEAT_11, CVA6V_FEAT_12, CVA6V_FEAT_13, CVA6V_FEAT_14]
+    platforms: [cva6v.*]
+    owner: Raymond Garcia
+    flags: [ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/imperas-riscv-tests/riscv-test-suite/rv64i_m/Vp/src/VMV-S-X-SEW32_LMUL1, RUN_SCRIPT_ONLY]
+
+  - name: cva6v_imperas_Vp_rv64i_VRGATHER-VV-SEW8_LMUL1
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_IMPERAS_TESTS, CVA6V_DV_IMPERAS_V_TESTS, CVA6V_DV_IMPERAS_VP_TESTS]
+    requirement_ids: [CVA6V_FEAT_11, CVA6V_FEAT_12, CVA6V_FEAT_13, CVA6V_FEAT_14]
+    platforms: [cva6v.*]
+    owner: Raymond Garcia
+    flags: [ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/imperas-riscv-tests/riscv-test-suite/rv64i_m/Vp/src/VRGATHER-VV-SEW8_LMUL1, RUN_SCRIPT_ONLY]
+
+  - name: cva6v_imperas_Vp_rv64i_VSLIDE1UP-VX-SEW8_LMUL2
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_IMPERAS_TESTS, CVA6V_DV_IMPERAS_V_TESTS, CVA6V_DV_IMPERAS_VP_TESTS]
+    requirement_ids: [CVA6V_FEAT_11, CVA6V_FEAT_12, CVA6V_FEAT_13, CVA6V_FEAT_14]
+    platforms: [cva6v.*]
+    owner: Raymond Garcia
+    flags: [ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/imperas-riscv-tests/riscv-test-suite/rv64i_m/Vp/src/VSLIDE1UP-VX-SEW8_LMUL2, RUN_SCRIPT_ONLY]
+
+  - name: cva6v_imperas_Vp_rv64i_VSLIDEDOWN-VX-SEW16_LMUL1
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_IMPERAS_TESTS, CVA6V_DV_IMPERAS_V_TESTS, CVA6V_DV_IMPERAS_VP_TESTS]
+    requirement_ids: [CVA6V_FEAT_11, CVA6V_FEAT_12, CVA6V_FEAT_13, CVA6V_FEAT_14]
+    platforms: [cva6v.*]
+    owner: Raymond Garcia
+    flags: [ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/imperas-riscv-tests/riscv-test-suite/rv64i_m/Vp/src/VSLIDEDOWN-VX-SEW16_LMUL1, RUN_SCRIPT_ONLY]
+
+  - name: cva6v_imperas_Vp_rv64i_VRGATHER-VV-SEW16_FRACLMUL
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_IMPERAS_TESTS, CVA6V_DV_IMPERAS_V_TESTS, CVA6V_DV_IMPERAS_VP_TESTS]
+    requirement_ids: [CVA6V_FEAT_11, CVA6V_FEAT_12, CVA6V_FEAT_13, CVA6V_FEAT_14]
+    platforms: [cva6v.*]
+    owner: Raymond Garcia
+    flags: [ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/imperas-riscv-tests/riscv-test-suite/rv64i_m/Vp/src/VRGATHER-VV-SEW16_FRACLMUL, RUN_SCRIPT_ONLY]
+
+  - name: cva6v_imperas_Vp_rv64i_VSLIDEDOWN-VI-SEW16_LMUL4
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_IMPERAS_TESTS, CVA6V_DV_IMPERAS_V_TESTS, CVA6V_DV_IMPERAS_VP_TESTS]
+    requirement_ids: [CVA6V_FEAT_11, CVA6V_FEAT_12, CVA6V_FEAT_13, CVA6V_FEAT_14]
+    platforms: [cva6v.*]
+    owner: Raymond Garcia
+    flags: [ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/imperas-riscv-tests/riscv-test-suite/rv64i_m/Vp/src/VSLIDEDOWN-VI-SEW16_LMUL4, RUN_SCRIPT_ONLY]
+
+  - name: cva6v_imperas_Vp_rv64i_VRGATHER-VI-SEW8_LMUL4
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_IMPERAS_TESTS, CVA6V_DV_IMPERAS_V_TESTS, CVA6V_DV_IMPERAS_VP_TESTS]
+    requirement_ids: [CVA6V_FEAT_11, CVA6V_FEAT_12, CVA6V_FEAT_13, CVA6V_FEAT_14]
+    platforms: [cva6v.*]
+    owner: Raymond Garcia
+    flags: [ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/imperas-riscv-tests/riscv-test-suite/rv64i_m/Vp/src/VRGATHER-VI-SEW8_LMUL4, RUN_SCRIPT_ONLY]
+
+  - name: cva6v_imperas_Vp_rv64i_VSLIDEUP-VX-SEW8_FRACLMUL
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_IMPERAS_TESTS, CVA6V_DV_IMPERAS_V_TESTS, CVA6V_DV_IMPERAS_VP_TESTS]
+    requirement_ids: [CVA6V_FEAT_11, CVA6V_FEAT_12, CVA6V_FEAT_13, CVA6V_FEAT_14]
+    platforms: [cva6v.*]
+    owner: Raymond Garcia
+    flags: [ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/imperas-riscv-tests/riscv-test-suite/rv64i_m/Vp/src/VSLIDEUP-VX-SEW8_FRACLMUL, RUN_SCRIPT_ONLY]
+
+  - name: cva6v_imperas_Vp_rv64i_VCOMPRESS-VM-SEW8_LMUL2
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_IMPERAS_TESTS, CVA6V_DV_IMPERAS_V_TESTS, CVA6V_DV_IMPERAS_VP_TESTS]
+    requirement_ids: [CVA6V_FEAT_11, CVA6V_FEAT_12, CVA6V_FEAT_13, CVA6V_FEAT_14]
+    platforms: [cva6v.*]
+    owner: Raymond Garcia
+    flags: [ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/imperas-riscv-tests/riscv-test-suite/rv64i_m/Vp/src/VCOMPRESS-VM-SEW8_LMUL2, RUN_SCRIPT_ONLY]
+
+  - name: cva6v_imperas_Vp_rv64i_VFMV-S-F-SEW32_LMUL2
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_IMPERAS_TESTS, CVA6V_DV_IMPERAS_V_TESTS, CVA6V_DV_IMPERAS_VP_TESTS]
+    requirement_ids: [CVA6V_FEAT_11, CVA6V_FEAT_12, CVA6V_FEAT_13, CVA6V_FEAT_14]
+    platforms: [cva6v.*]
+    owner: Raymond Garcia
+    flags: [ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/imperas-riscv-tests/riscv-test-suite/rv64i_m/Vp/src/VFMV-S-F-SEW32_LMUL2, RUN_SCRIPT_ONLY]
+
+  - name: cva6v_imperas_Vp_rv64i_VSLIDEUP-VI-SEW8_FRACLMUL
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_IMPERAS_TESTS, CVA6V_DV_IMPERAS_V_TESTS, CVA6V_DV_IMPERAS_VP_TESTS]
+    requirement_ids: [CVA6V_FEAT_11, CVA6V_FEAT_12, CVA6V_FEAT_13, CVA6V_FEAT_14]
+    platforms: [cva6v.*]
+    owner: Raymond Garcia
+    flags: [ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/imperas-riscv-tests/riscv-test-suite/rv64i_m/Vp/src/VSLIDEUP-VI-SEW8_FRACLMUL, RUN_SCRIPT_ONLY]
+
+  - name: cva6v_imperas_Vp_rv64i_VSLIDE1DOWN-VX-SEW32_FRACLMUL
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_IMPERAS_TESTS, CVA6V_DV_IMPERAS_V_TESTS, CVA6V_DV_IMPERAS_VP_TESTS]
+    requirement_ids: [CVA6V_FEAT_11, CVA6V_FEAT_12, CVA6V_FEAT_13, CVA6V_FEAT_14]
+    platforms: [cva6v.*]
+    owner: Raymond Garcia
+    flags: [ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/imperas-riscv-tests/riscv-test-suite/rv64i_m/Vp/src/VSLIDE1DOWN-VX-SEW32_FRACLMUL, RUN_SCRIPT_ONLY]
+
+  - name: cva6v_imperas_Vp_rv64i_VSLIDE1UP-VX-SEW16_FRACLMUL
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_IMPERAS_TESTS, CVA6V_DV_IMPERAS_V_TESTS, CVA6V_DV_IMPERAS_VP_TESTS]
+    requirement_ids: [CVA6V_FEAT_11, CVA6V_FEAT_12, CVA6V_FEAT_13, CVA6V_FEAT_14]
+    platforms: [cva6v.*]
+    owner: Raymond Garcia
+    flags: [ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/imperas-riscv-tests/riscv-test-suite/rv64i_m/Vp/src/VSLIDE1UP-VX-SEW16_FRACLMUL, RUN_SCRIPT_ONLY]
+
+  - name: cva6v_imperas_Vp_rv64i_VRGATHER-VI-SEW16_LMUL1
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_IMPERAS_TESTS, CVA6V_DV_IMPERAS_V_TESTS, CVA6V_DV_IMPERAS_VP_TESTS]
+    requirement_ids: [CVA6V_FEAT_11, CVA6V_FEAT_12, CVA6V_FEAT_13, CVA6V_FEAT_14]
+    platforms: [cva6v.*]
+    owner: Raymond Garcia
+    flags: [ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/imperas-riscv-tests/riscv-test-suite/rv64i_m/Vp/src/VRGATHER-VI-SEW16_LMUL1, RUN_SCRIPT_ONLY]
+
+  - name: cva6v_imperas_Vp_rv64i_VFMV-S-F-SEW32_LMUL1
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_IMPERAS_TESTS, CVA6V_DV_IMPERAS_V_TESTS, CVA6V_DV_IMPERAS_VP_TESTS]
+    requirement_ids: [CVA6V_FEAT_11, CVA6V_FEAT_12, CVA6V_FEAT_13, CVA6V_FEAT_14]
+    platforms: [cva6v.*]
+    owner: Raymond Garcia
+    flags: [ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/imperas-riscv-tests/riscv-test-suite/rv64i_m/Vp/src/VFMV-S-F-SEW32_LMUL1, RUN_SCRIPT_ONLY]
+
+  - name: cva6v_imperas_Vp_rv64i_VRGATHER-VX-SEW16_LMUL8
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_IMPERAS_TESTS, CVA6V_DV_IMPERAS_V_TESTS, CVA6V_DV_IMPERAS_VP_TESTS]
+    requirement_ids: [CVA6V_FEAT_11, CVA6V_FEAT_12, CVA6V_FEAT_13, CVA6V_FEAT_14]
+    platforms: [cva6v.*]
+    owner: Raymond Garcia
+    flags: [ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/imperas-riscv-tests/riscv-test-suite/rv64i_m/Vp/src/VRGATHER-VX-SEW16_LMUL8, RUN_SCRIPT_ONLY]
+
+  - name: cva6v_imperas_Vp_rv64i_VSLIDE1UP-VX-SEW8_LMUL4
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_IMPERAS_TESTS, CVA6V_DV_IMPERAS_V_TESTS, CVA6V_DV_IMPERAS_VP_TESTS]
+    requirement_ids: [CVA6V_FEAT_11, CVA6V_FEAT_12, CVA6V_FEAT_13, CVA6V_FEAT_14]
+    platforms: [cva6v.*]
+    owner: Raymond Garcia
+    flags: [ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/imperas-riscv-tests/riscv-test-suite/rv64i_m/Vp/src/VSLIDE1UP-VX-SEW8_LMUL4, RUN_SCRIPT_ONLY]
+
+  - name: cva6v_imperas_Vp_rv64i_VSLIDE1DOWN-VX-SEW16_LMUL8
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_IMPERAS_TESTS, CVA6V_DV_IMPERAS_V_TESTS, CVA6V_DV_IMPERAS_VP_TESTS]
+    requirement_ids: [CVA6V_FEAT_11, CVA6V_FEAT_12, CVA6V_FEAT_13, CVA6V_FEAT_14]
+    platforms: [cva6v.*]
+    owner: Raymond Garcia
+    flags: [ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/imperas-riscv-tests/riscv-test-suite/rv64i_m/Vp/src/VSLIDE1DOWN-VX-SEW16_LMUL8, RUN_SCRIPT_ONLY]
+
+  - name: cva6v_imperas_Vp_rv64i_VFMV-S-F-SEW32_LMUL4
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_IMPERAS_TESTS, CVA6V_DV_IMPERAS_V_TESTS, CVA6V_DV_IMPERAS_VP_TESTS]
+    requirement_ids: [CVA6V_FEAT_11, CVA6V_FEAT_12, CVA6V_FEAT_13, CVA6V_FEAT_14]
+    platforms: [cva6v.*]
+    owner: Raymond Garcia
+    flags: [ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/imperas-riscv-tests/riscv-test-suite/rv64i_m/Vp/src/VFMV-S-F-SEW32_LMUL4, RUN_SCRIPT_ONLY]
+
+  - name: cva6v_imperas_Vp_rv64i_VRGATHER-VV-SEW8_FRACLMUL
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_IMPERAS_TESTS, CVA6V_DV_IMPERAS_V_TESTS, CVA6V_DV_IMPERAS_VP_TESTS]
+    requirement_ids: [CVA6V_FEAT_11, CVA6V_FEAT_12, CVA6V_FEAT_13, CVA6V_FEAT_14]
+    platforms: [cva6v.*]
+    owner: Raymond Garcia
+    flags: [ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/imperas-riscv-tests/riscv-test-suite/rv64i_m/Vp/src/VRGATHER-VV-SEW8_FRACLMUL, RUN_SCRIPT_ONLY]
+
+  - name: cva6v_imperas_Vp_rv64i_VRGATHER-VX-SEW8_LMUL8
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_IMPERAS_TESTS, CVA6V_DV_IMPERAS_V_TESTS, CVA6V_DV_IMPERAS_VP_TESTS]
+    requirement_ids: [CVA6V_FEAT_11, CVA6V_FEAT_12, CVA6V_FEAT_13, CVA6V_FEAT_14]
+    platforms: [cva6v.*]
+    owner: Raymond Garcia
+    flags: [ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/imperas-riscv-tests/riscv-test-suite/rv64i_m/Vp/src/VRGATHER-VX-SEW8_LMUL8, RUN_SCRIPT_ONLY]
+
+  - name: cva6v_imperas_Vp_rv64i_VFSLIDE1DOWN-VF-SEW16_LMUL1
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_IMPERAS_TESTS, CVA6V_DV_IMPERAS_V_TESTS, CVA6V_DV_IMPERAS_VP_TESTS]
+    requirement_ids: [CVA6V_FEAT_11, CVA6V_FEAT_12, CVA6V_FEAT_13, CVA6V_FEAT_14]
+    platforms: [cva6v.*]
+    owner: Raymond Garcia
+    flags: [ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/imperas-riscv-tests/riscv-test-suite/rv64i_m/Vp/src/VFSLIDE1DOWN-VF-SEW16_LMUL1, RUN_SCRIPT_ONLY]
+
+  - name: cva6v_imperas_Vp_rv64i_VMV-X-S-SEW16_LMUL1
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_IMPERAS_TESTS, CVA6V_DV_IMPERAS_V_TESTS, CVA6V_DV_IMPERAS_VP_TESTS]
+    requirement_ids: [CVA6V_FEAT_11, CVA6V_FEAT_12, CVA6V_FEAT_13, CVA6V_FEAT_14]
+    platforms: [cva6v.*]
+    owner: Raymond Garcia
+    flags: [ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/imperas-riscv-tests/riscv-test-suite/rv64i_m/Vp/src/VMV-X-S-SEW16_LMUL1, RUN_SCRIPT_ONLY]
+
+  - name: cva6v_imperas_Vp_rv64i_VRGATHER-VV-SEW16_LMUL1
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_IMPERAS_TESTS, CVA6V_DV_IMPERAS_V_TESTS, CVA6V_DV_IMPERAS_VP_TESTS]
+    requirement_ids: [CVA6V_FEAT_11, CVA6V_FEAT_12, CVA6V_FEAT_13, CVA6V_FEAT_14]
+    platforms: [cva6v.*]
+    owner: Raymond Garcia
+    flags: [ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/imperas-riscv-tests/riscv-test-suite/rv64i_m/Vp/src/VRGATHER-VV-SEW16_LMUL1, RUN_SCRIPT_ONLY]
+
+  - name: cva6v_imperas_Vp_rv64i_VRGATHEREI16-VV-SEW32_LMUL2
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_IMPERAS_TESTS, CVA6V_DV_IMPERAS_V_TESTS, CVA6V_DV_IMPERAS_VP_TESTS]
+    requirement_ids: [CVA6V_FEAT_11, CVA6V_FEAT_12, CVA6V_FEAT_13, CVA6V_FEAT_14]
+    platforms: [cva6v.*]
+    owner: Raymond Garcia
+    flags: [ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/imperas-riscv-tests/riscv-test-suite/rv64i_m/Vp/src/VRGATHEREI16-VV-SEW32_LMUL2, RUN_SCRIPT_ONLY]
+
+  - name: cva6v_imperas_Vp_rv64i_VMV2R-V-SEW32_LMUL1
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_IMPERAS_TESTS, CVA6V_DV_IMPERAS_V_TESTS, CVA6V_DV_IMPERAS_VP_TESTS]
+    requirement_ids: [CVA6V_FEAT_11, CVA6V_FEAT_12, CVA6V_FEAT_13, CVA6V_FEAT_14]
+    platforms: [cva6v.*]
+    owner: Raymond Garcia
+    flags: [ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/imperas-riscv-tests/riscv-test-suite/rv64i_m/Vp/src/VMV2R-V-SEW32_LMUL1, RUN_SCRIPT_ONLY]
+
+  - name: cva6v_imperas_Vp_rv64i_VRGATHER-VV-SEW32_LMUL4
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_IMPERAS_TESTS, CVA6V_DV_IMPERAS_V_TESTS, CVA6V_DV_IMPERAS_VP_TESTS]
+    requirement_ids: [CVA6V_FEAT_11, CVA6V_FEAT_12, CVA6V_FEAT_13, CVA6V_FEAT_14]
+    platforms: [cva6v.*]
+    owner: Raymond Garcia
+    flags: [ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/imperas-riscv-tests/riscv-test-suite/rv64i_m/Vp/src/VRGATHER-VV-SEW32_LMUL4, RUN_SCRIPT_ONLY]
+
+  - name: cva6v_imperas_Vp_rv64i_VCOMPRESS-VM-SEW16_LMUL8
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_IMPERAS_TESTS, CVA6V_DV_IMPERAS_V_TESTS, CVA6V_DV_IMPERAS_VP_TESTS]
+    requirement_ids: [CVA6V_FEAT_11, CVA6V_FEAT_12, CVA6V_FEAT_13, CVA6V_FEAT_14]
+    platforms: [cva6v.*]
+    owner: Raymond Garcia
+    flags: [ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/imperas-riscv-tests/riscv-test-suite/rv64i_m/Vp/src/VCOMPRESS-VM-SEW16_LMUL8, RUN_SCRIPT_ONLY]
+
+  - name: cva6v_imperas_Vp_rv64i_VSLIDEDOWN-VX-SEW16_LMUL2
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_IMPERAS_TESTS, CVA6V_DV_IMPERAS_V_TESTS, CVA6V_DV_IMPERAS_VP_TESTS]
+    requirement_ids: [CVA6V_FEAT_11, CVA6V_FEAT_12, CVA6V_FEAT_13, CVA6V_FEAT_14]
+    platforms: [cva6v.*]
+    owner: Raymond Garcia
+    flags: [ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/imperas-riscv-tests/riscv-test-suite/rv64i_m/Vp/src/VSLIDEDOWN-VX-SEW16_LMUL2, RUN_SCRIPT_ONLY]
+
+  - name: cva6v_imperas_Vp_rv64i_VFSLIDE1UP-VF-SEW16_LMUL8
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_IMPERAS_TESTS, CVA6V_DV_IMPERAS_V_TESTS, CVA6V_DV_IMPERAS_VP_TESTS]
+    requirement_ids: [CVA6V_FEAT_11, CVA6V_FEAT_12, CVA6V_FEAT_13, CVA6V_FEAT_14]
+    platforms: [cva6v.*]
+    owner: Raymond Garcia
+    flags: [ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/imperas-riscv-tests/riscv-test-suite/rv64i_m/Vp/src/VFSLIDE1UP-VF-SEW16_LMUL8, RUN_SCRIPT_ONLY]
+
+  - name: cva6v_imperas_Vp_rv64i_VSLIDEUP-VX-SEW8_LMUL8
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_IMPERAS_TESTS, CVA6V_DV_IMPERAS_V_TESTS, CVA6V_DV_IMPERAS_VP_TESTS]
+    requirement_ids: [CVA6V_FEAT_11, CVA6V_FEAT_12, CVA6V_FEAT_13, CVA6V_FEAT_14]
+    platforms: [cva6v.*]
+    owner: Raymond Garcia
+    flags: [ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/imperas-riscv-tests/riscv-test-suite/rv64i_m/Vp/src/VSLIDEUP-VX-SEW8_LMUL8, RUN_SCRIPT_ONLY]
+
+  - name: cva6v_imperas_Vp_rv64i_VFMV-S-F-SEW16_LMUL8
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_IMPERAS_TESTS, CVA6V_DV_IMPERAS_V_TESTS, CVA6V_DV_IMPERAS_VP_TESTS]
+    requirement_ids: [CVA6V_FEAT_11, CVA6V_FEAT_12, CVA6V_FEAT_13, CVA6V_FEAT_14]
+    platforms: [cva6v.*]
+    owner: Raymond Garcia
+    flags: [ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/imperas-riscv-tests/riscv-test-suite/rv64i_m/Vp/src/VFMV-S-F-SEW16_LMUL8, RUN_SCRIPT_ONLY]
+
+  - name: cva6v_imperas_Vp_rv64i_VFSLIDE1DOWN-VF-SEW32_LMUL8
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_IMPERAS_TESTS, CVA6V_DV_IMPERAS_V_TESTS, CVA6V_DV_IMPERAS_VP_TESTS]
+    requirement_ids: [CVA6V_FEAT_11, CVA6V_FEAT_12, CVA6V_FEAT_13, CVA6V_FEAT_14]
+    platforms: [cva6v.*]
+    owner: Raymond Garcia
+    flags: [ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/imperas-riscv-tests/riscv-test-suite/rv64i_m/Vp/src/VFSLIDE1DOWN-VF-SEW32_LMUL8, RUN_SCRIPT_ONLY]
+
+  - name: cva6v_imperas_Vp_rv64i_VSLIDE1DOWN-VX-SEW8_LMUL4
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_IMPERAS_TESTS, CVA6V_DV_IMPERAS_V_TESTS, CVA6V_DV_IMPERAS_VP_TESTS]
+    requirement_ids: [CVA6V_FEAT_11, CVA6V_FEAT_12, CVA6V_FEAT_13, CVA6V_FEAT_14]
+    platforms: [cva6v.*]
+    owner: Raymond Garcia
+    flags: [ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/imperas-riscv-tests/riscv-test-suite/rv64i_m/Vp/src/VSLIDE1DOWN-VX-SEW8_LMUL4, RUN_SCRIPT_ONLY]
+
+  - name: cva6v_imperas_Vp_rv64i_VRGATHER-VI-SEW32_LMUL1
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_IMPERAS_TESTS, CVA6V_DV_IMPERAS_V_TESTS, CVA6V_DV_IMPERAS_VP_TESTS]
+    requirement_ids: [CVA6V_FEAT_11, CVA6V_FEAT_12, CVA6V_FEAT_13, CVA6V_FEAT_14]
+    platforms: [cva6v.*]
+    owner: Raymond Garcia
+    flags: [ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/imperas-riscv-tests/riscv-test-suite/rv64i_m/Vp/src/VRGATHER-VI-SEW32_LMUL1, RUN_SCRIPT_ONLY]
+
+  - name: cva6v_imperas_Vp_rv64i_VSLIDEDOWN-VX-SEW32_FRACLMUL
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_IMPERAS_TESTS, CVA6V_DV_IMPERAS_V_TESTS, CVA6V_DV_IMPERAS_VP_TESTS]
+    requirement_ids: [CVA6V_FEAT_11, CVA6V_FEAT_12, CVA6V_FEAT_13, CVA6V_FEAT_14]
+    platforms: [cva6v.*]
+    owner: Raymond Garcia
+    flags: [ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/imperas-riscv-tests/riscv-test-suite/rv64i_m/Vp/src/VSLIDEDOWN-VX-SEW32_FRACLMUL, RUN_SCRIPT_ONLY]
+
+  - name: cva6v_imperas_Vp_rv64i_VCOMPRESS-VM-SEW32_LMUL1
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_IMPERAS_TESTS, CVA6V_DV_IMPERAS_V_TESTS, CVA6V_DV_IMPERAS_VP_TESTS]
+    requirement_ids: [CVA6V_FEAT_11, CVA6V_FEAT_12, CVA6V_FEAT_13, CVA6V_FEAT_14]
+    platforms: [cva6v.*]
+    owner: Raymond Garcia
+    flags: [ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/imperas-riscv-tests/riscv-test-suite/rv64i_m/Vp/src/VCOMPRESS-VM-SEW32_LMUL1, RUN_SCRIPT_ONLY]
+
+  - name: cva6v_imperas_Vp_rv64i_VRGATHER-VI-SEW8_LMUL8
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_IMPERAS_TESTS, CVA6V_DV_IMPERAS_V_TESTS, CVA6V_DV_IMPERAS_VP_TESTS]
+    requirement_ids: [CVA6V_FEAT_11, CVA6V_FEAT_12, CVA6V_FEAT_13, CVA6V_FEAT_14]
+    platforms: [cva6v.*]
+    owner: Raymond Garcia
+    flags: [ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/imperas-riscv-tests/riscv-test-suite/rv64i_m/Vp/src/VRGATHER-VI-SEW8_LMUL8, RUN_SCRIPT_ONLY]
+
+  - name: cva6v_imperas_Vp_rv64i_VSLIDEUP-VX-SEW16_LMUL8
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_IMPERAS_TESTS, CVA6V_DV_IMPERAS_V_TESTS, CVA6V_DV_IMPERAS_VP_TESTS]
+    requirement_ids: [CVA6V_FEAT_11, CVA6V_FEAT_12, CVA6V_FEAT_13, CVA6V_FEAT_14]
+    platforms: [cva6v.*]
+    owner: Raymond Garcia
+    flags: [ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/imperas-riscv-tests/riscv-test-suite/rv64i_m/Vp/src/VSLIDEUP-VX-SEW16_LMUL8, RUN_SCRIPT_ONLY]
+
+  - name: cva6v_imperas_Vp_rv64i_VSLIDE1DOWN-VX-SEW8_LMUL2
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_IMPERAS_TESTS, CVA6V_DV_IMPERAS_V_TESTS, CVA6V_DV_IMPERAS_VP_TESTS]
+    requirement_ids: [CVA6V_FEAT_11, CVA6V_FEAT_12, CVA6V_FEAT_13, CVA6V_FEAT_14]
+    platforms: [cva6v.*]
+    owner: Raymond Garcia
+    flags: [ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/imperas-riscv-tests/riscv-test-suite/rv64i_m/Vp/src/VSLIDE1DOWN-VX-SEW8_LMUL2, RUN_SCRIPT_ONLY]
+
+  - name: cva6v_imperas_Vp_rv64i_VCOMPRESS-VM-SEW32_LMUL8
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_IMPERAS_TESTS, CVA6V_DV_IMPERAS_V_TESTS, CVA6V_DV_IMPERAS_VP_TESTS]
+    requirement_ids: [CVA6V_FEAT_11, CVA6V_FEAT_12, CVA6V_FEAT_13, CVA6V_FEAT_14]
+    platforms: [cva6v.*]
+    owner: Raymond Garcia
+    flags: [ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/imperas-riscv-tests/riscv-test-suite/rv64i_m/Vp/src/VCOMPRESS-VM-SEW32_LMUL8, RUN_SCRIPT_ONLY]
+
+  - name: cva6v_imperas_Vp_rv64i_VSLIDE1DOWN-VX-SEW8_LMUL8
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_IMPERAS_TESTS, CVA6V_DV_IMPERAS_V_TESTS, CVA6V_DV_IMPERAS_VP_TESTS]
+    requirement_ids: [CVA6V_FEAT_11, CVA6V_FEAT_12, CVA6V_FEAT_13, CVA6V_FEAT_14]
+    platforms: [cva6v.*]
+    owner: Raymond Garcia
+    flags: [ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/imperas-riscv-tests/riscv-test-suite/rv64i_m/Vp/src/VSLIDE1DOWN-VX-SEW8_LMUL8, RUN_SCRIPT_ONLY]
+
+  - name: cva6v_imperas_Vp_rv64i_VRGATHER-VI-SEW16_LMUL4
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_IMPERAS_TESTS, CVA6V_DV_IMPERAS_V_TESTS, CVA6V_DV_IMPERAS_VP_TESTS]
+    requirement_ids: [CVA6V_FEAT_11, CVA6V_FEAT_12, CVA6V_FEAT_13, CVA6V_FEAT_14]
+    platforms: [cva6v.*]
+    owner: Raymond Garcia
+    flags: [ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/imperas-riscv-tests/riscv-test-suite/rv64i_m/Vp/src/VRGATHER-VI-SEW16_LMUL4, RUN_SCRIPT_ONLY]
+
+  - name: cva6v_imperas_Vp_rv64i_VCOMPRESS-VM-SEW8_LMUL1
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_IMPERAS_TESTS, CVA6V_DV_IMPERAS_V_TESTS, CVA6V_DV_IMPERAS_VP_TESTS]
+    requirement_ids: [CVA6V_FEAT_11, CVA6V_FEAT_12, CVA6V_FEAT_13, CVA6V_FEAT_14]
+    platforms: [cva6v.*]
+    owner: Raymond Garcia
+    flags: [ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/imperas-riscv-tests/riscv-test-suite/rv64i_m/Vp/src/VCOMPRESS-VM-SEW8_LMUL1, RUN_SCRIPT_ONLY]
+
+  - name: cva6v_imperas_Vp_rv64i_VRGATHER-VI-SEW32_LMUL4
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_IMPERAS_TESTS, CVA6V_DV_IMPERAS_V_TESTS, CVA6V_DV_IMPERAS_VP_TESTS]
+    requirement_ids: [CVA6V_FEAT_11, CVA6V_FEAT_12, CVA6V_FEAT_13, CVA6V_FEAT_14]
+    platforms: [cva6v.*]
+    owner: Raymond Garcia
+    flags: [ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/imperas-riscv-tests/riscv-test-suite/rv64i_m/Vp/src/VRGATHER-VI-SEW32_LMUL4, RUN_SCRIPT_ONLY]
+
+  - name: cva6v_imperas_Vp_rv64i_VSLIDEDOWN-VI-SEW8_LMUL1
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_IMPERAS_TESTS, CVA6V_DV_IMPERAS_V_TESTS, CVA6V_DV_IMPERAS_VP_TESTS]
+    requirement_ids: [CVA6V_FEAT_11, CVA6V_FEAT_12, CVA6V_FEAT_13, CVA6V_FEAT_14]
+    platforms: [cva6v.*]
+    owner: Raymond Garcia
+    flags: [ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/imperas-riscv-tests/riscv-test-suite/rv64i_m/Vp/src/VSLIDEDOWN-VI-SEW8_LMUL1, RUN_SCRIPT_ONLY]
+
+  - name: cva6v_imperas_Vp_rv64i_VRGATHER-VX-SEW16_LMUL1
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_IMPERAS_TESTS, CVA6V_DV_IMPERAS_V_TESTS, CVA6V_DV_IMPERAS_VP_TESTS]
+    requirement_ids: [CVA6V_FEAT_11, CVA6V_FEAT_12, CVA6V_FEAT_13, CVA6V_FEAT_14]
+    platforms: [cva6v.*]
+    owner: Raymond Garcia
+    flags: [ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/imperas-riscv-tests/riscv-test-suite/rv64i_m/Vp/src/VRGATHER-VX-SEW16_LMUL1, RUN_SCRIPT_ONLY]
+
+  - name: cva6v_imperas_Vp_rv64i_VMV2R-V-SEW32_FRACLMUL
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_IMPERAS_TESTS, CVA6V_DV_IMPERAS_V_TESTS, CVA6V_DV_IMPERAS_VP_TESTS]
+    requirement_ids: [CVA6V_FEAT_11, CVA6V_FEAT_12, CVA6V_FEAT_13, CVA6V_FEAT_14]
+    platforms: [cva6v.*]
+    owner: Raymond Garcia
+    flags: [ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/imperas-riscv-tests/riscv-test-suite/rv64i_m/Vp/src/VMV2R-V-SEW32_FRACLMUL, RUN_SCRIPT_ONLY]
+
+  - name: cva6v_imperas_Vp_rv64i_VSLIDE1DOWN-VX-SEW8_FRACLMUL
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_IMPERAS_TESTS, CVA6V_DV_IMPERAS_V_TESTS, CVA6V_DV_IMPERAS_VP_TESTS]
+    requirement_ids: [CVA6V_FEAT_11, CVA6V_FEAT_12, CVA6V_FEAT_13, CVA6V_FEAT_14]
+    platforms: [cva6v.*]
+    owner: Raymond Garcia
+    flags: [ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/imperas-riscv-tests/riscv-test-suite/rv64i_m/Vp/src/VSLIDE1DOWN-VX-SEW8_FRACLMUL, RUN_SCRIPT_ONLY]
+
+  - name: cva6v_imperas_Vp_rv64i_VMV-X-S-SEW8_FRACLMUL
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_IMPERAS_TESTS, CVA6V_DV_IMPERAS_V_TESTS, CVA6V_DV_IMPERAS_VP_TESTS]
+    requirement_ids: [CVA6V_FEAT_11, CVA6V_FEAT_12, CVA6V_FEAT_13, CVA6V_FEAT_14]
+    platforms: [cva6v.*]
+    owner: Raymond Garcia
+    flags: [ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/imperas-riscv-tests/riscv-test-suite/rv64i_m/Vp/src/VMV-X-S-SEW8_FRACLMUL, RUN_SCRIPT_ONLY]
+
+  - name: cva6v_imperas_Vp_rv64i_VRGATHEREI16-VV-SEW8_LMUL4
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_IMPERAS_TESTS, CVA6V_DV_IMPERAS_V_TESTS, CVA6V_DV_IMPERAS_VP_TESTS]
+    requirement_ids: [CVA6V_FEAT_11, CVA6V_FEAT_12, CVA6V_FEAT_13, CVA6V_FEAT_14]
+    platforms: [cva6v.*]
+    owner: Raymond Garcia
+    flags: [ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/imperas-riscv-tests/riscv-test-suite/rv64i_m/Vp/src/VRGATHEREI16-VV-SEW8_LMUL4, RUN_SCRIPT_ONLY]
+
+  - name: cva6v_imperas_Vp_rv64i_VSLIDEDOWN-VI-SEW8_LMUL8
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_IMPERAS_TESTS, CVA6V_DV_IMPERAS_V_TESTS, CVA6V_DV_IMPERAS_VP_TESTS]
+    requirement_ids: [CVA6V_FEAT_11, CVA6V_FEAT_12, CVA6V_FEAT_13, CVA6V_FEAT_14]
+    platforms: [cva6v.*]
+    owner: Raymond Garcia
+    flags: [ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/imperas-riscv-tests/riscv-test-suite/rv64i_m/Vp/src/VSLIDEDOWN-VI-SEW8_LMUL8, RUN_SCRIPT_ONLY]
+
+  - name: cva6v_imperas_Vp_rv64i_VFSLIDE1UP-VF-SEW32_LMUL2
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_IMPERAS_TESTS, CVA6V_DV_IMPERAS_V_TESTS, CVA6V_DV_IMPERAS_VP_TESTS]
+    requirement_ids: [CVA6V_FEAT_11, CVA6V_FEAT_12, CVA6V_FEAT_13, CVA6V_FEAT_14]
+    platforms: [cva6v.*]
+    owner: Raymond Garcia
+    flags: [ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/imperas-riscv-tests/riscv-test-suite/rv64i_m/Vp/src/VFSLIDE1UP-VF-SEW32_LMUL2, RUN_SCRIPT_ONLY]
+
+  - name: cva6v_imperas_Vp_rv64i_VSLIDE1UP-VX-SEW32_LMUL2
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_IMPERAS_TESTS, CVA6V_DV_IMPERAS_V_TESTS, CVA6V_DV_IMPERAS_VP_TESTS]
+    requirement_ids: [CVA6V_FEAT_11, CVA6V_FEAT_12, CVA6V_FEAT_13, CVA6V_FEAT_14]
+    platforms: [cva6v.*]
+    owner: Raymond Garcia
+    flags: [ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/imperas-riscv-tests/riscv-test-suite/rv64i_m/Vp/src/VSLIDE1UP-VX-SEW32_LMUL2, RUN_SCRIPT_ONLY]
+
+  - name: cva6v_imperas_Vp_rv64i_VRGATHEREI16-VV-SEW8_LMUL2
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_IMPERAS_TESTS, CVA6V_DV_IMPERAS_V_TESTS, CVA6V_DV_IMPERAS_VP_TESTS]
+    requirement_ids: [CVA6V_FEAT_11, CVA6V_FEAT_12, CVA6V_FEAT_13, CVA6V_FEAT_14]
+    platforms: [cva6v.*]
+    owner: Raymond Garcia
+    flags: [ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/imperas-riscv-tests/riscv-test-suite/rv64i_m/Vp/src/VRGATHEREI16-VV-SEW8_LMUL2, RUN_SCRIPT_ONLY]
+
+  - name: cva6v_imperas_Vp_rv64i_VSLIDEDOWN-VX-SEW8_LMUL8
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_IMPERAS_TESTS, CVA6V_DV_IMPERAS_V_TESTS, CVA6V_DV_IMPERAS_VP_TESTS]
+    requirement_ids: [CVA6V_FEAT_11, CVA6V_FEAT_12, CVA6V_FEAT_13, CVA6V_FEAT_14]
+    platforms: [cva6v.*]
+    owner: Raymond Garcia
+    flags: [ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/imperas-riscv-tests/riscv-test-suite/rv64i_m/Vp/src/VSLIDEDOWN-VX-SEW8_LMUL8, RUN_SCRIPT_ONLY]
+
+  - name: cva6v_imperas_Vp_rv64i_VRGATHEREI16-VV-SEW32_LMUL4
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_IMPERAS_TESTS, CVA6V_DV_IMPERAS_V_TESTS, CVA6V_DV_IMPERAS_VP_TESTS]
+    requirement_ids: [CVA6V_FEAT_11, CVA6V_FEAT_12, CVA6V_FEAT_13, CVA6V_FEAT_14]
+    platforms: [cva6v.*]
+    owner: Raymond Garcia
+    flags: [ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/imperas-riscv-tests/riscv-test-suite/rv64i_m/Vp/src/VRGATHEREI16-VV-SEW32_LMUL4, RUN_SCRIPT_ONLY]
+
+  - name: cva6v_imperas_Vp_rv64i_VSLIDEDOWN-VI-SEW32_LMUL1
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_IMPERAS_TESTS, CVA6V_DV_IMPERAS_V_TESTS, CVA6V_DV_IMPERAS_VP_TESTS]
+    requirement_ids: [CVA6V_FEAT_11, CVA6V_FEAT_12, CVA6V_FEAT_13, CVA6V_FEAT_14]
+    platforms: [cva6v.*]
+    owner: Raymond Garcia
+    flags: [ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/imperas-riscv-tests/riscv-test-suite/rv64i_m/Vp/src/VSLIDEDOWN-VI-SEW32_LMUL1, RUN_SCRIPT_ONLY]
+
+  - name: cva6v_imperas_Vp_rv64i_VFSLIDE1DOWN-VF-SEW32_LMUL4
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_IMPERAS_TESTS, CVA6V_DV_IMPERAS_V_TESTS, CVA6V_DV_IMPERAS_VP_TESTS]
+    requirement_ids: [CVA6V_FEAT_11, CVA6V_FEAT_12, CVA6V_FEAT_13, CVA6V_FEAT_14]
+    platforms: [cva6v.*]
+    owner: Raymond Garcia
+    flags: [ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/imperas-riscv-tests/riscv-test-suite/rv64i_m/Vp/src/VFSLIDE1DOWN-VF-SEW32_LMUL4, RUN_SCRIPT_ONLY]
+
+  - name: cva6v_imperas_Vp_rv64i_VRGATHEREI16-VV-SEW16_LMUL4
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_IMPERAS_TESTS, CVA6V_DV_IMPERAS_V_TESTS, CVA6V_DV_IMPERAS_VP_TESTS]
+    requirement_ids: [CVA6V_FEAT_11, CVA6V_FEAT_12, CVA6V_FEAT_13, CVA6V_FEAT_14]
+    platforms: [cva6v.*]
+    owner: Raymond Garcia
+    flags: [ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/imperas-riscv-tests/riscv-test-suite/rv64i_m/Vp/src/VRGATHEREI16-VV-SEW16_LMUL4, RUN_SCRIPT_ONLY]
+
+  - name: cva6v_imperas_Vp_rv64i_VSLIDE1DOWN-VX-SEW32_LMUL8
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_IMPERAS_TESTS, CVA6V_DV_IMPERAS_V_TESTS, CVA6V_DV_IMPERAS_VP_TESTS]
+    requirement_ids: [CVA6V_FEAT_11, CVA6V_FEAT_12, CVA6V_FEAT_13, CVA6V_FEAT_14]
+    platforms: [cva6v.*]
+    owner: Raymond Garcia
+    flags: [ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/imperas-riscv-tests/riscv-test-suite/rv64i_m/Vp/src/VSLIDE1DOWN-VX-SEW32_LMUL8, RUN_SCRIPT_ONLY]
+
+  - name: cva6v_imperas_Vp_rv64i_VFSLIDE1DOWN-VF-SEW32_LMUL2
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_IMPERAS_TESTS, CVA6V_DV_IMPERAS_V_TESTS, CVA6V_DV_IMPERAS_VP_TESTS]
+    requirement_ids: [CVA6V_FEAT_11, CVA6V_FEAT_12, CVA6V_FEAT_13, CVA6V_FEAT_14]
+    platforms: [cva6v.*]
+    owner: Raymond Garcia
+    flags: [ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/imperas-riscv-tests/riscv-test-suite/rv64i_m/Vp/src/VFSLIDE1DOWN-VF-SEW32_LMUL2, RUN_SCRIPT_ONLY]
+
+  - name: cva6v_imperas_Vp_rv64i_VFMV-S-F-SEW16_FRACLMUL
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_IMPERAS_TESTS, CVA6V_DV_IMPERAS_V_TESTS, CVA6V_DV_IMPERAS_VP_TESTS]
+    requirement_ids: [CVA6V_FEAT_11, CVA6V_FEAT_12, CVA6V_FEAT_13, CVA6V_FEAT_14]
+    platforms: [cva6v.*]
+    owner: Raymond Garcia
+    flags: [ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/imperas-riscv-tests/riscv-test-suite/rv64i_m/Vp/src/VFMV-S-F-SEW16_FRACLMUL, RUN_SCRIPT_ONLY]
+
+  - name: cva6v_imperas_Vp_rv64i_VFSLIDE1UP-VF-SEW16_LMUL1
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_IMPERAS_TESTS, CVA6V_DV_IMPERAS_V_TESTS, CVA6V_DV_IMPERAS_VP_TESTS]
+    requirement_ids: [CVA6V_FEAT_11, CVA6V_FEAT_12, CVA6V_FEAT_13, CVA6V_FEAT_14]
+    platforms: [cva6v.*]
+    owner: Raymond Garcia
+    flags: [ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/imperas-riscv-tests/riscv-test-suite/rv64i_m/Vp/src/VFSLIDE1UP-VF-SEW16_LMUL1, RUN_SCRIPT_ONLY]
+
+  - name: cva6v_imperas_Vp_rv64i_VRGATHER-VX-SEW8_LMUL1
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_IMPERAS_TESTS, CVA6V_DV_IMPERAS_V_TESTS, CVA6V_DV_IMPERAS_VP_TESTS]
+    requirement_ids: [CVA6V_FEAT_11, CVA6V_FEAT_12, CVA6V_FEAT_13, CVA6V_FEAT_14]
+    platforms: [cva6v.*]
+    owner: Raymond Garcia
+    flags: [ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/imperas-riscv-tests/riscv-test-suite/rv64i_m/Vp/src/VRGATHER-VX-SEW8_LMUL1, RUN_SCRIPT_ONLY]
+
+  - name: cva6v_imperas_Vp_rv64i_VRGATHEREI16-VV-SEW16_LMUL8
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_IMPERAS_TESTS, CVA6V_DV_IMPERAS_V_TESTS, CVA6V_DV_IMPERAS_VP_TESTS]
+    requirement_ids: [CVA6V_FEAT_11, CVA6V_FEAT_12, CVA6V_FEAT_13, CVA6V_FEAT_14]
+    platforms: [cva6v.*]
+    owner: Raymond Garcia
+    flags: [ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/imperas-riscv-tests/riscv-test-suite/rv64i_m/Vp/src/VRGATHEREI16-VV-SEW16_LMUL8, RUN_SCRIPT_ONLY]
+
+  - name: cva6v_imperas_Vp_rv64i_VMV1R-V-SEW32_LMUL1
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_IMPERAS_TESTS, CVA6V_DV_IMPERAS_V_TESTS, CVA6V_DV_IMPERAS_VP_TESTS]
+    requirement_ids: [CVA6V_FEAT_11, CVA6V_FEAT_12, CVA6V_FEAT_13, CVA6V_FEAT_14]
+    platforms: [cva6v.*]
+    owner: Raymond Garcia
+    flags: [ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/imperas-riscv-tests/riscv-test-suite/rv64i_m/Vp/src/VMV1R-V-SEW32_LMUL1, RUN_SCRIPT_ONLY]
+
+  - name: cva6v_imperas_Vp_rv64i_VSLIDE1UP-VX-SEW8_LMUL1
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_IMPERAS_TESTS, CVA6V_DV_IMPERAS_V_TESTS, CVA6V_DV_IMPERAS_VP_TESTS]
+    requirement_ids: [CVA6V_FEAT_11, CVA6V_FEAT_12, CVA6V_FEAT_13, CVA6V_FEAT_14]
+    platforms: [cva6v.*]
+    owner: Raymond Garcia
+    flags: [ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/imperas-riscv-tests/riscv-test-suite/rv64i_m/Vp/src/VSLIDE1UP-VX-SEW8_LMUL1, RUN_SCRIPT_ONLY]
+
+  - name: cva6v_imperas_Vp_rv64i_VRGATHER-VI-SEW32_LMUL2
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_IMPERAS_TESTS, CVA6V_DV_IMPERAS_V_TESTS, CVA6V_DV_IMPERAS_VP_TESTS]
+    requirement_ids: [CVA6V_FEAT_11, CVA6V_FEAT_12, CVA6V_FEAT_13, CVA6V_FEAT_14]
+    platforms: [cva6v.*]
+    owner: Raymond Garcia
+    flags: [ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/imperas-riscv-tests/riscv-test-suite/rv64i_m/Vp/src/VRGATHER-VI-SEW32_LMUL2, RUN_SCRIPT_ONLY]
+
+  - name: cva6v_imperas_Vp_rv64i_VRGATHER-VI-SEW32_LMUL8
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_IMPERAS_TESTS, CVA6V_DV_IMPERAS_V_TESTS, CVA6V_DV_IMPERAS_VP_TESTS]
+    requirement_ids: [CVA6V_FEAT_11, CVA6V_FEAT_12, CVA6V_FEAT_13, CVA6V_FEAT_14]
+    platforms: [cva6v.*]
+    owner: Raymond Garcia
+    flags: [ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/imperas-riscv-tests/riscv-test-suite/rv64i_m/Vp/src/VRGATHER-VI-SEW32_LMUL8, RUN_SCRIPT_ONLY]
+
+  - name: cva6v_imperas_Vp_rv64i_VCOMPRESS-VM-SEW32_LMUL2
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_IMPERAS_TESTS, CVA6V_DV_IMPERAS_V_TESTS, CVA6V_DV_IMPERAS_VP_TESTS]
+    requirement_ids: [CVA6V_FEAT_11, CVA6V_FEAT_12, CVA6V_FEAT_13, CVA6V_FEAT_14]
+    platforms: [cva6v.*]
+    owner: Raymond Garcia
+    flags: [ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/imperas-riscv-tests/riscv-test-suite/rv64i_m/Vp/src/VCOMPRESS-VM-SEW32_LMUL2, RUN_SCRIPT_ONLY]
+

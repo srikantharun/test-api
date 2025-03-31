@@ -1,0 +1,16 @@
+package:
+  name: aic_ls_uvm_dmc_agt
+  description: "IFD ODR Address Generator Agent for DMC L1"
+  authors:
+    - "raymond.garcia@axelera.ai"
+
+dependencies:
+  aic_common_pkg:                 { path: "$REPO_ROOT/hw/ip/aic_common/default/rtl/pkg/" }
+
+sources:
+  - target: simulation
+    include_dirs:
+      - .
+    files:
+      - dmc_addr_gen_agent_pkg.sv
+      - dmc_addr_gen_if.sv

@@ -1,0 +1,42 @@
+Name,Type,Req_id,Description,Measure,Test,Coverpoints if applicable
+Command,UVM,AI_CORE_IAU_RAL,Write a single command to the CMD FIFO using different burst lengths.,TBI- change burst length in axi trans,iau_standard_test,
+Settings,UVM,AI_CORE_IAU_RAL,Check if program memory segfault can be set to not be ignored by setting DP_CTRL.IGNORE_SEGFAULT to low. Datapath should hang instead of repeating last instruction until finished.,"directed test, verified by mdl",iau_irq_test,check last inst is repeated
+Concurrency,UVM,AI_CORE_IAU_RAL,Write next program while current program is being read/executed.,directed_test,iau_concurrency_cmd_prog_test,few seeds have scorebaord mismatches
+Command,UVM,AI_CORE_IAU_RAL,Write more than one command to CMD FIFO within the same burst.,"directed test, verified by mdl",iau_cmdblk_backpressure_test,code cov fifo size
+Datapath,UVM,AI_CORE_IAU_RAL,Force the adders in the datapath to overflow with a valid program (32-bit adders per pixel).,code cov?,iau_standard_test,
+Token,UVM,AI_CORE_IAU_RAL,Verify that command is only executed if all tokens set to be consumed by the command header are present (gate execution with SW token).,func cov,iau_standard_test,cvg_tok
+Register Access Layer,UVM,AI_CORE_IAU_RAL,Run register tests on IAU CSRs and check that the response is as expected. RW answer OKAY. RO/WO answer NOT_OKAY on writes/reads respectively.,directed_test,iau_register_test,
+Register Access Layer,UVM,AI_CORE_IAU_RAL_NOT_AVAIL,Run register access on IAU CSRs region that is not available (no registers available on those addresses) and receive response NOT_OKAY.,directed_test,iau_invalid_access_test,
+Command,UVM,AI_CORE_IAU_CMD_ENABLE,Check if EXEC_EN properly gates the CMD FIFO output.,verified by mdl,iau_standard_test,-
+Command,UVM,AI_CORE_IAU_CMD_OVERFILL,Write commands to the CMD FIFO until a command is dropped.,"directed test, verified by mdl",iau_cmdblk_backpressure_test,-
+Command,UVM,AI_CORE_IAU_CMD_STANDARD,Write and execute a standard command (execution of a stored program).,func cov,iau_standard_test,cvg_iau_op.cp_op
+Program,UVM,AI_CORE_IAU_PRG_MEM_VALID_RANGE,Write/read to/from the entire valid program memory range (256 16-bit instructions) with any burst length.,TBI - change burst length in axi trans,iau_standard_test,
+Program,UVM,AI_CORE_IAU_PRG_MEM_INVALID_RANGE,Write/read to/from the entire invalid program memory range and receive response NOT_OKAY.,"TBI, direct test",iau_invalid_access_test,Issue
+Program,UVM,AI_CORE_IAU_PRG_LENGTH,Verify functional correctness of executions of programs of any valid length.,func cov,iau_standard_test,cvg_iau_cmd.cr_loop_cmd
+Program,UVM,AI_CORE_IAU_PRG_OFFSET,Verify functional correctness of executions of programs located at any valid offset.,func cov,iau_standard_test,cvg_iau_cmd.cp_start_addr
+Instruction,UVM,AI_CORE_IAU_INSTRUCTION_FUNCTIONAL,Check the functionality of each possible regular instruction covering all valid combinations of opcode,func cov,iau_standard_test,"cvg_iau_instr.cr_single_source_instructions
+cvg_iau_instr.cr_dual_source_instructions
+cvg_iau_instr.cr_signed_sat_dual_source_instructions
+cvg_iau_instr.cr_instructions_rfs_on"
+Instruction,UVM,AI_CORE_IAU_INSTRUCTION_STREAMS,Check the functionality of the pseudoregisters for the input and output stream which can be provided in src0/1 and dst,func cov,iau_standard_test,"cvg_iau_instr.cr_single_source_instructions
+cvg_iau_instr.cr_dual_source_instructions"
+Instruction,UVM,AI_CORE_IAU_INSTRUCTION_NO_DOUBLE_POP,Check that the input stream is not popped twice if the input pseudostream is provided both in src0 and src1 (the popped value should be used twice instead),func cov,iau_standard_test,cvg_iau_instr.cr_dual_source_instructions
+Instruction,UVM,AI_CORE_IAU_INSTRUCTION_RFS,Check the repeat for stream (RFS) instruction flag which repeats an instruction until the entire input stream is consumed. An RFS instruction must pop from the input stream.,"directed test, func cov",iau_rfs_test,cvg_iau_instr.cr_instructions_rfs_on
+Datapath,UVM,AI_CORE_IAU_DATAPATH_SEGFAULT,Force a program memory segfault by executing a program partly/fully outside the valid program memory range. Datapath should ignore seqfault by default and fill the program with the last valid instruction.,"directed test, verified by mdl",iau_irq_test,
+Settings,UVM,AI_CORE_IAU_SETTINGS_SIGNED,Check if datapath can correctly execute programs with operands treated as unsigned instead of signed by setting DP_CTRL.SIGNED_OP to low.,func cov,iau_standard_test,cvg_iau_instr.cr_signed_sat_dual_source_instructions
+Settings,UVM,AI_CORE_IAU_SETTINGS_SATURATE,Check if datapath can correctly execute programs with adders saturating instead of overflowing by setting DP_CTRL.SAT_OP to high.,func cov,iau_standard_test,cvg_iau_instr.cr_signed_sat_dual_source_instructions
+IRQ,UVM,AI_CORE_IAU_IRQ_ACT_STRM_IN,Enable ERR_ACT_STREAM_IN IRQ and trigger it by not consuming the entire input stream with a single command.,"directed test, verified by mdl",iau_irq_test,
+IRQ,UVM,AI_CORE_IAU_IRQ_ACT_STRM_OUT,Enable ERR_ACT_STREAM_OUT IRQ and trigger it by not outputting a complete output stream with a single command (missing TLAST).,"directed test, verified by mdl",iau_irq_test,-
+IRQ,UVM,AI_CORE_IAU_IRQ_PRG_SEGFAULT,Enable ERR_PRG_SEGFAULT IRQ and trigger it by pointing to a program outside the valid prg mem range.,"directed test, verified by mdl",iau_irq_test,-
+IRQ,UVM,AI_CORE_IAU_IRQ_PRG_LEN_ZERO,Enable ERR_PRG_LEN_ZERO IRQ and trigger it by sending a command with loop_len equal to zero.,"directed test, verified by mdl",iau_irq_test,-
+IRQ,UVM,AI_CORE_IAU_IRQ_DEBUG,Enable DBG_SW_INTERRUPT IRQ and trigger it by writing to DP_CTRL.DBG_SW_IRQ.,"directed test, verified by mdl",iau_irq_test,-
+IRQ,UVM,AI_CORE_IAU_IRQ_CMD_DROPPED,Enable CMDBLK_CMD_DROPPED IRQ and trigger it by overfilling the CMD FIFO.,"directed test, verified by mdl",iau_cmdblk_backpressure_test,
+Concurrency,UVM,AI_CORE_IAU_CONCURRENCY_CMD,Send next command while current command is being executed.,"directed test, verified by mdl",iau_cmdblk_backpressure_test,-
+Token,UVM,AI_CORE_IAU_TOKEN_PROD,Verify that the end of execution of a command marked by a cmd_done pulse produces any token set to be produced from the command header (gate SW with SW token).,func cov,iau_standard_test,cvg_tok
+Token,UVM,AI_CORE_IAU_TOKEN_CMD_DONE,Check that cmd_done pulses only after the last instruction has been executed (last stream beat only needs to be buffered and thus not need to be sent out yet).,code cov,iau_standard_test,
+AXIS,UVM,AI_CORE_IAU_AXIS_STALLING,Verify that input AXIS can properly stall the datapath.,code cov,iau_standard_test,stalled_in_stream signal
+AXIS,UVM,AI_CORE_IAU_AXIS_BACKPRESSURE,Verify that datapath can handle output AXIS backpressure.,"VIP is configured to set for some cycles axis_m_tready_i = 0, you can see it in standard test. Maybe toggling coverage of tready_i 1 to 0, 0 to 1 should be enough?",iau_standard_test,toggle cov of axis_m_tready_i signal
+Command,UVM,AI_CORE_IAU_CMD_LOOP_LEN_ZERO,Send standard command with loop_len equal to zero which should result in no operation being executed (pulses cmd_done signal right after).,"directed test, verified by mdl",iau_irq_test,-
+Command,UVM,AI_CORE_IAU_CMD_LOOP_ITER_ZERO,Send standard command with loop_iter equal to zero which should result in no operation being executed (pulses cmd_done signal right after).,"directed test, verified by mdl",iau_irq_test,-
+Observation,UVM,AI_CORE_IAU_OBS,Check the observation signals,TBD,TBD,
+,UVM,AI_CORE_IAU_STREAM_PEEK,Stream peek support (Not yet defined),TBD,TBD,

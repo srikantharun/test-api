@@ -1,0 +1,284 @@
+// Generated register defines for soc_periph_ao_csr
+
+// Copyright information found in source file:
+// Copyright lowRISC contributors.
+
+// Licensing information found in source file:
+// Licensed under the Apache License, Version 2.0, see LICENSE for details.
+// SPDX-License-Identifier: Apache-2.0
+
+#ifndef _SOC_PERIPH_AO_CSR_REG_DEFS_
+#define _SOC_PERIPH_AO_CSR_REG_DEFS_
+
+#include <std/std_basetype.h>
+
+#ifdef __cplusplus
+extern "C" {
+#endif
+#define SOC_PERIPH_AO_CSR_PARAM_A_W 16
+
+// Register width
+#define SOC_PERIPH_AO_CSR_PARAM_REG_WIDTH 32
+
+// Control register for the ref_clk pad.
+#define SOC_PERIPH_AO_CSR_PADCTRL_REF_CLK_REG_OFFSET 0x200
+#define SOC_PERIPH_AO_CSR_PADCTRL_REF_CLK_REG_RESVAL 0x0
+#define SOC_PERIPH_AO_CSR_PADCTRL_REF_CLK_SEL_FREQ_MASK 0x3
+#define SOC_PERIPH_AO_CSR_PADCTRL_REF_CLK_SEL_FREQ_OFFSET 0
+#define SOC_PERIPH_AO_CSR_PADCTRL_REF_CLK_SEL_FREQ_FIELD \
+  ((bitfield_field32_t) { .mask = SOC_PERIPH_AO_CSR_PADCTRL_REF_CLK_SEL_FREQ_MASK, .index = SOC_PERIPH_AO_CSR_PADCTRL_REF_CLK_SEL_FREQ_OFFSET })
+
+// IO-cell drivestrength setting for jtag related output IO-cells.
+#define SOC_PERIPH_AO_CSR_IO_DS_JTAG_REG_OFFSET 0x204
+#define SOC_PERIPH_AO_CSR_IO_DS_JTAG_REG_RESVAL 0x3
+#define SOC_PERIPH_AO_CSR_IO_DS_JTAG_IO_DS_JTAG_MASK 0x3
+#define SOC_PERIPH_AO_CSR_IO_DS_JTAG_IO_DS_JTAG_OFFSET 0
+#define SOC_PERIPH_AO_CSR_IO_DS_JTAG_IO_DS_JTAG_FIELD \
+  ((bitfield_field32_t) { .mask = SOC_PERIPH_AO_CSR_IO_DS_JTAG_IO_DS_JTAG_MASK, .index = SOC_PERIPH_AO_CSR_IO_DS_JTAG_IO_DS_JTAG_OFFSET })
+
+// IO-cell drivestrength setting for uart related output IO-cells.
+#define SOC_PERIPH_AO_CSR_IO_DS_UART_REG_OFFSET 0x208
+#define SOC_PERIPH_AO_CSR_IO_DS_UART_REG_RESVAL 0x3
+#define SOC_PERIPH_AO_CSR_IO_DS_UART_IO_DS_UART_MASK 0x3
+#define SOC_PERIPH_AO_CSR_IO_DS_UART_IO_DS_UART_OFFSET 0
+#define SOC_PERIPH_AO_CSR_IO_DS_UART_IO_DS_UART_FIELD \
+  ((bitfield_field32_t) { .mask = SOC_PERIPH_AO_CSR_IO_DS_UART_IO_DS_UART_MASK, .index = SOC_PERIPH_AO_CSR_IO_DS_UART_IO_DS_UART_OFFSET })
+
+// IO-cell drivestrength setting for spi related output IO-cells.
+#define SOC_PERIPH_AO_CSR_IO_DS_SPI_REG_OFFSET 0x20c
+#define SOC_PERIPH_AO_CSR_IO_DS_SPI_REG_RESVAL 0x3
+#define SOC_PERIPH_AO_CSR_IO_DS_SPI_IO_DS_SPI_MASK 0x3
+#define SOC_PERIPH_AO_CSR_IO_DS_SPI_IO_DS_SPI_OFFSET 0
+#define SOC_PERIPH_AO_CSR_IO_DS_SPI_IO_DS_SPI_FIELD \
+  ((bitfield_field32_t) { .mask = SOC_PERIPH_AO_CSR_IO_DS_SPI_IO_DS_SPI_MASK, .index = SOC_PERIPH_AO_CSR_IO_DS_SPI_IO_DS_SPI_OFFSET })
+
+// IO-cell drivestrength setting for i2c related output IO-cells.
+#define SOC_PERIPH_AO_CSR_IO_DS_I2C_REG_OFFSET 0x210
+#define SOC_PERIPH_AO_CSR_IO_DS_I2C_REG_RESVAL 0x3
+#define SOC_PERIPH_AO_CSR_IO_DS_I2C_IO_DS_I2C_MASK 0x3
+#define SOC_PERIPH_AO_CSR_IO_DS_I2C_IO_DS_I2C_OFFSET 0
+#define SOC_PERIPH_AO_CSR_IO_DS_I2C_IO_DS_I2C_FIELD \
+  ((bitfield_field32_t) { .mask = SOC_PERIPH_AO_CSR_IO_DS_I2C_IO_DS_I2C_MASK, .index = SOC_PERIPH_AO_CSR_IO_DS_I2C_IO_DS_I2C_OFFSET })
+
+// IO-cell drivestrength setting for gpio related output IO-cells.
+#define SOC_PERIPH_AO_CSR_IO_DS_GPIO_REG_OFFSET 0x214
+#define SOC_PERIPH_AO_CSR_IO_DS_GPIO_REG_RESVAL 0x3
+#define SOC_PERIPH_AO_CSR_IO_DS_GPIO_IO_DS_GPIO_MASK 0x3
+#define SOC_PERIPH_AO_CSR_IO_DS_GPIO_IO_DS_GPIO_OFFSET 0
+#define SOC_PERIPH_AO_CSR_IO_DS_GPIO_IO_DS_GPIO_FIELD \
+  ((bitfield_field32_t) { .mask = SOC_PERIPH_AO_CSR_IO_DS_GPIO_IO_DS_GPIO_MASK, .index = SOC_PERIPH_AO_CSR_IO_DS_GPIO_IO_DS_GPIO_OFFSET })
+
+// IO-cell drivestrength setting for emmc related output IO-cells.
+#define SOC_PERIPH_AO_CSR_IO_DS_EMMC_REG_OFFSET 0x218
+#define SOC_PERIPH_AO_CSR_IO_DS_EMMC_REG_RESVAL 0x3
+#define SOC_PERIPH_AO_CSR_IO_DS_EMMC_IO_DS_EMMC_MASK 0x3
+#define SOC_PERIPH_AO_CSR_IO_DS_EMMC_IO_DS_EMMC_OFFSET 0
+#define SOC_PERIPH_AO_CSR_IO_DS_EMMC_IO_DS_EMMC_FIELD \
+  ((bitfield_field32_t) { .mask = SOC_PERIPH_AO_CSR_IO_DS_EMMC_IO_DS_EMMC_MASK, .index = SOC_PERIPH_AO_CSR_IO_DS_EMMC_IO_DS_EMMC_OFFSET })
+
+// IO-cell drivestrength setting for obs related output IO-cells.
+#define SOC_PERIPH_AO_CSR_IO_DS_OBS_REG_OFFSET 0x21c
+#define SOC_PERIPH_AO_CSR_IO_DS_OBS_REG_RESVAL 0x3
+#define SOC_PERIPH_AO_CSR_IO_DS_OBS_IO_DS_OBS_MASK 0x3
+#define SOC_PERIPH_AO_CSR_IO_DS_OBS_IO_DS_OBS_OFFSET 0
+#define SOC_PERIPH_AO_CSR_IO_DS_OBS_IO_DS_OBS_FIELD \
+  ((bitfield_field32_t) { .mask = SOC_PERIPH_AO_CSR_IO_DS_OBS_IO_DS_OBS_MASK, .index = SOC_PERIPH_AO_CSR_IO_DS_OBS_IO_DS_OBS_OFFSET })
+
+// IO-cell drivestrength setting for dft related output IO-cells.
+#define SOC_PERIPH_AO_CSR_IO_DS_DFT_REG_OFFSET 0x220
+#define SOC_PERIPH_AO_CSR_IO_DS_DFT_REG_RESVAL 0x7
+#define SOC_PERIPH_AO_CSR_IO_DS_DFT_IO_DS_DFT_MASK 0x7
+#define SOC_PERIPH_AO_CSR_IO_DS_DFT_IO_DS_DFT_OFFSET 0
+#define SOC_PERIPH_AO_CSR_IO_DS_DFT_IO_DS_DFT_FIELD \
+  ((bitfield_field32_t) { .mask = SOC_PERIPH_AO_CSR_IO_DS_DFT_IO_DS_DFT_MASK, .index = SOC_PERIPH_AO_CSR_IO_DS_DFT_IO_DS_DFT_OFFSET })
+
+// IO-cell Schmitt Trigger settings for CLK
+#define SOC_PERIPH_AO_CSR_IO_ST_CLK_REG_OFFSET 0x224
+#define SOC_PERIPH_AO_CSR_IO_ST_CLK_REG_RESVAL 0x1
+#define SOC_PERIPH_AO_CSR_IO_ST_CLK_IO_ST_CLK_BIT 0
+
+// IO-cell Schmitt Trigger settings for RST
+#define SOC_PERIPH_AO_CSR_IO_ST_RST_REG_OFFSET 0x228
+#define SOC_PERIPH_AO_CSR_IO_ST_RST_REG_RESVAL 0x1
+#define SOC_PERIPH_AO_CSR_IO_ST_RST_IO_ST_RST_BIT 0
+
+// IO-cell Schmitt Trigger settings for SPI
+#define SOC_PERIPH_AO_CSR_IO_ST_SPI_REG_OFFSET 0x22c
+#define SOC_PERIPH_AO_CSR_IO_ST_SPI_REG_RESVAL 0x1
+#define SOC_PERIPH_AO_CSR_IO_ST_SPI_IO_ST_SPI_BIT 0
+
+// IO-cell Schmitt Trigger settings for UART
+#define SOC_PERIPH_AO_CSR_IO_ST_UART_REG_OFFSET 0x230
+#define SOC_PERIPH_AO_CSR_IO_ST_UART_REG_RESVAL 0x1
+#define SOC_PERIPH_AO_CSR_IO_ST_UART_IO_ST_UART_BIT 0
+
+// IO-cell Schmitt Trigger settings for I2C
+#define SOC_PERIPH_AO_CSR_IO_ST_I2C_REG_OFFSET 0x234
+#define SOC_PERIPH_AO_CSR_IO_ST_I2C_REG_RESVAL 0x1
+#define SOC_PERIPH_AO_CSR_IO_ST_I2C_IO_ST_I2C_BIT 0
+
+// IO-cell Schmitt Trigger settings for GPIO
+#define SOC_PERIPH_AO_CSR_IO_ST_GPIO_REG_OFFSET 0x238
+#define SOC_PERIPH_AO_CSR_IO_ST_GPIO_REG_RESVAL 0x1
+#define SOC_PERIPH_AO_CSR_IO_ST_GPIO_IO_ST_GPIO_BIT 0
+
+// IO-cell Schmitt Trigger settings for EMMC
+#define SOC_PERIPH_AO_CSR_IO_ST_EMMC_REG_OFFSET 0x23c
+#define SOC_PERIPH_AO_CSR_IO_ST_EMMC_REG_RESVAL 0x1
+#define SOC_PERIPH_AO_CSR_IO_ST_EMMC_IO_ST_EMMC_BIT 0
+
+// IO-cell Schmitt Trigger settings for DFT
+#define SOC_PERIPH_AO_CSR_IO_ST_DFT_REG_OFFSET 0x240
+#define SOC_PERIPH_AO_CSR_IO_ST_DFT_REG_RESVAL 0x1
+#define SOC_PERIPH_AO_CSR_IO_ST_DFT_IO_ST_DFT_BIT 0
+
+// EMMC Capabilities Register 1
+#define SOC_PERIPH_AO_CSR_S0_HWINIT_SRS16_REG_OFFSET 0x244
+#define SOC_PERIPH_AO_CSR_S0_HWINIT_SRS16_REG_RESVAL 0xb6a08a0
+
+// EMMC Capabilities Register 2
+#define SOC_PERIPH_AO_CSR_S0_HWINIT_SRS17_REG_OFFSET 0x248
+#define SOC_PERIPH_AO_CSR_S0_HWINIT_SRS17_REG_RESVAL 0x0
+
+// EMMC Capabilities Register 3
+#define SOC_PERIPH_AO_CSR_S0_HWINIT_SRS18_REG_OFFSET 0x24c
+#define SOC_PERIPH_AO_CSR_S0_HWINIT_SRS18_REG_RESVAL 0x0
+
+// EMMC Capabilities Register 4
+#define SOC_PERIPH_AO_CSR_S0_HWINIT_SRS19_REG_OFFSET 0x250
+#define SOC_PERIPH_AO_CSR_S0_HWINIT_SRS19_REG_RESVAL 0x0
+
+// EMMC Capabilities Register 5
+#define SOC_PERIPH_AO_CSR_S0_HWINIT_SRS24_REG_OFFSET 0x254
+#define SOC_PERIPH_AO_CSR_S0_HWINIT_SRS24_REG_RESVAL 0x40000
+
+// EMMC Capabilities Register 6
+#define SOC_PERIPH_AO_CSR_S0_HWINIT_SRS25_REG_OFFSET 0x258
+#define SOC_PERIPH_AO_CSR_S0_HWINIT_SRS25_REG_RESVAL 0x40002
+
+// EMMC Capabilities Register 7
+#define SOC_PERIPH_AO_CSR_S0_HWINIT_SRS26_REG_OFFSET 0x25c
+#define SOC_PERIPH_AO_CSR_S0_HWINIT_SRS26_REG_RESVAL 0x10002
+
+// EMMC Capabilities Register 8
+#define SOC_PERIPH_AO_CSR_S0_HWINIT_SRS27_REG_OFFSET 0x260
+#define SOC_PERIPH_AO_CSR_S0_HWINIT_SRS27_REG_RESVAL 0x20000
+
+// EMMC Command Queing Clock Multiplier Setup Register
+#define SOC_PERIPH_AO_CSR_HWINIT_ITCFMUL_REG_OFFSET 0x264
+#define SOC_PERIPH_AO_CSR_HWINIT_ITCFMUL_REG_RESVAL 0x0
+#define SOC_PERIPH_AO_CSR_HWINIT_ITCFMUL_ITCFMUL_MASK 0xf
+#define SOC_PERIPH_AO_CSR_HWINIT_ITCFMUL_ITCFMUL_OFFSET 0
+#define SOC_PERIPH_AO_CSR_HWINIT_ITCFMUL_ITCFMUL_FIELD \
+  ((bitfield_field32_t) { .mask = SOC_PERIPH_AO_CSR_HWINIT_ITCFMUL_ITCFMUL_MASK, .index = SOC_PERIPH_AO_CSR_HWINIT_ITCFMUL_ITCFMUL_OFFSET })
+
+// EMMC Command Queing Clock Value Setup Register
+#define SOC_PERIPH_AO_CSR_HWINIT_ITCFVAL_REG_OFFSET 0x268
+#define SOC_PERIPH_AO_CSR_HWINIT_ITCFVAL_REG_RESVAL 0x0
+#define SOC_PERIPH_AO_CSR_HWINIT_ITCFVAL_ITCFVAL_MASK 0x3ff
+#define SOC_PERIPH_AO_CSR_HWINIT_ITCFVAL_ITCFVAL_OFFSET 0
+#define SOC_PERIPH_AO_CSR_HWINIT_ITCFVAL_ITCFVAL_FIELD \
+  ((bitfield_field32_t) { .mask = SOC_PERIPH_AO_CSR_HWINIT_ITCFVAL_ITCFVAL_MASK, .index = SOC_PERIPH_AO_CSR_HWINIT_ITCFVAL_ITCFVAL_OFFSET })
+
+// EMMC Command Queing Clock Select Register
+#define SOC_PERIPH_AO_CSR_HWINIT_ITCFSEL_REG_OFFSET 0x26c
+#define SOC_PERIPH_AO_CSR_HWINIT_ITCFSEL_REG_RESVAL 0x0
+#define SOC_PERIPH_AO_CSR_HWINIT_ITCFSEL_ITCFSEL_MASK 0x1f
+#define SOC_PERIPH_AO_CSR_HWINIT_ITCFSEL_ITCFSEL_OFFSET 0
+#define SOC_PERIPH_AO_CSR_HWINIT_ITCFSEL_ITCFSEL_FIELD \
+  ((bitfield_field32_t) { .mask = SOC_PERIPH_AO_CSR_HWINIT_ITCFSEL_ITCFSEL_MASK, .index = SOC_PERIPH_AO_CSR_HWINIT_ITCFSEL_ITCFSEL_OFFSET })
+
+// EMMC Internal Clock Stable
+#define SOC_PERIPH_AO_CSR_ICS_REG_OFFSET 0x270
+#define SOC_PERIPH_AO_CSR_ICS_REG_RESVAL 0x0
+#define SOC_PERIPH_AO_CSR_ICS_ICSCLOCKSTABLE_BIT 0
+
+// EMMC Internal Clock Stable
+#define SOC_PERIPH_AO_CSR_ICE_REG_OFFSET 0x274
+#define SOC_PERIPH_AO_CSR_ICE_REG_RESVAL 0x0
+#define SOC_PERIPH_AO_CSR_ICE_ICECLOCKENABLE_BIT 0
+
+// IO-cell Pull Down settings for SPI Data
+#define SOC_PERIPH_AO_CSR_IO_SPI_DATA_PD_EN_REG_OFFSET 0x278
+#define SOC_PERIPH_AO_CSR_IO_SPI_DATA_PD_EN_REG_RESVAL 0xf
+#define SOC_PERIPH_AO_CSR_IO_SPI_DATA_PD_EN_SPI_SD0_PD_EN_BIT 0
+#define SOC_PERIPH_AO_CSR_IO_SPI_DATA_PD_EN_SPI_SD1_PD_EN_BIT 1
+#define SOC_PERIPH_AO_CSR_IO_SPI_DATA_PD_EN_SPI_SD2_PD_EN_BIT 2
+#define SOC_PERIPH_AO_CSR_IO_SPI_DATA_PD_EN_SPI_SD3_PD_EN_BIT 3
+
+// IO-cell Pull Down settings for BootMode
+#define SOC_PERIPH_AO_CSR_IO_BOOTMODE_PULL_EN_REG_OFFSET 0x27c
+#define SOC_PERIPH_AO_CSR_IO_BOOTMODE_PULL_EN_REG_RESVAL 0x7
+#define SOC_PERIPH_AO_CSR_IO_BOOTMODE_PULL_EN_BOOTMODE_0_PU_EN_BIT 0
+#define SOC_PERIPH_AO_CSR_IO_BOOTMODE_PULL_EN_BOOTMODE_1_PD_EN_BIT 1
+#define SOC_PERIPH_AO_CSR_IO_BOOTMODE_PULL_EN_BOOTMODE_2_PD_EN_BIT 2
+
+// IO-cell Pull Down settings for UART inputs
+#define SOC_PERIPH_AO_CSR_IO_UART_PD_EN_REG_OFFSET 0x280
+#define SOC_PERIPH_AO_CSR_IO_UART_PD_EN_REG_RESVAL 0x3
+#define SOC_PERIPH_AO_CSR_IO_UART_PD_EN_UART_CTS_N_PD_EN_BIT 0
+#define SOC_PERIPH_AO_CSR_IO_UART_PD_EN_UART_RX_PD_EN_BIT 1
+
+// IO-cell Pull Down settings for GPIOs
+#define SOC_PERIPH_AO_CSR_IO_GPIO_PD_EN_REG_OFFSET 0x284
+#define SOC_PERIPH_AO_CSR_IO_GPIO_PD_EN_REG_RESVAL 0xffff
+#define SOC_PERIPH_AO_CSR_IO_GPIO_PD_EN_GPIO_0_PD_EN_BIT 0
+#define SOC_PERIPH_AO_CSR_IO_GPIO_PD_EN_GPIO_1_PD_EN_BIT 1
+#define SOC_PERIPH_AO_CSR_IO_GPIO_PD_EN_GPIO_2_PD_EN_BIT 2
+#define SOC_PERIPH_AO_CSR_IO_GPIO_PD_EN_GPIO_3_PD_EN_BIT 3
+#define SOC_PERIPH_AO_CSR_IO_GPIO_PD_EN_GPIO_4_PD_EN_BIT 4
+#define SOC_PERIPH_AO_CSR_IO_GPIO_PD_EN_GPIO_5_PD_EN_BIT 5
+#define SOC_PERIPH_AO_CSR_IO_GPIO_PD_EN_GPIO_6_PD_EN_BIT 6
+#define SOC_PERIPH_AO_CSR_IO_GPIO_PD_EN_GPIO_7_PD_EN_BIT 7
+#define SOC_PERIPH_AO_CSR_IO_GPIO_PD_EN_GPIO_8_PD_EN_BIT 8
+#define SOC_PERIPH_AO_CSR_IO_GPIO_PD_EN_GPIO_9_PD_EN_BIT 9
+#define SOC_PERIPH_AO_CSR_IO_GPIO_PD_EN_GPIO_10_PD_EN_BIT 10
+#define SOC_PERIPH_AO_CSR_IO_GPIO_PD_EN_GPIO_11_PD_EN_BIT 11
+#define SOC_PERIPH_AO_CSR_IO_GPIO_PD_EN_GPIO_12_PD_EN_BIT 12
+#define SOC_PERIPH_AO_CSR_IO_GPIO_PD_EN_GPIO_13_PD_EN_BIT 13
+#define SOC_PERIPH_AO_CSR_IO_GPIO_PD_EN_GPIO_14_PD_EN_BIT 14
+#define SOC_PERIPH_AO_CSR_IO_GPIO_PD_EN_GPIO_15_PD_EN_BIT 15
+
+typedef struct {
+  reg32_t reserved1[128]; // 0x00 .. 0x1fc
+  reg32_t padctrl_ref_clk; // 0x200
+  reg32_t io_ds_jtag; // 0x204
+  reg32_t io_ds_uart; // 0x208
+  reg32_t io_ds_spi; // 0x20c
+  reg32_t io_ds_i2c; // 0x210
+  reg32_t io_ds_gpio; // 0x214
+  reg32_t io_ds_emmc; // 0x218
+  reg32_t io_ds_obs; // 0x21c
+  reg32_t io_ds_dft; // 0x220
+  reg32_t io_st_clk; // 0x224
+  reg32_t io_st_rst; // 0x228
+  reg32_t io_st_spi; // 0x22c
+  reg32_t io_st_uart; // 0x230
+  reg32_t io_st_i2c; // 0x234
+  reg32_t io_st_gpio; // 0x238
+  reg32_t io_st_emmc; // 0x23c
+  reg32_t io_st_dft; // 0x240
+  reg32_t s0_hwinit_srs16; // 0x244
+  reg32_t s0_hwinit_srs17; // 0x248
+  reg32_t s0_hwinit_srs18; // 0x24c
+  reg32_t s0_hwinit_srs19; // 0x250
+  reg32_t s0_hwinit_srs24; // 0x254
+  reg32_t s0_hwinit_srs25; // 0x258
+  reg32_t s0_hwinit_srs26; // 0x25c
+  reg32_t s0_hwinit_srs27; // 0x260
+  reg32_t hwinit_itcfmul; // 0x264
+  reg32_t hwinit_itcfval; // 0x268
+  reg32_t hwinit_itcfsel; // 0x26c
+  reg32_t ics; // 0x270
+  reg32_t ice; // 0x274
+  reg32_t io_spi_data_pd_en; // 0x278
+  reg32_t io_bootmode_pull_en; // 0x27c
+  reg32_t io_uart_pd_en; // 0x280
+  reg32_t io_gpio_pd_en; // 0x284
+} HalSoc_Periph_Ao_CsrReg;
+
+#ifdef __cplusplus
+}  // extern "C"
+#endif
+#endif  // _SOC_PERIPH_AO_CSR_REG_DEFS_
+// End generated register defines for soc_periph_ao_csr

@@ -1,0 +1,28 @@
+package:
+  name: secure_enclave_spike_dpi_tb
+  description: "UVM testbench for secure enclave interfaced with the SPIKE through DPI"
+  authors:
+    - "jorge.carvalho@axelera.ai"
+
+dependencies:
+  svt_amba_vip:                 { path: ""}
+  dv_common:                    { path: ""}
+  memory_preloading_pkg:        { path: ""}
+  europa_soc_periph_uvm_sw_ipc: { path: ""}
+  dv_axi_ram:                   { path: ""}
+  europa_soc_mgmt_pkg:          { path: ""}
+  europa_soc_mgmt:              { path: ""}
+
+sources:
+  - target: simulation
+    files:
+      - ../uvm/seq/spike_seq_pkg.sv
+      - ../uvm/spike_top_pkg.sv
+      - ../uvm/test/spike_top_test_pkg.sv
+      - ../uvm/tb/spike_top_tb.sv
+      - ../uvm/tb/spike_top_th.sv
+
+    include_dirs:
+      - ../uvm
+      - ../uvm/seq
+      - ../uvm/test

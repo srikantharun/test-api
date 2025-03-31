@@ -1,0 +1,28 @@
+# (C) Copyright 2024 Axelera AI B.V.
+# All Rights Reserved
+# *** Axelera AI Confidential ***
+
+package:
+  name: ai_core_mvm_uvm_env
+  description: "MVM verification environment"
+  authors:
+    - "timir.soni@axelera.ai"
+
+dependencies:
+  aic_common:                   { path: "../../../../../aic_common/default/rtl/" }
+  ai_core_token_agent_uvm_pkg:  { path: "../../../../../../dv/token_agent"}
+  svt_amba_vip:                 { path: "../../../../../../dv/svt_amba_vip"}
+  cc_clk_div_agent_uvm_pkg:     { path: "../../../../../../dv/cc_lib/cc_clk_div_agent"}
+  axi_icdf_pkg                : { path : "../../../../../../dv/icdf/uvm"}
+  ai_core_mvm_uvm_common:       { path: "../common" }
+  ai_core_mvm_uvm_ral:          { path: "../ral" }
+  ai_core_mvm_uvm_mvm_ref:      { path: "../redmodels/" }
+  ai_core_mvm_func_cov:         { path: "../func_cov" }
+  ai_core_mvm_uvm_mvm_sb:       { path: "../scoreboards/" }
+
+sources:
+  - target: simulation
+    include_dirs:
+      - .
+    files:
+      - ai_core_mvm_env_pkg.sv

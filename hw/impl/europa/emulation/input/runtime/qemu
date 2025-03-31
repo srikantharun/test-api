@@ -1,0 +1,86 @@
+#!/usr/bin/env bash
+
+set -e
+
+source env.bash
+source info.txt
+
+DEFAULT_OS="/home/data2/emmand8j/ubuntu-20.04-desktop-base.qcow2"
+
+
+#--------------------------------------------------------------
+# functions
+#--------------------------------------------------------------
+usage() {
+  cat << EOF
+usage: $(basename $0) [ARGS]
+
+run a qemu instance talking with the DUT's PCIe
+
+wait for Veloce's init to be done before calling this script
+
+where ARGS are:
+  -h                 : display this help
+  --os PATH          : path to qcow2 OS image, default is $DEFAULT_OS
+  --os_use_local     : create local copy of OS image to avoid multiple users using the same image
+  --no-graphics      : run qemu in without graphics; connect with "ssh -p 10022 mentor@0"
+EOF
+}
+
+
+get_comodel_host() {
+  grep -e caq-iz86-cm veloce.log/velrun.transcript |
+    head -n1 |
+    sed -e "s/.*on host '//" -e "s/'.*//"
+}
+
+
+error() {
+  >&2 echo "ERROR: $@"
+  exit 1
+}
+
+
+#--------------------------------------------------------------
+# execution
+#--------------------------------------------------------------
+os_path="$DEFAULT_OS"
+no_graphics=""
+os_use_local=0
+
+while [ "$#" -gt 0 ]
+do
+  case "$1" in
+    -h)
+      usage
+      exit 0
+      ;;
+    --os)
+      os_path="$(readlink -e $2)"
+      shift 2
+      ;;
+    --os_use_local)
+      os_use_local=1
+      shift 1
+      ;;
+    --no-graphics)
+      qemu_ssh_port="$(./get_unused_local_ports.py)"
+      echo $qemu_ssh_port > ./qemu_ssh_port.txt
+      no_graphics="--enable-ssh $qemu_ssh_port --qemuargs \"-nographic\""
+      shift 1
+      ;;
+    *)
+      error "Wrong argument: $1"
+      usage
+      exit 1
+      ;;
+  esac
+done
+
+if [ "$os_use_local" = 1 ]; then
+  cp -u $os_path .
+  os_path="$(basename $os_path)"
+fi
+
+[ "$pcie" = 1 ] || error "this database was not compiled with the PCIE feature. Please recompile with the appropriate flag."
+$QEMU_HOME/qemu.pl run --guest_os $os_path --vdevice vpcie --comodel_host $(get_comodel_host) --enable-iommu --verbose $no_graphics -debug

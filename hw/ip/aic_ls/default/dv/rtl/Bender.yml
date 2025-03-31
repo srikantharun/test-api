@@ -1,0 +1,19 @@
+package:
+  name: aic_ls_uvm_tb
+  description: "aic_ls verification UVM testbench"
+  authors:
+    - "raymond.garcia@axelera.ai"
+
+dependencies:
+  dmc:                     { path: "$REPO_ROOT/hw/ip/dmc/default/rtl/pkg/" } # call in DUT RTL
+  axi4pc:                  { path: "$REPO_ROOT/hw/dv/axi4pc/" }
+  aic_ls_uvm_test:         { path: "../uvm/tests" } # Tests, DMC L1 Verification Env
+  dv_common_rtl:           { path: "../../../../../dv/common/rtl" }  # used for clock generating
+  europa_aic_ls:           { path: ""    } # Call in DUT RTL
+  
+sources:
+  - target: simulation
+    include_dirs:
+      - .
+    files:
+      - hdl_top.sv

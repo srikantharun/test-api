@@ -1,0 +1,227 @@
+tests:
+  - name: aic_ls_sanity_test
+    description: "Simple aic ls test. loads up the l1, and runs one sequence of IFDs/ODRs. used for MRs checking"
+    labels: [HW_IP_AIC_LS_DEFAULT_DV_SIM_REGRE_MR]
+    requirement_ids: []
+    platforms: [uvm.HW_IP_AIC_LS_DEFAULT_DV_SIM]
+    owner: Rafael Frangulian
+    seeds: [1]
+
+  - name: aic_ls_axi_cfg_rd_rnd_test
+    description: "A axi master cfg test. sends random signals to various cfg addresses and makes sure that all of them are received. ignores read errors as those are expected."
+    labels: [HW_IP_AIC_LS_DEFAULT_DV_SIM_REGRE_NIGHTLY]
+    requirement_ids: []
+    platforms: [uvm.HW_IP_AIC_LS_DEFAULT_DV_SIM]
+    owner: Rafael Frangulian
+    repeat_count: 1
+
+  - name: aic_ls_dmc_cmdb_tc_test
+    description: "Most basic of cmdb tests. runs 10 iterations of IFD/ODR sequences with random commands."
+    labels: [HW_IP_AIC_LS_DEFAULT_DV_SIM_REGRE_NIGHTLY]
+    requirement_ids: []
+    platforms: [uvm.HW_IP_AIC_LS_DEFAULT_DV_SIM]
+    owner: Rafael Frangulian
+    repeat_count: 50
+
+  - name: aic_ls_dmc_cmdb_defbased_test
+    description: "tests specifically running cmdblock where command format = CMDFORMAT_DEF_BASED"
+    labels: [HW_IP_AIC_LS_DEFAULT_DV_SIM_REGRE_NIGHTLY]
+    requirement_ids: []
+    platforms: [uvm.HW_IP_AIC_LS_DEFAULT_DV_SIM]
+    owner: Rafael Frangulian
+    repeat_count: 1
+
+  - name: aic_ls_dmc_cmdb_offsetbased_test
+    description: "tests specifically running cmdblock where command format = CMDFORMAT_OFFSET_DEF_BASED"
+    labels: [HW_IP_AIC_LS_DEFAULT_DV_SIM_REGRE_NIGHTLY]
+    requirement_ids: []
+    platforms: [uvm.HW_IP_AIC_LS_DEFAULT_DV_SIM]
+    owner: Rafael Frangulian
+    repeat_count: 1
+
+  - name: aic_ls_dmc_cmdb_lightcmd_test
+    description: "tests specifically running cmdblock where command format = CMDFORMAT_LINEAR"
+    labels: [HW_IP_AIC_LS_DEFAULT_DV_SIM_REGRE_NIGHTLY]
+    requirement_ids: []
+    platforms: [uvm.HW_IP_AIC_LS_DEFAULT_DV_SIM]
+    owner: Rafael Frangulian
+    repeat_count: 1
+
+  - name: aic_ls_dmc_cmdb_3Dfallback_test
+    description: "tests specifically running cmdblock where command format = CMDFORMAT_3DIM_FALLBACK"
+    labels: [HW_IP_AIC_LS_DEFAULT_DV_SIM_REGRE_NIGHTLY]
+    requirement_ids: []
+    platforms: [uvm.HW_IP_AIC_LS_DEFAULT_DV_SIM]
+    owner: Rafael Frangulian
+    repeat_count: 1
+
+  - name: aic_ls_dmc_cmdb_4Dfallback_test
+    description: "tests specifically running cmdblock where command format = CMDFORMAT_3DIM_FALLBACK"
+    labels: [HW_IP_AIC_LS_DEFAULT_DV_SIM_REGRE_NIGHTLY]
+    requirement_ids: []
+    platforms: [uvm.HW_IP_AIC_LS_DEFAULT_DV_SIM]
+    owner: Rafael Frangulian
+    repeat_count: 1
+
+  - name: aic_ls_dmc_cmdb_vtrsp_test
+    description: "simple test to test vtrsp command"
+    labels: [HW_IP_AIC_LS_DEFAULT_DV_SIM_REGRE_NIGHTLY]
+    requirement_ids: [AICORE_FEAT_DATAPATH_20]
+    platforms: [uvm.HW_IP_AIC_LS_DEFAULT_DV_SIM]
+    owner: Rafael Frangulian
+    repeat_count: 50
+
+  - name: aic_ls_dmc_cmdb_vtrsp_sweep_test
+    description: "more through test of VTRSP - check various sized of transpose, different VTRSP modes"
+    labels: [HW_IP_AIC_LS_DEFAULT_DV_SIM_REGRE_NIGHTLY]
+    requirement_ids: [AICORE_FEAT_DATAPATH_20]
+    platforms: [uvm.HW_IP_AIC_LS_DEFAULT_DV_SIM]
+    owner: Rafael Frangulian
+    repeat_count: 1
+
+  - name: aic_ls_dmc_cmdb_decompression_test
+    description: "tests decompression"
+    labels: [HW_IP_AIC_LS_DEFAULT_DV_SIM_REGRE_NIGHTLY]
+    requirement_ids: []
+    platforms: [uvm.HW_IP_AIC_LS_DEFAULT_DV_SIM]
+    owner: Rafael Frangulian
+    repeat_count: 50
+
+  - name: aic_ls_dmc_cmdb_b2b_test
+    description: "the idea of this test is to launch series of sequences for the same IFD/ODR, back to back, withouht first waiting for the previous one to finish. the sequences are sent one after the other, and the IFDs/ODRs also launched one after the other"
+    labels: [HW_IP_AIC_LS_DEFAULT_DV_SIM_REGRE_NIGHTLY]
+    requirement_ids: []
+    platforms: [uvm.HW_IP_AIC_LS_DEFAULT_DV_SIM]
+    owner: Rafael Frangulian
+    repeat_count: 1
+
+  - name: aic_ls_dmc_cmdb_b2b_concurrent_test
+    description: "launches a volley of ifd/odr sequences concurrently, without waiting for anything else to finish first"
+    labels: [HW_IP_AIC_LS_DEFAULT_DV_SIM_REGRE_NIGHTLY]
+    requirement_ids: []
+    platforms: [uvm.HW_IP_AIC_LS_DEFAULT_DV_SIM]
+    owner: Rafael Frangulian
+    repeat_count: 50
+
+  - name: aic_ls_tkn_mgr_dmc_test
+    description: "creates IFD/ODR sequences that have a header with token consumers/producers"
+    labels: [HW_IP_AIC_LS_DEFAULT_DV_SIM_REGRE_NIGHTLY]
+    requirement_ids: []
+    platforms: [uvm.HW_IP_AIC_LS_DEFAULT_DV_SIM]
+    owner: Rafael Frangulian
+    repeat_count: 1
+
+  - name: aic_ls_l1_mem_test
+    description: "simple l1 read/write test. write through backdoor, read using axi if, write using axi if, backdoor read"
+    labels: [HW_IP_AIC_LS_DEFAULT_DV_SIM_REGRE_NIGHTLY]
+    requirement_ids: []
+    platforms: [uvm.HW_IP_AIC_LS_DEFAULT_DV_SIM]
+    owner: Rafael Frangulian
+    repeat_count: 1
+
+  - name: aic_ls_l1_mem_b2b_test
+    description: "frontdoor write to l1 (using axi if), then concurrent axi reads (which means they should be back to back)"
+    labels: [HW_IP_AIC_LS_DEFAULT_DV_SIM_REGRE_NIGHTLY]
+    requirement_ids: []
+    platforms: [uvm.HW_IP_AIC_LS_DEFAULT_DV_SIM]
+    owner: Rafael Frangulian
+    repeat_count: 50
+
+  - name: aic_ls_l1_mem_size_test
+    description: "preload l1, then access each bank with a random IFD/ODR sequence"
+    labels: [HW_IP_AIC_LS_DEFAULT_DV_SIM_REGRE_NIGHTLY]
+    requirement_ids: []
+    platforms: [uvm.HW_IP_AIC_LS_DEFAULT_DV_SIM]
+    owner: Rafael Frangulian
+    repeat_count: 1
+
+  - name: aic_ls_rvv_basic_test
+    description: "simple RVV test - send a bunch of random read/write requests from RVV to L1"
+    labels: [HW_IP_AIC_LS_DEFAULT_DV_SIM_REGRE_NIGHTLY]
+    requirement_ids: []
+    platforms: [uvm.HW_IP_AIC_LS_DEFAULT_DV_SIM]
+    owner: Rafael Frangulian
+    repeat_count: 1
+    
+  - name: aic_ls_simple_concurrency_test
+    description: "this test checks concurrent reads between RVV and AXI interfaces"
+    labels: [HW_IP_AIC_LS_DEFAULT_DV_SIM_REGRE_NIGHTLY]
+    requirement_ids: []
+    platforms: [uvm.HW_IP_AIC_LS_DEFAULT_DV_SIM]
+    owner: Rafael Frangulian
+    repeat_count: 1
+
+  - name: aic_ls_full_concurrency_test
+    description: "this test checks concurrent reads between RVV IFD and AXI interfaces"
+    labels: [HW_IP_AIC_LS_DEFAULT_DV_SIM_REGRE_NIGHTLY]
+    requirement_ids: []
+    platforms: [uvm.HW_IP_AIC_LS_DEFAULT_DV_SIM]
+    owner: Rafael Frangulian
+    repeat_count: 50
+
+  - name: aic_ls_dmc_defmem_access_test
+    description: "this test goes through all of the instruction memory accessible range writes and then reads from it"
+    labels: [HW_IP_AIC_LS_DEFAULT_DV_SIM_REGRE_NIGHTLY]
+    requirement_ids: [AICORE_FEAT_DATAPATH_11]
+    platforms: [uvm.HW_IP_AIC_LS_DEFAULT_DV_SIM]
+    owner: Rafael Frangulian
+    repeat_count: 1
+
+  - name: aic_ls_dmc_cmdb_addr_out_of_range_test
+    description: "This test triggers, interrupts, checks and clears cmdb addr_out_of_range error"
+    labels: [HW_IP_AIC_LS_DEFAULT_DV_SIM_REGRE_NIGHTLY]
+    requirement_ids: []
+    platforms: [uvm.HW_IP_AIC_LS_DEFAULT_DV_SIM]
+    owner: Rafael Frangulian
+    repeat_count: 1
+  
+  - name: aic_ls_dmc_cmdb_decomp_error_test
+    description: "AI Core LS IFDW Decompression Error Test"
+    labels: [HW_IP_AIC_LS_DEFAULT_DV_SIM_REGRE_NIGHTLY]
+    requirement_ids: []
+    platforms: [uvm.HW_IP_AIC_LS_DEFAULT_DV_SIM]
+    owner: Rafael Frangulian
+    repeat_count: 1
+  
+  - name: aic_ls_dmc_cmdb_fifo_overflow_test
+    description: "This test triggers, interrupts, checks and clears cmdb fifo overflow error"
+    labels: [HW_IP_AIC_LS_DEFAULT_DV_SIM_REGRE_NIGHTLY]
+    requirement_ids: []
+    platforms: [uvm.HW_IP_AIC_LS_DEFAULT_DV_SIM]
+    owner: Rafael Frangulian
+    repeat_count: 1
+
+  - name: aic_ls_dmc_cmdb_vtrsp_irq_test
+    description: "This test triggers, interrupts, checks and clears cmdb vtrsp_err error"
+    labels: [HW_IP_AIC_LS_DEFAULT_DV_SIM_REGRE_NIGHTLY]
+    requirement_ids: []
+    platforms: [uvm.HW_IP_AIC_LS_DEFAULT_DV_SIM]
+    owner: Rafael Frangulian
+    repeat_count: 1
+
+  - name: aic_ls_ral_decerr_test
+    description: "RAL Write Read test. Access out of bounds address and check for DECERR"
+    labels: [HW_IP_AIC_LS_DEFAULT_DV_SIM_REGRE_NIGHTLY]
+    requirement_ids: []
+    platforms: [uvm.HW_IP_AIC_LS_DEFAULT_DV_SIM]
+    owner: Rafael Frangulian
+    repeat_count: 1
+
+  - name: aic_ls_dmc_defmem_bad_access_test
+    description: "this test goes through all of the instruction memory inaccessible range and makes sure that we recieves error upon writing/reading"
+    labels: [HW_IP_AIC_LS_DEFAULT_DV_SIM_REGRE_WEEKLY]
+    requirement_ids: [AICORE_FEAT_DATAPATH_11]
+    platforms: [uvm.HW_IP_AIC_LS_DEFAULT_DV_SIM]
+    owner: Rafael Frangulian
+    repeat_count: 1
+  
+  - name: aic_ls_dmc_csr_bad_access_test
+    description: "this test goes through all of the CSR inaccessible range and makes sure that we recieves error upon writing/reading"
+    labels: [HW_IP_AIC_LS_DEFAULT_DV_SIM_REGRE_WEEKLY]
+    requirement_ids: [AICORE_FEAT_DATAPATH_11]
+    platforms: [uvm.HW_IP_AIC_LS_DEFAULT_DV_SIM]
+    owner: Rafael Frangulian
+    repeat_count: 1
+
+
+

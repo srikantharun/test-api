@@ -1,0 +1,1240 @@
+tests:
+  - name: cva6v_oss_vector_rv64v_vaadd
+    description: "TODO"
+    labels: [CVA6V_DV_MR_TESTS, CVA6V_DV_TESTS, CVA6V_DV_OSS_TESTS, CVA6V_DV_OSS_VECTOR_TESTS]
+    requirement_ids: [CVA6V_FEAT_11]
+    platforms: [cva6v.*]
+    owner: Raymond Garcia
+    flags: [ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/riscv-vector/vaadd.c, RUN_SCRIPT_ONLY]
+  - name: cva6v_oss_vector_rv64v_vaaddu
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_OSS_TESTS, CVA6V_DV_OSS_VECTOR_TESTS]
+    requirement_ids: [CVA6V_FEAT_11]
+    platforms: [cva6v.*]
+    owner: Raymond Garcia
+    flags: [ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/riscv-vector/vaaddu.c, RUN_SCRIPT_ONLY]
+  - name: cva6v_oss_vector_rv64v_vadc
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_OSS_TESTS, CVA6V_DV_OSS_VECTOR_TESTS]
+    requirement_ids: [CVA6V_FEAT_11]
+    platforms: [cva6v.*]
+    owner: Raymond Garcia
+    flags: [ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/riscv-vector/vadc.c, RUN_SCRIPT_ONLY]
+  - name: cva6v_oss_vector_rv64v_vadd
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_OSS_TESTS, CVA6V_DV_OSS_VECTOR_TESTS]
+    requirement_ids: [CVA6V_FEAT_11]
+    platforms: [cva6v.*]
+    owner: Raymond Garcia
+    flags: [ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/riscv-vector/vadd.c, RUN_SCRIPT_ONLY]
+  - name: cva6v_oss_vector_rv64v_vand
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_OSS_TESTS, CVA6V_DV_OSS_VECTOR_TESTS]
+    requirement_ids: [CVA6V_FEAT_11]
+    platforms: [cva6v.*]
+    owner: Raymond Garcia
+    flags: [ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/riscv-vector/vand.c, RUN_SCRIPT_ONLY]
+  - name: cva6v_oss_vector_rv64v_vasub
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_OSS_TESTS, CVA6V_DV_OSS_VECTOR_TESTS]
+    requirement_ids: [CVA6V_FEAT_11]
+    platforms: [cva6v.*]
+    owner: Raymond Garcia
+    flags: [ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/riscv-vector/vasub.c, RUN_SCRIPT_ONLY]
+  - name: cva6v_oss_vector_rv64v_vasubu
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_OSS_TESTS, CVA6V_DV_OSS_VECTOR_TESTS]
+    requirement_ids: [CVA6V_FEAT_11]
+    platforms: [cva6v.*]
+    owner: Raymond Garcia
+    flags: [ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/riscv-vector/vasubu.c, RUN_SCRIPT_ONLY]
+  - name: cva6v_oss_vector_rv64v_vcompress
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_OSS_TESTS, CVA6V_DV_OSS_VECTOR_TESTS]
+    requirement_ids: [CVA6V_FEAT_11]
+    platforms: [cva6v.*]
+    owner: Raymond Garcia
+    flags: [ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/riscv-vector/vcompress.c, RUN_SCRIPT_ONLY]
+  - name: cva6v_oss_vector_rv64v_vcpop
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_OSS_TESTS, CVA6V_DV_OSS_VECTOR_TESTS]
+    requirement_ids: [CVA6V_FEAT_11]
+    platforms: [cva6v.*]
+    owner: Raymond Garcia
+    flags: [ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/riscv-vector/vcpop.c, RUN_SCRIPT_ONLY]
+  - name: cva6v_oss_vector_rv64v_vdiv
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_OSS_TESTS, CVA6V_DV_OSS_VECTOR_TESTS]
+    requirement_ids: [CVA6V_FEAT_11]
+    platforms: [cva6v.*]
+    owner: Raymond Garcia
+    flags: [ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/riscv-vector/vdiv.c, RUN_SCRIPT_ONLY]
+  - name: cva6v_oss_vector_rv64v_vdivu
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_OSS_TESTS, CVA6V_DV_OSS_VECTOR_TESTS]
+    requirement_ids: [CVA6V_FEAT_11]
+    platforms: [cva6v.*]
+    owner: Raymond Garcia
+    flags: [ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/riscv-vector/vdivu.c, RUN_SCRIPT_ONLY]
+  - name: cva6v_oss_vector_rv64v_vfadd
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_OSS_TESTS, CVA6V_DV_OSS_VECTOR_TESTS]
+    requirement_ids: [CVA6V_FEAT_11]
+    platforms: [cva6v.*]
+    owner: Raymond Garcia
+    flags: [ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/riscv-vector/vfadd.c, RUN_SCRIPT_ONLY]
+  - name: cva6v_oss_vector_rv64v_vfclass
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_OSS_TESTS, CVA6V_DV_OSS_VECTOR_TESTS]
+    requirement_ids: [CVA6V_FEAT_11]
+    platforms: [cva6v.*]
+    owner: Raymond Garcia
+    flags: [ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/riscv-vector/vfclass.c, RUN_SCRIPT_ONLY]
+  - name: cva6v_oss_vector_rv64v_vfcvt
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_OSS_TESTS, CVA6V_DV_OSS_VECTOR_TESTS]
+    requirement_ids: [CVA6V_FEAT_11]
+    platforms: [cva6v.*]
+    owner: Raymond Garcia
+    flags: [ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/riscv-vector/vfcvt.c, RUN_SCRIPT_ONLY]
+  - name: cva6v_oss_vector_rv64v_vfdiv
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_OSS_TESTS, CVA6V_DV_OSS_VECTOR_TESTS]
+    requirement_ids: [CVA6V_FEAT_11]
+    platforms: [cva6v.*]
+    owner: Raymond Garcia
+    flags: [ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/riscv-vector/vfdiv.c, RUN_SCRIPT_ONLY]
+  - name: cva6v_oss_vector_rv64v_vfirst
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_OSS_TESTS, CVA6V_DV_OSS_VECTOR_TESTS]
+    requirement_ids: [CVA6V_FEAT_11]
+    platforms: [cva6v.*]
+    owner: Raymond Garcia
+    flags: [ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/riscv-vector/vfirst.c, RUN_SCRIPT_ONLY]
+  - name: cva6v_oss_vector_rv64v_vfmacc
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_OSS_TESTS, CVA6V_DV_OSS_VECTOR_TESTS]
+    requirement_ids: [CVA6V_FEAT_11]
+    platforms: [cva6v.*]
+    owner: Raymond Garcia
+    flags: [ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/riscv-vector/vfmacc.c, RUN_SCRIPT_ONLY]
+  - name: cva6v_oss_vector_rv64v_vfmadd
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_OSS_TESTS, CVA6V_DV_OSS_VECTOR_TESTS]
+    requirement_ids: [CVA6V_FEAT_11]
+    platforms: [cva6v.*]
+    owner: Raymond Garcia
+    flags: [ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/riscv-vector/vfmadd.c, RUN_SCRIPT_ONLY]
+  - name: cva6v_oss_vector_rv64v_vfmax
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_OSS_TESTS, CVA6V_DV_OSS_VECTOR_TESTS]
+    requirement_ids: [CVA6V_FEAT_11]
+    platforms: [cva6v.*]
+    owner: Raymond Garcia
+    flags: [ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/riscv-vector/vfmax.c, RUN_SCRIPT_ONLY]
+  - name: cva6v_oss_vector_rv64v_vfmerge
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_OSS_TESTS, CVA6V_DV_OSS_VECTOR_TESTS]
+    requirement_ids: [CVA6V_FEAT_11]
+    platforms: [cva6v.*]
+    owner: Raymond Garcia
+    flags: [ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/riscv-vector/vfmerge.c, RUN_SCRIPT_ONLY]
+  - name: cva6v_oss_vector_rv64v_vfmin
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_OSS_TESTS, CVA6V_DV_OSS_VECTOR_TESTS]
+    requirement_ids: [CVA6V_FEAT_11]
+    platforms: [cva6v.*]
+    owner: Raymond Garcia
+    flags: [ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/riscv-vector/vfmin.c, RUN_SCRIPT_ONLY]
+  - name: cva6v_oss_vector_rv64v_vfmsac
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_OSS_TESTS, CVA6V_DV_OSS_VECTOR_TESTS]
+    requirement_ids: [CVA6V_FEAT_11]
+    platforms: [cva6v.*]
+    owner: Raymond Garcia
+    flags: [ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/riscv-vector/vfmsac.c, RUN_SCRIPT_ONLY]
+  - name: cva6v_oss_vector_rv64v_vfmsub
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_OSS_TESTS, CVA6V_DV_OSS_VECTOR_TESTS]
+    requirement_ids: [CVA6V_FEAT_11]
+    platforms: [cva6v.*]
+    owner: Raymond Garcia
+    flags: [ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/riscv-vector/vfmsub.c, RUN_SCRIPT_ONLY]
+  - name: cva6v_oss_vector_rv64v_vfmul
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_OSS_TESTS, CVA6V_DV_OSS_VECTOR_TESTS]
+    requirement_ids: [CVA6V_FEAT_11]
+    platforms: [cva6v.*]
+    owner: Raymond Garcia
+    flags: [ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/riscv-vector/vfmul.c, RUN_SCRIPT_ONLY]
+  - name: cva6v_oss_vector_rv64v_vfmv
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_OSS_TESTS, CVA6V_DV_OSS_VECTOR_TESTS]
+    requirement_ids: [CVA6V_FEAT_11]
+    platforms: [cva6v.*]
+    owner: Raymond Garcia
+    flags: [ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/riscv-vector/vfmv.c, RUN_SCRIPT_ONLY]
+  - name: cva6v_oss_vector_rv64v_vfmvfs
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_OSS_TESTS, CVA6V_DV_OSS_VECTOR_TESTS]
+    requirement_ids: [CVA6V_FEAT_11]
+    platforms: [cva6v.*]
+    owner: Raymond Garcia
+    flags: [ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/riscv-vector/vfmvfs.c, RUN_SCRIPT_ONLY]
+  - name: cva6v_oss_vector_rv64v_vfmvsf
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_OSS_TESTS, CVA6V_DV_OSS_VECTOR_TESTS]
+    requirement_ids: [CVA6V_FEAT_11]
+    platforms: [cva6v.*]
+    owner: Raymond Garcia
+    flags: [ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/riscv-vector/vfmvsf.c, RUN_SCRIPT_ONLY]
+  - name: cva6v_oss_vector_rv64v_vfncvt
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_OSS_TESTS, CVA6V_DV_OSS_VECTOR_TESTS]
+    requirement_ids: [CVA6V_FEAT_11]
+    platforms: [cva6v.*]
+    owner: Raymond Garcia
+    flags: [ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/riscv-vector/vfncvt.c, RUN_SCRIPT_ONLY]
+  - name: cva6v_oss_vector_rv64v_vfnmacc
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_OSS_TESTS, CVA6V_DV_OSS_VECTOR_TESTS]
+    requirement_ids: [CVA6V_FEAT_11]
+    platforms: [cva6v.*]
+    owner: Raymond Garcia
+    flags: [ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/riscv-vector/vfnmacc.c, RUN_SCRIPT_ONLY]
+  - name: cva6v_oss_vector_rv64v_vfnmadd
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_OSS_TESTS, CVA6V_DV_OSS_VECTOR_TESTS]
+    requirement_ids: [CVA6V_FEAT_11]
+    platforms: [cva6v.*]
+    owner: Raymond Garcia
+    flags: [ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/riscv-vector/vfnmadd.c, RUN_SCRIPT_ONLY]
+  - name: cva6v_oss_vector_rv64v_vfnmsac
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_OSS_TESTS, CVA6V_DV_OSS_VECTOR_TESTS]
+    requirement_ids: [CVA6V_FEAT_11]
+    platforms: [cva6v.*]
+    owner: Raymond Garcia
+    flags: [ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/riscv-vector/vfnmsac.c, RUN_SCRIPT_ONLY]
+  - name: cva6v_oss_vector_rv64v_vfnmsub
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_OSS_TESTS, CVA6V_DV_OSS_VECTOR_TESTS]
+    requirement_ids: [CVA6V_FEAT_11]
+    platforms: [cva6v.*]
+    owner: Raymond Garcia
+    flags: [ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/riscv-vector/vfnmsub.c, RUN_SCRIPT_ONLY]
+  - name: cva6v_oss_vector_rv64v_vfrdiv
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_OSS_TESTS, CVA6V_DV_OSS_VECTOR_TESTS]
+    requirement_ids: [CVA6V_FEAT_11]
+    platforms: [cva6v.*]
+    owner: Raymond Garcia
+    flags: [ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/riscv-vector/vfrdiv.c, RUN_SCRIPT_ONLY]
+  - name: cva6v_oss_vector_rv64v_vfrec7
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_OSS_TESTS, CVA6V_DV_OSS_VECTOR_TESTS]
+    requirement_ids: [CVA6V_FEAT_11]
+    platforms: [cva6v.*]
+    owner: Raymond Garcia
+    flags: [ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/riscv-vector/vfrec7.c, RUN_SCRIPT_ONLY]
+  - name: cva6v_oss_vector_rv64v_vfredmax
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_OSS_TESTS, CVA6V_DV_OSS_VECTOR_TESTS]
+    requirement_ids: [CVA6V_FEAT_11]
+    platforms: [cva6v.*]
+    owner: Raymond Garcia
+    flags: [ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/riscv-vector/vfredmax.c, RUN_SCRIPT_ONLY]
+  - name: cva6v_oss_vector_rv64v_vfredmin
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_OSS_TESTS, CVA6V_DV_OSS_VECTOR_TESTS]
+    requirement_ids: [CVA6V_FEAT_11]
+    platforms: [cva6v.*]
+    owner: Raymond Garcia
+    flags: [ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/riscv-vector/vfredmin.c, RUN_SCRIPT_ONLY]
+  - name: cva6v_oss_vector_rv64v_vfredosum
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_OSS_TESTS, CVA6V_DV_OSS_VECTOR_TESTS]
+    requirement_ids: [CVA6V_FEAT_11]
+    platforms: [cva6v.*]
+    owner: Raymond Garcia
+    flags: [ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/riscv-vector/vfredosum.c, RUN_SCRIPT_ONLY]
+  - name: cva6v_oss_vector_rv64v_vfredusum
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_OSS_TESTS, CVA6V_DV_OSS_VECTOR_TESTS]
+    requirement_ids: [CVA6V_FEAT_11]
+    platforms: [cva6v.*]
+    owner: Raymond Garcia
+    flags: [ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/riscv-vector/vfredusum.c, RUN_SCRIPT_ONLY]
+  - name: cva6v_oss_vector_rv64v_vfrsqrt7
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_OSS_TESTS, CVA6V_DV_OSS_VECTOR_TESTS]
+    requirement_ids: [CVA6V_FEAT_11]
+    platforms: [cva6v.*]
+    owner: Raymond Garcia
+    flags: [ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/riscv-vector/vfrsqrt7.c, RUN_SCRIPT_ONLY]
+  - name: cva6v_oss_vector_rv64v_vfrsub
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_OSS_TESTS, CVA6V_DV_OSS_VECTOR_TESTS]
+    requirement_ids: [CVA6V_FEAT_11]
+    platforms: [cva6v.*]
+    owner: Raymond Garcia
+    flags: [ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/riscv-vector/vfrsub.c, RUN_SCRIPT_ONLY]
+  - name: cva6v_oss_vector_rv64v_vfsgnj
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_OSS_TESTS, CVA6V_DV_OSS_VECTOR_TESTS]
+    requirement_ids: [CVA6V_FEAT_11]
+    platforms: [cva6v.*]
+    owner: Raymond Garcia
+    flags: [ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/riscv-vector/vfsgnj.c, RUN_SCRIPT_ONLY]
+  - name: cva6v_oss_vector_rv64v_vfsgnjn
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_OSS_TESTS, CVA6V_DV_OSS_VECTOR_TESTS]
+    requirement_ids: [CVA6V_FEAT_11]
+    platforms: [cva6v.*]
+    owner: Raymond Garcia
+    flags: [ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/riscv-vector/vfsgnjn.c, RUN_SCRIPT_ONLY]
+  - name: cva6v_oss_vector_rv64v_vfsgnjx
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_OSS_TESTS, CVA6V_DV_OSS_VECTOR_TESTS]
+    requirement_ids: [CVA6V_FEAT_11]
+    platforms: [cva6v.*]
+    owner: Raymond Garcia
+    flags: [ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/riscv-vector/vfsgnjx.c, RUN_SCRIPT_ONLY]
+  - name: cva6v_oss_vector_rv64v_vfslide1down
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_OSS_TESTS, CVA6V_DV_OSS_VECTOR_TESTS]
+    requirement_ids: [CVA6V_FEAT_11]
+    platforms: [cva6v.*]
+    owner: Raymond Garcia
+    flags: [ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/riscv-vector/vfslide1down.c, RUN_SCRIPT_ONLY]
+  - name: cva6v_oss_vector_rv64v_vfslide1up
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_OSS_TESTS, CVA6V_DV_OSS_VECTOR_TESTS]
+    requirement_ids: [CVA6V_FEAT_11]
+    platforms: [cva6v.*]
+    owner: Raymond Garcia
+    flags: [ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/riscv-vector/vfslide1up.c, RUN_SCRIPT_ONLY]
+  - name: cva6v_oss_vector_rv64v_vfsqrt
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_OSS_TESTS, CVA6V_DV_OSS_VECTOR_TESTS]
+    requirement_ids: [CVA6V_FEAT_11]
+    platforms: [cva6v.*]
+    owner: Raymond Garcia
+    flags: [ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/riscv-vector/vfsqrt.c, RUN_SCRIPT_ONLY]
+  - name: cva6v_oss_vector_rv64v_vfsub
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_OSS_TESTS, CVA6V_DV_OSS_VECTOR_TESTS]
+    requirement_ids: [CVA6V_FEAT_11]
+    platforms: [cva6v.*]
+    owner: Raymond Garcia
+    flags: [ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/riscv-vector/vfsub.c, RUN_SCRIPT_ONLY]
+  - name: cva6v_oss_vector_rv64v_vfwadd
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_OSS_TESTS, CVA6V_DV_OSS_VECTOR_TESTS]
+    requirement_ids: [CVA6V_FEAT_11]
+    platforms: [cva6v.*]
+    owner: Raymond Garcia
+    flags: [ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/riscv-vector/vfwadd.c, RUN_SCRIPT_ONLY]
+  - name: cva6v_oss_vector_rv64v_vfwcvt
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_OSS_TESTS, CVA6V_DV_OSS_VECTOR_TESTS]
+    requirement_ids: [CVA6V_FEAT_11]
+    platforms: [cva6v.*]
+    owner: Raymond Garcia
+    flags: [ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/riscv-vector/vfwcvt.c, RUN_SCRIPT_ONLY]
+  - name: cva6v_oss_vector_rv64v_vfwmacc
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_OSS_TESTS, CVA6V_DV_OSS_VECTOR_TESTS]
+    requirement_ids: [CVA6V_FEAT_11]
+    platforms: [cva6v.*]
+    owner: Raymond Garcia
+    flags: [ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/riscv-vector/vfwmacc.c, RUN_SCRIPT_ONLY]
+  - name: cva6v_oss_vector_rv64v_vfwmsac
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_OSS_TESTS, CVA6V_DV_OSS_VECTOR_TESTS]
+    requirement_ids: [CVA6V_FEAT_11]
+    platforms: [cva6v.*]
+    owner: Raymond Garcia
+    flags: [ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/riscv-vector/vfwmsac.c, RUN_SCRIPT_ONLY]
+  - name: cva6v_oss_vector_rv64v_vfwmul
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_OSS_TESTS, CVA6V_DV_OSS_VECTOR_TESTS]
+    requirement_ids: [CVA6V_FEAT_11]
+    platforms: [cva6v.*]
+    owner: Raymond Garcia
+    flags: [ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/riscv-vector/vfwmul.c, RUN_SCRIPT_ONLY]
+  - name: cva6v_oss_vector_rv64v_vfwnmacc
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_OSS_TESTS, CVA6V_DV_OSS_VECTOR_TESTS]
+    requirement_ids: [CVA6V_FEAT_11]
+    platforms: [cva6v.*]
+    owner: Raymond Garcia
+    flags: [ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/riscv-vector/vfwnmacc.c, RUN_SCRIPT_ONLY]
+  - name: cva6v_oss_vector_rv64v_vfwnmsac
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_OSS_TESTS, CVA6V_DV_OSS_VECTOR_TESTS]
+    requirement_ids: [CVA6V_FEAT_11]
+    platforms: [cva6v.*]
+    owner: Raymond Garcia
+    flags: [ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/riscv-vector/vfwnmsac.c, RUN_SCRIPT_ONLY]
+  - name: cva6v_oss_vector_rv64v_vfwredosum
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_OSS_TESTS, CVA6V_DV_OSS_VECTOR_TESTS]
+    requirement_ids: [CVA6V_FEAT_11]
+    platforms: [cva6v.*]
+    owner: Raymond Garcia
+    flags: [ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/riscv-vector/vfwredosum.c, RUN_SCRIPT_ONLY]
+  - name: cva6v_oss_vector_rv64v_vfwredusum
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_OSS_TESTS, CVA6V_DV_OSS_VECTOR_TESTS]
+    requirement_ids: [CVA6V_FEAT_11]
+    platforms: [cva6v.*]
+    owner: Raymond Garcia
+    flags: [ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/riscv-vector/vfwredusum.c, RUN_SCRIPT_ONLY]
+  - name: cva6v_oss_vector_rv64v_vfwsub
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_OSS_TESTS, CVA6V_DV_OSS_VECTOR_TESTS]
+    requirement_ids: [CVA6V_FEAT_11]
+    platforms: [cva6v.*]
+    owner: Raymond Garcia
+    flags: [ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/riscv-vector/vfwsub.c, RUN_SCRIPT_ONLY]
+  - name: cva6v_oss_vector_rv64v_vid
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_OSS_TESTS, CVA6V_DV_OSS_VECTOR_TESTS]
+    requirement_ids: [CVA6V_FEAT_11]
+    platforms: [cva6v.*]
+    owner: Raymond Garcia
+    flags: [ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/riscv-vector/vid.c, RUN_SCRIPT_ONLY]
+  - name: cva6v_oss_vector_rv64v_viota
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_OSS_TESTS, CVA6V_DV_OSS_VECTOR_TESTS]
+    requirement_ids: [CVA6V_FEAT_11]
+    platforms: [cva6v.*]
+    owner: Raymond Garcia
+    flags: [ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/riscv-vector/viota.c, RUN_SCRIPT_ONLY]
+  - name: cva6v_oss_vector_rv64v_vl1r
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_OSS_TESTS, CVA6V_DV_OSS_VECTOR_TESTS]
+    requirement_ids: [CVA6V_FEAT_11]
+    platforms: [cva6v.*]
+    owner: Raymond Garcia
+    flags: [+timeout_100us=3, ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/riscv-vector/vl1r.c, RUN_SCRIPT_ONLY]
+  - name: cva6v_oss_vector_rv64v_vl
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_OSS_TESTS, CVA6V_DV_OSS_VECTOR_TESTS]
+    requirement_ids: [CVA6V_FEAT_11]
+    platforms: [cva6v.*]
+    owner: Raymond Garcia
+    flags: [ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/riscv-vector/vl.c, RUN_SCRIPT_ONLY]
+  - name: cva6v_oss_vector_rv64v_vle16
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_OSS_TESTS, CVA6V_DV_OSS_VECTOR_TESTS]
+    requirement_ids: [CVA6V_FEAT_11]
+    platforms: [cva6v.*]
+    owner: Raymond Garcia
+    flags: [ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/riscv-vector/vle16.c, RUN_SCRIPT_ONLY]
+  - name: cva6v_oss_vector_rv64v_vle1
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_OSS_TESTS, CVA6V_DV_OSS_VECTOR_TESTS]
+    requirement_ids: [CVA6V_FEAT_11]
+    platforms: [cva6v.*]
+    owner: Raymond Garcia
+    flags: [ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/riscv-vector/vle1.c, RUN_SCRIPT_ONLY]
+  - name: cva6v_oss_vector_rv64v_vle32
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_OSS_TESTS, CVA6V_DV_OSS_VECTOR_TESTS]
+    requirement_ids: [CVA6V_FEAT_11]
+    platforms: [cva6v.*]
+    owner: Raymond Garcia
+    flags: [ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/riscv-vector/vle32.c, RUN_SCRIPT_ONLY]
+  - name: cva6v_oss_vector_rv64v_vle8
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_OSS_TESTS, CVA6V_DV_OSS_VECTOR_TESTS]
+    requirement_ids: [CVA6V_FEAT_11]
+    platforms: [cva6v.*]
+    owner: Raymond Garcia
+    flags: [ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/riscv-vector/vle8.c, RUN_SCRIPT_ONLY]
+  - name: cva6v_oss_vector_rv64v_vle_vse_hazards
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_OSS_TESTS, CVA6V_DV_OSS_VECTOR_TESTS]
+    requirement_ids: [CVA6V_FEAT_11]
+    platforms: [cva6v.*]
+    owner: Raymond Garcia
+    flags: [ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/riscv-vector/vle_vse_hazards.c, RUN_SCRIPT_ONLY]
+  - name: cva6v_oss_vector_rv64v_vlff
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_OSS_TESTS, CVA6V_DV_OSS_VECTOR_TESTS]
+    requirement_ids: [CVA6V_FEAT_11]
+    platforms: [cva6v.*]
+    owner: Raymond Garcia
+    flags: [ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/riscv-vector/vlff.c, RUN_SCRIPT_ONLY]
+  - name: cva6v_oss_vector_rv64v_vl_nocheck
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_OSS_TESTS, CVA6V_DV_OSS_VECTOR_TESTS]
+    requirement_ids: [CVA6V_FEAT_11]
+    platforms: [cva6v.*]
+    owner: Raymond Garcia
+    flags: [ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/riscv-vector/vl_nocheck.c, RUN_SCRIPT_ONLY]
+  - name: cva6v_oss_vector_rv64v_vls
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_OSS_TESTS, CVA6V_DV_OSS_VECTOR_TESTS]
+    requirement_ids: [CVA6V_FEAT_11]
+    platforms: [cva6v.*]
+    owner: Raymond Garcia
+    flags: [ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/riscv-vector/vls.c, RUN_SCRIPT_ONLY]
+  - name: cva6v_oss_vector_rv64v_vluxei
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_OSS_TESTS, CVA6V_DV_OSS_VECTOR_TESTS]
+    requirement_ids: [CVA6V_FEAT_11]
+    platforms: [cva6v.*]
+    owner: Raymond Garcia
+    flags: [ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/riscv-vector/vluxei.c, RUN_SCRIPT_ONLY]
+  - name: cva6v_oss_vector_rv64v_vlx
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_OSS_TESTS, CVA6V_DV_OSS_VECTOR_TESTS]
+    requirement_ids: [CVA6V_FEAT_11]
+    platforms: [cva6v.*]
+    owner: Raymond Garcia
+    flags: [ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/riscv-vector/vlx.c, RUN_SCRIPT_ONLY]
+  - name: cva6v_oss_vector_rv64v_vmacc
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_OSS_TESTS, CVA6V_DV_OSS_VECTOR_TESTS]
+    requirement_ids: [CVA6V_FEAT_11]
+    platforms: [cva6v.*]
+    owner: Raymond Garcia
+    flags: [ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/riscv-vector/vmacc.c, RUN_SCRIPT_ONLY]
+  - name: cva6v_oss_vector_rv64v_vmadc
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_OSS_TESTS, CVA6V_DV_OSS_VECTOR_TESTS]
+    requirement_ids: [CVA6V_FEAT_11]
+    platforms: [cva6v.*]
+    owner: Raymond Garcia
+    flags: [ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/riscv-vector/vmadc.c, RUN_SCRIPT_ONLY]
+  - name: cva6v_oss_vector_rv64v_vmadd
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_OSS_TESTS, CVA6V_DV_OSS_VECTOR_TESTS]
+    requirement_ids: [CVA6V_FEAT_11]
+    platforms: [cva6v.*]
+    owner: Raymond Garcia
+    flags: [ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/riscv-vector/vmadd.c, RUN_SCRIPT_ONLY]
+  - name: cva6v_oss_vector_rv64v_vmand
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_OSS_TESTS, CVA6V_DV_OSS_VECTOR_TESTS]
+    requirement_ids: [CVA6V_FEAT_11]
+    platforms: [cva6v.*]
+    owner: Raymond Garcia
+    flags: [ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/riscv-vector/vmand.c, RUN_SCRIPT_ONLY]
+  - name: cva6v_oss_vector_rv64v_vmandn
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_OSS_TESTS, CVA6V_DV_OSS_VECTOR_TESTS]
+    requirement_ids: [CVA6V_FEAT_11]
+    platforms: [cva6v.*]
+    owner: Raymond Garcia
+    flags: [ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/riscv-vector/vmandn.c, RUN_SCRIPT_ONLY]
+  - name: cva6v_oss_vector_rv64v_vmax
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_OSS_TESTS, CVA6V_DV_OSS_VECTOR_TESTS]
+    requirement_ids: [CVA6V_FEAT_11]
+    platforms: [cva6v.*]
+    owner: Raymond Garcia
+    flags: [ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/riscv-vector/vmax.c, RUN_SCRIPT_ONLY]
+  - name: cva6v_oss_vector_rv64v_vmaxu
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_OSS_TESTS, CVA6V_DV_OSS_VECTOR_TESTS]
+    requirement_ids: [CVA6V_FEAT_11]
+    platforms: [cva6v.*]
+    owner: Raymond Garcia
+    flags: [ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/riscv-vector/vmaxu.c, RUN_SCRIPT_ONLY]
+  - name: cva6v_oss_vector_rv64v_vmerge
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_OSS_TESTS, CVA6V_DV_OSS_VECTOR_TESTS]
+    requirement_ids: [CVA6V_FEAT_11]
+    platforms: [cva6v.*]
+    owner: Raymond Garcia
+    flags: [ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/riscv-vector/vmerge.c, RUN_SCRIPT_ONLY]
+  - name: cva6v_oss_vector_rv64v_vmfeq
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_OSS_TESTS, CVA6V_DV_OSS_VECTOR_TESTS]
+    requirement_ids: [CVA6V_FEAT_11]
+    platforms: [cva6v.*]
+    owner: Raymond Garcia
+    flags: [ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/riscv-vector/vmfeq.c, RUN_SCRIPT_ONLY]
+  - name: cva6v_oss_vector_rv64v_vmfge
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_OSS_TESTS, CVA6V_DV_OSS_VECTOR_TESTS]
+    requirement_ids: [CVA6V_FEAT_11]
+    platforms: [cva6v.*]
+    owner: Raymond Garcia
+    flags: [ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/riscv-vector/vmfge.c, RUN_SCRIPT_ONLY]
+  - name: cva6v_oss_vector_rv64v_vmfgt
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_OSS_TESTS, CVA6V_DV_OSS_VECTOR_TESTS]
+    requirement_ids: [CVA6V_FEAT_11]
+    platforms: [cva6v.*]
+    owner: Raymond Garcia
+    flags: [ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/riscv-vector/vmfgt.c, RUN_SCRIPT_ONLY]
+  - name: cva6v_oss_vector_rv64v_vmfle
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_OSS_TESTS, CVA6V_DV_OSS_VECTOR_TESTS]
+    requirement_ids: [CVA6V_FEAT_11]
+    platforms: [cva6v.*]
+    owner: Raymond Garcia
+    flags: [ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/riscv-vector/vmfle.c, RUN_SCRIPT_ONLY]
+  - name: cva6v_oss_vector_rv64v_vmflt
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_OSS_TESTS, CVA6V_DV_OSS_VECTOR_TESTS]
+    requirement_ids: [CVA6V_FEAT_11]
+    platforms: [cva6v.*]
+    owner: Raymond Garcia
+    flags: [ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/riscv-vector/vmflt.c, RUN_SCRIPT_ONLY]
+  - name: cva6v_oss_vector_rv64v_vmfne
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_OSS_TESTS, CVA6V_DV_OSS_VECTOR_TESTS]
+    requirement_ids: [CVA6V_FEAT_11]
+    platforms: [cva6v.*]
+    owner: Raymond Garcia
+    flags: [ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/riscv-vector/vmfne.c, RUN_SCRIPT_ONLY]
+  - name: cva6v_oss_vector_rv64v_vmin
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_OSS_TESTS, CVA6V_DV_OSS_VECTOR_TESTS]
+    requirement_ids: [CVA6V_FEAT_11]
+    platforms: [cva6v.*]
+    owner: Raymond Garcia
+    flags: [ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/riscv-vector/vmin.c, RUN_SCRIPT_ONLY]
+  - name: cva6v_oss_vector_rv64v_vminu
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_OSS_TESTS, CVA6V_DV_OSS_VECTOR_TESTS]
+    requirement_ids: [CVA6V_FEAT_11]
+    platforms: [cva6v.*]
+    owner: Raymond Garcia
+    flags: [ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/riscv-vector/vminu.c, RUN_SCRIPT_ONLY]
+  - name: cva6v_oss_vector_rv64v_vmnand
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_OSS_TESTS, CVA6V_DV_OSS_VECTOR_TESTS]
+    requirement_ids: [CVA6V_FEAT_11]
+    platforms: [cva6v.*]
+    owner: Raymond Garcia
+    flags: [ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/riscv-vector/vmnand.c, RUN_SCRIPT_ONLY]
+  - name: cva6v_oss_vector_rv64v_vmnor
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_OSS_TESTS, CVA6V_DV_OSS_VECTOR_TESTS]
+    requirement_ids: [CVA6V_FEAT_11]
+    platforms: [cva6v.*]
+    owner: Raymond Garcia
+    flags: [ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/riscv-vector/vmnor.c, RUN_SCRIPT_ONLY]
+  - name: cva6v_oss_vector_rv64v_vmor
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_OSS_TESTS, CVA6V_DV_OSS_VECTOR_TESTS]
+    requirement_ids: [CVA6V_FEAT_11]
+    platforms: [cva6v.*]
+    owner: Raymond Garcia
+    flags: [ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/riscv-vector/vmor.c, RUN_SCRIPT_ONLY]
+  - name: cva6v_oss_vector_rv64v_vmorn
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_OSS_TESTS, CVA6V_DV_OSS_VECTOR_TESTS]
+    requirement_ids: [CVA6V_FEAT_11]
+    platforms: [cva6v.*]
+    owner: Raymond Garcia
+    flags: [ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/riscv-vector/vmorn.c, RUN_SCRIPT_ONLY]
+  - name: cva6v_oss_vector_rv64v_vmsbc
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_OSS_TESTS, CVA6V_DV_OSS_VECTOR_TESTS]
+    requirement_ids: [CVA6V_FEAT_11]
+    platforms: [cva6v.*]
+    owner: Raymond Garcia
+    flags: [ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/riscv-vector/vmsbc.c, RUN_SCRIPT_ONLY]
+  - name: cva6v_oss_vector_rv64v_vmsbf
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_OSS_TESTS, CVA6V_DV_OSS_VECTOR_TESTS]
+    requirement_ids: [CVA6V_FEAT_11]
+    platforms: [cva6v.*]
+    owner: Raymond Garcia
+    flags: [ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/riscv-vector/vmsbf.c, RUN_SCRIPT_ONLY]
+  - name: cva6v_oss_vector_rv64v_vmseq
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_OSS_TESTS, CVA6V_DV_OSS_VECTOR_TESTS]
+    requirement_ids: [CVA6V_FEAT_11]
+    platforms: [cva6v.*]
+    owner: Raymond Garcia
+    flags: [ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/riscv-vector/vmseq.c, RUN_SCRIPT_ONLY]
+  - name: cva6v_oss_vector_rv64v_vmsgt
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_OSS_TESTS, CVA6V_DV_OSS_VECTOR_TESTS]
+    requirement_ids: [CVA6V_FEAT_11]
+    platforms: [cva6v.*]
+    owner: Raymond Garcia
+    flags: [ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/riscv-vector/vmsgt.c, RUN_SCRIPT_ONLY]
+  - name: cva6v_oss_vector_rv64v_vmsgtu
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_OSS_TESTS, CVA6V_DV_OSS_VECTOR_TESTS]
+    requirement_ids: [CVA6V_FEAT_11]
+    platforms: [cva6v.*]
+    owner: Raymond Garcia
+    flags: [ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/riscv-vector/vmsgtu.c, RUN_SCRIPT_ONLY]
+  - name: cva6v_oss_vector_rv64v_vmsif
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_OSS_TESTS, CVA6V_DV_OSS_VECTOR_TESTS]
+    requirement_ids: [CVA6V_FEAT_11]
+    platforms: [cva6v.*]
+    owner: Raymond Garcia
+    flags: [ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/riscv-vector/vmsif.c, RUN_SCRIPT_ONLY]
+  - name: cva6v_oss_vector_rv64v_vmsle
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_OSS_TESTS, CVA6V_DV_OSS_VECTOR_TESTS]
+    requirement_ids: [CVA6V_FEAT_11]
+    platforms: [cva6v.*]
+    owner: Raymond Garcia
+    flags: [ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/riscv-vector/vmsle.c, RUN_SCRIPT_ONLY]
+  - name: cva6v_oss_vector_rv64v_vmsleu
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_OSS_TESTS, CVA6V_DV_OSS_VECTOR_TESTS]
+    requirement_ids: [CVA6V_FEAT_11]
+    platforms: [cva6v.*]
+    owner: Raymond Garcia
+    flags: [ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/riscv-vector/vmsleu.c, RUN_SCRIPT_ONLY]
+  - name: cva6v_oss_vector_rv64v_vmslt
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_OSS_TESTS, CVA6V_DV_OSS_VECTOR_TESTS]
+    requirement_ids: [CVA6V_FEAT_11]
+    platforms: [cva6v.*]
+    owner: Raymond Garcia
+    flags: [ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/riscv-vector/vmslt.c, RUN_SCRIPT_ONLY]
+  - name: cva6v_oss_vector_rv64v_vmsltu
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_OSS_TESTS, CVA6V_DV_OSS_VECTOR_TESTS]
+    requirement_ids: [CVA6V_FEAT_11]
+    platforms: [cva6v.*]
+    owner: Raymond Garcia
+    flags: [ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/riscv-vector/vmsltu.c, RUN_SCRIPT_ONLY]
+  - name: cva6v_oss_vector_rv64v_vmsne
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_OSS_TESTS, CVA6V_DV_OSS_VECTOR_TESTS]
+    requirement_ids: [CVA6V_FEAT_11]
+    platforms: [cva6v.*]
+    owner: Raymond Garcia
+    flags: [ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/riscv-vector/vmsne.c, RUN_SCRIPT_ONLY]
+  - name: cva6v_oss_vector_rv64v_vmsof
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_OSS_TESTS, CVA6V_DV_OSS_VECTOR_TESTS]
+    requirement_ids: [CVA6V_FEAT_11]
+    platforms: [cva6v.*]
+    owner: Raymond Garcia
+    flags: [ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/riscv-vector/vmsof.c, RUN_SCRIPT_ONLY]
+  - name: cva6v_oss_vector_rv64v_vmul
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_OSS_TESTS, CVA6V_DV_OSS_VECTOR_TESTS]
+    requirement_ids: [CVA6V_FEAT_11]
+    platforms: [cva6v.*]
+    owner: Raymond Garcia
+    flags: [ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/riscv-vector/vmul.c, RUN_SCRIPT_ONLY]
+  - name: cva6v_oss_vector_rv64v_vmulh
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_OSS_TESTS, CVA6V_DV_OSS_VECTOR_TESTS]
+    requirement_ids: [CVA6V_FEAT_11]
+    platforms: [cva6v.*]
+    owner: Raymond Garcia
+    flags: [ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/riscv-vector/vmulh.c, RUN_SCRIPT_ONLY]
+  - name: cva6v_oss_vector_rv64v_vmulhsu
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_OSS_TESTS, CVA6V_DV_OSS_VECTOR_TESTS]
+    requirement_ids: [CVA6V_FEAT_11]
+    platforms: [cva6v.*]
+    owner: Raymond Garcia
+    flags: [ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/riscv-vector/vmulhsu.c, RUN_SCRIPT_ONLY]
+  - name: cva6v_oss_vector_rv64v_vmulhu
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_OSS_TESTS, CVA6V_DV_OSS_VECTOR_TESTS]
+    requirement_ids: [CVA6V_FEAT_11]
+    platforms: [cva6v.*]
+    owner: Raymond Garcia
+    flags: [ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/riscv-vector/vmulhu.c, RUN_SCRIPT_ONLY]
+  - name: cva6v_oss_vector_rv64v_vmv
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_OSS_TESTS, CVA6V_DV_OSS_VECTOR_TESTS]
+    requirement_ids: [CVA6V_FEAT_11]
+    platforms: [cva6v.*]
+    owner: Raymond Garcia
+    flags: [ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/riscv-vector/vmv.c, RUN_SCRIPT_ONLY]
+  - name: cva6v_oss_vector_rv64v_vmvnrr
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_OSS_TESTS, CVA6V_DV_OSS_VECTOR_TESTS]
+    requirement_ids: [CVA6V_FEAT_11]
+    platforms: [cva6v.*]
+    owner: Raymond Garcia
+    flags: [ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/riscv-vector/vmvnrr.c, RUN_SCRIPT_ONLY]
+  - name: cva6v_oss_vector_rv64v_vmvsx
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_OSS_TESTS, CVA6V_DV_OSS_VECTOR_TESTS]
+    requirement_ids: [CVA6V_FEAT_11]
+    platforms: [cva6v.*]
+    owner: Raymond Garcia
+    flags: [ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/riscv-vector/vmvsx.c, RUN_SCRIPT_ONLY]
+  - name: cva6v_oss_vector_rv64v_vmvxs
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_OSS_TESTS, CVA6V_DV_OSS_VECTOR_TESTS]
+    requirement_ids: [CVA6V_FEAT_11]
+    platforms: [cva6v.*]
+    owner: Raymond Garcia
+    flags: [ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/riscv-vector/vmvxs.c, RUN_SCRIPT_ONLY]
+  - name: cva6v_oss_vector_rv64v_vmxnor
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_OSS_TESTS, CVA6V_DV_OSS_VECTOR_TESTS]
+    requirement_ids: [CVA6V_FEAT_11]
+    platforms: [cva6v.*]
+    owner: Raymond Garcia
+    flags: [ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/riscv-vector/vmxnor.c, RUN_SCRIPT_ONLY]
+  - name: cva6v_oss_vector_rv64v_vmxor
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_OSS_TESTS, CVA6V_DV_OSS_VECTOR_TESTS]
+    requirement_ids: [CVA6V_FEAT_11]
+    platforms: [cva6v.*]
+    owner: Raymond Garcia
+    flags: [ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/riscv-vector/vmxor.c, RUN_SCRIPT_ONLY]
+  - name: cva6v_oss_vector_rv64v_vnclip
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_OSS_TESTS, CVA6V_DV_OSS_VECTOR_TESTS]
+    requirement_ids: [CVA6V_FEAT_11]
+    platforms: [cva6v.*]
+    owner: Raymond Garcia
+    flags: [ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/riscv-vector/vnclip.c, RUN_SCRIPT_ONLY]
+  - name: cva6v_oss_vector_rv64v_vnclipu
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_OSS_TESTS, CVA6V_DV_OSS_VECTOR_TESTS]
+    requirement_ids: [CVA6V_FEAT_11]
+    platforms: [cva6v.*]
+    owner: Raymond Garcia
+    flags: [ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/riscv-vector/vnclipu.c, RUN_SCRIPT_ONLY]
+  - name: cva6v_oss_vector_rv64v_vnmsac
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_OSS_TESTS, CVA6V_DV_OSS_VECTOR_TESTS]
+    requirement_ids: [CVA6V_FEAT_11]
+    platforms: [cva6v.*]
+    owner: Raymond Garcia
+    flags: [ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/riscv-vector/vnmsac.c, RUN_SCRIPT_ONLY]
+  - name: cva6v_oss_vector_rv64v_vnmsub
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_OSS_TESTS, CVA6V_DV_OSS_VECTOR_TESTS]
+    requirement_ids: [CVA6V_FEAT_11]
+    platforms: [cva6v.*]
+    owner: Raymond Garcia
+    flags: [ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/riscv-vector/vnmsub.c, RUN_SCRIPT_ONLY]
+  - name: cva6v_oss_vector_rv64v_vnsra
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_OSS_TESTS, CVA6V_DV_OSS_VECTOR_TESTS]
+    requirement_ids: [CVA6V_FEAT_11]
+    platforms: [cva6v.*]
+    owner: Raymond Garcia
+    flags: [ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/riscv-vector/vnsra.c, RUN_SCRIPT_ONLY]
+  - name: cva6v_oss_vector_rv64v_vnsrl
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_OSS_TESTS, CVA6V_DV_OSS_VECTOR_TESTS]
+    requirement_ids: [CVA6V_FEAT_11]
+    platforms: [cva6v.*]
+    owner: Raymond Garcia
+    flags: [ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/riscv-vector/vnsrl.c, RUN_SCRIPT_ONLY]
+  - name: cva6v_oss_vector_rv64v_vor
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_OSS_TESTS, CVA6V_DV_OSS_VECTOR_TESTS]
+    requirement_ids: [CVA6V_FEAT_11]
+    platforms: [cva6v.*]
+    owner: Raymond Garcia
+    flags: [ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/riscv-vector/vor.c, RUN_SCRIPT_ONLY]
+  - name: cva6v_oss_vector_rv64v_vredand
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_OSS_TESTS, CVA6V_DV_OSS_VECTOR_TESTS]
+    requirement_ids: [CVA6V_FEAT_11]
+    platforms: [cva6v.*]
+    owner: Raymond Garcia
+    flags: [ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/riscv-vector/vredand.c, RUN_SCRIPT_ONLY]
+  - name: cva6v_oss_vector_rv64v_vredmax
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_OSS_TESTS, CVA6V_DV_OSS_VECTOR_TESTS]
+    requirement_ids: [CVA6V_FEAT_11]
+    platforms: [cva6v.*]
+    owner: Raymond Garcia
+    flags: [ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/riscv-vector/vredmax.c, RUN_SCRIPT_ONLY]
+  - name: cva6v_oss_vector_rv64v_vredmaxu
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_OSS_TESTS, CVA6V_DV_OSS_VECTOR_TESTS]
+    requirement_ids: [CVA6V_FEAT_11]
+    platforms: [cva6v.*]
+    owner: Raymond Garcia
+    flags: [ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/riscv-vector/vredmaxu.c, RUN_SCRIPT_ONLY]
+  - name: cva6v_oss_vector_rv64v_vredmin
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_OSS_TESTS, CVA6V_DV_OSS_VECTOR_TESTS]
+    requirement_ids: [CVA6V_FEAT_11]
+    platforms: [cva6v.*]
+    owner: Raymond Garcia
+    flags: [ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/riscv-vector/vredmin.c, RUN_SCRIPT_ONLY]
+  - name: cva6v_oss_vector_rv64v_vredminu
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_OSS_TESTS, CVA6V_DV_OSS_VECTOR_TESTS]
+    requirement_ids: [CVA6V_FEAT_11]
+    platforms: [cva6v.*]
+    owner: Raymond Garcia
+    flags: [ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/riscv-vector/vredminu.c, RUN_SCRIPT_ONLY]
+  - name: cva6v_oss_vector_rv64v_vredor
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_OSS_TESTS, CVA6V_DV_OSS_VECTOR_TESTS]
+    requirement_ids: [CVA6V_FEAT_11]
+    platforms: [cva6v.*]
+    owner: Raymond Garcia
+    flags: [ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/riscv-vector/vredor.c, RUN_SCRIPT_ONLY]
+  - name: cva6v_oss_vector_rv64v_vredsum
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_OSS_TESTS, CVA6V_DV_OSS_VECTOR_TESTS]
+    requirement_ids: [CVA6V_FEAT_11]
+    platforms: [cva6v.*]
+    owner: Raymond Garcia
+    flags: [ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/riscv-vector/vredsum.c, RUN_SCRIPT_ONLY]
+  - name: cva6v_oss_vector_rv64v_vredxor
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_OSS_TESTS, CVA6V_DV_OSS_VECTOR_TESTS]
+    requirement_ids: [CVA6V_FEAT_11]
+    platforms: [cva6v.*]
+    owner: Raymond Garcia
+    flags: [ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/riscv-vector/vredxor.c, RUN_SCRIPT_ONLY]
+  - name: cva6v_oss_vector_rv64v_vrem
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_OSS_TESTS, CVA6V_DV_OSS_VECTOR_TESTS]
+    requirement_ids: [CVA6V_FEAT_11]
+    platforms: [cva6v.*]
+    owner: Raymond Garcia
+    flags: [ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/riscv-vector/vrem.c, RUN_SCRIPT_ONLY]
+  - name: cva6v_oss_vector_rv64v_vremu
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_OSS_TESTS, CVA6V_DV_OSS_VECTOR_TESTS]
+    requirement_ids: [CVA6V_FEAT_11]
+    platforms: [cva6v.*]
+    owner: Raymond Garcia
+    flags: [ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/riscv-vector/vremu.c, RUN_SCRIPT_ONLY]
+  - name: cva6v_oss_vector_rv64v_vrgather
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_OSS_TESTS, CVA6V_DV_OSS_VECTOR_TESTS]
+    requirement_ids: [CVA6V_FEAT_11]
+    platforms: [cva6v.*]
+    owner: Raymond Garcia
+    flags: [ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/riscv-vector/vrgather.c, RUN_SCRIPT_ONLY]
+  - name: cva6v_oss_vector_rv64v_vrsub
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_OSS_TESTS, CVA6V_DV_OSS_VECTOR_TESTS]
+    requirement_ids: [CVA6V_FEAT_11]
+    platforms: [cva6v.*]
+    owner: Raymond Garcia
+    flags: [ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/riscv-vector/vrsub.c, RUN_SCRIPT_ONLY]
+  - name: cva6v_oss_vector_rv64v_vs1r
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_OSS_TESTS, CVA6V_DV_OSS_VECTOR_TESTS]
+    requirement_ids: [CVA6V_FEAT_11]
+    platforms: [cva6v.*]
+    owner: Raymond Garcia
+    flags: [ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/riscv-vector/vs1r.c, RUN_SCRIPT_ONLY]
+  - name: cva6v_oss_vector_rv64v_vsadd
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_OSS_TESTS, CVA6V_DV_OSS_VECTOR_TESTS]
+    requirement_ids: [CVA6V_FEAT_11]
+    platforms: [cva6v.*]
+    owner: Raymond Garcia
+    flags: [ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/riscv-vector/vsadd.c, RUN_SCRIPT_ONLY]
+  - name: cva6v_oss_vector_rv64v_vsaddu
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_OSS_TESTS, CVA6V_DV_OSS_VECTOR_TESTS]
+    requirement_ids: [CVA6V_FEAT_11]
+    platforms: [cva6v.*]
+    owner: Raymond Garcia
+    flags: [ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/riscv-vector/vsaddu.c, RUN_SCRIPT_ONLY]
+  - name: cva6v_oss_vector_rv64v_vsbc
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_OSS_TESTS, CVA6V_DV_OSS_VECTOR_TESTS]
+    requirement_ids: [CVA6V_FEAT_11]
+    platforms: [cva6v.*]
+    owner: Raymond Garcia
+    flags: [ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/riscv-vector/vsbc.c, RUN_SCRIPT_ONLY]
+  - name: cva6v_oss_vector_rv64v_vs
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_OSS_TESTS, CVA6V_DV_OSS_VECTOR_TESTS]
+    requirement_ids: [CVA6V_FEAT_11]
+    platforms: [cva6v.*]
+    owner: Raymond Garcia
+    flags: [ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/riscv-vector/vs.c, RUN_SCRIPT_ONLY]
+  - name: cva6v_oss_vector_rv64v_vse16
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_OSS_TESTS, CVA6V_DV_OSS_VECTOR_TESTS]
+    requirement_ids: [CVA6V_FEAT_11]
+    platforms: [cva6v.*]
+    owner: Raymond Garcia
+    flags: [ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/riscv-vector/vse16.c, RUN_SCRIPT_ONLY]
+  - name: cva6v_oss_vector_rv64v_vse1
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_OSS_TESTS, CVA6V_DV_OSS_VECTOR_TESTS]
+    requirement_ids: [CVA6V_FEAT_11]
+    platforms: [cva6v.*]
+    owner: Raymond Garcia
+    flags: [ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/riscv-vector/vse1.c, RUN_SCRIPT_ONLY]
+  - name: cva6v_oss_vector_rv64v_vse32
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_OSS_TESTS, CVA6V_DV_OSS_VECTOR_TESTS]
+    requirement_ids: [CVA6V_FEAT_11]
+    platforms: [cva6v.*]
+    owner: Raymond Garcia
+    flags: [ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/riscv-vector/vse32.c, RUN_SCRIPT_ONLY]
+  - name: cva6v_oss_vector_rv64v_vse8
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_OSS_TESTS, CVA6V_DV_OSS_VECTOR_TESTS]
+    requirement_ids: [CVA6V_FEAT_11]
+    platforms: [cva6v.*]
+    owner: Raymond Garcia
+    flags: [ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/riscv-vector/vse8.c, RUN_SCRIPT_ONLY]
+  - name: cva6v_oss_vector_rv64v_vsetivli
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_OSS_TESTS, CVA6V_DV_OSS_VECTOR_TESTS]
+    requirement_ids: [CVA6V_FEAT_11]
+    platforms: [cva6v.*]
+    owner: Raymond Garcia
+    flags: [ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/riscv-vector/vsetivli.c, RUN_SCRIPT_ONLY]
+  - name: cva6v_oss_vector_rv64v_vsetvl
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_OSS_TESTS, CVA6V_DV_OSS_VECTOR_TESTS]
+    requirement_ids: [CVA6V_FEAT_11]
+    platforms: [cva6v.*]
+    owner: Raymond Garcia
+    flags: [ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/riscv-vector/vsetvl.c, RUN_SCRIPT_ONLY]
+  - name: cva6v_oss_vector_rv64v_vsetvli
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_OSS_TESTS, CVA6V_DV_OSS_VECTOR_TESTS]
+    requirement_ids: [CVA6V_FEAT_11]
+    platforms: [cva6v.*]
+    owner: Raymond Garcia
+    flags: [ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/riscv-vector/vsetvli.c, RUN_SCRIPT_ONLY]
+  - name: cva6v_oss_vector_rv64v_vsext
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_OSS_TESTS, CVA6V_DV_OSS_VECTOR_TESTS]
+    requirement_ids: [CVA6V_FEAT_11]
+    platforms: [cva6v.*]
+    owner: Raymond Garcia
+    flags: [ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/riscv-vector/vsext.c, RUN_SCRIPT_ONLY]
+  - name: cva6v_oss_vector_rv64v_vslide1down
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_OSS_TESTS, CVA6V_DV_OSS_VECTOR_TESTS]
+    requirement_ids: [CVA6V_FEAT_11]
+    platforms: [cva6v.*]
+    owner: Raymond Garcia
+    flags: [ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/riscv-vector/vslide1down.c, RUN_SCRIPT_ONLY]
+  - name: cva6v_oss_vector_rv64v_vslide1up
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_OSS_TESTS, CVA6V_DV_OSS_VECTOR_TESTS]
+    requirement_ids: [CVA6V_FEAT_11]
+    platforms: [cva6v.*]
+    owner: Raymond Garcia
+    flags: [ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/riscv-vector/vslide1up.c, RUN_SCRIPT_ONLY]
+  - name: cva6v_oss_vector_rv64v_vslidedown
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_OSS_TESTS, CVA6V_DV_OSS_VECTOR_TESTS]
+    requirement_ids: [CVA6V_FEAT_11]
+    platforms: [cva6v.*]
+    owner: Raymond Garcia
+    flags: [ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/riscv-vector/vslidedown.c, RUN_SCRIPT_ONLY]
+  - name: cva6v_oss_vector_rv64v_vslideup
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_OSS_TESTS, CVA6V_DV_OSS_VECTOR_TESTS]
+    requirement_ids: [CVA6V_FEAT_11]
+    platforms: [cva6v.*]
+    owner: Raymond Garcia
+    flags: [ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/riscv-vector/vslideup.c, RUN_SCRIPT_ONLY]
+  - name: cva6v_oss_vector_rv64v_vsll
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_OSS_TESTS, CVA6V_DV_OSS_VECTOR_TESTS]
+    requirement_ids: [CVA6V_FEAT_11]
+    platforms: [cva6v.*]
+    owner: Raymond Garcia
+    flags: [ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/riscv-vector/vsll.c, RUN_SCRIPT_ONLY]
+  - name: cva6v_oss_vector_rv64v_vsmul
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_OSS_TESTS, CVA6V_DV_OSS_VECTOR_TESTS]
+    requirement_ids: [CVA6V_FEAT_11]
+    platforms: [cva6v.*]
+    owner: Raymond Garcia
+    flags: [ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/riscv-vector/vsmul.c, RUN_SCRIPT_ONLY]
+  - name: cva6v_oss_vector_rv64v_vsra
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_OSS_TESTS, CVA6V_DV_OSS_VECTOR_TESTS]
+    requirement_ids: [CVA6V_FEAT_11]
+    platforms: [cva6v.*]
+    owner: Raymond Garcia
+    flags: [ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/riscv-vector/vsra.c, RUN_SCRIPT_ONLY]
+  - name: cva6v_oss_vector_rv64v_vsrl
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_OSS_TESTS, CVA6V_DV_OSS_VECTOR_TESTS]
+    requirement_ids: [CVA6V_FEAT_11]
+    platforms: [cva6v.*]
+    owner: Raymond Garcia
+    flags: [ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/riscv-vector/vsrl.c, RUN_SCRIPT_ONLY]
+  - name: cva6v_oss_vector_rv64v_vss
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_OSS_TESTS, CVA6V_DV_OSS_VECTOR_TESTS]
+    requirement_ids: [CVA6V_FEAT_11]
+    platforms: [cva6v.*]
+    owner: Raymond Garcia
+    flags: [ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/riscv-vector/vss.c, RUN_SCRIPT_ONLY]
+  - name: cva6v_oss_vector_rv64v_vssra
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_OSS_TESTS, CVA6V_DV_OSS_VECTOR_TESTS]
+    requirement_ids: [CVA6V_FEAT_11]
+    platforms: [cva6v.*]
+    owner: Raymond Garcia
+    flags: [ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/riscv-vector/vssra.c, RUN_SCRIPT_ONLY]
+  - name: cva6v_oss_vector_rv64v_vssrl
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_OSS_TESTS, CVA6V_DV_OSS_VECTOR_TESTS]
+    requirement_ids: [CVA6V_FEAT_11]
+    platforms: [cva6v.*]
+    owner: Raymond Garcia
+    flags: [ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/riscv-vector/vssrl.c, RUN_SCRIPT_ONLY]
+  - name: cva6v_oss_vector_rv64v_vssub
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_OSS_TESTS, CVA6V_DV_OSS_VECTOR_TESTS]
+    requirement_ids: [CVA6V_FEAT_11]
+    platforms: [cva6v.*]
+    owner: Raymond Garcia
+    flags: [ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/riscv-vector/vssub.c, RUN_SCRIPT_ONLY]
+  - name: cva6v_oss_vector_rv64v_vssubu
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_OSS_TESTS, CVA6V_DV_OSS_VECTOR_TESTS]
+    requirement_ids: [CVA6V_FEAT_11]
+    platforms: [cva6v.*]
+    owner: Raymond Garcia
+    flags: [ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/riscv-vector/vssubu.c, RUN_SCRIPT_ONLY]
+  - name: cva6v_oss_vector_rv64v_vsub
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_OSS_TESTS, CVA6V_DV_OSS_VECTOR_TESTS]
+    requirement_ids: [CVA6V_FEAT_11]
+    platforms: [cva6v.*]
+    owner: Raymond Garcia
+    flags: [ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/riscv-vector/vsub.c, RUN_SCRIPT_ONLY]
+  - name: cva6v_oss_vector_rv64v_vsux
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_OSS_TESTS, CVA6V_DV_OSS_VECTOR_TESTS]
+    requirement_ids: [CVA6V_FEAT_11]
+    platforms: [cva6v.*]
+    owner: Raymond Garcia
+    flags: [ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/riscv-vector/vsux.c, RUN_SCRIPT_ONLY]
+  - name: cva6v_oss_vector_rv64v_vsuxei
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_OSS_TESTS, CVA6V_DV_OSS_VECTOR_TESTS]
+    requirement_ids: [CVA6V_FEAT_11]
+    platforms: [cva6v.*]
+    owner: Raymond Garcia
+    flags: [ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/riscv-vector/vsuxei.c, RUN_SCRIPT_ONLY]
+  - name: cva6v_oss_vector_rv64v_vsx
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_OSS_TESTS, CVA6V_DV_OSS_VECTOR_TESTS]
+    requirement_ids: [CVA6V_FEAT_11]
+    platforms: [cva6v.*]
+    owner: Raymond Garcia
+    flags: [ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/riscv-vector/vsx.c, RUN_SCRIPT_ONLY]
+  - name: cva6v_oss_vector_rv64v_vwadd
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_OSS_TESTS, CVA6V_DV_OSS_VECTOR_TESTS]
+    requirement_ids: [CVA6V_FEAT_11]
+    platforms: [cva6v.*]
+    owner: Raymond Garcia
+    flags: [ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/riscv-vector/vwadd.c, RUN_SCRIPT_ONLY]
+  - name: cva6v_oss_vector_rv64v_vwaddu
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_OSS_TESTS, CVA6V_DV_OSS_VECTOR_TESTS]
+    requirement_ids: [CVA6V_FEAT_11]
+    platforms: [cva6v.*]
+    owner: Raymond Garcia
+    flags: [ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/riscv-vector/vwaddu.c, RUN_SCRIPT_ONLY]
+  - name: cva6v_oss_vector_rv64v_vwmacc
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_OSS_TESTS, CVA6V_DV_OSS_VECTOR_TESTS]
+    requirement_ids: [CVA6V_FEAT_11]
+    platforms: [cva6v.*]
+    owner: Raymond Garcia
+    flags: [ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/riscv-vector/vwmacc.c, RUN_SCRIPT_ONLY]
+  - name: cva6v_oss_vector_rv64v_vwmaccsu
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_OSS_TESTS, CVA6V_DV_OSS_VECTOR_TESTS]
+    requirement_ids: [CVA6V_FEAT_11]
+    platforms: [cva6v.*]
+    owner: Raymond Garcia
+    flags: [ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/riscv-vector/vwmaccsu.c, RUN_SCRIPT_ONLY]
+  - name: cva6v_oss_vector_rv64v_vwmaccu
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_OSS_TESTS, CVA6V_DV_OSS_VECTOR_TESTS]
+    requirement_ids: [CVA6V_FEAT_11]
+    platforms: [cva6v.*]
+    owner: Raymond Garcia
+    flags: [ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/riscv-vector/vwmaccu.c, RUN_SCRIPT_ONLY]
+  - name: cva6v_oss_vector_rv64v_vwmaccus
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_OSS_TESTS, CVA6V_DV_OSS_VECTOR_TESTS]
+    requirement_ids: [CVA6V_FEAT_11]
+    platforms: [cva6v.*]
+    owner: Raymond Garcia
+    flags: [ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/riscv-vector/vwmaccus.c, RUN_SCRIPT_ONLY]
+  - name: cva6v_oss_vector_rv64v_vwmul
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_OSS_TESTS, CVA6V_DV_OSS_VECTOR_TESTS]
+    requirement_ids: [CVA6V_FEAT_11]
+    platforms: [cva6v.*]
+    owner: Raymond Garcia
+    flags: [ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/riscv-vector/vwmul.c, RUN_SCRIPT_ONLY]
+  - name: cva6v_oss_vector_rv64v_vwmulsu
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_OSS_TESTS, CVA6V_DV_OSS_VECTOR_TESTS]
+    requirement_ids: [CVA6V_FEAT_11]
+    platforms: [cva6v.*]
+    owner: Raymond Garcia
+    flags: [ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/riscv-vector/vwmulsu.c, RUN_SCRIPT_ONLY]
+  - name: cva6v_oss_vector_rv64v_vwmulu
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_OSS_TESTS, CVA6V_DV_OSS_VECTOR_TESTS]
+    requirement_ids: [CVA6V_FEAT_11]
+    platforms: [cva6v.*]
+    owner: Raymond Garcia
+    flags: [ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/riscv-vector/vwmulu.c, RUN_SCRIPT_ONLY]
+  - name: cva6v_oss_vector_rv64v_vwredsum
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_OSS_TESTS, CVA6V_DV_OSS_VECTOR_TESTS]
+    requirement_ids: [CVA6V_FEAT_11]
+    platforms: [cva6v.*]
+    owner: Raymond Garcia
+    flags: [ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/riscv-vector/vwredsum.c, RUN_SCRIPT_ONLY]
+  - name: cva6v_oss_vector_rv64v_vwredsumu
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_OSS_TESTS, CVA6V_DV_OSS_VECTOR_TESTS]
+    requirement_ids: [CVA6V_FEAT_11]
+    platforms: [cva6v.*]
+    owner: Raymond Garcia
+    flags: [ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/riscv-vector/vwredsumu.c, RUN_SCRIPT_ONLY]
+  - name: cva6v_oss_vector_rv64v_vwsub
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_OSS_TESTS, CVA6V_DV_OSS_VECTOR_TESTS]
+    requirement_ids: [CVA6V_FEAT_11]
+    platforms: [cva6v.*]
+    owner: Raymond Garcia
+    flags: [ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/riscv-vector/vwsub.c, RUN_SCRIPT_ONLY]
+  - name: cva6v_oss_vector_rv64v_vwsubu
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_OSS_TESTS, CVA6V_DV_OSS_VECTOR_TESTS]
+    requirement_ids: [CVA6V_FEAT_11]
+    platforms: [cva6v.*]
+    owner: Raymond Garcia
+    flags: [ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/riscv-vector/vwsubu.c, RUN_SCRIPT_ONLY]
+  - name: cva6v_oss_vector_rv64v_vxor
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_OSS_TESTS, CVA6V_DV_OSS_VECTOR_TESTS]
+    requirement_ids: [CVA6V_FEAT_11]
+    platforms: [cva6v.*]
+    owner: Raymond Garcia
+    flags: [ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/riscv-vector/vxor.c, RUN_SCRIPT_ONLY]
+  - name: cva6v_oss_vector_rv64v_vzext
+    description: "TODO"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_OSS_TESTS, CVA6V_DV_OSS_VECTOR_TESTS]
+    requirement_ids: [CVA6V_FEAT_11]
+    platforms: [cva6v.*]
+    owner: Raymond Garcia
+    flags: [ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/deps/tests/build/riscv-vector/vzext.c, RUN_SCRIPT_ONLY]

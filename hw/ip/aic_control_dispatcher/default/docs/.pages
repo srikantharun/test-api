@@ -1,0 +1,7 @@
+nav:
+    - index.md
+    - instructions.md
+    - address_patching.md
+    - manager_addresses.md
+    - microarchitecture
+    - ...

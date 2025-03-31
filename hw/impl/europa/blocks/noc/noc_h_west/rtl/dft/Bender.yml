@@ -1,0 +1,18 @@
+# (C) Copyright 2024 Axelera AI B.V.
+# All Rights Reserved
+# *** Axelera AI Confidential ***
+
+package:
+  name: europa_noc_h_west_dft
+  description: "DFT Physical partition wrapper for noc_h_west"
+  authors:
+    - "Leonidas Katselas <leonidas.katselas@axelera.ai>"
+
+dependencies: 
+ europa_noc_h_west:     { path: ".." }
+ dft_noc_h_west:        { path: "$DFT_HOME/noc_h_west/Latest"}
+
+sources:
+  - target: rtl
+    files:
+

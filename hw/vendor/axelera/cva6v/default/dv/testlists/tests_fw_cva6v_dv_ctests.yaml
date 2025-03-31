@@ -1,0 +1,593 @@
+tests:
+  - name: cva6v_dv_c_test_accured_exception_flags
+    description: "This tests checks accured exception flags in RISCV."
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_C_TESTS, CVA6V_DV_CI_DEBUG, CVA6V_DV_EXCEP_TESTS, CVA6V_DV_FPU_TESTS]
+    requirement_ids: [CVA6V_FEAT_2]
+    platforms: [cva6v.*]
+    owner: Abhilash Chadhar
+    cva6v: [tests_cva6v_dv/c/fpu/singleprec/special-cases/cva6v_dv_c_test_accured_exception_flags.c]
+
+  - name: cva6v_dv_c_test_arith_compute_ops
+    description: "This tests checks arithmetic compute operations in RISCV."
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_C_TESTS, CVA6V_DV_ALU_TESTS]
+    requirement_ids: [CVA6V_FEAT_2]
+    platforms: [cva6v.*]
+    owner: Abhilash Chadhar
+    cva6v: [tests_cva6v_dv/c/integer/alu/cva6v_dv_c_test_arith_compute_ops.c]
+
+  - name: cva6v_dv_c_test_aligned_access
+    description: "This tests checks aligned memory access in RISCV."
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_C_TESTS, CVA6V_DV_CI_DEBUG, CVA6V_DV_MEM_TESTS]
+    requirement_ids: [CVA6V_FEAT_2]
+    platforms: [cva6v.*]
+    owner: Abhilash Chadhar
+    cva6v: [tests_cva6v_dv/c/memory/cva6v_dv_c_test_aligned_access.c]
+
+  - name: cva6v_dv_c_test_misaligned_access
+    description: "This tests checks misaligned memory access in RISCV."
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_C_TESTS, CVA6V_DV_CI_DEBUG, CVA6V_DV_MEM_TESTS]
+    requirement_ids: [CVA6V_FEAT_2]
+    platforms: [cva6v.*]
+    owner: Abhilash Chadhar
+    cva6v: [tests_cva6v_dv/c/memory/cva6v_dv_c_test_misaligned_access.c , tests_cva6v_dv/c/memory/test_misaligned_access.S]
+
+  - name: cva6v_dv_c_test_atomic_instr
+    description: "This tests checks atomic instructions in RISCV."
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_C_TESTS, CVA6V_DV_ATOMIC_TESTS]
+    requirement_ids: [CVA6V_FEAT_2]
+    platforms: [cva6v.*]
+    owner: Abhilash Chadhar
+    cva6v: [tests_cva6v_dv/c/integer/atomic/cva6v_dv_c_test_atomic_instr.c]
+
+  - name: cva6v_dv_c_test_base_counters_timers
+    description: "This tests checks base counters and timers in RISCV."
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_C_TESTS, CVA6V_DV_COUNTER_TESTS]
+    requirement_ids: [CVA6V_FEAT_2]
+    platforms: [cva6v.*]
+    owner: Abhilash Chadhar
+    cva6v: [tests_cva6v_dv/c/counters-timers/cva6v_dv_c_test_base_counters_timers.c]
+
+  - name: cva6v_dv_c_test_branch_ops
+    description: "This tests checks branch operations in RISCV."
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_C_TESTS, CVA6V_DV_CONTROL_FLOW_TESTS]
+    requirement_ids: [CVA6V_FEAT_2]
+    platforms: [cva6v.*]
+    owner: Abhilash Chadhar
+    cva6v: [tests_cva6v_dv/c/control-flow/cva6v_dv_c_test_branch_ops.c]
+
+  - name: cva6v_dv_c_test_cache_hits
+    description: "This tests checks cache hits in RISCV."
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_C_TESTS, CVA6V_DV_CACHE_TESTS]
+    requirement_ids: [CVA6V_FEAT_18]
+    platforms: [cva6v.*]
+    owner: Abhilash Chadhar
+    cva6v: [tests_cva6v_dv/c/cache/cva6v_dv_c_test_cache_hits.c]
+
+  - name: cva6v_dv_c_test_cache_misses
+    description: "This tests checks cache misses in RISCV."
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_C_TESTS, CVA6V_DV_CACHE_TESTS]
+    requirement_ids: [CVA6V_FEAT_18]
+    platforms: [cva6v.*]
+    owner: Abhilash Chadhar
+    cva6v: [tests_cva6v_dv/c/cache/cva6v_dv_c_test_cache_misses.c]
+
+  - name: cva6v_dv_c_test_clock_gating
+    description: "This tests checks clock gating in RISCV."
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_C_TESTS, CVA6V_DV_CI_DEBUG, CVA6V_DV_PWR_MGMT_TESTS]
+    requirement_ids: [CVA6V_FEAT_2]
+    platforms: [cva6v.*]
+    owner: Abhilash Chadhar
+    cva6v: [tests_cva6v_dv/c/power-management/cva6v_dv_c_test_clock_gating.c]
+
+  - name: cva6v_dv_c_test_contained_trap
+    description: "This tests checks contained traps in RISCV."
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_C_TESTS, CVA6V_DV_EXCEP_TESTS]
+    requirement_ids: [CVA6V_FEAT_2]
+    platforms: [cva6v.*]
+    owner: Abhilash Chadhar
+    cva6v: [tests_cva6v_dv/c/exception-error/cva6v_dv_c_test_contained_trap.c]
+
+  - name: cva6v_dv_c_test_control_hazards
+    description: "This tests checks control hazards in RISCV."
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_C_TESTS, CVA6V_DV_PIPELINE_TESTS]
+    requirement_ids: [CVA6V_FEAT_2]
+    platforms: [cva6v.*]
+    owner: Abhilash Chadhar
+    cva6v: [tests_cva6v_dv/c/pipeline/cva6v_dv_c_test_control_hazards.c]
+
+  - name: cva6v_dv_c_test_csr_instr
+    description: "This tests checks CSR instructions in RISCV."
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_C_TESTS, CVA6V_DV_CSR_TESTS]
+    requirement_ids: [CVA6V_FEAT_2]
+    platforms: [cva6v.*]
+    owner: Abhilash Chadhar
+    cva6v: [tests_cva6v_dv/c/csr/cva6v_dv_c_test_csr_instr.c]
+
+  - name: cva6v_dv_c_test_frm_csr
+    description: "This tests checks CSR instructions in RISCV."
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_C_TESTS, CVA6V_DV_CSR_TESTS]
+    requirement_ids: [CVA6V_FEAT_2]
+    platforms: [cva6v.*]
+    owner: Abhilash Chadhar
+    cva6v: [tests_cva6v_dv/c/csr/cva6v_dv_c_test_frm_csr.c , tests_cva6v_dv/c/csr/test_frm_asm.S]
+
+  - name: cva6v_dv_c_test_toggle
+    description: "This tests checks CSR instructions in RISCV."
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_C_TESTS, CVA6V_DV_ALU_TESTS]
+    requirement_ids: [CVA6V_FEAT_2]
+    platforms: [cva6v.*]
+    owner: Abhilash Chadhar
+    cva6v: [tests_cva6v_dv/c/csr/cva6v_dv_c_test_toggle.c , tests_cva6v_dv/c/csr/test_asm_toggle.S]
+
+  - name: cva6v_dv_c_test_atomics_toggle
+    description: "This tests checks atomic toggles in RISCV."
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_C_TESTS, CVA6V_DV_ATOMIC_TESTS]
+    requirement_ids: [CVA6V_FEAT_2]
+    platforms: [cva6v.*]
+    owner: Abhilash Chadhar
+    cva6v: [tests_cva6v_dv/c/integer/atomic/cva6v_dv_c_test_atomics_toggle.c , tests_cva6v_dv/c/integer/atomic/test_atomics_toggle.S]
+
+  - name: cva6v_dv_c_test_atomics_32bit
+    description: "This tests checks atomic toggles in RISCV."
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_C_TESTS, CVA6V_DV_ATOMIC_TESTS]
+    requirement_ids: [CVA6V_FEAT_2]
+    platforms: [cva6v.*]
+    owner: Abhilash Chadhar
+    cva6v: [tests_cva6v_dv/c/integer/atomic/cva6v_dv_c_test_atomics_32bit.c , tests_cva6v_dv/c/integer/atomic/test_atomics_32bit.S]
+
+  - name: cva6v_dv_c_test_atomics_64bit
+    description: "This tests checks atomic toggles in RISCV."
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_C_TESTS, CVA6V_DV_ATOMIC_TESTS]
+    requirement_ids: [CVA6V_FEAT_2]
+    platforms: [cva6v.*]
+    owner: Abhilash Chadhar
+    cva6v: [tests_cva6v_dv/c/integer/atomic/cva6v_dv_c_test_atomics_64bit.c , tests_cva6v_dv/c/integer/atomic/test_atomics_64bit.S]
+
+  - name: cva6v_dv_c_test_vector_toggle
+    description: "This tests checks CSR instructions in RISCV."
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_C_TESTS]
+    requirement_ids: [CVA6V_FEAT_2]
+    platforms: [cva6v.*]
+    owner: Abhilash Chadhar
+    cva6v: [tests_cva6v_dv/c/vector/cva6v_dv_c_test_vector_toggle.c , tests_cva6v_dv/c/vector/test_vector_toggle.S]
+
+  - name: cva6v_dv_c_test_missed_vector_cov
+    description: "This tests checks CSR instructions in RISCV."
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_C_TESTS]
+    requirement_ids: [CVA6V_FEAT_2]
+    platforms: [cva6v.*]
+    owner: Abhilash Chadhar
+    cva6v: [tests_cva6v_dv/c/vector/cva6v_dv_c_test_missed_vector_cov.c , tests_cva6v_dv/c/vector/test_missed_vector_cov.S]
+
+  - name: cva6v_dv_c_test_csr_vtype
+    description: "This tests checks CSR instructions in RISCV."
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_C_TESTS, CVA6V_DV_CSR_TESTS]
+    requirement_ids: [CVA6V_FEAT_2]
+    platforms: [cva6v.*]
+    owner: Abhilash Chadhar
+    cva6v: [tests_cva6v_dv/c/csr/cva6v_dv_c_test_csr_vtype.c]
+
+  - name: cva6v_dv_c_test_csr_vstart
+    description: "This tests checks CSR instructions in RISCV."
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_C_TESTS, CVA6V_DV_CSR_TESTS]
+    requirement_ids: [CVA6V_FEAT_2]
+    platforms: [cva6v.*]
+    owner: Abhilash Chadhar
+    cva6v: [tests_cva6v_dv/c/csr/cva6v_dv_c_test_csr_vstart.c]
+
+  - name: cva6v_dv_c_test_csr_vxsat_vxrm
+    description: "This tests checks CSR instructions in RISCV."
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_C_TESTS, CVA6V_DV_CSR_TESTS]
+    requirement_ids: [CVA6V_FEAT_2]
+    platforms: [cva6v.*]
+    owner: Abhilash Chadhar
+    cva6v: [tests_cva6v_dv/c/csr/cva6v_dv_c_test_csr_vxsat_vxrm.c]
+
+  - name: cva6v_dv_c_test_csr_vcsr
+    description: "This tests checks CSR instructions in RISCV."
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_C_TESTS, CVA6V_DV_CSR_TESTS]
+    requirement_ids: [CVA6V_FEAT_2]
+    platforms: [cva6v.*]
+    owner: Abhilash Chadhar
+    cva6v: [tests_cva6v_dv/c/csr/cva6v_dv_c_test_csr_vcsr.c]
+
+  - name: cva6v_dv_c_test_csr_vlenb
+    description: "This tests checks CSR instructions in RISCV."
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_C_TESTS, CVA6V_DV_CSR_TESTS]
+    requirement_ids: [CVA6V_FEAT_2]
+    platforms: [cva6v.*]
+    owner: Abhilash Chadhar
+    cva6v: [tests_cva6v_dv/c/csr/cva6v_dv_c_test_csr_vlenb.c]
+
+  # - name: cva6v_dv_c_test_data_hazards
+  #   description: "This tests checks RAW, WAR, WAW data hazards in RISCV."
+  #   labels: [CVA6V_DV_TESTS, CVA6V_DV_C_TESTS, CVA6V_DV_CI_DEBUG, CVA6V_DV_PIPELINE_TESTS ]
+  #   requirement_ids: [CVA6V_FEAT_2]
+  #   platforms: [cva6v.*]
+  #   owner: Abhilash Chadhar
+  #   cva6v: [tests_cva6v_dv/c/pipeline/cva6v_dv_c_test_data_hazards.c]
+
+  # - name: cva6v_dv_c_test_env_call_breakpoints
+  #   description: "This tests checks environment call and breakpoints in RISCV."
+  #   labels: [CVA6V_DV_TESTS, CVA6V_DV_C_TESTS, CVA6V_DV_EXCEP_TESTS]
+  #   requirement_ids: [CVA6V_FEAT_2]
+  #   platforms: [cva6v.*]
+  #   owner: Abhilash Chadhar
+  #   cva6v: [tests_cva6v_dv/c/exception-error/cva6v_dv_c_test_env_call_breakpoints.c]
+
+  # - name: cva6v_dv_c_test_m_s_u_mode_switch_excep_handling
+  #   description: "This tests checks m_s_u_mode switch and excep_handling in RISCV."
+  #   labels: [CVA6V_DV_TESTS, CVA6V_DV_C_TESTS, CVA6V_DV_EXCEP_TESTS]
+  #   requirement_ids: [CVA6V_FEAT_2]
+  #   platforms: [cva6v.*]
+  #   owner: Abhilash Chadhar
+  #   cva6v: [tests_cva6v_dv/c/exception-error/cva6v_dv_c_test_m_s_u_mode_switch_excep_handling.c]
+
+  - name: cva6v_dv_c_test_forward_stall
+    description: "This tests checks forward stall in RISCV."
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_C_TESTS, CVA6V_DV_CI_DEBUG, CVA6V_DV_PIPELINE_TESTS]
+    requirement_ids: [CVA6V_FEAT_2]
+    platforms: [cva6v.*]
+    owner: Abhilash Chadhar
+    cva6v: [tests_cva6v_dv/c/pipeline/cva6v_dv_c_test_forward_stall.c]
+
+  - name: cva6v_dv_c_test_fp_control_status_register
+    description: "This tests checks FP control and status registers in RISCV."
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_C_TESTS, CVA6V_DV_CI_DEBUG, CVA6V_DV_FPU_TESTS]
+    requirement_ids: [CVA6V_FEAT_2]
+    platforms: [cva6v.*]
+    owner: Abhilash Chadhar
+    cva6v: [tests_cva6v_dv/c/fpu/singleprec/special-cases/cva6v_dv_c_test_fp_control_status_register.c]
+
+  - name: cva6v_dv_c_test_half_prec_load_store_ops
+    description: "This tests checks half precision load and store operations in RISCV."
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_C_TESTS, CVA6V_DV_FPU_TESTS]
+    requirement_ids: []
+    platforms: [cva6v.*]
+    owner: Abhilash Chadhar
+    cva6v: [tests_cva6v_dv/c/fpu/halfprec/alu/cva6v_dv_c_test_half_prec_load_store_ops.c]
+
+  - name: cva6v_dv_c_test_machine_software_interrupt
+    description: "verify the correct handling of MSI by enabling, triggering, and clearing the MSI."
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_C_TESTS, CVA6V_DV_INTERRUPT_TESTS ]
+    requirement_ids: []
+    platforms: [cva6v.*]
+    owner: Abhilash Chadhar
+    cva6v: [tests_cva6v_dv/c/interrupt/cva6v_dv_c_test_machine_software_interrupt.c]
+
+  - name: cva6v_dv_c_test_hello
+    description: "This tests checks hello world functionality in RISCV."
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_C_TESTS, CVA6V_DV_CI_DEBUG, CVA6V_DV_MR_TESTS]
+    requirement_ids: [CVA6V_FEAT_2]
+    platforms: [cva6v.*]
+    owner: Abhilash Chadhar
+    cva6v: [tests_cva6v_dv/c/cva6v_dv_c_test_hello.c]
+
+  - name: cva6v_dv_c_test_hint_instrc
+    description: "This tests checks hint instructions in RISCV."
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_C_TESTS, CVA6V_DV_CI_DEBUG, CVA6V_DV_ALU_TESTS]
+    requirement_ids: [CVA6V_FEAT_2]
+    platforms: [cva6v.*]
+    owner: Abhilash Chadhar
+    cva6v: [tests_cva6v_dv/c/integer/alu/cva6v_dv_c_test_hint_instrc.c]
+
+  - name: cva6v_dv_c_test_hw_perf_counters
+    description: "This tests checks hardware performance counters in RISCV."
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_C_TESTS, CVA6V_DV_PERFORMANCE_TESTS]
+    requirement_ids: [CVA6V_FEAT_4]
+    platforms: [cva6v.*]
+    owner: Abhilash Chadhar
+    cva6v: [tests_cva6v_dv/c/performance-counter/cva6v_dv_c_test_hw_perf_counters.c]
+
+  - name: cva6v_dv_c_test_illegal_instr_handling
+    description: "This tests checks illegal instruction handling in RISCV."
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_C_TESTS, CVA6V_DV_CI_DEBUG, CVA6V_DV_EXCEP_TESTS]
+    requirement_ids: [CVA6V_FEAT_2]
+    platforms: [cva6v.*]
+    owner: Abhilash Chadhar
+    cva6v: [tests_cva6v_dv/c/exception-error/cva6v_dv_c_test_illegal_instr_handling.c]
+
+  - name: cva6v_dv_c_test_immediate_ops
+    description: "This tests checks immediate operations in RISCV."
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_C_TESTS, CVA6V_DV_ALU_TESTS]
+    requirement_ids: [CVA6V_FEAT_2]
+    platforms: [cva6v.*]
+    owner: Abhilash Chadhar
+    cva6v: [tests_cva6v_dv/c/integer/alu/cva6v_dv_c_test_immediate_ops.c]
+
+  - name: cva6v_dv_c_test_imm_enc_variants
+    description: "This tests checks immediate encoding variants in RISCV."
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_C_TESTS, CVA6V_DV_CI_DEBUG, CVA6V_DV_ISA_TESTS]
+    requirement_ids: [CVA6V_FEAT_2]
+    platforms: [cva6v.*]
+    owner: Abhilash Chadhar
+    cva6v: [tests_cva6v_dv/c/isa/cva6v_dv_c_test_imm_enc_variants.c]
+
+  - name: cva6v_dv_c_test_interrupt_mgmt_instr
+    description: "This tests checks interrupt management instructions in RISCV."
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_C_TESTS, CVA6V_DV_INTERRUPT_TESTS]
+    requirement_ids: [CVA6V_FEAT_2]
+    platforms: [cva6v.*]
+    owner: Abhilash Chadhar
+    cva6v: [tests_cva6v_dv/c/interrupt/cva6v_dv_c_test_interrupt_mgmt_instr.c]
+
+  - name: cva6v_dv_c_test_int_mult_div_ops
+    description: "This tests checks integer multiply and divide operations in RISCV."
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_C_TESTS, CVA6V_DV_ALU_TESTS]
+    requirement_ids: [CVA6V_FEAT_2]
+    platforms: [cva6v.*]
+    owner: Abhilash Chadhar
+    cva6v: [tests_cva6v_dv/c/integer/alu/cva6v_dv_c_test_int_mult_div_ops.c]
+
+  - name: cva6v_dv_c_test_register_dependency_hazards
+    description: "This tests checks load and store operations in RISCV."
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_C_TESTS, CVA6V_DV_ALU_TESTS]
+    requirement_ids: [CVA6V_FEAT_2]
+    platforms: [cva6v.*]
+    owner: Abhilash Chadhar
+    cva6v: [tests_cva6v_dv/c/pipeline/cva6v_dv_c_test_register_dependency_hazards.c]
+
+  - name: cva6v_dv_c_test_load_store_ops
+    description: "This tests checks load and store operations in RISCV."
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_C_TESTS, CVA6V_DV_ALU_TESTS]
+    requirement_ids: [CVA6V_FEAT_2]
+    platforms: [cva6v.*]
+    owner: Abhilash Chadhar
+    cva6v: [tests_cva6v_dv/c/integer/alu/cva6v_dv_c_test_load_store_ops.c]
+
+  - name: cva6v_dv_c_test_logic_ops
+    description: "This tests checks logic operations in RISCV."
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_C_TESTS, CVA6V_DV_ALU_TESTS]
+    requirement_ids: [CVA6V_FEAT_2]
+    platforms: [cva6v.*]
+    owner: Abhilash Chadhar
+    cva6v: [tests_cva6v_dv/c/integer/alu/cva6v_dv_c_test_logic_ops.c]
+
+  - name: cva6v_dv_c_test_cache_mgmnt
+    description: "This tests checks cache operations in RISCV."
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_C_TESTS, CVA6V_DV_MEM_TESTS]
+    requirement_ids: [CVA6V_FEAT_2]
+    platforms: [cva6v.*]
+    owner: Abhilash Chadhar
+    cva6v: [tests_cva6v_dv/c/cache/cva6v_dv_c_test_cache_mgmnt.c]
+
+  - name: cva6v_dv_c_test_mem_order_instr
+    description: "This tests checks memory ordering instructions in RISCV."
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_C_TESTS, CVA6V_DV_MEM_TESTS]
+    requirement_ids: [CVA6V_FEAT_2]
+    platforms: [cva6v.*]
+    owner: Abhilash Chadhar
+    cva6v: [tests_cva6v_dv/c/memory/cva6v_dv_c_test_mem_order_instr.c]
+
+  - name: cva6v_dv_c_test_nan_generation_propagation
+    description: "This tests checks NaN generation and propagation in RISCV."
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_C_TESTS, CVA6V_DV_CI_DEBUG, CVA6V_DV_FPU_TESTS]
+    requirement_ids: [CVA6V_FEAT_2]
+    platforms: [cva6v.*]
+    owner: Abhilash Chadhar
+    cva6v: [tests_cva6v_dv/c/fpu/singleprec/special-cases/cva6v_dv_c_test_nan_generation_propagation.c]
+
+  - name: cva6v_dv_c_test_nested_interrupts
+    description: "This tests checks nested interrupts in RISCV."
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_C_TESTS, CVA6V_DV_INTERRUPT_TESTS]
+    requirement_ids: [CVA6V_FEAT_2]
+    platforms: [cva6v.*]
+    owner: Abhilash Chadhar
+    cva6v: [tests_cva6v_dv/c/interrupt/cva6v_dv_c_test_nested_interrupts.c]
+
+
+  - name: cva6v_dv_c_test_classic_nested_loops
+    description: "This tests checks nested interrupts in RISCV."
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_C_TESTS, CVA6V_DV_INTERRUPT_TESTS]
+    requirement_ids: [CVA6V_FEAT_2]
+    platforms: [cva6v.*]
+    owner: Abhilash Chadhar
+    cva6v: [tests_cva6v_dv/c/control-flow/cva6v_dv_c_test_classic_nested_loops.c]
+
+  - name: cva6v_dv_c_test_float_nested_loops
+    description: "This tests checks nested interrupts in RISCV."
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_C_TESTS, CVA6V_DV_INTERRUPT_TESTS]
+    requirement_ids: [CVA6V_FEAT_2]
+    platforms: [cva6v.*]
+    owner: Abhilash Chadhar
+    cva6v: [tests_cva6v_dv/c/control-flow/cva6v_dv_c_test_float_nested_loops.c]
+
+  - name: cva6v_dv_c_test_loop_unrolling_nested_loops
+    description: "This tests checks nested interrupts in RISCV."
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_C_TESTS, CVA6V_DV_INTERRUPT_TESTS]
+    requirement_ids: [CVA6V_FEAT_2]
+    platforms: [cva6v.*]
+    owner: Abhilash Chadhar
+    cva6v: [tests_cva6v_dv/c/control-flow//cva6v_dv_c_test_loop_unrolling_nested_loops.c]
+
+  - name: cva6v_dv_c_test_corner_case_nested_loops
+    description: "This tests checks nested interrupts in RISCV."
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_C_TESTS, CVA6V_DV_INTERRUPT_TESTS]
+    requirement_ids: [CVA6V_FEAT_2]
+    platforms: [cva6v.*]
+    owner: Abhilash Chadhar
+    cva6v: [tests_cva6v_dv/c/control-flow/cva6v_dv_c_test_corner_case_nested_loops.c]
+
+  - name: cva6v_dv_c_test_half_float_nested_loops
+    description: "This tests checks nested interrupts in RISCV."
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_C_TESTS, CVA6V_DV_INTERRUPT_TESTS]
+    requirement_ids: [CVA6V_FEAT_2]
+    platforms: [cva6v.*]
+    owner: Abhilash Chadhar
+    cva6v: [tests_cva6v_dv/c/control-flow/cva6v_dv_c_test_half_float_nested_loops.c]
+
+  - name: cva6v_dv_c_test_nan_boxed_sqrt
+    description: "This tests checks Executing Single-Precision Floating-Point SQRT by an invalid NaN-boxed value in RISCV."
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_C_TESTS, CVA6V_DV_FPU_TESTS]
+    requirement_ids: [CVA6V_FEAT_2]
+    platforms: [cva6v.*]
+    owner: Abhilash Chadhar
+    cva6v: [tests_cva6v_dv/c/fpu/singleprec/special-cases/cva6v_dv_c_test_nan_boxed_sqrt.c]
+
+  - name: cva6v_dv_c_test_requested_trap
+    description: "This tests checks requested traps in RISCV."
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_C_TESTS, CVA6V_DV_EXCEP_TESTS]
+    requirement_ids: [CVA6V_FEAT_2]
+    platforms: [cva6v.*]
+    owner: Abhilash Chadhar
+    cva6v: [tests_cva6v_dv/c/exception-error/cva6v_dv_c_test_requested_trap.c]
+
+  - name: cva6v_dv_c_test_breakpoint_tval
+    description: "This tests checks tval in RISCV."
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_C_TESTS, CVA6V_DV_EXCEP_TESTS]
+    requirement_ids: [CVA6V_FEAT_2]
+    platforms: [cva6v.*]
+    owner: Abhilash Chadhar
+    cva6v: [tests_cva6v_dv/c/exception-error/cva6v_dv_c_test_breakpoint_tval.c]
+
+  - name: cva6v_dv_c_test_rounding_modes
+    description: "This tests checks rounding modes in RISCV."
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_C_TESTS, CVA6V_DV_FPU_TESTS]
+    requirement_ids: [CVA6V_FEAT_2]
+    platforms: [cva6v.*]
+    owner: Abhilash Chadhar
+    cva6v: [tests_cva6v_dv/c/fpu/singleprec/special-cases/cva6v_dv_c_test_rounding_modes.c]
+
+  - name: cva6v_dv_c_test_rv64ima_ext
+    description: "This tests checks RV64IMA extension in RISCV."
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_C_TESTS, CVA6V_DV_ISA_TESTS]
+    requirement_ids: [CVA6V_FEAT_2]
+    platforms: [cva6v.*]
+    owner: Abhilash Chadhar
+    cva6v: [tests_cva6v_dv/c/isa/cva6v_dv_c_test_rv64ima_ext.c]
+
+  - name: cva6v_dv_c_test_single_prec_fp_move_ops
+    description: "This tests checks single precision FP  fmv.x.w, fmv.w.x, fmv.s in RISCV."
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_C_TESTS, CVA6V_DV_FPU_TESTS]
+    requirement_ids: [CVA6V_FEAT_2]
+    platforms: [cva6v.*]
+    owner: Abhilash Chadhar
+    cva6v: [tests_cva6v_dv/c/fpu/singleprec/alu/cva6v_dv_c_test_single_prec_fp_move_ops.c]
+
+  - name: cva6v_dv_c_test_single_prec_fp_convert_instr
+    description: "This tests checks single precision FP fcvt.w.s, fcvt.wu.s, fcvt.s.w, fcvt.s.wu in RISCV."
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_C_TESTS, CVA6V_DV_FPU_TESTS]
+    requirement_ids: [CVA6V_FEAT_2]
+    platforms: [cva6v.*]
+    owner: Abhilash Chadhar
+    cva6v: [tests_cva6v_dv/c/fpu/singleprec/conversion-compare-classify/cva6v_dv_c_test_single_prec_fp_convert_instr.c]
+
+  - name: cva6v_dv_c_test_single_prec_fp_classify_instr
+    description: "This tests checks single precision FP classify instructions in RISCV."
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_C_TESTS, CVA6V_DV_FPU_TESTS]
+    requirement_ids: [CVA6V_FEAT_2]
+    platforms: [cva6v.*]
+    owner: Abhilash Chadhar
+    cva6v: [tests_cva6v_dv/c/fpu/singleprec/conversion-compare-classify/cva6v_dv_c_test_single_prec_fp_classify_instr.c]
+
+  - name: cva6v_dv_c_test_shift_ops
+    description: "This tests checks shift operations in RISCV."
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_C_TESTS, CVA6V_DV_ALU_TESTS]
+    requirement_ids: [CVA6V_FEAT_2]
+    platforms: [cva6v.*]
+    owner: Abhilash Chadhar
+    cva6v: [tests_cva6v_dv/c/integer/alu/cva6v_dv_c_test_shift_ops.c]
+
+  - name: cva6v_dv_c_test_single_prec_fp_arith_ops
+    description: "This tests checks single precision FP operations in RISCV."
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_C_TESTS, CVA6V_DV_FPU_TESTS]
+    requirement_ids: [CVA6V_FEAT_2]
+    platforms: [cva6v.*]
+    owner: Abhilash Chadhar
+    cva6v: [tests_cva6v_dv/c/fpu/singleprec/alu/cva6v_dv_c_test_single_prec_fp_arith_ops.c]
+
+  - name: cva6v_dv_c_test_half_prec_fp_move_ops
+    description: "This tests checks single precision FP operations in RISCV."
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_C_TESTS, CVA6V_DV_FPU_TESTS]
+    requirement_ids: [CVA6V_FEAT_2]
+    platforms: [cva6v.*]
+    owner: Abhilash Chadhar
+    cva6v: [tests_cva6v_dv/c/fpu/halfprec/alu/cva6v_dv_c_test_half_prec_fp_move_ops.c]
+
+  - name: cva6v_dv_c_test_single_prec_load_store_ops
+    description: "This tests checks single precision load and store operations in RISCV."
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_C_TESTS, CVA6V_DV_FPU_TESTS]
+    requirement_ids: [CVA6V_FEAT_2]
+    platforms: [cva6v.*]
+    owner: Abhilash Chadhar
+    cva6v: [tests_cva6v_dv/c/fpu/singleprec/alu/cva6v_dv_c_test_single_prec_load_store_ops.c]
+
+  - name: cva6v_dv_c_test_single_prec_fp_cmp_instr
+    description: "This tests checks single precision load and store operations in RISCV."
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_C_TESTS, CVA6V_DV_FPU_TESTS]
+    requirement_ids: [CVA6V_FEAT_2]
+    platforms: [cva6v.*]
+    owner: Abhilash Chadhar
+    cva6v: [tests_cva6v_dv/c/fpu/singleprec/conversion-compare-classify/cva6v_dv_c_test_single_prec_fp_cmp_instr.c]
+
+  - name: cva6v_dv_c_test_standard_instructions
+    description: "This tests checks standard instructions in RISCV."
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_C_TESTS, CVA6V_DV_ALU_TESTS]
+    requirement_ids: [CVA6V_FEAT_2]
+    platforms: [cva6v.*]
+    owner: Abhilash Chadhar
+    cva6v: [tests_cva6v_dv/c/integer/alu/cva6v_dv_c_test_standard_instructions.c]
+
+  - name: cva6v_dv_c_test_structural_hazards
+    description: "This tests checks structural hazards in RISCV."
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_C_TESTS, CVA6V_DV_PIPELINE_TESTS]
+    requirement_ids: [CVA6V_FEAT_2]
+    platforms: [cva6v.*]
+    owner: Abhilash Chadhar
+    cva6v: [tests_cva6v_dv/c/pipeline/cva6v_dv_c_test_structural_hazards.c]
+
+  - name: cva6v_dv_c_test_load_store_hazards
+    description: "This tests checks load store hazards in RISCV."
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_C_TESTS, CVA6V_DV_PIPELINE_TESTS]
+    requirement_ids: [CVA6V_FEAT_2]
+    platforms: [cva6v.*]
+    owner: Abhilash Chadhar
+    cva6v: [tests_cva6v_dv/c/pipeline/cva6v_dv_c_test_load_store_hazards.c]
+
+  - name: cva6v_dv_c_test_zifencei_instr
+    description: "This tests checks Zifencei instructions in RISCV."
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_C_TESTS, CVA6V_DV_PRIVILEGE_TESTS]
+    requirement_ids: [CVA6V_FEAT_7]
+    platforms: [cva6v.*]
+    owner: Abhilash Chadhar
+    cva6v: [tests_cva6v_dv/c/privileged-instr/cva6v_dv_c_test_zifencei_instr.c]
+
+  - name: cva6v_dv_c_test_pythagoras
+    description: "Simple pythagoras single precision floating point test."
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_C_TESTS, CVA6V_DV_FPU_TESTS]
+    requirement_ids: [CVA6V_FEAT_2]
+    platforms: [cva6v.*]
+    owner: Andrew Bond
+    cva6v: [tests_cva6v_dv/c/fpu/singleprec/basic/cva6v_dv_c_test_pythagoras.c]
+
+  - name: cva6v_dv_c_test_chaotic_bank
+    description: "Simple pythagoras chaotic bank society floating point test."
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_C_TESTS, CVA6V_DV_CI_DEBUG, CVA6V_DV_FPU_TESTS]
+    requirement_ids: [CVA6V_FEAT_2]
+    platforms: [cva6v.*]
+    owner: Andrew Bond
+    cva6v: [tests_cva6v_dv/c/fpu/singleprec/basic/cva6v_dv_c_test_chaotic_bank.c]
+
+  - name: cva6v_dv_c_test_uncond_jumps
+    description: "This tests checks unconditional jumps in RISCV."
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_C_TESTS]
+    requirement_ids: [CVA6V_FEAT_2]
+    platforms: [cva6v.*]
+    owner: Abhilash Chadhar
+    cva6v: [tests_cva6v_dv/c/control-flow/cva6v_dv_c_test_uncond_jumps.c]
+
+  - name: cva6v_dv_c_test_half_prec_fp_arith_ops
+    description: "This tests checks half precision compute instructions in RISCV."
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_C_TESTS, CVA6V_DV_FPU_TESTS]
+    requirement_ids: [CVA6V_FEAT_2]
+    platforms: [cva6v.*]
+    owner: Abhilash Chadhar
+    cva6v: [tests_cva6v_dv/c/fpu/halfprec/alu/cva6v_dv_c_test_half_prec_fp_arith_ops.c]
+
+  - name: cva6v_dv_c_test_half_prec_fp_classify_instr
+    description: "This tests checks half precision FP classify instructions in RISCV."
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_C_TESTS]
+    requirement_ids: [CVA6V_FEAT_2]
+    platforms: [cva6v.*]
+    owner: Abhilash Chadhar
+    cva6v: [tests_cva6v_dv/c/fpu/halfprec/conversion-compare-classify/cva6v_dv_c_test_half_prec_fp_classify_instr.c]

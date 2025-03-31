@@ -1,0 +1,80 @@
+package:
+  name: apu_p
+  description: "apu_p clocks, related IOs, clock groups and design intend information"
+  authors:
+    - "Vincent Morillon <vincent.morillon@axelera.ai>"
+
+clocks:
+  - clock_type: master
+    name: fast_clk
+    freq_mhz: 1000
+    dc: 50
+    source:
+      name: i_clk
+      type: port
+    mode: func
+    sync_in:
+      - name: "{i_cores_* i_*_axi_* i_tok_*}"
+        type: port
+    sync_out:
+      - name: "{o_cores_* o_*_axi_* o_tok_*}"
+        type: port
+  - clock_type: master
+    name: ref_clk
+    freq_mhz: 50
+    dc: 50
+    source:
+      name: "i_ref_clk"
+      type: port
+    mode: func
+    sync_in:
+      - name: "i_cfg_apb4_*"
+        type: port
+    sync_out:
+      - name: "o_cfg_apb4_*"
+        type: port
+
+resets:
+  - name: "i_ao_rst_n"
+    type: port
+  - name: "i_global_rst_n"
+    type: port
+
+case_analysis:
+  - mode: func
+    object:
+      name: test_mode
+      type: port
+    value: 0
+  - mode: func
+    object:
+      name: "*u_pctl/g_clkdiv[*].u_clkdiv/u_clk_gate/u_tc_lib_clk_en/ECK "
+      type: pin
+    value: 1
+
+false_path:
+  - mode: func
+    from_object:
+      name: '{i_ao_rst_n i_global_rst_n}'
+      type: port
+    type: both
+  - mode: func
+    from_object:
+      name: '{i_clock_throttle i_thermal_throttle i_cores_nmi i_aic_stoptime i_irq__*}'
+      type: port
+    type: both
+  - mode: func
+    to_object:
+      name: '{o_aic_msip o_aic_mtip}'
+      type: port
+    type: both
+  - mode: func
+    from_object:
+      name: '{i_noc_async_*}'
+      type: port
+    type: both
+  - mode: func
+    to_object:
+      name: '{o_noc_async_* o_noc_clken o_noc_rst_n}'
+      type: port
+    type: both

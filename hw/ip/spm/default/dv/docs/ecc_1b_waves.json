@@ -1,0 +1,33 @@
+{
+    "head": {
+        "text": "ECC with 1 bit error on full read"
+    },
+    "signal": [
+        { "name": "clk",            "wave": "p......." },
+        { "name": "reset_n",        "wave": "01......" },
+        [ "write",
+            { "name": "axi_wvalid",     "wave": "0.10...." },
+            { "name": "axi_wdata[7:0]", "wave": "x.3x....", "data": "8'b10101010", "node": "...a" }
+        ],
+        {},
+        ["read",
+            { "name": "axi_rvalid",     "wave": "0....10." },
+            { "name": "axi_rready",     "wave": "0....1.." },
+            { "name": "axi_rdata[7:0]", "wave": "x....3x.", "data": "8'b10101010", "node": ".....b" },
+            { "name": "axi_rresp",      "wave": "x....2x.", "data": "OKAY" }
+        ],
+        {},
+        { "name": "IRQ",            "wave": "0......." },
+        {},
+        ["ECC",
+            { "name": "ecc_err",        "wave": "0....10." },
+            { "name": "ecc_type",       "wave": "0......." },
+            { "name": "ecc_index",      "wave": "x....5x.", "data": "addr"},
+            { "name": "ecc_syndrome",   "wave": "x....7x.", "data": "syndrome"}
+        ]
+    ],
+    "edge": [
+        "a--b 1b data corruption"
+    ],
+    "config": { "hscale": 3 }
+}

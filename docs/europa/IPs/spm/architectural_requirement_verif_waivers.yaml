@@ -1,0 +1,19 @@
+waivers:
+  -
+    requirement_id: SPM_CLK_0
+    description: "This doesn't affect DV, we use only 1 clk for the tb and this is enough, but we can't really verify this."
+    owner: Vito Luca Guglielmi
+  -
+    requirement_id: SPM_FEAT_3
+    description: "Internal requirement for LD"
+    owner: Vito Luca Guglielmi
+  -
+    requirement_id: SPM_FEAT_4
+    description: "Internal requirement for LD"
+    owner: Vito Luca Guglielmi
+  -
+    requirement_id: SPM_FEAT_6
+    description: "Internal requirement for LD"
+    owner: Vito Luca Guglielmi
+
+

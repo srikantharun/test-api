@@ -1,0 +1,302 @@
+// (C) Copyright Axelera AI 2022
+// All Rights Reserved
+// *** Axelera AI Confidential ***
+{ name: "axi_mailbox_csr",
+  clocking: [{clock: "clk_i", reset: "rst_ni"}],
+  bus_interfaces: [
+    { protocol: "tlul", direction: "device" }
+  ],
+  regwidth: "64",
+  addrcap: "0x1000",
+  axi_intf: True
+  param_list : [
+    {name:"AXI_AW",   type:"int", default:"40"}, # Matches chip_pkg::CHIP_AXI_ADDR_W
+    {name:"AXI_IDW",  type:"int", default:"10"}, # Matches apu_pkg::APU_AXI_LT_S_ID_W
+    {name:"AXI_LENW", type:"int", default:"8" }, # Matches axi_pkg::AXI_LEN_WIDTH
+  ]
+  registers: [
+    { name: "MBOXW",
+      desc: "write data address",
+      swaccess: "wo",
+      hwaccess: "hro",
+      hwext: "True",
+      hwqe: "True",
+      fields: [
+        { bits: "63:0",
+          name: "MBOXW",
+          desc: '''
+          Write data address, if read, return hFEEDC0DE,
+          To make RAL test pass, set this reg as wo
+          '''
+        }
+      ]
+    },
+    { name: "MBOXR",
+      desc: "read data address",
+      swaccess: "ro"
+      hwaccess: "hrw",
+      hwext: "True",
+      hwre: "True",
+      fields: [
+        { bits: "63:0",
+          name: "MBOXR",
+          desc: '''
+          Read data address of a FIFO, if read empty FIFO, return FEEDDEAD
+          '''
+          resval: 0xFEEDDEAD
+        }
+      ]
+    },
+    { name: "STATUS",
+      desc: "mailbox status",
+      swaccess: "ro",
+      hwaccess: "hwo",
+      hwext: "True",
+      fields: [
+        { bits: "0",
+          name: "EMPTY",
+          desc: '''
+          0: data is available;
+          1: No available data, reads respond with SLVERR
+          ''',
+          resval: "1"
+        },
+        { bits: "1",
+          name: "FULL",
+          desc: '''
+          0: space for write data;
+          1: no space for data, writes are ignored and reponded with SLVERR
+          ''',
+          resval: "0"
+        }
+        { bits: "2",
+          name: "WFIFOL",
+          desc: '''
+          0: write FIFO level is less than or equal to the threshold;
+          1: write FIFO level is higher than the threshold
+          ''',
+          resval: "0"
+        },
+        { bits: "3",
+          name: "RFIFOL",
+          desc: '''
+          0: read FIFO level is less than or equal to the threshold;
+          1: read FIFO level is higher than then threshold
+          ''',
+          resval: "0"
+        }
+      ]
+    },
+    {
+      name: "ERROR",
+      desc: "mailbox error",
+      swaccess: "rc",
+      hwaccess: "hrw",
+      fields: [
+        { bits: "0",
+          name: "READ_ERROR",
+          desc: '''
+          Attempted read from an empty mailbox
+          0: No Error.
+          1: Mailbox read error.
+          ''',
+          resval: "0"
+        },
+        { bits: "1",
+          name: "WRITE_ERROR",
+          desc: '''
+          Attempted write to a full mailbox.
+          0: No Error.
+          1: Mailbox write error.
+          ''',
+          resval: "0"
+        }
+      ]
+    },
+    {
+      name: "WIRQT",
+      desc: "write interrupt request threshold",
+      swaccess: "rw",
+      hwaccess: "hro",
+      fields: [
+        { bits: "7:0",
+          name: "WIRQT",
+          desc: '''
+          write IRQ threshold level
+          ''',
+          resval: "0"
+        }
+      ]
+    },
+    {
+      name: "RIRQT",
+      desc: "read interrupt request threshold",
+      swaccess: "rw",
+      hwaccess: "hro",
+      fields: [
+        { bits: "7:0",
+          name: "RIROT",
+          desc: '''
+          read IRQ threshold level
+          ''',
+          resval: "0"
+        }
+      ]
+    },
+    {
+      name: "IRQS",
+      desc: "Interrupt status register",
+      swaccess: "rw1c",
+      hwaccess: "hrw",
+      fields: [
+        { bits: "0",
+          name: "WTIRQ",
+          desc: '''
+          On read:
+          0: No interrupt request
+          1: Usage level threshold in write mailbox exceeded
+          On write:
+          0: No acknowledge
+          1: Acknowledge and clear interrupt request
+          ''',
+        },
+        { bits: "1",
+          name: "RTIRQ",
+          desc: '''
+          On read:
+          0: No interrupt request
+          1: Usage level threshold in read mailbox exceeded
+          On write:
+          0: No acknowledge
+          1: Acknowledge and clear interrupt request
+          ''',
+        }
+        { bits: "2",
+          name: "EIRQ",
+          desc: '''
+          On read:
+          0: No interrupt request
+          1: Error on mailbox access
+          On write:
+          0: No acknowledge
+          1: Acknowledge and clear interrupt request
+          ''',
+        }
+        { bits: "32",
+          name: "DBG_SW_INTERRUPT",
+          desc: '''
+                SW triggered the debug interrupt by setting the `DP_CTRL.DBG_SW_IRQ` to high.
+                '''
+        }
+      ]
+    },
+    {
+      name: "IRQEN",
+      desc: "Interupt enable register",
+      swaccess: "rw",
+      hwaccess: "hro",
+      fields: [
+        { bits: "0",
+          name: "WTIRQ",
+          desc: '''
+          0: Write threshold IRQ disabled.
+          1: Write threshold IRQ enabled.
+          ''',
+          resval: "0"
+        },
+        { bits: "1",
+          name: "RTIRQ",
+          desc: '''
+          0: Read threshold IRQ disabled.
+          1: read threshold IRQ enabled.
+          ''',
+          resval: "0"
+        }
+        { bits: "2",
+          name: "EIRQ",
+          desc: '''
+          0: Error IRQ disabled.
+          1: Error IRQ enabled.
+          ''',
+          resval: "0"
+        }
+        { bits: "32",
+          name: "DBG_SW_INTERRUPT",
+          desc: '''
+                Enable IRQ flagging of the debug SW interrupt.
+                '''
+        }
+      ]
+    },
+    {
+      name: "IRQP",
+      desc: "Interrupt pending register",
+      swaccess: "ro",
+      hwaccess: "hwo",
+      hwext: "True"
+      fields: [
+        { bits: "0",
+          name: "WTIRQ",
+          desc: '''
+          0: no Write threshold IRQ pending.
+          1: Write threshold IRQ pending.
+          ''',
+          resval: "0"
+        },
+        { bits: "1",
+          name: "RTIRQ",
+          desc: '''
+          0: no Read threshold IRQ pending.
+          1: read threshold IRQ pending.
+          ''',
+          resval: "0"
+        }
+        { bits: "2",
+          name: "EIRQ",
+          desc: '''
+          0: no Error IRQ pending.
+          1: Error IRQ pending.
+          ''',
+          resval: "0"
+        }
+        { bits: "32",
+          name: "DBG_SW_INTERRUPT",
+          desc: '''
+                The SW debug interrupt is pending
+                '''
+        }
+      ]
+    },
+    {
+      name: "CTRL",
+      desc: "control register",
+      swaccess: "rw",
+      hwaccess: "hro",
+      fields: [
+        { bits: "0",
+          name: "RFIFO",
+          desc: '''
+          1: Flush the read FIFO.
+          ''',
+          resval: "0"
+        },
+        { bits: "1",
+          name: "WFIFO",
+          desc: '''
+          1: Flush the write FIFO.
+          ''',
+          resval: "0"
+        }
+        { bits: "32",
+          name: "DBG_SW_IRQ",
+          desc: '''
+                `DBG_SW_IRQ` is a level-triggered interrupt request.
+                Set `DBG_SW_IRQ` to high to trigger the debug SW interrupt.
+                Interrupt handler must set `DBG_SW_IRQ` to low again.
+                '''
+          resval: 0x0
+        }
+      ]
+    },
+  ]
+}

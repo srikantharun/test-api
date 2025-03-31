@@ -1,0 +1,18 @@
+`ifndef TOKEN_AGENT_ENUMS_SVI
+`define TOKEN_AGENT_ENUMS_SVI
+
+/** Enum type to be used on the sequence item of token manager */
+typedef enum  { TOK_NOT_VALID = 0, //to identify that the current sequence item does not have information to be used (dummy)
+                TOK_CONS_MON = 1,
+                TOK_PROD_MON = 2,
+                TOK_CONS_DRV = 3,
+                TOK_PROD_DRV = 4
+} token_agent_info_type_enm;
+
+/** Enum type to specify which type of token agent is: slave or master */
+typedef enum  { TOK_AGT_MASTER = 0, //to identify that the current sequence item does not have information to be used (dummy)
+                TOK_AGT_SLAVE  = 1
+} token_agent_type_enm;
+
+`endif // TOKEN_AGENT_ENUMS_SVI
+

@@ -1,0 +1,53 @@
+# (C) Copyright 2024 Axelera AI B.V.
+# All Rights Reserved
+# *** Axelera AI Confidential ***
+
+package:
+  name: ifd_odr
+  description: "IFD ODR IP's"
+  authors:
+    - "Sander Geursen <sander.geursen@axelera.ai>"
+
+dependencies:
+  ifd_odr_pkg:         { path : "pkg"}
+  aic_common_pkg:      { path: "../../../aic_common/default/rtl/pkg" }
+  axe_tcl:             { path: "../../../tech_cell_library/default/rtl" }
+  cc_lib:              { path: "../../../common_cell_library/default/rtl" }
+  axi4_common:         { path: "../../../axi4_common/default/rtl/" }
+  cmdblock:            { path: "../../../cmdblock/default/rtl/" }
+  lowrisc_prim_subreg: { path: "../../../../vendor/lowrisc/prim_subreg/default/rtl" }
+  decompress:          { path: "../../../decompress/default/rtl/" }
+  aic_fabric_addr_decoder: { path: "aic_fabric_addr_decoder/default/rtl/" }
+  mmio_pkg:            { path: "" }
+
+# Source files are grouped in levels. Files in level 0 have no dependencies on files in this package.
+# Files in level 1 only depend on files in level 0, fils in level 2 on files in 0 and 1, etc.
+# Files within a level are ordered alphanumerically.
+sources:
+  - target: rtl
+    files:
+      # Level 0
+      - build_reg/ifd_csr_reg_top.sv
+      - build_reg/odr_csr_reg_top.sv
+
+      - common/ifd_odr_inner_pad.sv
+      - common/ifd_odr_loop_cnt.sv
+      - common/ifd_odr_mul_incr.sv
+      - common/ifd_odr_pad_check.sv
+      - common/ifd_odr_ring_buffer.sv
+      - ifd_dp.sv
+      - odr_dp.sv
+      - vtrsp_transpose_buffer.sv
+      - vtrsp.sv
+      # Level 1
+      - common/ifd_odr_addr_calc.sv
+      - common/ifd_odr_coord_calc.sv
+      - common/ifd_odr_loop_ctrl.sv
+      # Level 2
+      - common/ifd_odr_dim_addr.sv
+      # Level 3
+      - common/ifd_odr_addr_gen.sv
+      - ifd_odr_loop_unroll.sv
+      # Level 4
+      - ifd.sv
+      - odr.sv

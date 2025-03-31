@@ -1,0 +1,169 @@
+# (C) Copyright 2024 Axelera AI B.V.
+# All Rights Reserved
+# *** Axelera AI Confidential ***
+
+package:
+  name: sdma_p
+  description: "sdma_p clocks, related IOs, clock groups and design intent information"
+  authors:
+    - "Matt Morris <matt.morris@axelera.ai>"
+
+# Guidelines for clocks, related IOs and clock groups
+#  1. each clock starts with dash (-)
+#  2. clock parameters are defined using pairs of key and possible value (i.e. key: <value>)
+#  3. freq - should be in MHz
+#  4. dc (duty cycle) - should be in %
+#  5. is_gen - should be true if it is generated clock
+#  6. if is_gen is true - then div_by, master_clk, master_source must be defined as well
+#  7. sync_with - only valid for non-generated clocks. If clock is asynchronous in nature wrt all other clocks, leave this empty.
+
+clocks:
+  - clock_type: master
+    name: fast_clk
+    freq_mhz: 1200
+    dc: 50
+    source:
+      name: "i_clk"
+      type: port
+    mode: func
+    sync_in:
+      - name: "{i_tok_* i_axi_s_* i_axi_m0_* i_axi_m1_* i_axi_trc_m_* i_noc_*}"
+        type: port
+    sync_out:
+      - name: "{o_tok_* o_axi_s_* o_axi_m0_* o_axi_m1_* o_axi_trc_m_* o_noc_*}"
+        type: port
+  - clock_type: master
+    name: ref_clk
+    freq_mhz: 50
+    dc: 50
+    source:
+      name: "i_ref_clk"
+      type: port
+    mode: func
+    sync_in:
+      - name: "i_cfg_apb4_*"
+        type: port
+    sync_out:
+      - name: "o_cfg_apb4_*"
+        type: port
+
+resets:
+  - name: "*_rst_n"
+    type: port
+
+# Guidelines for design intent constraints
+#  1. constraints are grouped in different classes, each class name is followed by : (i.e. case_analysis:)
+#  2. if no constraints for specific class, leave the class empty or can be removed
+#  3. each class can have zero or more than zero constraints referred as group, and each group starts with dash (-) and is covered by [...]
+#  4. each group is defined using pairs of key and possible value (i.e key: <value>)
+#  5. each key should have valid value defined, and left blank whenever not applicable
+#  6. any other design intent not templated below, can be added in similar format and BE will convert that in to valid timing constraints
+
+case_analysis:
+  #- mode: <func | atspeed | shift>
+  #  object:
+  #    name: <name or expression>
+  #    type: <pin | port| net | expr>
+  #  value: <0 | 1>
+  - mode: func
+    object:
+      name: "u_pctl/u_ao_csr/u_mem_power_mode*ret*/q"
+      type: pin
+    value: 0
+  - mode: func
+    object:
+      name: "u_pctl/u_ao_csr/u_mem_power_mode*pde*/q"
+      type: pin
+    value: 0
+  - mode: func
+    object:
+      name: scan_en
+      type: port
+    value: 0
+  - mode: func
+    object:
+      name: test_mode
+      type: port
+    value: 0
+
+false_path:
+#  - mode: <func | atspeed | shift>
+#    from_object: <name of pin or port or net or cell or clock>
+#    to_object: <name of pin or port or net or cell or clock>
+#    through_object: <name of pin or port or net or cell>
+#    type: <setup | hold | both>
+  - mode: func
+    from_object:
+      name: '{i_*rst* i_*async*}'
+      type: port
+    type: both
+  - mode: func
+    to_object:
+      name: '{o_*rst* o_*async* o_noc_clken}'
+      type: port
+    type: both
+  - mode: func
+    through_object:
+      name: '[get_pins -of_objects [get_cell -hier  *tc_lib_seq_sync* -filter full_name=~*tc_lib_seq_sync*] -filter "full_name=~*/D"]'
+      type: expr
+    type: both
+  - mode: func
+    from_object:
+      name: i_ref_clk
+      type: port
+    to_object:
+      name: i_clk
+      type: port
+    type: both
+
+mcp_path:
+#  - mode: <func | atspeed | shift>
+#    from_object: <name of pin or port or net or cell or clock>
+#    to_object: <name of pin or port or net or cell or clock>
+#    through_object: <name of pin or port or net or cell>
+#    type: <setup | hold | both>
+#    multiplier: <integer greater than 1>
+#    relative_to: <start_clock | end_clock>
+
+io_delay:
+# Default metric is 70/30 rule
+# If the design requires different metrics use the following template
+# The input delay for async port will be global defined
+#  - type: <min | max>
+#  - clock:
+#  - port: [<name of port>]
+#  - delay_ns: <value in ns>
+
+max_delay:
+#  - mode: <func | atspeed | shift>
+#    from_object: <name of pin or port or net or cell or clock>
+#    to_object: <name of pin or port or net or cell or clock>
+#    through_object: <name of pin or port or net or cell>
+#    delay_ns: <value in ns>
+
+min_delay:
+#  - mode: <func | atspeed | shift>
+#    from_object: <name of pin or port or net or cell or clock>
+#    to_object: <name of pin or port or net or cell or clock>
+#    through_object: <name of pin or port or net or cell>
+#    delay_ns: <value in ns>
+
+data_check:
+#  - mode: <func | atspeed | shift>
+#    from_object: <name of pin or port>
+#    to_object: <name of pin or port>
+#    clock: <related clock signal name if any>
+#    delay_ns: <value in ns>
+
+stop_propagation:
+#  - mode: <func | atspeed | shift>
+#    type: <clock | data>
+#    edge: <rise | fall>
+#    object: <name of pin or port>
+#    clock: <clock name>
+
+disable_timing:
+#  - mode: <func | atspeed | shift>
+#    from_object: <name of pin>
+#    to_object: <name of pin>
+#    object: <name of cell>

@@ -1,0 +1,27 @@
+package:
+  name: ai_core_dp_cmd_uvm
+  description: "UVM for AIC DP Command Block"
+  authors:
+    - "andrew.bond@axelera.ai"
+
+dependencies:
+  aic_common_pkg:           { path: "" }
+  common_seq_lib_uvm:       { path: "hw/dv/common_seq_lib/uvm/"}
+  dv_common_uvm:            { path: ""}
+  
+  
+sources:
+  - target: simulation
+    include_dirs:
+      - .
+      - ./interfaces
+      - ./axi
+      - ./cmdb
+      - ./command
+      - ./model
+      - ./env
+      - ./tests
+      - ./common
+    files:
+      - ./interfaces/aic_dp_cmd_gen_if.sv
+      - ai_core_dp_cmd_gen_uvm_pkg.sv

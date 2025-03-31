@@ -1,0 +1,17 @@
+waivers:
+  -
+    requirement_id: LPDDR_FEAT_0
+    description: "This is a board connection requirement"
+    owner: Rodrigo Borges
+  -
+    requirement_id: LPDDR_CONN_9
+    description: "CC parameters UMCTL2_A_SYNC_0 is set to 1 meaning that port 0 clock is synchronous to the controller core_ddrc_core_clk"
+    owner: Rodrigo Borges
+  -
+    requirement_id: LPDDR_FEAT_22
+    description: "Address regions will not be used"
+    owner: Rodrigo Borges
+  -
+    requirement_id: LPDDR_FEAT_100
+    description: "This is a Synopsys implementation requirement"
+    owner: Rodrigo Borges

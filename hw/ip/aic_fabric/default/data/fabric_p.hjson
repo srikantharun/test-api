@@ -1,0 +1,20 @@
+{
+  design_name: aic_fabric_subsys
+  wrapper_name: aic_fabric
+  design_file: "{REPO_ROOT}/hw/ip/aic_fabric/default/rtl/aic_fabric_subsys.sv"
+  wrapper_file: "{REPO_ROOT}/hw/ip/aic_fabric/default/rtl/aic_fabric_gen.sv"
+  ports: {
+    clk: [
+      aclk_aclk
+    ]
+    rst: [
+      ARESETn_aresetn
+    ]
+    bus: {
+    }
+  }
+  pipes: {
+
+  }
+
+}

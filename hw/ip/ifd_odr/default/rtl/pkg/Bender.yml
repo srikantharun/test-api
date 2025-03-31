@@ -1,0 +1,17 @@
+# (C) Copyright Axelera AI 2024
+# All Rights Reserved
+# *** Axelera AI Confidential ***
+
+package:
+  name: ifd_odr_pkg
+  description: "Packages needed for IFD/ODR."
+
+dependencies:
+  aic_common_pkg: { path: "../../aic_common/default/rtl/pkg" }
+
+sources:
+  - files:
+      - vtrsp_pkg.sv
+      - ifd_odr_pkg.sv
+      - ../build_reg/odr_csr_reg_pkg.sv
+      - ../build_reg/ifd_csr_reg_pkg.sv

@@ -1,0 +1,28 @@
+From ecbdb5acdd9996bd37a42e8119461c95f8b399dc Mon Sep 17 00:00:00 2001
+From: Max Wipfli <max.wipfli@axelera.ai>
+Date: Fri, 5 Jul 2024 07:44:09 +0000
+Subject: [PATCH 5/9] Remove unneeded .data to reduce MCU memory footprint
+
+This change should not affect functionality.
+---
+ bin/mcu/src/crt0.S | 7 -------
+ 1 file changed, 7 deletions(-)
+
+diff --git a/bin/mcu/src/crt0.S b/bin/mcu/src/crt0.S
+index 6dad11f..67224f4 100644
+--- a/bin/mcu/src/crt0.S
++++ b/bin/mcu/src/crt0.S
+@@ -185,10 +185,3 @@ __asychronous_int:
+ 
+   .global __dummy
+ __dummy:  
+-  
+-  .data
+-  nop
+-  nop
+-  nop
+-
+-
+-- 
+2.43.0
+

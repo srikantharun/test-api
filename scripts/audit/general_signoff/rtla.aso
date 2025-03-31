@@ -1,0 +1,14 @@
+# Warnings that don't require action
+ASO: RTLA repeats the warnings                              [rtla]  regexp="Warning: .* \(MSG-3032\)"
+ASO: Net renaming                                           [rtla]  regexp="Warning: Net name '.*' is omitted from the output file, because the net name does not match a connected port name\. The net is implicitly renamed to match one of its connected ports\. \(VW-007\)"
+ASO: Net renaming                                           [rtla]  regexp="Warning: Net name '.*' is renamed to '.*' in module '.*' in output file\. \(VW-010\)"
+ASO: May loss of switching activity is not important here   [rtla]  regexp="Warning: Net '.*' is already connected to pin '.*'\. It may cause loss of switching activity\. \(POW-116\)"
+ASO: Is fine to declare a parameter as parameter in a pkg   [rtla]  regexp="Warning:\s+.*:\d+: Parameter keyword used in local parameter declaration. \(VER-329\)"
+ASO: Empty always_block, not something to worry about       [rtla]  regexp="Warning:.*Netlist for always_comb block is empty. \(ELAB-982\)"
+### Layout type of warnings:
+ASO: Overlapping cells, not something we take action on     [rtla]  regexp="Warning: Cell .* is placed overlapping with other cells at {.*}. \(ZRT-763\)"
+ASO: auto deriving routing                                  [rtla]  regexp="Warning: Auto deriving '(?:horizontal|vertical)' routing direction for layer '.*'. \(DMM-115\)"
+ASO: No routing rules in quicksyn                           [rtla]  regexp="Warning: No clock routing rules were specified. Use set_clock_routing_rules to specify routing rules for accurate clock latency estimation. \(OPT-902\)"
+### LIB:
+ASO: No area attributes needed for quicksyn                 [rtla]  regexp="Warning: Layer '.*' is missing the attribute '.*Area.*'. \(.*\) \(TECH-026\)"
+ASO: Incomplete area threshold defined, not needed for qsyn [rtla]  regexp="Warning: Layer '.*' has incomplete '.*Area.*' defined. \(.*\) \(TECH-098w\)"

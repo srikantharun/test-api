@@ -1,0 +1,16 @@
+package:
+  name: ai_core_cd_uvm_ral
+  description: "UVM Register Access Layer for AI CORE CD"
+  authors:
+    - "gabriel.bratu@axelera.ai"
+
+dependencies:
+  lowrisc_dv_base_reg:         { path: ""}
+  v_utils_pkg:                 { path: ""}
+  svt_amba_vip:                { path: ""}
+
+
+sources:
+  - target: simulation
+    files:
+      - ../../build_ral/aic_cd_csr_ral_pkg.sv

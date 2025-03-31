@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+
+set -e
+VENV=.venv/axe_csv
+
+make -C $REPO_ROOT/bin venv VENV=$VENV FILE=$REPO_ROOT/hw/dv/common/scripts/axe_csv/requirements.txt > /dev/null 2>&1
+
+source $REPO_ROOT/bin/$VENV/bin/activate
+python3.10 $REPO_ROOT/hw/dv/common/scripts/axe_csv/axe_csv.py $@
+deactivate

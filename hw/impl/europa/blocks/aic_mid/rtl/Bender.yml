@@ -1,0 +1,44 @@
+# (C) Copyright 2024 Axelera AI B.V.
+# All Rights Reserved
+# *** Axelera AI Confidential ***
+
+package:
+  name: europa_aic_mid
+  description: "MVM DPU, containing MVM, IAU and DPU"
+  authors:
+    - "Sander Geursen <sander.geursen@axelera.ai>"
+    - "Manuel Oliveira <manuel.oliveira@axelera.ai>"
+
+dependencies:
+  europa_aic_mid_pkg:        { path: "" }
+  samsung_pvt_probe_wrapper: { path: "" }
+  aic_common_pkg:            { path: "" }
+  mvm:                       { path: "" }
+  iau:                       { path: "" }
+  dpu:                       { path: "" }
+  aic_fabric_addr_decoder:   { path: "" }
+  lowrisc_prim_subreg:       { path: "" }
+  europa_impl_rtl:           { path: "" }
+  token_manager_pkg:         { path: "" }
+  svs_monitor:               { path: "" }
+  process_monitor:           { path: "" }
+  c2c_monitor:               { path: "" }
+  dwm:                       { path: "" }
+
+# Source files grouped in levels.
+# Files in level 0 have no dependencies on files in this package.
+# Files in level 1 only depend on files in level 0, files in level 2 on files in levels 1 and 0, etc.
+# Files within a level are ordered alphabetically.
+sources:
+  - target: rtl
+    files:
+    # Level 0
+    - build_reg/aic_csr_mid_part_reg_top.sv
+    - aic_mid_throttle_unit.sv
+    # Level 1
+    - aic_mid.sv
+
+  - target: all(rtl, not(dft))
+    files:
+    # Level 2
+    - aic_mid_p.sv

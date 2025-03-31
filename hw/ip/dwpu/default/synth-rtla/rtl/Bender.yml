@@ -1,0 +1,23 @@
+# (C) Copyright 2024 Axelera AI B.V.
+# All Rights Reserved
+# *** Axelera AI Confidential ***
+
+package:
+  name: dwpu_synth_sf5a
+  description: "Synthesis wrapper for DWPU in SF5A"
+  authors:
+    - "Wolfgang Roenninger <wolfgang.roenninger@axelera.ai>"
+
+dependencies:
+  dwpu:    { path: "hw/ip/dwpu/default/rtl" }
+  axe_tcl: { path: "hw/ip/tech_cell_library/default/rtl"}
+
+# Source files grouped in levels.
+# Files in level 0 have no dependencies on files in this package.
+# Files in level 1 only depend on files in level 0, files in level 2 on files in levels 1 and 0, etc.
+# Files within a level are ordered alphabetically.
+sources:
+  # Level 0
+  - target: all(synthesis)
+    files:
+      - dwpu_synth_sf5a.sv

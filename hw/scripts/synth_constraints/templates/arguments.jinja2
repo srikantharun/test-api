@@ -1,0 +1,18 @@
+{# Some helper macros to conditionally emit flags depending if data is present or not. #}
+{% import 'get_object.jinja2' as get_object -%}
+
+{% macro type(type_arg) -%}
+{% if type_arg.value != "both" -%}-{{ type_arg.value }}{%- endif %}
+{%- endmacro %}
+
+{% macro from(from_object) -%}
+{% if from_object -%}-from {{ get_object.get_object(from_object) }} {% endif %}
+{%- endmacro %}
+
+{% macro to(to_object) -%}
+{% if to_object -%}-to {{ get_object.get_object(to_object) }} {% endif %}
+{%- endmacro %}
+
+{% macro through(through_object) -%}
+{% if through_object -%}-through {{ get_object.get_object(through_object) }} {% endif %}
+{%- endmacro %}

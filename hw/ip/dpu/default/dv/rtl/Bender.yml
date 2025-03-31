@@ -1,0 +1,28 @@
+# (C) Copyright 2024 Axelera AI B.V.
+# All Rights Reserved
+# *** Axelera AI Confidential ***
+
+package:
+  name: dpu_uvm_tb
+  description: "DPU UVM testbench"
+  authors:
+    - "fernando.yokota@axelera.ai"
+
+dependencies     :
+  aic_common     : { path : "../../../../aic_common/default/rtl" }
+  dpu            : { path : "../../rtl"                          } # call in DUT RTL
+  dpu_uvm_common : { path : "../uvm/common/"                     }
+  dpu_uvm_test   : { path : "../uvm/tests/"                      } # AI Core DPU Verification testcases
+  axi4pc         : { path : "../../../../../dv/axi4pc"           } # Axi protocol checker binding
+  axi_pkg        : { path : "../../../axi/default/rtl"           }
+  dv_common_rtl  :  { path: "../../../../../dv/common/rtl" } 
+  
+sources:
+  - target: simulation
+    include_dirs:
+      - .
+    files:
+      - iid_if.sv
+      - hdl_top.sv
+
+

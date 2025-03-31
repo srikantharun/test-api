@@ -1,0 +1,9 @@
+{
+  top: aic_ls
+  localparam: {
+    "int unsigned": {
+      RvvPortSizeWidth: "$clog2(cva6v_ai_core_pkg::MemPortBeWidth)"
+    }
+  }
+}
+

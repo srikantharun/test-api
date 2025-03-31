@@ -1,0 +1,33 @@
+# (C) Copyright 2024 Axelera AI B.V.
+# All Rights Reserved
+# *** Axelera AI Confidential ***
+
+package:
+  name: kudelski_kse3
+  description: "Kudelski IoT KSE-3 Secure IP"
+  authors:
+    - "Kevin Luciani <kevin.luciani@axelera.ai>"
+
+dependencies:
+  kudelski_kse3_pkg:    { path: "" }
+  axe_ahb:              { path: "" }
+
+# Source files grouped in levels.
+# Files in level 0 have no dependencies on files in this package.
+# Files in level 1 only depend on files in level 0, files in level 2 on files in levels 1 and 0, etc.
+# Files within a level are ordered alphabetically.
+sources:
+  - target: all(any(simulation, emulation, power_artist), not(tessent))
+    files:
+      # Level 0
+      - $KUDELSKI_KSE3_HOME/design/KSE3_IP_TOP.vhd
+  - target: all(asic, spyglass)
+    files:
+      - $KUDELSKI_KSE3_HOME/design/KSE3_IP_TOP_SG.vhd
+  - target: all(asic, synthesis, not(emulation), not(spyglass), not(power_artist))
+    files:
+      # Level 0
+      - $KUDELSKI_KSE3_HOME/design/KSE3_IP_TOP_DC.vhd
+  - files:
+    # Level 1
+    - kudelski_kse3_top.sv

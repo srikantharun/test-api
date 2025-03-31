@@ -1,0 +1,18 @@
+# (C) Copyright 2024 Axelera AI B.V.
+# All Rights Reserved
+# *** Axelera AI Confidential ***
+
+package:
+  name: europa_noc_h_south_dft_tb
+  description: "DFT Testbench for noc_h_south"
+  authors:
+    - "Leonidas Katselas <leonidas.katselas@axelera.ai>"
+
+dependencies:
+  europa_noc_h_south: { path: "../../rtl/dft" }
+  dft_noc_h_south:    { path: "$DFT_HOME/noc_h_south/Latest"}
+
+sources:
+  - target: all(rtl, simulation)
+    files:
+      - ${PATTERN_NAME}.sv

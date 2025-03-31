@@ -1,0 +1,31 @@
+package:
+  name: ai_core_uvm_ral
+  description: "UVM Register Access Layer for AI CORE"
+  authors:
+    - "roswin.benny@axelera.ai"
+
+dependencies:
+  svt_amba_vip:                { path: ""}
+  lowrisc_dv_base_reg:         { path: ""}
+  v_utils_pkg:                 { path: ""}
+  snps_dma_ral_pkg:            { path: ""}
+  europa_aic_ral_pkg:          { path: ""}
+  europa_infra_periph_ral_pkg: { path: ""}
+  europa_mid_periph_ral_pkg:   { path: ""}
+  ifd_odr_ral_pkg:             { path: ""}
+  mvm_ral_pkg:                 { path: ""}
+  iau_ral_pkg:                 { path: ""}
+  dpu_ral_pkg:                 { path: ""}
+  dwpu_ral_pkg:                { path: ""}
+  axi4_common_ral_pkg:         { path: ""}
+  tkn_manager_ral_pkg:         { path: ""}
+  timestamp_logger_ral_pkg:    { path: ""}
+  aic_cd_ral_pkg:              { path: ""}
+
+sources:
+  - target: simulation
+    include_dirs:
+      - .
+    files:
+      - ral_model_pkg.sv
+      - ai_core_top_ral_pkg.sv

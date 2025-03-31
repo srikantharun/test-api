@@ -1,0 +1,18 @@
+package:
+  name: europa_top_uvm_sw_ipc
+  description: "TOP UVM SW IPC"
+  authors:
+    - "antoine.madec@axelera.ai"
+
+dependencies:
+  europa_asic_pkg : { path: "${REPO_ROOT}hw/impl/europa/asic/rtl/pkg" }
+
+sources:
+  - target: simulation
+    defines:
+      UVM_SW_IPC_FLAVOR_TOP: ~
+    include_dirs:
+      - ..
+    files:
+      - ../uvm_sw_ipc_pkg.sv
+      - ../uvm_sw_ipc_if_top.sv

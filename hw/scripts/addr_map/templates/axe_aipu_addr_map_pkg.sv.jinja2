@@ -1,0 +1,24 @@
+{% macro render_items(item)-%}
+// AUTO GENERATED, DON'T MANUALLY EDIT!!
+// (C) Copyright Axelera AI 2024
+// All Rights Reserved
+// *** Axelera AI Confidential ***
+//
+// Description: Automatic generated package with start addresses of address map
+// Owner: hw/scripts/addr_map
+
+`ifndef AIPU_ADDR_MAP_PKG_SV
+`define AIPU_ADDR_MAP_PKG_SV
+
+package aipu_addr_map_pkg;
+
+{% for item in items-%}
+    {% set ip_name = (item.block ~ '_' ~  item.name) | upper if item.name != item.block else item.name  | upper %}
+    parameter logic [39:0] {{ ip_name ~ '_' ~ 'ST_ADDR'   }} = {{ "'h" ~ item.offset | hex }};
+    parameter logic [39:0] {{ ip_name ~ '_' ~ 'END_ADDR'  }} = {{ "'h" ~ (item.offset+item.size-1) | hex }};
+{% endfor %}
+endpackage
+`endif  //AIPU_ADDR_MAP_PKG_SV
+{% endmacro %}
+{{ render_items(items) }}
+

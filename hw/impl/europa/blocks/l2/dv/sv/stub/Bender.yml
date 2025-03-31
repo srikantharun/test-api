@@ -1,0 +1,26 @@
+# (C) Copyright 2024 Axelera AI B.V.
+# All Rights Reserved
+# *** Axelera AI Confidential ***
+
+package:
+  name: europa_l2_stub
+  description: "L2 Europa stub"
+  authors:
+    - "Stephane Gros <stephane.gros@axelera.ai>"
+
+dependencies:
+  axi_pkg:             { path: "../../../../../ip/axi/default/rtl/pkg" }
+  axi:                 { path: "../../../../../ip/axi/default/rtl/" }
+  axe_apb_pkg:         { path: "../../../../../ip/apb/default/rtl/pkg" }
+  europa_asic_pkg:     { path: "../../../asic/rtl/pkg" }
+  europa_impl_rtl:     { path: "hw/impl/europa/rtl" }
+  europa_l2_pkg:       { path: "pkg" }
+
+# Source files grouped in levels.
+# Files in level 0 have no dependencies on files in this package.
+# Files in level 1 only depend on files in level 0, files in level 2 on files in levels 1 and 0, etc.
+# Files within a level are ordered alphabetically.
+sources:
+  - target: any(simulation, emulation)
+    files:
+    - l2_p_stub.sv

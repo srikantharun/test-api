@@ -1,0 +1,356 @@
+DftSpecification(pve_cva6v_p,rtl1) {
+  IjtagNetwork {
+    HostScanInterface(ijtag) {
+      Sib(sri) {
+        Attributes {
+          tessent_dft_function : scan_resource_instrument_host;
+        }
+        Sib(sri_ctrl) {
+          Tdr(sri_ctrl) {
+            Attributes {
+              tessent_dft_function : scan_resource_instrument_dft_control;
+            }
+          }
+        }
+      }
+      Sib(sti) {
+        Attributes {
+          tessent_dft_function : scan_tested_instrument_host;
+        }
+        Tdr(sti_ctrl) {
+          Attributes {
+            tessent_dft_function : scan_tested_instrument_dft_control;
+          }
+        }
+        Sib(mbist) {
+        }
+      }
+    }
+  }
+  MemoryBist {
+    ijtag_host_interface : Sib(mbist);
+    Controller(c1) {
+      clock_domain_label : i_clk;
+      Step {
+        MemoryInterface(m1) {
+          instance_name : u_cva6v/u_cva6v/u_cva6v_top/i_cva6/gen_cache_wb.i_cache_subsystem/i_cva6_icache_axi_wrapper/i_cva6_icache/gen_sram[0].data_sram/i_tc_sram/gen_cva6_mem.u_tc_sram/gen_macro.gen_data_banks[0].u_macro;
+        }
+        ReusedMemoryInterface(m2) {
+          instance_name : u_cva6v/u_cva6v/u_cva6v_top/i_cva6/gen_cache_wb.i_cache_subsystem/i_cva6_icache_axi_wrapper/i_cva6_icache/gen_sram[0].data_sram/i_tc_sram/gen_cva6_mem.u_tc_sram/gen_macro.gen_data_banks[1].u_macro;
+          reused_interface_id : c1:m1;
+        }
+        ReusedMemoryInterface(m4) {
+          instance_name : u_cva6v/u_cva6v/u_cva6v_top/i_cva6/gen_cache_wb.i_cache_subsystem/i_cva6_icache_axi_wrapper/i_cva6_icache/gen_sram[1].data_sram/i_tc_sram/gen_cva6_mem.u_tc_sram/gen_macro.gen_data_banks[0].u_macro;
+          reused_interface_id : c1:m1;
+        }
+        ReusedMemoryInterface(m5) {
+          instance_name : u_cva6v/u_cva6v/u_cva6v_top/i_cva6/gen_cache_wb.i_cache_subsystem/i_cva6_icache_axi_wrapper/i_cva6_icache/gen_sram[1].data_sram/i_tc_sram/gen_cva6_mem.u_tc_sram/gen_macro.gen_data_banks[1].u_macro;
+          reused_interface_id : c1:m1;
+        }
+      }
+      Step {
+        ReusedMemoryInterface(m7) {
+          instance_name : u_cva6v/u_cva6v/u_cva6v_top/i_cva6/gen_cache_wb.i_cache_subsystem/i_cva6_icache_axi_wrapper/i_cva6_icache/gen_sram[2].data_sram/i_tc_sram/gen_cva6_mem.u_tc_sram/gen_macro.gen_data_banks[0].u_macro;
+          reused_interface_id : c1:m1;
+        }
+        ReusedMemoryInterface(m8) {
+          instance_name : u_cva6v/u_cva6v/u_cva6v_top/i_cva6/gen_cache_wb.i_cache_subsystem/i_cva6_icache_axi_wrapper/i_cva6_icache/gen_sram[2].data_sram/i_tc_sram/gen_cva6_mem.u_tc_sram/gen_macro.gen_data_banks[1].u_macro;
+          reused_interface_id : c1:m1;
+        }
+        ReusedMemoryInterface(m10) {
+          instance_name : u_cva6v/u_cva6v/u_cva6v_top/i_cva6/gen_cache_wb.i_cache_subsystem/i_cva6_icache_axi_wrapper/i_cva6_icache/gen_sram[3].data_sram/i_tc_sram/gen_cva6_mem.u_tc_sram/gen_macro.gen_data_banks[0].u_macro;
+          reused_interface_id : c1:m1;
+        }
+        ReusedMemoryInterface(m11) {
+          instance_name : u_cva6v/u_cva6v/u_cva6v_top/i_cva6/gen_cache_wb.i_cache_subsystem/i_cva6_icache_axi_wrapper/i_cva6_icache/gen_sram[3].data_sram/i_tc_sram/gen_cva6_mem.u_tc_sram/gen_macro.gen_data_banks[1].u_macro;
+          reused_interface_id : c1:m1;
+        }
+      }
+    }
+    Controller(c2) {
+      clock_domain_label : i_clk;
+      Step {
+        MemoryInterface(m3) {
+          instance_name : u_cva6v/u_cva6v/u_cva6v_top/i_cva6/gen_cache_wb.i_cache_subsystem/i_cva6_icache_axi_wrapper/i_cva6_icache/gen_sram[0].tag_sram/i_tc_sram/gen_cva6_mem.u_tc_sram/gen_macro.u_macro;
+        }
+        ReusedMemoryInterface(m6) {
+          instance_name : u_cva6v/u_cva6v/u_cva6v_top/i_cva6/gen_cache_wb.i_cache_subsystem/i_cva6_icache_axi_wrapper/i_cva6_icache/gen_sram[1].tag_sram/i_tc_sram/gen_cva6_mem.u_tc_sram/gen_macro.u_macro;
+          reused_interface_id : c2:m3;
+        }
+        ReusedMemoryInterface(m9) {
+          instance_name : u_cva6v/u_cva6v/u_cva6v_top/i_cva6/gen_cache_wb.i_cache_subsystem/i_cva6_icache_axi_wrapper/i_cva6_icache/gen_sram[2].tag_sram/i_tc_sram/gen_cva6_mem.u_tc_sram/gen_macro.u_macro;
+          reused_interface_id : c2:m3;
+        }
+        ReusedMemoryInterface(m12) {
+          instance_name : u_cva6v/u_cva6v/u_cva6v_top/i_cva6/gen_cache_wb.i_cache_subsystem/i_cva6_icache_axi_wrapper/i_cva6_icache/gen_sram[3].tag_sram/i_tc_sram/gen_cva6_mem.u_tc_sram/gen_macro.u_macro;
+          reused_interface_id : c2:m3;
+        }
+      }
+    }
+    Controller(c3) {
+      clock_domain_label : i_clk;
+      Step {
+        ReusedMemoryInterface(m13) {
+          instance_name : u_cva6v/u_cva6v/u_cva6v_top/i_cva6/gen_cache_wb.i_cache_subsystem/i_nbdcache/sram_block[0].data_sram/i_tc_sram/gen_cva6_mem.u_tc_sram/gen_macro.gen_data_banks[0].u_macro;
+          reused_interface_id : c1:m1;
+        }
+        ReusedMemoryInterface(m14) {
+          instance_name : u_cva6v/u_cva6v/u_cva6v_top/i_cva6/gen_cache_wb.i_cache_subsystem/i_nbdcache/sram_block[0].data_sram/i_tc_sram/gen_cva6_mem.u_tc_sram/gen_macro.gen_data_banks[1].u_macro;
+          reused_interface_id : c1:m1;
+        }
+        ReusedMemoryInterface(m16) {
+          instance_name : u_cva6v/u_cva6v/u_cva6v_top/i_cva6/gen_cache_wb.i_cache_subsystem/i_nbdcache/sram_block[1].data_sram/i_tc_sram/gen_cva6_mem.u_tc_sram/gen_macro.gen_data_banks[0].u_macro;
+          reused_interface_id : c1:m1;
+        }
+        ReusedMemoryInterface(m17) {
+          instance_name : u_cva6v/u_cva6v/u_cva6v_top/i_cva6/gen_cache_wb.i_cache_subsystem/i_nbdcache/sram_block[1].data_sram/i_tc_sram/gen_cva6_mem.u_tc_sram/gen_macro.gen_data_banks[1].u_macro;
+          reused_interface_id : c1:m1;
+        }
+      }
+      Step {
+        ReusedMemoryInterface(m19) {
+          instance_name : u_cva6v/u_cva6v/u_cva6v_top/i_cva6/gen_cache_wb.i_cache_subsystem/i_nbdcache/sram_block[2].data_sram/i_tc_sram/gen_cva6_mem.u_tc_sram/gen_macro.gen_data_banks[0].u_macro;
+          reused_interface_id : c1:m1;
+        }
+        ReusedMemoryInterface(m20) {
+          instance_name : u_cva6v/u_cva6v/u_cva6v_top/i_cva6/gen_cache_wb.i_cache_subsystem/i_nbdcache/sram_block[2].data_sram/i_tc_sram/gen_cva6_mem.u_tc_sram/gen_macro.gen_data_banks[1].u_macro;
+          reused_interface_id : c1:m1;
+        }
+        ReusedMemoryInterface(m22) {
+          instance_name : u_cva6v/u_cva6v/u_cva6v_top/i_cva6/gen_cache_wb.i_cache_subsystem/i_nbdcache/sram_block[3].data_sram/i_tc_sram/gen_cva6_mem.u_tc_sram/gen_macro.gen_data_banks[0].u_macro;
+          reused_interface_id : c1:m1;
+        }
+        ReusedMemoryInterface(m23) {
+          instance_name : u_cva6v/u_cva6v/u_cva6v_top/i_cva6/gen_cache_wb.i_cache_subsystem/i_nbdcache/sram_block[3].data_sram/i_tc_sram/gen_cva6_mem.u_tc_sram/gen_macro.gen_data_banks[1].u_macro;
+          reused_interface_id : c1:m1;
+        }
+      }
+      Step {
+        ReusedMemoryInterface(m25) {
+          instance_name : u_cva6v/u_cva6v/u_cva6v_top/i_cva6/gen_cache_wb.i_cache_subsystem/i_nbdcache/sram_block[4].data_sram/i_tc_sram/gen_cva6_mem.u_tc_sram/gen_macro.gen_data_banks[0].u_macro;
+          reused_interface_id : c1:m1;
+        }
+        ReusedMemoryInterface(m26) {
+          instance_name : u_cva6v/u_cva6v/u_cva6v_top/i_cva6/gen_cache_wb.i_cache_subsystem/i_nbdcache/sram_block[4].data_sram/i_tc_sram/gen_cva6_mem.u_tc_sram/gen_macro.gen_data_banks[1].u_macro;
+          reused_interface_id : c1:m1;
+        }
+        ReusedMemoryInterface(m28) {
+          instance_name : u_cva6v/u_cva6v/u_cva6v_top/i_cva6/gen_cache_wb.i_cache_subsystem/i_nbdcache/sram_block[5].data_sram/i_tc_sram/gen_cva6_mem.u_tc_sram/gen_macro.gen_data_banks[0].u_macro;
+          reused_interface_id : c1:m1;
+        }
+        ReusedMemoryInterface(m29) {
+          instance_name : u_cva6v/u_cva6v/u_cva6v_top/i_cva6/gen_cache_wb.i_cache_subsystem/i_nbdcache/sram_block[5].data_sram/i_tc_sram/gen_cva6_mem.u_tc_sram/gen_macro.gen_data_banks[1].u_macro;
+          reused_interface_id : c1:m1;
+        }
+      }
+      Step {
+        ReusedMemoryInterface(m31) {
+          instance_name : u_cva6v/u_cva6v/u_cva6v_top/i_cva6/gen_cache_wb.i_cache_subsystem/i_nbdcache/sram_block[6].data_sram/i_tc_sram/gen_cva6_mem.u_tc_sram/gen_macro.gen_data_banks[0].u_macro;
+          reused_interface_id : c1:m1;
+        }
+        ReusedMemoryInterface(m32) {
+          instance_name : u_cva6v/u_cva6v/u_cva6v_top/i_cva6/gen_cache_wb.i_cache_subsystem/i_nbdcache/sram_block[6].data_sram/i_tc_sram/gen_cva6_mem.u_tc_sram/gen_macro.gen_data_banks[1].u_macro;
+          reused_interface_id : c1:m1;
+        }
+        ReusedMemoryInterface(m34) {
+          instance_name : u_cva6v/u_cva6v/u_cva6v_top/i_cva6/gen_cache_wb.i_cache_subsystem/i_nbdcache/sram_block[7].data_sram/i_tc_sram/gen_cva6_mem.u_tc_sram/gen_macro.gen_data_banks[0].u_macro;
+          reused_interface_id : c1:m1;
+        }
+        ReusedMemoryInterface(m35) {
+          instance_name : u_cva6v/u_cva6v/u_cva6v_top/i_cva6/gen_cache_wb.i_cache_subsystem/i_nbdcache/sram_block[7].data_sram/i_tc_sram/gen_cva6_mem.u_tc_sram/gen_macro.gen_data_banks[1].u_macro;
+          reused_interface_id : c1:m1;
+        }
+      }
+    }
+    Controller(c4) {
+      clock_domain_label : i_clk;
+      Step {
+        MemoryInterface(m15) {
+          instance_name : u_cva6v/u_cva6v/u_cva6v_top/i_cva6/gen_cache_wb.i_cache_subsystem/i_nbdcache/sram_block[0].tag_sram/i_tc_sram/gen_cva6_mem.u_tc_sram/gen_macro.u_macro;
+        }
+        ReusedMemoryInterface(m18) {
+          instance_name : u_cva6v/u_cva6v/u_cva6v_top/i_cva6/gen_cache_wb.i_cache_subsystem/i_nbdcache/sram_block[1].tag_sram/i_tc_sram/gen_cva6_mem.u_tc_sram/gen_macro.u_macro;
+          reused_interface_id : c4:m15;
+        }
+        ReusedMemoryInterface(m21) {
+          instance_name : u_cva6v/u_cva6v/u_cva6v_top/i_cva6/gen_cache_wb.i_cache_subsystem/i_nbdcache/sram_block[2].tag_sram/i_tc_sram/gen_cva6_mem.u_tc_sram/gen_macro.u_macro;
+          reused_interface_id : c4:m15;
+        }
+        ReusedMemoryInterface(m24) {
+          instance_name : u_cva6v/u_cva6v/u_cva6v_top/i_cva6/gen_cache_wb.i_cache_subsystem/i_nbdcache/sram_block[3].tag_sram/i_tc_sram/gen_cva6_mem.u_tc_sram/gen_macro.u_macro;
+          reused_interface_id : c4:m15;
+        }
+      }
+      Step {
+        ReusedMemoryInterface(m27) {
+          instance_name : u_cva6v/u_cva6v/u_cva6v_top/i_cva6/gen_cache_wb.i_cache_subsystem/i_nbdcache/sram_block[4].tag_sram/i_tc_sram/gen_cva6_mem.u_tc_sram/gen_macro.u_macro;
+          reused_interface_id : c4:m15;
+        }
+        ReusedMemoryInterface(m30) {
+          instance_name : u_cva6v/u_cva6v/u_cva6v_top/i_cva6/gen_cache_wb.i_cache_subsystem/i_nbdcache/sram_block[5].tag_sram/i_tc_sram/gen_cva6_mem.u_tc_sram/gen_macro.u_macro;
+          reused_interface_id : c4:m15;
+        }
+        ReusedMemoryInterface(m33) {
+          instance_name : u_cva6v/u_cva6v/u_cva6v_top/i_cva6/gen_cache_wb.i_cache_subsystem/i_nbdcache/sram_block[6].tag_sram/i_tc_sram/gen_cva6_mem.u_tc_sram/gen_macro.u_macro;
+          reused_interface_id : c4:m15;
+        }
+        ReusedMemoryInterface(m36) {
+          instance_name : u_cva6v/u_cva6v/u_cva6v_top/i_cva6/gen_cache_wb.i_cache_subsystem/i_nbdcache/sram_block[7].tag_sram/i_tc_sram/gen_cva6_mem.u_tc_sram/gen_macro.u_macro;
+          reused_interface_id : c4:m15;
+        }
+      }
+    }
+    Controller(c5) {
+      clock_domain_label : i_clk;
+      Step {
+        MemoryInterface(m37) {
+          instance_name : u_cva6v/u_cva6v/u_cva6v_top/i_raptor/i_vrf/i_vrf_dataflow/gen_banks[0].gen_columns[0].i_rf/gen_vrf_mem.u_tc_sram/gen_macro.u_macro;
+        }
+        ReusedMemoryInterface(m38) {
+          instance_name : u_cva6v/u_cva6v/u_cva6v_top/i_raptor/i_vrf/i_vrf_dataflow/gen_banks[0].gen_columns[1].i_rf/gen_vrf_mem.u_tc_sram/gen_macro.u_macro;
+          reused_interface_id : c5:m37;
+        }
+        ReusedMemoryInterface(m39) {
+          instance_name : u_cva6v/u_cva6v/u_cva6v_top/i_raptor/i_vrf/i_vrf_dataflow/gen_banks[0].gen_columns[2].i_rf/gen_vrf_mem.u_tc_sram/gen_macro.u_macro;
+          reused_interface_id : c5:m37;
+        }
+        ReusedMemoryInterface(m40) {
+          instance_name : u_cva6v/u_cva6v/u_cva6v_top/i_raptor/i_vrf/i_vrf_dataflow/gen_banks[0].gen_columns[3].i_rf/gen_vrf_mem.u_tc_sram/gen_macro.u_macro;
+          reused_interface_id : c5:m37;
+        }
+      }
+      Step {
+        ReusedMemoryInterface(m41) {
+          instance_name : u_cva6v/u_cva6v/u_cva6v_top/i_raptor/i_vrf/i_vrf_dataflow/gen_banks[0].gen_columns[4].i_rf/gen_vrf_mem.u_tc_sram/gen_macro.u_macro;
+          reused_interface_id : c5:m37;
+        }
+        ReusedMemoryInterface(m42) {
+          instance_name : u_cva6v/u_cva6v/u_cva6v_top/i_raptor/i_vrf/i_vrf_dataflow/gen_banks[0].gen_columns[5].i_rf/gen_vrf_mem.u_tc_sram/gen_macro.u_macro;
+          reused_interface_id : c5:m37;
+        }
+        ReusedMemoryInterface(m43) {
+          instance_name : u_cva6v/u_cva6v/u_cva6v_top/i_raptor/i_vrf/i_vrf_dataflow/gen_banks[0].gen_columns[6].i_rf/gen_vrf_mem.u_tc_sram/gen_macro.u_macro;
+          reused_interface_id : c5:m37;
+        }
+        ReusedMemoryInterface(m44) {
+          instance_name : u_cva6v/u_cva6v/u_cva6v_top/i_raptor/i_vrf/i_vrf_dataflow/gen_banks[0].gen_columns[7].i_rf/gen_vrf_mem.u_tc_sram/gen_macro.u_macro;
+          reused_interface_id : c5:m37;
+        }
+      }
+      Step {
+        ReusedMemoryInterface(m45) {
+          instance_name : u_cva6v/u_cva6v/u_cva6v_top/i_raptor/i_vrf/i_vrf_dataflow/gen_banks[1].gen_columns[0].i_rf/gen_vrf_mem.u_tc_sram/gen_macro.u_macro;
+          reused_interface_id : c5:m37;
+        }
+        ReusedMemoryInterface(m46) {
+          instance_name : u_cva6v/u_cva6v/u_cva6v_top/i_raptor/i_vrf/i_vrf_dataflow/gen_banks[1].gen_columns[1].i_rf/gen_vrf_mem.u_tc_sram/gen_macro.u_macro;
+          reused_interface_id : c5:m37;
+        }
+        ReusedMemoryInterface(m47) {
+          instance_name : u_cva6v/u_cva6v/u_cva6v_top/i_raptor/i_vrf/i_vrf_dataflow/gen_banks[1].gen_columns[2].i_rf/gen_vrf_mem.u_tc_sram/gen_macro.u_macro;
+          reused_interface_id : c5:m37;
+        }
+        ReusedMemoryInterface(m48) {
+          instance_name : u_cva6v/u_cva6v/u_cva6v_top/i_raptor/i_vrf/i_vrf_dataflow/gen_banks[1].gen_columns[3].i_rf/gen_vrf_mem.u_tc_sram/gen_macro.u_macro;
+          reused_interface_id : c5:m37;
+        }
+      }
+      Step {
+        ReusedMemoryInterface(m49) {
+          instance_name : u_cva6v/u_cva6v/u_cva6v_top/i_raptor/i_vrf/i_vrf_dataflow/gen_banks[1].gen_columns[4].i_rf/gen_vrf_mem.u_tc_sram/gen_macro.u_macro;
+          reused_interface_id : c5:m37;
+        }
+        ReusedMemoryInterface(m50) {
+          instance_name : u_cva6v/u_cva6v/u_cva6v_top/i_raptor/i_vrf/i_vrf_dataflow/gen_banks[1].gen_columns[5].i_rf/gen_vrf_mem.u_tc_sram/gen_macro.u_macro;
+          reused_interface_id : c5:m37;
+        }
+        ReusedMemoryInterface(m51) {
+          instance_name : u_cva6v/u_cva6v/u_cva6v_top/i_raptor/i_vrf/i_vrf_dataflow/gen_banks[1].gen_columns[6].i_rf/gen_vrf_mem.u_tc_sram/gen_macro.u_macro;
+          reused_interface_id : c5:m37;
+        }
+        ReusedMemoryInterface(m52) {
+          instance_name : u_cva6v/u_cva6v/u_cva6v_top/i_raptor/i_vrf/i_vrf_dataflow/gen_banks[1].gen_columns[7].i_rf/gen_vrf_mem.u_tc_sram/gen_macro.u_macro;
+          reused_interface_id : c5:m37;
+        }
+      }
+    }
+    Controller(c6) {
+      clock_domain_label : i_clk;
+      Step {
+        ReusedMemoryInterface(m53) {
+          instance_name : u_cva6v/u_cva6v/u_cva6v_top/i_raptor/i_vrf/i_vrf_dataflow/gen_banks[2].gen_columns[0].i_rf/gen_vrf_mem.u_tc_sram/gen_macro.u_macro;
+          reused_interface_id : c5:m37;
+        }
+        ReusedMemoryInterface(m54) {
+          instance_name : u_cva6v/u_cva6v/u_cva6v_top/i_raptor/i_vrf/i_vrf_dataflow/gen_banks[2].gen_columns[1].i_rf/gen_vrf_mem.u_tc_sram/gen_macro.u_macro;
+          reused_interface_id : c5:m37;
+        }
+        ReusedMemoryInterface(m55) {
+          instance_name : u_cva6v/u_cva6v/u_cva6v_top/i_raptor/i_vrf/i_vrf_dataflow/gen_banks[2].gen_columns[2].i_rf/gen_vrf_mem.u_tc_sram/gen_macro.u_macro;
+          reused_interface_id : c5:m37;
+        }
+        ReusedMemoryInterface(m56) {
+          instance_name : u_cva6v/u_cva6v/u_cva6v_top/i_raptor/i_vrf/i_vrf_dataflow/gen_banks[2].gen_columns[3].i_rf/gen_vrf_mem.u_tc_sram/gen_macro.u_macro;
+          reused_interface_id : c5:m37;
+        }
+      }
+      Step {
+        ReusedMemoryInterface(m57) {
+          instance_name : u_cva6v/u_cva6v/u_cva6v_top/i_raptor/i_vrf/i_vrf_dataflow/gen_banks[2].gen_columns[4].i_rf/gen_vrf_mem.u_tc_sram/gen_macro.u_macro;
+          reused_interface_id : c5:m37;
+        }
+        ReusedMemoryInterface(m58) {
+          instance_name : u_cva6v/u_cva6v/u_cva6v_top/i_raptor/i_vrf/i_vrf_dataflow/gen_banks[2].gen_columns[5].i_rf/gen_vrf_mem.u_tc_sram/gen_macro.u_macro;
+          reused_interface_id : c5:m37;
+        }
+        ReusedMemoryInterface(m59) {
+          instance_name : u_cva6v/u_cva6v/u_cva6v_top/i_raptor/i_vrf/i_vrf_dataflow/gen_banks[2].gen_columns[6].i_rf/gen_vrf_mem.u_tc_sram/gen_macro.u_macro;
+          reused_interface_id : c5:m37;
+        }
+        ReusedMemoryInterface(m60) {
+          instance_name : u_cva6v/u_cva6v/u_cva6v_top/i_raptor/i_vrf/i_vrf_dataflow/gen_banks[2].gen_columns[7].i_rf/gen_vrf_mem.u_tc_sram/gen_macro.u_macro;
+          reused_interface_id : c5:m37;
+        }
+      }
+      Step {
+        ReusedMemoryInterface(m61) {
+          instance_name : u_cva6v/u_cva6v/u_cva6v_top/i_raptor/i_vrf/i_vrf_dataflow/gen_banks[3].gen_columns[0].i_rf/gen_vrf_mem.u_tc_sram/gen_macro.u_macro;
+          reused_interface_id : c5:m37;
+        }
+        ReusedMemoryInterface(m62) {
+          instance_name : u_cva6v/u_cva6v/u_cva6v_top/i_raptor/i_vrf/i_vrf_dataflow/gen_banks[3].gen_columns[1].i_rf/gen_vrf_mem.u_tc_sram/gen_macro.u_macro;
+          reused_interface_id : c5:m37;
+        }
+        ReusedMemoryInterface(m63) {
+          instance_name : u_cva6v/u_cva6v/u_cva6v_top/i_raptor/i_vrf/i_vrf_dataflow/gen_banks[3].gen_columns[2].i_rf/gen_vrf_mem.u_tc_sram/gen_macro.u_macro;
+          reused_interface_id : c5:m37;
+        }
+        ReusedMemoryInterface(m64) {
+          instance_name : u_cva6v/u_cva6v/u_cva6v_top/i_raptor/i_vrf/i_vrf_dataflow/gen_banks[3].gen_columns[3].i_rf/gen_vrf_mem.u_tc_sram/gen_macro.u_macro;
+          reused_interface_id : c5:m37;
+        }
+      }
+      Step {
+        ReusedMemoryInterface(m65) {
+          instance_name : u_cva6v/u_cva6v/u_cva6v_top/i_raptor/i_vrf/i_vrf_dataflow/gen_banks[3].gen_columns[4].i_rf/gen_vrf_mem.u_tc_sram/gen_macro.u_macro;
+          reused_interface_id : c5:m37;
+        }
+        ReusedMemoryInterface(m66) {
+          instance_name : u_cva6v/u_cva6v/u_cva6v_top/i_raptor/i_vrf/i_vrf_dataflow/gen_banks[3].gen_columns[5].i_rf/gen_vrf_mem.u_tc_sram/gen_macro.u_macro;
+          reused_interface_id : c5:m37;
+        }
+        ReusedMemoryInterface(m67) {
+          instance_name : u_cva6v/u_cva6v/u_cva6v_top/i_raptor/i_vrf/i_vrf_dataflow/gen_banks[3].gen_columns[6].i_rf/gen_vrf_mem.u_tc_sram/gen_macro.u_macro;
+          reused_interface_id : c5:m37;
+        }
+        ReusedMemoryInterface(m68) {
+          instance_name : u_cva6v/u_cva6v/u_cva6v_top/i_raptor/i_vrf/i_vrf_dataflow/gen_banks[3].gen_columns[7].i_rf/gen_vrf_mem.u_tc_sram/gen_macro.u_macro;
+          reused_interface_id : c5:m37;
+        }
+      }
+    }
+  }
+  MemoryBisr {
+    bisr_segment_order_file : pve_cva6v_p.bisr_segment_order;
+  }
+}

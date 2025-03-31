@@ -1,0 +1,24 @@
+# (C) Copyright 2024 Axelera AI B.V.
+# All Rights Reserved
+# *** Axelera AI Confidential ***
+
+package:
+  name: simulation_europa_top
+  description: "Simulation dut=top"
+  authors:
+    - "Antoine Madec <antoine.madec@axelera.ai>"
+
+dependencies:
+  veloce_europa_top: { path: "$REPO_ROOT/hw/impl/europa/emulation/src/hdl/top" }
+  dv_common_rtl:  { path: "$REPO_ROOT/hw/dv/common/rtl" }
+  memory_preloading_pkg: {path: "$REPO_ROOT/hw/dv/memory_preloading_pkg"}
+  europa_top_uvm_sw_ipc:  { path: "$REPO_ROOT/hw/dv/uvm_sw_ipc/top" }
+
+sources:
+  - target: simulation
+    include_dirs:
+      - ../uvm
+      - ../uvm/tests
+    files:
+      - ../uvm/tests/top_level_test_pkg.sv
+      - sim_top.sv

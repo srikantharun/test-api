@@ -1,0 +1,18 @@
+package:
+    name: sys_spm_verif_uvm_env
+    description: "UVM environment setup for sys spm verification."
+    authors:
+        - "Vito Luca Guglielmi - vito.guglielmi@axelera.ai"
+
+dependencies:
+    svt_amba_vip:             { path: "../../../../../dv/svt_amba_vip" }
+    spm_verif_uvm_env:        { path: "../../../../../../../ip/spm/default/dv/env"  }
+
+
+sources:
+  - target: simulation
+    include_dirs:
+      - .
+    files:
+        - sys_spm_uvm_pkg.sv
+        - sys_spm_if.sv

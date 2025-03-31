@@ -1,0 +1,29 @@
+# (C) Copyright 2024 Axelera AI B.V.
+# All Rights Reserved
+# *** Axelera AI Confidential ***
+
+package:
+  name: iau_uvm_env
+  description: "IAU environment"
+  authors:
+    - "fernando.yokota@axelera.ai"
+
+dependencies:
+  svt_amba_vip                : { path : "../../../../../../dv/svt_amba_vip"}
+  aic_common                  : { path : "../../../../../aic_common/default/rtl" }
+  ai_core_token_agent_uvm_pkg : { path : "../../../../../../dv/token_agent"}
+  axi_icdf_pkg                : { path : "../../../../../../dv/icdf/uvm"}
+  iau_uvm_common              : { path : "../common" }
+  iau_uvm_agent               : { path : "../agents/iau" }
+  iau_uvm_ral                 : { path : "../ral" }
+  iau_uvm_ref                 : { path : "../refmodels" }
+  iau_func_cov                : { path : "../func_cov" }
+  iau_uvm_sb                  : { path : "../scoreboards" }
+
+sources:
+  - target: simulation
+    include_dirs:
+      - .
+    files:
+      - iau_env_pkg.sv
+

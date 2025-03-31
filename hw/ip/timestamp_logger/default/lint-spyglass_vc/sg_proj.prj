@@ -1,0 +1,56 @@
+#!SPYGLASS_PROJECT_FILE
+#!VERSION 3.0
+#  -------------------------------------------------------------------
+#  This is a software generated project file. Manual edits to this file could be lost during the next save operation
+#  Copyright Synopsys Inc.
+#  Last Updated By: SpyGlass SpyGlass_vP-2019.06-SP2
+#  Last Updated On Fri Feb  4 15:00:02 2022
+#
+#  -------------------------------------------------------------------
+
+####################################
+## Technology Data Import Section ##
+####################################
+set MEM_IP aic_infra
+set eda_tool spyglass
+source $::env(REPO_ROOT)/hw/ip/tech_cell_library/default/rtl/sf5a/tc_techlib.tcl
+
+set VAR1 "/data/foundry/samsung/sf5a/std_cell/samsung/ln05lpe_sc_s6t_flk_rvt_c54_a00_V3.10/BE-Common/fusion_ref_library/ln05lpe_sc_s6t_flk_rvt_c54l08_c/ln05lpe_sc_s6t_flk_rvt_c54l08_ffpg_nominal_min_0p6050v_125c.db_ccs_tn_lvf"
+set VAR2 "/data/foundry/samsung/sf5a/std_cell/samsung/ln05lpe_sc_s6t_flk_lvt_c54_a00_V3.10/BE-Common/fusion_ref_library/ln05lpe_sc_s6t_flk_lvt_c54l08_c/ln05lpe_sc_s6t_flk_lvt_c54l08_ffpg_nominal_min_0p6050v_125c.db_ccs_tn_lvf"
+
+foreach tech_lib "${VAR1} ${VAR2}" {
+    read_file -type gateslibdb ${tech_lib}
+}
+foreach tech_lib "${MEM_LIBS} ${REG_FILES}" {
+    puts "Reading: ${tech_lib}"
+    if {[string first "imc_bank" $tech_lib] != -1} {
+      read_file -type gateslibdb ${tech_lib}/imc_bank_ssgnp0p77v125c.db
+    }
+}
+
+############################
+## Common Options Section ##
+############################
+
+source $::env(REPO_ROOT)/hw/scripts/lint_spyglass/lint_rtl_custom_rules.tcl
+
+set_option projectwdir ./
+set_option designread_disable_flatten no
+set_option top timestamp_logger_aic
+set_option active_methodology $SPYGLASS_HOME/GuideWare/latest/block/rtl_handoff
+set_option mthresh 32768
+set_option dw yes
+
+##############################
+## Read in all Source Files ##
+##############################
+
+source timestamp_logger_aic.add_sources.tcl
+
+########################
+## Goal Setup Section ##
+########################
+
+current_methodology $SPYGLASS_HOME/GuideWare/latest/block/rtl_handoff
+
+current_goal Design_Read -top timestamp_logger_aic

@@ -1,0 +1,49 @@
+# (C) Copyright 2024 Axelera AI B.V.
+# All Rights Reserved
+# *** Axelera AI Confidential ***
+
+package:
+  name: axi
+  description: "AMBA AXI 4 Infrastructure"
+  authors:
+    - "Wolfgang Roenninger <wolfgang.roenninger@axelera.ai>"
+
+dependencies:
+  axi_pkg:              { path: "" }
+  cc_lib_pkg:           { path: "" }
+  cc_lib:               { path: "" }
+  dv_common_properties: { path: "" }
+
+# Source files grouped in levels.
+# Files in level 0 have no dependencies on files in this package.
+# Files in level 1 only depend on files in level 0, files in level 2 on files in levels 1 and 0, etc.
+# Files within a level are ordered alphabetically.
+sources:
+  - target: rtl
+    files:
+      # Level 0
+      - axe_axi_atop_filter.sv
+      - address_translation_unit/axe_axi_atu_l1_channel.sv
+      - axe_axi_cut.sv
+      - axe_axi_id_prepend.sv
+      - axe_axi_id_remap.sv
+      - axe_axi_modify_address.sv
+      - atomics/axe_axi_riscv_amos_alu.sv
+      - atomics/axe_axi_riscv_lrsc_res_tbl.sv
+      # Level 1
+      - address_translation_unit/axe_axi_atu_l1.sv
+      - axe_axi_demux.sv
+      - axe_axi_err_sub.sv
+      - axe_axi_multicut.sv
+      - axe_axi_mux.sv
+      - atomics/axe_axi_riscv_amos.sv
+      - atomics/axe_axi_riscv_lrsc.sv
+      # Level 2
+      - axe_axi_atu.sv
+      - axe_axi_dw_downsizer.sv
+      - axe_axi_dw_upsizer.sv
+      - axe_axi_isolate.sv
+      - axe_axi_riscv_atomics.sv
+      - axe_axi_xbar.sv
+      # Level 3
+      - axe_axi_dw_converter.sv

@@ -1,0 +1,259 @@
+//-------------------------------------------------
+//  File created by: Tessent Shell
+//          Version: 2024.2
+//       Created on: Wed Sep 18 09:55:14 UTC 2024
+//-------------------------------------------------
+
+
+Core(dwc_lpddr5xphyacx2_top_ew) {
+  tessent_tool_version : 2024.2;
+  tessent_meta_version : 10;
+  Scan {
+    type : internal;
+    ScanChain {
+      length : 82;
+      scan_in_clock : DfiClkIn;
+      scan_out_clock : ~DfiClkIn;
+      scan_in_port : scan_si[0];
+      scan_out_port : scan_so[0];
+    }
+    ScanChain {
+      length : 83;
+      scan_in_clock : DfiClkIn;
+      scan_out_clock : ~DfiClkIn;
+      scan_in_port : scan_si[1];
+      scan_out_port : scan_so[1];
+    }
+    ScanChain {
+      length : 83;
+      scan_in_clock : DfiClkIn;
+      scan_out_clock : ~DfiClkIn;
+      scan_in_port : scan_si[2];
+      scan_out_port : scan_so[2];
+    }
+    ScanChain {
+      length : 82;
+      scan_in_clock : DfiClkIn;
+      scan_out_clock : ~DfiClkIn;
+      scan_in_port : scan_si[3];
+      scan_out_port : scan_so[3];
+    }
+    ScanChain {
+      length : 83;
+      scan_in_clock : DfiClkIn;
+      scan_out_clock : ~DfiClkIn;
+      scan_in_port : scan_si[4];
+      scan_out_port : scan_so[4];
+    }
+    ScanChain {
+      length : 83;
+      scan_in_clock : DfiClkIn;
+      scan_out_clock : ~DfiClkIn;
+      scan_in_port : scan_si[5];
+      scan_out_port : scan_so[5];
+    }
+    ScanChain {
+      length : 83;
+      scan_in_clock : DfiClkIn;
+      scan_out_clock : ~DfiClkIn;
+      scan_in_port : scan_si[6];
+      scan_out_port : scan_so[6];
+    }
+    ScanChain {
+      length : 83;
+      scan_in_clock : DfiClkIn;
+      scan_out_clock : ~DfiClkIn;
+      scan_in_port : scan_si[7];
+      scan_out_port : scan_so[7];
+    }
+    ScanChain {
+      length : 82;
+      scan_in_clock : DfiClkIn;
+      scan_out_clock : ~DfiClkIn;
+      scan_in_port : scan_si[8];
+      scan_out_port : scan_so[8];
+    }
+    ScanChain {
+      length : 82;
+      scan_in_clock : DfiClkIn;
+      scan_out_clock : ~DfiClkIn;
+      scan_in_port : scan_si[9];
+      scan_out_port : scan_so[9];
+    }
+    ScanChain {
+      length : 83;
+      scan_in_clock : DfiClkIn;
+      scan_out_clock : ~DfiClkIn;
+      scan_in_port : scan_si[10];
+      scan_out_port : scan_so[10];
+    }
+    ScanChain {
+      length : 83;
+      scan_in_clock : DfiClkIn;
+      scan_out_clock : ~DfiClkIn;
+      scan_in_port : scan_si[11];
+      scan_out_port : scan_so[11];
+    }
+    ScanChain {
+      length : 83;
+      scan_in_clock : DfiClkIn;
+      scan_out_clock : ~DfiClkIn;
+      scan_in_port : scan_si[12];
+      scan_out_port : scan_so[12];
+    }
+    ScanChain {
+      length : 83;
+      scan_in_clock : DfiClkIn;
+      scan_out_clock : ~DfiClkIn;
+      scan_in_port : scan_si[13];
+      scan_out_port : scan_so[13];
+    }
+    ScanChain {
+      length : 83;
+      scan_in_clock : DfiClkIn;
+      scan_out_clock : ~DfiClkIn;
+      scan_in_port : scan_si[14];
+      scan_out_port : scan_so[14];
+    }
+    ScanChain {
+      length : 83;
+      scan_in_clock : DfiClkIn;
+      scan_out_clock : ~DfiClkIn;
+      scan_in_port : scan_si[15];
+      scan_out_port : scan_so[15];
+    }
+    ScanChain {
+      length : 83;
+      scan_in_clock : DfiClkIn;
+      scan_out_clock : ~DfiClkIn;
+      scan_in_port : scan_si[16];
+      scan_out_port : scan_so[16];
+    }
+    ScanChain {
+      length : 83;
+      scan_in_clock : DfiClkIn;
+      scan_out_clock : ~DfiClkIn;
+      scan_in_port : scan_si[17];
+      scan_out_port : scan_so[17];
+    }
+    ScanChain {
+      length : 83;
+      scan_in_clock : DfiClkIn;
+      scan_out_clock : ~DfiClkIn;
+      scan_in_port : scan_si[18];
+      scan_out_port : scan_so[18];
+    }
+    ScanChain {
+      length : 83;
+      scan_in_clock : DfiClkIn;
+      scan_out_clock : ~DfiClkIn;
+      scan_in_port : scan_si[19];
+      scan_out_port : scan_so[19];
+    }
+    ScanChain {
+      length : 83;
+      scan_in_clock : DfiClkIn;
+      scan_out_clock : ~DfiClkIn;
+      scan_in_port : scan_si[20];
+      scan_out_port : scan_so[20];
+    }
+    ScanChain {
+      length : 82;
+      scan_in_clock : DfiClkIn;
+      scan_out_clock : ~DfiClkIn;
+      scan_in_port : scan_si[21];
+      scan_out_port : scan_so[21];
+    }
+    ScanChain {
+      length : 82;
+      scan_in_clock : DfiClkIn;
+      scan_out_clock : ~DfiClkIn;
+      scan_in_port : scan_si[22];
+      scan_out_port : scan_so[22];
+    }
+    ScanChain {
+      length : 45;
+      scan_in_clock : scan_clk;
+      scan_out_clock : ~scan_clk;
+      scan_in_port : scan_si[23];
+      scan_out_port : scan_so[23];
+    }
+    ScanChain {
+      length : 45;
+      scan_in_clock : scan_clk;
+      scan_out_clock : ~scan_clk;
+      scan_in_port : scan_si[24];
+      scan_out_port : scan_so[24];
+    }
+    ScanChain {
+      length : 45;
+      scan_in_clock : scan_clk;
+      scan_out_clock : ~scan_clk;
+      scan_in_port : scan_si[25];
+      scan_out_port : scan_so[25];
+    }
+    ScanChain {
+      length : 45;
+      scan_in_clock : scan_clk;
+      scan_out_clock : ~scan_clk;
+      scan_in_port : scan_si[26];
+      scan_out_port : scan_so[26];
+    }
+    ScanChain {
+      length : 45;
+      scan_in_clock : scan_clk;
+      scan_out_clock : ~scan_clk;
+      scan_in_port : scan_si[27];
+      scan_out_port : scan_so[27];
+    }
+    ScanChain {
+      length : 45;
+      scan_in_clock : scan_clk;
+      scan_out_clock : ~scan_clk;
+      scan_in_port : scan_si[28];
+      scan_out_port : scan_so[28];
+    }
+    ScanChain {
+      length : 44;
+      scan_in_clock : scan_DlyTestClk;
+      scan_out_clock : ~scan_DlyTestClk;
+      scan_in_port : scan_si[29];
+      scan_out_port : scan_so[29];
+    }
+    ScanChain {
+      length : 4;
+      scan_in_clock : scan_clk;
+      scan_out_clock : ~scan_clk;
+      scan_in_port : scan_occ_si[0];
+      scan_out_port : scan_occ_so[0];
+    }
+    ScanChain {
+      length : 4;
+      scan_in_clock : scan_clk;
+      scan_out_clock : ~scan_clk;
+      scan_in_port : scan_occ_si[1];
+      scan_out_port : scan_occ_so[1];
+    }
+    Clock(DfiClkIn) {
+      off_state : all_zeros;
+    }
+    SetReset(Reset_async) {
+      active_polarity : all_ones;
+    }
+    Clock(scan_DlyTestClk) {
+      off_state : all_zeros;
+    }
+    Clock(scan_clk) {
+      off_state : all_zeros;
+    }
+    ScanEn(scan_shift[0]) {
+      active_polarity : all_ones;
+    }
+    ScanEn(scan_shift[1]) {
+      active_polarity : all_ones;
+    }
+    ScanEn(scan_shift[2]) {
+      active_polarity : all_ones;
+    }
+  }
+}

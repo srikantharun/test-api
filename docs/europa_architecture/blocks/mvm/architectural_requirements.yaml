@@ -1,0 +1,713 @@
+requirements:
+#################################
+# REGISTER LAYER
+#################################
+- block: MVM
+  category: RAL
+  index: 0
+  description: "MVM access the register fields for read and write access"
+  criticality: bronze
+  owner: Roel Uytterhoeven
+- block: MVM
+  category: RAL
+  index: 1
+  description: "MVM access the register fields for read without write"
+  criticality: bronze
+  owner: Roel Uytterhoeven
+- block: MVM
+  category: RAL
+  index: 2
+  description: "MVM shall support the Unmapped register access (csr related)"
+  criticality: bronze
+  owner: Roel Uytterhoeven
+- block: MVM
+  category: RAL
+  index: 3
+  description: "MVM shall supports the memory unmapped access (full mvm memory space)."
+  criticality: bronze
+  owner: Roel Uytterhoeven
+
+################################
+# PRG EXE
+################################
+- block: MVM
+  category: PRG_EXE
+  index: 0
+  description: "MVM performs matrix vector multiplications on a matrix of at most 576x512 rows/cols."
+  criticality: bronze
+  owner: Roel Uytterhoeven
+- block: MVM
+  category: PRG_EXE
+  index: 1
+  description: "Both the weights and inputs to the MVM can be either signed or unsigned. The default is signed (should be used in bronze requirements, after bronze should be randomized usage of signed/unsigned)."
+  criticality: silver
+  owner: Roel Uytterhoeven
+- block: MVM
+  category: PRG_EXE
+  index: 2
+  description: "The MVM supports using a smaller than its full size matrix operation with a granularity of 64 rows/cols (matches PW size) for both EXE and PRG operations. The active area of a matrix operation is defined by row_size, row_offset, col_size, and col_offset"
+  criticality: bronze
+  owner: Roel Uytterhoeven
+- block: MVM
+  category: PRG_EXE
+  index: 3
+  description: "The MVM support row_size options 0-8 for both EXE and PRG operations. The actual number of active rows is row_size + 1. I.e., even when 0 is given in the instruction, one row will be active in the matrix "
+  criticality: bronze
+  owner: Roel Uytterhoeven
+- block: MVM
+  category: PRG_EXE
+  index: 4
+  description: "The MVM support col_size options 0-7 for both EXE and PRG operations The actual number of active cols is col_size + 1. I.e., even when 0 is given in the instruction, one col will be active in the matrix."
+  criticality: bronze
+  owner: Roel Uytterhoeven
+- block: MVM
+  category: PRG_EXE
+  index: 5
+  description: "The MVM support row_offset options 0-8 for both EXE and PRG operations"
+  criticality: bronze
+  owner: Roel Uytterhoeven
+- block: MVM
+  category: PRG_EXE
+  index: 6
+  description: "The MVM support col_offset options 0-7 for both EXE and PRG operations"
+  criticality: bronze
+  owner: Roel Uytterhoeven
+- block: MVM
+  category: PRG_EXE 
+  index: 7
+  description: "The EXE and PRG operation can run concurrently on the MVM, but can not target the same weight set at the same time. Doing so results in and IRQ"
+  criticality: bronze
+  owner: Roel Uytterhoeven
+- block: MVM
+  category: PRG_EXE 
+  index: 8
+  description: "The MVM has a 64x26b (1664) AXIS stream as output towards the IAU module"
+  criticality: bronze
+  owner: Roel Uytterhoeven
+- block: MVM
+  category: PRG_EXE 
+  index: 9
+  description: "There should be tests that test the EXE and PRG independently from one another by using different random active areas for both, in a random order, with concurrency between EXE and PRG."
+  criticality: bronze
+  owner: Roel Uytterhoeven
+################################
+# PRG CMD
+################################
+- block: MVM
+  category: PRG_CMD
+  index: 0
+  description: "PRG CMDs describe how and where to store weights in the MVM's weight matrix"
+  criticality: bronze
+  owner: Roel Uytterhoeven
+- block: MVM
+  category: PRG_CMD
+  index: 1
+  description: "The MVM uses the generic CMDBlock to receive PRG CMDs"
+  criticality: bronze
+  owner: Roel Uytterhoeven
+- block: MVM
+  category: PRG_CMD
+  index: 2
+  description: "The MVM's weight matrix storage is persistent till weights are overwritten by another PRG_CMD, or the device is reset."
+  criticality: bronze
+  owner: Roel Uytterhoeven
+- block: MVM
+  category: PRG_CMD
+  index: 3
+  description: "Stored weights can be used multipe times, and in any PW row/col size granularity, by multiple different EXE-CMDs/INSTRs."
+  criticality: bronze
+  owner: Roel Uytterhoeven
+- block: MVM
+  category: PRG_CMD
+  index: 4
+  description: "Although a one to one mapping between PRG-CMDs and EXE-CMDs (i.e., a PRG-CMD specifically to setup the weights that will be used by the subsequent EXE-CMD) is the most regular and easiest use case, there should be random scenarios that create PRG-CMDs independent from EXE-CMDs in terms of weight-set, and active area."
+  criticality: bronze
+  owner: Roel Uytterhoeven
+- block: MVM
+  category: PRG_CMD
+  index: 5
+  description: "The PRG_CMD operates independently from the EXE_CMD, but should not target a weight set that is in use by an EXE-CMD at the same time."
+  criticality: bronze
+  owner: Roel Uytterhoeven
+- block: MVM
+  category: PRG_CMD
+  index: 6
+  description: "The MVM will read input weight data through the IFDW AXIS-stream."
+  criticality: bronze
+  owner: Roel Uytterhoeven
+- block: MVM
+  category: PRG_CMD 
+  index: 7
+  description: "The MVM PRG_CMD supports the legacy prg mode PRGMODE 0 which is UuT(t)"
+  criticality: silver
+  owner: Roel Uytterhoeven    
+- block: MVM
+  category: PRG_CMD 
+  index: 8
+  description: "The MVM PRG_CMD supports the PRGMODE 1 which is TUu(t)"
+  criticality: silver
+  owner: Roel Uytterhoeven
+- block: MVM
+  category: PRG_CMD 
+  index: 9
+  description: "The MVM PRG_CMD supports the PRGMODE 2 which is UTu(t)"
+  criticality: silver
+  owner: Roel Uytterhoeven 
+- block: MVM
+  category: PRG_CMD 
+  index: 10
+  description: "The MVM PRG_CMD can mixed PRGMODE settings between different PRG_CMDs in any random order."
+  criticality: silver
+  owner: Roel Uytterhoeven 
+- block: MVM
+  category: PRG_CMD 
+  index: 11
+  description: "The PRGMODE of a new PRG_CMD should not impact the already stored weights, except for the area of weights it (over)writes"
+  criticality: silver
+  owner: Roel Uytterhoeven 
+- block: MVM
+  category: PRG_CMD 
+  index: 12
+  description: "The MVM PRG_CMD supports a BROADCAST MODE (independent of the PRGMODEs) which duplicates a programming operation on a vertically and symmetrically split MVM matrix"
+  criticality: silver
+  owner: Roel Uytterhoeven
+- block: MVM
+  category: PRG_CMD 
+  index: 13
+  description: "When using the BROADCAST MODE, the active area can maximally target upto column idx 3. I.e., col size + col offset of the target area should be <= 3"
+  criticality: silver
+  owner: Roel Uytterhoeven
+- block: MVM
+  category: PRG_CMD 
+  index: 14
+  description: "When using the BROADCAST MODE, col size + col offset of the target area should be > 3 should result in an PRG IRQ"
+  criticality: silver
+  owner: Roel Uytterhoeven
+- block: MVM
+  category: PRG_CMD
+  index: 15
+  description: "PERF: The MVM can accept the full IFDW throughput of 64x8b/cycle"
+  criticality: silver
+  owner: Roel Uytterhoeven
+- block: MVM
+  category: PRG_CMD
+  index: 16
+  description: "PERF: The MVM should never backpressure the IFDW interface once an AXIS transfer on it is started."
+  criticality: silver
+  owner: Roel Uytterhoeven
+
+################################
+# EXE CMD
+################################
+- block: MVM
+  category: EXE_CMD
+  index: 0
+  description: "The EXE_CMD describes matrix verctor multiplications to be executed on the MVM in terms of loop settings over EXE-INSTRs"
+  criticality: bronze
+  owner: Roel Uytterhoeven
+- block: MVM
+  category: EXE_CMD
+  index: 1
+  description: "The MVM uses the generic CMDBlock to receive EXE CMDs"
+  criticality: bronze
+  owner: Roel Uytterhoeven
+- block: MVM
+  category: EXE_CMD
+  index: 2
+  description: "EXE-INSTR must be preloaded in the command gen instruction memory before they can be used by and EXE-CMD."
+  criticality: bronze
+  owner: Roel Uytterhoeven
+- block: MVM
+  category: EXE_CMD
+  index: 3
+  description: "There are 255 EXE-INSTR entries available in the instruction memory"
+  criticality: bronze
+  owner: Roel Uytterhoeven
+- block: MVM
+  category: EXE_CMD
+  index: 4
+  description: "Preloaded EXE-INSTR are presistent till they are overwritten by loading a new EXE-INSTR to the same preload slot/address, or till the module is reset."
+  criticality: bronze
+  owner: Roel Uytterhoeven
+- block: MVM
+  category: EXE_CMD
+  index: 5
+  description: "Preloaded EXE-INSTR can be used multipe times, and in any granularity, by multiple EXE-CMDs"
+  criticality: bronze
+  owner: Roel Uytterhoeven
+- block: MVM
+  category: EXE_CMD 
+  index: 6
+  description: "PERF: The MVM supports the full IFD0 throughput of 64x8b/cycle"
+  criticality: silver
+  owner: Roel Uytterhoeven
+- block: MVM
+  category: EXE_CMD 
+  index: 7
+  description: "PERF: The MVM supports the full IFD2 throughput of 64x8b/cycle"
+  criticality: silver
+  owner: Roel Uytterhoeven
+- block: MVM
+  category: EXE_CMD
+  index: 8
+  description: "PERF: When 9 or 8 PW rows are being used, and the output stream is not backpressured, the IFD0/2 input streams should never see backpressure. Provided that none of the power limiting features are being used."
+  criticality: silver
+  owner: Roel Uytterhoeven
+- block: MVM
+  category: EXE_CMD
+  index: 9
+  description: "PERF: When 8 PW columns are being used (and 8 or fewer PW rows), and the IFD0/2 streams have a steady valid high once the stream is started, the output stream should not contain any bubbels once started. Provided that none of the power limiting features are being used."
+  criticality: silver
+  owner: Roel Uytterhoeven
+- block: MVM
+  category: EXE_CMD
+  index: 10
+  description: "PERF: The MVM EXE operation performance has to meet the same throughput as was achieved in Omega when using similar operations. Latency can change with a few cycles (due to additional pipelining in Europa), but should not increase with more than 10 cycles compared to Omega. Except when new power limiting features are being used (ramping budget)"
+  criticality: silver
+  owner: Roel Uytterhoeven
+- block: MVM
+  category: EXE_CMD
+  index: 11
+  description: "PERF: When 9 PW rows are being used, back to back operations take 9 cycles instead of 8, this means that the output will at least see one bubble after each operation and never 100% throughput."
+  criticality: silver
+  owner: Roel Uytterhoeven
+- block: MVM
+  category: EXE_CMD 
+  index: 12
+  description: "PERF: Throughput requirements should be tested for random loop_start, loop_len, and loop_iter settings."
+  criticality: silver
+  owner: Roel Uytterhoeven
+- block: MVM
+  category: EXE_CMD 
+  index: 13
+  description: "PERF: Throughput requirements should be tested for random EXE-INSTR entries in the instruction memory. I.e., not always the same instruction repeated back to back, but random mixes of different ones executed in a single EXE-CMD loop."
+  criticality: silver
+  owner: Roel Uytterhoeven
+
+####################################
+# CLK FREQ
+####################################
+- block: MVM
+  category: CLK
+  index: 0
+  description: "MVM Supports the max operating frequency of 1.2GHz"
+  criticality: bronze
+  owner: Roel Uytterhoeven
+- block: MVM
+  category: CLK
+  index: 1
+  description: "MVM supports any frequency lower than the 1.2GHz max. It receives its incoming clock from the PCTL block in the ai_core_mid partition, and follow the clock settings from that PCTL"
+  criticality: bronze
+  owner: Roel Uytterhoeven
+
+####################################
+# AXI ATTRIBUTES AND PROTOCOL CHECKS
+####################################
+- block: MVM
+  category: FEAT
+  index: 0
+  description: "MVM supports axi attributes exactly as they are used in the common blocks like CSR, CMDBLOCK, CMDDESC. The MVM does not have AXI interfaces that are not part of a common block"
+  criticality: bronze
+  owner: Roel Uytterhoeven
+- block: MVM
+  category: FEAT
+  index: 1
+  description: "The AXI configuration interface should support random stalls and backpressure."
+  criticality: bronze
+  owner: Roel Uytterhoeven
+- block: MVM
+  category: FEAT
+  index: 2
+  description: "All input AXIS (IFD0, IFD2, IFDW) streams should support random stalling"
+  criticality: bronze
+  owner: Roel Uytterhoeven
+- block: MVM
+  category: FEAT
+  index: 3
+  description: "All output AXIS (ODR) streams should support random backpressure"
+  criticality: bronze
+  owner: Roel Uytterhoeven
+
+####################################
+# IAU 
+####################################
+- block: MVM
+  category: FEAT
+  index: 5
+  description: "The MVM will write output data towards the IAU module on an AXIS stream"
+  criticality: bronze
+  owner: Roel Uytterhoeven
+- block: MVM
+  category: FEAT
+  index: 6
+  description: "The MVM AXIS stream towards the IAU generates a throughput of at most 64x26b/cycle"
+  criticality: bronze
+  owner: Roel Uytterhoeven
+####################################
+# BYPASS
+####################################
+- block: MVM
+  category: BYPASS 
+  index: 0
+  description: "MVM supports bypass operation "
+  criticality: bronze
+  owner: Roel Uytterhoeven
+- block: MVM
+  category: BYPASS 
+  index: 1
+  description: "The bypass operation can be started after any number of EXE operations, and can be followed by any number of EXE and/or BYPASS operations. i.e. all combinations of any number of EXE and BYPASS operations in sequence are valid."
+  criticality: bronze
+  owner: Roel Uytterhoeven
+- block: MVM
+  category: BYPASS 
+  index: 2
+  description: "Any stored weights or EXE instructions should remain unaffected by using a bypass operation. And, should still be usable by any subsequent EXE CMDs/INSTRs"
+  criticality: bronze
+  owner: Roel Uytterhoeven
+
+####################################
+# INTERRUPTS
+####################################
+- block: MVM
+  category: IRQ
+  index: 0
+  description: "The MVM CMD blocks (both PRG and EXE) generated the relevant IRQs related to the CMD block. (CMD block requirements should be consulted to see the exact IRQs related to the CMD Block)"
+  criticality: silver
+  owner: Roel Uytterhoeven
+- block: MVM
+  category: IRQ
+  index: 1
+  description: "The MVM specific IRQs are declared in the MVM CSRs"
+  criticality: silver
+  owner: Roel Uytterhoeven
+- block: MVM
+  category: IRQ
+  index: 2
+  description: "The MVM specific IRQs can be triggered by exercising their trigger condition."
+  criticality: silver
+  owner: Roel Uytterhoeven
+
+
+####################################
+# TOKEN
+####################################
+- block: MVM
+  category: TOKEN
+  index: 0
+  description: "MVM uses independent token interfaces for PRG and EXE sequences."
+  criticality: bronze
+  owner: Roel Uytterhoeven
+   
+####################################
+# Test mode verification
+####################################
+- block: MVM
+  category: TM
+  index: 0
+  description: "MVM supports sw test mode. In this mode, the 26b of each element in a PW towards the IAU only contains valid data on its lower 8b. Depending on a CSR setting, these 8b represent a specific selection of the full 26b result."
+  criticality: gold
+  owner: Roel Uytterhoeven
+- block: MVM
+  category: TM
+  index: 1
+  description: "MVM supports sw test mode with signed weights vs signed inputs multiplication"
+  criticality: gold
+  owner: Roel Uytterhoeven
+- block: MVM
+  category: TM
+  index: 2
+  description: "MVM supports sw test mode with signed weights vs unsigned inputs multipliclation"
+  criticality: gold
+  owner: Roel Uytterhoeven
+- block: MVM
+  category: TM
+  index: 3
+  description: "MVM supports sw test mode with unsigned weights vs signed inputs multiplication"
+  criticality: gold
+  owner: Roel Uytterhoeven
+- block: MVM
+  category: TM
+  index: 4
+  description: "Test mode should only be verified for normal EXE operations, i.e. not DIBW or INT16."
+  criticality: gold
+  owner: Roel Uytterhoeven
+
+####################################
+# BIST verification
+####################################
+- block: MVM
+  category: MBIST
+  index: 0
+  description: "The MVM BIST can be controlled through JTAG (should be tested on DFT inserted RTL)."
+  criticality: silver
+  owner: Roel Uytterhoeven
+- block: MVM
+  category: MBIST
+  index: 1
+  description: "The MVM BIST can be controlled through CSR."
+  criticality: bronze
+  owner: Roel Uytterhoeven
+- block: MVM
+  category: MBIST
+  index: 2
+  description: "The MVM BIST can detect a fault in the weight storage registers of any imcBank and indicate the exact row and column (macro part)."
+  criticality: bronze
+  owner: Roel Uytterhoeven
+- block: MVM
+  category: MBIST
+  index: 3
+  description: "The MVM BIST can detect a fault in compute path of any imcBank and indicate the exact column on the imc macro (macro part)."
+  criticality: bronze
+  owner: Roel Uytterhoeven
+- block: MVM
+  category: MBIST
+  index: 4
+  description: "The MVM BIST repair one faulty column per imcbank macro (regardless of the cause of the fault)"
+  criticality: bronze
+  owner: Roel Uytterhoeven
+- block: MVM
+  category: MBIST
+  index: 5
+  description: "The MVM BIST repair settings can be set through CSRs by software"
+  criticality: bronze
+  owner: Roel Uytterhoeven
+- block: MVM
+  category: MBIST
+  index: 6
+  description: "The MVM BIST repair settings can be set through JTAG"
+  criticality: silver
+  owner: Roel Uytterhoeven
+
+####################################
+# MVM util/power limiting 
+####################################
+- block: MVM
+  category: PWR
+  index: 0
+  description: "The MVM can produce a cycle by cycle estimate for the utilisation of the ongoing operation according to this formula nb_rows x nb_cols + a x nb_rows + b x nb_cols where a and b are 3b values set through CSRs"
+  criticality: silver
+  owner: Roel Uytterhoeven
+- block: MVM
+  category: PWR
+  index: 1
+  description: "The util estimate from the MVM is averaged with an exponential averaging filter that has settings controllable through CSR to changes its response time"
+  criticality: silver
+  owner: Roel Uytterhoeven
+- block: MVM
+  category: PWR
+  index: 2
+  description: "The MVM supports using NOPs on a cycle by cycle basis to lower its effective utilisation (and its power consumption). NOPs can be triggered by the internal util limiter, the internal nop-injector, the internal ramping budget, or an external source. Full details in https://git.axelera.ai/prod/europa/-/issues/1919"
+  criticality: silver
+  owner: Roel Uytterhoeven
+- block: MVM
+  category: PWR
+  index: 3
+  description: "All NOP triggers are OR-ed together producing a single 'final' NOP trigger. Different NOP triggers can thus be used simulatenously"
+  criticality: silver
+  owner: Roel Uytterhoeven
+- block: MVM
+  category: PWR
+  index: 4
+  description: "The MVM has an internal util limiter that triggers NOPs when a the util_limit given on the util limit AXIS interface is below its current util estimation"
+  criticality: silver
+  owner: Roel Uytterhoeven
+- block: MVM
+  category: PWR
+  index: 5
+  description: "The MVM supports a nop-injector that can be configured to send NOPs in the pipeline at a given rate regardeless of the utilisation of an EXE operation, and regardless of the effective average utilisation. The desired rate is communicated through an AXIS interface."
+  criticality: silver
+  owner: Roel Uytterhoeven
+- block: MVM
+  category: PWR 
+  index: 6
+  description: "The MVM's internal pipeline ensures that at most 4 imcbanks (2 per pipelinestage, max 2 stages active at once) at a time can become active/de-active per cycle. Full throughput (i.e. all banks active can still be reached over time)"
+  criticality: bronze
+  owner: Roel Uytterhoeven
+- block: MVM
+  category: PWR 
+  index: 7
+  description: "The MVM has a CSR configurable ramping budget to further increase the time between additional imcbanks becoming active in the pipeline. Even when the ramping budget feature is activated, full throughput can eventually be reached over time. The ramping budget is an internal NOP injection source."
+  criticality: bronze
+  owner: Roel Uytterhoeven
+- block: MVM
+  category: PWR 
+  index: 8
+  description: "All PWR related features described above are compatible with ALL possible operations that the MVM does. They will limit the performance of those operations depending on the exact settings and operation at hand."
+  criticality: bronze
+  owner: Roel Uytterhoeven
+
+####################################
+# MVM Double input Bandwidth
+####################################
+- block: MVM
+  category: DIBW
+  index: 0
+  description: "Double input BW (DIBW) is a feature that virtually splits the MVM matrix in two vertically creating two semi indepedent matrix areas. Each area operates on its own IFD steam. The first part always gets IFD0, the second IFD2. It has a simple and advanced mode usage described in other requirements."
+  criticality: bronze
+  owner: Roel Uytterhoeven 
+- block: MVM
+  category: DIBW
+  index: 1
+  description: "The DIBW feature is enabled by a setting in the MVM EXE_CMD"
+  criticality: bronze
+  owner: Roel Uytterhoeven 
+- block: MVM
+  category: DIBW
+  index: 2
+  description: "When the DIBW feature is not used, only data on IFD0 will be accepted as input data for the MVM. IFD2 will be backpressured constantly."
+  criticality: bronze
+  owner: Roel Uytterhoeven 
+- block: MVM
+  category: DIBW
+  index: 3
+  description: "DIBW simple mode makes the vertical split so two equal halves of 4 columns are created. Both halves operate on the same EXE-INSTR from the CMDGEN, and thus with the same active area in each halve. The max for output offset and output size is reduced to 3 instead of 7, and col_offset+col_size must be <= 3."
+  criticality: bronze
+  owner: Roel Uytterhoeven
+- block: MVM
+  category: DIBW
+  index: 4
+  description: "PERF: In simple mode, with output size=3, output offset=0, a row size<=7, and a steady valid signal on both IFD0 and IFD2, the output stream should not have any bubbels once started."
+  criticality: bronze
+  owner: Roel Uytterhoeven
+- block: MVM
+  category: DIBW
+  index: 5
+  description: In simpel mode, subsequent EXE_INSTR when loop_len > 1, can still use different active areas as usual, provided these areas meet the simple mode condition of col_size + col_offset <= 3"
+  criticality: bronze
+  owner: Roel Uytterhoeven
+- block: MVM
+  category: DIBW
+  index: 6
+  description: "In advanced mode the MVM reads two subsuquent EXE-INSTR from the instruction memory at a time, INSTRs from an even instruction memory address will be mapped to the first MVM area and get IFD0 data, ones from an odd address will be mapped to the second MVM area and get IDF2 data. The two concurrent instructions should not have overlap in the vertical dimension of the matrix, i.e., output offset and size should be such that both instructions do not overlap in terms of columns."
+  criticality: silver
+  owner: Roel Uytterhoeven
+- block: MVM
+  category: DIBW
+  index: 7
+  description: "In advanced mode, if there is overlap between the two concurrent instructions, this triggers an IRQ, and the output data will be corrupted."
+  criticality: silver
+  owner: Roel Uytterhoeven
+- block: MVM
+  category: DIBW
+  index: 8
+  description: "PERF: In advanced mode, if the combination of both instruction uses all columns, and their row sizes<=7, and a steady valid signal on both IFD0 and IFD2, the output stream should not have any bubbels once started."
+  criticality: silver
+  owner: Roel Uytterhoeven
+- block: MVM
+  category: DIBW
+  index: 9
+  description: "In advanced mode, when using loop_len > 2, every subsequent instruction pair can change the location of the vertrical split by using a different active areas"
+  criticality: bronze
+  owner: Roel Uytterhoeven
+- block: MVM
+  category: DIBW
+  index: 10
+  description: Any other MVM features, except for INT16 precision can be combined with the use of DIBW. Both simple and advanced mode.
+  criticality: bronze
+  owner: Roel Uytterhoeven
+- block: MVM
+  category: DIBW
+  index: 11
+  description: Any possible order of any PRG and any EXE CMDs can have happend before using a DIBW operation (include other DIBW operations).
+  criticality: bronze
+  owner: Roel Uytterhoeven
+- block: MVM
+  category: DIBW
+  index: 12
+  description: Any possible order of any PRG and any EXE CMDs can happen after using a DIBW operation (include other DIBW operations).
+  criticality: bronze
+  owner: Roel Uytterhoeven
+
+####################################
+# MVM INT 16
+####################################
+- block: MVM
+  category: INT16
+  index: 0
+  description: "The MVM accepts both INT8 and INT16 data formats as inputs and weights."
+  criticality: silver
+  owner: Roel Uytterhoeven 
+- block: MVM
+  category: INT16
+  index: 1
+  description: "Input and weight data formats can be used independent from each other."
+  criticality: silver
+  owner: Roel Uytterhoeven
+- block: MVM
+  category: INT16
+  index: 2
+  description: "The precision setting is communicated in the EXE-CMD"
+  criticality: silver
+  owner: Roel Uytterhoeven 
+- block: MVM
+  category: INT16
+  index: 3
+  description: "When an INT16 precision is used and the header field vector_mode is set accordingly, the MVM output format switches to 32PWi42. Beats on the output should be interpreted as 32x52b instead of 64x26b."
+  criticality: silver
+  owner: Roel Uytterhoeven 
+- block: MVM
+  category: INT16
+  index: 4
+  description: "When using INT16 precision (and thus outputting in 32PWi42 format). The MVM 52b output words should be sign extended"
+  criticality: silver
+  owner: Roel Uytterhoeven 
+- block: MVM
+  category: INT16
+  index: 5
+  description: "The MVM weight storage size is fixed. When storing INT16 weights, only halve the number of words will fit compared to INT8 weights"
+  criticality: silver
+  owner: Roel Uytterhoeven 
+- block: MVM
+  category: INT16
+  index: 6
+  description: "When using either INT16 inputs OR INT16 weights, MVM throughput is halved w.r.t the number of words that are processed. However, since the size of the words has increased, the output stream is still utilised 100% and should not contain bubbles under steady operating condition when all 8 columns are used."
+  criticality: silver
+  owner: Roel Uytterhoeven 
+- block: MVM
+  category: INT16
+  index: 7
+  description: "When using either INT16 inputs AND INT16 weights, MVM throughput is reduced with 4x w.r.t the number of words that are processed. However, since the size of the words has increased, the output stream is still utilised 50% and should not contain more than 50% bubbles under steady operating condition when all 8 columns are used."
+  criticality: silver
+  owner: Roel Uytterhoeven 
+- block: MVM
+  category: INT16
+  index: 8
+  description: "The INT16 support is mutually exclusive with the Double Input BW feature"
+  criticality: silver
+  owner: Roel Uytterhoeven 
+
+####################################
+# MVM ICDF  
+####################################
+- block: MVM
+  category: ICDF
+  index: 0
+  description: "MVM should support the Utilising the ICDF stimulus passed by Architecture team"
+  criticality: silver
+  owner: Roel Uytterhoeven
+
+####################################
+# MVM Observation
+####################################
+- block: MVM
+  category: OBS
+  index: 0
+  description: "The MVM outputs observation signals for the prg_cmd, the exe_cmd, the throttle_unit"
+  criticality: gold
+  owner: Roel Uytterhoeven
+- block: MVM
+  category: OBS
+  index: 1
+  description: "The MVM has debug observation CSR registers that can monitor the status of all ready/valid/last AXIS in/out signals"
+  criticality: gold
+  owner: Roel Uytterhoeven
+
+####################################
+# MVM Feature sequence events
+####################################
+- block: MVM
+  category: RAND_SEQ_MODE
+  index: 0
+  description: "MVM should support the sequence of events of rand prg mode,bypass mode,normal mode and DIBW mode, INT16 mode"
+  criticality: silver
+  owner: Roel Uytterhoeven

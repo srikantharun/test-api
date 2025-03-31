@@ -1,0 +1,119 @@
+DftSpecification(sdma_p,rtl1) {
+  IjtagNetwork {
+    HostScanInterface(tap) {
+      Interface {
+        tck : tck;
+      }
+      Tap(main) {
+        HostIjtag(1) {
+          Sib(sri) {
+            Attributes {
+              tessent_dft_function : scan_resource_instrument_host;
+            }
+            Sib(sri_ctrl) {
+              Tdr(sri_ctrl) {
+                Attributes {
+                  tessent_dft_function : scan_resource_instrument_dft_control;
+                }
+              }
+            }
+          }
+          Sib(sti) {
+            Attributes {
+              tessent_dft_function : scan_tested_instrument_host;
+            }
+            Tdr(sti_ctrl) {
+              Attributes {
+                tessent_dft_function : scan_tested_instrument_dft_control;
+              }
+            }
+            Sib(mbist) {
+            }
+          }
+        }
+        HostBscan {
+        }
+      }
+    }
+  }
+  MemoryBist {
+    ijtag_host_interface : Sib(mbist);
+    Controller(c1) {
+      clock_domain_label : i_clk;
+      Step {
+        MemoryInterface(m1) {
+          instance_name : u_dma/g_chnl[0].u_chnl/u_buffer/g_data_ram_x[0].u_chnl_data_ram/gen_macro.u_macro;
+        }
+        ReusedMemoryInterface(m2) {
+          instance_name : u_dma/g_chnl[0].u_chnl/u_buffer/g_data_ram_x[1].u_chnl_data_ram/gen_macro.u_macro;
+          reused_interface_id : m1;
+        }
+        ReusedMemoryInterface(m3) {
+          instance_name : u_dma/g_chnl[0].u_chnl/u_buffer/g_data_ram_x[2].u_chnl_data_ram/gen_macro.u_macro;
+          reused_interface_id : m1;
+        }
+        ReusedMemoryInterface(m4) {
+          instance_name : u_dma/g_chnl[0].u_chnl/u_buffer/g_data_ram_x[3].u_chnl_data_ram/gen_macro.u_macro;
+          reused_interface_id : m1;
+        }
+      }
+      Step {
+        ReusedMemoryInterface(m5) {
+          instance_name : u_dma/g_chnl[1].u_chnl/u_buffer/g_data_ram_x[0].u_chnl_data_ram/gen_macro.u_macro;
+          reused_interface_id : m1;
+        }
+        ReusedMemoryInterface(m6) {
+          instance_name : u_dma/g_chnl[1].u_chnl/u_buffer/g_data_ram_x[1].u_chnl_data_ram/gen_macro.u_macro;
+          reused_interface_id : m1;
+        }
+        ReusedMemoryInterface(m7) {
+          instance_name : u_dma/g_chnl[1].u_chnl/u_buffer/g_data_ram_x[2].u_chnl_data_ram/gen_macro.u_macro;
+          reused_interface_id : m1;
+        }
+        ReusedMemoryInterface(m8) {
+          instance_name : u_dma/g_chnl[1].u_chnl/u_buffer/g_data_ram_x[3].u_chnl_data_ram/gen_macro.u_macro;
+          reused_interface_id : m1;
+        }
+      }
+      Step {
+        ReusedMemoryInterface(m9) {
+          instance_name : u_dma/g_chnl[2].u_chnl/u_buffer/g_data_ram_x[0].u_chnl_data_ram/gen_macro.u_macro;
+          reused_interface_id : m1;
+        }
+        ReusedMemoryInterface(m10) {
+          instance_name : u_dma/g_chnl[2].u_chnl/u_buffer/g_data_ram_x[1].u_chnl_data_ram/gen_macro.u_macro;
+          reused_interface_id : m1;
+        }
+        ReusedMemoryInterface(m11) {
+          instance_name : u_dma/g_chnl[2].u_chnl/u_buffer/g_data_ram_x[2].u_chnl_data_ram/gen_macro.u_macro;
+          reused_interface_id : m1;
+        }
+        ReusedMemoryInterface(m12) {
+          instance_name : u_dma/g_chnl[2].u_chnl/u_buffer/g_data_ram_x[3].u_chnl_data_ram/gen_macro.u_macro;
+          reused_interface_id : m1;
+        }
+      }
+      Step {
+        ReusedMemoryInterface(m13) {
+          instance_name : u_dma/g_chnl[3].u_chnl/u_buffer/g_data_ram_x[0].u_chnl_data_ram/gen_macro.u_macro;
+          reused_interface_id : m1;
+        }
+        ReusedMemoryInterface(m14) {
+          instance_name : u_dma/g_chnl[3].u_chnl/u_buffer/g_data_ram_x[1].u_chnl_data_ram/gen_macro.u_macro;
+          reused_interface_id : m1;
+        }
+        ReusedMemoryInterface(m15) {
+          instance_name : u_dma/g_chnl[3].u_chnl/u_buffer/g_data_ram_x[2].u_chnl_data_ram/gen_macro.u_macro;
+          reused_interface_id : m1;
+        }
+        ReusedMemoryInterface(m16) {
+          instance_name : u_dma/g_chnl[3].u_chnl/u_buffer/g_data_ram_x[3].u_chnl_data_ram/gen_macro.u_macro;
+          reused_interface_id : m1;
+        }
+      }
+    }
+  }
+  MemoryBisr {
+    bisr_segment_order_file : sdma_p.bisr_segment_order;
+  }
+}

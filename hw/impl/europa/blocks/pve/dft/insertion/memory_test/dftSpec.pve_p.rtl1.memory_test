@@ -1,0 +1,396 @@
+DftSpecification(pve_p,rtl1) {
+  IjtagNetwork {
+    HostScanInterface(tap) {
+      Interface {
+        tck : tck;
+      }
+      Tap(main) {
+        HostIjtag(1) {
+          Sib(sri) {
+            Attributes {
+              tessent_dft_function : scan_resource_instrument_host;
+            }
+            Sib(pb1) {
+              DesignInstance(u_pve/g_cluster[0].u_cluster/g_cpu[0].u_cva6v) {
+                scan_interface : ijtag;
+              }
+            }
+            Sib(pb2) {
+              DesignInstance(u_pve/g_cluster[0].u_cluster/g_cpu[1].u_cva6v) {
+                scan_interface : ijtag;
+              }
+            }
+            Sib(pb3) {
+              DesignInstance(u_pve/g_cluster[0].u_cluster/u_pve_l1) {
+                scan_interface : ijtag;
+              }
+            }
+            Sib(pb4) {
+              DesignInstance(u_pve/g_cluster[1].u_cluster/g_cpu[0].u_cva6v) {
+                scan_interface : ijtag;
+              }
+            }
+            Sib(pb5) {
+              DesignInstance(u_pve/g_cluster[1].u_cluster/g_cpu[1].u_cva6v) {
+                scan_interface : ijtag;
+              }
+            }
+            Sib(pb6) {
+              DesignInstance(u_pve/g_cluster[1].u_cluster/u_pve_l1) {
+                scan_interface : ijtag;
+              }
+            }
+            Sib(pb7) {
+              DesignInstance(u_pve/g_cluster[2].u_cluster/g_cpu[0].u_cva6v) {
+                scan_interface : ijtag;
+              }
+            }
+            Sib(pb8) {
+              DesignInstance(u_pve/g_cluster[2].u_cluster/g_cpu[1].u_cva6v) {
+                scan_interface : ijtag;
+              }
+            }
+            Sib(pb9) {
+              DesignInstance(u_pve/g_cluster[2].u_cluster/u_pve_l1) {
+                scan_interface : ijtag;
+              }
+            }
+            Sib(pb10) {
+              DesignInstance(u_pve/g_cluster[3].u_cluster/g_cpu[0].u_cva6v) {
+                scan_interface : ijtag;
+              }
+            }
+            Sib(pb11) {
+              DesignInstance(u_pve/g_cluster[3].u_cluster/g_cpu[1].u_cva6v) {
+                scan_interface : ijtag;
+              }
+            }
+            Sib(pb12) {
+              DesignInstance(u_pve/g_cluster[3].u_cluster/u_pve_l1) {
+                scan_interface : ijtag;
+              }
+            }
+            Sib(sri_ctrl) {
+              Tdr(sri_ctrl) {
+                Attributes {
+                  tessent_dft_function : scan_resource_instrument_dft_control;
+                }
+              }
+            }
+            Sib(monitors) {
+              Tdr(p1_monitor) {
+                extra_bits_capture_value : self;
+                DataOutPorts {
+                  count: 19;
+                  connection(13:0)  : u_p1_monitor/u_process1_monitor_jtag_tdr_core/o_use_ro;
+                  connection(16:14) : u_p1_monitor/u_process1_monitor_jtag_tdr_core/o_target;
+                  connection(17)    : u_p1_monitor/u_process1_monitor_jtag_tdr_core/o_enable;
+                  connection(18)    : u_p1_monitor/u_process1_monitor_jtag_tdr_core/o_jtag_mode;
+                  multiplexing : off;
+                }
+                DataInPorts {
+                  count: 225;
+                  connection(0)     : u_p1_monitor/u_process1_monitor_jtag_tdr_core/i_valid;
+                  connection(224:1) : u_p1_monitor/u_process1_monitor_jtag_tdr_core/i_count;
+                }
+                parent_instance: u_p1_monitor/u_process1_monitor_jtag_tdr_core;
+              }
+              Tdr(p2_monitor) {
+                extra_bits_capture_value : self;
+                DataOutPorts {
+                  count: 48;
+                  connection(42:0)  : u_p2_monitor/u_process2_monitor_jtag_tdr_core/o_use_ro;
+                  connection(45:43) : u_p2_monitor/u_process2_monitor_jtag_tdr_core/o_target;
+                  connection(46)    : u_p2_monitor/u_process2_monitor_jtag_tdr_core/o_enable;
+                  connection(47)    : u_p2_monitor/u_process2_monitor_jtag_tdr_core/o_jtag_mode;
+                  multiplexing : off;
+                }
+                DataInPorts {
+                  count: 689;
+                  connection(0)     : u_p2_monitor/u_process2_monitor_jtag_tdr_core/i_valid;
+                  connection(688:1) : u_p2_monitor/u_process2_monitor_jtag_tdr_core/i_count;
+                }
+                parent_instance: u_p2_monitor/u_process2_monitor_jtag_tdr_core;
+              }
+              Tdr(svs_monitor) {
+                extra_bits_capture_value : self;
+                DataOutPorts {
+                  count: 35;
+                  connection(29:0)  : u_svs_monitor/u_svs_monitor_jtag_tdr_core/o_use_ro;
+                  connection(32:30) : u_svs_monitor/u_svs_monitor_jtag_tdr_core/o_target;
+                  connection(33)    : u_svs_monitor/u_svs_monitor_jtag_tdr_core/o_enable;
+                  connection(34)    : u_svs_monitor/u_svs_monitor_jtag_tdr_core/o_jtag_mode;
+                  multiplexing : off;
+                }
+                DataInPorts {
+                  count: 481;
+                  connection(0)     : u_svs_monitor/u_svs_monitor_jtag_tdr_core/i_valid;
+                  connection(480:1) : u_svs_monitor/u_svs_monitor_jtag_tdr_core/i_count;
+                }
+                parent_instance: u_svs_monitor/u_svs_monitor_jtag_tdr_core;
+              }
+            }
+          }
+          Sib(sti) {
+            Attributes {
+              tessent_dft_function : scan_tested_instrument_host;
+            }
+            Tdr(sti_ctrl) {
+              Attributes {
+                tessent_dft_function : scan_tested_instrument_dft_control;
+              }
+            }
+            Sib(mbist) {
+            }
+          }
+        }
+        HostBscan {
+        }
+      }
+    }
+  }
+  MemoryBist {
+    ijtag_host_interface : Sib(mbist);
+    Controller(c1) {
+      clock_domain_label : i_clk;
+      Step {
+        MemoryInterface(m1) {
+          instance_name : u_pve/g_dma[0].u_dma/g_chnl[0].u_chnl/u_buffer/g_data_ram_x[0].u_chnl_data_ram/gen_macro.u_macro;
+        }
+        ReusedMemoryInterface(m2) {
+          instance_name : u_pve/g_dma[0].u_dma/g_chnl[0].u_chnl/u_buffer/g_data_ram_x[1].u_chnl_data_ram/gen_macro.u_macro;
+          reused_interface_id : c1:m1;
+        }
+        ReusedMemoryInterface(m3) {
+          instance_name : u_pve/g_dma[0].u_dma/g_chnl[0].u_chnl/u_buffer/g_data_ram_x[2].u_chnl_data_ram/gen_macro.u_macro;
+          reused_interface_id : c1:m1;
+        }
+        ReusedMemoryInterface(m4) {
+          instance_name : u_pve/g_dma[0].u_dma/g_chnl[0].u_chnl/u_buffer/g_data_ram_x[3].u_chnl_data_ram/gen_macro.u_macro;
+          reused_interface_id : c1:m1;
+        }
+      }
+      Step {
+        ReusedMemoryInterface(m5) {
+          instance_name : u_pve/g_dma[0].u_dma/g_chnl[2].u_chnl/u_buffer/g_data_ram_x[0].u_chnl_data_ram/gen_macro.u_macro;
+          reused_interface_id : c1:m1;
+        }
+        ReusedMemoryInterface(m6) {
+          instance_name : u_pve/g_dma[0].u_dma/g_chnl[2].u_chnl/u_buffer/g_data_ram_x[1].u_chnl_data_ram/gen_macro.u_macro;
+          reused_interface_id : c1:m1;
+        }
+        ReusedMemoryInterface(m7) {
+          instance_name : u_pve/g_dma[0].u_dma/g_chnl[2].u_chnl/u_buffer/g_data_ram_x[2].u_chnl_data_ram/gen_macro.u_macro;
+          reused_interface_id : c1:m1;
+        }
+        ReusedMemoryInterface(m8) {
+          instance_name : u_pve/g_dma[0].u_dma/g_chnl[2].u_chnl/u_buffer/g_data_ram_x[3].u_chnl_data_ram/gen_macro.u_macro;
+          reused_interface_id : c1:m1;
+        }
+      }
+    }
+    Controller(c2) {
+      clock_domain_label : i_clk;
+      Step {
+        ReusedMemoryInterface(m9) {
+          instance_name : u_pve/g_dma[0].u_dma/g_chnl[1].u_chnl/u_buffer/g_data_ram_x[0].u_chnl_data_ram/gen_macro.u_macro;
+          reused_interface_id : c1:m1;
+        }
+        ReusedMemoryInterface(m10) {
+          instance_name : u_pve/g_dma[0].u_dma/g_chnl[1].u_chnl/u_buffer/g_data_ram_x[1].u_chnl_data_ram/gen_macro.u_macro;
+          reused_interface_id : c1:m1;
+        }
+        ReusedMemoryInterface(m11) {
+          instance_name : u_pve/g_dma[0].u_dma/g_chnl[1].u_chnl/u_buffer/g_data_ram_x[2].u_chnl_data_ram/gen_macro.u_macro;
+          reused_interface_id : c1:m1;
+        }
+        ReusedMemoryInterface(m12) {
+          instance_name : u_pve/g_dma[0].u_dma/g_chnl[1].u_chnl/u_buffer/g_data_ram_x[3].u_chnl_data_ram/gen_macro.u_macro;
+          reused_interface_id : c1:m1;
+        }
+      }
+      Step {
+        ReusedMemoryInterface(m13) {
+          instance_name : u_pve/g_dma[0].u_dma/g_chnl[3].u_chnl/u_buffer/g_data_ram_x[0].u_chnl_data_ram/gen_macro.u_macro;
+          reused_interface_id : c1:m1;
+        }
+        ReusedMemoryInterface(m14) {
+          instance_name : u_pve/g_dma[0].u_dma/g_chnl[3].u_chnl/u_buffer/g_data_ram_x[1].u_chnl_data_ram/gen_macro.u_macro;
+          reused_interface_id : c1:m1;
+        }
+        ReusedMemoryInterface(m15) {
+          instance_name : u_pve/g_dma[0].u_dma/g_chnl[3].u_chnl/u_buffer/g_data_ram_x[2].u_chnl_data_ram/gen_macro.u_macro;
+          reused_interface_id : c1:m1;
+        }
+        ReusedMemoryInterface(m16) {
+          instance_name : u_pve/g_dma[0].u_dma/g_chnl[3].u_chnl/u_buffer/g_data_ram_x[3].u_chnl_data_ram/gen_macro.u_macro;
+          reused_interface_id : c1:m1;
+        }
+      }
+    }
+    Controller(c3) {
+      clock_domain_label : i_clk;
+      Step {
+        ReusedMemoryInterface(m17) {
+          instance_name : u_pve/g_dma[1].u_dma/g_chnl[0].u_chnl/u_buffer/g_data_ram_x[0].u_chnl_data_ram/gen_macro.u_macro;
+          reused_interface_id : c1:m1;
+        }
+        ReusedMemoryInterface(m18) {
+          instance_name : u_pve/g_dma[1].u_dma/g_chnl[0].u_chnl/u_buffer/g_data_ram_x[1].u_chnl_data_ram/gen_macro.u_macro;
+          reused_interface_id : c1:m1;
+        }
+        ReusedMemoryInterface(m19) {
+          instance_name : u_pve/g_dma[1].u_dma/g_chnl[0].u_chnl/u_buffer/g_data_ram_x[2].u_chnl_data_ram/gen_macro.u_macro;
+          reused_interface_id : c1:m1;
+        }
+        ReusedMemoryInterface(m20) {
+          instance_name : u_pve/g_dma[1].u_dma/g_chnl[0].u_chnl/u_buffer/g_data_ram_x[3].u_chnl_data_ram/gen_macro.u_macro;
+          reused_interface_id : c1:m1;
+        }
+      }
+      Step {
+        ReusedMemoryInterface(m21) {
+          instance_name : u_pve/g_dma[1].u_dma/g_chnl[3].u_chnl/u_buffer/g_data_ram_x[0].u_chnl_data_ram/gen_macro.u_macro;
+          reused_interface_id : c1:m1;
+        }
+        ReusedMemoryInterface(m22) {
+          instance_name : u_pve/g_dma[1].u_dma/g_chnl[3].u_chnl/u_buffer/g_data_ram_x[1].u_chnl_data_ram/gen_macro.u_macro;
+          reused_interface_id : c1:m1;
+        }
+        ReusedMemoryInterface(m23) {
+          instance_name : u_pve/g_dma[1].u_dma/g_chnl[3].u_chnl/u_buffer/g_data_ram_x[2].u_chnl_data_ram/gen_macro.u_macro;
+          reused_interface_id : c1:m1;
+        }
+        ReusedMemoryInterface(m24) {
+          instance_name : u_pve/g_dma[1].u_dma/g_chnl[3].u_chnl/u_buffer/g_data_ram_x[3].u_chnl_data_ram/gen_macro.u_macro;
+          reused_interface_id : c1:m1;
+        }
+      }
+    }
+    Controller(c4) {
+      clock_domain_label : i_clk;
+      Step {
+        ReusedMemoryInterface(m25) {
+          instance_name : u_pve/g_dma[1].u_dma/g_chnl[1].u_chnl/u_buffer/g_data_ram_x[0].u_chnl_data_ram/gen_macro.u_macro;
+          reused_interface_id : c1:m1;
+        }
+        ReusedMemoryInterface(m26) {
+          instance_name : u_pve/g_dma[1].u_dma/g_chnl[1].u_chnl/u_buffer/g_data_ram_x[1].u_chnl_data_ram/gen_macro.u_macro;
+          reused_interface_id : c1:m1;
+        }
+        ReusedMemoryInterface(m27) {
+          instance_name : u_pve/g_dma[1].u_dma/g_chnl[1].u_chnl/u_buffer/g_data_ram_x[2].u_chnl_data_ram/gen_macro.u_macro;
+          reused_interface_id : c1:m1;
+        }
+        ReusedMemoryInterface(m28) {
+          instance_name : u_pve/g_dma[1].u_dma/g_chnl[1].u_chnl/u_buffer/g_data_ram_x[3].u_chnl_data_ram/gen_macro.u_macro;
+          reused_interface_id : c1:m1;
+        }
+      }
+      Step {
+        ReusedMemoryInterface(m29) {
+          instance_name : u_pve/g_dma[1].u_dma/g_chnl[2].u_chnl/u_buffer/g_data_ram_x[0].u_chnl_data_ram/gen_macro.u_macro;
+          reused_interface_id : c1:m1;
+        }
+        ReusedMemoryInterface(m30) {
+          instance_name : u_pve/g_dma[1].u_dma/g_chnl[2].u_chnl/u_buffer/g_data_ram_x[1].u_chnl_data_ram/gen_macro.u_macro;
+          reused_interface_id : c1:m1;
+        }
+        ReusedMemoryInterface(m31) {
+          instance_name : u_pve/g_dma[1].u_dma/g_chnl[2].u_chnl/u_buffer/g_data_ram_x[2].u_chnl_data_ram/gen_macro.u_macro;
+          reused_interface_id : c1:m1;
+        }
+        ReusedMemoryInterface(m32) {
+          instance_name : u_pve/g_dma[1].u_dma/g_chnl[2].u_chnl/u_buffer/g_data_ram_x[3].u_chnl_data_ram/gen_macro.u_macro;
+          reused_interface_id : c1:m1;
+        }
+      }
+    }
+    Controller(c5) {
+      clock_domain_label : i_clk;
+      Step {
+        MemoryInterface(m33) {
+          instance_name : u_pve/u_spm/u_spm_mem/g_bank_inst[0].u_spm_mem_bank/g_sub_bank_inst[0].u_spm_mem_sub_bank/g_mini_bank_inst[0].u_spm_mem_mini_bank/g_sram_inst[0].u_tc_sram/gen_macro.u_macro;
+        }
+        ReusedMemoryInterface(m34) {
+          instance_name : u_pve/u_spm/u_spm_mem/g_bank_inst[0].u_spm_mem_bank/g_sub_bank_inst[0].u_spm_mem_sub_bank/g_mini_bank_inst[0].u_spm_mem_mini_bank/g_sram_inst[1].u_tc_sram/gen_macro.u_macro;
+          reused_interface_id : c5:m33;
+        }
+        ReusedMemoryInterface(m35) {
+          instance_name : u_pve/u_spm/u_spm_mem/g_bank_inst[0].u_spm_mem_bank/g_sub_bank_inst[0].u_spm_mem_sub_bank/g_mini_bank_inst[1].u_spm_mem_mini_bank/g_sram_inst[0].u_tc_sram/gen_macro.u_macro;
+          reused_interface_id : c5:m33;
+        }
+        ReusedMemoryInterface(m36) {
+          instance_name : u_pve/u_spm/u_spm_mem/g_bank_inst[0].u_spm_mem_bank/g_sub_bank_inst[0].u_spm_mem_sub_bank/g_mini_bank_inst[1].u_spm_mem_mini_bank/g_sram_inst[1].u_tc_sram/gen_macro.u_macro;
+          reused_interface_id : c5:m33;
+        }
+      }
+    }
+    Controller(c6) {
+      clock_domain_label : i_clk;
+      Step {
+        ReusedMemoryInterface(m37) {
+          instance_name : u_pve/u_spm/u_spm_mem/g_bank_inst[0].u_spm_mem_bank/g_sub_bank_inst[1].u_spm_mem_sub_bank/g_mini_bank_inst[0].u_spm_mem_mini_bank/g_sram_inst[0].u_tc_sram/gen_macro.u_macro;
+          reused_interface_id : c5:m33;
+        }
+        ReusedMemoryInterface(m38) {
+          instance_name : u_pve/u_spm/u_spm_mem/g_bank_inst[0].u_spm_mem_bank/g_sub_bank_inst[1].u_spm_mem_sub_bank/g_mini_bank_inst[0].u_spm_mem_mini_bank/g_sram_inst[1].u_tc_sram/gen_macro.u_macro;
+          reused_interface_id : c5:m33;
+        }
+        ReusedMemoryInterface(m39) {
+          instance_name : u_pve/u_spm/u_spm_mem/g_bank_inst[0].u_spm_mem_bank/g_sub_bank_inst[1].u_spm_mem_sub_bank/g_mini_bank_inst[1].u_spm_mem_mini_bank/g_sram_inst[0].u_tc_sram/gen_macro.u_macro;
+          reused_interface_id : c5:m33;
+        }
+        ReusedMemoryInterface(m40) {
+          instance_name : u_pve/u_spm/u_spm_mem/g_bank_inst[0].u_spm_mem_bank/g_sub_bank_inst[1].u_spm_mem_sub_bank/g_mini_bank_inst[1].u_spm_mem_mini_bank/g_sram_inst[1].u_tc_sram/gen_macro.u_macro;
+          reused_interface_id : c5:m33;
+        }
+      }
+    }
+    Controller(c7) {
+      clock_domain_label : i_clk;
+      Step {
+        ReusedMemoryInterface(m41) {
+          instance_name : u_pve/u_spm/u_spm_mem/g_bank_inst[1].u_spm_mem_bank/g_sub_bank_inst[0].u_spm_mem_sub_bank/g_mini_bank_inst[0].u_spm_mem_mini_bank/g_sram_inst[0].u_tc_sram/gen_macro.u_macro;
+          reused_interface_id : c5:m33;
+        }
+        ReusedMemoryInterface(m42) {
+          instance_name : u_pve/u_spm/u_spm_mem/g_bank_inst[1].u_spm_mem_bank/g_sub_bank_inst[0].u_spm_mem_sub_bank/g_mini_bank_inst[0].u_spm_mem_mini_bank/g_sram_inst[1].u_tc_sram/gen_macro.u_macro;
+          reused_interface_id : c5:m33;
+        }
+        ReusedMemoryInterface(m43) {
+          instance_name : u_pve/u_spm/u_spm_mem/g_bank_inst[1].u_spm_mem_bank/g_sub_bank_inst[0].u_spm_mem_sub_bank/g_mini_bank_inst[1].u_spm_mem_mini_bank/g_sram_inst[0].u_tc_sram/gen_macro.u_macro;
+          reused_interface_id : c5:m33;
+        }
+        ReusedMemoryInterface(m44) {
+          instance_name : u_pve/u_spm/u_spm_mem/g_bank_inst[1].u_spm_mem_bank/g_sub_bank_inst[0].u_spm_mem_sub_bank/g_mini_bank_inst[1].u_spm_mem_mini_bank/g_sram_inst[1].u_tc_sram/gen_macro.u_macro;
+          reused_interface_id : c5:m33;
+        }
+      }
+    }
+    Controller(c8) {
+      clock_domain_label : i_clk;
+      Step {
+        ReusedMemoryInterface(m45) {
+          instance_name : u_pve/u_spm/u_spm_mem/g_bank_inst[1].u_spm_mem_bank/g_sub_bank_inst[1].u_spm_mem_sub_bank/g_mini_bank_inst[0].u_spm_mem_mini_bank/g_sram_inst[0].u_tc_sram/gen_macro.u_macro;
+          reused_interface_id : c5:m33;
+        }
+        ReusedMemoryInterface(m46) {
+          instance_name : u_pve/u_spm/u_spm_mem/g_bank_inst[1].u_spm_mem_bank/g_sub_bank_inst[1].u_spm_mem_sub_bank/g_mini_bank_inst[0].u_spm_mem_mini_bank/g_sram_inst[1].u_tc_sram/gen_macro.u_macro;
+          reused_interface_id : c5:m33;
+        }
+        ReusedMemoryInterface(m47) {
+          instance_name : u_pve/u_spm/u_spm_mem/g_bank_inst[1].u_spm_mem_bank/g_sub_bank_inst[1].u_spm_mem_sub_bank/g_mini_bank_inst[1].u_spm_mem_mini_bank/g_sram_inst[0].u_tc_sram/gen_macro.u_macro;
+          reused_interface_id : c5:m33;
+        }
+        ReusedMemoryInterface(m48) {
+          instance_name : u_pve/u_spm/u_spm_mem/g_bank_inst[1].u_spm_mem_bank/g_sub_bank_inst[1].u_spm_mem_sub_bank/g_mini_bank_inst[1].u_spm_mem_mini_bank/g_sram_inst[1].u_tc_sram/gen_macro.u_macro;
+          reused_interface_id : c5:m33;
+        }
+      }
+    }
+  }
+  MemoryBisr {
+    bisr_segment_order_file : pve_p.bisr_segment_order;
+  }
+}

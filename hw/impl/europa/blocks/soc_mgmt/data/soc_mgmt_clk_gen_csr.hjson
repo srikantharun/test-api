@@ -1,0 +1,489 @@
+// (C) Copyright Axelera AI 2021
+// All Rights Reserved
+// *** Axelera AI Confidential ***
+{ name: "soc_mgmt_clk_gen_csr",
+  clocking: [{clock: "clk_i", reset: "rst_ni"}],
+  bus_interfaces: [
+    { protocol: "tlul", direction: "device" }
+  ],
+  regwidth: "32",
+  addrcap: "0x10000",
+  param_list: [
+    { name: "NUM_PLL",
+      desc: "Number of PLL in the system",
+      type: "int",
+      default: "3",
+    },
+    { name: "NUM_SYS_CLK",
+      desc: "Number of system clocks",
+      type: "int",
+      default: "6",
+    },
+  ]
+  registers: [
+    ///////////////////////
+    // PLL Configuration //
+    ///////////////////////
+    { multireg: { name: "PLL_CONFIG_CTRL",
+        desc: "PLL configuration control register.",
+        count: "NUM_PLL",
+        swaccess: "rw",
+        hwaccess: "hro",
+        cname: "PLL_CONFIG_CTRL",
+        fields: [
+          { bits: "0",
+            name: "RESETB",
+            desc: '''
+                  RESETB signal is used for power down control.
+                  - If RESETB = 0, power down mode is enabled and all digital blocks are reset.
+                  - If RESETB = 1 from 0, PLL starts its normal operation after lock time.
+                  ''',
+            resval: "0x0",
+          },
+          { bits: "1",
+            name: "BYPASS",
+            desc: '''
+                  - If BYPASS = 1, bypass mode is enabled. (FOUT = FIN).
+                  - If BYPASS = 0, PLL operates normally.
+                  ''',
+            resval: "0x0",
+          },
+          { bits: "2",
+            name: "FSEL",
+            desc: '''
+                  - If FSEL = 0, FEED_OUT = FREF.
+                  - If FSEL = 1, FEED_OUT = FEED.
+                  ''',
+            resval: "0x0",
+          },
+          { bits: "3",
+            name: "FOUT_MASK",
+            desc: '''
+                  Scaler's re-initialization time control pin.
+                  ''',
+            resval: "0x0",
+          },
+          { bits: "4",
+            name: "FEED_EN",
+            desc: '''
+                   If FEED_EN=1, FEED_OUT is enabled.
+                  ''',
+            resval: "0x0",
+          },
+        ],
+      },
+    },
+    { skipto: "0x0100" },
+    { name: "PLL_CONFIG_DIV_0",
+      desc: "PLL 0 (SYS 0) control register for the division values.",
+      swaccess: "rw",
+      hwaccess: "hro",
+      fields: [
+        { bits: "9:0",
+          name: "MAIN",
+          desc: '''
+                Feedback divider binary value.
+                VCO must be within the range specified in Table 1.
+                (binary value + 1 : 000000000 = ÷1)
+                ''',
+          resval: "0xF0",
+        },
+        { bits: "21:16",
+          name: "PRE",
+          desc: '''
+                Reference output divider. Both REF and post-divide
+                REF must be within the range specified in Table 1.
+                (binary value + 1 : 000000 = ÷1)
+                ''',
+          resval: "0x5",
+        },
+        { bits: "26:24",
+          name: "SCALAR",
+          desc: '''
+                Settings must maintain the PLL operational
+                value) ranges specified in Table 1.
+                ''',
+          resval: "0x1",
+          enum: [
+            { value: "0x1", name: "DIV_002", desc: "Divide by   2."},
+            { value: "0x2", name: "DIV_004", desc: "Divide by   4."},
+            { value: "0x3", name: "DIV_008", desc: "Divide by   8."},
+            { value: "0x4", name: "DIV_016", desc: "Divide by  16."},
+            { value: "0x5", name: "DIV_032", desc: "Divide by  32."},
+            { value: "0x6", name: "DIV_064", desc: "Divide by  64."},
+            { value: "0x7", name: "DIV_128", desc: "Divide by 128."},
+          ],
+        },
+      ],
+    },
+    { name: "PLL_CONFIG_DIV_1",
+      desc: "PLL 1 (SYS 1) control register for the division values.",
+      swaccess: "rw",
+      hwaccess: "hro",
+      fields: [
+        { bits: "9:0",
+          name: "MAIN",
+          desc: '''
+                Feedback divider binary value.
+                VCO must be within the range specified in Table 1.
+                (binary value + 1 : 000000000 = ÷1)
+                ''',
+          resval: "0xC8",
+        },
+        { bits: "21:16",
+          name: "PRE",
+          desc: '''
+                Reference output divider. Both REF and post-divide
+                REF must be within the range specified in Table 1.
+                (binary value + 1 : 000000 = ÷1)
+                ''',
+          resval: "0x5",
+        },
+        { bits: "26:24",
+          name: "SCALAR",
+          desc: '''
+                Settings must maintain the PLL operational
+                value) ranges specified in Table 1.
+                ''',
+          resval: "0x1",
+          enum: [
+            { value: "0x1", name: "DIV_002", desc: "Divide by   2."},
+            { value: "0x2", name: "DIV_004", desc: "Divide by   4."},
+            { value: "0x3", name: "DIV_008", desc: "Divide by   8."},
+            { value: "0x4", name: "DIV_016", desc: "Divide by  16."},
+            { value: "0x5", name: "DIV_032", desc: "Divide by  32."},
+            { value: "0x6", name: "DIV_064", desc: "Divide by  64."},
+            { value: "0x7", name: "DIV_128", desc: "Divide by 128."},
+          ],
+        },
+      ],
+    },
+    { name: "PLL_CONFIG_DIV_2",
+      desc: "PLL 2 (DDR) control register for the division values.",
+      swaccess: "rw",
+      hwaccess: "hro",
+      fields: [
+        { bits: "9:0",
+          name: "MAIN",
+          desc: '''
+                Feedback divider binary value.
+                VCO must be within the range specified in Table 1.
+                (binary value + 1 : 000000000 = ÷1)
+                ''',
+          resval: "0xA0",
+        },
+        { bits: "21:16",
+          name: "PRE",
+          desc: '''
+                Reference output divider. Both REF and post-divide
+                REF must be within the range specified in Table 1.
+                (binary value + 1 : 000000 = ÷1)
+                ''',
+          resval: "0x5",
+        },
+        { bits: "26:24",
+          name: "SCALAR",
+          desc: '''
+                Settings must maintain the PLL operational
+                value) ranges specified in Table 1.
+                ''',
+          resval: "0x1",
+          enum: [
+            { value: "0x1", name: "DIV_002", desc: "Divide by   2."},
+            { value: "0x2", name: "DIV_004", desc: "Divide by   4."},
+            { value: "0x3", name: "DIV_008", desc: "Divide by   8."},
+            { value: "0x4", name: "DIV_016", desc: "Divide by  16."},
+            { value: "0x5", name: "DIV_032", desc: "Divide by  32."},
+            { value: "0x6", name: "DIV_064", desc: "Divide by  64."},
+            { value: "0x7", name: "DIV_128", desc: "Divide by 128."},
+          ],
+        },
+      ],
+    },
+    { skipto: "0x0200" },
+    { multireg: { name: "PLL_CONFIG_STATIC",
+        desc: "PLL configuration control register for tweaking values.",
+        count: "NUM_PLL",
+        swaccess: "rw",
+        hwaccess: "hro",
+        cname: "PLL_CONFIG_STATIC",
+        fields: [
+          { bits: "1:0",
+            name: "LOCK_CON_OUT",
+            desc: '''Lock detector setting of the output margin.''',
+            resval: "0x3",
+          },
+          { bits: "3:2",
+            name: "LOCK_CON_IN",
+            desc: '''Lock detector setting of the input margin..''',
+            resval: "0x3",
+          },
+          { bits: "5:4",
+            name: "LOCK_CON_DLY",
+            desc: '''Lock detector setting of the detection resolution.''',
+            resval: "0x3",
+          },
+          { bits: "7:6",
+            name: "ICP",
+            desc: '''Controls the charge-pump current.''',
+            resval: "0x1",
+          },
+          { bits: "8",
+            name: "AFC_ENB",
+            desc: '''
+                  If `AFC_ENB==0`, AFC is enabled and VCO is calibrated automatically.
+                  If `AFC_ENB==1`, AFC is disabled and VCO is calibrated manually by EXTAFC[4:0] for the test of VCO range.
+                  ''',
+            resval: "0x0",
+          },
+          { bits: "20:16",
+            name: "EXTAFC",
+            desc: '''
+                  If `AFC_ENB==1`, AFC is disabled and VCO is calibrated manually by EXTAFC[4:0]
+                  for the test of VCO range.
+                  ''',
+            resval: "0x00",
+          },
+          { bits: "27:24",
+            name: "RSEL",
+            desc: '''Reserved pin.''',
+            resval: "0x8",
+          },
+        ],
+      },
+    },
+    ////////////////
+    // PLL Status //
+    ////////////////
+    { skipto: "0x1000" },
+    { multireg: { name: "PLL_STATUS",
+        desc: "PLL status register.",
+        count: "NUM_PLL",
+        swaccess: "ro",
+        hwaccess: "hwo",
+        hwext: "True",
+        cname: "PLL_STATUS",
+        fields: [
+          { bits: "0",
+            name: "LOCK",
+            desc: '''
+                  If PLL is unlocked, `LOCK == 0`. If PLL is locked, `LOCK = 1`.
+                  ''',
+          },
+          { bits: "1",
+            name: "FEED_OUT",
+            desc: '''
+                  Monitoring pin. FREF or FEED can be observed.
+                  ''',
+          },
+          { bits: "12:8",
+            name: "AFC_CODE",
+            desc: '''
+                  Monitoring pin. Output code of AFC.
+                  ''',
+          },
+        ],
+      },
+    },
+    ////////////////////////////
+    // MUX and DIVISOR Config //
+    ////////////////////////////
+    { skipto: "0x2000" },
+    { multireg: { name: "MUX_DIV_CONFIG",
+        desc: '''
+              Control Register for the system clock mux and integer division.
+
+              - `0`: FAST_CLK
+              - `1`: APU_CLK
+              - `2`: CODEC_CLK
+              - `3`: EMMC_CLK
+              - `4`: PERIPH_CLK
+              - `5`: PVT_CLK
+              ''',
+        count: "NUM_SYS_CLK",
+        swaccess: "rw",
+        hwaccess: "hro",
+        hwqe: "True",
+        cname: "MUX_DIV_CONFIG",
+        fields: [
+          { bits: "0",
+            name: "DIV_MUX_ENABLE",
+            desc: '''
+                  Use this to turn the clock off to the respective subsystem.
+                  ''',
+            resval: "0x1",
+          },
+          { bits: "4",
+            name: "DIV_MUX_SELECT",
+            desc: "Select the clock that should be sent to the respective subsystem.",
+            resval: "0x0",
+            enum: [
+              { value: "0x0", name: "REF_CLK", desc: "Select the Reference Clock."},
+              { value: "0x1", name: "DIV_CLK", desc: "Select a divided PLL Clock."},
+            ],
+          },
+          { bits: "8",
+            name: "PLL_MUX_ENABLE",
+            desc: '''
+                  Enable the clock mux. Note: If this is `0` the fast logic of the divider will not be clocked as well as the divisor will not be taken over!
+                  ''',
+            resval: "0x1",
+          },
+          { bits: "12",
+            name: "PLL_MUX_SELECT",
+            desc: "Select the clock that should be sent to the respective subsystem.",
+            resval: "0x0",
+            enum: [
+              { value: "0x0", name: "PLL_SYS_0_CLK", desc: "Select PLL 0 Clock."},
+              { value: "0x1", name: "PLL_SYS_1_CLK", desc: "Select PLL 1 Clock."},
+            ],
+          },
+          { bits: "21:16",
+            name: "DIVISOR",
+            desc: '''
+                  The integer division value that should be applied to the muxed clock.
+
+                  - If `0` the output clock of the divider is turned off.
+                  - Maximum value can be read from `MUX_DIV_STATUS.MAX_DIVISOR`.
+                  ''',
+            resval: "0x1",
+          },
+        ],
+      },
+    },
+    { name: "MUX_DDR_CONFIG",
+      desc: "Control Register for the ddr east clock mux.",
+      swaccess: "rw",
+      hwaccess: "hro",
+      fields: [
+        { bits: "0",
+          name: "MUX_ENABLE",
+          desc: '''
+                Enable the clock mux. Note: If this is `0` the fast logic of the divider will not be clocked as well as the divisor will not be taken over!
+                ''',
+          resval: "0x1",
+        },
+        { bits: "4",
+          name: "MUX_SELECT",
+          desc: "Select one of the input clocks.",
+          resval: "0x0",
+          enum: [
+            { value: "0x0", name: "REF_CLK",     desc: "Select the Reference Clock."},
+            { value: "0x1", name: "PLL_DDR_CLK", desc: "Select the System PLL 0 Clock."},
+          ],
+        },
+      ],
+    },
+    //////////////////////
+    // Clock Mux Status //
+    //////////////////////
+    { skipto: "0x3000" },
+    { multireg: { name: "MUX_DIV_STATUS",
+        desc: '''
+              Status Register for the system clock mux and integer division.
+
+              - `0`: FAST_CLK
+              - `1`: APU_CLK
+              - `2`: CODEC_CLK
+              - `3`: EMMC_CLK
+              - `4`: PERIPH_CLK
+              - `5`: PVT_CLK
+              ''',
+        count: "NUM_SYS_CLK",
+        swaccess: "ro",
+        hwaccess: "hwo",
+        hwext: "True",
+        cname: "MUX_DIV_STATUS",
+        fields: [
+          { bits: "0",
+            name: "DIV_MUX_IS_ON",
+            desc: '''
+                  A clock on the mux after the divider is currently selected.
+                  ''',
+          },
+          { bits: "2:1",
+            name: "DIV_MUX_ACTIVE",
+            desc: '''
+                  The onehot index of the exact clock that is active.
+
+                  - `0x1` : The ref clock is active.
+                  - `0x2` : The divided PLL clock is active.
+                  ''',
+          },
+          { bits: "4",
+            name: "PLL_MUX_IS_ON",
+            desc: '''
+                  A clock on the mux after the divider is currently selected.
+                  ''',
+          },
+          { bits: "6:5",
+            name: "PLL_MUX_ACTIVE",
+            desc: '''
+                  The onehot index of the exact clock that is active.
+
+                  - `0x1` : PLL0 clock is active.
+                  - `0x2` : PLL1 clock is active.
+                  ''',
+          },
+          { bits: "13:8",
+            name: "MAX_DIVISOR",
+            desc: '''
+                  The maximum value that the hardware supports for MUX_DIV_CONFIG.DIVISOR.
+                  ''',
+          },
+        ],
+      },
+    },
+    { name: "MUX_DDR_STATUS",
+      desc: "Status Register for the DDR east clock mux.",
+      swaccess: "ro",
+      hwaccess: "hwo",
+      hwext: "True",
+      fields: [
+        { bits: "0",
+          name: "MUX_IS_ON",
+          desc: '''
+                A clock on the mux is currently selected.
+                ''',
+        },
+        { bits: "2:1",
+          name: "MUX_ACTIVE",
+          desc: '''
+                The onehot index of the exact clock that is active.
+                ''',
+        },
+      ],
+    },
+    ///////////////////////
+    // Frequency Counter //
+    ///////////////////////
+    { skipto: "0x4000" },
+    { multireg: { name: "FREQ_COUNTER",
+        desc: '''
+              Observability register for the frequency counters.
+
+              - `0`: FAST_CLK
+              - `1`: APU_CLK
+              - `2`: CODEC_CLK
+              - `3`: EMMC_CLK
+              - `4`: PERIPH_CLK
+              - `5`: PVT_CLK
+              - `6`: DDR_EAST_CLK
+              - `7`: REF_CLK
+              ''',
+        count: "NUM_SYS_CLK+2",
+        swaccess: "ro",
+        hwaccess: "hwo",
+        hwext: "True",
+        cname: "FREQ_COUNTER",
+        fields: [
+          { bits: "31:0",
+            desc: '''
+                  The observed count.
+                  ''',
+          },
+        ],
+      },
+    },
+  ]
+}

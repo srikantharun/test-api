@@ -1,0 +1,631 @@
+// Copyright lowRISC contributors.
+// Licensed under the Apache License, Version 2.0, see LICENSE for details.
+// SPDX-License-Identifier: Apache-2.0
+{ name: "dwpu_csr",
+  clocking: [{clock: "clk_i", reset: "rst_ni"}],
+  bus_interfaces: [
+    { protocol: "tlul", direction: "device" }
+  ],
+  regwidth: "64",
+  addrcap: "0x10000",
+  axi_intf: True
+  param_list : [
+    {name:"AXI_AW", type:"int", default:"28"},
+    {name:"AXI_IDW", type:"int", default:"9"},
+    {name:"AXI_LENW", type:"int", default:"8"}
+  ]
+  registers: [
+    { name: "CMDBLK_CTRL",
+      desc: "Control register of the CMD Block.",
+      swaccess: "rw",
+      hwaccess: "hro",
+      fields: [
+        {
+            bits: "0",
+            name: "EXEC_EN",
+            desc: '''
+                  While `EXEC_EN` is high, the block processes commands, that are pushed into the command FIFO.
+                  ''',
+            resval: 0x0
+        }
+        {
+            bits: "1",
+            name: "PTR_RST",
+            desc: '''
+                  Synchronous active-high reset of the command FIFO's input word pointer.
+                  Set and unset `PTR_RST` to reset `CMDBLK_STATUS.IN_WORD_PTR` to 0. Only use this for error recovery.
+                  ''',
+            resval: 0x0
+        }
+      ]
+    },
+    { name: "CMDBLK_STATUS",
+      desc: "Status register of the CMD Block.",
+      swaccess: "ro",
+      hwaccess: "hwo",
+      hwext : True
+      fields: [
+        {
+            bits: "1:0",
+            name: "STATE",
+            desc: '''
+                  0: `IDLE` Command FIFO and fill buffer are both empty.
+                  1: `FILL` Command FIFO is empty, but there is at least a header in the fill buffer
+                  2: `READY` Command FIFO contains at least one item
+                  3: `EXECUTE` Outstanding commands is at least 1
+                  '''
+        }
+        {
+            bits: "2",
+            name: "WAIT_TOKEN",
+            desc: '''
+                  `WAIT_TOKEN` is high iff a command is waiting at the output buffer of the command FIFO for a token to arrive.
+                  '''
+        }
+        {
+            bits: "15:8",
+            name: "IN_WORD_PTR",
+            desc: '''
+                  The input word pointer is used to construct the input data for the command FIFO and
+                  points to the next 64bit word of the input data to be received by the next AXI transaction.
+                  '''
+        }
+        {
+            bits: "23:16",
+            name: "FIFO_CNT",
+            desc: '''Fill counter of the command FIFO.'''
+        }
+        {
+            bits: "31:24",
+            name: "OUTST_CMDS",
+            desc: '''
+                  Number of outstanding commands.
+                  A command is outstanding iff it has been popped from the command FIFO and sent for execution,
+                  but the datapath has not yet signaled that its execution has been done.
+                  '''
+        }
+        {
+            bits: "47:32",
+            name: "PENDING_TOKENS",
+            desc: '''
+                  Signals which consume tokens are pending.
+                  '''
+        }
+      ]
+    },
+
+    {
+      name: "IRQ_EN",
+      desc: "Interupt enable register",
+      swaccess: "rw",
+      hwaccess: "hro",
+      fields: [
+        { bits: "0",
+          name: "ERR_ACT_STREAM_IN",
+          desc: '''Enable IRQ flagging of still active input stream at the end of instr program.'''
+        }
+        { bits: "1",
+          name: "ERR_ACT_STREAM_OUT",
+          desc: '''Enable IRQ flagging of still active output stream at the end of instr program.'''
+        }
+        { bits: "2",
+          name: "ERR_ILLEGAL_FORMAT",
+          desc: '''Enable IRQ flagging of illegal command FORMAT values.'''
+        }
+        { bits: "3",
+          name: "ERR_EMPTY_PROGRAM",
+          desc: '''Enable IRQ flagging of empty programs.'''
+        }
+        { bits: "4",
+          name: "ERR_MAIN_0_LENGTH",
+          desc: '''Enable IRQ flagging of main loop 0 length maps outside of memory.'''
+        }
+        { bits: "5",
+          name: "ERR_MAIN_1_LENGTH",
+          desc: '''Enable IRQ flagging of main loop 1 length maps outside of memory.'''
+        }
+        { bits: "6",
+          name: "ERR_MAIN_2_LENGTH",
+          desc: '''Enable IRQ flagging of main loop 2 length maps outside of memory.'''
+        }
+        { bits: "7",
+          name: "ERR_NESTED_0_LENGTH",
+          desc: '''Enable IRQ flagging of nested 0 loop length maps outside of memory.'''
+        }
+        { bits: "8",
+          name: "ERR_NESTED_1_LENGTH",
+          desc: '''Enable IRQ flagging of nested 1 loop length maps outside of memory.'''
+        }
+        { bits: "9",
+          name: "ERR_NESTED_0_MAPPING",
+          desc: '''Enable IRQ flagging of nested 0 loop does not map to main loop.'''
+        }
+        { bits: "10",
+          name: "ERR_NESTED_1_MAPPING",
+          desc: '''Enable IRQ flagging of nested 1 loop does not map to main loop.'''
+        }
+        { bits: "11",
+          name: "ERR_NESTED_0_SEGFAULT",
+          desc: '''Enable IRQ flagging of nested 0 segmentation fault.'''
+        }
+        { bits: "12",
+          name: "ERR_NESTED_1_SEGFAULT",
+          desc: '''Enable IRQ flagging of nested 1 segmentation fault.'''
+        }
+        { bits: "13",
+          name: "ERR_NESTED_ORDER",
+          desc: '''Enable IRQ flagging of nested 1 starts before nested 0 when they are parallel to each other in the same main loop.'''
+        }
+        { bits: "14",
+          name: "ERR_NESTED_NESTING",
+          desc: '''Enable IRQ flagging of the nested loops are overlapping.'''
+        }
+        { bits: "15",
+          name: "ERR_NESTED_OVERLAP",
+          desc: '''Enable IRQ flagging of inner 1 overlapping inner 0.'''
+        }
+        { bits: "16",
+          name: "CMDBLK_CMD_DROPPED",
+          desc: '''
+                Enable IRQ flagging of command block FIFO command dropping.
+                '''
+          resval: 0x1
+        }
+        { bits: "32",
+          name: "DBG_SW_INTERRUPT",
+          desc: '''
+                Enable IRQ flagging of the debug SW interrupt.
+                '''
+        }
+      ]
+    },
+    {
+      name: "IRQ_STATUS",
+      desc: "Interrupt status register",
+      swaccess: "rw1c",
+      hwaccess: "hrw"
+      fields: [
+        { bits: "0",
+          name: "ERR_ACT_STREAM_IN",
+          desc: '''Invalid program: input stream is active at the end of instr program,
+                   i.e., no `TLAST` was received on the input stream.'''
+        }
+        { bits: "1",
+          name: "ERR_ACT_STREAM_OUT",
+          desc: '''Invalid program: output stream is active at the end of instr program,
+                   i.e., no `TLAST` was produced on the output stream.'''
+        }
+        { bits: "2",
+          name: "ERR_ILLEGAL_FORMAT",
+          desc: '''Invalid program: FORMAT field in command descriptor header unknown.'''
+        }
+        { bits: "3",
+          name: "ERR_EMPTY_PROGRAM",
+          desc: '''Invalid program: total length of all program sections is zero,
+                   i.e., either number of iterations or length is zero.'''
+        }
+        { bits: "4",
+          name: "ERR_MAIN_0_LENGTH",
+          desc: '''Invalid program: main loop 0 length maps outside of memory.'''
+        }
+        { bits: "5",
+          name: "ERR_MAIN_1_LENGTH",
+          desc: '''Invalid program: main loop 1 length maps outside of memory.'''
+        }
+        { bits: "6",
+          name: "ERR_MAIN_2_LENGTH",
+          desc: '''Invalid program: main loop 2 length maps outside of memory.'''
+        }
+        { bits: "7",
+          name: "ERR_NESTED_0_LENGTH",
+          desc: '''Invalid program: nested 0 loop length maps outside of memory.'''
+        }
+        { bits: "8",
+          name: "ERR_NESTED_1_LENGTH",
+          desc: '''Invalid program: nested 1 loop length maps outside of memory.'''
+        }
+        { bits: "9",
+          name: "ERR_NESTED_0_MAPPING",
+          desc: '''Invalid program: nested 0 loop does not map to main loop.'''
+        }
+        { bits: "10",
+          name: "ERR_NESTED_1_MAPPING",
+          desc: '''Invalid program: nested 1 loop does not map to main loop.'''
+        }
+        { bits: "11",
+          name: "ERR_NESTED_0_SEGFAULT",
+          desc: '''Invalid program: nested 0 segmentation fault.'''
+        }
+        { bits: "12",
+          name: "ERR_NESTED_1_SEGFAULT",
+          desc: '''Invalid program: nested 1 segmentation fault.'''
+        }
+        { bits: "13",
+          name: "ERR_NESTED_ORDER",
+          desc: '''Invalid program: nested 1 starts before nested 0 when they are parallel to each other in the same main loop.'''
+        }
+        { bits: "14",
+          name: "ERR_NESTED_NESTING",
+          desc: '''Invalid program: the nested loops are overlapping.'''
+        }
+        { bits: "15",
+          name: "ERR_NESTED_OVERLAP",
+          desc: '''Invalid program: inner 1 overlapping inner 0.'''
+        }
+        { bits: "16",
+          name: "CMDBLK_CMD_DROPPED",
+          desc: '''
+                The command block FIFO had to drop at least one command because the FIFO was already full.
+                '''
+        }
+        { bits: "32",
+          name: "DBG_SW_INTERRUPT",
+          desc: '''
+                SW triggered the debug interrupt by setting the `DP_CTRL.DBG_SW_IRQ` to high.
+                '''
+        }
+      ]
+    },
+    { name: "DP_CTRL",
+      desc: "Control register of the datapath.",
+      swaccess: "rw",
+      hwaccess: "hro",
+      fields: [
+        {
+            bits: "0",
+            name: "WEIGHTS_SGN",
+            desc: '''When set to '0', weight operands are treated as unsigned.
+                     When set to '1', weight operands are treated as two's complement signed.''',
+            resval: 0x1
+        }
+        {
+            bits: "1",
+            name: "IMAGE_SGN",
+            desc: '''When set to '0', image operands are treated as unsigned.
+                     When set to '1', image operands are treated as two's complement signed.''',
+            resval: 0x1
+        }
+        {
+            bits: "2",
+            name: "SKIP_ILLEGAL_PROG",
+            desc: '''When set to '0', illegal programs are detected, but executed normally.
+                     When set to '1', illegal programs are detected and skipped.''',
+            resval: 0x0
+        }
+        {
+            bits: "32",
+            name: "DBG_SW_IRQ",
+            desc: '''
+                  `DBG_SW_IRQ` is a level-triggered interrupt request.
+                  Set `DBG_SW_IRQ` to high to trigger the debug SW interrupt.
+                  Interrupt handler must set `DBG_SW_IRQ` to low again.
+                  '''
+            resval: 0x0
+        }
+
+      ]
+    },
+    { name: "DP_STATUS",
+      desc: "Datapath status observarion register.",
+      swaccess: "ro",
+      hwaccess: "hwo",
+      hwext : True
+      fields: [
+        {
+            bits: "0",
+            name: "IN0_VLD",
+            desc: '''Valid signal of the first input AXIS stream after input FIFO / buffer (if present).'''
+        }
+        {
+            bits: "1",
+            name: "IN0_RDY",
+            desc: '''Ready signal of the first input AXIS stream after input FIFO / buffer (if present).'''
+        }
+        {
+            bits: "2",
+            name: "IN0_LST",
+            desc: '''Last signal of the first input AXIS stream after input FIFO / buffer (if present).'''
+        }
+        {
+            bits: "3",
+            name: "IN0_STL",
+            desc: '''Indicates a stall on the first input AXIS stream after input FIFO / buffer (if present).'''
+        }
+        // {
+        //     bits: "4",
+        //     name: "IN1_VLD",
+        //     desc: '''Valid signal of the second input AXIS stream after input FIFO / buffer (if present).'''
+        // }
+        // {
+        //     bits: "5",
+        //     name: "IN1_RDY",
+        //     desc: '''Ready signal of the second input AXIS stream after input FIFO / buffer (if present).'''
+        // }
+        // {
+        //     bits: "6",
+        //     name: "IN1_LST",
+        //     desc: '''Last signal of the second input AXIS stream after input FIFO / buffer (if present).'''
+        // }
+        // {
+        //     bits: "7",
+        //     name: "IN1_STL",
+        //     desc: '''Indicates a stall on the second input AXIS stream after input FIFO / buffer (if present).'''
+        // }
+        {
+            bits: "8",
+            name: "OUT_VLD",
+            desc: '''Valid signal of the output AXIS stream before output FIFO / buffer (if present).'''
+        }
+        {
+            bits: "9",
+            name: "OUT_RDY",
+            desc: '''Ready signal of the output AXIS stream before output FIFO / buffer (if present).'''
+        }
+        {
+            bits: "10",
+            name: "OUT_LST",
+            desc: '''Last signal of the output AXIS stream before output FIFO / buffer (if present).'''
+        }
+        {
+            bits: "11",
+            name: "OUT_STL",
+            desc: '''Indicates a stall on the output AXIS stream before output FIFO / buffer (if present).'''
+        }
+        {
+            bits: "16",
+            name: "DPCMD0_VLD",
+            desc: '''Valid signal of the execution `DPcmd` AXIS stream after command FIFO / buffer (if present).'''
+        }
+        {
+            bits: "17",
+            name: "DPCMD0_RDY",
+            desc: '''Ready signal of the execution `DPcmd` AXIS stream after command FIFO / buffer (if present).'''
+        }
+        {
+            bits: "18",
+            name: "DPCMD0_LST",
+            desc: '''Last signal of the execution `DPcmd` AXIS stream after command FIFO / buffer (if present).'''
+        }
+        {
+            bits: "19",
+            name: "DPCMD0_STL",
+            desc: '''Indicates a stall on the execution `DPcmd` AXIS stream after command FIFO / buffer (if present).'''
+        }
+        // {
+        //     bits: "20",
+        //     name: "DPCMD1_VLD",
+        //     desc: '''Valid signal of the programming `DPcmd` AXIS stream after command FIFO / buffer (if present).'''
+        // }
+        // {
+        //     bits: "21",
+        //     name: "DPCMD1_RDY",
+        //     desc: '''Ready signal of the programming `DPcmd` AXIS stream after command FIFO / buffer (if present).'''
+        // }
+        // {
+        //     bits: "22",
+        //     name: "DPCMD1_LST",
+        //     desc: '''Last signal of the programming `DPcmd` AXIS stream after command FIFO / buffer (if present).'''
+        // }
+        // {
+        //     bits: "23",
+        //     name: "DPCMD1_STL",
+        //     desc: '''Indicates a stall on the programming `DPcmd` AXIS stream after command FIFO / buffer (if present).'''
+        // }
+        {
+            bits: "33:32",
+            name: "CURRENT_OP",
+            desc: '''Currently decoded operation.'''
+        }
+        {
+            bits: "34",
+            name: "OP_MODE",
+            desc: '''Operation mode of the datapath.
+                     A value of 0 indicates the datapath is in normal mode.
+                     A value of 1 indicates the datapath is in bypass mode.'''
+        }
+        {
+            bits: "35",
+            name: "PIPE_FLUSHED",
+            desc: '''A value of 1 indicates that no valid data is in flight in the datapath pipeline.'''
+        }
+        {
+            bits: "48",
+            name: "CH_IN_LST",
+            desc: '''Last signal at the input to the DWPU channels.'''
+        }
+        {
+            bits: "49",
+            name: "CH_IN_RDY",
+            desc: '''Ready signal at the input to the DWPU channels.'''
+        }
+        {
+            bits: "50",
+            name: "CH_IN_VLD",
+            desc: '''Valid signal at the input to the DWPU channels.'''
+        }
+        {
+            bits: "51",
+            name: "CH_OUT_LST",
+            desc: '''Last signal at the output of the DWPU channels'''
+        }
+        {
+            bits: "52",
+            name: "CH_OUT_RDY",
+            desc: '''Ready signal at the output of the DWPU channels'''
+        }
+        {
+            bits: "53",
+            name: "CH_OUT_VLD",
+            desc: '''Valid signal at the output of the DWPU channels'''
+        }
+
+      ]
+    },
+    { name: "DBG_OBSERVE",
+      desc: "Observation register.",
+      swaccess: "ro",
+      hwaccess: "hwo",
+      hwext : True
+      fields: [
+        {
+            bits: "0",
+            name: "IN0_VLD",
+            desc: '''Valid signal of the first input AXIS stream.'''
+        }
+        {
+            bits: "1",
+            name: "IN0_RDY",
+            desc: '''Ready signal of the first input AXIS stream.'''
+        }
+        {
+            bits: "2",
+            name: "IN0_LST",
+            desc: '''Last signal of the first input AXIS stream.'''
+        }
+        // {
+        //     bits: "4",
+        //     name: "IN1_VLD",
+        //     desc: '''Valid signal of the second input AXIS stream.'''
+        // }
+        // {
+        //     bits: "5",
+        //     name: "IN1_RDY",
+        //     desc: '''Ready signal of the second input AXIS stream.'''
+        // }
+        // {
+        //     bits: "6",
+        //     name: "IN1_LST",
+        //     desc: '''Last signal of the second input AXIS stream.'''
+        // }
+        {
+            bits: "8",
+            name: "OUT_VLD",
+            desc: '''Valid signal of the output AXIS stream.'''
+        }
+        {
+            bits: "9",
+            name: "OUT_RDY",
+            desc: '''Ready signal of the output AXIS stream.'''
+        }
+        {
+            bits: "10",
+            name: "OUT_LST",
+            desc: '''Last signal of the output AXIS stream.'''
+        }
+        {
+            bits: "16",
+            name: "DPCMD0_VLD",
+            desc: '''Valid signal of the execution `DPcmd` AXIS stream after multiplexer.'''
+        }
+        {
+            bits: "17",
+            name: "DPCMD0_RDY",
+            desc: '''Ready signal of the execution `DPcmd` AXIS stream after multiplexer.'''
+        }
+        {
+            bits: "18",
+            name: "DPCMD0_LST",
+            desc: '''Last signal of the execution `DPcmd` AXIS stream after multiplexer.'''
+        }
+        // {
+        //     bits: "20",
+        //     name: "DPCMD1_VLD",
+        //     desc: '''Valid signal of the programming `DPcmd` AXIS stream after multiplexer.'''
+        // }
+        // {
+        //     bits: "21",
+        //     name: "DPCMD1_RDY",
+        //     desc: '''Ready signal of the programming `DPcmd` AXIS stream after multiplexer.'''
+        // }
+        // {
+        //     bits: "22",
+        //     name: "DPCMD1_LST",
+        //     desc: '''Last signal of the programming `DPcmd` AXIS stream after multiplexer.'''
+        // }
+      ]
+    },
+    { name: "CMDGEN_STATUS",
+      desc: "DP command generator observation register.",
+      swaccess: "ro",
+      hwaccess: "hwo",
+      hwext : True
+      fields: [
+        {
+            bits: "7:0",
+            name: "MAIN_INDEX",
+            desc: '''The main loop index being executed.'''
+        }
+        {
+            bits: "8",
+            name: "OVERALL_LAST",
+            desc: '''Current iterations are the overall last ones.'''
+        }
+      ]
+    },
+    { name: "DBG_SCRATCH",
+      desc: "Scratch register only accessible through SW for debugging purposes.",
+      swaccess: "rw",
+      hwaccess: "none"
+      fields: [
+        {
+            bits: "63:0",
+            name: "SCRATCH",
+            desc: '''Scratch register field.''',
+            resval: 0x0
+        }
+      ]
+    },
+    { name: "DBG_ID",
+      desc: "Block identification register.",
+      swaccess: "ro",
+      hwaccess: "hwo",
+      hwext : True
+      fields: [
+        {
+            bits: "7:0",
+            name: "BLOCK_ID",
+            desc: '''Unique identifier of an `AI Core` block. Note, that the same blocks in each `AI Core` instance share the same `BLOCK_ID`.'''
+        }
+        {
+            bits: "15:8",
+            name: "AI_CORE_ID",
+            desc: '''`AI_CORE_ID` aka `CID` is a unique identifier of the `AI Core` instance.'''
+        }
+        {
+            bits: "23:16",
+            name: "HW_REVISION",
+            desc: '''Major hardware revision number.'''
+        }
+      ]
+    },
+
+    { name: "HW_CAPABILITY",
+      desc: "Hardware capability register for the instance.",
+      swaccess: "ro",
+      hwaccess: "hwo",
+      hwext : True
+      fields: [
+        {
+            bits: "7:0",
+            name: "CMD_FIFO_DEPTH",
+            desc: '''Depth of the command FIFO in the CMD block.'''
+        }
+        {
+             bits: "31:16",
+             name: "INSTR_MEM_DEPTH",
+             desc: '''Depth of the instruction memory in the `DPcmdgen` block, measured in number of instructions.'''
+        }
+        // {
+        //      bits: "32",
+        //      name: "STATIC_CMD_PRESENT",
+        //      desc: '''If set to high, the static part of the command block is present.'''
+        // }
+        // {
+        //     bits: "33",
+        //     name: "VTRSP_PRESENT",
+        //     desc: '''If set to high, the VTRSP block is present in the instance'''
+        // }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,20 @@
+# (C) Copyright 2024 Axelera AI B.V.
+# All Rights Reserved
+# *** Axelera AI Confidential ***
+
+package:
+  name: aic_control_dispatcher_pkg
+  description: "Constants and typedefs for the Ai-Core Control Dispatcher"
+  authors:
+    - "Wolfgang Roenninger <wolfgang.roenninger@axelera.ai>"
+
+# Source files grouped in levels.
+# Files in level 0 have no dependencies on files in this package.
+# Files in level 1 only depend on files in level 0, files in level 2 on files in levels 1 and 0, etc.
+# Files within a level are ordered alphabetically.
+sources:
+  - files:
+      # Level 0
+      - aic_cd_pkg.sv
+      - aic_cd_defaults_pkg.sv
+      - ../build_reg/aic_cd_csr_reg_pkg.sv

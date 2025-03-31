@@ -1,0 +1,23 @@
+# (C) Copyright 2024 Axelera AI B.V.
+# All Rights Reserved
+# *** Axelera AI Confidential ***
+
+package:
+  name: dma_ip_uvm_seq
+  description: "DMA IP verification environment"
+  authors:
+    - "sultan.khan@axelera.ai"
+
+dependencies:
+  dma:                         { path: "hw/ip/dma/default/rtll"  } # call in DUT RTL
+  svt_amba_vip:                { path: "../../../../../../dv/svt_amba_vip"}
+  dma_ip_uvm_ral:              { path: "../ral" }
+  dma_ip_uvm_env:              { path: "../env" }
+  dma_ip_uvm_common:           { path: "../common" }
+
+sources:
+  - target: simulation
+    include_dirs:
+      - .
+    files:
+      - dma_ip_seq_pkg.sv

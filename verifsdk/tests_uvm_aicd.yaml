@@ -1,0 +1,90 @@
+tests:
+#  - name: ai_core_cd_connectivity_test
+#    description: This testcase ensures all interfaces are connected and no unwanted traffic is sent when DUT goes out of Reset
+#    labels: [HW_IP_AICD_DV_SIM_NIGHTLY_TEST, HW_IP_AICD_DV_SIM_WEEKLY_TEST]
+#    requirement_ids: [ACD_CONN_0, ACD_CONN_1, ACD_CONN_2, ACD_CONN_3, ACD_CONN_4, ACD_CONN_5, ACD_CONN_6, ACD_CONN_7]
+#    platforms: [uvm.HW_IP_AICD_DEFAULT_DV_SIM]
+#    owner: Gabriel Bratu
+#    flags: ["+CONNECTIVITY_TEST"]
+#    repeat_count: 1
+#    seeds: [1]
+#
+#  - name: ai_core_cd_ral_test
+#    description: This testcase access all CSRs (expect RO) and check that the data and response are accordingly to the RAL specification
+#    labels: [HW_IP_AICD_DV_SIM_NIGHTLY_TEST, HW_IP_AICD_DV_SIM_WEEKLY_TEST]
+#    requirement_ids: []
+#    platforms: [uvm.HW_IP_AICD_DEFAULT_DV_SIM]
+#    owner: Gabriel Bratu
+#    flags: ["+RAL_TEST"]
+#    repeat_count: 1
+#    seeds: [1]
+#
+#  - name: ai_core_cd_ral_custom_test
+#    description: This testcase access all CSRs and check that response is accordingly to the RAL specification. Done to check that RO registers answer correctly when beign written.
+#    labels: [HW_IP_AICD_DV_SIM_NIGHTLY_TEST, HW_IP_AICD_DV_SIM_WEEKLY_TEST]
+#    requirement_ids: []
+#    platforms: [uvm.HW_IP_AICD_DEFAULT_DV_SIM]
+#    owner: Gabriel Bratu
+#    flags: ["+RAL_TEST"]
+#    repeat_count: 1
+#    seeds: [1]
+
+  - name: ai_core_cd_instr_cmd_smoke_test
+    description: This testcase ensures basic functionality of CMD Instruction
+    labels: [                                 HW_IP_AICD_DV_SIM_NIGHTLY_TEST, HW_IP_AICD_DV_SIM_WEEKLY_TEST]
+    requirement_ids: [ACD_CONN_7, ACD_FEAT_0, ACD_FEAT_1, ACD_FEAT_2, ACD_FEAT_25, ACD_FEAT_29, ACD_FEAT_31]
+    platforms: [uvm.HW_IP_AICD_DEFAULT_DV_SIM]
+    owner: Gabriel Bratu
+    flags: ["+SMOKE_TEST"]
+    repeat_count: 1
+    seeds: [1]
+
+  - name: ai_core_cd_instr_prg_smoke_light_test
+    description: This testcase ensures basic functionality of PRG Instruction
+    labels: [HW_IP_AICD_DV_SIM_MERGE_REQUEST, HW_IP_AICD_DV_SIM_NIGHTLY_TEST, HW_IP_AICD_DV_SIM_WEEKLY_TEST]
+    requirement_ids: [ACD_CONN_7, ACD_FEAT_1, ACD_FEAT_2, ACD_FEAT_17, ACD_FEAT_25, ACD_FEAT_30, ACD_FEAT_32]
+    platforms: [uvm.HW_IP_AICD_DEFAULT_DV_SIM]
+    owner: Gabriel Bratu
+    flags: ["+SMOKE_TEST"]
+    repeat_count: 1
+    seeds: [1]
+
+  - name: ai_core_cd_instr_prg_smoke_test
+    description: This testcase ensures basic functionality of PRG Instruction
+    labels: [HW_IP_AICD_DV_SIM_MERGE_REQUEST, HW_IP_AICD_DV_SIM_NIGHTLY_TEST, HW_IP_AICD_DV_SIM_WEEKLY_TEST]
+    requirement_ids: [ACD_CONN_7, ACD_FEAT_0, ACD_FEAT_1, ACD_FEAT_2, ACD_FEAT_17, ACD_FEAT_25, ACD_FEAT_30, ACD_FEAT_32]
+    platforms: [uvm.HW_IP_AICD_DEFAULT_DV_SIM]
+    owner: Gabriel Bratu
+    flags: ["+SMOKE_TEST"]
+    repeat_count: 1
+    seeds: [1]
+
+  - name: ai_core_cd_instr_tkn_smoke_test
+    description: This testcase ensures basic functionality of TKN Instruction
+    labels: [HW_IP_AICD_DV_SIM_MERGE_REQUEST, HW_IP_AICD_DV_SIM_NIGHTLY_TEST, HW_IP_AICD_DV_SIM_WEEKLY_TEST]
+    requirement_ids: [ACD_FEAT_1, ACD_FEAT_2, ACD_FEAT_20, ACD_FEAT_21, ACD_FEAT_22, ACD_FEAT_23]
+    platforms: [uvm.HW_IP_AICD_DEFAULT_DV_SIM]
+    owner: Gabriel Bratu
+    flags: ["+SMOKE_TEST"]
+    repeat_count: 1
+    seeds: [1]
+
+  - name: ai_core_cd_instr_tms_smoke_test
+    description: This testcase ensures basic functionality of TMS Instruction
+    labels: [HW_IP_AICD_DV_SIM_MERGE_REQUEST, HW_IP_AICD_DV_SIM_NIGHTLY_TEST, HW_IP_AICD_DV_SIM_WEEKLY_TEST]
+    requirement_ids: [ACD_FEAT_1, ACD_FEAT_2, ACD_FEAT_24]
+    platforms: [uvm.HW_IP_AICD_DEFAULT_DV_SIM]
+    owner: Gabriel Bratu
+    flags: ["+SMOKE_TEST"]
+    repeat_count: 1
+    seeds: [1]
+
+  - name: ai_core_cd_base_test
+    description: This testcase ensures basic functionality of Instructions
+    labels: [                                 HW_IP_AICD_DV_SIM_NIGHTLY_TEST, HW_IP_AICD_DV_SIM_WEEKLY_TEST]
+    requirement_ids: [ACD_CONN_7, ACD_FEAT_0, ACD_FEAT_1, ACD_FEAT_2, ACD_FEAT_17, ACD_FEAT_20, ACD_FEAT_21, ACD_FEAT_22, ACD_FEAT_23, ACD_FEAT_24, ACD_FEAT_25, ACD_FEAT_28, ACD_FEAT_29, ACD_FEAT_30, ACD_FEAT_31, ACD_FEAT_32]
+    platforms: [uvm.HW_IP_AICD_DEFAULT_DV_SIM]
+    owner: Gabriel Bratu
+    flags: ["+FUNCTIONAL_TEST"]
+    repeat_count: 1
+    seeds: [1]

@@ -1,0 +1,9 @@
+package:
+  name: ai_core_common_uvm
+  description: "UVM for AIC Common"
+  authors:
+    - "andrew.bond@axelera.ai"
+
+dependencies:
+  dv_common:                { path: ""}
+  ai_core_dp_cmd_uvm:       { path: "" }

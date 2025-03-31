@@ -1,0 +1,32 @@
+# (C) Copyright 2024 Axelera AI B.V.
+# All Rights Reserved
+# *** Axelera AI Confidential ***
+
+package:
+  name: axe_ccl_design_tb
+  description: "Designer testbenches for some modules of the common_cells_library"
+  authors:
+    - "Wolfgang Roenninger <wolfgang.roenninger@axelera.ai>"
+
+dependencies:
+  cc_lib:                          { path: "" }
+  cc_lib_design_tb_stream_helpers: { path: "" }
+  dv_common_rtl:                   { path: "" }
+
+# Source files grouped in levels.
+# Files in level 0 have no dependencies on files in this package.
+# Files in level 1 only depend on files in level 0, files in level 2 on files in levels 1 and 0, etc.
+# Files within a level are ordered alphabetically.
+sources:
+  - target: simulation
+    files:
+      # Level 0
+      - axe_ccl_clk_div_by_2_tb.sv
+      - axe_ccl_clk_div_by_int_tb.sv
+      - axe_ccl_clk_div_by_pt_tb.sv
+      - axe_ccl_cdc_pulse_tb.sv
+      - cc_stream_tb.sv
+      - axe_ccl_clk_mux_tb.sv
+      - axe_ccl_cnt_phase_acc_tb.sv
+      - cc_stream_tb.sv
+      - axe_ccl_stream_fifo_mem_tb.sv

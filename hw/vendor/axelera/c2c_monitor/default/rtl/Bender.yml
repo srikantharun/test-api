@@ -1,0 +1,27 @@
+# (C) Copyright 2024 Axelera AI B.V.
+# All Rights Reserved
+# *** Axelera AI Confidential ***
+
+package:
+  name: c2c_monitor
+  description: "C2C monitor"
+  authors:
+    - "Manuel Oliveira <manuel.oliveira@axelera.ai>"
+
+dependencies:
+  c2c_monitor_pkg: { path: "" }
+  cc_lib: { path: ""}
+
+# Source files grouped in levels.
+# Files in level 0 have no dependencies on files in this package.
+# Files in level 1 only depend on files in level 0, files in level 2 on files in levels 1 and 0, etc.
+# Files within a level are ordered alphabetically.
+sources:
+  - target: all(rtl, any(simulation, emulation))
+    files:
+    # Level 0
+    - c2c_monitor.sv
+  - target: rtl
+    files:
+    # Level 1
+    - c2c_monitor_wrapper.sv

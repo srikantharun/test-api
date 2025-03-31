@@ -1,0 +1,22 @@
+
+# (C) Copyright 2024 Axelera AI B.V.
+# All Rights Reserved
+# *** Axelera AI Confidential ***
+
+package:
+  name: iau_uvm_agent
+  description: "IAU verification agent"
+  authors:
+    - "fernando.yokota@axelera.ai"
+
+dependencies:
+  iau_uvm_common : { path: "../../common" }
+
+sources:
+  - target: simulation
+    include_dirs:
+      - .
+    files:
+      - iau_agent_pkg.sv
+      - iau_if.sv
+

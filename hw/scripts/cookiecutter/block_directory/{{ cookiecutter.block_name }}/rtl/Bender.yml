@@ -1,0 +1,22 @@
+# (C) Copyright 2024 Axelera AI B.V.
+# All Rights Reserved
+# *** Axelera AI Confidential ***
+
+package:
+  name: {{ cookiecutter.impl_name.lower() }}_{{ cookiecutter.block_name.lower() }}
+  description: "TODO: add description"
+  authors:
+    - "{{ cookiecutter.author_full_name }} <{{ cookiecutter.author_email }}>"
+
+dependencies:
+  {{ cookiecutter.impl_name.lower() }}_{{ cookiecutter.block_name.lower() }}_pkg: { path: "pkg" }
+
+# Source files grouped in levels.
+# Files in level 0 have no dependencies on files in this package.
+# Files in level 1 only depend on files in level 0, files in level 2 on files in levels 1 and 0, etc.
+# Files within a level are ordered alphabetically.
+sources:
+  - target: rtl
+    files:
+    # Level 0
+    - {{ cookiecutter.block_name.lower() }}.sv

@@ -1,0 +1,14 @@
+package:
+  name: ai_core_token_agent_uvm_pkg
+  description: "Token agent package"
+  authors:
+    - "jorge.carvalho@axelera.ai"
+
+sources:
+  - target: simulation
+    include_dirs:
+      - .
+    files:
+      - token_agent_if.sv
+      - token_agent_uvm_pkg.sv
+

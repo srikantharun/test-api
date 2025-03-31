@@ -1,0 +1,186 @@
+# (C) Copyright 2024 Axelera AI B.V.
+# All Rights Reserved
+# *** Axelera AI Confidential ***
+
+package:
+  name: europa_soc_periph_dw_peripherals
+  description: "TODO: add description"
+  authors:
+    - "Matt Morris <matt.morris@axelera.ai>"
+
+# Source files grouped in levels.
+# Files in level 0 have no dependencies on files in this package.
+# Files in level 1 only depend on files in level 0, files in level 2 on files in levels 1 and 0, etc.
+# Files within a level are ordered alphabetically.
+sources:
+  - target: rtl
+    include_dirs: 
+      - .
+      - soc_periph_dw_axi/.
+      - soc_periph_dw_uart/.
+      - soc_periph_dw_gpio/.
+      - soc_periph_dw_ssi/.
+      - soc_periph_dw_i2c_0/.
+      - soc_periph_dw_i2c_1/.
+      - soc_periph_dw_timers/.
+    files:
+       # AXI Fabric
+      - soc_periph_dw_axi/soc_periph_dw_axi_DW_axi_x2p_cc_constants.vh
+      - soc_periph_dw_axi/soc_periph_dw_axi_DW_axi_x2p_bcm_params.vh
+      - soc_periph_dw_axi/soc_periph_dw_axi_DW_axi_x2p_all_includes.vh
+      - soc_periph_dw_axi/soc_periph_dw_axi_DW_axi_x2p_arb.v
+      - soc_periph_dw_axi/soc_periph_dw_axi_DW_axi_x2p_bcm99.v
+      - soc_periph_dw_axi/soc_periph_dw_axi_DW_axi_x2p_bcm06.v
+      - soc_periph_dw_axi/soc_periph_dw_axi_DW_axi_x2p_bcm07.v
+      - soc_periph_dw_axi/soc_periph_dw_axi_DW_axi_x2p_bcm21.v
+      - soc_periph_dw_axi/soc_periph_dw_axi_DW_axi_x2p_bcm05.v
+      - soc_periph_dw_axi/soc_periph_dw_axi_DW_axi_x2p_bcm57.v
+      - soc_periph_dw_axi/soc_periph_dw_axi_DW_axi_x2p_mux.v
+      - soc_periph_dw_axi/soc_periph_dw_axi_DW_axi_x2p_endian_wstrb.v
+      - soc_periph_dw_axi/soc_periph_dw_axi_DW_axi_x2p_cmd_queue.v
+      - soc_periph_dw_axi/soc_periph_dw_axi_DW_axi_x2p_dcdr.v
+      - soc_periph_dw_axi/soc_periph_dw_axi_DW_axi_x2p_first_last_strobe.v
+      - soc_periph_dw_axi/soc_periph_dw_axi_DW_axi_x2p_power_ctrl_legacy.v
+      - soc_periph_dw_axi/soc_periph_dw_axi_DW_axi_x2p_p.v
+      - soc_periph_dw_axi/soc_periph_dw_axi_DW_axi_x2p_read_data_buffer.v
+      - soc_periph_dw_axi/soc_periph_dw_axi_DW_axi_x2p_resp_buffer.v
+      - soc_periph_dw_axi/soc_periph_dw_axi_DW_axi_x2p_s_addr_dcd.v
+      - soc_periph_dw_axi/soc_periph_dw_axi_DW_axi_x2p_s_control.v
+      - soc_periph_dw_axi/soc_periph_dw_axi_DW_axi_x2p_s_packer.v
+      - soc_periph_dw_axi/soc_periph_dw_axi_DW_axi_x2p_s_response.v
+      - soc_periph_dw_axi/soc_periph_dw_axi_DW_axi_x2p_s_unpack.v
+      - soc_periph_dw_axi/soc_periph_dw_axi_DW_axi_x2p_s.v
+      - soc_periph_dw_axi/soc_periph_dw_axi_DW_axi_x2p_write_data_buffer.v
+      - soc_periph_dw_axi/soc_periph_dw_axi_DW_axi_x2p.v
+      - soc_periph_dw_axi/soc_periph_dw_axi_DW_axi_x2p-undef.v    
+      # UART
+      - soc_periph_dw_uart/soc_periph_dw_uart_DW_apb_uart_cc_constants.vh
+      - soc_periph_dw_uart/soc_periph_dw_uart_DW_apb_uart_bcm_params.vh
+      - soc_periph_dw_uart/soc_periph_dw_uart_DW_apb_uart_all_includes.vh
+      - soc_periph_dw_uart/soc_periph_dw_uart_DW_apb_uart_bcm57.v
+      - soc_periph_dw_uart/soc_periph_dw_uart_DW_apb_uart_bcm25.v
+      - soc_periph_dw_uart/soc_periph_dw_uart_DW_apb_uart_bcm23.v
+      - soc_periph_dw_uart/soc_periph_dw_uart_DW_apb_uart_bcm21.v
+      - soc_periph_dw_uart/soc_periph_dw_uart_DW_apb_uart_bcm41.v
+      - soc_periph_dw_uart/soc_periph_dw_uart_DW_apb_uart_bcm06.v
+      - soc_periph_dw_uart/soc_periph_dw_uart_DW_apb_uart_bcm99.v
+      - soc_periph_dw_uart/soc_periph_dw_uart_DW_apb_uart_biu.v
+      - soc_periph_dw_uart/soc_periph_dw_uart_DW_apb_uart_rst.v
+      - soc_periph_dw_uart/soc_periph_dw_uart_DW_apb_uart_regfile.v
+      - soc_periph_dw_uart/soc_periph_dw_uart_DW_apb_uart_fifo.v
+      - soc_periph_dw_uart/soc_periph_dw_uart_DW_apb_async_rst_gen.v
+      - soc_periph_dw_uart/soc_periph_dw_uart_DW_apb_uart_sync.v
+      - soc_periph_dw_uart/soc_periph_dw_uart_DW_apb_uart_mc_sync.v
+      - soc_periph_dw_uart/soc_periph_dw_uart_DW_apb_uart_bclk_gen.v
+      - soc_periph_dw_uart/soc_periph_dw_uart_DW_apb_uart_tx.v
+      - soc_periph_dw_uart/soc_periph_dw_uart_DW_apb_uart_rx.v
+      - soc_periph_dw_uart/soc_periph_dw_uart_DW_apb_uart_to_det.v
+      - soc_periph_dw_uart/soc_periph_dw_uart_DW_apb_uart.v
+      - soc_periph_dw_uart/soc_periph_dw_uart_DW_apb_uart-undef.v
+      # GPIO
+      - soc_periph_dw_gpio/soc_periph_dw_gpio_DW_apb_gpio_cc_constants.vh
+      - soc_periph_dw_gpio/soc_periph_dw_gpio_DW_apb_gpio_bcm_params.vh
+      - soc_periph_dw_gpio/soc_periph_dw_gpio_DW_apb_gpio_all_includes.vh
+      - soc_periph_dw_gpio/soc_periph_dw_gpio_DW_apb_gpio_bcm21.v
+      - soc_periph_dw_gpio/soc_periph_dw_gpio_DW_apb_gpio_bcm36_nhs.v
+      - soc_periph_dw_gpio/soc_periph_dw_gpio_DW_apb_gpio_bcm99.v
+      - soc_periph_dw_gpio/soc_periph_dw_gpio_DW_apb_gpio_ctrl.v
+      - soc_periph_dw_gpio/soc_periph_dw_gpio_DW_apb_gpio_apbif.v
+      - soc_periph_dw_gpio/soc_periph_dw_gpio_DW_apb_gpio.v
+      - soc_periph_dw_gpio/soc_periph_dw_gpio_DW_apb_gpio-undef.v 
+      # SSI
+      - soc_periph_dw_ssi/soc_periph_dw_ssi_DW_apb_ssi_cc_constants.vh
+      - soc_periph_dw_ssi/soc_periph_dw_ssi_DW_apb_ssi_bcm_params.vh
+      - soc_periph_dw_ssi/soc_periph_dw_ssi_DW_apb_ssi_all_includes.vh
+      - soc_periph_dw_ssi/soc_periph_dw_ssi_DW_apb_ssi_bcm57.v
+      - soc_periph_dw_ssi/soc_periph_dw_ssi_DW_apb_ssi_bcm06.v
+      - soc_periph_dw_ssi/soc_periph_dw_ssi_DW_apb_ssi_bcm21.v
+      - soc_periph_dw_ssi/soc_periph_dw_ssi_DW_apb_ssi_rxsr.v
+      - soc_periph_dw_ssi/soc_periph_dw_ssi_DW_apb_ssi_txsr.v
+      - soc_periph_dw_ssi/soc_periph_dw_ssi_DW_apb_ssi_biu.v
+      - soc_periph_dw_ssi/soc_periph_dw_ssi_DW_apb_ssi_regfile.v
+      - soc_periph_dw_ssi/soc_periph_dw_ssi_DW_apb_ssi_sclkgen.v
+      - soc_periph_dw_ssi/soc_periph_dw_ssi_DW_apb_ssi_fifo.v
+      - soc_periph_dw_ssi/soc_periph_dw_ssi_DW_apb_ssi_shift.v
+      - soc_periph_dw_ssi/soc_periph_dw_ssi_DW_apb_ssi_mstfsm.v
+      - soc_periph_dw_ssi/soc_periph_dw_ssi_DW_apb_ssi_intctl.v
+      - soc_periph_dw_ssi/soc_periph_dw_ssi_DW_apb_ssi.v
+      - soc_periph_dw_ssi/soc_periph_dw_ssi_DW_apb_ssi-undef.v
+      # I2C_0
+      - soc_periph_dw_i2c_0/soc_periph_dw_i2c_0_DW_apb_i2c_cc_constants.vh
+      - soc_periph_dw_i2c_0/soc_periph_dw_i2c_0_DW_apb_i2c_bcm_params.vh
+      - soc_periph_dw_i2c_0/soc_periph_dw_i2c_0_DW_apb_i2c_all_includes.vh
+      - soc_periph_dw_i2c_0/soc_periph_dw_i2c_0_DW_apb_i2c_bcm57.v
+      - soc_periph_dw_i2c_0/soc_periph_dw_i2c_0_DW_apb_i2c_bcm36_nhs.v
+      - soc_periph_dw_i2c_0/soc_periph_dw_i2c_0_DW_apb_i2c_bcm21.v
+      - soc_periph_dw_i2c_0/soc_periph_dw_i2c_0_DW_apb_i2c_bcm41.v
+      - soc_periph_dw_i2c_0/soc_periph_dw_i2c_0_DW_apb_i2c_bcm47.v
+      - soc_periph_dw_i2c_0/soc_periph_dw_i2c_0_DW_apb_i2c_bcm06.v
+      - soc_periph_dw_i2c_0/soc_periph_dw_i2c_0_DW_apb_i2c_bcm05.v
+      - soc_periph_dw_i2c_0/soc_periph_dw_i2c_0_DW_apb_i2c_bcm07.v
+      - soc_periph_dw_i2c_0/soc_periph_dw_i2c_0_DW_apb_i2c_regs.v
+      - soc_periph_dw_i2c_0/soc_periph_dw_i2c_0_DW_apb_i2c_tog.v
+      - soc_periph_dw_i2c_0/soc_periph_dw_i2c_0_DW_apb_i2c_bcm99.v
+      - soc_periph_dw_i2c_0/soc_periph_dw_i2c_0_DW_apb_i2c_biu.v
+      - soc_periph_dw_i2c_0/soc_periph_dw_i2c_0_DW_apb_i2c_regfile.v
+      - soc_periph_dw_i2c_0/soc_periph_dw_i2c_0_DW_apb_i2c_fifo.v
+      - soc_periph_dw_i2c_0/soc_periph_dw_i2c_0_DW_apb_i2c_async_fifo.v
+      - soc_periph_dw_i2c_0/soc_periph_dw_i2c_0_DW_apb_i2c_intctl.v
+      - soc_periph_dw_i2c_0/soc_periph_dw_i2c_0_DW_apb_i2c_rx_filter.v
+      - soc_periph_dw_i2c_0/soc_periph_dw_i2c_0_DW_apb_i2c_clk_gen.v
+      - soc_periph_dw_i2c_0/soc_periph_dw_i2c_0_DW_apb_i2c_mstfsm.v
+      - soc_periph_dw_i2c_0/soc_periph_dw_i2c_0_DW_apb_i2c_sync.v
+      - soc_periph_dw_i2c_0/soc_periph_dw_i2c_0_DW_apb_i2c_slvfsm.v
+      - soc_periph_dw_i2c_0/soc_periph_dw_i2c_0_DW_apb_i2c_tx_shift.v
+      - soc_periph_dw_i2c_0/soc_periph_dw_i2c_0_DW_apb_i2c_rx_shift.v
+      - soc_periph_dw_i2c_0/soc_periph_dw_i2c_0_DW_apb_i2c_toggle.v
+      - soc_periph_dw_i2c_0/soc_periph_dw_i2c_0_DW_apb_i2c_dma.v
+      - soc_periph_dw_i2c_0/soc_periph_dw_i2c_0_DW_apb_i2c.v
+      - soc_periph_dw_i2c_0/soc_periph_dw_i2c_0_DW_apb_i2c-undef.v
+      # I2C_1
+      - soc_periph_dw_i2c_1/soc_periph_dw_i2c_1_DW_apb_i2c_cc_constants.vh
+      - soc_periph_dw_i2c_1/soc_periph_dw_i2c_1_DW_apb_i2c_bcm_params.vh
+      - soc_periph_dw_i2c_1/soc_periph_dw_i2c_1_DW_apb_i2c_all_includes.vh
+      - soc_periph_dw_i2c_1/soc_periph_dw_i2c_1_DW_apb_i2c_bcm57.v
+      - soc_periph_dw_i2c_1/soc_periph_dw_i2c_1_DW_apb_i2c_bcm36_nhs.v
+      - soc_periph_dw_i2c_1/soc_periph_dw_i2c_1_DW_apb_i2c_bcm21.v
+      - soc_periph_dw_i2c_1/soc_periph_dw_i2c_1_DW_apb_i2c_bcm41.v
+      - soc_periph_dw_i2c_1/soc_periph_dw_i2c_1_DW_apb_i2c_bcm47.v
+      - soc_periph_dw_i2c_1/soc_periph_dw_i2c_1_DW_apb_i2c_bcm06.v
+      - soc_periph_dw_i2c_1/soc_periph_dw_i2c_1_DW_apb_i2c_bcm05.v
+      - soc_periph_dw_i2c_1/soc_periph_dw_i2c_1_DW_apb_i2c_bcm07.v
+      - soc_periph_dw_i2c_1/soc_periph_dw_i2c_1_DW_apb_i2c_regs.v
+      - soc_periph_dw_i2c_1/soc_periph_dw_i2c_1_DW_apb_i2c_tog.v
+      - soc_periph_dw_i2c_1/soc_periph_dw_i2c_1_DW_apb_i2c_bcm99.v
+      - soc_periph_dw_i2c_1/soc_periph_dw_i2c_1_DW_apb_i2c_biu.v
+      - soc_periph_dw_i2c_1/soc_periph_dw_i2c_1_DW_apb_i2c_regfile.v
+      - soc_periph_dw_i2c_1/soc_periph_dw_i2c_1_DW_apb_i2c_fifo.v
+      - soc_periph_dw_i2c_1/soc_periph_dw_i2c_1_DW_apb_i2c_async_fifo.v
+      - soc_periph_dw_i2c_1/soc_periph_dw_i2c_1_DW_apb_i2c_intctl.v
+      - soc_periph_dw_i2c_1/soc_periph_dw_i2c_1_DW_apb_i2c_rx_filter.v
+      - soc_periph_dw_i2c_1/soc_periph_dw_i2c_1_DW_apb_i2c_clk_gen.v
+      - soc_periph_dw_i2c_1/soc_periph_dw_i2c_1_DW_apb_i2c_mstfsm.v
+      - soc_periph_dw_i2c_1/soc_periph_dw_i2c_1_DW_apb_i2c_sync.v
+      - soc_periph_dw_i2c_1/soc_periph_dw_i2c_1_DW_apb_i2c_slvfsm.v
+      - soc_periph_dw_i2c_1/soc_periph_dw_i2c_1_DW_apb_i2c_tx_shift.v
+      - soc_periph_dw_i2c_1/soc_periph_dw_i2c_1_DW_apb_i2c_rx_shift.v
+      - soc_periph_dw_i2c_1/soc_periph_dw_i2c_1_DW_apb_i2c_toggle.v
+      - soc_periph_dw_i2c_1/soc_periph_dw_i2c_1_DW_apb_i2c_dma.v
+      - soc_periph_dw_i2c_1/soc_periph_dw_i2c_1_DW_apb_i2c.v
+      - soc_periph_dw_i2c_1/soc_periph_dw_i2c_1_DW_apb_i2c-undef.v
+      # Timers
+      - soc_periph_dw_timers/soc_periph_dw_timers_DW_apb_timers_cc_constants.vh
+      - soc_periph_dw_timers/soc_periph_dw_timers_DW_apb_timers_bcm_params.vh
+      - soc_periph_dw_timers/soc_periph_dw_timers_DW_apb_timers_all_includes.vh
+      - soc_periph_dw_timers/soc_periph_dw_timers_DW_apb_timers_frc.v
+      - soc_periph_dw_timers/soc_periph_dw_timers_DW_apb_timers_regb.v
+      - soc_periph_dw_timers/soc_periph_dw_timers_DW_apb_timers_bcm21.v
+      - soc_periph_dw_timers/soc_periph_dw_timers_DW_apb_timers_bcm99.v
+      - soc_periph_dw_timers/soc_periph_dw_timers_DW_apb_timers_apbif.v
+      - soc_periph_dw_timers/soc_periph_dw_timers_DW_apb_timers.v
+      - soc_periph_dw_timers/soc_periph_dw_timers_DW_apb_timers-undef.v
+      # Top Level
+      - soc_periph_dw_peripherals.sv
+  - target: emulation
+    files:
+      - soc_periph_dw_uart/soc_periph_dw_uart_DW_apb_uart_veloce.v

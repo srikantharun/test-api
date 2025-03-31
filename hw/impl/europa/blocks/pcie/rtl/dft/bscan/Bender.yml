@@ -1,0 +1,17 @@
+# (C) Copyright 2024 Axelera AI B.V.
+# All Rights Reserved
+# *** Axelera AI Confidential ***
+
+package:
+  name: europa_pcie_dft_bscan
+  description: "DFT Testbench for pcie"
+  authors:
+    - "Leonidas Katselas <leonidas.katselas@axelera.ai>"
+
+dependencies:
+  europa_pcie_bscan : { path: "../../rtl/bscan" }
+  dft_pcie:           { path: "$DFT_HOME/pcie/Latest"}
+
+sources:
+  - target: rtl
+    files:

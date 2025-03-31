@@ -1,0 +1,39 @@
+{%- macro render_items(items)-%}
+// AUTO GENERATED, DON'T MANUALLY EDIT!!
+// (C) Copyright Axelera AI 2024
+// All Rights Reserved
+// *** Axelera AI Confidential ***
+//
+// Description: Automatic generated module with all memories
+// Owner: hw/scripts/addr_map
+
+
+#include "memories.h"
+
+const struct MemoryRegion memory_regions[] = {
+
+{% for item in items-%}
+{% set mem_name = (item.block ~ '_' ~  item.name) | upper if item.name != item.block else item.name  | upper -%}
+{% set rd_flag = 'R' in item.flags -%}
+{% set wr_flag = 'W' in item.flags -%}
+{% set ex_flag = 'X' in item.flags -%}
+  { {{ "0x" ~ item.offset | hex }}, {{ "0x" ~ (item.size) | hex }}, {{rd_flag | lower}}, {{wr_flag | lower}}, {{ex_flag | lower}}, "{{ mem_name}}"},
+{% endfor-%}
+  {}, // null-terminated array
+};
+
+const char* get_memory_region_name(uintptr_t address) {
+
+    for (int i = 0; memory_regions[i].name != NULL; i++) {
+        uintptr_t region_start = memory_regions[i].base;
+        uintptr_t region_end = memory_regions[i].base + memory_regions[i].size;
+
+        if (address >= region_start && address < region_end) {
+            return memory_regions[i].name;
+        }
+    }
+    return "Unknown Memory";
+}
+
+{% endmacro -%}
+{{ render_items(items) }}

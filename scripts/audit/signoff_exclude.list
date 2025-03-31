@@ -1,0 +1,8 @@
+/data/foundry
+$REPO_ROOT/hw/vendor/allegro
+$REPO_ROOT/hw/vendor/andes
+$REPO_ROOT/hw/vendor/cadence
+$REPO_ROOT/hw/vendor/lowrisc
+$REPO_ROOT/hw/vendor/samsung/efuse
+$REPO_ROOT/hw/vendor/samsung/pll
+$REPO_ROOT/hw/vendor/synopsys

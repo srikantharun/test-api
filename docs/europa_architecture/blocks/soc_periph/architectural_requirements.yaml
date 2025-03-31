@@ -1,0 +1,191 @@
+requirements:
+  -
+    block: SOC_PERIPH 
+    category: FEAT
+    optional_description: SPI
+    index: 0
+    description: "The Europa architecture shall have a SPI interface as part of the SOC-PERIPH block."
+    criticality: bronze
+    owner: Matt Morris
+  -
+    block: SOC_PERIPH 
+    category: FEAT
+    optional_description: I2C
+    index: 1
+    description: "The Europa architecture shall have two I2C interfaces as part of the SOC-PERIPH block."
+    criticality: bronze
+    owner: Matt Morris
+  -
+    block: SOC_PERIPH 
+    category: FEAT
+    optional_description: UART
+    index: 2
+    description: "The Europa architecture shall have an UART interface as part of the SOC-PERIPH block."
+    criticality: bronze
+    owner: Matt Morris  
+  -
+    block: SOC_PERIPH 
+    category: FEAT
+    optional_description: EMMC
+    index: 3
+    description: "The Europa architecture shall have an eMMC interface as part of the SOC-PERIPH block."
+    criticality: bronze
+    owner: Matt Morris    
+  -
+    block: SOC_PERIPH 
+    category: FEAT
+    optional_description: GPIO
+    index: 4
+    description: "The Europa architecture shall have 16 GPIOs as part of the SOC-PERIPH block."
+    criticality: bronze
+    owner: Matt Morris    
+  -
+    block: SOC_PERIPH 
+    category: FEAT
+    optional_description: PAD
+    index: 5
+    description: "The Europa architecture shall have a PAD control registers as part of the SOC-PERIPH block."
+    criticality: silver
+    owner: Matt Morris    
+  -
+    block: SOC_PERIPH 
+    category: FEAT    
+    optional_description: TIMER
+    index: 6
+    description: "The Europa architecture shall have timers as part of the SOC-PERIPH block."
+    criticality: bronze
+    owner: Matt Morris    
+  -
+    block: SOC_PERIPH 
+    category: FEAT
+    index: 7
+    description: "The SOC-PERIPH block shall have an AXI4 sub-ordinate interface to allow access to all the peripherals."
+    criticality: bronze
+    owner: Matt Morris        
+  -
+    block: SOC_PERIPH 
+    category: FEAT
+    optional_description: EMMC
+    index: 8
+    description: "The SOC-PERIPH block shall have an AXI4 manager interface to allow eMMC DMA accesses."
+    criticality: bronze
+    owner: Matt Morris   
+  -
+    block: SOC_PERIPH 
+    category: FEAT
+    index: 9
+    description: "The SOC-PERIPH block shall have an AXI4-to-APB bridge and fabric to allow access to the GPIO, I2C, UART, SPI, eMMC and timers peripherals."
+    criticality: bronze
+    owner: Matt Morris        
+  -
+    block: SOC_PERIPH 
+    category: FEAT
+    index: 10
+    description: "The SOC-PERIPH block shall have a SysCfg APB interface to allow access to the AO CSRs of the PAD control peripherals."
+    criticality: silver
+    owner: Matt Morris        
+  -
+    block: SOC_PERIPH 
+    category: FEAT
+    index: 11
+    description: "The SOC-PERIPH block shall have an interrupt line per peripheral to inform the system of errors."
+    criticality: bronze
+    owner: Matt Morris        
+  -
+    block: SOC_PERIPH 
+    category: FEAT
+    index: 12
+    description: "The SOC-PERIPH block shall provide between 8GB and 64GB of non volatile external storage."
+    criticality: silver
+    owner: Matt Morris        
+  -
+    block: SOC_PERIPH 
+    category: FEAT
+    index: 13
+    description: "The SOC-PERIPH block shall provide debug platforms over I2C or UART as per Omega."
+    criticality: silver
+    owner: Matt Morris        
+  -
+    block: SOC_PERIPH 
+    category: FEAT
+    index: 14
+    description: "I2C interfaces operate in both Master and Slave modes."
+    criticality: bronze
+    owner: Matt Morris        
+  -
+    block: SOC_PERIPH 
+    category: FEAT
+    index: 15
+    description: "I2C interfaces operate in Standard, Fast and HiSpeed modes."
+    criticality: silver
+    owner: Matt Morris        
+  -
+    block: SOC_PERIPH 
+    category: FEAT
+    index: 16
+    description: "SPI master mode must support quad mode as per Omega."
+    criticality: silver
+    owner: Matt Morris        
+  -
+    block: SOC_PERIPH 
+    category: FEAT
+    index: 17
+    description: "All masters must be able to access SOC_PERIPH, for example all cores need to write print messages over UART."
+    criticality: silver
+    owner: Matt Morris        
+  -
+    block: SOC_PERIPH 
+    category: FEAT
+    index: 18
+    description: "eMMC will use it's DMA to move Boot Image to internal memory"
+    criticality: silver
+    owner: Matt Morris        
+  -
+    block: SOC_PERIPH 
+    category: FEAT
+    index: 19
+    description: "SOC_PERIPH will come out of reset without software intervention."
+    criticality: bronze
+    owner: Matt Morris        
+  -
+    block: SOC_PERIPH 
+    category: FEAT
+    index: 20
+    description: "SOC_PERIPH will retain pad control state over reset."
+    criticality: silver
+    owner: Matt Morris        
+  -
+    block: SOC_PERIPH 
+    category: FEAT
+    index: 21
+    description: "eMMC Speed grade change can only happen when eMMC is quiescent (SW contraint)."
+    criticality: bronze
+    owner: Matt Morris        
+  -
+    block: SOC_PERIPH 
+    category: FEAT
+    index: 22
+    description: "eMMC needs to support HS400 speed grade operation to help meet 100ms PCIe link up time."
+    criticality: silver
+    owner: Matt Morris        
+  -
+    block: SOC_PERIPH 
+    category: FEAT
+    index: 23
+    description: "SOC_PERIPH requires reF_clk of 50MHz - SDHC min clock requirements."
+    criticality: bronze
+    owner: Matt Morris        
+  -
+    block: SOC_PERIPH 
+    category: FEAT
+    index: 24
+    description: "emmc_clk rate is 200MHz for HS400. Provide variability on clk freq for total system timing."
+    criticality: silver
+    owner: Matt Morris        
+  -
+    block: SOC_PERIPH 
+    category: FEAT
+    index: 25
+    description: "SPI master mode must be able to communicate in quad mode with the following flash flavours: s25fs512s, s25fl128s, mt25qu128, mx25r3235f"
+    criticality: silver
+    owner: Matt Morris        

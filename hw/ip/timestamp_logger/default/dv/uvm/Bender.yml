@@ -1,0 +1,19 @@
+package:
+  name: timestamp_logger_uvm
+  description: "UVM Timestaml Logger Block"
+  authors:
+    - "andrew.bond@axelera.ai"
+
+dependencies:
+  aic_common_pkg:           { path: "" }
+  aic_common_design_tb:     { path: "" }
+  dv_common_uvm:            { path: "" }
+
+
+sources:
+  - target: simulation
+    include_dirs:
+      - .
+    files:
+      - timestamp_logger_interfaces.sv
+      - timestamp_logger_uvm_pkg.sv

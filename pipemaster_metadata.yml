@@ -1,0 +1,2835 @@
+#TODO1: add cache in all top level compiles that can be re-used
+#--------------------------------------------------
+# Common Setup
+#--------------------------------------------------
+default:
+  patterns:
+    - '**'
+
+all:
+  patterns:
+    - '.env-default-modules'
+
+.references:
+#--------------------------------------------------
+# HW flow scripting
+#--------------------------------------------------
+  def:hw_scripts:common: &hw_scripts_common
+    - 'bin/**'
+    - 'hw/scripts/bender_templates/**'
+    - 'hw/scripts/flow_makefiles/_*.mk'
+    - 'hw/scripts/gen_files/**'
+    - 'hw/scripts/reggen/**'
+    - 'hw/scripts/wait_for_license.py'
+    # These are mostly generated as well as it's bender file
+    # Bender propagation does not work as it is not present during rendering
+    - 'hw/ip/tech_cell_library/default/**'
+
+  def:hw_scripts:dft: &hw_scritps_dft !flatten
+    - *hw_scripts_common
+    - 'hw/scripts/flow_makefiles/dft.mk'
+
+  def:hw_scripts:lint: &hw_scripts_lint !flatten
+    - *hw_scripts_common
+    - 'hw/scripts/flow_makefiles/lint_sanity.mk'
+    - 'hw/scripts/flow_makefiles/sg.mk'
+
+  def:hw_scripts:sim: &hw_scripts_sim !flatten
+    - *hw_scripts_common
+    - 'hw/scripts/flow_makefiles/simulation.mk'
+    - 'hw/scripts/flow_makefiles/questasim.mk'
+    - 'hw/scripts/flow_makefiles/vcs.mk'
+    - 'hw/scripts/vrm/**'
+
+  def:hw_scripts:synth: &hw_scripts_synth !flatten
+    - *hw_scripts_common
+    - 'hw/scripts/flow_makefiles/rtla_shell.mk'
+
+  def:hw_scripts:formal: &hw_scripts_formal !flatten
+    - 'hw/scripts/flow_makefiles/vcf.mk'
+    - 'hw/scripts/fv/**'
+
+  def:scripts:trex: &scripts_trex
+    - 'scripts/trex/**'
+
+#--------------------------------------------------
+# Europa implementation sources
+#--------------------------------------------------
+
+  europa_asic_top_rtl_src_def: &europa_asic_top_rtl_sources
+    - hw/impl/europa/asic/rtl/pkg/Bender.yml
+    - hw/impl/europa/asic/rtl/Bender.yml
+    - hw/impl/europa/asic/data/**
+
+  europa_asic_top_dft_src_def: &europa_asic_top_dft_sources
+    - hw/impl/europa/asic/dft/**
+
+  europa_l2_rtl_src_def: &europa_l2_rtl_sources
+    - hw/impl/europa/blocks/l2/rtl/pkg/Bender.yml
+    - hw/impl/europa/blocks/l2/rtl/Bender.yml
+    - hw/impl/europa/blocks/l2/data/**
+
+  europa_l2_dft_src_def: &europa_l2_dft_sources
+    - hw/impl/europa/blocks/l2/dft/**
+
+  europa_aic_ls_rtl_src_def: &europa_aic_ls_rtl_sources
+    - hw/impl/europa/blocks/aic_ls/rtl/pkg/Bender.yml
+    - hw/impl/europa/blocks/aic_ls/rtl/Bender.yml
+    - hw/impl/europa/blocks/aic_ls/data/**
+
+  europa_aic_ls_dft_src_def: &europa_aic_ls_dft_sources
+    - hw/impl/europa/blocks/aic_ls/dft/**
+
+  europa_aic_did_rtl_src_def: &europa_aic_did_rtl_sources
+    - hw/impl/europa/blocks/aic_did/rtl/pkg/Bender.yml
+    - hw/impl/europa/blocks/aic_did/rtl/Bender.yml
+
+  europa_aic_did_dft_src_def: &europa_aic_did_dft_sources
+    - hw/impl/europa/blocks/aic_did/dft/**
+
+  europa_aic_mid_rtl_src_def: &europa_aic_mid_rtl_sources
+    - hw/impl/europa/blocks/aic_mid/rtl/pkg/Bender.yml
+    - hw/impl/europa/blocks/aic_mid/rtl/Bender.yml
+
+  europa_aic_mid_dft_src_def: &europa_aic_mid_dft_sources
+    - hw/impl/europa/blocks/aic_mid/dft/**
+
+  europa_aic_infra_rtl_src_def: &europa_aic_infra_rtl_sources
+    - hw/impl/europa/blocks/aic_infra/rtl/pkg/Bender.yml
+    - hw/impl/europa/blocks/aic_infra/rtl/Bender.yml
+
+  europa_aic_infra_dft_src_def: &europa_aic_infra_dft_sources
+    - hw/impl/europa/blocks/aic_infra/dft/**
+
+  europa_ai_core_rtl_src_def: &europa_ai_core_rtl_sources
+    - hw/impl/europa/blocks/ai_core/rtl/pkg/Bender.yml
+    - hw/impl/europa/blocks/ai_core/rtl/Bender.yml
+    - hw/impl/europa/blocks/ai_core/data/**
+
+  europa_ai_core_dft_src_def: &europa_ai_core_dft_sources
+    - hw/impl/europa/blocks/ai_core/dft/**
+
+  europa_ai_core_cva6v_rtl_src_def: &europa_ai_core_cva6v_rtl_sources
+    - hw/impl/europa/blocks/ai_core_cva6v/rtl/pkg/Bender.yml
+    - hw/impl/europa/blocks/ai_core_cva6v/rtl/Bender.yml
+
+  europa_dcd_rtl_src_def: &europa_dcd_rtl_sources
+    - hw/impl/europa/blocks/dcd/rtl/pkg/Bender.yml
+    - hw/impl/europa/blocks/dcd/rtl/Bender.yml
+    - hw/impl/europa/blocks/dcd/data/**
+
+  europa_dcd_dft_src_def: &europa_dcd_dft_sources
+    - hw/impl/europa/blocks/dcd/dft/**
+
+  europa_dcd_core_rtl_src_def: &europa_dcd_core_rtl_sources
+    - hw/impl/europa/blocks/dcd_core/rtl/Bender.yml
+
+  europa_dcd_core_dft_src_def: &europa_dcd_core_dft_sources
+    - hw/impl/europa/blocks/dcd_core/dft/**
+
+  europa_lpddr_rtl_src_def: &europa_lpddr_rtl_sources
+    - hw/impl/europa/blocks/lpddr/rtl/pkg/Bender.yml
+    - hw/impl/europa/blocks/lpddr/rtl/Bender.yml
+
+  europa_lpddr_dft_src_def: &europa_lpddr_dft_sources
+    - hw/impl/europa/blocks/lpddr/dft/**
+
+  europa_noc_rtl_src_def: &europa_noc_rtl_sources
+    - hw/impl/europa/blocks/noc/noc_common/rtl/Bender.yml
+    - hw/impl/europa/blocks/noc/noc_ddr_west/rtl/Bender.yml
+    - hw/impl/europa/blocks/noc/noc_ddr_east/rtl/Bender.yml
+    - hw/impl/europa/blocks/noc/noc_h_east/rtl/Bender.yml
+    - hw/impl/europa/blocks/noc/noc_h_west/rtl/Bender.yml
+    - hw/impl/europa/blocks/noc/noc_h_north/rtl/Bender.yml
+    - hw/impl/europa/blocks/noc/noc_h_south/rtl/Bender.yml
+    - hw/impl/europa/blocks/noc/noc_soc/rtl/Bender.yml
+    - hw/impl/europa/blocks/noc/noc_v_center/rtl/Bender.yml
+    - hw/impl/europa/blocks/noc/noc_top/rtl/Bender.yml
+
+  europa_noc_dft_src_def: &europa_noc_dft_sources
+    - hw/impl/europa/blocks/noc/noc_common/dft/**
+    - hw/impl/europa/blocks/noc/noc_ddr_west/dft/**
+    - hw/impl/europa/blocks/noc/noc_ddr_east/dft/**
+    - hw/impl/europa/blocks/noc/noc_h_east/dft/**
+    - hw/impl/europa/blocks/noc/noc_h_west/dft/**
+    - hw/impl/europa/blocks/noc/noc_h_north/dft/**
+    - hw/impl/europa/blocks/noc/noc_h_south/dft/**
+    - hw/impl/europa/blocks/noc/noc_soc/dft/**
+    - hw/impl/europa/blocks/noc/noc_v_center/dft/**
+    - hw/impl/europa/blocks/noc/noc_top/dft/**
+
+  europa_noc_synth_scripts_def: &europa_noc_synth_scripts
+    - hw/impl/europa/blocks/noc/noc_common/synth-rtla/**
+    - hw/impl/europa/blocks/noc/noc_ddr_west/synth-rtla/**
+    - hw/impl/europa/blocks/noc/noc_ddr_east/synth-rtla/**
+    - hw/impl/europa/blocks/noc/noc_h_east/synth-rtla/**
+    - hw/impl/europa/blocks/noc/noc_h_west/synth-rtla/**
+    - hw/impl/europa/blocks/noc/noc_h_north/synth-rtla/**
+    - hw/impl/europa/blocks/noc/noc_h_south/synth-rtla/**
+    - hw/impl/europa/blocks/noc/noc_soc/synth-rtla/**
+    - hw/impl/europa/blocks/noc/noc_v_center/synth-rtla/**
+    - hw/impl/europa/blocks/noc/noc_top/synth-rtla/**
+
+  europa_pcie_rtl_src_def: &europa_pcie_rtl_sources
+    - hw/impl/europa/blocks/pcie/data/**
+    - hw/impl/europa/blocks/pcie/rtl/pkg/Bender.yml
+    - hw/impl/europa/blocks/pcie/rtl/Bender.yml
+
+  europa_pcie_dft_src_def: &europa_pcie_dft_sources
+    - hw/impl/europa/blocks/pcie/dft/**
+
+  europa_noc_verif_tb_src_def: &enoc_verif_tb_sources !flatten
+    - *europa_noc_rtl_sources
+    - hw/impl/europa/blocks/noc/dv/enoc/tb/Bender.yml
+
+  europa_soc_periph_rtl_src_def: &europa_sdma_rtl_sources
+    - hw/impl/europa/blocks/sdma/data/**
+    - hw/impl/europa/blocks/sdma/rtl/pkg/Bender.yml
+    - hw/impl/europa/blocks/sdma/rtl/Bender.yml
+
+  europa_soc_periph_dft_src_def: &europa_sdma_dft_sources
+    - hw/impl/europa/blocks/sdma/dft/**
+
+  europa_soc_periph_rtl_src_def: &europa_soc_periph_rtl_sources
+    - hw/impl/europa/blocks/soc_periph/data/**
+    - hw/impl/europa/blocks/soc_periph/rtl/pkg/Bender.yml
+    - hw/impl/europa/blocks/soc_periph/rtl/Bender.yml
+
+  europa_soc_periph_dft_src_def: &europa_soc_periph_dft_sources
+    - hw/impl/europa/blocks/soc_periph/dft/**
+
+  europa_soc_periph_dv_spike_tb_src_def: &europa_soc_periph_dv_spike_tb_sources !flatten
+    - *europa_soc_periph_rtl_sources
+    - hw/impl/europa/blocks/soc_periph/dv/spike_tb/sim/Bender.yml
+
+  europa_soc_periph_dv_axi_tb_src_def: &europa_soc_periph_dv_axi_tb_sources !flatten
+    - *europa_soc_periph_rtl_sources
+    - hw/impl/europa/blocks/soc_periph/dv/axi_tb/sim/Bender.yml
+
+  europa_apu_rtl_src_def: &europa_apu_rtl_sources
+    - hw/impl/europa/blocks/apu/data/**
+    - hw/impl/europa/blocks/apu/rtl/pkg/Bender.yml
+    - hw/impl/europa/blocks/apu/rtl/Bender.yml
+
+  europa_apu_dft_src_def: &europa_apu_dft_sources
+    - hw/impl/europa/blocks/apu/dft/**
+
+  europa_apu_synth_scripts_def: &europa_apu_synth_scripts
+    - hw/impl/europa/blocks/apu/synth-rtla/**
+    - hw/impl/europa/blocks/apu_core/synth-rtla/**
+    - hw/impl/europa/blocks/apu_l2c/synth-rtla/**
+
+  europa_apu_core_rtl_src_def: &europa_apu_core_rtl_sources
+    - hw/impl/europa/blocks/apu_core/rtl/pkg/Bender.yml
+    - hw/impl/europa/blocks/apu_core/rtl/Bender.yml
+
+  europa_apu_core_dft_src_def: &europa_apu_core_dft_sources
+    - hw/impl/europa/blocks/apu_core/dft/**
+
+  europa_apu_l2c_rtl_src_def: &europa_apu_l2c_rtl_sources
+    - hw/impl/europa/blocks/apu_l2c/rtl/pkg/Bender.yml
+    - hw/impl/europa/blocks/apu_l2c/rtl/Bender.yml
+
+  europa_apu_l2c_dft_src_def: &europa_apu_l2c_dft_sources
+    - hw/impl/europa/blocks/apu_l2c/dft/**
+
+  europa_apu_dv_src_def: &europa_apu_dv_sources !flatten
+    - *europa_apu_rtl_sources
+    - hw/impl/europa/blocks/apu/dv/**
+
+  europa_secure_dv_src_def: &europa_secure_dv_sources !flatten
+    - hw/impl/europa/dv/top/**
+    - hw/impl/europa/blocks/soc_mgmt/rtl/**
+    - hw/impl/europa/blocks/soc_mgmt/dv/**
+    - verifsdk/tests_security.yaml
+
+  europa_soc_mgmt_src_def: &europa_soc_mgmt_rtl_sources
+    - hw/impl/europa/blocks/soc_mgmt/data/**
+    - hw/impl/europa/blocks/soc_mgmt/rtl/pkg/Bender.yml
+    - hw/impl/europa/blocks/soc_mgmt/rtl/Bender.yml
+
+  europa_soc_mgmt_dft_def: &europa_soc_mgmt_dft_sources
+    - hw/impl/europa/blocks/soc_mgmt/dft/**
+
+  europa_soc_mgmt_dv_src_def: &europa_soc_mgmt_dv_sources !flatten
+    - *europa_soc_mgmt_rtl_sources
+    - hw/impl/europa/blocks/soc_mgmt/dv/rtl/Bender.yml
+
+  europa_aicore_dv_src_def: &europa_aicore_dv_sources !flatten
+    - *europa_ai_core_rtl_sources
+    - hw/ip/aicore/default/dv/rtl/Bender.yml
+
+#--------------------------------------------------
+# IP hardware sources
+#--------------------------------------------------
+
+  #------------------------------------------------
+  # AXI
+  axe_axi_rtl_src_def: &axe_axi_rtl_sources
+    - hw/ip/axi/default/rtl/pkg/Bender.yml
+    - hw/ip/axi/default/rtl/Bender.yml
+
+  axi4_common_rtl_src_def: &axi4_common_rtl_sources
+    - hw/ip/axi4_common/default/rtl/pkg/Bender.yml
+    - hw/ip/axi4_common/default/rtl/Bender.yml
+    - hw/ip/axi4_common/default/data/**
+
+  #------------------------------------------------
+  # APB
+  axe_apb_rtl_src_def: &axe_apb_rtl_sources
+    - hw/ip/apb/default/rtl/pkg/Bender.yml
+    - hw/ip/apb/default/rtl/Bender.yml
+
+  #------------------------------------------------
+  # AHB
+  axe_ahb_rtl_src_def: &axe_ahb_rtl_sources
+    - hw/ip/ahb/default/rtl/pkg/Bender.yml
+    - hw/ip/ahb/default/rtl/Bender.yml
+
+  #------------------------------------------------
+  # AI-Core Control Dispatcher
+  aic_cd_rtl_src_def: &aic_cd_rtl_sources
+    - hw/ip/aic_control_dispatcher/default/data/**
+    - hw/ip/aic_control_dispatcher/default/rtl/pkg/Bender.yml
+    - hw/ip/aic_control_dispatcher/default/rtl/Bender.yml
+
+  #------------------------------------------------
+  # Bridges
+  axe_bridges_rtl_src_def: &axe_bridges_rtl_sources
+    - hw/ip/bridges/default/rtl/pkg/Bender.yml
+    - hw/ip/bridges/default/rtl/Bender.yml
+
+  #------------------------------------------------
+  # Common cells library
+  cc_lib_src_def: &cc_lib_sources
+    - hw/ip/common_cell_library/default/rtl/pkg/Bender.yml
+    - hw/ip/common_cell_library/default/rtl/Bender.yml
+
+  cc_lib_dv_src_def: &cc_lib_dv_sources !flatten
+    - *cc_lib_sources
+    - hw/ip/common_cell_library/default/dv/design_tb/Bender.yml
+
+  cc_lib_fpv_src_def: &cc_lib_fpv_sources !flatten
+    - *cc_lib_sources
+    - hw/ip/common_cell_library/default/fv/**
+
+  token_manager_src_def: &token_manager_rtl_sources
+    - hw/ip/aic_common/default/data/aic_token_mapping.csv
+    - hw/ip/token_manager/default/**
+    - bin/token_manager_mapping
+  token_manager_verif_src_def: &token_manager_verif_sources !flatten
+    - *token_manager_rtl_sources
+    - hw/ip/token_manager/default/dv/tb/Bender.yml
+
+  #------------------------------------------------
+  # Dynamic Workload Management
+  dwm_src_def: &dwm_sources
+    - hw/ip/dwm/default/rtl/pkg/Bender.yml
+    - hw/ip/dwm/default/rtl/Bender.yml
+
+  dwm_fpv_src_def: &dwm_fpv_sources !flatten
+    - *dwm_sources
+    - hw/ip/dwm/default/fv/**
+
+
+  #------------------------------------------------
+  # Decompress
+  decompress_rtl_src_def: &decompress_rtl_sources
+    - hw/ip/decompress/default/rtl/pkg/Bender.yml
+    - hw/ip/decompress/default/rtl/Bender.yml
+
+  #------------------------------------------------
+  # Timestamp Logger
+  timestamp_logger_rtl_src_def: &timestamp_logger_rtl_sources
+    - hw/ip/timestamp_logger/default/rtl/pkg/Bender.yml
+    - hw/ip/timestamp_logger/default/rtl/Bender.yml
+    - hw/ip/timestamp_logger/default/data/**
+    - hw/ip/timestamp_logger/default/scripts/**
+
+  timestamp_logger_verif_tb_src_def: &timestamp_logger_verif_tb_sources !flatten
+    - *timestamp_logger_rtl_sources
+    - hw/ip/timestamp_logger/default/dv/sim/Bender.yml
+
+  #------------------------------------------------
+  # CVA6
+  cva6v_rtl_src_def: &cva6v_rtl_sources
+    - hw/vendor/axelera/cva6v/default/rtl/pkg/Bender.yml
+    - hw/vendor/axelera/cva6v/default/rtl/Bender.yml
+
+  cva6v_spike_verif_tb_src_def: &cva6v_spike_verif_tb_sources !flatten
+    - *cva6v_rtl_sources
+    - hw/vendor/axelera/cva6v/default/dv/**
+
+  cva6v_minisoc_verif_tb_src_def: &cva6v_minisoc_verif_tb_sources !flatten
+    - *cva6v_rtl_sources
+    - hw/vendor/axelera/cva6v/default/dv/**
+
+  cva6v_uvm_verif_tb_src_def: &cva6v_uvm_verif_tb_sources !flatten
+    - *cva6v_rtl_sources
+    - hw/vendor/axelera/cva6v/default/dv/**
+
+  #------------------------------------------------
+  # PVE
+  europa_pve_rtl_src_def: &europa_pve_rtl_sources
+    - hw/impl/europa/blocks/pve/rtl/pkg/Bender.yml
+    - hw/impl/europa/blocks/pve/rtl/Bender.yml
+    - hw/impl/europa/blocks/pve_l1/rtl/pkg/Bender.yml
+    - hw/impl/europa/blocks/pve_l1/rtl/Bender.yml
+    - hw/impl/europa/blocks/pve_cva6v/rtl/pkg/Bender.yml
+    - hw/impl/europa/blocks/pve_cva6v/rtl/Bender.yml
+
+  europa_pve_dft_src_def: &europa_pve_dft_sources
+    - hw/impl/europa/blocks/pve/dft/**
+    - hw/impl/europa/blocks/pve_l1/dft/**
+    - hw/impl/europa/blocks/pve_cva6v/dft/**
+
+  europa_pve_dv_src_def: &europa_pve_dv_src_def !flatten
+    - *europa_pve_rtl_sources
+    - hw/impl/europa/blocks/pve/dv/**
+    - hw/impl/europa/blocks/pve_l1/dv/**
+    - hw/impl/europa/blocks/pve_cva6v/dv/**
+
+  europa_pve_fabric_verif_tb_src_def: &europa_pve_fabric_verif_tb_sources !flatten
+    - *europa_pve_rtl_sources
+    - hw/impl/europa/blocks/pve/dv/pve_fabric_verif_tb/tb/Bender.yml
+
+  #------------------------------------------------
+  # Common sequence library sources
+  common_seq_lib_tb_def: &common_seq_lib_tb_sources
+    - hw/dv/common_seq_lib/tb/Bender.yml
+
+  #------------------------------------------------
+  # DMC
+  dmc_rtl_src_def: &dmc_rtl_sources
+    - hw/ip/dmc/default/rtl/pkg/Bender.yml
+    - hw/ip/dmc/default/rtl/Bender.yml
+
+  #------------------------------------------------
+  # DPU
+  dpu_rtl_src_def: &dpu_rtl_sources
+    - hw/ip/dpu/default/data/**
+    - hw/ip/dpu/default/rtl/pkg/Bender.yml
+    - hw/ip/dpu/default/rtl/Bender.yml
+
+  dpu_verif_tb_src_def: &dpu_verif_tb_sources !flatten
+    - *dpu_rtl_sources
+    - hw/ip/dpu/default/dv/rtl/Bender.yml
+    - hw/ip/dpu/default/dv/sim/**
+
+  #------------------------------------------------
+  # ACD
+  aic_cd_verif_tb_src_def: &aic_cd_verif_tb_sources !flatten
+    - *aic_cd_rtl_sources
+    - hw/ip/aic_control_dispatcher/default/dv/**
+
+  #------------------------------------------------
+  # DWPU
+  dwpu_rtl_src_def: &dwpu_rtl_sources
+    - hw/ip/dwpu/default/data/**
+    - hw/ip/dwpu/default/rtl/pkg/Bender.yml
+    - hw/ip/dwpu/default/rtl/Bender.yml
+
+  dwpu_verif_tb_src_def: &dwpu_verif_tb_sources !flatten
+    - *dwpu_rtl_sources
+    - hw/ip/dwpu/default/dv/rtl/Bender.yml
+
+  #------------------------------------------------
+  # DP_CMD_GEN
+  dp_cmd_gen_rtl_src_def: &dp_cmd_gen_rtl_sources
+    - hw/ip/aic_common/default/rtl/pkg/Bender.yml
+    - hw/ip/aic_common/default/rtl/Bender.yml
+
+  dwpu_verif_tb_src_def: &dp_cmd_gen_verif_tb_sources !flatten
+    - *dp_cmd_gen_rtl_sources
+    - hw/ip/aic_common/default/dv/sim-aic-dp-cmd-gen/Bender.yml
+
+  #------------------------------------------------
+  # IDF ODR
+  ifd_odr_rtl_src_def: &ifd_odr_rtl_sources
+    - hw/ip/ifd_odr/default/data/**
+    - hw/ip/ifd_odr/default/rtl/pkg/Bender.yml
+    - hw/ip/ifd_odr/default/rtl/Bender.yml
+
+  #------------------------------------------------
+  # AICORE_INFRA
+  aicore_infra_verif_tb_src_def: &aicore_infra_verif_tb_sources !flatten
+    - *europa_aic_infra_rtl_sources
+    - hw/ip/aicore_infra/default/dv/rtl/Bender.yml
+
+
+  #------------------------------------------------
+  # IAU
+  iau_rtl_src_def: &iau_rtl_sources
+    - hw/ip/iau/default/data/**
+    - hw/ip/iau/default/rtl/pkg/Bender.yml
+    - hw/ip/iau/default/rtl/Bender.yml
+
+  iau_fpv_src_def: &iau_fpv_sources !flatten
+    - *iau_rtl_sources
+    - hw/ip/iau/default/fv/**
+
+  iau_dpv_src_def: &iau_dpv_sources !flatten
+    - *iau_fpv_sources
+    - hw/ip/iau/default/fv/**
+
+  iau_verif_tb_src_def: &iau_verif_tb_sources !flatten
+    - *iau_rtl_sources
+    - hw/ip/iau/default/dv/rtl/Bender.yml
+
+  #------------------------------------------------
+  # L1
+  l1_rtl_src_def: &l1_rtl_sources
+    - hw/ip/l1/default/rtl/pkg/Bender.yml
+    - hw/ip/l1/default/rtl/Bender.yml
+
+  #------------------------------------------------
+  # L2
+  l2_rtl_src_def: &l2_rtl_sources
+    - hw/ip/l2/default/rtl/pkg/Bender.yml
+    - hw/ip/l2/default/rtl/Bender.yml
+
+  l2_fpv_src_def: &l2_fpv_sources !flatten
+    - *l2_rtl_sources
+    - hw/ip/l2/default/fv/**
+
+  l2_verif_tb_src_def: &l2_verif_tb_sources !flatten
+    - *l2_rtl_sources
+    - hw/ip/l2/default/dv/rtl/Bender.yml
+
+  #------------------------------------------------
+  # IMC Bank
+  imc_bank_rtl_src_def: &imc_bank_rtl_sources
+    - hw/ip/imc_bank/default/rtl/pkg/Bender.yml
+    - hw/ip/imc_bank/default/rtl/Bender.yml
+    - hw/ip/imc_bank/emulation/rtl/pkg/Bender.yml
+    - hw/ip/imc_bank/emulation/rtl/Bender.yml
+
+  imc_bank_fv_src_def: &imc_bank_fv_sources !flatten
+    - *imc_bank_rtl_sources
+    - hw/ip/imc_bank/emulation/fv/**
+
+  #------------------------------------------------
+  # PCTL
+  pctl_rtl_src_def: &pctl_rtl_sources
+    - hw/ip/pctl/default/rtl/pkg/Bender.yml
+    - hw/ip/pctl/default/rtl/Bender.yml
+
+  pctl_fv_src_def: &pctl_fv_sources !flatten
+    - *pctl_rtl_sources
+    - hw/ip/pctl/default/fv/**
+
+  #------------------------------------------------
+  # MVM
+  mvm_rtl_src_def: &mvm_rtl_sources
+    - hw/ip/mvm/default/data/**
+    - hw/ip/mvm/default/rtl/pkg/Bender.yml
+    - hw/ip/mvm/default/rtl/Bender.yml
+
+  mvm_verif_tb_src_def: &mvm_verif_tb_sources !flatten
+    - *mvm_rtl_sources
+    - hw/ip/mvm/default/dv/rtl/Bender.yml
+
+  #------------------------------------------------
+  # AIC LS verif
+  aic_ls_verif_tb_src_def: &aic_ls_verif_tb_sources !flatten
+    - *europa_aic_ls_rtl_sources
+    - hw/ip/aic_ls/default/dv/rtl/Bender.yml
+
+  #------------------------------------------------
+  # SPM
+  spm_rtl_src_def: &spm_rtl_sources
+    - hw/ip/spm/default/rtl/Bender.yml
+
+  spm_verif_src_def: &spm_verif_sources !flatten
+    - *spm_rtl_sources
+    - hw/ip/spm/default/dv/tb/Bender.yml
+
+  #------------------------------------------------
+  # DMA
+  dma_rtl_src_def: &dma_rtl_sources !flatten
+    - hw/ip/dma/default/rtl/Bender.yml
+    - hw/ip/dma/default/data/**
+
+  dma_verif_src_def: &dma_verif_sources !flatten
+    - *dma_rtl_sources
+    - hw/ip/dma/default/dv/tb/Bender.yml
+    - .gitlab/ci/dma.gitlab-ci.yml
+
+  #------------------------------------------------
+  # OTP Wrapper
+  otp_wrapper_rtl_src_def: &otp_wrapper_rtl_sources
+    - hw/ip/otp_wrapper/default/rtl/pkg/Bender.yml
+    - hw/ip/otp_wrapper/default/rtl/Bender.yml
+
+  #------------------------------------------------
+  # SYS SPM
+  sys_spm_rtl_src_def: &europa_sys_spm_rtl_sources
+    - *spm_rtl_sources
+    - hw/impl/europa/blocks/sys_spm/rtl/Bender.yml
+
+  sys_spm_dft_src_def: &europa_sys_spm_dft_sources
+    - hw/impl/europa/blocks/sys_spm/dft/**
+
+  sys_spm_verif_src_def: &sys_spm_verif_sources !flatten
+    - *europa_sys_spm_rtl_sources
+    - hw/impl/europa/blocks/sys_spm/dv/uvm_env/tb/Bender.yml
+
+  #------------------------------------------------
+  # TMS
+  tms_rtl_src_def: &tms_rtl_sources
+    - hw/ip/tms/default/rtl/pkg/Bender.yml
+    - hw/ip/tms/default/rtl/Bender.yml
+    - hw/ip/tms/default/dv/design_tb/Bender.yml
+
+  #------------------------------------------------
+  # DCD
+  dcd_verif_src_def: &dcd_verif_sources
+    - hw/impl/europa/blocks/dcd/data/**
+    - hw/impl/europa/blocks/dcd/dv/sim/Bender.yml
+
+  #------------------------------------------------
+  # KSE3
+  kud_kse3_src_def: &kud_kse3_sources
+    - hw/vendor/kudelski/kse3/default/rtl/Bender.yml
+    - hw/vendor/kudelski/ring_osc/default/rtl/Bender.yml
+
+#--------------------------------------------------
+# Europa software sources
+#--------------------------------------------------
+  europa_software_def: &europa_software_sources
+    - sw/**
+    - bin/**
+    - modulefiles/**
+    - .env-default-modules
+    - .env-setup-silverlight
+
+  europa_sw_scripts_def: &europa_sw_scripts_sources
+    - sw/scripts/**
+    - sw/pipewatch/**
+
+  europa_stimuli_src_def: &europa_stimuli_sources
+    - scripts/stimuli/download_stimuli.sh
+
+#--------------------------------------------------
+# Common test patterns
+#--------------------------------------------------
+  common_tests_def: &common_tests_sources
+    - verifsdk/tests_fw_dcd.yaml
+    - verifsdk/tests_fw_rvv.yaml
+    - verifsdk/tests_fw_top.yaml
+    - verifsdk/tests_fw.yaml
+    - verifsdk/tests_drv_fiat.yaml
+
+#--------------------------------------------------
+# Ungated Flops
+#--------------------------------------------------
+  ungated_flops_def: &ungated_flops_sources
+    - hw/scripts/power/gen_clock_savings_report.py
+    - hw/impl/europa/blocks/**
+
+build:europa:pt:ungated_flops:
+  schedules:
+    - ungated_flops
+  targets:
+    - design
+  patterns:
+    - '**'
+  links: []
+  description: "Run ungated flops analysis for Blocks using PT Shell."
+
+#--------------------------------------------------
+# Validate
+#--------------------------------------------------
+
+validate:bender-yml:
+  schedules:
+    - merge
+    - nightly
+    - weekly
+  targets:
+    - design
+  patterns:
+    - '**/Bender.yml'
+    - '**/.bender.yml'
+    - '.gitlab/ci/scripts/**'
+    - 'bin/check_bender'
+
+validate:romcode_path:
+  schedules:
+    - merge
+  targets:
+    - design
+  patterns: !flatten
+    - *hw_scripts_sim
+    - hw/ip/tech_cell_library/default/**
+
+validate:check_architectural_requirements:
+  schedules:
+    - merge
+  targets:
+    - design
+  patterns:
+    - '**/docs/**'
+    - 'bin/check_architectural_requirements'
+
+validate:verible-verilog-lint:
+  schedules:
+    - merge
+    - nightly
+    - weekly
+  targets:
+    - design
+  patterns: !flatten
+    - *hw_scripts_lint
+    - '**/Bender.yml'
+
+validate:address-map:
+  schedules:
+    - merge
+    - nightly
+    - weekly
+  targets:
+    - design
+  patterns:
+    - '**'
+
+validate:trex-ci-scenarios:
+  schedules:
+    - merge
+  targets:
+    - design
+  patterns:
+    - '**'
+
+validate:interrupt-map:
+  schedules:
+    - merge
+    - nightly
+    - weekly
+  targets:
+    - design
+  patterns:
+    - '**'
+
+validate:posix-file-ending:
+  schedules:
+    - merge
+  targets:
+    - design
+  patterns:
+    - '**'
+
+validate:post-prerequisites:
+  schedules:
+    - merge
+  targets:
+    - design
+  patterns:
+    - '**'
+
+validate:docs:
+  schedules:
+    - merge
+  targets:
+    - design
+  patterns:
+    - frankenstein.yml
+    - '**/docs/**'
+
+validate:europa:asic_top-compile:
+  schedules:
+    - nightly
+  targets:
+    - design
+  patterns: !flatten
+    - *hw_scripts_sim
+    - *europa_asic_top_rtl_sources
+    - bin/pad_solder
+    - hw/scripts/pad_solder/**
+
+validate:europa:l2-compile:
+  schedules:
+    - merge
+  targets:
+    - design
+  patterns: !flatten
+    - *hw_scripts_sim
+    - *europa_l2_rtl_sources
+
+validate:europa:soc_periph-vsim-compile:
+  schedules:
+    - merge
+  targets:
+    - design
+  patterns: !flatten
+    - *hw_scripts_sim
+    - *europa_soc_periph_rtl_sources
+
+validate:soc_periph-csr:
+  schedules:
+    - merge
+  targets:
+    - design
+  patterns:
+      - hw/impl/europa/blocks/soc_periph/data/soc_periph_ao_csr.hjson
+      - sw/sw/src/lib/ax65/include/auto-generated/soc_periph_ao_csr.h
+
+
+validate:apu-compile:
+  schedules:
+    - merge
+  targets:
+    - design
+  patterns: !flatten
+    - *hw_scripts_sim
+    - *europa_apu_rtl_sources
+
+validate:rtla:apu-analyze:
+  schedules:
+    - merge
+  targets:
+    - design
+  patterns: !flatten
+    - *hw_scripts_synth
+    - *europa_apu_rtl_sources
+    - *europa_apu_synth_scripts
+
+validate:soc_mgmt-compile:
+  schedules:
+    - merge
+  targets:
+    - design
+  patterns: !flatten
+    - *hw_scripts_sim
+    - *europa_soc_mgmt_dv_sources
+
+validate:top_light_real_lpddr-veloce-compile:
+  schedules:
+    - merge
+  targets:
+    - design
+  patterns:
+    - hw/impl/europa/emulation/**
+    - modulefiles/lpddr/**
+
+
+validate:top_light-veloce-compile:
+  schedules:
+    - merge
+  targets:
+    - design
+  patterns:
+    - hw/impl/europa/emulation/**
+
+validate:top_light_pcie-veloce-compile:
+  schedules:
+    - merge
+  targets:
+    - design
+  patterns:
+    - hw/impl/europa/emulation/**
+
+validate:top_aic0-veloce-compile:
+  schedules:
+    - merge
+  targets:
+    - design
+  patterns:
+    - hw/impl/europa/emulation/**
+
+validate:top-veloce-compile:
+  schedules:
+    - merge
+  targets:
+    - design
+  patterns:
+    - hw/impl/europa/emulation/**
+
+validate:top-sim-sw-tests:
+  schedules:
+    - merge
+  targets:
+    - design
+  links:
+    - validate:post-prerequisites
+  patterns: !flatten
+    - hw/impl/europa/dv/top/**
+    - *common_tests_sources
+
+test:top-sim-trex-tests:
+  schedules:
+    - merge
+  targets:
+    - design
+  links:
+    - validate:post-prerequisites
+    - validate:trex-ci-scenarios
+  patterns: !flatten
+    - hw/impl/europa/dv/top/**
+    - *common_tests_sources
+    - *scripts_trex
+    - verifsdk/tests_trex_ci_sanity.yaml
+    - *europa_software_sources
+    - *europa_sw_scripts_sources
+
+test:top_aic0-sim-trex-tests:merge:
+  schedules:
+    - merge
+  targets:
+    - design
+  links:
+    - validate:post-prerequisites
+    - validate:trex-ci-scenarios
+  patterns: !flatten
+    - hw/impl/europa/dv/top_aic0/**
+    - *common_tests_sources
+    - *scripts_trex
+    - verifsdk/tests_trex_ci_sanity.yaml
+
+test:top_aic0-sim-trex-tests:nightly:
+  schedules:
+    - nightly
+  targets:
+    - design
+  patterns: !flatten
+    - hw/impl/europa/dv/top_aic0/**
+    - *common_tests_sources
+    - *scripts_trex
+    - verifsdk/tests_trex_ci_sanity.yaml
+
+validate:top_light-sim-sw-tests:
+  schedules:
+    - merge
+  targets:
+    - design
+  links:
+    - validate:post-prerequisites
+  patterns: !flatten
+    - hw/impl/europa/dv/top_light/**
+    - hw/impl/europa/dv/top/**
+    - *common_tests_sources
+
+validate:top_aic0-sim-sw-tests:
+  schedules:
+    - merge
+  targets:
+    - design
+  links:
+    - validate:post-prerequisites
+  patterns: !flatten
+    - hw/impl/europa/dv/top_aic0/**
+    - hw/impl/europa/dv/top/**
+    - *common_tests_sources
+
+validate:axe_axi-compile:
+  schedules:
+    - merge
+  targets:
+    - design
+  patterns: !flatten
+    - *hw_scripts_sim
+    - *axe_axi_rtl_sources
+
+validate:axi4_common-compile:
+  schedules:
+    - merge
+  targets:
+    - design
+  patterns: !flatten
+    - *hw_scripts_sim
+    - *axi4_common_rtl_sources
+
+
+validate:axe_apb-compile:
+  schedules:
+    - merge
+  targets:
+    - design
+  patterns: !flatten
+    - *hw_scripts_sim
+    - *axe_apb_rtl_sources
+
+validate:axe_ahb-compile:
+  schedules:
+    - merge
+  targets:
+    - design
+  patterns: !flatten
+    - *hw_scripts_sim
+    - *axe_ahb_rtl_sources
+
+validate:kud_kse3:design:compile:
+  schedules:
+    - merge
+  targets:
+    - design
+  patterns: !flatten
+    - *hw_scripts_sim
+    - *kud_kse3_sources
+
+validate:axe_bridges-compile:
+  schedules:
+    - merge
+  targets:
+    - design
+  patterns: !flatten
+    - *hw_scripts_sim
+    - *axe_bridges_rtl_sources
+
+validate:otp_wrapper-compile:
+  schedules:
+    - merge
+  targets:
+    - design
+  patterns: !flatten
+    - *hw_scripts_sim
+    - *otp_wrapper_rtl_sources
+
+validate:axe_tcl-compile:
+  schedules:
+    - merge
+  targets:
+    - design
+  patterns: !flatten
+    - *hw_scripts_sim
+    - hw/ip/tech_cell_library/default/**
+
+validate:aic_cd-compile:
+  schedules:
+    - merge
+  targets:
+    - design
+  patterns: !flatten
+    - *hw_scripts_sim
+    - *aic_cd_rtl_sources
+
+validate:cva6v-compile:
+  schedules:
+    - merge
+  targets:
+    - design
+  patterns: !flatten
+    - *hw_scripts_sim
+    - *cva6v_rtl_sources
+    - *europa_ai_core_cva6v_rtl_sources
+
+validate:decompress-vsim-compile:
+  schedules:
+    - merge
+  targets:
+    - design
+  patterns: !flatten
+    - *hw_scripts_sim
+    - *decompress_rtl_sources
+
+validate:dmc-vsim-compile:
+  schedules:
+    - merge
+  targets:
+    - design
+  patterns: !flatten
+    - *hw_scripts_sim
+    - *dmc_rtl_sources
+
+validate:dpu-compile:
+  schedules:
+    - merge
+  targets:
+    - design
+  patterns: !flatten
+    - *hw_scripts_sim
+    - *dpu_rtl_sources
+
+validate:dwpu-compile:
+  schedules:
+    - merge
+  targets:
+    - design
+  patterns: !flatten
+    - *hw_scripts_sim
+    - *dwpu_rtl_sources
+
+validate:dp_cmd_gen-compile:
+  schedules:
+    - merge
+  targets:
+    - design
+  patterns: !flatten
+    - *hw_scripts_sim
+    - *dp_cmd_gen_rtl_sources
+
+validate:europa:aic_ls-compile:
+  schedules:
+    - merge
+  targets:
+    - design
+  patterns: !flatten
+    - *hw_scripts_sim
+    - *europa_aic_ls_rtl_sources
+
+validate:europa:aic_did-compile:
+  schedules:
+    - merge
+  targets:
+    - design
+  patterns: !flatten
+    - *hw_scripts_sim
+    - *europa_aic_did_rtl_sources
+
+validate:europa:aic_mid-compile:
+  schedules:
+    - merge
+  targets:
+    - design
+  patterns: !flatten
+    - *hw_scripts_sim
+    - *europa_aic_mid_rtl_sources
+
+validate:europa:aic_infra-compile:
+  schedules:
+    - merge
+  targets:
+    - design
+  patterns: !flatten
+    - *hw_scripts_sim
+    - *europa_aic_infra_rtl_sources
+
+validate:europa:ai_core-compile:
+  schedules:
+    - merge
+  targets:
+    - design
+  patterns: !flatten
+    - *hw_scripts_sim
+    - *europa_ai_core_rtl_sources
+
+validate:europa:dcd-compile:
+  schedules:
+    - merge
+  targets:
+    - design
+  patterns: !flatten
+    - *hw_scripts_sim
+    - *europa_dcd_rtl_sources
+
+validate:europa:lpddr-compile:
+  schedules:
+    - merge
+  targets:
+    - design
+  patterns: !flatten
+    - *hw_scripts_sim
+    - *europa_lpddr_rtl_sources
+
+validate:noc:design:compile:
+  schedules:
+    - merge
+  targets:
+    - design
+  patterns: !flatten
+    - *hw_scripts_sim
+    - *europa_noc_rtl_sources
+
+validate:noc:design:rtla-analyze:
+  schedules:
+    - merge
+  targets:
+    - design
+  patterns: !flatten
+    - *hw_scripts_synth
+    - *europa_noc_rtl_sources
+    - *europa_noc_synth_scripts
+
+validate:iau-vsim-compile:
+  schedules:
+    - merge
+  targets:
+    - design
+  patterns: !flatten
+    - *hw_scripts_sim
+    - *iau_rtl_sources
+
+validate:ifd_odr-vsim-compile:
+  schedules:
+    - merge
+  targets:
+    - design
+  patterns: !flatten
+    - *hw_scripts_sim
+    - *ifd_odr_rtl_sources
+
+validate:l1-vsim-compile:
+  schedules:
+    - merge
+  targets:
+    - design
+  patterns: !flatten
+    - *hw_scripts_sim
+    - *l1_rtl_sources
+
+validate:l2-vsim-compile:
+  schedules:
+    - merge
+  targets:
+    - design
+  patterns: !flatten
+    - *hw_scripts_sim
+    - *l2_rtl_sources
+
+validate:mvm-vsim-compile:
+  schedules:
+    - merge
+  targets:
+    - design
+  patterns: !flatten
+    - *hw_scripts_sim
+    - *mvm_rtl_sources
+
+validate:timestamp_logger-compile:
+  schedules:
+    - merge
+  targets:
+    - design
+  patterns: !flatten
+    - *hw_scripts_sim
+    - *timestamp_logger_rtl_sources
+
+validate:token_manager-compile:
+  schedules:
+    - merge
+  targets:
+    - design
+  patterns: !flatten
+    - *hw_scripts_sim
+    - *token_manager_rtl_sources
+
+validate:cva6v_dv_spike-compile:
+  schedules:
+    - merge
+  targets:
+    - design
+  patterns: !flatten
+    - *hw_scripts_sim
+    - *cva6v_spike_verif_tb_sources
+
+validate:cva6v_dv_minisoc-compile:
+  schedules:
+    - merge
+  targets:
+    - design
+  patterns: !flatten
+    - *hw_scripts_sim
+    - *cva6v_minisoc_verif_tb_sources
+
+validate:cva6v_dv_uvm-compile:
+  schedules:
+    - merge
+  targets:
+    - design
+  patterns: !flatten
+    - *hw_scripts_sim
+    - *cva6v_uvm_verif_tb_sources
+
+validate:cva6v_dv_rag-compile:
+  schedules:
+    - merge
+  targets:
+    - design
+  patterns: !flatten
+    - *hw_scripts_sim
+    - *cva6v_minisoc_verif_tb_sources
+
+validate:verifsdk-yamls:
+  schedules:
+    - merge
+  targets:
+    - design
+  patterns: !flatten
+    - verifsdk/**
+    - *europa_software_sources
+
+validate:verifsdk-build-dma-tests:
+  schedules:
+    - merge
+    - nightly
+  targets:
+    - design
+  patterns: !flatten
+    - *europa_software_sources
+    - *dma_rtl_sources
+    - scripts/trex/**
+
+validate:noc:verif:vsim-compile:
+  schedules:
+    - merge
+  targets:
+    - design
+  patterns: !flatten
+    - *hw_scripts_sim
+    - *europa_noc_rtl_sources
+
+validate:aicore-datapath-driver:
+  schedules:
+    - merge
+  targets:
+    - design
+  patterns:
+    - .gitlab/ci/config.gitlab-ci.yml
+    - sw/src/lib/aicore/**
+
+validate:drv-fiat-testlist:
+  schedules:
+    - merge
+  targets:
+    - design
+  patterns:
+    - .gitlab/ci/config.gitlab-ci.yml
+    - verifsdk/tests_drv_fiat.yaml
+
+validate:verifsdk-sw-build:
+  schedules:
+    - merge
+  targets:
+    - design
+  patterns: !flatten
+    - *europa_software_sources
+    - verifsdk/
+
+# validate:pve_fabric:verif:vsim-compile:
+#   schedules:
+#     - merge
+#   targets:
+#     - design
+#   patterns: !flatten
+#     - *hw_scripts_sim
+#     - *europa_pve_rtl_sources
+
+#--------------------------------------------------
+# Build
+#--------------------------------------------------
+
+build:top_light_real_lpddr-veloce-compile:
+  schedules:
+    - nightly
+  targets:
+    - design
+  patterns:
+    - "**"
+
+build:top_light-veloce-compile:
+  schedules:
+    - nightly
+  targets:
+    - design
+  patterns:
+    - "**"
+
+build:top_light_pcie-veloce-compile:
+  schedules:
+    - nightly
+  targets:
+    - design
+  patterns:
+    - "**"
+
+build:top_aic0-veloce-compile:
+  schedules:
+    - nightly
+  targets:
+    - design
+  patterns:
+    - "**"
+
+build:top_bypass_imc_bank_on_all_cores-veloce-compile:
+  schedules:
+    - nightly
+  targets:
+    - design
+  patterns:
+    - "**"
+
+build:top:dv:sim-release:
+  schedules:
+    - nightly
+  targets:
+    - design
+  patterns:
+    - "**"
+
+validate:tms-compile:
+  schedules:
+    - merge
+  targets:
+    - design
+  patterns: !flatten
+    - *hw_scripts_sim
+    - *tms_rtl_sources
+
+validate:sync_main:git-repo-resync:
+  schedules:
+    - sync_main
+  targets:
+    - sync_main
+  patterns:
+    - "**"
+
+build:europa:dft:generate-subblocks:ai_core:
+  schedules:
+    - dft
+    - weekly
+  targets:
+    - dft
+  patterns: !flatten
+    - *europa_aic_did_rtl_sources
+    - *europa_aic_did_dft_sources
+    - *europa_aic_mid_rtl_sources
+    - *europa_aic_mid_dft_sources
+    - *europa_aic_ls_rtl_sources
+    - *europa_aic_ls_dft_sources
+    - *europa_aic_infra_rtl_sources
+    - *europa_aic_infra_dft_sources
+
+test:europa:dft:rtla-elab-subblocks:ai_core:
+  schedules:
+    - dft
+    - weekly
+  targets:
+    - dft
+  links:
+    - build:europa:dft:generate-subblocks:ai_core
+  patterns: !flatten
+    - *europa_aic_did_rtl_sources
+    - *europa_aic_did_dft_sources
+    - *europa_aic_mid_rtl_sources
+    - *europa_aic_mid_dft_sources
+    - *europa_aic_ls_rtl_sources
+    - *europa_aic_ls_dft_sources
+    - *europa_aic_infra_rtl_sources
+    - *europa_aic_infra_dft_sources
+
+build:europa:dft:generate-subblocks:apu:
+  schedules:
+    - dft
+    - weekly
+  targets:
+    - dft
+  patterns: !flatten
+    - *europa_apu_core_rtl_sources
+    - *europa_apu_core_dft_sources
+    - *europa_apu_l2c_rtl_sources
+    - *europa_apu_l2c_dft_sources
+
+test:europa:dft:rtla-elab-subblocks:apu:
+  schedules:
+    - dft
+    - weekly
+  targets:
+    - dft
+  links:
+    - build:europa:dft:generate-subblocks:apu
+  patterns: !flatten
+    - *europa_apu_core_rtl_sources
+    - *europa_apu_core_dft_sources
+    - *europa_apu_l2c_rtl_sources
+    - *europa_apu_l2c_dft_sources
+
+build:europa:dft:generate-subblocks:dcd:
+  schedules:
+    - dft
+    - weekly
+  targets:
+    - dft
+  patterns: !flatten
+    - *europa_dcd_core_rtl_sources
+    - *europa_dcd_core_dft_sources
+
+build:europa:dft:generate-subblocks:l2:
+  schedules:
+    - dft
+    - weekly
+  targets:
+    - dft
+  patterns: !flatten
+    - *europa_l2_rtl_sources
+    - *europa_l2_dft_sources
+
+test:europa:dft:rtla-elab-subblocks:l2:
+  schedules:
+    - dft
+    - weekly
+  targets:
+    - dft
+  links:
+    - build:europa:dft:generate-subblocks:l2
+  patterns: !flatten
+    - *europa_l2_rtl_sources
+    - *europa_l2_dft_sources
+
+build:europa:dft:generate-subblocks:lpddr:
+  schedules:
+    - dft
+    - weekly
+  targets:
+    - dft
+  patterns: !flatten
+    - *europa_lpddr_rtl_sources
+    - *europa_lpddr_dft_sources
+
+test:europa:dft:rtla-elab-subblocks:lpddr:
+  schedules:
+    - dft
+    - weekly
+  targets:
+    - dft
+  links:
+    - build:europa:dft:generate-subblocks:lpddr
+  patterns: !flatten
+    - *europa_lpddr_rtl_sources
+    - *europa_lpddr_dft_sources
+
+build:europa:dft:generate-subblocks:noc:
+  schedules:
+    - dft
+    - weekly
+  targets:
+    - dft
+  patterns: !flatten
+    - *europa_noc_rtl_sources
+    - *europa_noc_dft_sources
+
+test:europa:dft:rtla-elab-subblocks:noc:
+  schedules:
+    - dft
+    - weekly
+  targets:
+    - dft
+  links:
+    - build:europa:dft:generate-subblocks:noc
+  patterns: !flatten
+    - *europa_noc_rtl_sources
+    - *europa_noc_dft_sources
+
+build:europa:dft:generate-subblocks:pcie:
+  schedules:
+    - dft
+    - weekly
+  targets:
+    - dft
+  patterns: !flatten
+    - *europa_pcie_rtl_sources
+    - *europa_pcie_dft_sources
+
+test:europa:dft:rtla-elab-subblocks:pcie:
+  schedules:
+    - dft
+    - weekly
+  targets:
+    - dft
+  links:
+    - build:europa:dft:generate-subblocks:pcie
+  patterns: !flatten
+    - *europa_pcie_rtl_sources
+    - *europa_pcie_dft_sources
+
+build:europa:dft:generate-subblocks:pve:
+  schedules:
+    - dft
+    - weekly
+  targets:
+    - dft
+  patterns: !flatten
+    - *europa_pve_rtl_sources
+    - *europa_pve_dft_sources
+
+test:europa:dft:rtla-elab-subblocks:pve:
+  schedules:
+    - dft
+    - weekly
+  targets:
+    - dft
+  links:
+    - build:europa:dft:generate-subblocks:pve
+  patterns: !flatten
+    - *europa_pve_rtl_sources
+    - *europa_pve_dft_sources
+
+build:europa:dft:generate-subblocks:sdma:
+  schedules:
+    - dft
+    - weekly
+  targets:
+    - dft
+  patterns: !flatten
+    - *europa_sdma_rtl_sources
+    - *europa_sdma_dft_sources
+
+test:europa:dft:rtla-elab-subblocks:sdma:
+  schedules:
+    - dft
+    - weekly
+  targets:
+    - dft
+  links:
+    - build:europa:dft:generate-subblocks:sdma
+  patterns: !flatten
+    - *europa_sdma_rtl_sources
+    - *europa_sdma_dft_sources
+
+build:europa:dft:generate-subblocks:soc_periph:
+  schedules:
+    - dft
+    - weekly
+  targets:
+    - dft
+  patterns: !flatten
+    - *europa_soc_periph_rtl_sources
+    - *europa_soc_periph_dft_sources
+
+test:europa:dft:rtla-elab-subblocks:soc_periph:
+  schedules:
+    - dft
+    - weekly
+  targets:
+    - dft
+  links:
+    - build:europa:dft:generate-subblocks:soc_periph
+  patterns: !flatten
+    - *europa_soc_periph_rtl_sources
+    - *europa_soc_periph_dft_sources
+
+build:europa:dft:generate-subblocks:soc_mgmt:
+  schedules:
+    - dft
+    - weekly
+  targets:
+    - dft
+  patterns: !flatten
+    - *europa_soc_mgmt_rtl_sources
+    - *europa_soc_mgmt_dft_sources
+
+test:europa:dft:rtla-elab-subblocks:soc_mgmt:
+  schedules:
+    - dft
+    - weekly
+  targets:
+    - dft
+  links:
+    - build:europa:dft:generate-subblocks:soc_mgmt
+  patterns: !flatten
+    - *europa_soc_mgmt_rtl_sources
+    - *europa_soc_mgmt_dft_sources
+
+build:europa:dft:generate-subblocks:sys_spm:
+  schedules:
+    - dft
+    - weekly
+  targets:
+    - dft
+  patterns: !flatten
+    - *europa_sys_spm_rtl_sources
+    - *europa_sys_spm_dft_sources
+
+test:europa:dft:rtla-elab-subblocks:sys_spm:
+  schedules:
+    - dft
+    - weekly
+  targets:
+    - dft
+  links:
+    - build:europa:dft:generate-subblocks:sys_spm
+  patterns: !flatten
+    - *europa_sys_spm_rtl_sources
+    - *europa_sys_spm_dft_sources
+
+build:europa:dft:generate-midblocks:ai_core:
+  schedules:
+    - dft
+    - weekly
+  targets:
+    - dft
+  links:
+    - build:europa:dft:generate-subblocks:ai_core
+  patterns: !flatten
+    - *europa_ai_core_rtl_sources
+    - *europa_ai_core_dft_sources
+
+test:europa:dft:rtla-elab-midblocks:ai_core:
+  schedules:
+    - dft
+    - weekly
+  targets:
+    - dft
+  links:
+    - build:europa:dft:generate-midblocks:ai_core
+  patterns: !flatten
+    - *europa_ai_core_rtl_sources
+    - *europa_ai_core_dft_sources
+
+build:europa:dft:generate-midblocks:apu:
+  schedules:
+    - dft
+    - weekly
+  targets:
+    - dft
+  links:
+    - build:europa:dft:generate-subblocks:apu
+  patterns: !flatten
+    - *europa_apu_rtl_sources
+    - *europa_apu_dft_sources
+
+test:europa:dft:rtla-elab-midblocks:apu:
+  schedules:
+    - dft
+    - weekly
+  targets:
+    - dft
+  links:
+    - build:europa:dft:generate-midblocks:apu
+  patterns: !flatten
+    - *europa_apu_rtl_sources
+    - *europa_apu_dft_sources
+
+build:europa:dft:generate-midblocks:dcd:
+  schedules:
+    - dft
+    - weekly
+  targets:
+    - dft
+  links:
+    - build:europa:dft:generate-subblocks:dcd
+  patterns: !flatten
+    - *europa_dcd_rtl_sources
+    - *europa_dcd_dft_sources
+
+test:europa:dft:rtla-elab-midblocks:dcd:
+  schedules:
+    - dft
+    - weekly
+  targets:
+    - dft
+  links:
+    - build:europa:dft:generate-midblocks:dcd
+  patterns: !flatten
+    - *europa_dcd_rtl_sources
+    - *europa_dcd_dft_sources
+
+build:europa:dft:generate-midblocks:pve:
+  schedules:
+    - dft
+    - weekly
+  targets:
+    - dft
+  links:
+    - build:europa:dft:generate-subblocks:pve
+  patterns: !flatten
+    - *europa_pve_rtl_sources
+    - *europa_pve_dft_sources
+
+test:europa:dft:rtla-elab-midblocks:pve:
+  schedules:
+    - dft
+    - weekly
+  targets:
+    - dft
+  links:
+    - build:europa:dft:generate-midblocks:pve
+  patterns: !flatten
+    - *europa_pve_rtl_sources
+    - *europa_pve_dft_sources
+
+test:europa:dft:sanity-ai_core:
+  schedules:
+    - dft
+  targets:
+    - dft
+  links:
+    - build:europa:dft:generate-midblocks:ai_core
+  patterns: !flatten
+    - *hw_scripts_sim
+    - *europa_ai_core_rtl_sources
+    - *europa_ai_core_dft_sources
+
+test:europa:dft:patterns-ai_core:
+  schedules:
+    - weekly
+  targets:
+    - dft
+  links:
+    - build:europa:dft:generate-midblocks:ai_core
+  patterns: !flatten
+    - *hw_scripts_sim
+    - *europa_ai_core_rtl_sources
+    - *europa_ai_core_dft_sources
+
+test:europa:dft:sanity-apu:
+  schedules:
+    - dft
+  targets:
+    - dft
+  links:
+    - build:europa:dft:generate-midblocks:apu
+  patterns: !flatten
+    - *hw_scripts_sim
+    - *europa_apu_rtl_sources
+    - *europa_apu_dft_sources
+
+test:europa:dft:patterns-apu:
+  schedules:
+    - weekly
+  targets:
+    - dft
+  links:
+    - build:europa:dft:generate-midblocks:apu
+  patterns: !flatten
+    - *hw_scripts_sim
+    - *europa_apu_rtl_sources
+    - *europa_apu_dft_sources
+
+test:europa:dft:sanity-dcd:
+  schedules:
+    - dft
+  targets:
+    - dft
+  links:
+    - build:europa:dft:generate-midblocks:dcd
+  patterns: !flatten
+    - *hw_scripts_sim
+    - *europa_dcd_rtl_sources
+    - *europa_dcd_dft_sources
+
+test:europa:dft:patterns-dcd:
+  schedules:
+    - weekly
+  targets:
+    - dft
+  links:
+    - build:europa:dft:generate-midblocks:dcd
+  patterns: !flatten
+    - *hw_scripts_sim
+    - *europa_dcd_rtl_sources
+    - *europa_dcd_dft_sources
+
+test:europa:dft:sanity-pve:
+  schedules:
+    - dft
+  targets:
+    - dft
+  links:
+    - build:europa:dft:generate-midblocks:pve
+  patterns: !flatten
+    - *hw_scripts_sim
+    - *europa_pve_rtl_sources
+    - *europa_pve_dft_sources
+
+test:europa:dft:patterns-pve:
+  schedules:
+    - weekly
+  targets:
+    - dft
+  links:
+    - build:europa:dft:generate-midblocks:pve
+  patterns: !flatten
+    - *hw_scripts_sim
+    - *europa_pve_rtl_sources
+    - *europa_pve_dft_sources
+
+test:europa:dft:sanity-lpddr:
+  schedules:
+    - dft
+  targets:
+    - dft
+  patterns: !flatten
+    - *hw_scripts_sim
+    - *europa_lpddr_rtl_sources
+
+test:europa:dft:patterns-lpddr:
+  schedules:
+    - weekly
+  targets:
+    - dft
+  patterns: !flatten
+    - *hw_scripts_sim
+    - *europa_lpddr_rtl_sources
+
+test:europa:dft:sanity-snps_ddr_subsystem:
+  schedules:
+    - dft
+  targets:
+    - dft
+  patterns: !flatten
+    - *hw_scripts_sim
+    - *europa_lpddr_rtl_sources
+
+test:europa:dft:patterns-snps_ddr_subsystem:
+  schedules:
+    - weekly
+  targets:
+    - dft
+  patterns: !flatten
+    - *hw_scripts_sim
+    - *europa_lpddr_rtl_sources
+
+test:lpddr:dft:nightly:
+  schedules:
+    - nightly
+  targets:
+    - dft
+  patterns: !flatten
+    - *hw_scripts_sim
+    - *europa_lpddr_rtl_sources
+
+test:lpddr:bist:nightly:
+  schedules:
+    - nightly
+  targets:
+    - dft
+  patterns: !flatten
+    - *hw_scripts_sim
+    - *europa_lpddr_rtl_sources
+
+test:lpddr:bist:weekly:
+  schedules:
+    - weekly
+  targets:
+    - dft
+  patterns: !flatten
+    - *hw_scripts_sim
+    - *europa_lpddr_rtl_sources
+
+test:dft-pat-pcie:nightly:
+  schedules:
+    - nightly
+  targets:
+    - dft
+  patterns: !flatten
+    - *hw_scripts_sim
+    - *europa_pcie_rtl_sources
+
+test:snps_pcie_subsystem:dft:nightly:
+  schedules:
+    - nightly
+  targets:
+    - dft
+  patterns: !flatten
+    - *hw_scripts_sim
+    - *europa_pcie_rtl_sources
+
+test:dft-pat-pcie:weekly:
+  schedules:
+    - weekly
+  targets:
+    - dft
+  patterns: !flatten
+    - *hw_scripts_sim
+    - *europa_pcie_rtl_sources
+
+test:snps_pcie_subsystem:dft:weekly:
+  schedules:
+    - weekly
+  targets:
+    - dft
+  patterns: !flatten
+    - *hw_scripts_sim
+    - *europa_pcie_rtl_sources
+
+
+#--------------------------------------------------
+# Freeze checks:
+#--------------------------------------------------
+build:europa:design:freeze_check:
+  schedules:
+    - nightly
+  targets:
+    - design
+  patterns:
+    - "**"
+
+#--------------------------------------------------
+# Tests
+#--------------------------------------------------
+
+test:aicore:cc:
+  schedules:
+    - nightly
+    - merge
+  targets:
+    - design
+  patterns: !flatten
+    - *hw_scripts_formal
+    - *europa_ai_core_rtl_sources
+
+test:europa:cc:
+  schedules:
+    - nightly
+    - merge
+  targets:
+    - design
+  patterns: !flatten
+    - *hw_scripts_common
+    - *hw_scripts_formal
+    - *europa_asic_top_rtl_sources
+
+test:pctl:frv:
+  schedules:
+    - nightly
+    - merge
+  targets:
+    - design
+  patterns: !flatten
+    - *hw_scripts_formal
+    - *pctl_fv_sources
+
+test:imc_bank:seq:
+  schedules:
+    - nightly
+    - merge
+  targets:
+    - design
+  patterns: !flatten
+    - *hw_scripts_formal
+    - *imc_bank_fv_sources
+
+test:cc_lib-design_tb:
+  schedules:
+    - merge
+  targets:
+    - design
+  patterns: !flatten
+    - *hw_scripts_sim
+    - *cc_lib_dv_sources
+
+test:cc_lib-fpv:
+  schedules:
+    - nightly
+    - merge
+  targets:
+    - design
+  patterns: !flatten
+    - *hw_scripts_formal
+    - *cc_lib_fpv_sources
+
+test:dwm-fpv:
+  schedules:
+    - nightly
+    - merge
+  targets:
+    - design
+  patterns: !flatten
+    - *hw_scripts_formal
+    - *dwm_fpv_sources
+
+test:l2-fpv:
+  schedules:
+    - nightly
+    - merge
+  targets:
+    - design
+  patterns: !flatten
+    - *hw_scripts_formal
+    - *l2_fpv_sources
+
+test:iau_dp-dpv:
+  schedules:
+    - nightly
+    - merge
+  targets:
+    - design
+  patterns: !flatten
+    - *hw_scripts_formal
+    - *iau_dpv_sources
+
+test:soc_periph-spike-sw-tests:
+  schedules:
+    - nightly
+  targets:
+    - design
+  patterns: !flatten
+    - *hw_scripts_sim
+    - *europa_soc_periph_dv_spike_tb_sources
+    - *europa_software_sources
+
+test:soc_periph-spike-sanity-sw-tests:
+  schedules:
+    - merge
+  targets:
+    - design
+  patterns: !flatten
+    - *hw_scripts_sim
+    - *europa_soc_periph_dv_spike_tb_sources
+    - *europa_software_sources
+    - verifsdk/tests_soc_periph.yaml
+
+test:soc_periph-axi-tests:
+  schedules:
+    - nightly
+  targets:
+    - design
+  patterns: !flatten
+    - *hw_scripts_sim
+    - *europa_soc_periph_dv_axi_tb_sources
+    - *europa_software_sources
+    - verifsdk/tests_uvm.yaml
+
+test:soc_periph-archive-coverage:
+  schedules:
+    - nightly
+  targets:
+    - design
+  links:
+    - test:soc_periph-axi-tests
+    - test:soc_periph-spike-sw-tests
+    - test:top_light-veloce-run
+    - test:top_light-sim-sw-tests
+  patterns:
+    - "**"
+
+test:verif-aicore:sanity:
+  schedules:
+    - merge
+  targets:
+    - design
+  patterns: !flatten
+    - *hw_scripts_sim
+    - *europa_aicore_dv_sources
+    - *europa_software_sources
+    - *europa_sw_scripts_sources
+    - *cva6v_minisoc_verif_tb_sources
+    - verifsdk/tests_drv_fiat.yaml
+    - verifsdk/tests_uvm_aicore.yaml
+    - verifsdk/tests_fw.yaml
+
+test:verif-aicore:nightly:
+  schedules:
+    - nightly
+  targets:
+    - design
+  patterns: !flatten
+    - *hw_scripts_sim
+    - *europa_aicore_dv_sources
+    - *europa_software_sources
+
+test:trex-aicore:sanity:
+  schedules:
+    - merge
+  targets:
+    - design
+  links:
+    - validate:trex-ci-scenarios
+  patterns: !flatten
+    - *hw_scripts_sim
+    - *scripts_trex
+    - *europa_aicore_dv_sources
+    - *europa_software_sources
+    - *europa_sw_scripts_sources
+    - *cva6v_minisoc_verif_tb_sources
+    - verifsdk/tests_drv_fiat.yaml
+    - verifsdk/tests_uvm_aicore.yaml
+    - verifsdk/tests_fw.yaml
+    - verifsdk/tests_trex_ci_sanity.yaml
+
+test:top-sim-sw-tests:
+  schedules:
+    - nightly
+  targets:
+    - design
+  patterns:
+    - "**"
+
+test:top_light-sim-sw-tests:
+  schedules:
+    - nightly
+  targets:
+    - design
+  patterns:
+    - "**"
+
+test:top_aic0-sim-sw-tests:
+  schedules:
+    - nightly
+  targets:
+    - design
+  patterns:
+    - "**"
+
+test:drv-fiat-top_aic0:merge:
+  schedules:
+    - merge
+  targets:
+    - design
+  patterns: !flatten
+    - hw/impl/europa/dv/top_aic0/**
+    - hw/impl/europa/dv/top/**
+    - *common_tests_sources
+    - *europa_software_sources
+
+test:drv-fiat-top_aic0:nightly:
+  schedules:
+    - nightly
+  targets:
+    - design
+  patterns: !flatten
+    - hw/impl/europa/dv/top_aic0/**
+    - hw/impl/europa/dv/top/**
+    - *common_tests_sources
+    - *europa_software_sources
+
+test:drv-fiat-top_aic0:weekly:
+  schedules:
+    - weekly
+  targets:
+    - design
+  patterns: !flatten
+    - hw/impl/europa/dv/top_aic0/**
+    - hw/impl/europa/dv/top/**
+    - *common_tests_sources
+    - *europa_software_sources
+
+test:top_light_real_lpddr-sim-sw-tests:
+ schedules:
+   - nightly
+ targets:
+   - design
+ patterns:
+   - "**"
+
+test:top-archive-coverage:
+  schedules:
+    - nightly
+  targets:
+    - design
+  links:
+    - test:top-veloce-run
+    - test:top-sim-sw-tests
+    - test:top_light-veloce-run
+    - test:top_light-sim-sw-tests
+    - test:top_aic0-veloce-run
+    - test:top_aic0-sim-sw-tests
+    - test:top_aic0-sim-trex-tests:nightly
+    - test:top_security-veloce-run
+    - test:top_security-sim-sw-tests
+  patterns:
+    - "**"
+
+test:top_light-veloce-run:
+  schedules:
+    - nightly
+  targets:
+    - design
+  links:
+    - build:top_light-veloce-compile
+  patterns:
+    - "**"
+
+test:top_aic0-veloce-run:
+  schedules:
+    - nightly
+  targets:
+    - design
+  links:
+    - build:top_aic0-veloce-compile
+  patterns:
+    - "**"
+
+test:top_light-veloce-run-linux:
+  schedules:
+    - nightly
+  targets:
+    - design
+  links:
+    - build:top_light-veloce-compile
+  patterns:
+    - "**"
+
+
+test:top_light_real_lpddr-veloce-run:
+ schedules:
+   - nightly
+ targets:
+   - design
+ links:
+   - build:top_light_real_lpddr-veloce-compile
+ patterns:
+   - "**"
+
+test:top-veloce-run:
+  schedules:
+    - nightly
+  targets:
+    - design
+  links:
+    - build:top_bypass_imc_bank_on_all_cores-veloce-compile
+  patterns:
+    - "**"
+
+test:top_security-veloce-run:
+  schedules:
+    - nightly
+  targets:
+    - design
+  links:
+    - build:top_bypass_imc_bank_on_all_cores-veloce-compile
+  patterns:
+    - "**"
+
+test:top-elab-run:
+  schedules:
+    - nightly
+  targets:
+    - design
+  patterns:
+    - "**"
+
+test:rtla:apu-elab:
+  schedules:
+    - weekly
+  targets:
+    - design
+  patterns:
+    - "**"
+
+test:top-sim-security_sanity:
+  schedules:
+    - merge
+  targets:
+    - design
+  links:
+    - validate:post-prerequisites
+  patterns: !flatten
+    - *hw_scripts_sim
+    - *europa_secure_dv_sources
+    - sw/scripts/run/run_sim_top*.sh
+    - hw/impl/europa/emulation/**
+
+test:top_security-sim-sw-tests:
+  schedules:
+    - nightly
+  targets:
+    - design
+
+test:verif-ai_core_mvm:sanity: &test_verif_ai_core_mvm_sanity
+  schedules:
+    - merge
+  targets:
+    - design
+  patterns: !flatten
+    - *hw_scripts_sim
+    - *mvm_verif_tb_sources
+    - *europa_stimuli_sources
+    - verifsdk/tests_uvm_mvm.yaml
+
+test:verif-ai_core_mvm:nightly:
+  <<: *test_verif_ai_core_mvm_sanity
+  schedules:
+    - nightly
+
+test:verif-ai_core_mvm:weekly:
+  <<: *test_verif_ai_core_mvm_sanity
+  schedules:
+    - weekly
+
+test:verif-ai_core_mvm_europa_addr_map:nightly:
+  <<: *test_verif_ai_core_mvm_sanity
+  schedules:
+    - nightly
+
+test:verif-ai_core_mvm_europa_addr_map:weekly:
+  <<: *test_verif_ai_core_mvm_sanity
+  schedules:
+    - weekly
+
+test:mvm:imc-bist-signature-check:
+  schedules:
+    - nightly
+  targets:
+    - design
+  patterns: !flatten
+    - *hw_scripts_sim
+    - *mvm_verif_tb_sources
+
+test:verif-ai_core_ls:sanity: &test_verif_aic_ls_sanity
+  schedules:
+    - merge
+  targets:
+    - design
+  patterns: !flatten
+    - *hw_scripts_sim
+    - *aic_ls_verif_tb_sources
+    - verifsdk/tests_uvm_aic_ls.yaml
+
+test:verif-ai_core_ls:nightly:
+  <<: *test_verif_aic_ls_sanity
+  schedules:
+    - nightly
+
+test:verif-ai_core_ls:weekly:
+  <<: *test_verif_aic_ls_sanity
+  schedules:
+    - weekly
+
+# TODO: Enable when aic_cd verification is brought up
+test:verif-aic_cd:sanity: &test_verif_aic_cd_sanity
+  schedules:
+    - merge
+  targets:
+    - design
+  patterns: !flatten
+    - *hw_scripts_sim
+    - *aic_cd_verif_tb_sources
+    - verifsdk/tests_uvm_aicd.yaml
+#
+test:verif-aic_cd:nightly:
+  <<: *test_verif_aic_cd_sanity
+  schedules:
+    - nightly
+
+test:verif-aic_cd:weekly:
+  <<: *test_verif_aic_cd_sanity
+  schedules:
+    - weekly
+
+test:verif-aicore_infra:sanity: &test_verif_aicore_infra_sanity
+  schedules:
+    - merge
+  targets:
+    - design
+  patterns: !flatten
+    - *hw_scripts_sim
+    - *aicore_infra_verif_tb_sources
+    - *europa_stimuli_sources
+    - verifsdk/tests_uvm.yaml
+
+test:verif-iau:sanity: &test_verif_iau_sanity
+  schedules:
+    - merge
+  targets:
+    - design
+  patterns: !flatten
+    - *hw_scripts_sim
+    - *iau_verif_tb_sources
+    - *europa_stimuli_sources
+    - verifsdk/tests_uvm.yaml
+
+test:verif-iau:nightly:
+  <<: *test_verif_iau_sanity
+  schedules:
+    - nightly
+
+test:verif-iau:weekly:
+  <<: *test_verif_iau_sanity
+  schedules:
+    - weekly
+
+test:verif-dpu:sanity: &test_verif_dpu_sanity
+  schedules:
+    - merge
+  targets:
+    - design
+  patterns: !flatten
+    - *hw_scripts_sim
+    - *dpu_verif_tb_sources
+    - *europa_stimuli_sources
+    - verifsdk/tests_uvm.yaml
+
+test:verif-dpu:nightly:
+  schedules:
+    - nightly
+  targets:
+    - design
+  patterns: !flatten
+    - *hw_scripts_sim
+    - *dpu_verif_tb_sources
+    - *europa_stimuli_sources
+
+test:verif-dpu:weekly:
+  schedules:
+    - weekly
+  targets:
+    - design
+  patterns: !flatten
+    - *hw_scripts_sim
+    - *dpu_verif_tb_sources
+    - *europa_stimuli_sources
+
+test:verif-timestamp_logger:sanity:
+  schedules:
+    - merge
+  targets:
+    - design
+  patterns: !flatten
+    - *hw_scripts_sim
+    - *timestamp_logger_verif_tb_sources
+    - verifsdk/tests_uvm_timestamp_logger.yaml
+
+test:verif-timestamp_logger:nightly:
+  schedules:
+    - nightly
+  targets:
+    - design
+  patterns: !flatten
+    - *hw_scripts_sim
+    - *timestamp_logger_verif_tb_sources
+
+test:verif-timestamp_logger:weekly:
+  schedules:
+    - weekly
+  targets:
+    - design
+  patterns: !flatten
+    - *hw_scripts_sim
+    - *timestamp_logger_verif_tb_sources
+
+test:verif-san-cva6v_dv_spike:
+  schedules:
+    - merge
+  targets:
+    - design
+  patterns: !flatten
+    - *hw_scripts_sim
+    - *cva6v_spike_verif_tb_sources
+    - *europa_sw_scripts_sources
+    - verifsdk/tests_fw_cva6v_*.yaml
+
+test:verif-san-cva6v_dv_minisoc:
+  schedules:
+    - merge
+  targets:
+    - design
+  patterns: !flatten
+    - *hw_scripts_sim
+    - *cva6v_minisoc_verif_tb_sources
+
+test:verif-san-cva6v_dv_uvm:
+  schedules:
+    - merge
+  targets:
+    - design
+  patterns: !flatten
+    - *hw_scripts_sim
+    - *cva6v_uvm_verif_tb_sources
+
+test:verif-san-common_seq_lib:
+  schedules:
+    - merge
+  targets:
+    - design
+  patterns: !flatten
+    - *hw_scripts_sim
+    - *common_seq_lib_tb_sources
+
+test:verif-l2:sanity:
+  schedules:
+    - merge
+  targets:
+    - design
+  patterns: !flatten
+    - *hw_scripts_sim
+    - *l2_verif_tb_sources
+    - hw/ip/l2/default/dv/sim
+    - verifsdk/tests_uvm.yaml
+
+test:verif-l2:nightly:
+  schedules:
+    - nightly
+  targets:
+    - design
+  patterns: !flatten
+    - *hw_scripts_sim
+    - *l2_verif_tb_sources
+    - hw/ip/l2/default/dv/sim
+    - verifsdk/tests_uvm.yaml
+
+test:verif-l2:weekly:
+  schedules:
+    - weekly
+  targets:
+    - design
+  patterns: !flatten
+    - *hw_scripts_sim
+    - *l2_verif_tb_sources
+    - hw/ip/l2/default/dv/sim
+    - verifsdk/tests_uvm.yaml
+
+test:verif-soc_mgmt:sanity: &test_verif_soc_mgmt_sanity
+  schedules:
+    - merge
+  targets:
+    - design
+  patterns: !flatten
+    - *hw_scripts_sim
+    - verifsdk/tests_uvm_soc_mgmt.yaml
+    - *europa_soc_mgmt_dv_sources
+    - *europa_stimuli_sources
+
+test:verif-soc_mgmt:nightly:
+  <<: *test_verif_soc_mgmt_sanity
+  schedules:
+    - nightly
+
+test:verif-soc_mgmt:weekly:
+  <<: *test_verif_soc_mgmt_sanity
+  schedules:
+    - weekly
+
+# DISABLED due to Silverlight machine outage
+#test:verifsdk-smoke-skyray:
+#  schedules:
+    # - merge
+#    - nightly
+#  targets:
+#    - design
+#  patterns:
+#    *europa_software_sources
+
+# DISABLED due to outdated Skyray bitstream (with CODEC RTL 0p0)
+# test:verifsdk-codec:
+#   schedules:
+#     - nightly
+#   targets:
+#     - design
+#   patterns:
+#     *europa_software_sources
+
+test:verifksdk-requirements:
+  schedules:
+    - nightly
+  targets:
+    - design
+  patterns:
+    *europa_software_sources
+
+test:spm:merge_regress:
+  schedules:
+    - merge
+  targets:
+    - design
+  patterns: !flatten
+    - *spm_verif_sources
+    - verifsdk/tests_uvm_spm.yaml
+
+test:spm:nightly_regress:
+  schedules:
+    - nightly
+  targets:
+    - design
+  patterns: !flatten
+    - *spm_verif_sources
+
+test:tkn_mng:merge_regress:
+  schedules:
+    - merge
+  targets:
+    - design
+  patterns: !flatten
+    - *token_manager_verif_sources
+    - verifsdk/tests_uvm_tkn_mng.yaml
+
+test:tkn_mng:nightly_regress:
+  schedules:
+    - nightly
+  targets:
+    - design
+  patterns: !flatten
+    - *token_manager_verif_sources
+
+test:sys-spm-smoke_test:
+  schedules:
+    - nightly
+    - merge
+  targets:
+    - design
+  patterns: !flatten
+    - *sys_spm_verif_sources
+
+validate:dma-header-gen:
+  schedules:
+    - merge
+    - nightly
+  targets:
+    - design
+  patterns: !flatten
+    - *dma_verif_sources
+    - *europa_software_sources
+    - scripts/trex/**
+
+test:verif-dma:sanity:
+  schedules:
+    - merge
+  targets:
+    - design
+  patterns: !flatten
+    - *dma_verif_sources
+
+test:verif-dma:nightly_regress:
+  schedules:
+    - nightly
+  targets:
+    - design
+  patterns: !flatten
+    - *dma_verif_sources
+
+##Pipeline jobs cva6v
+test:verif-cva6v_dv_spike_directed:
+  schedules:
+    - weekdays_1_4
+  targets:
+    - design
+  patterns: !flatten
+    - *hw_scripts_sim
+    - *cva6v_spike_verif_tb_sources
+
+test:verif-cva6v_dv_spike_rag_scalar:
+  schedules:
+    - weekdays_2_5
+  targets:
+    - design
+  patterns: !flatten
+    - *hw_scripts_sim
+    - *cva6v_spike_verif_tb_sources
+
+test:verif-cva6v_dv_spike_rag_vector:
+  schedules:
+    - weekdays_3_6
+  targets:
+    - design
+  patterns: !flatten
+    - *hw_scripts_sim
+    - *cva6v_spike_verif_tb_sources
+test:verif-cva6v_dv_minisoc_directed:
+  schedules:
+    - weekdays_1_4
+  targets:
+    - design
+  patterns: !flatten
+    - *hw_scripts_sim
+    - *cva6v_minisoc_verif_tb_sources
+test:verif-cva6v_dv_minisoc_rag_scalar:
+  schedules:
+    - weekdays_2_5
+  targets:
+    - design
+  patterns: !flatten
+    - *hw_scripts_sim
+    - *cva6v_minisoc_verif_tb_sources
+test:verif-cva6v_dv_minisoc_rag_vector:
+  schedules:
+    - weekdays_3_6
+  targets:
+    - design
+  patterns: !flatten
+    - *hw_scripts_sim
+    - *cva6v_minisoc_verif_tb_sources
+# test:verif-cva6v_dv_minisoc_weekly:
+#   schedules:
+#     - weekly
+#   targets:
+#     - design
+#   patterns: !flatten
+#     - *hw_scripts_sim
+#     - *cva6v_minisoc_verif_tb_sources
+
+
+#  test:verif-cva6v_dv_uvm:
+#    schedules:
+#      - nightly
+#      - weekly
+#    targets:
+#      - design
+#    patterns: !flatten
+#      - *hw_scripts_sim
+#      - *cva6v_uvm_verif_tb_sources
+
+test:verif-dwpu:sanity: &test_verif_dwpu_sanity
+  schedules:
+    - merge
+  targets:
+    - design
+  patterns: !flatten
+    - *hw_scripts_sim
+    - *dwpu_verif_tb_sources
+    - hw/ip/dwpu/default/dv/sim
+    - verifsdk/tests_uvm_dwpu.yaml
+
+test:verif-dwpu:nightly:
+  <<: *test_verif_dwpu_sanity
+  schedules:
+    - nightly
+
+test:verif-dwpu:weekly:
+  <<: *test_verif_dwpu_sanity
+  schedules:
+    - weekly
+
+test:verif-dp_cmd_gen:sanity: &test_verif_dp_cmd_gen_sanity
+  schedules:
+    - merge
+  targets:
+    - design
+  patterns: !flatten
+    - *hw_scripts_sim
+    - *dp_cmd_gen_verif_tb_sources
+    - hw/ip/aic_common/default/dv/sim-aic-dp-cmd-gen
+    - verifsdk/tests_uvm_ai_core_dp_cmd_gen.yaml
+
+test:verif-dp_cmd_gen:nightly:
+  <<: *test_verif_dp_cmd_gen_sanity
+  schedules:
+    - nightly
+
+test:verif-dp_cmd_gen:weekly:
+  <<: *test_verif_dp_cmd_gen_sanity
+  schedules:
+    - weekly
+
+test:noc:verif:sanity: &test_verif_noc_sanity
+  schedules:
+    - merge
+  targets:
+    - design
+  patterns: !flatten
+    - *hw_scripts_sim
+    - *enoc_verif_tb_sources
+    - hw/impl/europa/blocks/noc/dv/enoc/sim/*
+    - verifsdk/tests_uvm_enoc.yaml
+
+test:noc:verif:extensive:
+  <<: *test_verif_noc_sanity
+  schedules:
+    - nightly
+    - weekly
+
+test:dcd-bl-sanity-tests:
+  schedules:
+    - merge
+    - nightly
+  targets:
+    - design
+  patterns: !flatten
+    - *hw_scripts_sim
+    - *dcd_verif_sources
+    - verifsdk/tests_uvm_dcd.yaml
+
+test:dcd-bl-nightly-tests:
+  schedules:
+    - nightly
+  targets:
+    - design
+  patterns: !flatten
+    - *hw_scripts_sim
+    - *dcd_verif_sources
+
+# test:pve_fabric:verif:sanity: &test_verif_pve_fabric_sanity
+#   schedules:
+#     - merge
+#   targets:
+#     - design
+#   patterns: !flatten
+#     - *hw_scripts_sim
+#     - *europa_pve_fabric_verif_tb_sources
+#     - hw/impl/europa/blocks/pve/dv/pve_fabric_verif_tb/sim/*
+#     - verifsdk/tests_uvm_pve_fabric.yaml
+
+# test:pve_fabric:verif:extensive:
+#   <<: *test_verif_pve_fabric_sanity
+#   schedules:
+#     - nightly
+#     - weekly

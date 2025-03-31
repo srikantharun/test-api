@@ -1,0 +1,192 @@
+##### LABELS
+## HW_IP_SPM_DV_NIGHTLY
+# repeat_mul=4
+# - spm_full_test
+# - spm_unaligned_full_test
+# - spm_unaligned_partials_test
+# - spm_full_parallel_test
+# - test_spm_mem_ecc_1b_corruption
+# - test_spm_mem_ecc_2b_corruption
+# - test_spm_mem_performance
+# - spm_rw_overlap_test
+# - spm_partials_wr_test
+# - test_spm_mem_outstandings
+# - spm_smoke_test
+# - spm_smoke_test_one_transaction
+# - spm_mem_banking_test
+
+## HW_IP_SPM_DV_RTL_SANITY
+# - spm_smoke_test
+# - spm_smoke_test_one_transaction
+# - test_spm_mem_ecc_1b_corruption
+# - spm_mem_banking_test
+
+## HW_IP_SPM_DV_MERGE_REQUEST
+# - spm_full_test
+# - spm_unaligned_full_test
+# - spm_unaligned_partials_test
+# - spm_full_parallel_test
+# - test_spm_mem_ecc_1b_corruption
+# - test_spm_mem_ecc_2b_corruption
+# - test_spm_mem_performance
+# - spm_rw_overlap_test
+# - spm_partials_wr_test
+# - test_spm_mem_outstandings
+
+tests:
+  - name: spm_smoke_test
+    description: "Split the memory in sections, write and then read values on it, do it for few values as a smoke test. ECC enable randomized"
+    requirement_ids: []
+    labels: [HW_IP_SPM_DV_NIGHTLY]
+    platforms: [uvm.HW_IP_SPM_DEFAULT_DV_SIM]
+    flags: [--uvm_testname=spm_singles_wr_test]
+    seeds: [1]
+    repeat_count: 4
+    owner: Vito Luca Guglielmi
+
+  - name: spm_smoke_test_one_transaction
+    description: "Split the memory in sections, write and then read values on it, do it for one value as a smoke test. ECC enable randomized"
+    requirement_ids: []
+    labels: [HW_IP_SPM_DV_NIGHTLY, HW_IP_SPM_DV_RTL_SANITY]
+    platforms: [uvm.HW_IP_SPM_DEFAULT_DV_SIM]
+    flags: [--uvm_testname=spm_one_transaction_test]
+    seeds: [1]
+    repeat_count: 4
+    owner: Vito Luca Guglielmi
+
+  - name: spm_full_test
+    description: "Split the memory in sections, write and then read values on it. ECC enable randomized"
+    requirement_ids: [SPM_FEAT_2, SPM_FEAT_ECC_7, SPM_FEAT_ECC_9]
+    labels: [HW_IP_SPM_DV_NIGHTLY, HW_IP_SPM_DV_RTL_SANITY, HW_IP_SPM_DV_MERGE_REQUEST]
+    platforms: [uvm.HW_IP_SPM_DEFAULT_DV_SIM]
+    flags: [--uvm_testname=spm_multi_seq_wr_test]
+    seeds: [1]
+    repeat_count: 2
+    owner: Vito Luca Guglielmi
+
+  - name: spm_unaligned_full_test
+    description: "Write and read values from the memory with unaligned access. ECC enable randomized"
+    requirement_ids: [SPM_FEAT_ECC_9]
+    labels: [HW_IP_SPM_DV_NIGHTLY, HW_IP_SPM_DV_MERGE_REQUEST]
+    platforms: [uvm.HW_IP_SPM_DEFAULT_DV_SIM]
+    seeds: [1]
+    repeat_count: 2
+    owner: Vito Luca Guglielmi
+
+  - name: spm_unaligned_partials_test
+    description: "Write and read values from the memory with unaligned access, performing partial operations. ECC enable randomized"
+    requirement_ids: [SPM_FEAT_ECC_9]
+    labels: [HW_IP_SPM_DV_NIGHTLY, HW_IP_SPM_DV_MERGE_REQUEST]
+    platforms: [uvm.HW_IP_SPM_DEFAULT_DV_SIM]
+    seeds: [1]
+    repeat_count: 2
+    owner: Vito Luca Guglielmi
+
+  - name: spm_full_parallel_test
+    description: "Write and read values from the memory, parallelize the sequences to increase traffic and overlap. ECC enable randomized"
+    requirement_ids: [SPM_FEAT_0, SPM_FEAT_2, SPM_FEAT_ECC_7, SPM_FEAT_ECC_9]
+    labels: [HW_IP_SPM_DV_NIGHTLY, HW_IP_SPM_DV_MERGE_REQUEST]
+    platforms: [uvm.HW_IP_SPM_DEFAULT_DV_SIM]
+    flags: [--uvm_testname=spm_multi_wr_test, +EN_TRACKER, +GEN_REPORT]
+    seeds: [1]
+    repeat_count: 2
+    owner: Vito Luca Guglielmi
+
+  - name: test_spm_mem_ecc_1b_corruption
+    description: "Corrupt 1 bit via backdoor and check for correction and proper signaling via the irq. Operations should not halt"
+    requirement_ids: [SPM_FEAT_ECC_7, SPM_FEAT_ECC_11, SPM_FEAT_ECC_12, SPM_FEAT_ECC_20]
+    labels: [HW_IP_SPM_DV_NIGHTLY, HW_IP_SPM_DV_RTL_SANITY, HW_IP_SPM_DV_MERGE_REQUEST]
+    platforms: [uvm.HW_IP_SPM_DEFAULT_DV_SIM]
+    flags: [--uvm_testname=spm_ecc_full_test]
+    seeds: [1]
+    repeat_count: 4
+    owner: Vito Luca Guglielmi
+
+  - name: test_spm_mem_ecc_2b_corruption
+    description: "Corrupt 2 bits via backdoor and check for detection and proper signaling via the irq. Operations should not halt"
+    requirement_ids: [SPM_FEAT_ECC_7, SPM_FEAT_ECC_11, SPM_FEAT_ECC_13, SPM_FEAT_ECC_15, SPM_FEAT_ECC_20]
+    labels: [HW_IP_SPM_DV_NIGHTLY]
+    platforms: [uvm.HW_IP_SPM_DEFAULT_DV_SIM]
+    flags: [--uvm_testname=spm_ecc_full_test, +ECC_2B]
+    seeds: [1]
+    repeat_count: 2
+    owner: Vito Luca Guglielmi
+
+  - name: spm_mem_banking_test
+    description: "Access all the memory with a marching algorithm. The stride can be decided based on performance"
+    requirement_ids: [SPM_FEAT_0, SPM_FEAT_1, SPM_FEAT_2]
+    labels: [HW_IP_SPM_DV_NIGHTLY, HW_IP_SPM_DV_RTL_SANITY]
+    platforms: [uvm.HW_IP_SPM_DEFAULT_DV_SIM]
+    seeds: [1]
+    repeat_count: 4
+    owner: Vito Luca Guglielmi
+
+  - name: test_spm_mem_performance
+    description: "Check the Full Throughput with SVA on valid/ready signals. FIXME: the test is not currently self-checking"
+    requirement_ids: [SPM_FEAT_5, SPM_PERF_0, SPM_PERF_1]
+    labels: [HW_IP_SPM_DV_NIGHTLY, HW_IP_SPM_DV_MERGE_REQUEST]
+    platforms: [uvm.HW_IP_SPM_DEFAULT_DV_SIM]
+    flags: [--uvm_testname=spm_back_to_back_test, +EN_TRACKER, +GEN_REPORT]
+    seeds: [1]
+    repeat_count: 4
+    owner: Vito Luca Guglielmi
+
+  - name: spm_rw_overlap_test
+    description: "Issue multiple different AXI transaction randomizing alignment, burst types and burst lenghts."
+    requirement_ids: [SPM_FEAT_5]
+    labels: [HW_IP_SPM_DV_NIGHTLY, HW_IP_SPM_DV_MERGE_REQUEST]
+    platforms: [uvm.HW_IP_SPM_DEFAULT_DV_SIM]
+    seeds: [1]
+    repeat_count: 4
+    owner: Vito Luca Guglielmi
+
+  - name: spm_partials_wr_test
+    description: "Issue multiple different AXI transaction randomizing alignment, burst types and burst lenghts. Use partials (wstrb !/ '1)"
+    requirement_ids: [SPM_FEAT_5, SPM_FEAT_ECC_9, SPM_FEAT_ECC_10]
+    labels: [HW_IP_SPM_DV_NIGHTLY, HW_IP_SPM_DV_MERGE_REQUEST]
+    platforms: [uvm.HW_IP_SPM_DEFAULT_DV_SIM]
+    seeds: [1]
+    repeat_count: 2
+    owner: Vito Luca Guglielmi
+
+  - name: test_spm_mem_outstandings
+    description: "Stall the resp channel and provide multiple AXI operations. Verify that the outstanding is correct"
+    requirement_ids: [SPM_FEAT_5]
+    labels: [HW_IP_SPM_DV_NIGHTLY, HW_IP_SPM_DV_MERGE_REQUEST]
+    platforms: [uvm.HW_IP_SPM_DEFAULT_DV_SIM]
+    flags: [--uvm_testname=spm_back_pressure_test, +EN_TRACKER, +GEN_REPORT]
+    seeds: [1]
+    repeat_count: 4
+    owner: Vito Luca Guglielmi
+
+ #TODO section
+  - name: test_spm_mem_invalid_address
+    description: "Try to use an invalid address for all memory configurations. An error should occur"
+    requirement_ids: [SPM_FEAT_2]
+    labels: [TODO]
+    platforms: [uvm.HW_IP_SPM_DEFAULT_DV_SIM]
+    owner: Vito Luca Guglielmi
+
+  - name: test_spm_mem_reset
+    description: "Reset the SPM on the fly during memory operation, afterwards, check that the SPM can be used and it has been resetted properly"
+    requirement_ids: [SPM_RST_0]
+    labels: [TODO]
+    platforms: [uvm.HW_IP_SPM_DEFAULT_DV_SIM]
+    owner: Vito Luca Guglielmi
+
+  - name: test_spm_mem_error_signaling_TODO
+    description: "Corrupt some bits via backdoor, check for the informations signaled to be correct (address, syndrome etc) (keep always the new one with same severty). Operations should not halt"
+    requirement_ids: [SPM_FEAT_ECC_7, SPM_FEAT_ECC_14, SPM_FEAT_ECC_16]
+    labels: [TODO]
+    platforms: [uvm.HW_IP_SPM_DEFAULT_DV_SIM]
+    owner: Vito Luca Guglielmi
+
+  - name: test_spm_mem_atomic_op
+    description: "Check that the SPM supports atomic AXI operations"
+    requirement_ids: [SPM_FEAT_ATO_19, SPM_FEAT_ATO_21, SPM_FEAT_ATO_22]
+    labels: [TODO]
+    platforms: [uvm.HW_IP_SPM_DEFAULT_DV_SIM]
+    owner: Vito Luca Guglielmi
+
+
+

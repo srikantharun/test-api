@@ -1,0 +1,9 @@
+add_input_constraints i_thermal_throttle -c0
+add_input_constraints i_debug_req -c0
+add_input_constraints i_debug_rst_halt_req -c0
+add_input_constraints i_cfg_apb4_s_psel -c0
+add_input_constraints i_cfg_apb4_s_penable -c0
+add_input_constraints i_noc_async_idle_ack -c0
+add_input_constraints i_noc_async_idle_val -c0
+
+add_input_constraints test_mode -c1

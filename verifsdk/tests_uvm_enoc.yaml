@@ -1,0 +1,109 @@
+tests:
+  - name: enoc_smoke_test
+    description: Smoke test to check sanity
+    labels: [HW_IP_ENOC_DEFAULT_DV_SIM_MERGE_REQUEST, HW_IP_ENOC_DEFAULT_DV_SIM_ENOC_TEST]
+    requirement_ids: [NOC_FEAT_0, NOC_FEAT_20, NOC_CLK_32, NOC_CLK_33, NOC_RST_34, NOC_CLK_37, NOC_CLK_38, TOP_NOC_RST_34, TOP_NOC_FEAT_36, TOP_NOC_CLK_38]
+    platforms: [uvm.HW_IP_ENOC_DEFAULT_DV_SIM]
+    owner: Srinivas
+    seeds: [1]
+    flags: [+AIC_0_INIT_LT +L2_0_TARG_HT +NUM_RAND_ADDR=5]
+    
+  - name: enoc_connectivity_matrix_test
+    description: This test ensures fencing feature, int_csr & randomized AXI traffic from all the initiators to all the targets irrespective of their connections and responses are compared with the matrix
+    labels: [HW_IP_ENOC_DEFAULT_DV_SIM_ENOC_TEST]
+    requirement_ids: [NOC_FEAT_0, NOC_FEAT_2, NOC_FEAT_21, NOC_FEAT_36, TOP_NOC_FEAT_1, TOP_NOC_FEAT_18]
+    platforms: [uvm.HW_IP_ENOC_DEFAULT_DV_SIM]
+    owner: Srinivas
+    seeds: [1]
+    flags: [+ALL_INITS +ALL_AXI_TARGS +NUM_RAND_ADDR=2]
+
+  - name: enoc_htf_traffic_test
+    description: This is ensured by sending HTF traffic from all the legal HT INITs to L2 & DDR and comparing the observed throughput with the expected one
+    labels: [TODO]
+    requirement_ids: [NOC_FEAT_4]
+    platforms: [uvm.HW_IP_ENOC_DEFAULT_DV_SIM]
+    owner: Srinivas
+    seeds: [1]
+    flags: [+ALL_HT_INITS +ALL_HT_TARGS +NUM_RAND_ADDR=10]
+     
+  - name: enoc_ltf_traffic_test
+    description: This is ensured by sending LTF traffic from DEC to SPM/DDR_PPP, the observed latency will be discussed and evaluated to see whether they are acceptable
+    labels: [TODO]
+    requirement_ids: [NOC_FEAT_5, TOP_NOC_FEAT_5]
+    platforms: [uvm.HW_IP_ENOC_DEFAULT_DV_SIM]
+    owner: Srinivas
+    seeds: [1]
+    flags: [+ALL_LT_INITS +ALL_LT_TARGS +NUM_RAND_ADDR=10]
+       
+  - name: enoc_mix_traffic_test
+    description: This is ensured by sending HTF & MTF traffic inbetween LTF traffic from All INITs to same Targs iteratively, the observed latency will be discussed and evaluated to see whether they are acceptable
+    labels: [TODO]
+    requirement_ids: [NOC_FEAT_6, TOP_NOC_FEAT_6]
+    platforms: [uvm.HW_IP_ENOC_DEFAULT_DV_SIM]
+    owner: Srinivas
+    seeds: [1]
+    flags: [+ALL_INITS +ALL_AXI_TARGS +NUM_RAND_ADDR=10]
+         
+  - name: enoc_l2_addr_mode_test
+    description: This is ensured by sending exhaustive traffic from all the legal Inits to L2 Targs while exercising all the address modes
+    labels: [TODO]
+    requirement_ids: [NOC_FEAT_10]
+    platforms: [uvm.HW_IP_ENOC_DEFAULT_DV_SIM]
+    owner: Srinivas
+    seeds: [1]
+    flags: [+ALL_INITS +ALL_HT_TARGS +NUM_RAND_ADDR=10]
+         
+  - name: enoc_l2_intr_test
+    description: 1x8 / 4K (default/reset state) interleaving is used, other modes requires issue 2212 fix
+    labels: [TODO]
+    requirement_ids: [NOC_FEAT_11]
+    platforms: [uvm.HW_IP_ENOC_DEFAULT_DV_SIM]
+    owner: Srinivas
+    seeds: [1]
+    flags: [+ALL_INITS +ALL_HT_TARGS +NUM_RAND_ADDR=20]
+
+  - name: enoc_lpddr_addr_mode_test
+    description: This is ensured by sending exhaustive traffic from all the legal Inits to L2 Targs while exercising all the address modes
+    labels: [TODO]
+    requirement_ids: [NOC_FEAT_12]
+    platforms: [uvm.HW_IP_ENOC_DEFAULT_DV_SIM]
+    owner: Srinivas
+    seeds: [1]
+    flags: [+ALL_INITS +LPDDR_PPP_0_TARG_MT +LPDDR_PPP_1_TARG_MT +LPDDR_PPP_2_TARG_MT +LPDDR_PPP_3_TARG_MT +NUM_RAND_ADDR=10]
+         
+  - name: enoc_lpddr_intr_test
+    description: 1x8 / 4K (default/reset state) interleaving is used, other modes requires issue 2212 fix
+    labels: [TODO]
+    requirement_ids: [NOC_FEAT_13]
+    platforms: [uvm.HW_IP_ENOC_DEFAULT_DV_SIM]
+    owner: Srinivas
+    seeds: [1]
+    flags: [+ALL_INITS +LPDDR_PPP_0_TARG_MT +LPDDR_PPP_1_TARG_MT +LPDDR_PPP_2_TARG_MT +LPDDR_PPP_3_TARG_MT +NUM_RAND_ADDR=20]
+         
+  - name: enoc_exclusive_access_test
+    description: This is ensured by sending exclusive accesses from LT-AIC, APU & PVE to SPM & DDR Targs, also non-exclusive targs will be exercised
+    labels: [TODO]
+    requirement_ids: [NOC_FEAT_14, TOP_NOC_FEAT_14]
+    platforms: [uvm.HW_IP_ENOC_DEFAULT_DV_SIM]
+    owner: Srinivas
+    seeds: [1]
+    flags: [+UVM_TESTNAME="enoc_exclusives_test"]
+         
+  - name: enoc_int_csr_test
+    description: This is ensured by sending exclusive accesses from LT-AIC, APU & PVE to SPM & DDR Targs, also non-exclusive targs will be exercised
+    labels: [TODO]
+    requirement_ids: [NOC_FEAT_19, NOC_FEAT_29]
+    platforms: [uvm.HW_IP_ENOC_DEFAULT_DV_SIM]
+    owner: Srinivas
+    seeds: [1]
+    flags: [+APU_INIT_LT +SOC_MGMT_INIT_LT +NOC_INT_TARG +NUM_RAND_ADDR=50]
+         
+  - name: enoc_bandwidth_util_test
+    description: This can be ensured by sending exhaustive simultaneous traffic to/from all Inits/Targs
+    labels: [TODO]
+    requirement_ids: [NOC_FEAT_39]
+    platforms: [uvm.HW_IP_ENOC_DEFAULT_DV_SIM]
+    owner: Srinivas
+    seeds: [1]
+    flags: [+UVM_TESTNAME="enoc_bw_utilization_test" +ALL_INITS +ALL_AXI_TARGS +NUM_RAND_ADDR=50]
+

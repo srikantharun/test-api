@@ -1,0 +1,27 @@
+// AUTO GENERATED, DO NOT MANUALLY EDIT!!
+//
+// Description: Interrupt connectivity module before interrupt_controller
+//
+// external_irqs_struc --> module --> interrupt_controller
+// internal_irqs --------/
+//
+// Owner: hw/scripts/interrupt_map
+
+{% import 'io_macros.jinja2' as macros -%}
+
+module {{ block }}_interrupt_connectivity_internal (
+  {{ macros.irqs_port_io(internal_irqs) }}
+  input  {{ block }}_interrupt_map_pkg::{{ block }}_external_irqs_t i_external_irqs,
+  output {{ block }}_interrupt_map_pkg::{{ block }}_all_irqs_t o_all_irqs
+);
+
+  always_comb begin
+{% for irq in internal_irqs %}
+    o_all_irqs.{{ macros.irq_name(irq) }} = {{ macros.irq_name_as_input(irq) }};
+{%- endfor %}
+{% for irq in external_irqs %}
+    o_all_irqs.{{ macros.irq_name(irq) }} = i_external_irqs.{{ macros.irq_name(irq) }};
+{%- endfor %}
+  end
+
+endmodule

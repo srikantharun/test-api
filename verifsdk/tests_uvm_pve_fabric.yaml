@@ -1,0 +1,66 @@
+tests:
+  - name: fabric_csl_smoke_test
+    description: Smoke test to check sanity
+    labels: [HW_IMPL_PVE_FAB_DV_SIM_MERGE_REQUEST, HW_IMPL_PVE_FAB_DV_SIM_TEST]
+    requirement_ids: []
+    platforms: [uvm.HW_IMPL_PVE_FAB_DV_SIM]
+    owner: Ana Stoisavljevic
+    seeds: [1]
+
+  - name: fabric_csl_atomic_test
+    description: Send atomic transactions from all initiators
+    labels: [HW_IMPL_PVE_FAB_DV_SIM_TEST]
+    requirement_ids: []
+    platforms: [uvm.HW_IMPL_PVE_FAB_DV_SIM]
+    flags : [+SKIP_AXI_PC4_ATOMIC]
+    owner: Ana Stoisavljevic
+    seeds: [1]
+
+  - name: fabric_csl_cluster_l1_test
+    description: Send traffic from cluseters to L1s in parallel
+    labels: [HW_IMPL_PVE_FAB_DV_SIM_TEST]
+    requirement_ids: []
+    platforms: [uvm.HW_IMPL_PVE_FAB_DV_SIM]
+    owner: Ana Stoisavljevic
+    seeds: [1]
+
+  - name: fabric_csl_connectivity_test
+    description: Check connectivity 
+    labels: [HW_IMPL_PVE_FAB_DV_SIM_TEST]
+    requirement_ids: []
+    platforms: [uvm.HW_IMPL_PVE_FAB_DV_SIM]
+    owner: Ana Stoisavljevic
+    seeds: [1]
+
+  - name: fabric_csl_exclusive_axi_test
+    description: Send exclusive read followed by ex write from each initiator
+    labels: [HW_IMPL_PVE_FAB_DV_SIM_TEST]
+    requirement_ids: []
+    platforms: [uvm.HW_IMPL_PVE_FAB_DV_SIM]
+    owner: Ana Stoisavljevic
+    seeds: [1]
+
+  - name: fabric_csl_outstanding_test
+    description: Send B2B write transactions from all initiators
+    labels: [HW_IMPL_PVE_FAB_DV_SIM_TEST]
+    requirement_ids: []
+    platforms: [uvm.HW_IMPL_PVE_FAB_DV_SIM]
+    owner: Ana Stoisavljevic
+    seeds: [1]
+
+  - name: fabric_csl_random_test
+    description: Send random traffic from all initiators to all targets.
+    labels: [HW_IMPL_PVE_FAB_DV_SIM_TEST]
+    requirement_ids: []
+    platforms: [uvm.HW_IMPL_PVE_FAB_DV_SIM]
+    owner: Ana Stoisavljevic
+    seeds: [1]
+
+  - name: fabric_csl_read_interleave_test
+    description: Send B2B read transactions from all initiators
+    labels: [HW_IMPL_PVE_FAB_DV_SIM_TEST]
+    requirement_ids: []
+    platforms: [uvm.HW_IMPL_PVE_FAB_DV_SIM]
+    owner: Ana Stoisavljevic
+    seeds: [1]
+

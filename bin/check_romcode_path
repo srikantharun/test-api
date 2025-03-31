@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+
+set -e
+
+VENV=.venv/gen_axe_tcl_config
+
+make -C $REPO_ROOT/bin venv VENV=$VENV FILE=$REPO_ROOT/hw/ip/tech_cell_library/default/scripts/requirements.txt  > $REPO_ROOT/bin/check_romcode_path_venv.log 2>&1 || (cat $REPO_ROOT/bin/check_romcode_path_venv.log && exit 1)
+
+source $REPO_ROOT/bin/$VENV/bin/activate
+python3.10 $REPO_ROOT/hw/ip/tech_cell_library/default/scripts/check_romcode_path.py $@
+deactivate

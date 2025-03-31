@@ -1,0 +1,30 @@
+<category name="Address Mapping">
+    <category name="Heterogenous Rank Address Mapper" depends="@DDRCTL_LUT_ADDRMAP">
+        <help>
+            The heterogeneous rank mapping support uses a lookup table to get the corresponding CS and remapped
+            address (alt). With remapped address, up to two kinds of rank densities can be mapped to DDR physical
+            address.
+        </help>
+
+        <config id="DWC_DDRCTL_MAX_LUT_ENTRIES_AUX" name="Maximum LUT Entries"
+            min="0" max="32" type="int" var_type="uint8">
+            <default value="32"/>
+        </config>
+        <category name="Entry LUT {lut}" depends="@DWC_DDRCTL_MAX_LUT_ENTRIES_AUX gt {lut}">
+            <param name="lut" min="0" max="31"/>
+            <config name="Valid Entry LUT {lut}" type="single_choice" var_type="uint8">
+                <option id="DWC_DDRCTL_CINIT_VALID_ENTRY_{lut}"   name="Valid"   value="0"/>
+                <option id="DWC_DDRCTL_CINIT_INVALID_ENTRY_{lut}" name="Invalid" value="1"/>
+                <default value="@DWC_DDRCTL_CINIT_INVALID_ENTRY_{lut}"/>
+            </config>
+            <config id="DWC_DDRCTL_CINIT_CSN_{lut}" name="mapped CSn_{lut}"
+                min="0" max="3" type="int" var_type="uint8">
+                <default value="0"/>
+            </config>
+            <config id="DWC_DDRCTL_CINIT_DATA_ADDRESS_{lut}" name="Mapped address from selected_addr_{lut}"
+                min="0" max="15" type="int" var_type="uint8">
+                <default value="0"/>
+            </config>
+        </category>
+    </category>
+</category>

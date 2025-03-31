@@ -1,0 +1,10 @@
+{
+    lock : []
+    cache : []
+    prot : []
+    user : [
+        'ddrc_targ_mp_T_axi_s'
+    ]
+    sva_mon_len_extend : [
+    ]
+}

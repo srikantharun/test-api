@@ -1,0 +1,32 @@
+tests:
+  - name: cva6v_asm_vp_vcompress_err
+    description: "RVV Error tests for specific instr"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_ASM_VECTOR_DIRECTED_TESTS]
+    requirement_ids: [CVA6V_FEAT_11, CVA6V_FEAT_12, CVA6V_FEAT_13, CVA6V_FEAT_14]
+    platforms: [cva6v.*]
+    owner: Raymond Garcia
+    flags: [RUN_SCRIPT_ONLY, ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/asm/tests/build/vector/cva6v_asm_vp_vcompress_err]
+
+  - name: cva6v_asm_vi_vadd_err
+    description: "RVV Error tests for specific instr"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_ASM_VECTOR_DIRECTED_TESTS]
+    requirement_ids: [CVA6V_FEAT_11, CVA6V_FEAT_12, CVA6V_FEAT_13, CVA6V_FEAT_14]
+    platforms: [cva6v.*]
+    owner: Raymond Garcia
+    flags: [RUN_SCRIPT_ONLY, ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/asm/tests/build/vector/cva6v_asm_vi_vadd_err]
+
+  - name: cva6v_asm_vi_vadc_err
+    description: "RVV Error tests for specific instr"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_ASM_VECTOR_DIRECTED_TESTS]
+    requirement_ids: [CVA6V_FEAT_11, CVA6V_FEAT_12, CVA6V_FEAT_13, CVA6V_FEAT_14]
+    platforms: [cva6v.*]
+    owner: Raymond Garcia
+    flags: [RUN_SCRIPT_ONLY, ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/asm/tests/build/vector/cva6v_asm_vi_vadc_err]
+
+  - name: cva6v_asm_vi_vsext_err
+    description: "RVV Error tests for specific instr"
+    labels: [CVA6V_DV_TESTS, CVA6V_DV_ASM_VECTOR_DIRECTED_TESTS]
+    requirement_ids: [CVA6V_FEAT_11, CVA6V_FEAT_12, CVA6V_FEAT_13, CVA6V_FEAT_14]
+    platforms: [cva6v.*]
+    owner: Raymond Garcia
+    flags: [RUN_SCRIPT_ONLY, ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/asm/tests/build/vector/cva6v_asm_vi_vsext_err]

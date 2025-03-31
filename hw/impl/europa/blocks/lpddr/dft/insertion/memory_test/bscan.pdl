@@ -1,0 +1,42 @@
+iProcsForModule snps_ddr_subsystem
+
+iProc simulation_only_init {} {
+
+    #Must used Bender file hw/vendor/synopsys/lpddr_subsys/default/rtl/pg_pins
+
+    iNote "tessent_pragma verilog_insert force DUT_inst.i_DWC_lpddr5x_phy.VSS = 1'b0;"
+    iNote "tessent_pragma verilog_insert force DUT_inst.i_DWC_lpddr5x_phy.VDD = 1'b1;"
+    iNote "tessent_pragma verilog_insert force DUT_inst.i_DWC_lpddr5x_phy.VDDQ_ZCAL = 1'b1;"
+    iNote "tessent_pragma verilog_insert force DUT_inst.i_DWC_lpddr5x_phy.VDDQ_DB0_DX0 = 1'b1;"
+    iNote "tessent_pragma verilog_insert force DUT_inst.i_DWC_lpddr5x_phy.VDDQ_DB0_DX1 = 1'b1;"
+    iNote "tessent_pragma verilog_insert force DUT_inst.i_DWC_lpddr5x_phy.VDDQ_DB1_DX0 = 1'b1;"
+    iNote "tessent_pragma verilog_insert force DUT_inst.i_DWC_lpddr5x_phy.VDDQ_DB1_DX1 = 1'b1;"
+    iNote "tessent_pragma verilog_insert force DUT_inst.i_DWC_lpddr5x_phy.VDDQ_DB2_DX0 = 1'b1;"
+    iNote "tessent_pragma verilog_insert force DUT_inst.i_DWC_lpddr5x_phy.VDDQ_DB2_DX1 = 1'b1;"
+    iNote "tessent_pragma verilog_insert force DUT_inst.i_DWC_lpddr5x_phy.VDDQ_DB3_DX0 = 1'b1;"
+    iNote "tessent_pragma verilog_insert force DUT_inst.i_DWC_lpddr5x_phy.VDDQ_DB3_DX1 = 1'b1;"
+    iNote "tessent_pragma verilog_insert force DUT_inst.i_DWC_lpddr5x_phy.VDDQ_AC0_ACX0 = 1'b1;"
+    iNote "tessent_pragma verilog_insert force DUT_inst.i_DWC_lpddr5x_phy.VDDQ_AC0_ACX1 = 1'b1;"
+    iNote "tessent_pragma verilog_insert force DUT_inst.i_DWC_lpddr5x_phy.VDDQ_AC0_ACX2 = 1'b1;"
+    iNote "tessent_pragma verilog_insert force DUT_inst.i_DWC_lpddr5x_phy.VDDQ_AC0_ACX3 = 1'b1;"
+    iNote "tessent_pragma verilog_insert force DUT_inst.i_DWC_lpddr5x_phy.VDDQ_AC0_CKX0 = 1'b1;"
+    iNote "tessent_pragma verilog_insert force DUT_inst.i_DWC_lpddr5x_phy.VDDQ_AC1_ACX0 = 1'b1;"
+    iNote "tessent_pragma verilog_insert force DUT_inst.i_DWC_lpddr5x_phy.VDDQ_AC1_ACX1 = 1'b1;"
+    iNote "tessent_pragma verilog_insert force DUT_inst.i_DWC_lpddr5x_phy.VDDQ_AC1_ACX2 = 1'b1;"
+    iNote "tessent_pragma verilog_insert force DUT_inst.i_DWC_lpddr5x_phy.VDDQ_AC1_ACX3 = 1'b1;"
+    iNote "tessent_pragma verilog_insert force DUT_inst.i_DWC_lpddr5x_phy.VDDQ_AC1_CKX0 = 1'b1;"
+    iNote "tessent_pragma verilog_insert force DUT_inst.i_DWC_lpddr5x_phy.VDD2H = 1'b1;"
+    iNote "tessent_pragma verilog_insert force DUT_inst.i_DWC_lpddr5x_phy.VAA = 1'b1;"
+}
+
+iTopProc enable_bscan_pads { } {
+    iWrite snps_ddr_subsystem_rtl1_tessent_tdr_tx_mode_inst.tdr          0x1FFFFFFFFFFFFFFFFFFF
+    iWrite snps_ddr_subsystem_rtl1_tessent_tdr_rx_pad_en_inst.tdr        0x7FFFFFFFFFFFFFFFFFF
+    iWrite snps_ddr_subsystem_rtl1_tessent_tdr_rx_rcv_en_inst.tdr        0x0
+    iApply
+}
+
+
+iTopProc enable_bscan { } {
+    iCall enable_bscan_pads    
+}

@@ -1,0 +1,48 @@
+tests:
+  - name: test_sec_spike_rd_wr_sanity
+    description: "Test that verify that we are able to read/write from rot address space."
+    requirement_ids: []
+    labels: [SIM_TOP_SECURE_NIGHTLY, SIM_TOP_SECURE_MERGE_REQUEST, VELOCE_TOP_SECURITY_NIGHTLY]
+    platforms: [top.SIM_SECURE_SPIKE, top.SIM_TOP, top.VELOCE_TOP]
+    owner: Jorge Carvalho
+    apu: [test_security/test_integration/secure_ip_hal.c, test_security/test_sec_spike_rd_wr_sanity/apu/test.c]
+
+  - name: test_sec_integration
+    description: "Test that verifies integration testcase is working properly."
+    requirement_ids: []
+    labels: [SIM_TOP_SECURE_NIGHTLY, VELOCE_TOP_SECURITY_NIGHTLY]
+    platforms: [top.SIM_TOP, top.VELOCE_TOP, top.VELOCE_TOP_LIGHT]
+    owner: Jorge Carvalho
+    apu: [test_security/test_integration/secure_ip_hal.c, test_security/test_integration/test_secure_ip_hw.c, test_security/test_integration/test_secure_ip_cb.c, test_security/test_integration/test_secure_ip_integration.c ]
+
+  - name: test_sec_otp_access_via_apu
+    description: "Test that verifies accesses from APU to all regions of OTP"
+    requirement_ids: [TOP_SOC_MGMT_FEAT_APU-OTP communication requirement_1]
+    labels: [SIM_TOP_SECURE_NIGHTLY, VELOCE_TOP_SECURITY_NIGHTLY]
+    platforms: [top.SIM_TOP, top.VELOCE_TOP, top.VELOCE_TOP_LIGHT]
+    owner: Jorge Carvalho
+    apu: [test_security/test_otp/test_otp_via_apu.c, test_security/test_security_utils.c]
+
+  - name: test_sec_init_rot
+    description: "Test that command InitRot works as expected"
+    requirement_ids: []
+    labels: [VELOCE_TOP_SECURITY_NIGHTLY]
+    platforms: [top.VELOCE_TOP, top.VELOCE_TOP_LIGHT]
+    owner: Jorge Carvalho
+    apu: [test_security/test_commands/test_init_rot.c]
+
+  - name: test_sec_init_crypto
+    description: "Test that command InitCrypto works as expected"
+    requirement_ids: []
+    labels: [VELOCE_TOP_SECURITY_NIGHTLY]
+    platforms: [top.VELOCE_TOP, top.VELOCE_TOP_LIGHT]
+    owner: Jorge Carvalho
+    apu: [test_security/test_commands/test_init_crypto.c]
+
+  - name: test_sec_aor
+    description: "Test that verifies the access to AOR via APU"
+    requirement_ids: [TOP_SOC_MGMT_FEAT_RoT communication with OTP or AOR_2]
+    labels: [VELOCE_TOP_SECURITY_NIGHTLY]
+    platforms: [top.VELOCE_TOP, top.VELOCE_TOP_LIGHT]
+    owner: Jorge Carvalho
+    apu: [test_security/test_aor/test_aor.c, test_security/test_security_utils.c]

@@ -1,0 +1,889 @@
+requirements:
+  -
+    block: SOC_MGMT
+    category: CONN
+    index: 0
+    description: "The SocMgmt block shall include an APB4-S interface, referred to as SysCfg"
+    criticality: bronze
+    owner: Joao Martins
+
+  -
+    block: SOC_MGMT
+    category: CONN
+    index: 1
+    description: "The SocMgmt block shall include an AXI4-S interface, referred to as AXI LT Target"
+    criticality: bronze
+    owner: Joao Martins
+
+  -
+    block: SOC_MGMT
+    category: CONN
+    index: 2
+    description: "The SocMgmt block shall include an AXI4-M interface, referred to as AXI LT Init"
+    criticality: bronze
+    owner: Joao Martins
+
+  -
+    block: SOC_MGMT
+    category: CONN
+    optional_description: MEMORY_MAP
+    index: 0
+    description: "SOC_MGMT_ROT_KSE memory space reachable through AXI LT bus "
+    criticality: bronze
+    owner: Joao Martins
+
+  -
+    block: SOC_MGMT
+    category: CONN
+    optional_description: MEMORY_MAP
+    index: 1
+    description: "SOC_MGMT_ROT_AO memory space reachable through AXI LT bus "
+    criticality: bronze
+    owner: Joao Martins
+
+  -
+    block: SOC_MGMT
+    category: CONN
+    optional_description: MEMORY_MAP
+    index: 2
+    description: "SOC_MGMT_OTP_HOST memory space reachable through AXI LT bus "
+    criticality: bronze
+    owner: Joao Martins
+
+  -
+    block: SOC_MGMT
+    category: CONN
+    optional_description: MEMORY_MAP
+    index: 3
+    description: "SOC_MGMT_TMS memory space reachable through AXI LT bus "
+    criticality: bronze
+    owner: Joao Martins
+
+  -
+    block: SOC_MGMT
+    category: CONN
+    optional_description: MEMORY_MAP
+    index: 4
+    description: "SOC_MGMT_RTC memory space reachable through AXI LT bus "
+    criticality: bronze
+    owner: Joao Martins
+
+  -
+    block: SOC_MGMT
+    category: CONN
+    optional_description: MEMORY_MAP
+    index: 5
+    description: "SOC_MGMT_WATCHDOG memory space reachable through AXI LT bus "
+    criticality: bronze
+    owner: Joao Martins
+
+  -
+    block: SOC_MGMT
+    category: CONN
+    optional_description: MEMORY_MAP
+    index: 6
+    description: "SOC_MGMT_DEBUG memory space reachable through AXI LT bus "
+    criticality: bronze
+    owner: Joao Martins
+
+  -
+    block: SOC_MGMT
+    category: CONN
+    optional_description: MEMORY_MAP
+    index: 7
+    description: "SYS_CFG_SOC_MGMT_AO_CSR_CLOCK_GEN_CSR memory space reachable through APB bus "
+    criticality: bronze
+    owner: Joao Martins
+
+  -
+    block: SOC_MGMT
+    category: CONN
+    optional_description: MEMORY_MAP
+    index: 8
+    description: "SYS_CFG_SOC_MGMT_AO_CSR_RESET_GEN_CSR memory space reachable through APB bus "
+    criticality: bronze
+    owner: Joao Martins
+
+  -
+    block: SOC_MGMT
+    category: CONN
+    optional_description: MEMORY_MAP
+    index: 9
+    description: "SYS_CFG_SOC_MGMT_AO_CSR_NOC_AO_CSR memory space reachable through APB bus "
+    criticality: bronze
+    owner: Joao Martinss
+
+  -
+    block: SOC_MGMT
+    category: CONN
+    optional_description: MEMORY_MAP
+    index: 10
+    description: "SYS_CFG_SOC_MGMT_AO_CSR_MISC_AO_CSR memory space reachable through APB bus "
+    criticality: bronze
+    owner: Joao Martins
+
+  -
+    block: SOC_MGMT
+    category: CONN
+    optional_description: MEMORY_MAP
+    index: 11
+    description: "SYS_CFG_SOC_MGMT_AO_CSR_DLM_CSR memory space reachable through APB bus "
+    criticality: bronze
+    owner: Joao Martins
+
+  -
+    block: SOC_MGMT
+    category: CLK
+    index: 0
+    description: "All CLK_GEN configuration shall be done through CSRs reached through SysCfg bus"
+    criticality: bronze
+    owner: Joao Martins
+
+  -
+    block: SOC_MGMT
+    category: CLK
+    index: 1
+    description: "The CLK_GEN block shall provide a single PLL driven clock generated for DDR partitions"
+    criticality: bronze
+    owner: Joao Martins
+
+  -
+    block: SOC_MGMT
+    category: CLK
+    index: 3
+    description: "The CLK_GEN block shall provide configuration capabilities for source (ref_clk, PLL0 or PLL1) and division of each clock output, except ddr_clk"
+    criticality: bronze
+    owner: Joao Martins
+
+  -
+    block: SOC_MGMT
+    category: RST
+    index: 0
+    description: "All RST_GEN configuration shall be done through CSRs reached through SysCfg bus"
+    criticality: bronze
+    owner: Joao Martins
+
+  -
+    block: SOC_MGMT
+    category: RST
+    index: 1
+    description: "Support for a watchdog timer reset must be in place"
+    criticality: bronze
+    owner: Joao Martins
+
+  -
+    block: SOC_MGMT
+    category: RST
+    index: 2
+    description: "Support for a debugger driven reset must be in place"
+    criticality: bronze
+    owner: Joao Martins
+
+  -
+    block: SOC_MGMT
+    category: RST
+    index: 3
+    description: "Support for CSR driven reset must be in place"
+    criticality: bronze
+    owner: Joao Martins
+
+  -
+    block: SOC_MGMT
+    category: RST
+    index: 4
+    description: "Reset generation shall output 3 reset levels, by increasing level of severity: Global, Debug, Always-on"
+    criticality: bronze
+    owner: Joao Martins
+
+  -
+    block: SOC_MGMT
+    category: RST
+    index: 5
+    description: "A watchdog event may generate an Always-On or a Global reset based on a configuration CSR"
+    criticality: bronze
+    owner: Joao Martins
+
+  -
+    block: SOC_MGMT
+    category: FEAT
+    optional_description: WATCHDOG
+    index: 0
+    description: "The watchdog timer block shall be reacheable through the AXI LT target"
+    criticality: bronze
+    owner: Joao Martins
+
+  -
+    block: SOC_MGMT
+    category: FEAT
+    optional_description: WATCHDOG
+    index: 1
+    description: "The watchdog timer block shall output an interrupt and a reset trigger signal when timed-out"
+    criticality: bronze
+    owner: Joao Martins
+
+  -
+    block: SOC_MGMT
+    category: OBS
+    index: 0
+    description: "The observation framework shall allow selection of the output signals based on CSR configuration"
+    criticality: bronze
+    owner: Joao Martins
+
+  -
+    block: SOC_MGMT
+    category: OBS
+    index: 1
+    description: "The observation framework shall handle all incoming observation signals and output a maximum of 16"
+    criticality: bronze
+    owner: Joao Martins
+
+  -
+    block: SOC_MGMT
+    category: DBG
+    index: 0
+    description: "The SocMgmt block shall have an instance of the debugger"
+    criticality: bronze
+    owner: Joao Martins
+
+  -
+    block: SOC_MGMT
+    category: DBG
+    index: 1
+    description: "The debugger shall drive the SocMgmt AXI LT Init interface"
+    criticality: bronze
+    owner: Joao Martins
+
+  -
+    block: SOC_MGMT
+    category: DBG
+    index: 2
+    description: "The debugger shall receive 8 sideband signals per RISCV partition"
+    criticality: bronze
+    owner: Joao Martins
+
+  -
+    block: SOC_MGMT
+    category: FEAT
+    optional_description: RTC
+    index: 0
+    description: "The real time counter block shall be instanced inside the SocMgmt block"
+    criticality: bronze
+    owner: Joao Martins
+
+  -
+    block: SOC_MGMT
+    category: SEC
+    optional_description: ROT
+    index: 0
+    description: "The Root of Trust/Secure Enclave shall be instanced inside of the SocMgmt block (further requirements independent of this document)"
+    criticality: bronze
+    owner: Joao Martins
+
+  -
+    block: SOC_MGMT
+    category: FEAT
+    optional_description: DLM
+    index: 0
+    description: "The DLM shall be instanced inside the SocMgmt block"
+    criticality: bronze
+    owner: Joao Martins
+
+  -
+    block: SOC_MGMT
+    category: FEAT
+    optional_description: DLM
+    index: 1
+    description: "The DLM shall operate at optimal frequency"
+    criticality: bronze
+    owner: Joao Martins
+
+  -
+    block: SOC_MGMT
+    category: FEAT
+    optional_description: DLM
+    index: 2
+    description: "The DLM shall be configurable through the SysCfg bus"
+    criticality: bronze
+    owner: Joao Martins
+
+  -
+    block: SOC_MGMT
+    category: FEAT
+    optional_description: DLM
+    index: 3
+    description: "The DLM shall interface with multiple Europa partitions through a set of IOs present at SocMgmt interface"
+    criticality: bronze
+    owner: Joao Martins
+
+  -
+    block: SOC_MGMT
+    category: FEAT
+    optional_description: DLM
+    index: 4
+    description: "The DLM shall interface with the TMS block"
+    criticality: bronze
+    owner: Joao Martins
+
+  -
+    block: SOC_MGMT
+    category: FEAT
+    optional_description: NOC_PCTL
+    index: 0
+    description: "The NoC partition control unit shall be instanciated inside the SocMgmt"
+    criticality: bronze
+    owner: Joao Martins
+
+  -
+    block: SOC_MGMT
+    category: FEAT
+    optional_description: NOC_PCTL
+    index: 1
+    description: "The NoC PCTL unit shall be reacheable through SysCfg bus"
+    criticality: bronze
+    owner: Joao Martins
+
+  -
+    block: SOC_MGMT
+    category: FEAT
+    optional_description: TMS
+    index: 0
+    description: "The chip has a centralized thermal management supervisor (TMS)
+      block, which can read out the temperature in various places of the chip using
+      remote temperature probes and react without software interaction on the
+      temperature readings. Additionally the centralized supervisor provides
+      PVT-sensing (process, voltage, temperature) at it’s local centralized
+      location."
+    criticality: silver
+    owner: Joao Martins
+
+  -
+    block: SOC_MGMT
+    category: FEAT
+    optional_description: TMS_PVT
+    index: 0
+    description: "TMS supports PVT mode, where the unit is controlled by
+      software and all sensor values including process and voltage (P&V) readings
+      can be read out."
+    criticality: silver
+    owner: Joao Martins
+
+  -
+    block: SOC_MGMT
+    category: FEAT
+    optional_description: TMS_PVT
+    index: 1
+    description: "In the PVT mode, the TMS provides P-sensing (process)
+      information using the local sensor of the integrated PVT sensor IP."
+    criticality: silver
+    owner: Joao Martins
+
+  -
+    block: SOC_MGMT
+    category: FEAT
+    optional_description: TMS_PVT
+    index: 2
+    description: "In the PVT mode, the TMS can provide V-sensing (voltage)
+      information on VDD_CORE voltage."
+    criticality: silver
+    owner: Joao Martins
+
+  -
+    block: SOC_MGMT
+    category: FEAT
+    optional_description: TMS_PVT
+    index: 4
+    description: "The voltage calibration compensation based on the V-sensing
+      information is applied in software and no HW support or automatic
+      feedback loop is present."
+    criticality: silver
+    owner: Joao Martins
+
+  -
+    block: SOC_MGMT
+    category: FEAT
+    optional_description: TMS_PVT
+    index: 5
+    description: "Each AI Core subsystem has a remote temperature sensor probe."
+    criticality: silver
+    owner: Joao Martins
+
+  -
+    block: SOC_MGMT
+    category: FEAT
+    optional_description: TMS_PVT
+    index: 6
+    description: "Each PVE subsystem has a remote temperature sensor probe."
+    criticality: silver
+    owner: Joao Martins
+
+  -
+    block: SOC_MGMT
+    category: FEAT
+    optional_description: TMS_PVT
+    index: 7
+    description: "Each APU subsystem has a remote temperature sensor probe."
+    criticality: silver
+    owner: Joao Martins
+
+  -
+    block: SOC_MGMT
+    category: FEAT
+    optional_description: TMS_PVT
+    index: 8
+    description: "SOC_MGMT block has a local temperature sensor probe as part of
+      PVT sensor IP."
+    criticality: silver
+    owner: Joao Martins
+
+  -
+    block: SOC_MGMT
+    category: FEAT
+    optional_description: TMS_PVT
+    index: 9
+    description: "In the PVT mode, the temperature calibration compensation is
+      applied in software."
+    criticality: silver
+    owner: Joao Martins
+
+  -
+    block: SOC_MGMT
+    category: FEAT
+    optional_description: TMS_CTM
+    index: 0
+    description: "TMS supports continuous temperature monitoring (CTM) mode
+      where the temperature sensor values are constantly monitored and reacted
+      upon."
+    criticality: silver
+    owner: Joao Martins
+
+  -
+    block: SOC_MGMT
+    category: FEAT
+    optional_description: TMS_CTM
+    index: 1
+    description: "In the CTM mode, the temperature calibration compensation is
+      applied in hardware."
+    criticality: silver
+    owner: Joao Martins
+
+  -
+    block: SOC_MGMT
+    category: FEAT
+    optional_description: TMS_CTM
+    index: 2
+    description: "The hardware temperature calibration for the CTM mode uses a
+      1pt calibration without low temperature slop compensation. "
+    criticality: silver
+    owner: Joao Martins
+
+  -
+    block: SOC_MGMT
+    category: FEAT
+    optional_description: TMS_CTM
+    index: 3
+    description: "All temperature values and thresholds in the hardware unit are
+      expressed in the 12b output code domain. Values are not converted to the
+      temperature domain."
+    criticality: silver
+    owner: Joao Martins
+
+  -
+    block: SOC_MGMT
+    category: RST
+    optional_description: TMS
+    index: 0
+    description: "After reset the TMS block is in PVT mode, with safe CSR reset
+      value, which prevents that the system shuts itself accidentally down during
+      boot & configuration (aka thermal shutdown and warning alerts are disabled;
+      especially the ones going off-chip)"
+    criticality: silver
+    owner: Joao Martins
+
+  -
+    block: SOC_MGMT
+    category: BOOT
+    optional_description: TMS
+    index: 0
+    description: "During the software boot process, the compensation information
+      for the temperature measurements (for CTM mode) is computed from the
+      calibration data recovered from the OTP memory and written into the TMS unit
+      for hardware calibration compensation. If no calibration data is available in
+      the OTP memory, the TMS falls back in a safe operation mode."
+    criticality: gold
+    owner: Joao Martins
+
+  -
+    block: SOC_MGMT
+    category: FEAT
+    optional_description: TMS
+    index: 1
+    description: "After boot, the TMS measures continuously all temperature
+      sensors (CTM mode)"
+    criticality: gold
+    owner: Joao Martins
+
+  -
+    block: SOC_MGMT
+    category: FEAT
+    optional_description: TMS
+    index: 2
+    description: "The PVT raw data needs to be accessible over JTAG."
+    criticality: bronze
+    owner: Joao Martins
+
+  -
+    block: SOC_MGMT
+    category: FEAT
+    optional_description: TMS
+    index: 3
+    description: "PVT sensor must be controllable over JTAG."
+    criticality: bronze
+    owner: Joao Martins
+
+  -
+    block: SOC_MGMT
+    category: BOOT
+    optional_description: TMS
+    index: 1
+    description: "As part of the DFT boot modes, the chip provides a
+      low-activity boot mode, where there is little activity in the chip to
+      avoid self-heating during calibration."
+    criticality: silver
+    owner: Joao Martins
+
+  -
+    block: SOC_MGMT
+    category: FEAT
+    optional_description: TMS
+    index: 5
+    description: "Calibration for design validation via software is supported
+      such that the raw sensor data is read out in PVT mode at the calibration
+      points and raw measurements are stored in the OTP memry and software
+      computes compensation information at a later point based on these
+      readouts."
+    criticality: silver
+    owner: Joao Martins
+
+  -
+    block: SOC_MGMT
+    category: FEAT
+    optional_description: TMS
+    index: 6
+    description: "All 12 temperature sensor data is available for
+      calibration."
+    criticality: gold
+    owner: Joao Martins
+
+  -
+    block: SOC_MGMT
+    category: FEAT
+    optional_description: TMS
+    index: 7
+    description: "All 1 voltage sensor data is available for
+      calibration."
+    criticality: gold
+    owner: Joao Martins
+
+  -
+    block: SOC_MGMT
+    category: FEAT
+    optional_description: TMS
+    index: 10
+    description: "Sufficient OTP memory bits are available for storing
+      calibration data.
+      For example : 30+[24x(N+1)]+4+1  (N=11, remote probes) "
+    criticality: gold
+    owner: Joao Martins
+
+  -
+    block: SOC_MGMT
+    category: FEAT
+    optional_description: TMS
+    index: 11
+    description: "If a sensor exceeds its thermal shutdown threshold the
+      corresponding alert is set (sticky), which can only be reset via software
+      or a full chip reset."
+    criticality: gold
+    owner: Joao Martins
+
+  -
+    block: SOC_MGMT
+    category: FEAT
+    optional_description: TMS
+    index: 12
+    description: "If any sensors sets the thermal shutdown alert, (ie the
+      thermal_shutdown_o pin is set), system reset on the board/PCB is
+      activated."
+    criticality: gold
+    owner: Joao Martins
+
+  -
+    block: SOC_MGMT
+    category: FEAT
+    optional_description: TMS
+    index: 13
+    description: "If a sensor exceeds its thermal warning threshold the
+      corresponding alert is set (sticky), which can only be reset via software
+      or a full chip reset."
+    criticality: gold
+    owner: Joao Martins
+
+  -
+    block: SOC_MGMT
+    category: FEAT
+    optional_description: TMS
+    index: 14
+    description: "If any sensors sets the thermal warning alert, (ie the
+      thermal_warning_o pin is set), card/board controller is notified so it
+      may take action to reduce the dangerous temperature."
+    criticality: gold
+    owner: Joao Martins
+
+  -
+    block: SOC_MGMT
+    category: FEAT
+    optional_description: TMS
+    index: 15
+    description: "Every sensor can engage its corresponding hardware thermal
+      throttle signal. The signal is enabled/disabled over a on/off hysteresis
+      for which an on/off temperature value is provided. "
+    criticality: gold
+    owner: Joao Martins
+
+  -
+    block: SOC_MGMT
+    category: FEAT
+    optional_description: TMS
+    index: 16
+    description: "With a CSR, the function of the thermal_warning_o pin can be
+      changed to show if any internal thermal_throttle signal is active."
+    criticality: gold
+    owner: Joao Martins
+
+  -
+    block: SOC_MGMT
+    category: FEAT
+    optional_description: TMS
+    index: 17
+    description: "The TMS provides a global thermal_throttle_i input which can
+      be configured to activate all internal thermal_throttle signals when high."
+    criticality: gold
+    owner: Joao Martins
+
+  -
+    block: SOC_MGMT
+    category: FEAT
+    optional_description: TMS
+    index: 18
+    description: "The thermal_throttle_i input signal can be observed, trigger
+      an interrupt and overwritten by software (CSR)."
+    criticality: gold
+    owner: Joao Martins
+
+  -
+    block: SOC_MGMT
+    category: FEAT
+    optional_description: TMS
+    index: 19
+    description: "By default the external throttle input thermal_throttle_i is
+      disabled."
+    criticality: gold
+    owner: Joao Martins
+
+  -
+    block: SOC_MGMT
+    category: FEAT
+    optional_description: TMS
+    index: 20
+    description: "Signals thermal_throttle_i and thermal_warning_o are mutually
+      exclusive, such that they may share a pin on the package, provided the IO
+      direction is configurable. This optimisation is optional."
+    criticality: gold
+    owner: Joao Martins
+
+  -
+    block: SOC_MGMT
+    category: FEAT
+    optional_description: TMS
+    index: 21
+    description: "Continuous temperature monitoring may be temporally disabled
+      to use the PVT sensor for P or V readout, trimming or calibration.
+      (Switch from CTM to PVT mode)"
+    criticality: gold
+    owner: Joao Martins
+
+  -
+    block: SOC_MGMT
+    category: FEAT
+    optional_description: TMS_IRQ
+    index: 0
+    description: "Thermal alerts (Warning & Shutdown) and throttling events
+      trigger an IRQ (System Controller/APU)"
+    criticality: silver
+    owner: Joao Martins
+
+  -
+    block: SOC_MGMT
+    category: FEAT
+    optional_description: TMS_IRQ
+    index: 1
+    description: "Thermal alert interrupts may be separately enabled for every
+      sensor."
+    criticality: silver
+    owner: Joao Martins
+
+  -
+    block: SOC_MGMT
+    category: FEAT
+    optional_description: TMS_IRQ
+    index: 2
+    description: "Three Interrupt lines are provided to the APU to implement
+      reactions with different priority: (Shutdown, Warning, Throttle/Info)"
+    criticality: silver
+    owner: Joao Martins
+
+  -
+    block: SOC_MGMT
+    category: FEAT
+    optional_description: TMS_IRQ
+    index: 3
+    description: "Thermal warning and thermal throttle signal are routed to the
+      partition {AI-Core} where the remote temperature sensor resides."
+    criticality: silver
+    owner: Joao Martins
+
+  -
+    block: SOC_MGMT
+    category: FEAT
+    optional_description: TMS_IRQ
+    index: 4
+    description: "All outgoing thermal control signals (thermal_shutdown,
+      thermal_warning, thermal_throttle) can be overridden by a CSR."
+    criticality: silver
+    owner: Joao Martins
+
+  -
+    block: SOC_MGMT
+    category: FEAT
+    optional_description: TMS_IO
+    index: 0
+    description: "Thermal alerts (shutdown and warning) signal must be
+      absolutely glitch free all the way to the IO pins, as a glitch could reset
+      the board/chip."
+    criticality: silver
+    owner: Joao Martins
+
+  -
+    block: SOC_MGMT
+    category: FEAT
+    optional_description: TMS_IO
+    index: 1
+    description: "TMS IO must be absolutely quiet (glitch free) during boot,
+      trimming and calibration."
+    criticality: silver
+    owner: Joao Martins
+
+  -
+    block: SOC_MGMT
+    category: FEAT
+    optional_description: TMS_IRQ
+    index: 5
+    description: "Thermal alerts are disabled by default, must be enabled during
+      boot after configuration, but can be disabled for each sensor."
+    criticality: silver
+    owner: Joao Martins
+
+  -
+    block: SOC_MGMT
+    category: FEAT
+    optional_description: TMS_CSR
+    index: 0
+    description: "The TMS provides config and status register (CSR) access for
+      software interactions"
+    criticality: bronze
+    owner: Joao Martins
+
+  -
+    block: SOC_MGMT
+    category: FEAT
+    optional_description: TMS_CSR
+    index: 1
+    description: "For every sensor, the minimal & maximal measured value is
+      tracked, and available for software readout together with the current
+      (last measured value). Minimal and maximal value are reset when read."
+    criticality: silver
+    owner: Joao Martins
+
+  -
+    block: SOC_MGMT
+    category: FEAT
+    optional_description: TMS_CSR
+    index: 2
+    description: "The CSR reset default values (e.g. thresholds, compensation
+      values) configure the TMS to operate with conservative, safe thresholds."
+    criticality: bronze
+    owner: Joao Martins
+
+  -
+    block: SOC_MGMT
+    category: FEAT
+    optional_description: TMS_CSR
+    index: 3
+    description: "In PVT mode, the PVT can be triggered to collect sensor
+      readings over the CSR interface."
+    criticality: bronze
+    owner: Joao Martins
+
+  -
+    block: SOC_MGMT
+    category: FEAT
+    optional_description: TMS_CSR
+    index: 4
+    description: "The TMS has a dedicated JTAG interface to control the PVT
+      sensor (similar to PVT mode over software). JTAG interaction works by
+      accessing/overwriting the CSR. (not via debug-module)"
+    criticality: bronze
+    owner: Joao Martins
+
+  -
+    block: SOC_MGMT
+    category: CLK
+    optional_description: TMS_CLK
+    index: 0
+    description: "The PVT sensor must be supplied by a stable clock which is
+      not-altered (also not temporary) by chip-level clock power management
+      strategies."
+    criticality: bronze
+    owner: Joao Martins
+
+  -
+    block: SOC_MGMT
+    category: CLK
+    optional_description: TMS_CLK
+    index: 1
+    description: "The PVT sensor must auto-adapt its internal clock frequency
+      depending on which measurement is conducted: 4 MHz for T&V measurements,
+      8Mhz for P measurements."
+    criticality: bronze
+    owner: Joao Martins
+
+  -
+    block: SOC_MGMT
+    category: CLK
+    optional_description: TMS_CLK
+    index: 2
+    description: "During production calibration the TMS/PVT clock should be
+      supplied bypassing the PLL (no fast clock present in the system)."
+    criticality: bronze
+    owner: Joao Martins
+
+  -
+    block: SOC_MGMT
+    category: CLK
+    optional_description: TMS_STA
+    index: 0
+    description: "Outgoing control signals thermal_{shutdown, warning, throttle}
+      can be considered pseudo-static for the sake of timing closure."
+    criticality: bronze
+    owner: Joao Martins
+

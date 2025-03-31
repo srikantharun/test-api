@@ -1,0 +1,115 @@
+# (C) Copyright 2024 Axelera AI B.V.
+# All Rights Reserved
+# *** Axelera AI Confidential ***
+
+package:
+  name: soc_periph_p
+  description: "SOC_PERIPH clocks, related IOs, clock groups and design intent information"
+  authors:
+    - "Joao Martins <joao.martins@axelera.ai>"
+
+# Guidelines for clocks, related IOs and clock groups
+#  1. each clock starts with dash (-)
+#  2. clock parameters are defined using pairs of key and possible value (i.e. key: <value>)
+#  3. freq - should be in MHz
+#  4. dc (duty cycle) - should be in %
+#  5. is_gen - should be true if it is generated clock
+#  6. if is_gen is true - then div_by, master_clk, master_source must be defined as well
+#  7. sync_with - only valid for non-generated clocks. If clock is asynchronous in nature wrt all other clocks, leave this empty.
+
+clocks:
+  #- name: fast_clk_div2
+  #  is_gen: true
+  #  div_by: 2
+  #  master_clk: <master_clock name>
+  #  master_source: <master_clock source port or hierarchical pin>
+  #  source: <name of hierarchical pin or port where clock should be defined>
+  #  mode: <func | atspeed | shift>
+  - clock_type: master
+    name: periph_clk
+    freq_mhz: 100
+    dc: 50
+    source:
+      name: "i_periph_clk"
+      type: port
+    mode: func
+    sync_in:
+      - name: "i_lt_axi_s_*"
+        type: port
+      - name: "i_gpio*"
+        type: port
+      - name: "i_i2c_*"
+        type: port
+    sync_out:
+      - name: "o_lt_axi_s_*"
+        type: port
+      - name: "o_gpio*"
+        type: port
+      - name: "o_i2c_*"
+        type: port
+  - clock_type: master
+    name: emmc_clk
+    freq_mhz: 200
+    dc: 50
+    source:
+      name: "i_emmc_clk"
+      type: port
+    mode: func
+    sync_in:
+      - name: "i_lt_axi_m_*"
+        type: port
+    sync_out:
+      - name: "o_lt_axi_m_*"
+        type: port
+  - clock_type: master
+    name: ref_clk
+    freq_mhz: 50
+    dc: 50
+    source:
+      name: "i_ref_clk"
+      type: port
+    mode: func
+    sync_in:
+      - name: "i_cfg_apb4_s_*"
+        type: port
+    sync_out:
+      - name: "o_cfg_apb4_s_*"
+        type: port
+  - clock_type: generated
+    name: spi_clk
+    is_gen: true
+    divisor: 2
+    div_by: 2
+    freq_mhz: 50
+    dc: 50
+    source:
+      name: o_spi_clk
+      type: port
+    master_source:
+      name: i_periph_clk
+      type: port
+    master_name: periph_clk
+    mode: func
+
+resets:
+  - name: "*_rst_n"
+    type: port
+
+case_analysis:
+  #- mode: <func | atspeed | shift>
+  #  object:
+  #    name: <name or expression>
+  #    type: <pin | port| net | expr>
+  #  value: <0 | 1>
+  - mode: func
+    object:
+      name: scan_en
+      type: port
+    value: 0
+  - mode: func
+    object:
+      name: test_mode
+      type: port
+    value: 0
+
+

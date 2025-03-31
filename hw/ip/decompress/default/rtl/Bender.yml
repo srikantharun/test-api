@@ -1,0 +1,28 @@
+# (C) Copyright 2024 Axelera AI B.V.
+# All Rights Reserved
+# *** Axelera AI Confidential ***
+
+package:
+  name: decompress
+  description: "Weight Decompression unit"
+  authors:
+    - "Spyridoula Koumousi <spyridoula.koumousi@axelera.ai>"
+
+dependencies:
+  decompress_pkg:      { path: "pkg" }
+  aic_common_pkg:      { path: "../../../aic_common/default/rtl/pkg" }
+  cc_lib:              { path: "../../../common_cell_library/default/rtl" }
+  lowrisc_prim_subreg: { path: "../../../../vendor/lowrisc/prim_subreg/default/rtl" }
+  ifd_odr_pkg:         { path: "../../../ifd_odr/default/rtl/pkg"}
+
+# Source files grouped in levels.
+# Files in level 0 have no dependencies on files in this package.
+# Files in level 1 only depend on files in level 0, files in level 2 on files in levels 1 and 0, etc.
+# Files within a level are ordered alphabetically.
+sources:
+  - target: rtl
+    include_dirs:
+      - ../include
+    files:
+    # Level 0
+    - decompress.sv

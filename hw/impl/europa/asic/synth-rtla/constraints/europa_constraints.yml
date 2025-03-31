@@ -1,0 +1,76 @@
+package:
+  name: europa
+  description: "europa clocks, related IOs, clock groups and design intend information"
+  authors:
+    - "Luyi <yi.lu@axelera.ai>"
+
+clocks:
+  - clock_type: master
+    name: ref_clk
+    freq_mhz: 50
+    dc: 50
+    source:
+      name: "i_ref_clk"
+      type: port
+    mode: func
+  - clock_type: master
+    name: jtag_clk
+    freq_mhz: 100
+    dc: 50
+    source:
+      name: "i_tck"
+      type: port
+    mode: func
+  - clock_type: master
+    name: spi_clk
+    freq_mhz: 50
+    dc: 50
+    source:
+      name: "i_spi_clk_in"
+      type: port
+    mode: func
+  - clock_type: master
+    name: scan_0_clk
+    freq_mhz: 100
+    dc: 50
+    source:
+      name: "i_ssn_bus_0_clk"
+      type: port
+    mode: func
+  - clock_type: master
+    name: scan_1_clk
+    freq_mhz: 100
+    dc: 50
+    source:
+      name: "i_ssn_bus_1_clk"
+      type: port
+    mode: func
+  - clock_type: master
+    name: pcie_diff_m_clk
+    freq_mhz: 100
+    dc: 50
+    source:
+      name: "i_ref_pad_clk_m"
+      type: port
+    mode: func
+  - clock_type: master
+    name: pcie_diff_p_clk
+    freq_mhz: 100
+    dc: 50
+    source:
+      name: "i_ref_pad_clk_p"
+      type: port
+    mode: func
+
+resets:
+  - name: "i_por_rst_n"
+    type: port
+  - name: "i_trst_n"
+    type: port
+
+false_path:
+  - mode: func
+    from_object:
+      name: '{i_por_rst_n i_trst_n}'
+      type: port
+    type: both

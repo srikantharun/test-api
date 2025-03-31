@@ -1,0 +1,68 @@
+Name;Type;Req_id;Description;Measure;Test (FIXME, names are old);Coverpoints if applicable FIXME; How-to
+FULL MEMORY READ;UVM;SPM_FULL_MEM_READ; Initialize memory via backdoor with all 0s, all 1s and random values. Perform read via frontdoor. ECC disabled;test.percent_pass;"spm_basic_test 
+spm_*initialisation_test";; -Initialize the memory with either 0s, 1s or rnd. -
+FULL MEMORY READ WITH ECC;UVM;SPM_FULL_MEM_READ_ECC;Initialize memory via backdoor with all 0s, all 1s and random values. Perform read via frontdoor. ECC enabled;test.percent_pass;"
+spm_*initialisation_test";
+FULL MEMORY WRITE;UVM;SPM_FULL_MEMORY_WRITE;Complete memory write with all memory configuration. ECC disabled. Read on backdoor;test.percent_pass;"spm*memory_test
+spm*memory*cg";"Memory range 
+ecc enable
+cross : memory_range x ecc enable"
+FULL MEMORY WRITE WITH ECC;UVM;SPM_FULL_MEMORY_WRITE_ECC;Complete memory write with all memory configuration. ECC enabled. Read on backdoor;test.percent_pass;"spm*memory_test
+spm*memory*cg";"Memory range 
+ecc enable
+cross : memory_range x ecc enable"
+WRITE READ;UVM;SPM_WRITE_READ;Complete memory wite followed by read. ECC disabled;Group;"spm*write*read*test
+spm*ecc*en*write*read*test
+spm*write*read*cg";"Memory range 
+ecc enable
+cross : memory_range x ecc enable"
+WRITE READ ECC;UVM;SPM_WRITE_READ_ECC;Complete memory wite followed by read. ECC enabled;Group;"spm*write*read*test
+spm*ecc*en*write*read*test
+spm*write*read*cg";"Memory range 
+ecc enable
+cross : memory_range x ecc enable"
+INVALID ADDR;UVM;SPM_INV_ADDR;Try to use an invalid address for all memory configurations. An error should occurr;Group;"spm*inv*addr*test
+spm*ecc*en*inv*addr*test
+spm*inv*addr*cg";"vld_inv_addr
+ecc enable
+cross : vld_inv_addr x ecc_enable"
+UNLIGNED ADDR;UVM;SPM_UNALIGN_ADDR;Try to use an unaligned address for all memory configurations. An error should occurr;Group;;
+HAZARD AVOIDANCE;UVM;SPM_HZRD_AVOID;"Enable ECC. Write a partial line (ie address A, byte 3), followed quickly by a read of the same line (address A). 
+The SPM controller should avoid the hazard produced by the ECC recalculation";Group;;
+CORRUPT SINGLE BIT;UVM;SPM_CORRUPT_1B;Corrupt 1 bit via backdoor and check for correction;Group;"spm*corrupt*test
+spm*corrupt*cg";"
+error_status
+corrupt_bit
+corrupt bit position
+corss :  error_status x corrupt_bit"
+CORRUPT DOUBLE BIT;UVM;SPM_CORRUPT_2B;Corrupt 2 bits via backdoor and check for detection;Group;"spm*corrupt*test
+spm*corrupt*cg";"
+error_status
+corrupt_bit
+corrupt bit position
+corss :  error_status x corrupt_bit"
+CORRUPT MULTIPLE BITS;UVM;SPM_CORRUPT_MB;Corrupt more than 2 bits via backdoor and check for FIXME (which behaviour???);Group;"spm*corrupt*test
+spm*corrupt*cg";"
+error_status
+corrupt_bit
+corrupt bit position
+corss :  error_status x corrupt_bit"
+CORRUPT WITHOUT ECC;UVM;SPM_CORRUPT_NO_ECC; Corrupt 1 or 2 bits and check that nothing happens;Group;"spm*corrupt*test
+spm*corrupt*cg";"
+error_status
+corrupt_bit
+corrupt bit position
+corss :  error_status x corrupt_bit"
+ERROR OUT MESSAGE;UVM;SPM_ERR_OUT_MSG; When an error is triggeted, check that the message is sent correctly with the signal scp_error_status;Group;"spm*corrupt*test
+spm*corrupt*cg";"
+error_status
+corrupt_bit
+corrupt bit position
+corss :  error_status x corrupt_bit"
+RESET;UVM;SPM_RST;SPM on the fly reset during memory write operation;test.percent_pass;spm*fly*reset*test;
+NARROW TRANSFER;UVM;SPM_NARROW_TRANSFER;Create a partial transaction verifying that the data is transferred correctly and the ECC is computed accordingly;Group;spm*transfer*test;ahb_func_coovergroup
+RANDOMISED CONFIG;UVM;SPM_RANDOMIZED_CONFIG;Write/read transaction having randomised ahb configuration with ecc enable as well as disable;test.percent_pass;"spm*randomised*test
+spm*ecc*en*randomized*test";
+
+
+

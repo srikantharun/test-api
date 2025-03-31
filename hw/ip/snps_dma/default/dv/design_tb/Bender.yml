@@ -1,0 +1,17 @@
+package:
+  name: snps_dma_designer_tb
+  description: "Design Testbench for SNPS DMA"
+  authors:
+    - "Sander Geursen <sander.geursen@axelera.ai>"
+
+dependencies:
+  snps_dma:             { path: "" }
+  aic_common_design_tb: { path: "" }
+
+sources:
+  - target: simulation
+    include_dirs:
+      - ../../../../aic_common/default/dv/design_tb/axi
+      - ../../../../aic_common/default/dv/design_tb/axis
+    files:
+      - ht_dma_tb.sv

@@ -1,0 +1,18 @@
+package:
+    name: tkn_mng_verif_uvm_aic_ref_model
+    description: "UVM Token Manager Reference Model for AI CORE"
+    authors:
+      - "vito.guglielmi@axelera.ai"
+
+
+dependencies:
+    dv_common_uvm:                    { path: "" }
+    ai_core_token_agent_uvm_pkg:      { path: "" }
+
+
+sources:
+  - target: simulation
+    include_dirs:
+      - .
+    files:
+      - tkn_mng_aic_ref_model_pkg.sv

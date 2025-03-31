@@ -1,0 +1,9 @@
+package:
+  name: dv_common
+  description: "Verification Common Code"
+  authors:
+    - "andrew.bond@axelera.ai"
+
+dependencies:
+  dv_common_rtl:   { path: "./rtl" }
+  dv_common_uvm:   { path: "./uvm" }

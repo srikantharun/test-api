@@ -1,0 +1,7 @@
+nav:
+    - index.md
+    - aic_dp_cmd_gen_pkg.md
+    - aic_dp_cmd_gen_loop_flags.md
+    - aic_dp_cmd_gen_decode.md
+    - aic_dp_cmd_gen_loops.md
+    - ...

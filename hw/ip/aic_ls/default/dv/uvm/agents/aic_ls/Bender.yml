@@ -1,0 +1,18 @@
+package:
+  name: aic_ls_uvm_agent
+  description: "Agent for DMC L1"
+  authors:
+    - "fernando.yokota@axelera.ai"
+
+dependencies:
+  aic_common_pkg:                 { path: "$REPO_ROOT/hw/ip/aic_common/default/rtl/pkg/" }
+  dmc_pkg:                        { path: "$REPO_ROOT/hw/ip/dmc/default/rtl/pkg" }
+
+
+sources:
+  - target: simulation
+    include_dirs:
+      - .
+    files:
+      - aic_ls_agent_pkg.sv
+      - aic_ls_if.sv

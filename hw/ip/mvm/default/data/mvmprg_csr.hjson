@@ -1,0 +1,420 @@
+// Copyright lowRISC contributors.
+// Licensed under the Apache License, Version 2.0, see LICENSE for details.
+// SPDX-License-Identifier: Apache-2.0
+{ name: "mvmprg_csr",
+  clocking: [{clock: "clk_i", reset: "rst_ni"}],
+  bus_interfaces: [
+    { protocol: "tlul", direction: "device" }
+  ],
+  regwidth: "64",
+  addrcap: "0x10000",
+  axi_intf: True
+  param_list : [
+    {name:"AXI_AW", type:"int", default:"28"},
+    {name:"AXI_IDW", type:"int", default:"9"},
+    {name:"AXI_LENW", type:"int", default:"8"}
+  ]
+  registers: [
+    { name: "CMDBLK_CTRL",
+      desc: "Control register of the CMD Block.",
+      swaccess: "rw",
+      hwaccess: "hro",
+      fields: [
+        {
+            bits: "0",
+            name: "EXEC_EN",
+            desc: '''
+                  While `EXEC_EN` is high, the block processes commands, that are pushed into the command FIFO.
+                  ''',
+            resval: 0x0
+        }
+        {
+            bits: "1",
+            name: "PTR_RST",
+            desc: '''
+                  Synchronous active-high reset of the command FIFO's input word pointer.
+                  Set and unset `PTR_RST` to reset `CMDBLK_STATUS.IN_WORD_PTR` to 0. Only use this for error recovery.
+                  ''',
+            resval: 0x0
+        }
+      ]
+    },
+    { name: "CMDBLK_STATUS",
+      desc: "Status register of the CMD Block.",
+      swaccess: "ro",
+      hwaccess: "hwo",
+      hwext : True
+      fields: [
+        {
+            bits: "1:0",
+            name: "STATE",
+            desc: '''
+                  0: `IDLE` Command FIFO and fill buffer are both empty.
+                  1: `FILL` Command FIFO is empty, but there is at least a header in the fill buffer
+                  2: `READY` Command FIFO contains at least one item
+                  3: `EXECUTE` Outstanding commands is at least 1
+                  '''
+        }
+        {
+            bits: "2",
+            name: "WAIT_TOKEN",
+            desc: '''
+                  `WAIT_TOKEN` is high iff a command is waiting at the output buffer of the command FIFO for a token to arrive.
+                  '''
+        }
+        {
+            bits: "15:8",
+            name: "IN_WORD_PTR",
+            desc: '''
+                  The input word pointer is used to construct the input data for the command FIFO and
+                  points to the next 64bit word of the input data to be received by the next AXI transaction.
+                  '''
+        }
+        {
+            bits: "23:16",
+            name: "FIFO_CNT",
+            desc: '''Fill counter of the command FIFO.'''
+        }
+        {
+            bits: "31:24",
+            name: "OUTST_CMDS",
+            desc: '''
+                  Number of outstanding commands.
+                  A command is outstanding iff it has been popped from the command FIFO and sent for execution,
+                  but the datapath has not yet signaled that its execution has been done.
+                  '''
+        }
+        {
+            bits: "47:32",
+            name: "PENDING_TOKENS",
+            desc: '''
+                  Signals which consume tokens are pending.
+                  '''
+        }
+      ]
+    },
+    { reserved: "2" }, // Skip over IRQ_EN and IRQ_STATUS (centralized in mvm_exe)
+    { name: "DP_CTRL",
+      desc: "Control register of the datapath.",
+      swaccess: "rw",
+      hwaccess: "hro",
+      fields: [
+        {
+            bits: "0",
+            name: "SIGNED_WEIGHTS",
+            desc: '''
+              When set to 0, configure MVM DP and imc_bank to treat weight values (source: IFDW) as unsigned.
+              When set to 1 (Default), configure MVM DP and imc_bank to treat weight values (source: IFDW) as signed.
+            '''
+            resval: 0x1
+        }
+      ]
+    },
+    { name: "DP_STATUS",
+      desc: "Datapath status observarion register.",
+      swaccess: "ro",
+      hwaccess: "hwo",
+      hwext : True
+      fields: [
+        // {
+        //     bits: "0",
+        //     name: "IN0_VLD",
+        //     desc: '''Valid signal of the IFD0 input AXIS stream after input FIFO / buffer (if present).'''
+        // }
+        // {
+        //     bits: "1",
+        //     name: "IN0_RDY",
+        //     desc: '''Ready signal of the IFD0 input AXIS stream after input FIFO / buffer (if present).'''
+        // }
+        // {
+        //     bits: "2",
+        //     name: "IN0_LST",
+        //     desc: '''Last signal of the IFD0 input AXIS stream after input FIFO / buffer (if present).'''
+        // }
+        // {
+        //     bits: "3",
+        //     name: "IN0_STL",
+        //     desc: '''Indicates a stall on the IFD0 input AXIS stream after input FIFO / buffer (if present).'''
+        // }
+        {
+            bits: "4",
+            name: "IN1_VLD",
+            desc: '''Valid signal of the IFDW input AXIS stream after input FIFO / buffer (if present).'''
+        }
+        {
+            bits: "5",
+            name: "IN1_RDY",
+            desc: '''Ready signal of the IFDW input AXIS stream after input FIFO / buffer (if present).'''
+        }
+        {
+            bits: "6",
+            name: "IN1_LST",
+            desc: '''Last signal of the IFDW input AXIS stream after input FIFO / buffer (if present).'''
+        }
+        {
+            bits: "7",
+            name: "IN1_STL",
+            desc: '''Indicates a stall on the IFDW input AXIS stream after input FIFO / buffer (if present).'''
+        }
+        // {
+        //     bits: "8",
+        //     name: "OUT_VLD",
+        //     desc: '''Valid signal of the IAU output AXIS stream before output FIFO / buffer (if present).'''
+        // }
+        // {
+        //     bits: "9",
+        //     name: "OUT_RDY",
+        //     desc: '''Ready signal of the IAU output AXIS stream before output FIFO / buffer (if present).'''
+        // }
+        // {
+        //     bits: "10",
+        //     name: "OUT_LST",
+        //     desc: '''Last signal of the IAU output AXIS stream before output FIFO / buffer (if present).'''
+        // }
+        // {
+        //     bits: "11",
+        //     name: "OUT_STL",
+        //     desc: '''Indicates a stall on the IAU output AXIS stream before output FIFO / buffer (if present).'''
+        // }
+        // {
+        //     bits: "16",
+        //     name: "DPCMD0_VLD",
+        //     desc: '''Valid signal of the execution `DPcmd` AXIS stream after command FIFO / buffer (if present).'''
+        // }
+        // {
+        //     bits: "17",
+        //     name: "DPCMD0_RDY",
+        //     desc: '''Ready signal of the execution `DPcmd` AXIS stream after command FIFO / buffer (if present).'''
+        // }
+        // {
+        //     bits: "18",
+        //     name: "DPCMD0_LST",
+        //     desc: '''Last signal of the execution `DPcmd` AXIS stream after command FIFO / buffer (if present).'''
+        // }
+        // {
+        //     bits: "19",
+        //     name: "DPCMD0_STL",
+        //     desc: '''Indicates a stall on the execution `DPcmd` AXIS stream after command FIFO / buffer (if present).'''
+        // }
+        {
+            bits: "20",
+            name: "DPCMD1_VLD",
+            desc: '''Valid signal of the programming `DPcmd` AXIS stream after command FIFO / buffer (if present).'''
+        }
+        {
+            bits: "21",
+            name: "DPCMD1_RDY",
+            desc: '''Ready signal of the programming `DPcmd` AXIS stream after command FIFO / buffer (if present).'''
+        }
+        {
+            bits: "22",
+            name: "DPCMD1_LST",
+            desc: '''Last signal of the programming `DPcmd` AXIS stream after command FIFO / buffer (if present).'''
+        }
+        {
+            bits: "23",
+            name: "DPCMD1_STL",
+            desc: '''Indicates a stall on the programming `DPcmd` AXIS stream after command FIFO / buffer (if present).'''
+        }
+        {
+            bits: "32",
+            name: "IMC_ACC_PRG_RDY",
+            desc: '''Ready signal of the IMC ACC block programing control stream.'''
+        }
+        {
+            bits: "33",
+            name: "IMC_ACC_PRG_VLD",
+            desc: '''Valid signal of the IMC ACC block programing control stream.'''
+        }
+        {
+            bits: "42:34",
+            name: "IMC_ACC_PRG_ROW",
+            desc: '''Current row being addressed by programming stream.'''
+        }
+        {
+            bits: "44:43",
+            name: "IMC_ACC_PRG_WSET",
+            desc: '''Current weight set being addressed by programming stream.'''
+        }
+      ]
+    },
+    { name: "DBG_OBSERVE",
+      desc: "Observation register.",
+      swaccess: "ro",
+      hwaccess: "hwo",
+      hwext : True
+      fields: [
+        // {
+        //     bits: "0",
+        //     name: "IN0_VLD",
+        //     desc: '''Valid signal of the IFD0 input AXIS stream.'''
+        // }
+        // {
+        //     bits: "1",
+        //     name: "IN0_RDY",
+        //     desc: '''Ready signal of the IFD0 input AXIS stream.'''
+        // }
+        // {
+        //     bits: "2",
+        //     name: "IN0_LST",
+        //     desc: '''Last signal of the IFD0 input AXIS stream.'''
+        // }
+        {
+            bits: "4",
+            name: "IN1_VLD",
+            desc: '''Valid signal of the IFDW input AXIS stream.'''
+        }
+        {
+            bits: "5",
+            name: "IN1_RDY",
+            desc: '''Ready signal of the IFDW input AXIS stream.'''
+        }
+        {
+            bits: "6",
+            name: "IN1_LST",
+            desc: '''Last signal of the IFDW input AXIS stream.'''
+        }
+        // {
+        //     bits: "8",
+        //     name: "OUT_VLD",
+        //     desc: '''Valid signal of the IAU output AXIS stream.'''
+        // }
+        // {
+        //     bits: "9",
+        //     name: "OUT_RDY",
+        //     desc: '''Ready signal of the IAU output AXIS stream.'''
+        // }
+        // {
+        //     bits: "10",
+        //     name: "OUT_LST",
+        //     desc: '''Last signal of the IAU output AXIS stream.'''
+        // }
+        // {
+        //     bits: "16",
+        //     name: "DPCMD0_VLD",
+        //     desc: '''Valid signal of the execution `DPcmd` AXIS stream after multiplexer.'''
+        // }
+        // {
+        //     bits: "17",
+        //     name: "DPCMD0_RDY",
+        //     desc: '''Ready signal of the execution `DPcmd` AXIS stream after multiplexer.'''
+        // }
+        // {
+        //     bits: "18",
+        //     name: "DPCMD0_LST",
+        //     desc: '''Last signal of the execution `DPcmd` AXIS stream after multiplexer.'''
+        // }
+        {
+            bits: "20",
+            name: "DPCMD1_VLD",
+            desc: '''Valid signal of the programming `DPcmd` AXIS stream after multiplexer.'''
+        }
+        {
+            bits: "21",
+            name: "DPCMD1_RDY",
+            desc: '''Ready signal of the programming `DPcmd` AXIS stream after multiplexer.'''
+        }
+        {
+            bits: "22",
+            name: "DPCMD1_LST",
+            desc: '''Last signal of the programming `DPcmd` AXIS stream after multiplexer.'''
+        }
+      ]
+    },
+    { name: "CMDGEN_STATUS",
+      desc: "DP command generator observation register.",
+      swaccess: "ro",
+      hwaccess: "hwo",
+      hwext : True
+      fields: [
+        // {
+        //     bits: "31:0",
+        //     name: "ITERATION_CNT",
+        //     desc: '''Iteration counter of the currently executed loop.'''
+        // }
+        {
+            bits: "8:0",
+            name: "ROW_COUNTER",
+            desc: '''Row counter of the programming command generator.'''
+        }
+        {
+            bits: "18:16",
+            name: "COL_COUNTER_PW",
+            desc: '''PWORD column counter of the programming command generator.'''
+        }
+        {
+            bits: "47:32",
+            name: "PROG_WRITE_ENA",
+            desc: '''Write enable in the programming command generator.'''
+        }
+        {
+            bits: "56:48",
+            name: "PROG_ROW",
+            desc: '''Current row being programmed.'''
+        }
+        {
+            bits: "60:57",
+            name: "PROG_WSET",
+            desc: '''Current weight set being programmed.'''
+        }
+        {
+            bits: "61",
+            name: "FSM_STATE",
+            desc: '''Command generator FSM state.'''
+        }
+      ]
+    },
+    { reserved: "1" }, // Skip over DBG_SCRATCH (centralized in mvm_exe)
+    { name: "DBG_ID",
+      desc: "Block identification register.",
+      swaccess: "ro",
+      hwaccess: "hwo",
+      hwext : True
+      fields: [
+        {
+            bits: "7:0",
+            name: "BLOCK_ID",
+            desc: '''Unique identifier of an `AI Core` block. Note, that the same blocks in each `AI Core` instance share the same `BLOCK_ID`.'''
+        }
+        {
+            bits: "15:8",
+            name: "AI_CORE_ID",
+            desc: '''`AI_CORE_ID` aka `CID` is a unique identifier of the `AI Core` instance.'''
+        }
+        {
+            bits: "23:16",
+            name: "HW_REVISION",
+            desc: '''Major hardware revision number.'''
+        }
+      ]
+    },
+    { name: "HW_CAPABILITY",
+      desc: "Hardware capability register for the instance.",
+      swaccess: "ro",
+      hwaccess: "hwo",
+      hwext : True
+      fields: [
+        {
+            bits: "7:0",
+            name: "CMD_FIFO_DEPTH",
+            desc: '''Depth of the command FIFO in the CMD block.'''
+        }
+        // {
+        //      bits: "31:16",
+        //      name: "INSTR_MEM_DEPTH",
+        //      desc: '''Depth of the instruction memory in the `DPcmdgen` block, measured in number of instructions.'''
+        // }
+        // {
+        //      bits: "32",
+        //      name: "STATIC_CMD_PRESENT",
+        //      desc: '''If set to high, the static part of the command block is present.'''
+        // }
+        // {
+        //     bits: "33",
+        //     name: "VTRSP_PRESENT",
+        //     desc: '''If set to high, the VTRSP block is present in the instance'''
+        // }
+      ]
+    }
+  ]
+}

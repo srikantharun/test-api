@@ -1,0 +1,179 @@
+
+requirements:
+  -
+    block: SYS_SPM
+    category: FEAT
+    index: 0
+    description: "The Europa shall have a top level system memory that will be used to store TLB pagetables for all CPUs, programs for all CPUs (APU and AICOREs), Linked lists for PCIE DMA, SW token exchange data and other control data."
+    criticality: bronze
+    owner: Spyridoula Koumousi
+  -
+    block: SYS_SPM
+    category: FEAT
+    index: 1
+    description: "The SYS-SPM memory shall have a defined size of 8MiB."
+    criticality: bronze
+    owner: Spyridoula Koumousi
+  -
+    block: SYS_SPM
+    category: FEAT
+    index: 2
+    description: "The SYS-SPM shall have a Half Duplex 64-bit wide AXI4 interface towards the NoC."
+    criticality: bronze
+    owner: Spyridoula Koumousi
+  -
+    block: SYS_SPM
+    category: FEAT
+    index: 3
+    description: "The SYS-SPM shall be integrated in a physical design wrapper that includes the needed PPU and CSRs."
+    criticality: bronze
+    owner: Spyridoula Koumousi
+  -
+    block: SYS_SPM
+    category: FEAT
+    index: 4
+    description: "The SYS-SPM physical design wrapper shall have an APB configuration interface to be able to access the CSRs."
+    criticality: bronze
+    owner: Spyridoula Koumousi
+  -
+    block: SYS_SPM
+    category: FEAT
+    index: 5
+    description: "The SYS-SPM memory shall support exclusives/atomics accesses via a NoC exclusive monitor per initiator. The SPM IP atomics feature will not be used for this."
+    criticality: bronze
+    owner: Spyridoula Koumousi
+  -
+    block: SYS_SPM
+    category: FEAT
+    index: 6
+    description: "The SYS-SPM memory shall be marked as DEVICE memory region and therefore cannot be cached."
+    criticality: bronze
+    owner: Spyridoula Koumousi
+  -
+    block: SYS_SPM 
+    category: FEAT
+    index: 7
+    description: "The SYS-SPM shall be power gated during IDLE periods via SW contol. The macros can be shutdown via a dedicated register access. Implementation defined granularity."
+    criticality: bronze
+    owner: Spyridoula Koumousi
+  -
+    block: SYS_SPM 
+    category: FEAT
+    index: 8
+    description: "The SYS-SPM memories shall be clock gated when not in use. Fine granularity gating when no access to the specific bank should be implemented."
+    criticality: bronze
+    owner: Spyridoula Koumousi
+  -
+    block: SYS_SPM
+    category: FEAT
+    optional_description: ECC
+    index: 9
+    description: "The SYS-SPM memory shall be ECC protected."
+    criticality: silver
+    owner: Spyridoula Koumousi
+  -
+    block: SYS_SPM
+    category: FEAT
+    optional_description: ECC
+    index: 10
+    description: "The SYS-SPM shall provide an Error reporting interface to indicate the presence, type, syndrome and index of the error location."
+    criticality: silver
+    owner: Spyridoula Koumousi
+  -
+    block: SYS_SPM
+    category: FEAT
+    optional_description: ECC
+    index: 11
+    description: "The SYS-SPM shall provide an IRQ to indicate the presence of an 2-bit ECC error (UNRECOVERABLE error)."
+    criticality: silver
+    owner: Spyridoula Koumousi
+  -
+    block: SYS_SPM
+    category: CONN
+    index: 0
+    description: "The SYS-SPM shall be a sub-ordinate of the LTF NoC and shall be reachable by all initiators."
+    criticality: silver
+    owner: Spyridoula Koumousi  
+  -
+    block: SYS_SPM 
+    category: CLK
+    index: 0
+    description: "The SYS-SPM shall operate in a single clock domain 1.2GHz."
+    criticality: bronze
+    owner: Spyridoula Koumousi  
+  -
+    block: SYS_SPM 
+    category: CLK
+    index: 1
+    description: "The SYS-SPM clock shall be gated via a dedicated PMU register access."
+    criticality: bronze
+    owner: Spyridoula Koumousi
+  -
+    block: SYS_SPM
+    category: CLK
+    index: 2
+    description: "The SYS-SPM clock shall be divided via a dedicated PMU register access."
+    criticality: bronze
+    owner: Spyridoula Koumousi
+  -
+    block: SYS_SPM 
+    category: RST
+    index: 0
+    description: "The SYS-SPM shall be asynchronously reset by the system reset generator. There is no HW safeguarding structures in case of reset during operation."
+    criticality: bronze
+    owner: Spyridoula Koumousi
+  -
+    block: SYS_SPM  
+    category: DBG
+    index: 0
+    description: "The SYS-SPM subsystem shall not have any debug and observation interface. No trace infrastructure will be needed."
+    criticality: gold
+    owner: Spyridoula Koumousi
+  -
+    block: SYS_SPM  
+    category: DBG
+    optional_description: JTAG
+    index: 1
+    description: "The SYS-SPM shall have a JTAG interface and it shall be connected to the top JTAG chain."
+    criticality: gold
+    owner: Spyridoula Koumousi
+  -
+    block: SYS_SPM 
+    category: PERF
+    index: 0
+    description: "The SYS-SPM memory shall provide fixed response latency that should be low as possible. Implementation defined."
+    criticality: silver
+    owner: Spyridoula Koumousi
+  -
+    block: SYS_SPM 
+    category: PERF
+    index: 1
+    description: "The SYS-SPM shall maintain Full Throughput for both RD/WR AXI channels at 9.6GB/s assuming 1.2GHz operating frequency."
+    criticality: silver
+    owner: Spyridoula Koumousi
+  -
+    block: SYS_SPM 
+    category: MBIST
+    optional_description: REPAIR
+    index: 0
+    description: "The SPM memories shall be repairable, both at boot and in-field by an on-chip controller."
+    criticality: silver
+    owner: Spyridoula Koumousi 
+  -
+    block: SYS_SPM 
+    category: PWR
+    optional_description: IDLE
+    index: 0
+    description: "The SYS-SPM shall have as low as possible power consumption. When IDLE it should be only leakage power."
+    criticality: gold
+    owner: Spyridoula Koumousi 
+  -
+    block: SYS_SPM 
+    category: PWR
+    optional_description: DYN
+    index: 1
+    description: "The SYS-SPM shall have as low as possible power consumption. When operating it should be minimized to the control logic and the dynamic power of the macro that is accessed."
+    criticality: gold
+    owner: Spyridoula Koumousi
+
+    

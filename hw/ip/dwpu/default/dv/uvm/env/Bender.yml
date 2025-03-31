@@ -1,0 +1,26 @@
+package:
+  name: ai_core_dwpu_uvm_env
+  description: "DWPU verification environment"
+  authors:
+    - "jorge.carvalho@axelera.ai"
+
+dependencies:
+  ai_core_dwpu_uvm_common:      { path: "" }
+  aic_common_pkg:               { path: "" }
+  lowrisc_dv_base_reg:          { path: "" }
+  ai_core_token_agent_uvm_pkg:  { path: "" }
+  svt_amba_vip:                 { path: "" }
+  cc_clk_div_agent_uvm_pkg:     { path: "" }
+  ai_core_dwpu_uvm_dwpu_agent:  { path: "" }
+  ai_core_dwpu_uvm_ral:         { path: "" }
+  ai_core_dwpu_uvm_dwpu_ref:    { path: "" }
+  ai_core_dwpu_uvm_dwpu_sb:     { path: "" }
+  ai_core_dwpu_uvm_dwpu_fcov:   { path: "" }
+  ai_core_dp_cmd_uvm:           { path: "" }
+  
+sources:
+  - target: simulation
+    include_dirs:
+      - .
+    files:
+      - ai_core_dwpu_env_pkg.sv

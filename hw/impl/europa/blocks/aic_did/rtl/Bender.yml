@@ -1,0 +1,38 @@
+# (C) Copyright 2024 Axelera AI B.V.
+# All Rights Reserved
+# *** Axelera AI Confidential ***
+
+package:
+  name: europa_aic_did
+  description: "TODO: add description"
+  authors:
+    - "Wolfgang Roenninger <wolfgang.roenninger@axelera.ai>"
+
+dependencies:
+  europa_aic_did_pkg: { path: "pkg" }
+  aic_common_pkg:     { path: "hw/ip/aic_common/default/rtl/pkg" }
+  axe_tcl:            { path: "hw/ip/tech_cell_library/default/rtl/" }
+  axi_pkg:            { path: "hw/ip/axi/default/rtl/pkg" }
+  dpu:                { path: "hw/ip/dpu/default/rtl" }
+  dwpu:               { path: "hw/ip/dwpu/default/rtl" }
+  iau:                { path: "hw/ip/iau/default/rtl" }
+  token_manager:      { path: "" }
+  # TODO(@wolfgang.roenninger): Only for simple_axi_demux
+  axi4_common:        { path: "hw/ip/axi4_common/default/rtl" }
+  europa_impl_rtl:    { path: "hw/impl/europa/rtl" }
+
+
+# Source files grouped in levels.
+# Files in level 0 have no dependencies on files in this package.
+# Files in level 1 only depend on files in level 0, files in level 2 on files in levels 1 and 0, etc.
+# Files within a level are ordered alphabetically.
+sources:
+  - target: rtl
+    files:
+      # Level 0
+      - aic_did.sv
+
+  - target: all(rtl, not(dft))
+    files:
+      # Level 1
+      - generated/aic_did_p.sv

@@ -1,0 +1,11 @@
+#!/bin/bash
+# open visualizer waveforms in runtime directory
+
+set -e
+
+# find designfile: in dv dir
+designfile=../compile_vsim/*.bin
+# find designfile: in verifsdk dir
+[ -f sim_dir/build_*/compile_vsim/*.bin ] && designfile=sim_dir/build_*/compile_vsim/*.bin
+
+srun -c 2 --x11 visualizer +no_fastread -designfile $designfile -wavefile qwave.db

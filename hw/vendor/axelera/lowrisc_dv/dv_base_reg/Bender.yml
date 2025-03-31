@@ -1,0 +1,25 @@
+# (C) Copyright Axelera AI 2023
+# All Rights Reserved
+# *** Axelera AI Confidential ***
+#
+# Owner: Raymond Garcia <raymond.garcia@axelera.ai>
+
+package:
+  name: lowrisc_dv_base_reg
+  authors:
+    - "LowRisc Contributors"
+
+dependencies:
+  lowrisc_prim_mubi:  { path: "../prim/"         }
+  lowrisc_str_utils:  { path: "../str_utils"     }
+  lowrisc_dv_utils:   { path: "../dv_utils"      }
+
+export_include_dirs:
+  - /home/projects/lowrisc_opentitan_repo/dv_base_reg
+
+sources:
+  - target: simulation
+    files:
+      - /home/projects/lowrisc_opentitan_repo/dv_base_reg/dv_base_reg_pkg.sv
+
+

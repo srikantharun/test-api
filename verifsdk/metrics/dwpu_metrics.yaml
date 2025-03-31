@@ -1,0 +1,85 @@
+metrics:
+  - name: ai_core_dwpu_image_reg_cg
+    block: DWPU
+    category: HW_COVERGROUP
+    description: "Cover that program changed selector 'i_sel' in a way that choose the three different subset of values: absorbing element, input data and from scratchpad registers. Create a covergroup for each of the 9 image registers"
+    requirement_ids: [DWPU_FEAT_5, DWPU_FEAT_8]
+    owner: Jorge Carvalho
+
+  - name: ai_core_dwpu_weight_reg_cg
+    block: DWPU
+    category: HW_COVERGROUP
+    description: "Cover that program changed selector 'w_sel' in a way that choose the different values within range of 64 possible values"
+    requirement_ids: [DWPU_FEAT_6, DWPU_FEAT_9]
+    owner: Jorge Carvalho
+
+  - name: ai_core_dwpu_data_in_cg
+    block: DWPU
+    category: HW_COVERGROUP
+    description: "Cover that input data is randomized between 0 and 255 values (min, middle and max)"
+    requirement_ids: [DWPU_FEAT_1]
+    owner: Jorge Carvalho
+
+  - name: ai_core_dwpu_cmd_cg
+    block: DWPU
+    category: HW_COVERGROUP
+    description: "Cover that command structure is randomized in a way that all fields have all possible values"
+    requirement_ids: [DWPU_CMDBLK_2, DWPU_CMDBLK_6, DWPU_CMDBLK_7]
+    owner: Jorge Carvalho
+
+  - name: ai_core_dwpu_instr_cg
+    block: DWPU
+    category: HW_COVERGROUP
+    description: "Cover that instruction structure is randomized in a way that all fields have all possible values. Cross coverpoints are also present to see that all combinations were tested"
+    requirement_ids: [DWPU_FEAT_5, DWPU_FEAT_10, DWPU_FEAT_11, DWPU_FEAT_12, DWPU_FEAT_13, DWPU_FEAT_14, DWPU_CMDBLK_0, DWPU_CMDBLK_1]
+    owner: Jorge Carvalho
+
+  - name: ai_core_dwpu_cmd_axi_info_cg
+    block: DWPU
+    category: HW_COVERGROUP
+    description: "Cover command AXI transaction information: burst length and number of commands in the same transaction"
+    requirement_ids: [TODO]
+    owner: Jorge Carvalho
+
+  - name: ai_core_dwpu_prg_axi_info_cg
+    block: DWPU
+    category: HW_COVERGROUP
+    description: "Cover program AXI transaction information: rd/wr, address and burst length"
+    requirement_ids: [TODO]
+    owner: Jorge Carvalho
+
+  - name: ai_core_dwpu_loop_info_cg
+    block: DWPU
+    category: HW_COVERGROUP
+    description: "Cover program loop information. Cross the coverpoints to make sure that all possible variations of the loops are covered"
+    requirement_ids: [DWPU_CMDBLK_7]
+    owner: Jorge Carvalho
+
+  - name: ai_core_dwpu_irq_cg
+    block: DWPU
+    category: HW_COVERGROUP
+    description: "Cover that all interrupt types were seen"
+    requirement_ids: [DWPU_CMDBLK_3, DWPU_CMDBLK_5]
+    owner: Jorge Carvalho
+
+  - name: ai_core_dwpu_tok_cg
+    block: DWPU
+    category: HW_COVERGROUP
+    description: "Cover that token lines (producer and consumer) are seen with different delays on the response (0 to 9 clock cycles)"
+    requirement_ids: [TODO]
+    owner: Jorge Carvalho
+
+  - name: ai_core_dwpu_axis_in_cg
+    block: DWPU
+    category: HW_COVERGROUP
+    description: "Cover that input data stream has delay from 0 to 16 clock cycles"
+    requirement_ids: [TODO]
+    owner: Jorge Carvalho
+
+  - name: ai_core_dwpu_axis_out_cg
+    block: DWPU
+    category: HW_COVERGROUP
+    description: "Cover that ouput data stream has delay from 0 to 1000 clock cycles"
+    requirement_ids: [TODO]
+    owner: Jorge Carvalho
+

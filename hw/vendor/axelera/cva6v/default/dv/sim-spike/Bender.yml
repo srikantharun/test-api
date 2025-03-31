@@ -1,0 +1,70 @@
+package:
+  name: cva6v_dv_spike
+  description: "CVA6V SpikeTB"
+  authors:
+    - "abhilash.chadhar@axelera.ai"
+
+sources:
+  - target: simulation
+    defines:
+      XLEN: 64
+      COVER_QUIET:
+      COVER_RV64I:
+      COVER_BASE_RV64I:
+      COVER_BASE_S:
+      COVER_BASE_U:
+      COVER_BASE_V:
+      COVER_RV64F:
+      COVER_RV64M:
+      COVER_RV64A:
+      COVER_RV64C:
+      COVER_RV64ZICSR:
+      # COVER_RV64ZCA:
+      # COVER_RV64ZCF:
+      # COVER_RV64ZMMUL:
+      # COVER_RV64D:
+      # COVER_RV64ZBA:
+      # COVER_RV64ZBC:
+      # COVER_RV64ZBB:
+      # COVER_RV64ZBS:
+      # COVER_RV64ZCD:
+      # COVER_RV64ZCB:
+      # COVER_RV64ZCMP:
+      # COVER_RV64ZCMT:
+      # COVER_RV64ZBKB:
+      # COVER_RV64ZBKC:
+      # COVER_RV64ZBKX:
+      # COVER_RV64ZKND:
+      # COVER_RV64ZKNE:
+      # COVER_RV64ZKNH:
+      # COVER_RV64ZKSED:
+      # COVER_RV64ZKSH:
+      COVER_RV64VX:
+      COVER_RV64VF:
+      COVER_RV64VI:
+      COVER_RV64VM:
+      COVER_RV64VP:
+      COVER_RV64VR:
+      COVER_LEVEL_DV_PR_EXT:
+      IDV_INCLUDE_TRACE2COV:
+
+    include_dirs:
+      - $IMPERAS_HOME/ImpPublic/include/host
+      - $IMPERAS_HOME/ImpProprietary/include/host
+      - $IMPERAS_HOME/ImpPublic/source/host/rvvi
+      - $IMPERAS_HOME/ImpProprietary/source/host/idv
+      - $IMPERAS_HOME/riscvISACOV/source
+      - ../rtl
+
+    files:
+      - $IMPERAS_HOME/ImpPublic/source/host/rvvi/rvviApiPkg.sv
+      - $IMPERAS_HOME/ImpPublic/source/host/rvvi/rvviTrace.sv
+      - $IMPERAS_HOME/ImpProprietary/source/host/idv/idvApiPkg.sv
+      - $IMPERAS_HOME/ImpProprietary/source/host/idv/idvPkg.sv
+      - $IMPERAS_HOME/ImpProprietary/source/host/idv/trace2api.sv
+      - $IMPERAS_HOME/ImpProprietary/source/host/idv/trace2log.sv
+      - $IMPERAS_HOME/ImpProprietary/source/host/idv/trace2cov.sv
+      - $IMPERAS_HOME/ImpProprietary/source/host/idv/trace2bin.sv
+      - ../rtl/cva6v_riscv_isacov_module.sv
+        # **Need to Add the C/C++ source files**
+

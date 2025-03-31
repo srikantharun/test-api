@@ -1,0 +1,59 @@
+<category name="[Ch {channel}] Inline Memory Encryption configuration"
+          depends="@DDRCTL_SECURE and (@NUM_DCH gt {channel})">
+    <param name="channel" min="0" max="1"/>
+    <config id="DDRCTL_IME_EN_CH{channel}" name="Inline Memory Encryption"
+            type="single_choice" var_type="uint8">
+        <option id="DDRCTL_IME_EN_CH{channel}_DISABLE" value="0" name="Disable"/>
+        <option id="DDRCTL_IME_EN_CH{channel}_ENABLE"  value="1" name="Enable"/>
+        <default value="0"/>
+    </config>
+    <config id="DDRCTL_IME_KEY_SIZE_CH{channel}" name="Key size"
+            type="single_choice" var_type="uint8">
+        <option id="DDRCTL_IME_KEY_SIZE_CH{channel}_128" value="0" name="128-bit"/>
+        <option id="DDRCTL_IME_KEY_SIZE_CH{channel}_256" value="1" name="256-bit"/>
+        <default value="0"/>
+    </config>
+    <category name="Region configuration"
+                depends="(@DWC_IME_NUM_REGIONS gt {region}) and (@NUM_DCH gt {channel})
+                         and (@DWC_IME_REGION_MGR_EN or @DWC_IME_RMW_KEY_SWAP_EN)">
+        <param name="channel" min="0" max="1"/>
+        <param name="region"  min="0" max="15"/>
+        <category name="Region address configuration"
+                  depends="(@DWC_IME_REGION_MGR_EN or @DWC_IME_RMW_KEY_SWAP_EN)">
+            <config id="DDRCTL_IME_CH{channel}_REGION{region}_ADDR_START"
+                name="Start address" type="hex" var_type="uint32">
+                <default value="0x00000000"/>
+            </config>
+            <config id="DDRCTL_IME_CH{channel}_REGION{region}_ADDR_END"
+                name="End address" type="hex" var_type="uint32">
+                <default value="0x00000000"/>
+            </config>
+        </category>
+        <category name="Key config">
+            <config id="DDRCTL_IME_CH{channel}_REGION{region}_PRI_CKEY_ID"
+                name="Primary CKey id" type="int" var_type="uint16">
+                <default value="{channel} * {region}"/>
+            </config>
+            <config id="DDRCTL_IME_CH{channel}_REGION{region}_PRI_TKEY_ID"
+                name="Primary TKey id" type="int" var_type="uint16">
+                <default value="{channel} * {region}"/>
+            </config>
+            <config id="DDRCTL_IME_CH{channel}_REGION{region}_SEC_CKEY_ID"
+                name="Secondary CKey id" type="int" var_type="uint16">
+                <default value="{channel} * {region}"/>
+            </config>
+            <config id="DDRCTL_IME_CH{channel}_REGION{region}_SEC_TKEY_ID"
+                name="Secondary TKey id" type="int" var_type="uint16">
+                <default value="{channel} * {region}"/>
+            </config>
+            <config id="DDRCTL_IME_KEY_SWAP_CH{channel}_REGION{region}" name="Key size"
+                    type="single_choice" var_type="uint8" depends="@DWC_IME_KEY_SWAP">
+                <option id="DDRCTL_IME_KEY_SWAP_CH{channel}_REGION{region}_DISABLE"
+                        value="0" name="Disable"/>
+                <option id="DDRCTL_IME_KEY_SWAP_CH{channel}_REGION{region}_ENABLE"
+                        value="1" name="Enable"/>
+                <default value="0"/>
+            </config>
+        </category>
+    </category>
+</category>

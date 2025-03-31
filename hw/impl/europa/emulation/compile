@@ -1,0 +1,355 @@
+#!/usr/bin/env bash
+
+set -e
+
+compile_args="$@"
+
+
+#--------------------------------------------------------------
+# functions
+#--------------------------------------------------------------
+get_available_duts() {
+  duts=""
+  for d in $(ls input/compilation); do
+    [ "$d" == "common" ] && continue
+    [ -d "input/compilation/$d" ] || continue
+    duts+="$d "
+  done
+  echo $duts
+}
+
+
+usage() {
+  local available_duts
+  available_duts="$(get_available_duts)" || error "cannot get available_duts"
+
+  cat << EOF
+usage: $(basename $0) [ARGS]
+
+compile an emulation database in OUTPUT_DIR
+
+
+where ARGS are:
+  -h                                          : display this help
+  --dut DUT                                   : design to be compiled: $available_duts
+  --bypass_imc_bank_on_ai_cores AI_CORE_LIST  : list of ai_cores where IMC banks is bypassed (AI_CORE_LIST: whitespace separated)
+  --bypass_imc_bank_on_all_cores              : similar to '--bypass_imc_bank_on_ai_cores "0 1 2 3 4 5 6 7"'
+  -o OUTPUT_DIR                               : build in OUTPUT_DIR (default is ./output)
+  --coverage                                  : enable toggle coverage
+  --run_sanity_check                          : for CI only, simpile sanity check analyzing the source files
+  --ssh SSH_HOSTNAME                          : compile on SSH_HOSTNAME via ssh
+  --pcie                                      : compile pcie subsys with Veloce PCIE transactor; makes runtime flow different, see README
+  --silent_compilation                        : pipe compile_veloce step to /dev/null
+
+EOF
+}
+
+
+error() {
+  >&2 echo "ERROR: $@"
+  exit 1
+}
+
+
+banner() {
+cat << EOF
+
+#--------------------------------------------------------------
+# $@
+#--------------------------------------------------------------
+EOF
+}
+
+
+get_compile_args_without_ssh() {
+  args=""
+  skip_next=0
+  for arg in $compile_args; do
+    if ((skip_next)); then
+      skip_next=0
+      continue
+    fi
+    if [ "$arg" = "--ssh" ]; then
+      skip_next=1
+      continue
+    fi
+    args+=" $arg"
+  done
+  echo $args
+}
+
+
+compile_via_ssh() {
+  ssh -t $ssh_hostname "
+  source /etc/profile
+  cd $REPO_ROOT
+  source .env-setup-veloce
+  cd hw/impl/europa/emulation
+  ./compile $(get_compile_args_without_ssh)"
+}
+
+
+compile_veloce() {
+  local velanalyze_script="./filelists/run_velanalyze.sh"
+  local extra_global_defines=""
+
+  # pcie
+  local VPCIE_FILES="-f $VPCIE5_RELS/hdl/encrypt/vpcie_rootport_pipe441.f $VLAB_HOME/common/virtualab-open_kit_v24.0.2a/xl_vip-questa2024.2/lib/XlResetGenerator.sv +define+USE_VLAB_TB_SKIP"
+  local TB_PCIE_HDL_DEFINES="+define+VELOCE_VPCIE"
+  if [ "$pcie" = 1 ]; then
+    extra_global_defines+="--global_define VELOCE_VPCIE "
+  fi
+  make -f $REPO_ROOT/Makefile gen_flow_prerequisites
+
+  for bank in $bypass_imc_bank_on_ai_cores; do
+    extra_global_defines+="--global_define BYPASS_IMC_BANK_AI_CORE_$bank "
+  done
+  if [[ -f global_defines.cfg ]]; then
+    extra_global_defines+=$(cat global_defines.cfg)
+  fi
+
+  local no_softmodel=""
+  if [[ $run_sanity_check == 1 ]]; then
+    no_softmodel="--no_softmodel"
+  fi
+
+  banner "gen_velanalyze.py"
+  # ASSERTS_OVERRIDE_ON is to enable CVA6V assertions when SYNTHESIS is defined
+  $emulation_dir/bin/gen_velanalyze.py   \
+    --global_define "SYNTHESIS" \
+    --global_define "VERIFICATION_ENABLE_CVA6V_PROBES" \
+    --global_define "ASSERTS_OVERRIDE_ON" \
+    --global_define "emmc_flexmem"  \
+    --global_define "sf_flexmem" \
+    --global_define "s25fs512s" \
+    $extra_global_defines \
+    $no_softmodel \
+    --bender_dir $emulation_dir/src/hdl/$dut
+
+  banner "veloce: velanalyze"
+  chmod +x $velanalyze_script
+
+  # Manual entry outside the bender flow to include the virtual lab LPDDR5DFI
+  # LPDDR5 model location/files. (LPDDR5DFI_RELS and LPDDR5_RELS are set by the veloce env script env_v23_1.bash)
+  local SLN_DFILPDDR5_HDL_INCL="+incdir+$XL_VIP_HOME/lib"
+  local SLN_DFILPDDR5_HDL_FILES="-f $LPDDR5DFI_RELS/hdl/hdl.f -f $LPDDR5_RELS/hdl/hdl.f"
+  local TB_DFILPDDR5_HDL_DEFINES="+define+lpddr5_flexmem"
+  banner "veloce: analyze LPDDR4 model"
+  mkdir -p veloce_rundir
+  vellib veloce_rundir/virtual_lab_lpddr5
+  velmap virtual_lab_lpddr5 veloce_rundir/virtual_lab_lpddr5
+  velanalyze -sv -mfcu -work virtual_lab_lpddr5 $TB_DFILPDDR5_HDL_DEFINES $SLN_DFILPDDR5_HDL_FILES $SLN_DFILPDDR5_HDL_INCL
+
+  if [ "$pcie" = 1 ]; then
+    banner "veloce: analyze vPCIE"
+    vellib veloce_rundir/virtual_lab_pcie
+    velmap virtual_lab_pcie veloce_rundir/virtual_lab_pcie
+    velanalyze -sv -mfcu -work virtual_lab_pcie $TB_PCIE_HDL_DEFINES $VPCIE_FILES
+  fi
+
+  $velanalyze_script
+  print_info_before_compilation >> info.txt
+  [ "$run_sanity_check" = 1 ] && exit
+
+  banner "veloce: compilation"
+  velcomp -top veloce_europa_$dut.hdl_top
+  print_info_after_compilation >> info.txt
+}
+
+compile_comodel_testbench() {
+  # vPCIE definitions
+  local XL_VIP_LIBS_OSCI="$XL_VIP_HOME/lib/$XL_BUILD_PLATFORM/osci/xl_vip_open_kit_extras.so $XL_VIP_HOME/lib/$XL_BUILD_PLATFORM/osci/xl_vip_open_kit.so $XL_VIP_HOME/lib/$XL_BUILD_PLATFORM/osci/xl_vip_open_kit_stubs.so"
+  local CFLAGS="-O3 -fPIC -Wall -DSC_INCLUDE_DYNAMIC_PROCESSES"
+  local C_INCL="-I$XL_VIP_HOME/lib -I$VELOCE_HOME/tbx/xl_tlm/lib -I$SYSTEMC/include  -I$VELOCE_HOME/tbx/include -I$REPO_ROOT/hw/impl/europa/emulation/input/compilation/$dut"
+  local LFLAGS="-L$SYSTEMC/$SYSC_LIB -L$GNUHOME/lib64 -L$VELOCE_HOME/tbx/lib/$XL_BUILD_PLATFORM -L$VELOCE_HOME/lib/amd64.linux -L/usr/lib64 -L/usr/include/X11 -lstdc++ -ldl -lm -lpthread"
+  local SLN_vPCIe5_C_INCL="-I. -I$VLAB_UTIL/inc -I$VPCIE5_RELS/inc"
+  local SLN_vPCIe5_CFLAGS="-DUSE_VPCIE -DOSCI_SC"
+  local SLN_vPCIe5_LIBS="$XL_VIP_LIBS_OSCI -L$VPCIE5_RELS/lib/$XL_BUILD_PLATFORM/osci -lvpcie_sw-gen5-veloce -L$VLAB_UTIL/$XL_BUILD_PLATFORM/osci -lvlab_util-veloce"
+
+  cat $XL_VIP_HOME/lib/TbxMainOsci.cxx $REPO_ROOT/hw/impl/europa/emulation/input/compilation/$dut/Testbench.cxx > TbxMainOsci.cxx
+  g++ $CFLAGS $SLN_vPCIe5_CFLAGS $C_INCL $SLN_vPCIe5_C_INCL -c TbxMainOsci.cxx
+  velhvl -g -sim veloce -64bit_runtime -cpppath $GCC_EXE -ldflags "-Wl,--whole-archive $SLN_vPCIe5_LIBS $LFLAGS TbxMainOsci.o -Wl,--no-whole-archive"
+}
+
+print_info() {
+  cd $REPO_ROOT
+
+  git_is_dirty=0
+  git diff --quiet || git_is_dirty=1
+
+  echo "dut=$dut"
+  echo "compilation_date=$(date +%Y-%m-%d)"
+  echo "git_branch=$(git rev-parse --abbrev-ref HEAD)"
+  echo "git_sha1=$(git rev-parse HEAD)"
+  echo "git_is_dirty=$git_is_dirty"
+  echo "compile_args='$compile_args'"
+  echo "pcie=$pcie"
+  echo ""
+
+  cd $output_dir
+}
+
+
+print_info_before_compilation() {
+  local ccov=0
+  grep -q ccov veloce.config && ccov=1
+
+  echo "bypass_imc_bank_on_ai_cores=\"$bypass_imc_bank_on_ai_cores\""
+  echo "ccov=$ccov"
+  echo ""
+}
+
+
+print_info_after_compilation() {
+  local compilation_time="$(grep "Overall Running time" veloce.log/velcomp.log -A1 | tail -n1 | sed 's/ *//')"
+  local board_nb="$(grep "Number of Boards Used" veloce.log/compile*log | sed 's/.*: //')"
+  local compilation_freq="$(grep "Domain.*Frequency" veloce.log/compile*log | sed 's/.*: //')"
+
+  echo "compilation_time='$compilation_time'"
+  echo "board_nb=$board_nb"
+  echo "compilation_freq='$compilation_freq'"
+}
+
+copy_bootrom() {
+  #---- integration ROM ---
+  kse_rom_integration_path="$KUDELSKI_KSE3_HOME/../20241217_kse3_ax12_release_axelera/rom/kse3_rom_integration.hex"
+  if [ -e "$kse_rom_integration_path" ]
+  then
+    cp -f $kse_rom_integration_path . # kse bootrom integration
+    #split the ROM into two files (lower and upper)
+    sed -n '1,16384p' kse3_rom_integration.hex > kse3_rom_integration_lower.hex
+    sed -n '16385,$p' kse3_rom_integration.hex > kse3_rom_integration_upper.hex
+  else
+    echo "File does not exists. File path: $kse_rom_integration_path"
+  fi
+  #---- Production ROM ---
+  kse_rom_production_path="$KUDELSKI_KSE3_HOME/../20241220_KSE3_ROM_2.8.0/rom/KSE3_2.8.0_ROM.hex"
+  if [ -e "$kse_rom_production_path" ]
+  then
+    cp -f $kse_rom_production_path . # kse bootrom production
+    #split the ROM into two files (lower and upper)
+    sed -n '1,16384p' KSE3_2.8.0_ROM.hex > KSE3_2.8.0_ROM_lower.hex
+    sed -n '16385,$p' KSE3_2.8.0_ROM.hex > KSE3_2.8.0_ROM_upper.hex
+  else
+    echo "File does not exists. File path: $kse_rom_production_path"
+  fi
+}
+
+
+#--------------------------------------------------------------
+# execution
+#--------------------------------------------------------------
+output_dir="output"
+bypass_imc_bank_on_ai_cores=""
+run_sanity_check=0
+dut=""
+coverage=0
+silent_compilation=0
+ssh_hostname=""
+pcie=0
+
+while [ "$#" -gt 0 ]
+do
+  case "$1" in
+    -h)
+      usage
+      exit 0
+      ;;
+    -o)
+      shift 1
+      output_dir=$1
+      shift 1
+      ;;
+    --dut)
+      shift 1
+      dut="$1"
+      shift 1
+      ;;
+    --bypass_imc_bank_on_ai_cores)
+      shift 1
+      bypass_imc_bank_on_ai_cores="$1"
+      shift 1
+      ;;
+    --bypass_imc_bank_on_all_cores)
+      shift 1
+      bypass_imc_bank_on_ai_cores="0 1 2 3 4 5 6 7"
+      ;;
+    --pcie)
+      shift 1
+      pcie=1
+      ;;
+    --coverage)
+      shift 1
+      coverage=1
+      ;;
+    --silent_compilation)
+      shift 1
+      silent_compilation=1
+      ;;
+    --run_sanity_check)
+      shift 1
+      run_sanity_check=1
+      ;;
+    --ssh)
+      shift 1
+      ssh_hostname="$1"
+      shift 1
+      ;;
+    *)
+      usage
+      error "$1 is not a valid argument"
+      ;;
+  esac
+done
+
+if [ "$ssh_hostname" != "" ]; then
+  compile_via_ssh
+  exit
+fi
+
+[ "$dut" = "" ] && error "dut is empty. See ./compile -h"
+output_dir=$(readlink -f $output_dir)
+emulation_dir="$(readlink -e $(dirname $0))"
+
+banner "remove $output_dir"
+rm -rf $output_dir
+mkdir -p $output_dir
+cd $output_dir
+
+banner "copy config files"
+cp $emulation_dir/input/compilation/machlist.txt .
+cp -rfL $emulation_dir/input/compilation/$dut/* .
+[ "$pcie" = 0 ] && sed -i 's/.*vpcie_clk.*//' clkfile # removes vpcie_clk
+
+if ((coverage)); then
+  grep -q ccov veloce.config || error "coverage is not available for dut=$dut"
+else
+  sed -i '/ccov/d' veloce.config
+fi
+
+banner "create info.txt"
+print_info > info.txt
+
+banner "compile_veloce"
+if [[ $silent_compilation == 1 ]]; then
+  compile_veloce > /dev/null
+else
+  compile_veloce
+fi
+
+if [ "$pcie" = 1 ]; then
+  banner "compile_comodel_testbench"
+  compile_comodel_testbench
+fi
+
+banner "compile server + DPI"
+cp -rf $emulation_dir/src/server .
+cd server
+g++ -o ../libdpi.so -g -shared -fPIC -m64 -I${VELOCE_HOME}/tbx/include dpi.cpp server.cpp server.h
+cd ..
+
+banner "copy runtime files"
+cp -rf $emulation_dir/input/runtime/* .
+
+banner "copy rom files"
+copy_bootrom

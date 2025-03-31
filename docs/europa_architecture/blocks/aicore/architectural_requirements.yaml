@@ -1,0 +1,1401 @@
+requirements:
+- block: AICORE
+  category: CONN
+  optional_description: ''
+  index: 0
+  description: The CVA6V should be able to access the full memory map with external requests routed to the NOC_LT_M port
+  criticality: bronze
+  owner: Gua Hao Khov
+- block: AICORE
+  category: CONN
+  optional_description: ''
+  index: 1
+  description: The NOC_LT_S port should be able to access the full internal AIC memory map
+  criticality: bronze
+  owner: Gua Hao Khov
+- block: AICORE
+  category: CONN
+  optional_description: ''
+  index: 2
+  description: The LP_DMA should be able to access the internal SPM and L1
+  criticality: bronze
+  owner: Gua Hao Khov
+- block: AICORE
+  category: CONN
+  optional_description: ''
+  index: 3
+  description: The LP_DMA should be able to access the external SYS_SPM, L2, and DDR via the NOC_LT_M port
+  criticality: bronze
+  owner: Gua Hao Khov
+- block: AICORE
+  category: CONN
+  optional_description: ''
+  index: 4
+  description: The HP_DMA_1 should be able to access the external L2 and DDR via the NOC_HT_M port
+  criticality: bronze
+  owner: Gua Hao Khov
+- block: AICORE
+  category: CONN
+  optional_description: ''
+  index: 5
+  description: The HP_DMA_2 should be able to access the internal L1 and SPM
+  criticality: bronze
+  owner: Gua Hao Khov
+- block: AICORE
+  category: CONN
+  optional_description: ''
+  index: 6
+  description: The ACD should be able to access the SPM, HP_DMA_1/2, and internal datapath blocks (e.g. MVM, IAU, DPU, etc.)
+  criticality: bronze
+  owner: Gua Hao Khov
+- block: AICORE
+  category: CONN
+  optional_description: ''
+  index: 7
+  description: The AIC should be connected to the top-level token network
+  criticality: bronze
+  owner: Gua Hao Khov
+- block: AICORE
+  category: CONN
+  optional_description: ''
+  index: 8
+  description: The AIC should be connected to the top-level observation network
+  criticality: bronze
+  owner: Gua Hao Khov
+- block: AICORE
+  category: CONN
+  optional_description: ''
+  index: 9
+  description: The AIC should be connected to the top-level throttle network
+  criticality: bronze
+  owner: Gua Hao Khov
+- block: AICORE
+  category: CONN
+  optional_description: ''
+  index: 10
+  description: The CVA6V sideband signals for interrupts, timer, and debug should be properly connected
+  criticality: bronze
+  owner: Gua Hao Khov
+- block: AICORE
+  category: CONN
+  optional_description: ''
+  index: 11
+  description: The sideband signals for the remote thermal sensor probe should be properly connected
+  criticality: bronze
+  owner: Gua Hao Khov
+- block: AICORE
+  category: CLK
+  optional_description: ''
+  index: 0
+  description: The AIC should be able to run at 1.2 GHz fast clock and 20MHz reference clock
+  criticality: gold
+  owner: Gua Hao Khov
+- block: AICORE
+  category: CLK
+  optional_description: ''
+  index: 1
+  description: The AIC should be able to run at a slower 20 MHz fast clock (power optimization)
+  criticality: gold
+  owner: Gua Hao Khov
+- block: AICORE
+  category: CLK
+  optional_description: ''
+  index: 2
+  description: The fast clock should be divideable via AO CSR for power optimizations
+  criticality: gold
+  owner: Gua Hao Khov
+- block: AICORE
+  category: RST
+  optional_description: ''
+  index: 0
+  description: The AIC should be resettable via the global reset according to the partition reset strategy
+  criticality: bronze
+  owner: Gua Hao Khov
+- block: AICORE
+  category: RST
+  optional_description: ''
+  index: 1
+  description: The AIC should be resettable via AO CSR according to the partition reset strategy
+  criticality: bronze
+  owner: Gua Hao Khov
+- block: AICORE
+  category: FEAT
+  optional_description: ATU
+  index: 0
+  description: The LP_DMA should support address translation and blocking of address regions via ATU
+  criticality: silver
+  owner: Gua Hao Khov
+- block: AICORE
+  category: FEAT
+  optional_description: ATU
+  index: 1
+  description: The HP_DMA_1/2 should support address translation and blocking of address regions via (internal) ATUs
+  criticality: silver
+  owner: Gua Hao Khov
+- block: AICORE
+  category: FEAT
+  optional_description: BENCHMARK
+  index: 0
+  description: The datapath blocks and HP_DMA should be able to trigger timestamps at the start and end of the execution of a command
+  criticality: silver
+  owner: Gua Hao Khov
+- block: AICORE
+  category: FEAT
+  optional_description: BENCHMARK
+  index: 1
+  description: The timestamp logger should be able to store up to 1024 timestamp entries
+  criticality: silver
+  owner: Gua Hao Khov
+- block: AICORE
+  category: FEAT
+  optional_description: BENCHMARK
+  index: 2
+  description: The timestamp logger should be able to collapse multiple cycles to a single timestamp value with some pre-scale factor
+  criticality: silver
+  owner: Gua Hao Khov
+- block: AICORE
+  category: FEAT
+  optional_description: BENCHMARK
+  index: 4
+  description: The timestamp logger should be able to stream out timestamp entries from its internal storage to the SPM and SysSPM
+  criticality: silver
+  owner: Gua Hao Khov
+- block: AICORE
+  category: FEAT
+  optional_description: BENCHMARK
+  index: 5
+  description: The performance counters should be able to track the number of cycles spent in each FSM state for all datapath blocks
+  criticality: silver
+  owner: Gua Hao Khov
+- block: AICORE
+  category: FEAT
+  optional_description: BENCHMARK
+  index: 6
+  description: The performance counters should be able to track the number of cycles with throttling active
+  criticality: silver
+  owner: Gua Hao Khov
+- block: AICORE
+  category: FEAT
+  optional_description: BENCHMARK
+  index: 7
+  description: The performance counters should be configurable to select the datapath blocks and FSM states of interest (time-multiplex counters)
+  criticality: silver
+  owner: Gua Hao Khov
+- block: AICORE
+  category: FEAT
+  optional_description: BENCHMARK
+  index: 8
+  description: The performance counters need to be simultaneously resettable via software
+  criticality: silver
+  owner: Gua Hao Khov
+- block: AICORE
+  category: FEAT
+  optional_description: BENCHMARK
+  index: 9
+  description: The performance counters should be able to track the number of stall cycles for all datapath blocks
+  criticality: silver
+  owner: Gua Hao Khov
+- block: AICORE
+  category: FEAT
+  optional_description: BENCHMARK
+  index: 10
+  description: The performance counters should stop incrementing once saturated
+  criticality: silver
+  owner: Gua Hao Khov
+- block: AICORE
+  category: FEAT
+  optional_description: BENCHMARK
+  index: 11
+  description: The timestamp logger should be able to trigger a timestamp based on trigger signals from all datapath blocks
+  criticality: silver
+  owner: Gua Hao Khov
+- block: AICORE
+  category: FEAT
+  optional_description: BENCHMARK
+  index: 12
+  description: The timestamp logger should be able to trigger a timestamp via SW through a CSR write
+  criticality: silver
+  owner: Gua Hao Khov
+- block: AICORE
+  category: FEAT
+  optional_description: BENCHMARK
+  index: 13
+  description: The timestamp logger should be able to trigger a timestamp via ACD through sideband signals
+  criticality: silver
+  owner: Gua Hao Khov
+- block: AICORE
+  category: FEAT
+  optional_description: BENCHMARK
+  index: 14
+  description: The timestamp logger should be able to either wrap around or drop upon reaching the configured timestamp entry limit
+  criticality: silver
+  owner: Gua Hao Khov
+- block: AICORE
+  category: FEAT
+  optional_description: BENCHMARK
+  index: 15
+  description: The timestamp logger should raise an IRQ if a timestamp entry has been dropped due to overfilled internal timestamp/message buffers
+  criticality: silver
+  owner: Gua Hao Khov
+- block: AICORE
+  category: FEAT
+  optional_description: COMPATIBILITY
+  index: 0
+  description: The AIC should include all features present in Metis Omega
+  criticality: silver
+  owner: Gua Hao Khov
+- block: AICORE
+  category: FEAT
+  optional_description: COMPATIBILITY
+  index: 1
+  description: The AIC should be able to run converted Omega ATEX with functional correctness
+  criticality: gold
+  owner: Gua Hao Khov
+- block: AICORE
+  category: FEAT
+  optional_description: COMPRESSION
+  index: 0
+  description: The M_IFD_W should be able to decompress statically compressed weights with its decompression engine
+  criticality: silver
+  owner: Gua Hao Khov
+- block: AICORE
+  category: FEAT
+  optional_description: COMPRESSION
+  index: 1
+  description: 'The decompression engine should support the following schemes: no compression, FVC, and ZRLE'
+  criticality: silver
+  owner: Gua Hao Khov
+- block: AICORE
+  category: FEAT
+  optional_description: COMPRESSION
+  index: 2
+  description: The decompression engine should seemlessly transition from enabled/disabled depending on the command
+  criticality: silver
+  owner: Gua Hao Khov
+- block: AICORE
+  category: FEAT
+  optional_description: COMPRESSION
+  index: 3
+  description: The decompression engine should seemlessly transition between all the different compression schemes
+  criticality: silver
+  owner: Gua Hao Khov
+- block: AICORE
+  category: FEAT
+  optional_description: COMPRESSION
+  index: 4
+  description: The decompression engine should support FVC compressed section with a minimum length of 6 PWORDs
+  criticality: silver
+  owner: Gua Hao Khov
+- block: AICORE
+  category: FEAT
+  optional_description: COMPRESSION
+  index: 5
+  description: The decompression engine should be able to decompress weights byte-wise irrespective of the vectorization mode (INT8/INT16)
+  criticality: silver
+  owner: Gua Hao Khov
+- block: AICORE
+  category: FEAT
+  optional_description: COMPRESSION
+  index: 6
+  description: The decompression engine should be able to expand INT4 weights to INT8 weights
+  criticality: silver
+  owner: Gua Hao Khov
+- block: AICORE
+  category: FEAT
+  optional_description: COMPRESSION
+  index: 7
+  description: The decompression engine should raise an error signal resulting in an IRQ if the decompression fails due to malformed compressed data
+  criticality: silver
+  owner: Gua Hao Khov
+- block: AICORE
+  category: FEAT
+  optional_description: CPU
+  index: 0
+  description: The CVA6V should comply with the RISC-V specification RV64IMAFZicsrZifenceiCZve32fZvfh
+  criticality: silver
+  owner: Gua Hao Khov
+- block: AICORE
+  category: FEAT
+  optional_description: CPU
+  index: 1
+  description: The CVA6V should be able to access all memories (internal/external/other AICs) on all alignments and access granularites
+  criticality: silver
+  owner: Gua Hao Khov
+- block: AICORE
+  category: FEAT
+  optional_description: CPU
+  index: 2
+  description: Both of the CVA6V caches should work on SPM
+  criticality: silver
+  owner: Gua Hao Khov
+- block: AICORE
+  category: FEAT
+  optional_description: CPU
+  index: 3
+  description: The CVA6V should be interruptable by any of the AIC internal IRQs
+  criticality: silver
+  owner: Gua Hao Khov
+- block: AICORE
+  category: FEAT
+  optional_description: CPU
+  index: 4
+  description: The CVA6V should be interruptable by the external software IRQ
+  criticality: silver
+  owner: Gua Hao Khov
+- block: AICORE
+  category: FEAT
+  optional_description: CPU
+  index: 5
+  description: The CVA6V should be interruptable by the external timer
+  criticality: silver
+  owner: Gua Hao Khov
+- block: AICORE
+  category: FEAT
+  optional_description: CPU
+  index: 6
+  description: The CVA6V should be debuggable by the external debug module
+  criticality: silver
+  owner: Gua Hao Khov
+- block: AICORE
+  category: FEAT
+  optional_description: CPU
+  index: 7
+  description: The CVA6V caches should be ECC protected
+  criticality: silver
+  owner: Gua Hao Khov
+- block: AICORE
+  category: FEAT
+  optional_description: CSR
+  index: 0
+  description: The AIC should be able to identify its own Core ID via its CSR
+  criticality: silver
+  owner: Gua Hao Khov
+- block: AICORE
+  category: FEAT
+  optional_description: CSR
+  index: 1
+  description: All datapath blocks and the HP_DMA_0/1 should have the relevant common CSRs available
+  criticality: silver
+  owner: Gua Hao Khov
+- block: AICORE
+  category: FEAT
+  optional_description: CSR
+  index: 2
+  description: All hardware revision CSR should be updated according to the implemented changes
+  criticality: silver
+  owner: Gua Hao Khov
+- block: AICORE
+  category: FEAT
+  optional_description: CSR
+  index: 3
+  description: All hardware capability CSR should be updated according to the implemented changes
+  criticality: silver
+  owner: Gua Hao Khov
+- block: AICORE
+  category: FEAT
+  optional_description: DATAPATH
+  index: 0
+  description: The MVM Datapath should support bypass from M_IFD_0 to M_ODR via the intermediate blocks for INT8 and INT16
+  criticality: silver
+  owner: Gua Hao Khov
+- block: AICORE
+  category: FEAT
+  optional_description: DATAPATH
+  index: 1
+  description: The DWPU Datapath should support bypass from D_IFD_0  to D_ODR via the intermediate blocks for INT8 and INT16
+  criticality: silver
+  owner: Gua Hao Khov
+- block: AICORE
+  category: FEAT
+  optional_description: DATAPATH
+  index: 2
+  description: The DPU should support bypass from its secondary stream M/D_IFD_1 to M/D_ODR for all data formats
+  criticality: silver
+  owner: Gua Hao Khov
+- block: AICORE
+  category: FEAT
+  optional_description: DATAPATH
+  index: 3
+  description: 'The MVM should be programmable with weights from the M_IFD_W in all three modes: UuT(t), Tuu(t), and Utu(t)'
+  criticality: silver
+  owner: Gua Hao Khov
+- block: AICORE
+  category: FEAT
+  optional_description: DATAPATH
+  index: 4
+  description: The MVM Datapath should be able to execute convolutions combined with element-wise addition and requantization for INT8
+  criticality: silver
+  owner: Gua Hao Khov
+- block: AICORE
+  category: FEAT
+  optional_description: DATAPATH
+  index: 5
+  description: The DWPU Datapath should be able to execute depthwise convolutions combined with element-wise addition and requantization for INT8
+  criticality: silver
+  owner: Gua Hao Khov
+- block: AICORE
+  category: FEAT
+  optional_description: DATAPATH
+  index: 6
+  description: The MVM Datapath should support be able to operate in PWORD32 vectorization to increase precision without duplicating the datapaths (INT16)
+  criticality: silver
+  owner: Gua Hao Khov
+- block: AICORE
+  category: FEAT
+  optional_description: DATAPATH
+  index: 7
+  description: The IFDs/ORDs should be able to read/write INT8 data in PWORD32 vectorization mode (stream is pword32i16)
+  criticality: silver
+  owner: Gua Hao Khov
+- block: AICORE
+  category: FEAT
+  optional_description: DATAPATH
+  index: 8
+  description: The DPU should be able to consume and produce PWORD32 data even while the vectorization mode is set to PWORD64
+  criticality: silver
+  owner: Gua Hao Khov
+- block: AICORE
+  category: FEAT
+  optional_description: DATAPATH
+  index: 9
+  description: The MVM should support the software-based IMC test modes
+  criticality: silver
+  owner: Gua Hao Khov
+- block: AICORE
+  category: FEAT
+  optional_description: DATAPATH
+  index: 10
+  description: All datapath blocks and the HP_DMA_0/1 should have a functional command block including a CMD FIFO
+  criticality: silver
+  owner: Gua Hao Khov
+- block: AICORE
+  category: FEAT
+  optional_description: DATAPATH
+  index: 11
+  description: All instruction-based datapath blocks should have a programming memory with the corresponding size and address range
+  criticality: silver
+  owner: Gua Hao Khov
+- block: AICORE
+  category: FEAT
+  optional_description: DATAPATH
+  index: 12
+  description: All instruction-based datapath blocks should have a common instruction fetching from the programming memory
+  criticality: silver
+  owner: Gua Hao Khov
+- block: AICORE
+  category: FEAT
+  optional_description: DATAPATH
+  index: 13
+  description: All instruction-based datapath blocks should support up to three outer loops and up to two inner loops
+  criticality: silver
+  owner: Gua Hao Khov
+- block: AICORE
+  category: FEAT
+  optional_description: DATAPATH
+  index: 14
+  description: All instruction-based datapath blocks should have a common command format for standard execution
+  criticality: silver
+  owner: Gua Hao Khov
+- block: AICORE
+  category: FEAT
+  optional_description: DATAPATH
+  index: 15
+  description: All datapath blocks should have a common command execution kick-off based on a shared header format
+  criticality: silver
+  owner: Gua Hao Khov
+- block: AICORE
+  category: FEAT
+  optional_description: DATAPATH
+  index: 16
+  description: The HP_DMA_0/1 should share the same command execution kick-off as the datapath block with the exception of an additional header for top-level tokens
+  criticality: silver
+  owner: Gua Hao Khov
+- block: AICORE
+  category: FEAT
+  optional_description: DATAPATH
+  index: 17
+  description: The execution on any instruction-based datapath block should still work despite parallel programming of instructions in a different prg memory region
+  criticality: silver
+  owner: Gua Hao Khov
+- block: AICORE
+  category: FEAT
+  optional_description: DATAPATH
+  index: 18
+  description: The MVM and DWPU Datapath should be able to be active concurrently
+  criticality: silver
+  owner: Gua Hao Khov
+- block: AICORE
+  category: FEAT
+  optional_description: DATAPATH
+  index: 19
+  description: The VTRSP should be present for the MVM and DWPU Datapath in M_IFD_W, M_ODR, and D_ODR
+  criticality: silver
+  owner: Gua Hao Khov
+- block: AICORE
+  category: FEAT
+  optional_description: DATAPATH
+  index: 20
+  description: The VTRSP should be able to PWORD transpose any data format
+  criticality: silver
+  owner: Gua Hao Khov
+- block: AICORE
+  category: FEAT
+  optional_description: DATAPATH
+  index: 21
+  description: All datapath blocks and the HP_DMA_0/1 should be able to support back-to-back execution of commands with all command format transitions
+  criticality: silver
+  owner: Gua Hao Khov
+- block: AICORE
+  category: FEAT
+  optional_description: DATAPATH
+  index: 22
+  description: All datapath blocks should properly handle front-/backpressure on their respective input/output stream ports
+  criticality: silver
+  owner: Gua Hao Khov
+- block: AICORE
+  category: FEAT
+  optional_description: DATAPATH
+  index: 23
+  description: The MVM and DWPU Datapath should have an AXI gate in front to ensure safe clock gating
+  criticality: silver
+  owner: Gua Hao Khov
+- block: AICORE
+  category: FEAT
+  optional_description: DATAPATH
+  index: 24
+  description: The AIC should support max and average pooling both via IAU and DWPU
+  criticality: silver
+  owner: Gua Hao Khov
+- block: AICORE
+  category: FEAT
+  optional_description: DATAPATH
+  index: 25
+  description: The DPU should be able to approximate activation functions using its LUT
+  criticality: silver
+  owner: Gua Hao Khov
+- block: AICORE
+  category: FEAT
+  optional_description: DATAPATH
+  index: 26
+  description: The DPU should be able to approximate special functions such as exponential and reciprocal using its LUT
+  criticality: silver
+  owner: Gua Hao Khov
+- block: AICORE
+  category: FEAT
+  optional_description: DATAPATH
+  index: 27
+  description: The MVM Datapath should be able to execute convolutions using the double input bandwidth feature
+  criticality: silver
+  owner: Gua Hao Khov
+- block: AICORE
+  category: FEAT
+  optional_description: DATAPATH
+  index: 28
+  description: The MVM Datapath should be able to execute matrix-matrix-multiplication using the stationary operand transpose feature
+  criticality: silver
+  owner: Gua Hao Khov
+- block: AICORE
+  category: FEAT
+  optional_description: DATAPATH
+  index: 29
+  description: The MVM should be able to receive a SW token for command execution kick-off via the inter-core sync signal
+  criticality: silver
+  owner: Gua Hao Khov
+- block: AICORE
+  category: FEAT
+  optional_description: DATAPATH
+  index: 30
+  description: The MVM and Raptor Datapath should be able to be active concurrently
+  criticality: silver
+  owner: Gua Hao Khov
+- block: AICORE
+  category: FEAT
+  optional_description: DATAPATH
+  index: 31
+  description: The Raptor datapath should be able to execute the LayerNorm kernel
+  criticality: silver
+  owner: Gua Hao Khov
+- block: AICORE
+  category: FEAT
+  optional_description: DATAPATH
+  index: 32
+  description: The AIC should be able to execute a generic matrix multiplication using the weight transpose feature
+  criticality: silver
+  owner: Gua Hao Khov
+- block: AICORE
+  category: FEAT
+  optional_description: DENSEPACK
+  index: 0
+  description: The AIC should be able to support densepacking multiple input pixels into a single PWORD across multiple layers (combined with ICR -> swICR)
+  criticality: silver
+  owner: Gua Hao Khov
+- block: AICORE
+  category: FEAT
+  optional_description: DEPTHWISE
+  index: 0
+  description: The AIC should be able to support to support depth-wise processing using the DWPU Datapath
+  criticality: silver
+  owner: Gua Hao Khov
+- block: AICORE
+  category: FEAT
+  optional_description: EXCLUSIVE
+  index: 0
+  description: The CVA6V should be able to do exclusive access to the SYS_SPM via the ATOP adapter
+  criticality: silver
+  owner: Gua Hao Khov
+- block: AICORE
+  category: FEAT
+  optional_description: FIREWALL
+  index: 0
+  description: The access to the datapath blocks should be gated by a firewall configurable via the AIC CSR
+  criticality: silver
+  owner: Gua Hao Khov
+- block: AICORE
+  category: FEAT
+  optional_description: FIREWALL
+  index: 1
+  description: The firewall must be configurable to block all requests from the ACD and provide full access to CVA6V and NOC_LT_S
+  criticality: silver
+  owner: Gua Hao Khov
+- block: AICORE
+  category: FEAT
+  optional_description: FIREWALL
+  index: 2
+  description: The firewall must be configurable to block all write requests from the CVA6V and NOC_LT_S  to the CMD FIFOs and provide full access to ACD
+  criticality: silver
+  owner: Gua Hao Khov
+- block: AICORE
+  category: FEAT
+  optional_description: HPDMA
+  index: 0
+  description: The HP_DMA should be a 512-bit wide dual channel AXE DMA with two duplex read/write ports
+  criticality: silver
+  owner: Gua Hao Khov
+- block: AICORE
+  category: FEAT
+  optional_description: HPDMA
+  index: 1
+  description: The HP_DMA should be able to execute 1-D and 2-D transfers between L2/DDR and L1
+  criticality: silver
+  owner: Gua Hao Khov
+- block: AICORE
+  category: FEAT
+  optional_description: HPDMA
+  index: 2
+  description: The HP_DMA should be controllable through its command block using commands
+  criticality: silver
+  owner: Gua Hao Khov
+- block: AICORE
+  category: FEAT
+  optional_description: HPDMA
+  index: 3
+  description: The HP_DMA should be controllable through its CSR using direct access
+  criticality: silver
+  owner: Gua Hao Khov
+- block: AICORE
+  category: FEAT
+  optional_description: HPDMA
+  index: 4
+  description: The HP_DMA should support transfer granularity down to a single byte
+  criticality: silver
+  owner: Gua Hao Khov
+- block: AICORE
+  category: FEAT
+  optional_description: HPDMA
+  index: 5
+  description: The HP_DMA should support transfers with arbitrary byte length
+  criticality: silver
+  owner: Gua Hao Khov
+- block: AICORE
+  category: FEAT
+  optional_description: HPDMA
+  index: 6
+  description: The HP_DMA should be able to execute multiple transfers in a row using linked lists stored in SPM
+  criticality: silver
+  owner: Gua Hao Khov
+- block: AICORE
+  category: FEAT
+  optional_description: HPDMA
+  index: 7
+  description: The HP_DMA should employ multiple AXI IDs and re-ordering buffering to increase throughput
+  criticality: silver
+  owner: Gua Hao Khov
+- block: AICORE
+  category: FEAT
+  optional_description: HPIDA
+  index: 0
+  description: The AIC should be able to support high-precision accumulation beyond the input dimension limitation of the IMC
+  criticality: silver
+  owner: Gua Hao Khov
+- block: AICORE
+  category: FEAT
+  optional_description: ICR
+  index: 0
+  description: The AIC should be able to support weight replication in the IMC to increase the number of outputs per IMC cycle
+  criticality: silver
+  owner: Gua Hao Khov
+- block: AICORE
+  category: FEAT
+  optional_description: IMC
+  index: 0
+  description: The IMC should be able to compute matrix vector multiplication with varying active area and weight set
+  criticality: silver
+  owner: Gua Hao Khov
+- block: AICORE
+  category: FEAT
+  optional_description: IMC
+  index: 1
+  description: The IMC should be able to receive two input streams and apply them to different active areas (non-overlapping in column dimension)
+  criticality: silver
+  owner: Gua Hao Khov
+- block: AICORE
+  category: FEAT
+  optional_description: IMC
+  index: 2
+  description: The IMC should be able to broadcast weights to both halves during weight loading
+  criticality: silver
+  owner: Gua Hao Khov
+- block: AICORE
+  category: FEAT
+  optional_description: IMC
+  index: 3
+  description: The IMC should be able to multiply INT8 and INT16 data in any combination (both as weights and inputs)
+  criticality: silver
+  owner: Gua Hao Khov
+- block: AICORE
+  category: FEAT
+  optional_description: IMC
+  index: 4
+  description: The IMC should have a size of 576 x 512
+  criticality: silver
+  owner: Gua Hao Khov
+- block: AICORE
+  category: FEAT
+  optional_description: IMC
+  index: 5
+  description: The IMC should support programming of weights and execution on a different weight set in parallel
+  criticality: silver
+  owner: Gua Hao Khov
+- block: AICORE
+  category: FEAT
+  optional_description: IMC
+  index: 6
+  description: The IMC should be repairable via settings stored in an eFuse which can be overwritten via a CSR
+  criticality: silver
+  owner: Gua Hao Khov
+- block: AICORE
+  category: FEAT
+  optional_description: IRQ
+  index: 0
+  description: All datapath blocks should be able to raise an interrupt request to the CVA6V for any internal error signal
+  criticality: silver
+  owner: Gua Hao Khov
+- block: AICORE
+  category: FEAT
+  optional_description: IRQ
+  index: 1
+  description: All datapath blocks should be able to configure an error mask to ignore error signals
+  criticality: silver
+  owner: Gua Hao Khov
+- block: AICORE
+  category: FEAT
+  optional_description: IRQ
+  index: 2
+  description: All fabrics should be able able to raise an interrupt request to the CVA6V if a deadlock is encountered
+  criticality: silver
+  owner: Gua Hao Khov
+- block: AICORE
+  category: FEAT
+  optional_description: IRQ
+  index: 3
+  description: All DMA channels should be able to raise an interrupt request to the CVA6V
+  criticality: silver
+  owner: Gua Hao Khov
+- block: AICORE
+  category: FEAT
+  optional_description: IRQ
+  index: 4
+  description: The mailbox should be able to raise an interrupt request to the CVA6V
+  criticality: silver
+  owner: Gua Hao Khov
+- block: AICORE
+  category: FEAT
+  optional_description: LPDMA
+  index: 0
+  description: The LP_DMA should be a 64-bit wide single channel SNPS DMA IP instance with a duplex read/write port
+  criticality: silver
+  owner: Gua Hao Khov
+- block: AICORE
+  category: FEAT
+  optional_description: LPDMA
+  index: 1
+  description: The LP_DMA should be able to execute 1-D transfers between SYS_SPM and SPM
+  criticality: silver
+  owner: Gua Hao Khov
+- block: AICORE
+  category: FEAT
+  optional_description: LPDMA
+  index: 2
+  description: The LP_DMA should be able to execute 1-D transfers between L2/DDR and L1
+  criticality: silver
+  owner: Gua Hao Khov
+- block: AICORE
+  category: FEAT
+  optional_description: LPDMA
+  index: 3
+  description: The LP_DMA should be able to execute 1-D transfers between SPM and L1
+  criticality: silver
+  owner: Gua Hao Khov
+- block: AICORE
+  category: FEAT
+  optional_description: LPDMA
+  index: 4
+  description: The LP_DMA should be able to execute 1-D transfers within SPM and L1
+  criticality: silver
+  owner: Gua Hao Khov
+- block: AICORE
+  category: FEAT
+  optional_description: LPDMA
+  index: 5
+  description: The LP_DMA should be controllable through its CSR using direct access
+  criticality: silver
+  owner: Gua Hao Khov
+- block: AICORE
+  category: FEAT
+  optional_description: LPDMA
+  index: 6
+  description: The LP_DMA should support transfer granularity down to a single byte
+  criticality: silver
+  owner: Gua Hao Khov
+- block: AICORE
+  category: FEAT
+  optional_description: LPDMA
+  index: 7
+  description: The LP_DMA should support unaligned transfers
+  criticality: silver
+  owner: Gua Hao Khov
+- block: AICORE
+  category: FEAT
+  optional_description: LPDMA
+  index: 8
+  description: The LP_DMA should support transfers with arbitrary byte length
+  criticality: silver
+  owner: Gua Hao Khov
+- block: AICORE
+  category: FEAT
+  optional_description: LPDMA
+  index: 9
+  description: The LP_DMA should be able to execute multiple transfers in a row using linked lists stored in SPM
+  criticality: silver
+  owner: Gua Hao Khov
+- block: AICORE
+  category: FEAT
+  optional_description: MEM
+  index: 0
+  description: The L1 should be 4 MiB large
+  criticality: bronze
+  owner: Gua Hao Khov
+- block: AICORE
+  category: FEAT
+  optional_description: MEM
+  index: 1
+  description: The L1 should support 6 read and 2 write 512-bit MMIO ports, 8 read/write 128-bit AXI ports, and 1 read and 1 write 512-bit AXI port
+  criticality: bronze
+  owner: Gua Hao Khov
+- block: AICORE
+  category: FEAT
+  optional_description: MEM
+  index: 2
+  description: The L1 should be able to serve both 512-bit and 128-bit requests with 512-bit requests being prioritised
+  criticality: bronze
+  owner: Gua Hao Khov
+- block: AICORE
+  category: FEAT
+  optional_description: MEM
+  index: 3
+  description: The SPM should be 512 KiB large
+  criticality: bronze
+  owner: Gua Hao Khov
+- block: AICORE
+  category: FEAT
+  optional_description: MEM
+  index: 4
+  description: The SPM should be ECC protected
+  criticality: bronze
+  owner: Gua Hao Khov
+- block: AICORE
+  category: FEAT
+  optional_description: MEM
+  index: 5
+  description: The SPM should be accessible via a single 64-bit AXI4 interface
+  criticality: bronze
+  owner: Gua Hao Khov
+- block: AICORE
+  category: FEAT
+  optional_description: OBS
+  index: 0
+  description: The observability mux should be configurable via the AIC CSR
+  criticality: silver
+  owner: Gua Hao Khov
+- block: AICORE
+  category: FEAT
+  optional_description: OBS
+  index: 1
+  description: The observability mux should be able to route specific selections of the internal observation signals out to the top-level
+  criticality: silver
+  owner: Gua Hao Khov
+- block: AICORE
+  category: FEAT
+  optional_description: OBS
+  index: 2
+  description: The observation signals should be routable out of the chip via specific pins using the smart mux in the top-level
+  criticality: silver
+  owner: Gua Hao Khov
+- block: AICORE
+  category: FEAT
+  optional_description: OBS
+  index: 3
+  description: The observation signals should have the same latencies to ensure cycle accurate alignment
+  criticality: silver
+  owner: Gua Hao Khov
+- block: AICORE
+  category: FEAT
+  optional_description: SENSORS
+  index: 0
+  description: All margin monitors should be accessible via SW to trigger and readout measurements
+  criticality: silver
+  owner: Gua Hao Khov
+- block: AICORE
+  category: FEAT
+  optional_description: THROTTLE
+  index: 0
+  description: The MVM should be able to run at full utilization (64) with the throttle unit disabled (default)
+  criticality: silver
+  owner: Gua Hao Khov
+- block: AICORE
+  category: FEAT
+  optional_description: THROTTLE
+  index: 1
+  description: The average utilization of the MVM should not exceed the max limit if throttle unit is set to max limit mode
+  criticality: silver
+  owner: Gua Hao Khov
+- block: AICORE
+  category: FEAT
+  optional_description: THROTTLE
+  index: 2
+  description: The average utilization of the MVM should not exceed the max limit if throttle unit is set to any throttle mode
+  criticality: silver
+  owner: Gua Hao Khov
+- block: AICORE
+  category: FEAT
+  optional_description: THROTTLE
+  index: 3
+  description: The average utilization of the MVM should not exceed the throttle limit if throttle unit is set to hard throttle mode and throttle is engaged
+  criticality: silver
+  owner: Gua Hao Khov
+- block: AICORE
+  category: FEAT
+  optional_description: THROTTLE
+  index: 4
+  description: The average utilization of the MVM should ramp up/down to the max/throttle limit if throttle unit is set to soft throttle mode and throttle is dis-/engaged
+  criticality: silver
+  owner: Gua Hao Khov
+- block: AICORE
+  category: FEAT
+  optional_description: THROTTLE
+  index: 5
+  description: The CVA6V should be able to dis-/engage the throttle using CSR
+  criticality: silver
+  owner: Gua Hao Khov
+- block: AICORE
+  category: FEAT
+  optional_description: THROTTLE
+  index: 6
+  description: The APU should be able to dis-/engage the throttle using a sideband signal driven by an AO CSR
+  criticality: silver
+  owner: Gua Hao Khov
+- block: AICORE
+  category: FEAT
+  optional_description: THROTTLE
+  index: 7
+  description: The top-level temperature monitor should be able to dis-/engage the throttle using sideband signals
+  criticality: silver
+  owner: Gua Hao Khov
+- block: AICORE
+  category: FEAT
+  optional_description: THROTTLE
+  index: 8
+  description: The internal margin monitor should be able to dis-/engage the throttle based on on/off thresholds (hysteresis)
+  criticality: silver
+  owner: Gua Hao Khov
+- block: AICORE
+  category: FEAT
+  optional_description: THROTTLE
+  index: 9
+  description: The utilization estimator should be able to track the actual MVM utilization
+  criticality: silver
+  owner: Gua Hao Khov
+- block: AICORE
+  category: FEAT
+  optional_description: THROTTLE
+  index: 10
+  description: The utilization estimator should be able to track the actual MVM utilization for double input bandwidth workloads
+  criticality: silver
+  owner: Gua Hao Khov
+- block: AICORE
+  category: FEAT
+  optional_description: THROTTLE
+  index: 11
+  description: The MVM should be able to inject NOPs to reduce the MVM utilization
+  criticality: silver
+  owner: Gua Hao Khov
+- block: AICORE
+  category: FEAT
+  optional_description: THROTTLE
+  index: 12
+  description: The MVM can request to enter the boost mode to temporarily override the utilization limit
+  criticality: silver
+  owner: Gua Hao Khov
+- block: AICORE
+  category: FEAT
+  optional_description: THROTTLE
+  index: 13
+  description: The throttling should always take the minimum utilization limit when multiple throttle sources are engaged
+  criticality: silver
+  owner: Gua Hao Khov
+- block: AICORE
+  category: FEAT
+  optional_description: TOKEN
+  index: 0
+  description: The intra-core token network should prevent MVM execution and programming hazards
+  criticality: silver
+  owner: Gua Hao Khov
+- block: AICORE
+  category: FEAT
+  optional_description: TOKEN
+  index: 1
+  description: The intra-core token network should prevent L1 memory hazards between IFDs/ODRs
+  criticality: silver
+  owner: Gua Hao Khov
+- block: AICORE
+  category: FEAT
+  optional_description: TOKEN
+  index: 2
+  description: The top-level token network should prevent L2/DDR memory hazards between all relevant DMA channels (HP_DMAs and SDMAs)
+  criticality: silver
+  owner: Gua Hao Khov
+- block: AICORE
+  category: FEAT
+  optional_description: TOKEN
+  index: 3
+  description: The top-level token network should connect the internal ACD with the SDMAs
+  criticality: silver
+  owner: Gua Hao Khov
+- block: AICORE
+  category: FEAT
+  optional_description: TOKEN
+  index: 4
+  description: The top-level token network should connect all ACDs for multi-core synchronization
+  criticality: silver
+  owner: Gua Hao Khov
+- block: AICORE
+  category: FEAT
+  optional_description: TOKEN
+  index: 5
+  description: The intra-core token network should provide a SW consumer/producer endpoint to each block for SW-based synchronization
+  criticality: silver
+  owner: Gua Hao Khov
+- block: AICORE
+  category: FEAT
+  optional_description: TOKEN
+  index: 6
+  description: The intra-core token network should provide an ACD consumer/producer endpoint to each block for HW-based synchronization
+  criticality: silver
+  owner: Gua Hao Khov
+- block: AICORE
+  category: FEAT
+  optional_description: VECTOR
+  index: 0
+  description: The Raptor vector engine should be configured with a datapath length of 1024 bits and eight 128-bit ports
+  criticality: silver
+  owner: Gua Hao Khov
+- block: AICORE
+  category: FEAT
+  optional_description: VECTOR
+  index: 1
+  description: The Raptor vector engine should support all vector instructions of the CVA6V RISC-V specification (RV64IMAFZicsrZifenceiCZve32fZvfh)
+  criticality: silver
+  owner: Gua Hao Khov
+- block: AICORE
+  category: FEAT
+  optional_description: VECTOR
+  index: 2
+  description: The Raptor vector engine should be able to access the L1 at a 128-bit granularity with any of its eight ports
+  criticality: silver
+  owner: Gua Hao Khov
+- block: AICORE
+  category: FEAT
+  optional_description: VIRTUAL
+  index: 0
+  description: The DMAs support virtual addressing through ATUs
+  criticality: silver
+  owner: Gua Hao Khov
+- block: AICORE
+  category: FEAT
+  optional_description: VIRTUAL
+  index: 1
+  description: The top-level token network should support virtualization through re-mapping of the produced and consumed tokens
+  criticality: silver
+  owner: Gua Hao Khov
+- block: AICORE
+  category: BOOT
+  optional_description: ''
+  index: 0
+  description: The CVA6V should be prevented from booting after reset due to an internal clock gate which needs to be lifted after reset
+  criticality: bronze
+  owner: Gua Hao Khov
+- block: AICORE
+  category: BOOT
+  optional_description: ''
+  index: 1
+  description: The CVA6V should boot from the provided boot address within the SPM after the internal clock gate is lifted
+  criticality: bronze
+  owner: Gua Hao Khov
+- block: AICORE
+  category: SEC
+  optional_description: ''
+  index: 0
+  description: The SPM should contain a secured memory region for trusted code
+  criticality: gold
+  owner: Gua Hao Khov
+- block: AICORE
+  category: SEC
+  optional_description: ''
+  index: 1
+  description: The AIC CSR should be a secured memory region
+  criticality: gold
+  owner: Gua Hao Khov
+- block: AICORE
+  category: SEC
+  optional_description: ''
+  index: 2
+  description: All secured memory regions should not be accessible from the datapath blocks or DMAs if ATUs are configured correctly
+  criticality: gold
+  owner: Gua Hao Khov
+- block: AICORE
+  category: SEC
+  optional_description: ''
+  index: 3
+  description: All secured memory regions should not be accessible from any RISC-V core set in an unsecure mode if TLBs are configured correctly
+  criticality: gold
+  owner: Gua Hao Khov
+- block: AICORE
+  category: SEC
+  optional_description: ''
+  index: 4
+  description: 'The AIC CSR should contain the configurations for: IMC MBIST, IMC repair, throttle mechanism, ATUs, AXI gates, SRAM, margin monitor, clock gates'
+  criticality: gold
+  owner: Gua Hao Khov
+- block: AICORE
+  category: NET
+  optional_description: MOBILENET
+  index: 0
+  description: The AIC should be able to run MobileNet
+  criticality: silver
+  owner: Gua Hao Khov
+- block: AICORE
+  category: NET
+  optional_description: POSTPROCESS
+  index: 0
+  description: 'The AIC should be able to run the post-process kernels of the YOLOv5 pipeline: P1-K3, P1-K4, and P1-K5'
+  criticality: silver
+  owner: Gua Hao Khov
+- block: AICORE
+  category: NET
+  optional_description: PREPROCESS
+  index: 0
+  description: 'The AIC should be able to run the pre-process kernels of the YOLOv5 pipeline: P1-K1 and P1-K2'
+  criticality: silver
+  owner: Gua Hao Khov
+- block: AICORE
+  category: NET
+  optional_description: RESNET
+  index: 0
+  description: The AIC should be able to run ResNet
+  criticality: silver
+  owner: Gua Hao Khov
+- block: AICORE
+  category: NET
+  optional_description: SQUEEZENET
+  index: 0
+  description: The AIC should be able to run SqueezeNet
+  criticality: silver
+  owner: Gua Hao Khov
+- block: AICORE
+  category: NET
+  optional_description: UNET
+  index: 0
+  description: The AIC should be able to run UNet
+  criticality: silver
+  owner: Gua Hao Khov
+- block: AICORE
+  category: NET
+  optional_description: VIT
+  index: 0
+  description: The AIC should be able to run ViT
+  criticality: silver
+  owner: Gua Hao Khov
+- block: AICORE
+  category: NET
+  optional_description: YOLO
+  index: 0
+  description: The AIC should be able to run Yolo
+  criticality: silver
+  owner: Gua Hao Khov
+- block: AICORE
+  category: PERF
+  optional_description: COMPRESSION
+  index: 0
+  description: The decompression engine should support 1 PWORD64/32 per cycle throughput
+  criticality: gold
+  owner: Gua Hao Khov
+- block: AICORE
+  category: PERF
+  optional_description: DATAPATH
+  index: 0
+  description: The MVM Datapath should be able to sustain 1 PWORD64 per cycle throughput in a convolution with requantization
+  criticality: gold
+  owner: Gua Hao Khov
+- block: AICORE
+  category: PERF
+  optional_description: DATAPATH
+  index: 1
+  description: The MVM Datapath should be able to sustain 0.5 PWORD64 per cycle throughput in a convolution with requantization and element-wise addition
+  criticality: gold
+  owner: Gua Hao Khov
+- block: AICORE
+  category: PERF
+  optional_description: DATAPATH
+  index: 2
+  description: The DWPU Datapath should be able to sustain 1 PWORD64 per cycle througput in a convolution with 3x3 kernel disregarding pre-loading of rows
+  criticality: gold
+  owner: Gua Hao Khov
+- block: AICORE
+  category: PERF
+  optional_description: DATAPATH
+  index: 3
+  description: The VTRSP should be able to sustain 1 PWORD per cycle throughput in all its modes
+  criticality: gold
+  owner: Gua Hao Khov
+- block: AICORE
+  category: PERF
+  optional_description: DATAPATH
+  index: 4
+  description: The AIC runs LayerNorm optimally with new HW features
+  criticality: gold
+  owner: Gua Hao Khov
+- block: AICORE
+  category: PERF
+  optional_description: DATAPATH
+  index: 5
+  description: The AIC runs SoftMax optimally with new HW features
+  criticality: gold
+  owner: Gua Hao Khov
+- block: AICORE
+  category: PERF
+  optional_description: FABRIC
+  index: 0
+  description: The fabric should support the same number of outstanding transactions as the HP_DMA to enable multiple short bursts
+  criticality: gold
+  owner: Gua Hao Khov
+- block: AICORE
+  category: PERF
+  optional_description: FABRIC
+  index: 1
+  description: The fabric should not incur stalls between write bursts to enable multiple short bursts
+  criticality: gold
+  owner: Gua Hao Khov
+- block: AICORE
+  category: PERF
+  optional_description: HPDMA
+  index: 0
+  description: The HP_DMA should be able to sustain sufficient throughput to transfer data between L1 and L2 during long bursts
+  criticality: gold
+  owner: Gua Hao Khov
+- block: AICORE
+  category: PERF
+  optional_description: HPIDA
+  index: 0
+  description: The AIC should be able to support HPIDA beyond the input dimension limitation of the IMC reaching target performance
+  criticality: gold
+  owner: Gua Hao Khov
+- block: AICORE
+  category: PERF
+  optional_description: IMC
+  index: 0
+  description: The IMC should be able to sustain 1 PWORD64/32 per cycle throughput with exception of INT16 x INT16 mode
+  criticality: gold
+  owner: Gua Hao Khov
+- block: AICORE
+  category: PERF
+  optional_description: LPDMA
+  index: 0
+  description: The LP_DMA should support a throughput between SysSPM and SPM which ensures that tasklist streaming is not a bottleneck
+  criticality: gold
+  owner: Gua Hao Khov
+- block: AICORE
+  category: PERF
+  optional_description: L1
+  index: 0
+  description: The L1 fabric should be able to saturate all 512-bit requests ports simultaneously in the absence of memory contention
+  criticality: gold
+  owner: Gua Hao Khov
+- block: AICORE
+  category: PERF
+  optional_description: L1
+  index: 1
+  description: The L1 fabric should be able to absorb memory contention stalls through internal elasticity to avoid stall bubbles
+  criticality: gold
+  owner: Gua Hao Khov
+- block: AICORE
+  category: PERF
+  optional_description: L1
+  index: 2
+  description: The L1 fabric should be able to sustain the same throughput towards 512-bit request ports even in the presence of narrow accesses from Raptor
+  criticality: gold
+  owner: Gua Hao Khov
+- block: AICORE
+  category: PERF
+  optional_description: NET
+  index: 0
+  description: The AIC should be able to at least match the performance of Omega AIC in all previously measured neural networks
+  criticality: gold
+  owner: Gua Hao Khov
+- block: AICORE
+  category: PERF
+  optional_description: NET
+  index: 1
+  description: The AIC should be able to sustain sufficient throughput in various regular workloads/benchmarks
+  criticality: gold
+  owner: Gua Hao Khov
+- block: AICORE
+  category: PERF
+  optional_description: PHI3M
+  index: 0
+  description: The AIC should be able to run PHI3-mini with sufficient performance
+  criticality: gold
+  owner: Gua Hao Khov
+- block: AICORE
+  category: PERF
+  optional_description: YOLO
+  index: 0
+  description: The AIC should be able to run Yolo with sufficient performance
+  criticality: gold
+  owner: Gua Hao Khov
+- block: AICORE
+  category: DFT
+  optional_description: SENSORS
+  index: 0
+  description: All margin monitors should be accessible via JTAG to trigger and readout measurements
+  criticality: silver
+  owner: Gua Hao Khov

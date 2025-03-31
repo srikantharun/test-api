@@ -1,0 +1,34 @@
+{% macro render_items(item)-%}
+// AUTO GENERATED, DON'T MANUALLY EDIT!!
+// (C) Copyright Axelera AI 2024
+// All Rights Reserved
+// *** Axelera AI Confidential ***
+//
+// Description: Automatic generated package with start addresses of address map
+// Owner: hw/scripts/addr_map
+
+#ifndef _AIPU_MEM_MAP_DEFS_
+#define _AIPU_MEM_MAP_DEFS_
+#ifdef __cplusplus
+extern "C" {
+#endif
+
+{% for item in items-%}
+{% set ip_name = (item.block ~ '_' ~  item.name) | upper if item.name != item.block else item.name  | upper-%}
+// {{ ip_name }}
+#define {{ ip_name ~ '_' ~ 'BASE' }} {{ "0x" ~ item.offset | hex }}
+#define {{ ip_name ~ '_' ~ 'SIZE' }} {{ "0x" ~ (item.size) | hex }}
+{% endfor %}
+#ifdef MEMORYMAP_PATCH
+#include "memorymap_patch.h"
+#endif
+
+#ifdef __cplusplus
+}  // extern "C"
+#endif
+#endif  // _AIPU_MEM_MAP_DEFS_
+
+
+{% endmacro %}
+{{ render_items(items) }}
+

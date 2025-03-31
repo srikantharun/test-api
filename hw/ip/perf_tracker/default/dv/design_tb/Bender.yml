@@ -1,0 +1,13 @@
+package:
+  name: tb_gen_perf_counter
+  description: "Design Testbench for Generic Performance Counter"
+  authors:
+    - "Emre Kirkaya <emre.kirkaya@axelera.ai>"
+
+dependencies:
+  perf_tracker:              { path: "" }
+
+sources:
+  - target: simulation
+    files:
+      - tb_gen_perf_counter.sv

@@ -1,0 +1,52 @@
+#!/usr/bin/env bash
+
+set -e
+
+#--------------------------------------------------------------
+# functions
+#--------------------------------------------------------------
+usage() {
+  cat << EOF
+usage: $(basename $0) [ARGS]
+
+connect to qemu image via SSH, run ./qemu first
+
+where ARGS are:
+  -h                      : display this help
+  -u|--username USERNAME  : user name to be used for ssh; default is "mentor"
+EOF
+}
+
+
+error() {
+  >&2 echo "ERROR: $@"
+  exit 1
+}
+
+
+#--------------------------------------------------------------
+# execution
+#--------------------------------------------------------------
+username="mentor"
+
+while [ "$#" -gt 0 ]
+do
+  case "$1" in
+    -h)
+      usage
+      exit 0
+      ;;
+    -u|--username)
+      username="$2"
+      shift 2
+      ;;
+    *)
+      error "Wrong argument: $1"
+      usage
+      exit 1
+      ;;
+  esac
+done
+
+[ "$username" = "mentor" ] && echo "INFO: default password for username mentor is mentor"
+ssh -p $(cat ./qemu_ssh_port.txt) $username@0

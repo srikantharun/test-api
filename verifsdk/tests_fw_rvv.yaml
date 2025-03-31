@@ -1,0 +1,220 @@
+tests:
+  - name: test_rvv_hello
+    description: "This test demonstrates basic RISC-V vector operations by processing and verifying string data."
+    labels: [SPIKE, SIM_TOP_LIGHT_NIGHTLY, VELOCE_TOP_NIGHTLY, ALL_RAPTOR_TESTS]
+    requirement_ids: [AICORE_FEAT_VECTOR_0, AICORE_FEAT_VECTOR_1, AICORE_FEAT_VECTOR_2]
+    platforms: [top.*, aicore.*]
+    owner: Alexandros Zekakos
+    apu: [test_rvv/main.c]
+    pve0: [test_rvv/main_rvv.c, test_rvv/rvv_hello/test_rvv_hello.c]
+    pve1: [test_rvv/main_rvv.c, test_rvv/rvv_hello/test_rvv_hello.c]
+    aicore0: [test_rvv/main_rvv.c, test_rvv/rvv_hello/test_rvv_hello.c]
+
+  - name: test_rvv_vfmul
+    description: "This test demonstrates the use of RISC-V vector intrinsics to load, multiply and store a vector of floats."
+    labels: [SPIKE, SIM_TOP_LIGHT_NIGHTLY, VELOCE_TOP_NIGHTLY, ALL_RAPTOR_TESTS]
+    requirement_ids: [AICORE_FEAT_VECTOR_0, AICORE_FEAT_VECTOR_1, AICORE_FEAT_VECTOR_2]
+    platforms: [top.*, aicore.*]
+    owner: Alexandros Zekakos
+    apu: [test_rvv/main.c]
+    pve0: [test_rvv/rvv_vfmul/test_rvv_vfmul.c]
+    pve1: [test_rvv/rvv_vfmul/test_rvv_vfmul.c]
+    aicore0: [test_rvv/rvv_vfmul/test_rvv_vfmul.c]
+
+  - name: test_rvv_stripmining
+    description: "This test performs and validates vectorized addition operations on arrays of 8-bit integers, 16-bit integers, 32-bit floats, and 16-bit half-precision floats."
+    labels: [SPIKE, SIM_TOP_LIGHT_NIGHTLY, VELOCE_TOP_NIGHTLY, ALL_RAPTOR_TESTS]
+    requirement_ids: [AICORE_FEAT_VECTOR_0, AICORE_FEAT_VECTOR_1, AICORE_FEAT_VECTOR_2]
+    platforms: [top.*, aicore.*]
+    owner: Alexandros Zekakos
+    apu: [test_rvv/main.c]
+    pve0: [test_rvv/rvv_stripmining/test_rvv_stripmining.c]
+    pve1: [test_rvv/rvv_stripmining/test_rvv_stripmining.c]
+    aicore0: [test_rvv/rvv_stripmining/test_rvv_stripmining.c]
+
+  - name: test_rvv_statistics
+    description: "Test application for validating and comparing statistics kernels."
+    labels: [SPIKE, VELOCE_TOP_NIGHTLY, ALL_RAPTOR_TESTS]
+    requirement_ids: [AICORE_FEAT_VECTOR_0, AICORE_FEAT_VECTOR_1, AICORE_FEAT_VECTOR_2]
+    platforms: [top.*, aicore.*]
+    owner: Alexandros Zekakos
+    apu: [test_rvv/main.c]
+    pve0: [test_rvv/rvv_statistics/test_rvv_statistics.c, test_rvv/rvv_statistics/data.c]
+    pve1: [test_rvv/rvv_statistics/test_rvv_statistics.c, test_rvv/rvv_statistics/data.c]
+    aicore0: [test_rvv/rvv_statistics/test_rvv_statistics.c, test_rvv/rvv_statistics/data.c]
+
+  - name: test_rvv_softmax
+    description: "This test evaluates the correctness and performance of softmax_rvv, by comparing its output against golden reference tensors across different dimensions."
+    labels: [SPIKE, VELOCE_TOP_NIGHTLY, ALL_RAPTOR_TESTS]
+    requirement_ids: [AICORE_FEAT_VECTOR_0, AICORE_FEAT_VECTOR_1, AICORE_FEAT_VECTOR_2]
+    platforms: [top.*, aicore.*]
+    owner: Alexandros Zekakos
+    apu: [test_rvv/main.c]
+    pve0: [test_rvv/rvv_softmax/test_rvv_softmax.c, test_rvv/rvv_softmax/data.c]
+    pve1: [test_rvv/rvv_softmax/test_rvv_softmax.c, test_rvv/rvv_softmax/data.c]
+    aicore0: [test_rvv/rvv_softmax/test_rvv_softmax.c, test_rvv/rvv_softmax/data.c]
+
+  - name: test_rvv_swish
+    description: "Test application for verifying the correctness of RVV optimized swish activation function kernel implementation."
+    labels: [SPIKE, VELOCE_TOP_NIGHTLY, ALL_RAPTOR_TESTS]
+    requirement_ids: [AICORE_FEAT_VECTOR_0, AICORE_FEAT_VECTOR_1, AICORE_FEAT_VECTOR_2]
+    platforms: [top.*, aicore.*]
+    owner: Alexandros Zekakos
+    apu: [test_rvv/main.c]
+    pve0: [test_rvv/rvv_swish/test_rvv_swish.c, test_rvv/rvv_swish/data.c]
+    pve1: [test_rvv/rvv_swish/test_rvv_swish.c, test_rvv/rvv_swish/data.c]
+    aicore0: [test_rvv/rvv_swish/test_rvv_swish.c, test_rvv/rvv_swish/data.c]
+
+  - name: test_rvv_non_max_suppression
+    description: "Test application for verifying the correctness of RVV optimized non_max_suppression kernel implementation."
+    labels: [SPIKE, VELOCE_TOP_NIGHTLY, ALL_RAPTOR_TESTS]
+    requirement_ids: [AICORE_FEAT_VECTOR_0, AICORE_FEAT_VECTOR_1, AICORE_FEAT_VECTOR_2]
+    platforms: [top.*, aicore.*]
+    owner: Alexandros Zekakos
+    apu: [test_rvv/main.c]
+    pve0: [test_rvv/rvv_non_max_suppression/test_rvv_non_max_suppression.c, test_rvv/rvv_non_max_suppression/data.c]
+    pve1: [test_rvv/rvv_non_max_suppression/test_rvv_non_max_suppression.c, test_rvv/rvv_non_max_suppression/data.c]
+    aicore0: [test_rvv/rvv_non_max_suppression/test_rvv_non_max_suppression.c, test_rvv/rvv_non_max_suppression/data.c]
+
+  - name: test_rvv_matmul_int
+    description: "Test application for verifying the correctness of integer matmul kernel."
+    labels: [SPIKE, SIM_TOP_LIGHT_NIGHTLY, VELOCE_TOP_NIGHTLY, ALL_RAPTOR_TESTS]
+    requirement_ids: [AICORE_FEAT_VECTOR_0, AICORE_FEAT_VECTOR_1, AICORE_FEAT_VECTOR_2]
+    platforms: [top.*, aicore.*]
+    owner: Alexandros Zekakos
+    apu: [test_rvv/main.c]
+    pve0: [test_rvv/rvv_matmul_int/test_rvv_matmul_int.c, test_rvv/rvv_matmul_int/data.c]
+    pve1: [test_rvv/rvv_matmul_int/test_rvv_matmul_int.c, test_rvv/rvv_matmul_int/data.c]
+    aicore0: [test_rvv/rvv_matmul_int/test_rvv_matmul_int.c, test_rvv/rvv_matmul_int/data.c]
+
+  - name: test_rvv_matmul_float
+    description: "Test application for verifying the correctness of float matmul kernel."
+    labels: [SPIKE, VELOCE_TOP_NIGHTLY, ALL_RAPTOR_TESTS]
+    requirement_ids: [AICORE_FEAT_VECTOR_0, AICORE_FEAT_VECTOR_1, AICORE_FEAT_VECTOR_2]
+    platforms: [top.*, aicore.*]
+    owner: Alexandros Zekakos
+    apu: [test_rvv/main.c]
+    pve0: [test_rvv/rvv_matmul_float/test_rvv_matmul_float.c, test_rvv/rvv_matmul_float/data.c]
+    pve1: [test_rvv/rvv_matmul_float/test_rvv_matmul_float.c, test_rvv/rvv_matmul_float/data.c]
+    aicore0: [test_rvv/rvv_matmul_float/test_rvv_matmul_float.c, test_rvv/rvv_matmul_float/data.c]
+
+  - name: test_rvv_gemm
+    description: "Test application for multiplying matrices A and B using the gemm_i32_rvv kernel and verifying the result against a reference matrix."
+    labels: [SPIKE, SIM_TOP_LIGHT_NIGHTLY, VELOCE_TOP_NIGHTLY, ALL_RAPTOR_TESTS]
+    requirement_ids: [AICORE_FEAT_VECTOR_0, AICORE_FEAT_VECTOR_1, AICORE_FEAT_VECTOR_2]
+    platforms: [top.*, aicore.*]
+    owner: Alexandros Zekakos
+    apu: [test_rvv/main.c]
+    pve0: [test_rvv/rvv_gemm/test_rvv_gemm.c, test_rvv/rvv_gemm/data.c]
+    pve1: [test_rvv/rvv_gemm/test_rvv_gemm.c, test_rvv/rvv_gemm/data.c]
+    aicore0: [test_rvv/rvv_gemm/test_rvv_gemm.c, test_rvv/rvv_gemm/data.c]
+
+  - name: test_rvv_conversion
+    description: "Test application for verifying tensor conversion on various tensor formats and type conversions, comparing standard and vectorized versions."
+    labels: [SPIKE, VELOCE_TOP_NIGHTLY, ALL_RAPTOR_TESTS]
+    requirement_ids: [AICORE_FEAT_VECTOR_0, AICORE_FEAT_VECTOR_1, AICORE_FEAT_VECTOR_2]
+    platforms: [top.*, aicore.*]
+    owner: Alexandros Zekakos
+    apu: [test_rvv/main.c]
+    pve0: [test_rvv/rvv_conversion/test_rvv_conversion.c]
+    pve1: [test_rvv/rvv_conversion/test_rvv_conversion.c]
+    aicore0: [test_rvv/rvv_conversion/test_rvv_conversion.c]
+
+  - name: test_rvv_conv2d
+    description: "Test application for verifying 2D convolution kernels with various filters and data types against golden reference values."
+    labels: [SPIKE, VELOCE_TOP_NIGHTLY, ALL_RAPTOR_TESTS]
+    requirement_ids: [AICORE_FEAT_VECTOR_0, AICORE_FEAT_VECTOR_1, AICORE_FEAT_VECTOR_2]
+    platforms: [top.*, aicore.*]
+    owner: Alexandros Zekakos
+    apu: [test_rvv/main.c]
+    pve0: [test_rvv/rvv_conv2d/test_rvv_conv2d.c, test_rvv/rvv_conv2d/data.c]
+    pve1: [test_rvv/rvv_conv2d/test_rvv_conv2d.c, test_rvv/rvv_conv2d/data.c]
+    aicore0: [test_rvv/rvv_conv2d/test_rvv_conv2d.c, test_rvv/rvv_conv2d/data.c]
+
+  - name: test_rvv_attention
+    description: "Test application for verifying the functionality of scalar and RVV implementations of the attention kernel for encoder-decoder and self-attention across different sequence lengths."
+    labels: [SPIKE, VELOCE_TOP_NIGHTLY, ALL_RAPTOR_TESTS]
+    requirement_ids: [AICORE_FEAT_VECTOR_0, AICORE_FEAT_VECTOR_1, AICORE_FEAT_VECTOR_2]
+    platforms: [top.*, aicore.*]
+    owner: Alexandros Zekakos
+    apu: [test_rvv/main.c]
+    pve0: [test_rvv/rvv_attention/test_rvv_attention.c, test_rvv/rvv_attention/data.c]
+    pve1: [test_rvv/rvv_attention/test_rvv_attention.c, test_rvv/rvv_attention/data.c]
+    aicore0: [test_rvv/rvv_attention/test_rvv_attention.c, test_rvv/rvv_attention/data.c]
+
+  - name: test_rvv_color_space
+    description: "Test application for verifying various color space conversions (YCC to RGB, RGB to YCC, YUV to RGB, RGB to YUV, YUV to Gray, RGB to Gray) using scalar and RVV implementations."
+    labels: [SPIKE, VELOCE_TOP_NIGHTLY, ALL_RAPTOR_TESTS]
+    requirement_ids: [AICORE_FEAT_VECTOR_0, AICORE_FEAT_VECTOR_1, AICORE_FEAT_VECTOR_2]
+    platforms: [top.*, aicore.*]
+    owner: Alexandros Zekakos
+    apu: [test_rvv/main.c]
+    pve0: [test_rvv/rvv_color_space/test_rvv_color_space.c, test_rvv/rvv_color_space/data.c]
+    pve1: [test_rvv/rvv_color_space/test_rvv_color_space.c, test_rvv/rvv_color_space/data.c]
+    aicore0: [test_rvv/rvv_color_space/test_rvv_color_space.c, test_rvv/rvv_color_space/data.c]
+
+  - name: test_rvv_dwconv2d
+    description: "Test application for verifying the correctness of the dwconv2d kernel implementation with FP16 and FP32 precisions in scalar and RVV versions."
+    labels: [SPIKE, VELOCE_TOP_NIGHTLY, ALL_RAPTOR_TESTS]
+    requirement_ids: [AICORE_FEAT_VECTOR_0, AICORE_FEAT_VECTOR_1, AICORE_FEAT_VECTOR_2]
+    platforms: [top.*, aicore.*]
+    owner: Alexandros Zekakos
+    apu: [test_rvv/main.c]
+    pve0: [test_rvv/rvv_dwconv2d/test_rvv_dwconv2d.c, test_rvv/rvv_dwconv2d/data.c]
+    pve1: [test_rvv/rvv_dwconv2d/test_rvv_dwconv2d.c, test_rvv/rvv_dwconv2d/data.c]
+    aicore0: [test_rvv/rvv_dwconv2d/test_rvv_dwconv2d.c, test_rvv/rvv_dwconv2d/data.c]
+
+  - name: test_rvv_layernorm
+    description: "This test verifies the functionality and performance of the AI core layer normalization kernel across various test cases by comparing outputs with golden reference tensors."
+    labels: [SPIKE, VELOCE_TOP_NIGHTLY, ALL_RAPTOR_TESTS]
+    requirement_ids: [AICORE_FEAT_VECTOR_0, AICORE_FEAT_VECTOR_1, AICORE_FEAT_VECTOR_2, AICORE_FEAT_DATAPATH_32]
+    platforms: [top.*, aicore.*]
+    owner: Alexandros Zekakos
+    apu: [test_rvv/main.c]
+    pve0: [test_rvv/rvv_layernorm/test_rvv_layernorm.c, test_rvv/rvv_layernorm/data.c]
+    pve1: [test_rvv/rvv_layernorm/test_rvv_layernorm.c, test_rvv/rvv_layernorm/data.c]
+    aicore0: [test_rvv/rvv_layernorm/test_rvv_layernorm.c, test_rvv/rvv_layernorm/data.c]
+
+  - name: test_rvv_image_manipulation
+    description: "This test verifies crop, center crop, and resize kernels on both NCHW and NHWC tensor formats, validating outputs against golden reference data for both scalar and RVV implementations."
+    labels: [SPIKE, VELOCE_TOP_NIGHTLY, ALL_RAPTOR_TESTS]
+    requirement_ids: [AICORE_FEAT_VECTOR_0, AICORE_FEAT_VECTOR_1, AICORE_FEAT_VECTOR_2]
+    platforms: [top.*, aicore.*]
+    owner: Alexandros Zekakos
+    apu: [test_rvv/main.c]
+    pve0: [test_rvv/rvv_image_manipulation/test_rvv_image_manipulation.c, test_rvv/rvv_image_manipulation/data.c]
+    pve1: [test_rvv/rvv_image_manipulation/test_rvv_image_manipulation.c, test_rvv/rvv_image_manipulation/data.c]
+    aicore0: [test_rvv/rvv_image_manipulation/test_rvv_image_manipulation.c, test_rvv/rvv_image_manipulation/data.c]
+
+  - name: test_rvv_image_pipeline
+    description: "This test verifies the functionality, performance, and accuracy of individual and merged image processing kernels, using RVV implementations."
+    labels: [SPIKE, VELOCE_TOP_NIGHTLY, ALL_RAPTOR_TESTS]
+    requirement_ids: [AICORE_FEAT_VECTOR_0, AICORE_FEAT_VECTOR_1, AICORE_FEAT_VECTOR_2]
+    platforms: [top.*, aicore.*]
+    owner: Alexandros Zekakos
+    apu: [test_rvv/main.c]
+    pve0: [test_rvv/rvv_image_pipeline/test_rvv_image_pipeline.c, test_rvv/rvv_image_pipeline/data.c]
+    pve1: [test_rvv/rvv_image_pipeline/test_rvv_image_pipeline.c, test_rvv/rvv_image_pipeline/data.c]
+    aicore0: [test_rvv/rvv_image_pipeline/test_rvv_image_pipeline.c, test_rvv/rvv_image_pipeline/data.c]
+
+  - name: test_rvv_vector_load_store
+    description: "This test demonstrates the RISC-V vector load and store operations for alignment, sizing, and segment handling using RISC-V vector extensions."
+    labels: [SPIKE, SIM_TOP_LIGHT_NIGHTLY, VELOCE_TOP_NIGHTLY, ALL_RAPTOR_TESTS, SIM_TOP_MERGE_REQUEST]
+    requirement_ids: [AICORE_FEAT_VECTOR_0, AICORE_FEAT_VECTOR_1, AICORE_FEAT_VECTOR_2]
+    platforms: [top.*, aicore.*]
+    owner: Alexandros Zekakos
+    apu: [test_rvv/main.c]
+    pve0: [test_rvv/rvv_vector_load_store/test_rvv_vector_load_store.c]
+    pve1: [test_rvv/rvv_vector_load_store/test_rvv_vector_load_store.c]
+    aicore0: [test_rvv/rvv_vector_load_store/test_rvv_vector_load_store.c]
+
+  - name: test_rvv_l1_latency
+    description: "measure the latency on the L1."
+    labels: [SPIKE, VELOCE_TOP_NIGHTLY, ALL_RAPTOR_TESTS]
+    requirement_ids: [AICORE_FEAT_VECTOR_0, AICORE_FEAT_VECTOR_1, AICORE_FEAT_VECTOR_2]
+    platforms: [top.*, aicore.*]
+    owner: Michael Platzer
+    apu: [test_rvv/rvv_l1_latency/main.c]
+    pve0: [test_rvv/rvv_l1_latency/cva6v.c]
+    aicore0: [test_rvv/rvv_l1_latency/cva6v.c]
+

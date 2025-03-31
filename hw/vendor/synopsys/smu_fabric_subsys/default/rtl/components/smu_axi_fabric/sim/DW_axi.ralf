@@ -1,0 +1,9 @@
+#
+# ABSTRACT : RAL file generated for /smu_axi_fabric
+#
+
+
+
+system smu_axi_fabric_DW_axi {
+}
+

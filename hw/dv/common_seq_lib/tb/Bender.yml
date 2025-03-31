@@ -1,0 +1,18 @@
+package:
+  name: common_seq_lib_tb
+  description: "UVM testbench setup for common sequence library"
+  authors:
+    - "srinivas.prakash@axelera.ai"
+
+dependencies:
+  axi_pkg:              { path: ""}
+  common_seq_lib_tests: { path: "../uvm/tests" } # Verification enviroment
+  svt_amba_vip:         { path: "../../../dv/svt_amba_vip" }
+  axi:                  { path: ""}
+
+sources:
+  - target: simulation
+    include_dirs:
+      - .
+    files:
+      - hdl_top.sv

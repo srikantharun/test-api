@@ -1,0 +1,61 @@
+tests:
+- description: TODO
+  flags:
+  - ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/asm/tests/build/random/base_lrsc_0
+  labels:
+  - CVA6V_DV_TESTS
+  - CVA6V_DV_RAG_TESTS
+  - CVA6V_DV_RAG_LOCAL_TESTS
+  name: base_lrsc_0
+  owner: Pawel Wiecha
+  platforms:
+  - cva6v.*
+  requirement_ids: []
+- description: TODO
+  flags:
+  - ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/asm/tests/build/random/base_lrsc_1
+  labels:
+  - CVA6V_DV_TESTS
+  - CVA6V_DV_RAG_TESTS
+  - CVA6V_DV_RAG_LOCAL_TESTS
+  name: base_lrsc_1
+  owner: Pawel Wiecha
+  platforms:
+  - cva6v.*
+  requirement_ids: []
+- description: TODO
+  flags:
+  - ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/asm/tests/build/random/base_lrsc_2
+  labels:
+  - CVA6V_DV_TESTS
+  - CVA6V_DV_RAG_TESTS
+  - CVA6V_DV_RAG_LOCAL_TESTS
+  name: base_lrsc_2
+  owner: Pawel Wiecha
+  platforms:
+  - cva6v.*
+  requirement_ids: []
+- description: TODO
+  flags:
+  - ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/asm/tests/build/random/base_lrsc_3
+  labels:
+  - CVA6V_DV_TESTS
+  - CVA6V_DV_RAG_TESTS
+  - CVA6V_DV_RAG_LOCAL_TESTS
+  name: base_lrsc_3
+  owner: Pawel Wiecha
+  platforms:
+  - cva6v.*
+  requirement_ids: []
+- description: TODO
+  flags:
+  - ELF=$REPO_ROOT/hw/vendor/axelera/cva6v/default/dv/asm/tests/build/random/base_lrsc_4
+  labels:
+  - CVA6V_DV_TESTS
+  - CVA6V_DV_RAG_TESTS
+  - CVA6V_DV_RAG_LOCAL_TESTS
+  name: base_lrsc_4
+  owner: Pawel Wiecha
+  platforms:
+  - cva6v.*
+  requirement_ids: []

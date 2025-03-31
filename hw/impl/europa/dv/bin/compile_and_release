@@ -1,0 +1,89 @@
+#!/usr/bin/env bash
+# compile_vsim (both DEBUG and non DEBUG) in the release area
+
+set -e
+
+top_platform="$1"
+SIM_RELEASE_HOME=/home/projects_2/workspace/verif_team/releases/nightly
+DV_BIN_DIR="$(readlink -e $(dirname $0))"
+
+#--------------------------------------------------------------
+# functions
+#--------------------------------------------------------------
+error() {
+  >&2 echo "ERROR: $@"
+  exit 1
+}
+
+print_info() {
+  pushd $REPO_ROOT > /dev/null
+
+  git_is_dirty=0
+  git diff --quiet || git_is_dirty=1
+
+  echo "testbench_dir=$testbench_dir"
+  echo "compilation_date=$(date +%Y-%m-%d)"
+  echo "git_branch=$(git rev-parse --abbrev-ref HEAD)"
+  echo "git_sha1=$(git rev-parse HEAD)"
+  echo "git_is_dirty=$git_is_dirty"
+
+  popd > /dev/null
+}
+
+
+#--------------------------------------------------------------
+# execution
+#--------------------------------------------------------------
+release_dir=$SIM_RELEASE_HOME/$top_platform
+release_backup_dir=$SIM_RELEASE_HOME/${top_platform}.backup
+
+# check tb exist in original europa_repo
+testbench_dir="$REPO_ROOT/hw/impl/europa/dv/$top_platform"
+[ -d "$testbench_dir" ] || error "$testbench_dir does not exist"
+
+# cleanup backup dir in case previous release did not finish cleanly
+if [ -d "$release_backup_dir" ]; then
+  echo "WARNING: cleanup previous backup directory"
+  rm -rf $release_backup_dir
+fi
+
+# save previous release as a backup in case compile_vsim fails
+if [ -d "$release_dir" ]; then
+  mv $release_dir $release_backup_dir
+else
+  echo "INFO: no previous release availble"
+fi
+
+# create new europa repo in release dir: needed to be able to run debug build
+mkdir -p $release_dir
+cd $release_dir
+git clone $REPO_ROOT europa
+cd europa
+source .env-default-modules
+# testbench_dir in new europa repo
+testbench_dir="$REPO_ROOT/hw/impl/europa/dv/$top_platform"
+print_info > ../info.txt
+print_info > $testbench_dir/info.txt
+
+# build DEBUG and non DEBUG builds
+cd $testbench_dir
+exit_status=0
+make clean
+make compile_vsim || exit_status=1
+make compile_vsim DEBUG=1 || exit_status=1
+if ((exit_status != 0)); then
+  rm -rf "$release_dir"
+else
+  cp $DV_BIN_DIR/link_to_release $REPO_ROOT/..
+fi
+
+# cleanup backup directory
+if [ -d "$release_backup_dir" ]; then
+  if ((exit_status == 0)); then
+    rm -rf "$release_backup_dir"
+  else
+    mv "$release_backup_dir" "$release_dir"
+  fi
+fi
+
+exit $exit_status

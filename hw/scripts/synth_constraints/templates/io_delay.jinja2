@@ -1,0 +1,9 @@
+{% import 'get_object.jinja2' as get_object %}
+#######################
+# Define the IO Delay #
+#######################
+{% for delay in data.io_delay|filter_by_mode(constraint_mode) %}
+puts "INFO: constraining '{{ delay.object.name }}' against '{{ delay.clock }}'"
+set_input_delay  -{{ delay.type.value }} {{ delay.delay_ns }} -clock {{ delay.clock }} {{ get_object.get_object(delay.object) }}
+set_output_delay -{{ delay.type.value }} {{ delay.delay_ns }} -clock {{ delay.clock }} {{ get_object.get_object(delay.object) }}
+{%- endfor %}

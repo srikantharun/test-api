@@ -1,0 +1,20 @@
+package:
+  name: ai_core_infra_verif_uvm_tb
+  description: "ai_core_infra verification UVM testbench"
+  authors:
+    - "roswin.benny@axelera.ai"
+
+dependencies:
+  europa_aic_infra:            { path: "../../../../../impl/europa/blocks/aic_infra/rtl"    } # Call in DUT RTL
+  ai_core_infra_uvm_test:      { path: "../uvm/tests"    }  
+  ai_core_infra_uvm_env:       { path: "../uvm/env" } 
+  axi4pc:                      { path: "../../../../../dv/axi4pc"} 
+  axi_pkg:                     { path: "../../../axi/default/rtl" }
+  dv_common_rtl:               { path: "../../../../../dv/common/rtl/" }
+
+sources:
+  - target: simulation
+    include_dirs:
+      - .
+    files:
+      - hdl_top.sv

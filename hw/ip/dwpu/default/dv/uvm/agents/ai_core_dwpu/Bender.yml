@@ -1,0 +1,16 @@
+package:
+  name: ai_core_dwpu_uvm_dwpu_agent
+  description: "DWPU verification agent"
+  authors:
+    - "jorge.carvalho@axelera.ai"
+
+dependencies:
+  ai_core_dwpu_uvm_common:     { path: "../../common" }
+  aic_common_pkg:              { path: "../../../../../../aic_common/default/rtl" }
+
+sources:
+  - target: simulation
+    include_dirs:
+      - .
+    files:
+      - ai_core_dwpu_agent_pkg.sv

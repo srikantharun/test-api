@@ -1,0 +1,21 @@
+package:
+  name: ai_core_dwpu_uvm_dwpu_sb
+  description: "DWPU scoreboard"
+  authors:
+    - "jorge.carvalho@axelera.ai"
+
+dependencies:
+  aic_common_pkg:              { path: "../../../../../../aic_common/default/rtl/" }
+  ai_core_token_agent_uvm_pkg: { path: "../../../../../../../dv/token_agent"}
+  svt_amba_vip:                { path: "../../../../../../../dv/svt_amba_vip"}
+  ai_core_dwpu_uvm_dwpu_agent: { path: "../../agents/ai_core_dwpu"}
+  ai_core_dwpu_uvm_ral:        { path: "../../ral" }
+  ai_core_dwpu_uvm_common:     { path: "../../common" }
+
+
+sources:
+  - target: simulation
+    include_dirs:
+      - .
+    files:
+      - ai_core_dwpu_scoreboard_pkg.sv

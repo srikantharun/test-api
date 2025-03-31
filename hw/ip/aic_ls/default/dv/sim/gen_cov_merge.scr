@@ -1,0 +1,1 @@
+urg -dir regr_runs/ai_core_ls_axi_*/simv.vdb -dbname  regr_runs/merged.vdb -format both

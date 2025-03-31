@@ -1,0 +1,4 @@
++cover=t+hdl_top.i_europa.* -ports
++cover=t+hdl_top.i_europa.u_europa_io.* -ports
++cover=t+hdl_top.i_europa.u_aipu.*+R+1 -ports
++cover=t+hdl_top.i_europa.u_aipu.u_soc_periph_p.*+R+2 -ports

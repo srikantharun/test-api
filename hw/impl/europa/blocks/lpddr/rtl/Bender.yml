@@ -1,0 +1,39 @@
+# (C) Copyright 2024 Axelera AI B.V.
+# All Rights Reserved
+# *** Axelera AI Confidential ***
+
+package:
+  name: europa_lpddr
+  description: "TODO: add description"
+  authors:
+    - "Anonymous <anonymous@axelera.ai>"
+
+dependencies:
+  lowrisc_prim_subreg: { path: "../../../../../vendor/lowrisc/prim_subreg/default/rtl" }
+  axi_pkg: { path: "../../../../../ip/axi/default/rtl/pkg" }
+  axi:                 { path: "../../../../../ip/axi/default/rtl/" }
+  axe_apb:             { path: "../../../../../ip/apb/default/rtl/" }
+  europa_impl_rtl:     { path: "hw/impl/europa/rtl" }
+  pctl:                { path: "hw/ip/pctl/default/rtl" }
+  europa_asic_pkg: { path: "../../../asic/rtl/pkg" }
+  europa_lpddr_pkg: { path: "pkg" }
+  synopsys_lpddr_subsys: { path: "${REPO_ROOT}/hw/vendor/synopsys/lpddr_subsys/default/rtl" }
+  cc_lib: {path: "${REPO_ROOT}/hw/ip/common_cell_library/default/rtl"}
+  axe_tcl: {path: "${REPO_ROOT}/hw/ip/tech_cell_library/default/rtl/Bender.yml"}
+
+# Source files grouped in levels.
+# Files in level 0 have no dependencies on files in this package.
+# Files in level 1 only depend on files in level 0, files in level 2 on files in levels 1 and 0, etc.
+# Files within a level are ordered alphabetically.
+sources:
+  - files:
+    # Level 0
+    - europa_lpddr_async_perf_counter.sv
+    - generated/lpddr_subsys_wrapper.sv
+    - build_reg/lpddr_csr_reg_top.sv
+    - jtag_snps_tdr.v
+
+  - target: all(rtl, not(dft))
+    files:
+      # Level 1
+    - lpddr_p.sv

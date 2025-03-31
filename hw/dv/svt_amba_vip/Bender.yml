@@ -1,0 +1,46 @@
+# (C) Copyright Axelera AI 2023
+# All Rights Reserved
+# *** Axelera AI Confidential ***
+#
+# Owner: Timir Soni <timir.soni@axelera.ai>
+
+package:
+  name: svt_amba_vip
+  authors:
+    - "Synopsys SVT AMBA VIP"
+
+# To be able to use:
+# `include "svt_*_common_defines.svi`
+export_include_dirs:
+  - /$EUROPA_VIP_HOME/amba_system_env_svt/include/sverilog
+
+sources:
+  - target: simulation
+    files:
+      - apb_reset_if.sv
+      - ahb_reset_if.sv
+      - axi_reset_if.sv
+
+  - target: all(simulation, vcs)
+    defines:
+      SVT_AMBA_OPTIMIZED_COMPILE: ~
+    include_dirs:
+      - /$EUROPA_VIP_HOME/amba_system_env_svt/src/sverilog
+      - /$EUROPA_VIP_HOME/amba_system_env_svt/src/sverilog/vcs
+    files:
+      # These are symbolic links to /$EUROPA_VIP_HOME/amba_system_env_svt/include/sverilog/
+      # This compiles all amba specific packages!
+      - svt_amba.uvm.pkg.sv
+
+  - target: all(simulation, vsim)
+    defines:
+      SVT_AMBA_OPTIMIZED_COMPILE: ~
+      SVT_VENDOR_LC: mti
+      SVT_EXCLUDE_METHODOLOGY_PKG_INCLUDE: ~
+      SVT_UVM_TECHNOLOGY: ~
+      SVT_UVM_12_OR_HIGHER: ~
+    include_dirs:
+        - /$EUROPA_VIP_HOME/amba_system_env_svt/src/sverilog
+        - /$EUROPA_VIP_HOME/amba_system_env_svt/src/sverilog/mti
+    files:
+      - svt_amba.uvm.pkg.sv

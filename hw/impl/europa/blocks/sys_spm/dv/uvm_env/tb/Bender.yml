@@ -1,0 +1,28 @@
+package:
+  name: sys_spm_verif_uvm_tb
+  description: "sys spm verification UVM testbench"
+  authors:
+    - "Vito Luca Guglielmi - vito.guglielmi@axelera.ai"
+
+dependencies:
+
+    spm:                          { path: "../../../../../../../ip/spm/default/rtl"     }
+    spm_pkg:                      { path: "../../../../../../../ip/spm/default/rtl/pkg" }
+    sys_spm:                      { path: "../../../rtl"     }
+    sys_spm_pkg:                  { path: "../../../rtl/pkg" }
+    svt_amba_vip:                 { path: "../../../../../dv/svt_amba_vip" }
+    spm_verif_uvm_env:            { path: "../../../../../../../ip/spm/default/dv/env"  }
+    spm_verif_uvm_sequences:      { path: "../../../../../../../ip/spm/default/dv/sequences"  }
+    spm_verif_uvm_tests:          { path: "../../../../../../../ip/spm/default/dv/tests"  }
+    sys_spm_verif_uvm_env:        { path: "../env"  }
+    sys_spm_verif_uvm_tests:      { path: "../tests"  }
+    dv_common_rtl:                { path: "../../../../../../../dv/common/rtl" }
+
+
+sources:
+  - target: simulation
+    include_dirs:
+      - .
+    files:
+      - spm_if.sv
+      - hdl_top.sv

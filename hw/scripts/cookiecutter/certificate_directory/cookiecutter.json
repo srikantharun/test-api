@@ -1,0 +1,5 @@
+{
+    "__certificate_dir" : "certificate",
+    "author_full_name": "Anonymous",
+    "author_email": "{{ cookiecutter.author_full_name | lower | replace(' ', '.') }}@axelera.ai"
+}

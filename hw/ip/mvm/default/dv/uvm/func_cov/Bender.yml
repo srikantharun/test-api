@@ -1,0 +1,23 @@
+# (C) Copyright 2024 Axelera AI B.V.
+# All Rights Reserved
+# *** Axelera AI Confidential ***
+
+package:
+  name: ai_core_mvm_func_cov
+  description: "MVM verification functional model"
+  authors:
+    - "timir.soni@axelera.ai"
+
+dependencies:
+  svt_amba_vip               : { path: "../../../../../../dv/svt_amba_vip" }
+  aic_common:                  { path: "../../../../../aic_common/default/rtl/" }
+  ai_core_token_agent_uvm_pkg: { path: "../../../../../../dv/token_agent"}
+  ai_core_mvm_uvm_common:      { path: "../common" }
+
+
+sources:
+  - target: simulation
+    include_dirs:
+      - .
+    files:
+      - ai_core_mvm_func_cov_pkg.sv

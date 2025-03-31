@@ -1,0 +1,14 @@
+package:
+  name: dwpu_ral_pkg
+  description: "DWPU ral package"
+  authors:
+    - "roswin.benny@axelera.ai"
+
+dependencies:
+  lowrisc_dv_base_reg:         { path: "$REPO_ROOT/hw/vendor/axelera/lowrisc_dv/dv_base_reg"}
+  v_utils_pkg:                 { path: "$REPO_ROOT/hw/dv/v_utils"}
+
+sources:
+  - target: simulation
+    files:
+      - $REPO_ROOT/hw/ip/dwpu/default/dv/build_ral/dwpu_csr_ral_pkg.sv

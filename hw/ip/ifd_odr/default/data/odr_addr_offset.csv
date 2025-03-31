@@ -1,0 +1,4 @@
+start_addr,end_addr,size,name,type,info,manually_maintained,notes
+0x0000,0x0FFF,4 KB,Block CSR,reggen_csr,./odr_csr.hjson,TRUE,
+0x1000,0x1FFF,4 KB,CMD Block,cmdblock_cmd_fifo,9,TRUE,
+0x8000,0xFFFF,32 KiB,Def Mem,cmdblock_desc_mem,128x64,TRUE,1 KiB of address space is used defintion memory

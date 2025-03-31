@@ -1,0 +1,821 @@
+// ------------------------------------------------------------------------------
+// 
+// Copyright 2024 Synopsys, INC.
+// 
+// This Synopsys IP and all associated documentation are proprietary to
+// Synopsys, Inc. and may only be used pursuant to the terms and conditions of a
+// written license agreement with Synopsys, Inc. All other use, reproduction,
+// modification, or distribution of the Synopsys IP or the associated
+// documentation is strictly prohibited.
+// Inclusivity & Diversity - Visit SolvNetPlus to read the "Synopsys Statement on
+//            Inclusivity and Diversity" (Refer to article 000036315 at
+//                        https://solvnetplus.synopsys.com)
+// 
+// Component Name   : DWC_ddrctl_lpddr54
+// Component Version: 1.60a-lca00
+// Release Type     : LCA
+// Build ID         : 0.0.0.0.TreMctl_302.DwsDdrChip_8.26.6.DwsDdrctlTop_5.12.7
+// ------------------------------------------------------------------------------
+
+
+#include "cinit_ddr5_speed_bin_types.h"
+#include "dwc_cinit_macros.h"
+
+#define N_A 0xFFFF /* Macro used when not applicable */
+
+/*****************************************************************************/
+/*                                   3200                                    */
+/*****************************************************************************/
+static const dwc_ddr5_speed_bin_t downbins_3200C[] = {
+    DWC_DDR5_2100, DWC_DDR5_3200C
+};
+
+static const dwc_ddr5_speed_bin_t downbins_3200BN[] = {
+    DWC_DDR5_2100,
+    DWC_DDR5_3200C, DWC_DDR5_3200BN, DWC_DDR5_3200B
+};
+
+static const dwc_ddr5_speed_bin_t downbins_3200B[] = {
+    DWC_DDR5_2100,
+    DWC_DDR5_3200C, DWC_DDR5_3200BN, DWC_DDR5_3200B
+};
+
+static const dwc_ddr5_speed_bin_t downbins_3200AN[] = {
+    DWC_DDR5_2100,
+    DWC_DDR5_3200C, DWC_DDR5_3200BN, DWC_DDR5_3200B, DWC_DDR5_3200AN
+};
+
+
+/*****************************************************************************/
+/*                                   3600                                    */
+/*****************************************************************************/
+static const dwc_ddr5_speed_bin_t downbins_3600C[] = {
+    DWC_DDR5_2100, DWC_DDR5_3200C, DWC_DDR5_3600C
+};
+
+static const dwc_ddr5_speed_bin_t downbins_3600BN[] = {
+    DWC_DDR5_2100,
+    DWC_DDR5_3200C,
+    DWC_DDR5_3600C, DWC_DDR5_3600BN, DWC_DDR5_3600B
+};
+
+static const dwc_ddr5_speed_bin_t downbins_3600B[] = {
+    DWC_DDR5_2100,
+    DWC_DDR5_3200C, DWC_DDR5_3200BN, DWC_DDR5_3200B,
+    DWC_DDR5_3600C, DWC_DDR5_3600BN, DWC_DDR5_3600B
+};
+
+static const dwc_ddr5_speed_bin_t downbins_3600AN[] = {
+    DWC_DDR5_2100,
+    DWC_DDR5_3200C, DWC_DDR5_3200BN, DWC_DDR5_3200B, DWC_DDR5_3200AN,
+    DWC_DDR5_3600C, DWC_DDR5_3600BN, DWC_DDR5_3600B, DWC_DDR5_3600AN
+};
+
+
+/*****************************************************************************/
+/*                                   4000                                    */
+/*****************************************************************************/
+static const dwc_ddr5_speed_bin_t downbins_4000C[] = {
+    DWC_DDR5_2100, DWC_DDR5_3200C, DWC_DDR5_3600C, DWC_DDR5_4000C
+};
+
+static const dwc_ddr5_speed_bin_t downbins_4000BN_B[] = {
+    DWC_DDR5_2100,
+    DWC_DDR5_3200C, DWC_DDR5_3200BN, DWC_DDR5_3200B,
+    DWC_DDR5_3600C, DWC_DDR5_3600BN, DWC_DDR5_3600B,
+    DWC_DDR5_4000C, DWC_DDR5_4000BN, DWC_DDR5_4000B
+};
+
+static const dwc_ddr5_speed_bin_t downbins_4000AN[] = {
+    DWC_DDR5_2100,
+    DWC_DDR5_3200C, DWC_DDR5_3200BN, DWC_DDR5_3200B, DWC_DDR5_3200AN,
+    DWC_DDR5_3600C, DWC_DDR5_3600BN, DWC_DDR5_3600B, DWC_DDR5_3600AN,
+    DWC_DDR5_4000C, DWC_DDR5_4000BN, DWC_DDR5_4000B, DWC_DDR5_4000AN
+};
+
+
+/*****************************************************************************/
+/*                                   4400                                    */
+/*****************************************************************************/
+static const dwc_ddr5_speed_bin_t downbins_4400C[] = {
+    DWC_DDR5_2100, DWC_DDR5_3200C, DWC_DDR5_3600C, DWC_DDR5_4000C,
+    DWC_DDR5_4400C
+};
+
+static const dwc_ddr5_speed_bin_t downbins_4400BN[] = {
+    DWC_DDR5_2100,
+    DWC_DDR5_3200C,
+    DWC_DDR5_3600C, DWC_DDR5_3600BN, DWC_DDR5_3600B,
+    DWC_DDR5_4000C,
+    DWC_DDR5_4400C, DWC_DDR5_4400BN, DWC_DDR5_4400B
+};
+
+static const dwc_ddr5_speed_bin_t downbins_4400B[] = {
+    DWC_DDR5_2100,
+    DWC_DDR5_3200C, DWC_DDR5_3200BN, DWC_DDR5_3200B,
+    DWC_DDR5_3600C, DWC_DDR5_3600BN, DWC_DDR5_3600B,
+    DWC_DDR5_4000C, DWC_DDR5_4000BN, DWC_DDR5_4000B,
+    DWC_DDR5_4400C, DWC_DDR5_4400BN, DWC_DDR5_4400B
+};
+
+static const dwc_ddr5_speed_bin_t downbins_4400AN[] = {
+    DWC_DDR5_2100,
+    DWC_DDR5_3200C, DWC_DDR5_3200BN, DWC_DDR5_3200B, DWC_DDR5_3200AN,
+    DWC_DDR5_3600C, DWC_DDR5_3600BN, DWC_DDR5_3600B,
+    DWC_DDR5_4000C, DWC_DDR5_4000BN, DWC_DDR5_4000B,
+    DWC_DDR5_4400C, DWC_DDR5_4400BN, DWC_DDR5_4400B, DWC_DDR5_4400AN
+};
+
+
+/*****************************************************************************/
+/*                                   4800                                    */
+/*****************************************************************************/
+static const dwc_ddr5_speed_bin_t downbins_4800C[] = {
+    DWC_DDR5_2100,  DWC_DDR5_3200C, DWC_DDR5_3600C, DWC_DDR5_4000C,
+    DWC_DDR5_4400C, DWC_DDR5_4800C
+};
+
+static const dwc_ddr5_speed_bin_t downbins_4800BN[] = {
+    DWC_DDR5_2100,
+    DWC_DDR5_3200C,
+    DWC_DDR5_3600C, DWC_DDR5_3600BN, DWC_DDR5_3600B,
+    DWC_DDR5_4000C,
+    DWC_DDR5_4400C,
+    DWC_DDR5_4800C, DWC_DDR5_4800BN
+};
+
+static const dwc_ddr5_speed_bin_t downbins_4800B[] = {
+    DWC_DDR5_2100,
+    DWC_DDR5_3200C, DWC_DDR5_3200BN, DWC_DDR5_3200B,
+    DWC_DDR5_3600C, DWC_DDR5_3600BN, DWC_DDR5_3600B,
+    DWC_DDR5_4000C, DWC_DDR5_4000BN, DWC_DDR5_4000B,
+    DWC_DDR5_4400C, DWC_DDR5_4400BN, DWC_DDR5_4400B,
+    DWC_DDR5_4800C, DWC_DDR5_4800BN, DWC_DDR5_4800B
+};
+
+static const dwc_ddr5_speed_bin_t downbins_4800AN[] = {
+    DWC_DDR5_2100,
+    DWC_DDR5_3200C, DWC_DDR5_3200BN, DWC_DDR5_3200B, DWC_DDR5_3200AN,
+    DWC_DDR5_3600C, DWC_DDR5_3600BN, DWC_DDR5_3600B, DWC_DDR5_3600AN,
+    DWC_DDR5_4000C, DWC_DDR5_4000BN, DWC_DDR5_4000B,
+    DWC_DDR5_4400C, DWC_DDR5_4400BN, DWC_DDR5_4400B, DWC_DDR5_4400AN,
+    DWC_DDR5_4800C, DWC_DDR5_4800BN, DWC_DDR5_4800B, DWC_DDR5_4800AN
+};
+
+
+/*****************************************************************************/
+/*                                   5200                                    */
+/*****************************************************************************/
+static const dwc_ddr5_speed_bin_t downbins_5200C[] = {
+    DWC_DDR5_2100,  DWC_DDR5_3200C, DWC_DDR5_3600C, DWC_DDR5_4000C,
+    DWC_DDR5_4400C, DWC_DDR5_4800C, DWC_DDR5_5200C
+};
+
+static const dwc_ddr5_speed_bin_t downbins_5200BN[] = {
+    DWC_DDR5_2100,
+    DWC_DDR5_3200C, DWC_DDR5_3200BN, DWC_DDR5_3200B,
+    DWC_DDR5_3600C, DWC_DDR5_3600BN, DWC_DDR5_3600B,
+    DWC_DDR5_4000C,
+    DWC_DDR5_4400C, DWC_DDR5_4400BN, DWC_DDR5_4400B,
+    DWC_DDR5_4800C, DWC_DDR5_4800BN, DWC_DDR5_4800B,
+    DWC_DDR5_5200C, DWC_DDR5_5200BN, DWC_DDR5_5200B
+};
+
+static const dwc_ddr5_speed_bin_t downbins_5200B[] = {
+    DWC_DDR5_2100,
+    DWC_DDR5_3200C, DWC_DDR5_3200BN, DWC_DDR5_3200B,
+    DWC_DDR5_3600C, DWC_DDR5_3600BN, DWC_DDR5_3600B,
+    DWC_DDR5_4000C, DWC_DDR5_4000BN, DWC_DDR5_4000B,
+    DWC_DDR5_4400C, DWC_DDR5_4400BN, DWC_DDR5_4400B,
+    DWC_DDR5_4800C, DWC_DDR5_4800BN, DWC_DDR5_4800B,
+    DWC_DDR5_5200C, DWC_DDR5_5200BN, DWC_DDR5_5200B
+};
+
+static const dwc_ddr5_speed_bin_t downbins_5200AN[] = {
+    DWC_DDR5_2100,
+    DWC_DDR5_3200C, DWC_DDR5_3200BN, DWC_DDR5_3200B, DWC_DDR5_3200AN,
+    DWC_DDR5_3600C, DWC_DDR5_3600BN, DWC_DDR5_3600B,
+    DWC_DDR5_4000C, DWC_DDR5_4000BN, DWC_DDR5_4000B,
+    DWC_DDR5_4400C, DWC_DDR5_4400BN, DWC_DDR5_4400B,
+    DWC_DDR5_4800C, DWC_DDR5_4800BN, DWC_DDR5_4800B,
+    DWC_DDR5_5200C, DWC_DDR5_5200BN, DWC_DDR5_5200B, DWC_DDR5_5200AN
+};
+
+
+/*****************************************************************************/
+/*                                   5600                                    */
+/*****************************************************************************/
+static const dwc_ddr5_speed_bin_t downbins_5600C[] = {
+    DWC_DDR5_2100,  DWC_DDR5_3200C, DWC_DDR5_3600C, DWC_DDR5_4000C,
+    DWC_DDR5_4400C, DWC_DDR5_4800C, DWC_DDR5_5200C, DWC_DDR5_5600C
+};
+
+static const dwc_ddr5_speed_bin_t downbins_5600BN[] = {
+    DWC_DDR5_2100,
+    DWC_DDR5_3200C,
+    DWC_DDR5_3600C, DWC_DDR5_3600BN, DWC_DDR5_3600B,
+    DWC_DDR5_4000C,
+    DWC_DDR5_4400C,
+    DWC_DDR5_4800C, DWC_DDR5_4800BN,
+    DWC_DDR5_5200C,
+    DWC_DDR5_5600C, DWC_DDR5_5600BN
+};
+
+static const dwc_ddr5_speed_bin_t downbins_5600B[] = {
+    DWC_DDR5_2100,
+    DWC_DDR5_3200C, DWC_DDR5_3200BN, DWC_DDR5_3200B,
+    DWC_DDR5_3600C, DWC_DDR5_3600BN, DWC_DDR5_3600B,
+    DWC_DDR5_4000C, DWC_DDR5_4000BN, DWC_DDR5_4000B,
+    DWC_DDR5_4400C, DWC_DDR5_4400BN, DWC_DDR5_4400B,
+    DWC_DDR5_4800C, DWC_DDR5_4800BN, DWC_DDR5_4800B,
+    DWC_DDR5_5200C, DWC_DDR5_5200BN, DWC_DDR5_5200B,
+    DWC_DDR5_5600C, DWC_DDR5_5600BN, DWC_DDR5_5600B
+};
+
+static const dwc_ddr5_speed_bin_t downbins_5600AN[] = {
+    DWC_DDR5_2100,
+    DWC_DDR5_3200C, DWC_DDR5_3200BN, DWC_DDR5_3200B, DWC_DDR5_3200AN,
+    DWC_DDR5_3600C, DWC_DDR5_3600BN, DWC_DDR5_3600B, DWC_DDR5_3600AN,
+    DWC_DDR5_4000C, DWC_DDR5_4000BN, DWC_DDR5_4000B,
+    DWC_DDR5_4400C, DWC_DDR5_4400BN, DWC_DDR5_4400B, DWC_DDR5_4400AN,
+    DWC_DDR5_4800C, DWC_DDR5_4800BN, DWC_DDR5_4800B,
+    DWC_DDR5_5200C, DWC_DDR5_5200BN, DWC_DDR5_5200B, DWC_DDR5_5200AN,
+    DWC_DDR5_5600C, DWC_DDR5_5600BN, DWC_DDR5_5600B, DWC_DDR5_5600AN
+};
+
+
+/*****************************************************************************/
+/*                                   6000                                    */
+/*****************************************************************************/
+static const dwc_ddr5_speed_bin_t downbins_6000C[] = {
+    DWC_DDR5_2100,  DWC_DDR5_3200C, DWC_DDR5_3600C, DWC_DDR5_4000C,
+    DWC_DDR5_4400C, DWC_DDR5_4800C, DWC_DDR5_5200C, DWC_DDR5_5600C,
+    DWC_DDR5_6000C
+};
+
+static const dwc_ddr5_speed_bin_t downbins_6000BN_B[] = {
+    DWC_DDR5_2100,
+    DWC_DDR5_3200C, DWC_DDR5_3200BN, DWC_DDR5_3200B,
+    DWC_DDR5_3600C, DWC_DDR5_3600BN, DWC_DDR5_3600B,
+    DWC_DDR5_4000C, DWC_DDR5_4000BN, DWC_DDR5_4000B,
+    DWC_DDR5_4400C, DWC_DDR5_4400BN, DWC_DDR5_4400B,
+    DWC_DDR5_4800C, DWC_DDR5_4800BN, DWC_DDR5_4800B,
+    DWC_DDR5_5200C, DWC_DDR5_5200BN, DWC_DDR5_5200B,
+    DWC_DDR5_5600C, DWC_DDR5_5600BN, DWC_DDR5_5600B,
+    DWC_DDR5_6000C, DWC_DDR5_6000BN, DWC_DDR5_6000B
+};
+
+static const dwc_ddr5_speed_bin_t downbins_6000AN[] = {
+    DWC_DDR5_2100,
+    DWC_DDR5_3200C, DWC_DDR5_3200BN, DWC_DDR5_3200B, DWC_DDR5_3200AN,
+    DWC_DDR5_3600C, DWC_DDR5_3600BN, DWC_DDR5_3600B, DWC_DDR5_3600AN,
+    DWC_DDR5_4000C, DWC_DDR5_4000BN, DWC_DDR5_4000B, DWC_DDR5_4000AN,
+    DWC_DDR5_4400C, DWC_DDR5_4400BN, DWC_DDR5_4400B, DWC_DDR5_4400AN,
+    DWC_DDR5_4800C, DWC_DDR5_4800BN, DWC_DDR5_4800B, DWC_DDR5_4800AN,
+    DWC_DDR5_5200C, DWC_DDR5_5200BN, DWC_DDR5_5200B, DWC_DDR5_5200AN,
+    DWC_DDR5_5600C, DWC_DDR5_5600BN, DWC_DDR5_5600B, DWC_DDR5_5600AN,
+    DWC_DDR5_6000C, DWC_DDR5_6000BN, DWC_DDR5_6000B, DWC_DDR5_6000AN
+};
+
+
+/*****************************************************************************/
+/*                                   6400                                    */
+/*****************************************************************************/
+static const dwc_ddr5_speed_bin_t downbins_6400C[] = {
+    DWC_DDR5_2100,  DWC_DDR5_3200C, DWC_DDR5_3600C, DWC_DDR5_4000C,
+    DWC_DDR5_4400C, DWC_DDR5_4800C, DWC_DDR5_5200C, DWC_DDR5_5600C,
+    DWC_DDR5_6000C, DWC_DDR5_6400C
+};
+
+static const dwc_ddr5_speed_bin_t downbins_6400BN[] = {
+    DWC_DDR5_2100,
+    DWC_DDR5_3200C, DWC_DDR5_3200BN, DWC_DDR5_3200B,
+    DWC_DDR5_3600C, DWC_DDR5_3600BN, DWC_DDR5_3600B,
+    DWC_DDR5_4000C,
+    DWC_DDR5_4400C, DWC_DDR5_4400BN, DWC_DDR5_4400B,
+    DWC_DDR5_4800C, DWC_DDR5_4800BN, DWC_DDR5_4800B,
+    DWC_DDR5_5200C,
+    DWC_DDR5_5600C, DWC_DDR5_5600BN,
+    DWC_DDR5_6000C,
+    DWC_DDR5_6400C, DWC_DDR5_6400BN, DWC_DDR5_6400B
+};
+
+static const dwc_ddr5_speed_bin_t downbins_6400B[] = {
+    DWC_DDR5_2100,
+    DWC_DDR5_3200C, DWC_DDR5_3200BN, DWC_DDR5_3200B,
+    DWC_DDR5_3600C, DWC_DDR5_3600BN, DWC_DDR5_3600B,
+    DWC_DDR5_4000C, DWC_DDR5_4000BN, DWC_DDR5_4000B,
+    DWC_DDR5_4400C, DWC_DDR5_4400BN, DWC_DDR5_4400B,
+    DWC_DDR5_4800C, DWC_DDR5_4800BN, DWC_DDR5_4800B,
+    DWC_DDR5_5200C, DWC_DDR5_5200BN, DWC_DDR5_5200B,
+    DWC_DDR5_5600C, DWC_DDR5_5600BN, DWC_DDR5_5600B,
+    DWC_DDR5_6000C, DWC_DDR5_6000BN, DWC_DDR5_6000B,
+    DWC_DDR5_6400C, DWC_DDR5_6400BN, DWC_DDR5_6400B
+};
+
+static const dwc_ddr5_speed_bin_t downbins_6400AN[] = {
+    DWC_DDR5_2100,
+    DWC_DDR5_3200C, DWC_DDR5_3200BN, DWC_DDR5_3200B, DWC_DDR5_3200AN,
+    DWC_DDR5_3600C, DWC_DDR5_3600BN, DWC_DDR5_3600B, DWC_DDR5_3600AN,
+    DWC_DDR5_4000C, DWC_DDR5_4000BN, DWC_DDR5_4000B,
+    DWC_DDR5_4400C, DWC_DDR5_4400BN, DWC_DDR5_4400B, DWC_DDR5_4400AN,
+    DWC_DDR5_4800C, DWC_DDR5_4800BN, DWC_DDR5_4800B,
+    DWC_DDR5_5200C, DWC_DDR5_5200BN, DWC_DDR5_5200B, DWC_DDR5_5200AN,
+    DWC_DDR5_5600C, DWC_DDR5_5600BN, DWC_DDR5_5600B,
+    DWC_DDR5_6000C, DWC_DDR5_6000BN, DWC_DDR5_6000B,
+    DWC_DDR5_6400C, DWC_DDR5_6400BN, DWC_DDR5_6400B, DWC_DDR5_6400AN
+};
+
+
+/*****************************************************************************/
+/*                                   6800                                    */
+/*****************************************************************************/
+static const dwc_ddr5_speed_bin_t downbins_6800C[] = {
+    DWC_DDR5_2100,  DWC_DDR5_3200C, DWC_DDR5_3600C, DWC_DDR5_4000C,
+    DWC_DDR5_4400C, DWC_DDR5_4800C, DWC_DDR5_5200C, DWC_DDR5_5600C,
+    DWC_DDR5_6000C, DWC_DDR5_6400C, DWC_DDR5_6800C
+};
+
+static const dwc_ddr5_speed_bin_t downbins_6800BN[] = {
+    DWC_DDR5_2100,
+    DWC_DDR5_3200C,
+    DWC_DDR5_3600C, DWC_DDR5_3600BN, DWC_DDR5_3600B,
+    DWC_DDR5_4000C,
+    DWC_DDR5_4400C,
+    DWC_DDR5_4800C, DWC_DDR5_4800BN,
+    DWC_DDR5_5200C,
+    DWC_DDR5_5600C,
+    DWC_DDR5_6000C,
+    DWC_DDR5_6400C,
+    DWC_DDR5_6800C, DWC_DDR5_6800BN
+};
+
+static const dwc_ddr5_speed_bin_t downbins_6800B[] = {
+    DWC_DDR5_2100,
+    DWC_DDR5_3200C, DWC_DDR5_3200BN, DWC_DDR5_3200B,
+    DWC_DDR5_3600C, DWC_DDR5_3600BN, DWC_DDR5_3600B,
+    DWC_DDR5_4000C, DWC_DDR5_4000BN, DWC_DDR5_4000B,
+    DWC_DDR5_4400C, DWC_DDR5_4400BN, DWC_DDR5_4400B,
+    DWC_DDR5_4800C, DWC_DDR5_4800BN, DWC_DDR5_4800B,
+    DWC_DDR5_5200C, DWC_DDR5_5200BN, DWC_DDR5_5200B,
+    DWC_DDR5_5600C, DWC_DDR5_5600BN, DWC_DDR5_5600B,
+    DWC_DDR5_6000C, DWC_DDR5_6000BN, DWC_DDR5_6000B,
+    DWC_DDR5_6400C, DWC_DDR5_6400BN, DWC_DDR5_6400B,
+    DWC_DDR5_6800C, DWC_DDR5_6800BN, DWC_DDR5_6800B
+};
+
+static const dwc_ddr5_speed_bin_t downbins_6800AN[] = {
+    DWC_DDR5_2100,
+    DWC_DDR5_3200C, DWC_DDR5_3200BN, DWC_DDR5_3200B, DWC_DDR5_3200AN,
+    DWC_DDR5_3600C, DWC_DDR5_3600BN, DWC_DDR5_3600B, DWC_DDR5_3600AN,
+    DWC_DDR5_4000C, DWC_DDR5_4000BN, DWC_DDR5_4000B,
+    DWC_DDR5_4400C, DWC_DDR5_4400BN, DWC_DDR5_4400B, DWC_DDR5_4400AN,
+    DWC_DDR5_4800C, DWC_DDR5_4800BN, DWC_DDR5_4800B, DWC_DDR5_4800AN,
+    DWC_DDR5_5200C, DWC_DDR5_5200BN, DWC_DDR5_5200B, DWC_DDR5_5200AN,
+    DWC_DDR5_5600C, DWC_DDR5_5600BN, DWC_DDR5_5600B, DWC_DDR5_5600AN,
+    DWC_DDR5_6000C, DWC_DDR5_6000BN, DWC_DDR5_6000B,
+    DWC_DDR5_6400C, DWC_DDR5_6400BN, DWC_DDR5_6400B, DWC_DDR5_6400AN,
+    DWC_DDR5_6800C, DWC_DDR5_6800BN, DWC_DDR5_6800B, DWC_DDR5_6800AN
+};
+
+
+/*****************************************************************************/
+/*                                   7200                                    */
+/*****************************************************************************/
+static const dwc_ddr5_speed_bin_t downbins_7200C[] = {
+    DWC_DDR5_2100,  DWC_DDR5_3200C, DWC_DDR5_3600C, DWC_DDR5_4000C,
+    DWC_DDR5_4400C, DWC_DDR5_4800C, DWC_DDR5_5200C, DWC_DDR5_5600C,
+    DWC_DDR5_6000C, DWC_DDR5_6400C, DWC_DDR5_6800C, DWC_DDR5_7200C
+};
+
+static const dwc_ddr5_speed_bin_t downbins_7200BN[] = {
+    DWC_DDR5_2100,
+    DWC_DDR5_3200C, DWC_DDR5_3200BN, DWC_DDR5_3200B,
+    DWC_DDR5_3600C, DWC_DDR5_3600BN, DWC_DDR5_3600B,
+    DWC_DDR5_4000C,
+    DWC_DDR5_4400C, DWC_DDR5_4400BN, DWC_DDR5_4400B,
+    DWC_DDR5_4800C, DWC_DDR5_4800BN, DWC_DDR5_4800B,
+    DWC_DDR5_5200C, DWC_DDR5_5200BN, DWC_DDR5_5200B,
+    DWC_DDR5_5600C, DWC_DDR5_5600BN, DWC_DDR5_5600B,
+    DWC_DDR5_6000C,
+    DWC_DDR5_6400C, DWC_DDR5_6400BN, DWC_DDR5_6400B,
+    DWC_DDR5_6800C, DWC_DDR5_6800BN, DWC_DDR5_6800B,
+    DWC_DDR5_7200C, DWC_DDR5_7200BN, DWC_DDR5_7200B
+};
+
+static const dwc_ddr5_speed_bin_t downbins_7200B[] = {
+    DWC_DDR5_2100,
+    DWC_DDR5_3200C, DWC_DDR5_3200BN, DWC_DDR5_3200B,
+    DWC_DDR5_3600C, DWC_DDR5_3600BN, DWC_DDR5_3600B,
+    DWC_DDR5_4000C, DWC_DDR5_4000BN, DWC_DDR5_4000B,
+    DWC_DDR5_4400C, DWC_DDR5_4400BN, DWC_DDR5_4400B,
+    DWC_DDR5_4800C, DWC_DDR5_4800BN, DWC_DDR5_4800B,
+    DWC_DDR5_5200C, DWC_DDR5_5200BN, DWC_DDR5_5200B,
+    DWC_DDR5_5600C, DWC_DDR5_5600BN, DWC_DDR5_5600B,
+    DWC_DDR5_6000C, DWC_DDR5_6000BN, DWC_DDR5_6000B,
+    DWC_DDR5_6400C, DWC_DDR5_6400BN, DWC_DDR5_6400B,
+    DWC_DDR5_6800C, DWC_DDR5_6800BN, DWC_DDR5_6800B,
+    DWC_DDR5_7200C, DWC_DDR5_7200BN, DWC_DDR5_7200B
+};
+
+static const dwc_ddr5_speed_bin_t downbins_7200AN[] = {
+    DWC_DDR5_2100,
+    DWC_DDR5_3200C, DWC_DDR5_3200BN, DWC_DDR5_3200B, DWC_DDR5_3200AN,
+    DWC_DDR5_3600C, DWC_DDR5_3600BN, DWC_DDR5_3600B, DWC_DDR5_3600AN,
+    DWC_DDR5_4000C, DWC_DDR5_4000BN, DWC_DDR5_4000B,
+    DWC_DDR5_4400C, DWC_DDR5_4400BN, DWC_DDR5_4400B, DWC_DDR5_4400AN,
+    DWC_DDR5_4800C, DWC_DDR5_4800BN, DWC_DDR5_4800B,
+    DWC_DDR5_5200C, DWC_DDR5_5200BN, DWC_DDR5_5200B, DWC_DDR5_5200AN,
+    DWC_DDR5_5600C, DWC_DDR5_5600BN, DWC_DDR5_5600B,
+    DWC_DDR5_6000C, DWC_DDR5_6000BN, DWC_DDR5_6000B,
+    DWC_DDR5_6400C, DWC_DDR5_6400BN, DWC_DDR5_6400B,
+    DWC_DDR5_6800C, DWC_DDR5_6800BN, DWC_DDR5_6800B,
+    DWC_DDR5_7200C, DWC_DDR5_7200BN, DWC_DDR5_7200B, DWC_DDR5_7200AN
+};
+
+
+/*****************************************************************************/
+/*                                   7600                                    */
+/*****************************************************************************/
+static const dwc_ddr5_speed_bin_t downbins_7600C[] = {
+    DWC_DDR5_2100,  DWC_DDR5_3200C, DWC_DDR5_3600C, DWC_DDR5_4000C,
+    DWC_DDR5_4400C, DWC_DDR5_4800C, DWC_DDR5_5200C, DWC_DDR5_5600C,
+    DWC_DDR5_6000C, DWC_DDR5_6400C, DWC_DDR5_6800C, DWC_DDR5_7200C,
+    DWC_DDR5_7600C
+};
+
+static const dwc_ddr5_speed_bin_t downbins_7600BN[] = {
+    DWC_DDR5_2100,
+    DWC_DDR5_3200C,
+    DWC_DDR5_3600C, DWC_DDR5_3600BN, DWC_DDR5_3600B,
+    DWC_DDR5_4000C,
+    DWC_DDR5_4400C, DWC_DDR5_4400BN, DWC_DDR5_4400B,
+    DWC_DDR5_4800C, DWC_DDR5_4800BN,
+    DWC_DDR5_5200C,
+    DWC_DDR5_5600C, DWC_DDR5_5600BN,
+    DWC_DDR5_6000C,
+    DWC_DDR5_6400C,
+    DWC_DDR5_6800C, DWC_DDR5_6800BN,
+    DWC_DDR5_7200C,
+    DWC_DDR5_7600C, DWC_DDR5_7600BN
+};
+
+static const dwc_ddr5_speed_bin_t downbins_7600B[] = {
+    DWC_DDR5_2100,
+    DWC_DDR5_3200C, DWC_DDR5_3200BN, DWC_DDR5_3200B,
+    DWC_DDR5_3600C, DWC_DDR5_3600BN, DWC_DDR5_3600B,
+    DWC_DDR5_4000C, DWC_DDR5_4000BN, DWC_DDR5_4000B,
+    DWC_DDR5_4400C, DWC_DDR5_4400BN, DWC_DDR5_4400B,
+    DWC_DDR5_4800C, DWC_DDR5_4800BN, DWC_DDR5_4800B,
+    DWC_DDR5_5200C, DWC_DDR5_5200BN, DWC_DDR5_5200B,
+    DWC_DDR5_5600C, DWC_DDR5_5600BN, DWC_DDR5_5600B,
+    DWC_DDR5_6000C, DWC_DDR5_6000BN, DWC_DDR5_6000B,
+    DWC_DDR5_6400C, DWC_DDR5_6400BN, DWC_DDR5_6400B,
+    DWC_DDR5_6800C, DWC_DDR5_6800BN, DWC_DDR5_6800B,
+    DWC_DDR5_7200C, DWC_DDR5_7200BN, DWC_DDR5_7200B,
+    DWC_DDR5_7600C, DWC_DDR5_7600BN, DWC_DDR5_7600B
+};
+
+static const dwc_ddr5_speed_bin_t downbins_7600AN[] = {
+    DWC_DDR5_2100,
+    DWC_DDR5_3200C, DWC_DDR5_3200BN, DWC_DDR5_3200B, DWC_DDR5_3200AN,
+    DWC_DDR5_3600C, DWC_DDR5_3600BN, DWC_DDR5_3600B, DWC_DDR5_3600AN,
+    DWC_DDR5_4000C, DWC_DDR5_4000BN, DWC_DDR5_4000B,
+    DWC_DDR5_4400C, DWC_DDR5_4400BN, DWC_DDR5_4400B, DWC_DDR5_4400AN,
+    DWC_DDR5_4800C, DWC_DDR5_4800BN, DWC_DDR5_4800B,
+    DWC_DDR5_5200C, DWC_DDR5_5200BN, DWC_DDR5_5200B, DWC_DDR5_5200AN,
+    DWC_DDR5_5600C, DWC_DDR5_5600BN, DWC_DDR5_5600B, DWC_DDR5_5600AN,
+    DWC_DDR5_6000C, DWC_DDR5_6000BN, DWC_DDR5_6000B,
+    DWC_DDR5_6400C, DWC_DDR5_6400BN, DWC_DDR5_6400B, DWC_DDR5_6400AN,
+    DWC_DDR5_6800C, DWC_DDR5_6800BN, DWC_DDR5_6800B,
+    DWC_DDR5_7200C, DWC_DDR5_7200BN, DWC_DDR5_7200B, DWC_DDR5_7200AN,
+    DWC_DDR5_7600C, DWC_DDR5_7600BN, DWC_DDR5_7600B, DWC_DDR5_7600AN
+};
+
+
+/*****************************************************************************/
+/*                                   8000                                    */
+/*****************************************************************************/
+static const dwc_ddr5_speed_bin_t downbins_8000C[] = {
+    DWC_DDR5_2100,  DWC_DDR5_3200C, DWC_DDR5_3600C, DWC_DDR5_4000C,
+    DWC_DDR5_4400C, DWC_DDR5_4800C, DWC_DDR5_5200C, DWC_DDR5_5600C,
+    DWC_DDR5_6000C, DWC_DDR5_6400C, DWC_DDR5_6800C, DWC_DDR5_7200C,
+    DWC_DDR5_7600C, DWC_DDR5_8000C
+};
+
+static const dwc_ddr5_speed_bin_t downbins_8000BN_B[] = {
+    DWC_DDR5_2100,
+    DWC_DDR5_3200C, DWC_DDR5_3200BN, DWC_DDR5_3200B,
+    DWC_DDR5_3600C, DWC_DDR5_3600BN, DWC_DDR5_3600B,
+    DWC_DDR5_4000C, DWC_DDR5_4000BN, DWC_DDR5_4000B,
+    DWC_DDR5_4400C, DWC_DDR5_4400BN, DWC_DDR5_4400B,
+    DWC_DDR5_4800C, DWC_DDR5_4800BN, DWC_DDR5_4800B,
+    DWC_DDR5_5200C, DWC_DDR5_5200BN, DWC_DDR5_5200B,
+    DWC_DDR5_5600C, DWC_DDR5_5600BN, DWC_DDR5_5600B,
+    DWC_DDR5_6000C, DWC_DDR5_6000BN, DWC_DDR5_6000B,
+    DWC_DDR5_6400C, DWC_DDR5_6400BN, DWC_DDR5_6400B,
+    DWC_DDR5_6800C, DWC_DDR5_6800BN, DWC_DDR5_6800B,
+    DWC_DDR5_7200C, DWC_DDR5_7200BN, DWC_DDR5_7200B,
+    DWC_DDR5_7600C, DWC_DDR5_7600BN, DWC_DDR5_7600B,
+    DWC_DDR5_8000C, DWC_DDR5_8000BN, DWC_DDR5_8000B
+};
+
+static const dwc_ddr5_speed_bin_t downbins_8000AN[] = {
+    DWC_DDR5_2100,
+    DWC_DDR5_3200C, DWC_DDR5_3200BN, DWC_DDR5_3200B, DWC_DDR5_3200AN,
+    DWC_DDR5_3600C, DWC_DDR5_3600BN, DWC_DDR5_3600B, DWC_DDR5_3600AN,
+    DWC_DDR5_4000C, DWC_DDR5_4000BN, DWC_DDR5_4000B, DWC_DDR5_4000AN,
+    DWC_DDR5_4400C, DWC_DDR5_4400BN, DWC_DDR5_4400B, DWC_DDR5_4400AN,
+    DWC_DDR5_4800C, DWC_DDR5_4800BN, DWC_DDR5_4800B, DWC_DDR5_4800AN,
+    DWC_DDR5_5200C, DWC_DDR5_5200BN, DWC_DDR5_5200B, DWC_DDR5_5200AN,
+    DWC_DDR5_5600C, DWC_DDR5_5600BN, DWC_DDR5_5600B, DWC_DDR5_5600AN,
+    DWC_DDR5_6000C, DWC_DDR5_6000BN, DWC_DDR5_6000B, DWC_DDR5_6000AN,
+    DWC_DDR5_6400C, DWC_DDR5_6400BN, DWC_DDR5_6400B, DWC_DDR5_6400AN,
+    DWC_DDR5_6800C, DWC_DDR5_6800BN, DWC_DDR5_6800B, DWC_DDR5_6800AN,
+    DWC_DDR5_7200C, DWC_DDR5_7200BN, DWC_DDR5_7200B, DWC_DDR5_7200AN,
+    DWC_DDR5_7600C, DWC_DDR5_7600BN, DWC_DDR5_7600B, DWC_DDR5_7600AN,
+    DWC_DDR5_8000C, DWC_DDR5_8000BN, DWC_DDR5_8000B, DWC_DDR5_8000AN
+};
+
+
+/*****************************************************************************/
+/*                                   8400                                    */
+/*****************************************************************************/
+static const dwc_ddr5_speed_bin_t downbins_8400C[] = {
+    DWC_DDR5_2100,  DWC_DDR5_3200C, DWC_DDR5_3600C, DWC_DDR5_4000C,
+    DWC_DDR5_4400C, DWC_DDR5_4800C, DWC_DDR5_5200C, DWC_DDR5_5600C,
+    DWC_DDR5_6000C, DWC_DDR5_6400C, DWC_DDR5_6800C, DWC_DDR5_7200C,
+    DWC_DDR5_7600C, DWC_DDR5_8000C, DWC_DDR5_8400C
+};
+
+static const dwc_ddr5_speed_bin_t downbins_8400BN[] = {
+    DWC_DDR5_2100,
+    DWC_DDR5_3200C, DWC_DDR5_3200BN, DWC_DDR5_3200B,
+    DWC_DDR5_3600C, DWC_DDR5_3600BN, DWC_DDR5_3600B,
+    DWC_DDR5_4000C,
+    DWC_DDR5_4400C, DWC_DDR5_4400BN, DWC_DDR5_4400B,
+    DWC_DDR5_4800C, DWC_DDR5_4800BN, DWC_DDR5_4800B,
+    DWC_DDR5_5200C,
+    DWC_DDR5_5600C, DWC_DDR5_5600BN,
+    DWC_DDR5_6000C,
+    DWC_DDR5_6400C, DWC_DDR5_6400BN, DWC_DDR5_6400B,
+    DWC_DDR5_6800C, DWC_DDR5_6800BN,
+    DWC_DDR5_7200C,
+    DWC_DDR5_7600C, DWC_DDR5_7600BN,
+    DWC_DDR5_8000C,
+    DWC_DDR5_8400C, DWC_DDR5_8400BN, DWC_DDR5_8400B
+};
+
+static const dwc_ddr5_speed_bin_t downbins_8400B[] = {
+    DWC_DDR5_2100,
+    DWC_DDR5_3200C, DWC_DDR5_3200BN, DWC_DDR5_3200B,
+    DWC_DDR5_3600C, DWC_DDR5_3600BN, DWC_DDR5_3600B,
+    DWC_DDR5_4000C, DWC_DDR5_4000BN, DWC_DDR5_4000B,
+    DWC_DDR5_4400C, DWC_DDR5_4400BN, DWC_DDR5_4400B,
+    DWC_DDR5_4800C, DWC_DDR5_4800BN, DWC_DDR5_4800B,
+    DWC_DDR5_5200C, DWC_DDR5_5200BN, DWC_DDR5_5200B,
+    DWC_DDR5_5600C, DWC_DDR5_5600BN, DWC_DDR5_5600B,
+    DWC_DDR5_6000C, DWC_DDR5_6000BN, DWC_DDR5_6000B,
+    DWC_DDR5_6400C, DWC_DDR5_6400BN, DWC_DDR5_6400B,
+    DWC_DDR5_6800C, DWC_DDR5_6800BN, DWC_DDR5_6800B,
+    DWC_DDR5_7200C, DWC_DDR5_7200BN, DWC_DDR5_7200B,
+    DWC_DDR5_7600C, DWC_DDR5_7600BN, DWC_DDR5_7600B,
+    DWC_DDR5_8000C, DWC_DDR5_8000BN, DWC_DDR5_8000B,
+    DWC_DDR5_8400C, DWC_DDR5_8400BN, DWC_DDR5_8400B
+};
+
+static const dwc_ddr5_speed_bin_t downbins_8400AN[] = {
+    DWC_DDR5_2100,
+    DWC_DDR5_3200C, DWC_DDR5_3200BN, DWC_DDR5_3200B, DWC_DDR5_3200AN,
+    DWC_DDR5_3600C, DWC_DDR5_3600BN, DWC_DDR5_3600B, DWC_DDR5_3600AN,
+    DWC_DDR5_4000C, DWC_DDR5_4000BN, DWC_DDR5_4000B,
+    DWC_DDR5_4400C, DWC_DDR5_4400BN, DWC_DDR5_4400B, DWC_DDR5_4400AN,
+    DWC_DDR5_4800C, DWC_DDR5_4800BN, DWC_DDR5_4800B,
+    DWC_DDR5_5200C, DWC_DDR5_5200BN, DWC_DDR5_5200B, DWC_DDR5_5200AN,
+    DWC_DDR5_5600C, DWC_DDR5_5600BN, DWC_DDR5_5600B, DWC_DDR5_5600AN,
+    DWC_DDR5_6000C, DWC_DDR5_6000BN, DWC_DDR5_6000B,
+    DWC_DDR5_6400C, DWC_DDR5_6400BN, DWC_DDR5_6400B, DWC_DDR5_6400AN,
+    DWC_DDR5_6800C, DWC_DDR5_6800BN, DWC_DDR5_6800B,
+    DWC_DDR5_7200C, DWC_DDR5_7200BN, DWC_DDR5_7200B, DWC_DDR5_7200AN,
+    DWC_DDR5_7600C, DWC_DDR5_7600BN, DWC_DDR5_7600B,
+    DWC_DDR5_8000C, DWC_DDR5_8000BN, DWC_DDR5_8000B,
+    DWC_DDR5_8400C, DWC_DDR5_8400BN, DWC_DDR5_8400B, DWC_DDR5_8400AN
+};
+
+
+/*****************************************************************************/
+/*                                   8800                                    */
+/*****************************************************************************/
+static const dwc_ddr5_speed_bin_t downbins_8800C[] = {
+    DWC_DDR5_2100,  DWC_DDR5_3200C, DWC_DDR5_3600C, DWC_DDR5_4000C,
+    DWC_DDR5_4400C, DWC_DDR5_4800C, DWC_DDR5_5200C, DWC_DDR5_5600C,
+    DWC_DDR5_6000C, DWC_DDR5_6400C, DWC_DDR5_6800C, DWC_DDR5_7200C,
+    DWC_DDR5_7600C, DWC_DDR5_8000C, DWC_DDR5_8400C, DWC_DDR5_8800C
+};
+
+static const dwc_ddr5_speed_bin_t downbins_8800BN[] = {
+    DWC_DDR5_2100,
+    DWC_DDR5_3200C, 
+    DWC_DDR5_3600C, DWC_DDR5_3600BN, DWC_DDR5_3600B,
+    DWC_DDR5_4000C, 
+    DWC_DDR5_4400C, DWC_DDR5_4400BN, DWC_DDR5_4400B,
+    DWC_DDR5_4800C, DWC_DDR5_4800BN, 
+    DWC_DDR5_5200C, 
+    DWC_DDR5_5600C, DWC_DDR5_5600BN, 
+    DWC_DDR5_6000C, 
+    DWC_DDR5_6400C, 
+    DWC_DDR5_6800C, DWC_DDR5_6800BN, 
+    DWC_DDR5_7200C, 
+    DWC_DDR5_7600C, 
+    DWC_DDR5_8000C, 
+    DWC_DDR5_8400C, 
+    DWC_DDR5_8800C, DWC_DDR5_8800BN 
+};
+
+static const dwc_ddr5_speed_bin_t downbins_8800B[] = {
+    DWC_DDR5_2100,
+    DWC_DDR5_3200C, DWC_DDR5_3200BN, DWC_DDR5_3200B,
+    DWC_DDR5_3600C, DWC_DDR5_3600BN, DWC_DDR5_3600B,
+    DWC_DDR5_4000C, DWC_DDR5_4000BN, DWC_DDR5_4000B,
+    DWC_DDR5_4400C, DWC_DDR5_4400BN, DWC_DDR5_4400B,
+    DWC_DDR5_4800C, DWC_DDR5_4800BN, DWC_DDR5_4800B,
+    DWC_DDR5_5200C, DWC_DDR5_5200BN, DWC_DDR5_5200B,
+    DWC_DDR5_5600C, DWC_DDR5_5600BN, DWC_DDR5_5600B,
+    DWC_DDR5_6000C, DWC_DDR5_6000BN, DWC_DDR5_6000B,
+    DWC_DDR5_6400C, DWC_DDR5_6400BN, DWC_DDR5_6400B,
+    DWC_DDR5_6800C, DWC_DDR5_6800BN, DWC_DDR5_6800B,
+    DWC_DDR5_7200C, DWC_DDR5_7200BN, DWC_DDR5_7200B,
+    DWC_DDR5_7600C, DWC_DDR5_7600BN, DWC_DDR5_7600B,
+    DWC_DDR5_8000C, DWC_DDR5_8000BN, DWC_DDR5_8000B,
+    DWC_DDR5_8400C, DWC_DDR5_8400BN, DWC_DDR5_8400B,
+    DWC_DDR5_8800C, DWC_DDR5_8800BN, DWC_DDR5_8800B
+};
+
+static const dwc_ddr5_speed_bin_t downbins_8800AN[] = {
+    DWC_DDR5_2100,
+    DWC_DDR5_3200C, DWC_DDR5_3200BN, DWC_DDR5_3200B, DWC_DDR5_3200AN,
+    DWC_DDR5_3600C, DWC_DDR5_3600BN, DWC_DDR5_3600B, DWC_DDR5_3600AN,
+    DWC_DDR5_4000C, DWC_DDR5_4000BN, DWC_DDR5_4000B,
+    DWC_DDR5_4400C, DWC_DDR5_4400BN, DWC_DDR5_4400B, DWC_DDR5_4400AN,
+    DWC_DDR5_4800C, DWC_DDR5_4800BN, DWC_DDR5_4800B, DWC_DDR5_4800AN,
+    DWC_DDR5_5200C, DWC_DDR5_5200BN, DWC_DDR5_5200B, DWC_DDR5_5200AN,
+    DWC_DDR5_5600C, DWC_DDR5_5600BN, DWC_DDR5_5600B, DWC_DDR5_5600AN,
+    DWC_DDR5_6000C, DWC_DDR5_6000BN, DWC_DDR5_6000B,
+    DWC_DDR5_6400C, DWC_DDR5_6400BN, DWC_DDR5_6400B, DWC_DDR5_6400AN,
+    DWC_DDR5_6800C, DWC_DDR5_6800BN, DWC_DDR5_6800B, DWC_DDR5_6800AN,
+    DWC_DDR5_7200C, DWC_DDR5_7200BN, DWC_DDR5_7200B, DWC_DDR5_7200AN,
+    DWC_DDR5_7600C, DWC_DDR5_7600BN, DWC_DDR5_7600B, DWC_DDR5_7600AN,
+    DWC_DDR5_8000C, DWC_DDR5_8000BN, DWC_DDR5_8000B,
+    DWC_DDR5_8400C, DWC_DDR5_8400BN, DWC_DDR5_8400B, DWC_DDR5_8400AN,
+    DWC_DDR5_8800C, DWC_DDR5_8800BN, DWC_DDR5_8800B, DWC_DDR5_8800AN
+};
+
+
+const ddr5_speed_bin_tck_cas_t ddr5_speed_bin_tck_cas_table[] = {
+    /* Speed bin      tck_min  tck_max   taa_min    trcd/trp   cas */
+    {DWC_DDR5_2100,     952,    1010,     20952,        N_A,    22 }, /* 2100MHz */
+    {DWC_DDR5_3200C,    625,     681,     17500,      17500,    28 }, /* 3200C   */
+    {DWC_DDR5_3200BN,   625,     681,     16250,      16250,    26 }, /* 3200BN  */
+    {DWC_DDR5_3200B,    625,     681,     16250,      16250,    26 }, /* 3200B   */
+    {DWC_DDR5_3200AN,   625,     681,     15000,      15000,    24 }, /* 3200AN  */
+    {DWC_DDR5_3600C,    555,     624,     17777,      17777,    32 }, /* 3600C   */
+    {DWC_DDR5_3600BN,   555,     624,     16666,      16666,    30 }, /* 3600BN  */
+    {DWC_DDR5_3600B,    555,     624,     16666,      16666,    30 }, /* 3600B   */
+    {DWC_DDR5_3600AN,   555,     624,     14444,      14444,    26 }, /* 3600AN  */
+    {DWC_DDR5_4000C,    500,     554,     18000,      17500,    36 }, /* 4000C   */
+    {DWC_DDR5_4000BN,   500,     554,     16000,      16000,    32 }, /* 4000BN  */
+    {DWC_DDR5_4000B,    500,     554,     16000,      16000,    32 }, /* 4000B   */
+    {DWC_DDR5_4000AN,   500,     554,     14000,      14000,    28 }, /* 4000AN  */
+    {DWC_DDR5_4400C,    454,     499,     18181,      17727,    40 }, /* 4400C   */
+    {DWC_DDR5_4400BN,   454,     499,     16363,      16363,    36 }, /* 4400BN  */
+    {DWC_DDR5_4400B,    454,     499,     16363,      16363,    36 }, /* 4400B   */
+    {DWC_DDR5_4400AN,   454,     499,     14545,      14545,    32 }, /* 4400AN  */
+    /* Speed bin      tck_min  tck_max   taa_min    trcd/trp   cas */
+    {DWC_DDR5_4800C,    416,     453,     17500,      17500,    42 }, /* 4800C   */
+    {DWC_DDR5_4800BN,   416,     453,     16666,      16666,    40 }, /* 4800BN  */
+    {DWC_DDR5_4800B,    416,     453,     16666,      16250,    40 }, /* 4800B   */
+    {DWC_DDR5_4800AN,   416,     453,     14166,      14166,    34 }, /* 4800AN  */
+    {DWC_DDR5_5200C,    384,     415,     17692,      17692,    46 }, /* 5200C   */
+    {DWC_DDR5_5200BN,   384,     415,     16153,      16153,    42 }, /* 5200BN  */
+    {DWC_DDR5_5200B,    384,     415,     16153,      16153,    42 }, /* 5200B   */
+    {DWC_DDR5_5200AN,   384,     415,     14615,      14615,    38 }, /* 5200AN  */
+    {DWC_DDR5_5600C,    357,     383,     17857,      17500,    50 }, /* 5600C   */
+    {DWC_DDR5_5600BN,   357,     383,     16428,      16428,    46 }, /* 5600BN  */
+    {DWC_DDR5_5600B,    357,     383,     16428,      16071,    46 }, /* 5600B   */
+    {DWC_DDR5_5600AN,   357,     383,     14285,      14285,    40 }, /* 5600AN  */
+    {DWC_DDR5_6000C,    333,     356,     18000,      17666,    54 }, /* 6000C   */
+    {DWC_DDR5_6000BN,   333,     356,     16000,      16000,    48 }, /* 6000BN  */
+    {DWC_DDR5_6000B,    333,     356,     16000,      16000,    48 }, /* 6000B   */
+    {DWC_DDR5_6000AN,   333,     356,     14000,      14000,    42 }, /* 6000AN  */
+    {DWC_DDR5_6400C,    312,     332,     17500,      17500,    56 }, /* 6400C   */
+    {DWC_DDR5_6400BN,   312,     332,     16250,      16250,    52 }, /* 6400BN  */
+    {DWC_DDR5_6400B,    312,     332,     16250,      16250,    52 }, /* 6400B   */
+    {DWC_DDR5_6400AN,   312,     332,     14375,      14375,    46 }, /* 6400AN  */
+    /* Speed bin      tck_min  tck_max   taa_min    trcd/trp   cas */
+    {DWC_DDR5_6800C,    294,     311,     17647,      17647,    60 }, /* 6800C   */
+    {DWC_DDR5_6800BN,   294,     311,     16470,      16470,    56 }, /* 6800BN  */
+    {DWC_DDR5_6800B,    294,     311,     16470,      16176,    56 }, /* 6800B   */
+    {DWC_DDR5_6800AN,   294,     311,     14117,      14117,    48 }, /* 6800AN  */
+    {DWC_DDR5_7200C,    277,     293,     17777,      17500,    64 }, /* 7200C   */
+    {DWC_DDR5_7200BN,   277,     293,     16111,      16111,    58 }, /* 7200BN  */
+    {DWC_DDR5_7200B,    277,     293,     16111,      16111,    58 }, /* 7200B   */
+    {DWC_DDR5_7200AN,   277,     293,     14444,      14444,    52 }, /* 7200AN  */
+    {DWC_DDR5_7600C,    263,     276,     17894,      17631,    68 }, /* 7600C   */
+    {DWC_DDR5_7600BN,   263,     276,     16315,      16315,    62 }, /* 7600BN  */
+    {DWC_DDR5_7600B,    263,     276,     16315,      16052,    62 }, /* 7600B   */
+    {DWC_DDR5_7600AN,   263,     276,     14210,      14210,    54 }, /* 7600AN  */
+    {DWC_DDR5_8000C,    250,     262,     17500,      17500,    70 }, /* 8000C   */
+    {DWC_DDR5_8000BN,   250,     262,     16000,      16000,    64 }, /* 8000BN  */
+    {DWC_DDR5_8000B,    250,     262,     16000,      16000,    64 }, /* 8000B   */
+    {DWC_DDR5_8000AN,   250,     262,     14000,      14000,    56 }, /* 8000AN  */
+    {DWC_DDR5_8400C,    238,     249,     17619,      17619,    74 }, /* 8400C   */
+    {DWC_DDR5_8400BN,   238,     249,     16190,      16190,    68 }, /* 8400BN  */
+    {DWC_DDR5_8400B,    238,     249,     16190,      16190,    68 }, /* 8400B   */
+    {DWC_DDR5_8400AN,   238,     249,     14285,      14285,    60 }, /* 8400AN  */
+    /* Speed bin      tck_min  tck_max   taa_min    trcd/trp   cas*/  /* DDR5 Jedec Rev190,Table 271 */
+    {DWC_DDR5_8800C,    227,     237,     17727,      17500,    78 }, /* 8800C   */
+    {DWC_DDR5_8800BN,   227,     237,     16363,      16363,    72 }, /* 8800BN  */
+    {DWC_DDR5_8800B,    227,     237,     16363,      16136,    72 }, /* 8800B   */
+    {DWC_DDR5_8800AN,   227,     237,     14090,      14090,    62 }  /* 8800AN  */   
+};
+
+const ddr5_speed_bin_timings_t ddr5_speed_bin_table[] = {
+    /*Speed bin                 Specs         tck_min  taa_min  trcd    trp    tras   trc  */
+    {DWC_DDR5_3200C,      JESD79_5A|JESD79_5B,  625,   17500,  17500,  17500, 32000, 49500, downbins_3200C,    GET_ARR_NELEMS(downbins_3200C   )},
+    {DWC_DDR5_3200BN,     JESD79_5A|JESD79_5B,  625,   16250,  16250,  16250, 32000, 48250, downbins_3200BN,   GET_ARR_NELEMS(downbins_3200BN  )},
+    {DWC_DDR5_3200B,      JESD79_5A|JESD79_5B,  625,   16250,  16250,  16250, 32000, 48250, downbins_3200B,    GET_ARR_NELEMS(downbins_3200B   )},
+    {DWC_DDR5_3200AN,     JESD79_5A|JESD79_5B,  625,   15000,  15000,  15000, 32000, 47000, downbins_3200AN,   GET_ARR_NELEMS(downbins_3200AN  )},
+    {DWC_DDR5_3600C,      JESD79_5A|JESD79_5B,  555,   17500,  17500,  17500, 32000, 49500, downbins_3600C,    GET_ARR_NELEMS(downbins_3600C   )},
+    {DWC_DDR5_3600BN,     JESD79_5A|JESD79_5B,  555,   16666,  16666,  16666, 32000, 48666, downbins_3600BN,   GET_ARR_NELEMS(downbins_3600BN  )},
+    {DWC_DDR5_3600B,      JESD79_5A|JESD79_5B,  555,   16250,  16250,  16250, 32000, 48250, downbins_3600B,    GET_ARR_NELEMS(downbins_3600B   )},
+    {DWC_DDR5_3600AN,     JESD79_5A|JESD79_5B,  555,   14444,  14444,  14444, 32000, 46444, downbins_3600AN,   GET_ARR_NELEMS(downbins_3600AN  )},
+    {DWC_DDR5_4000C,      JESD79_5A|JESD79_5B,  500,   17500,  17500,  17500, 32000, 49500, downbins_4000C,    GET_ARR_NELEMS(downbins_4000C   )},
+    {DWC_DDR5_4000BN,     JESD79_5A|JESD79_5B,  500,   16000,  16000,  16000, 32000, 48000, downbins_4000BN_B, GET_ARR_NELEMS(downbins_4000BN_B)},
+    {DWC_DDR5_4000B,      JESD79_5A|JESD79_5B,  500,   16000,  16000,  16000, 32000, 48000, downbins_4000BN_B, GET_ARR_NELEMS(downbins_4000BN_B)},
+    {DWC_DDR5_4000AN,     JESD79_5A|JESD79_5B,  500,   14000,  14000,  14000, 32000, 46000, downbins_4000AN,   GET_ARR_NELEMS(downbins_4000AN  )},
+    {DWC_DDR5_4400C,      JESD79_5A|JESD79_5B,  454,   17500,  17500,  17500, 32000, 49500, downbins_4400C,    GET_ARR_NELEMS(downbins_4400C   )},
+    {DWC_DDR5_4400BN,     JESD79_5A|JESD79_5B,  454,   16363,  16363,  16363, 32000, 48363, downbins_4400BN,   GET_ARR_NELEMS(downbins_4400BN  )},
+    {DWC_DDR5_4400B,      JESD79_5A|JESD79_5B,  454,   16000,  16000,  16000, 32000, 48000, downbins_4400B,    GET_ARR_NELEMS(downbins_4400B   )},
+    {DWC_DDR5_4400AN,     JESD79_5A|JESD79_5B,  454,   14545,  14545,  14545, 32000, 46545, downbins_4400AN,   GET_ARR_NELEMS(downbins_4400AN  )},
+    /*Speed bin                  Specs        tck_min  taa_min  trcd    trp    tras   trc  */
+    {DWC_DDR5_4800C,      JESD79_5A|JESD79_5B,  416,   17500,  17500,  17500, 32000, 49500, downbins_4800C,    GET_ARR_NELEMS(downbins_4800C   )},
+    {DWC_DDR5_4800BN,     JESD79_5A|JESD79_5B,  416,   16666,  16666,  16666, 32000, 48666, downbins_4800BN,   GET_ARR_NELEMS(downbins_4800BN  )},
+    {DWC_DDR5_4800B,      JESD79_5A|JESD79_5B,  416,   16000,  16000,  16000, 32000, 48000, downbins_4800B,    GET_ARR_NELEMS(downbins_4800B   )},
+    {DWC_DDR5_4800AN,     JESD79_5A|JESD79_5B,  416,   14166,  14166,  14166, 32000, 46166, downbins_4800AN,   GET_ARR_NELEMS(downbins_4800AN  )},
+    {DWC_DDR5_5200C,      JESD79_5A|JESD79_5B,  384,   17500,  17500,  17500, 32000, 49500, downbins_5200C,    GET_ARR_NELEMS(downbins_5200C   )},
+    {DWC_DDR5_5200BN,     JESD79_5A|JESD79_5B,  384,   16153,  16153,  16153, 32000, 48153, downbins_5200BN,   GET_ARR_NELEMS(downbins_5200BN  )},
+    {DWC_DDR5_5200B,      JESD79_5A|JESD79_5B,  384,   16000,  16000,  16000, 32000, 48000, downbins_5200B,    GET_ARR_NELEMS(downbins_5200B   )},
+    {DWC_DDR5_5200AN,     JESD79_5A|JESD79_5B,  384,   14615,  14615,  14615, 32000, 46615, downbins_5200AN,   GET_ARR_NELEMS(downbins_5200AN  )},
+    {DWC_DDR5_5600C,      JESD79_5A|JESD79_5B,  357,   17500,  17500,  17500, 32000, 49500, downbins_5600C,    GET_ARR_NELEMS(downbins_5600C   )},
+    {DWC_DDR5_5600BN,     JESD79_5A|JESD79_5B,  357,   16428,  16428,  16428, 32000, 48428, downbins_5600BN,   GET_ARR_NELEMS(downbins_5600BN  )},
+    {DWC_DDR5_5600B,      JESD79_5A|JESD79_5B,  357,   16000,  16000,  16000, 32000, 48000, downbins_5600B,    GET_ARR_NELEMS(downbins_5600B   )},
+    {DWC_DDR5_5600AN,     JESD79_5A|JESD79_5B,  357,   14285,  14285,  14285, 32000, 46285, downbins_5600AN,   GET_ARR_NELEMS(downbins_5600AN  )},
+    {DWC_DDR5_6000C,      JESD79_5A|JESD79_5B,  333,   17500,  17500,  17500, 32000, 49500, downbins_6000C,    GET_ARR_NELEMS(downbins_6000C   )},
+    {DWC_DDR5_6000BN,     JESD79_5A|JESD79_5B,  333,   16000,  16000,  16000, 32000, 48000, downbins_6000BN_B, GET_ARR_NELEMS(downbins_6000BN_B)},
+    {DWC_DDR5_6000B,      JESD79_5A|JESD79_5B,  333,   16000,  16000,  16000, 32000, 48000, downbins_6000BN_B, GET_ARR_NELEMS(downbins_6000BN_B)},
+    {DWC_DDR5_6000AN,     JESD79_5A|JESD79_5B,  333,   14000,  14000,  14000, 32000, 46000, downbins_6000AN,   GET_ARR_NELEMS(downbins_6000AN  )},
+    {DWC_DDR5_6400C,      JESD79_5A|JESD79_5B,  312,   17500,  17500,  17500, 32000, 49500, downbins_6400C,    GET_ARR_NELEMS(downbins_6400C   )},
+    {DWC_DDR5_6400BN,     JESD79_5A|JESD79_5B,  312,   16250,  16250,  16250, 32000, 48250, downbins_6400BN,   GET_ARR_NELEMS(downbins_6400BN  )},
+    {DWC_DDR5_6400B,      JESD79_5A|JESD79_5B,  312,   16000,  16000,  16000, 32000, 48000, downbins_6400B,    GET_ARR_NELEMS(downbins_6400B   )},
+    {DWC_DDR5_6400AN,     JESD79_5A|JESD79_5B,  312,   14375,  14375,  14375, 32000, 46375, downbins_6400AN,   GET_ARR_NELEMS(downbins_6400AN  )},
+    /*Speed bin                 Specs         tck_min  taa_min  trcd    trp    tras   trc  */
+    {DWC_DDR5_6800C,                JESD79_5B,  294,   17500,  17500,  17500, 32000, 49500, downbins_6800C,    GET_ARR_NELEMS(downbins_6800C   )},
+    {DWC_DDR5_6800BN,               JESD79_5B,  294,   16470,  16470,  16470, 32000, 48000, downbins_6800BN,   GET_ARR_NELEMS(downbins_6800BN  )},
+    {DWC_DDR5_6800B,                JESD79_5B,  294,   16000,  16000,  16000, 32000, 48000, downbins_6800B,    GET_ARR_NELEMS(downbins_6800B   )},
+    {DWC_DDR5_6800AN,               JESD79_5B,  294,   14117,  14117,  14117, 32000, 46117, downbins_6800AN,   GET_ARR_NELEMS(downbins_6800AN  )},
+    {DWC_DDR5_7200C,                JESD79_5B,  277,   17500,  17500,  17500, 32000, 49500, downbins_7200C,    GET_ARR_NELEMS(downbins_7200C   )},
+    {DWC_DDR5_7200BN,               JESD79_5B,  277,   16111,  16111,  16111, 32000, 48111, downbins_7200BN,   GET_ARR_NELEMS(downbins_7200BN  )},
+    {DWC_DDR5_7200B,                JESD79_5B,  277,   16000,  16000,  16000, 32000, 48000, downbins_7200B,    GET_ARR_NELEMS(downbins_7200B   )},
+    {DWC_DDR5_7200AN,               JESD79_5B,  277,   14444,  14444,  14444, 32000, 46444, downbins_7200AN,   GET_ARR_NELEMS(downbins_7200AN  )},
+    {DWC_DDR5_7600C,                JESD79_5B,  263,   17500,  17500,  17500, 32000, 49500, downbins_7600C,    GET_ARR_NELEMS(downbins_7600C   )},
+    {DWC_DDR5_7600BN,               JESD79_5B,  263,   16315,  16315,  16315, 32000, 48315, downbins_7600BN,   GET_ARR_NELEMS(downbins_7600BN  )},
+    {DWC_DDR5_7600B,                JESD79_5B,  263,   16000,  16000,  16000, 32000, 48000, downbins_7600B,    GET_ARR_NELEMS(downbins_7600B   )},
+    {DWC_DDR5_7600AN,               JESD79_5B,  263,   14210,  14210,  14210, 32000, 46210, downbins_7600AN,   GET_ARR_NELEMS(downbins_7600AN  )},
+    {DWC_DDR5_8000C,                JESD79_5B,  250,   17500,  17500,  17500, 32000, 49500, downbins_8000C,    GET_ARR_NELEMS(downbins_8000C   )},
+    {DWC_DDR5_8000BN,               JESD79_5B,  250,   16000,  16000,  16000, 32000, 48000, downbins_8000BN_B, GET_ARR_NELEMS(downbins_8000BN_B)},
+    {DWC_DDR5_8000B,                JESD79_5B,  250,   16000,  16000,  16000, 32000, 48000, downbins_8000BN_B, GET_ARR_NELEMS(downbins_8000BN_B)},
+    {DWC_DDR5_8000AN,               JESD79_5B,  250,   14000,  14000,  14000, 32000, 46000, downbins_8000AN,   GET_ARR_NELEMS(downbins_8000AN  )},
+    {DWC_DDR5_8400C,                JESD79_5B,  238,   17500,  17500,  17500, 32000, 49500, downbins_8400C,    GET_ARR_NELEMS(downbins_8400C   )},
+    {DWC_DDR5_8400BN,               JESD79_5B,  238,   16190,  16190,  16190, 32000, 48190, downbins_8400BN,   GET_ARR_NELEMS(downbins_8400BN  )},
+    {DWC_DDR5_8400B,                JESD79_5B,  238,   16000,  16000,  16000, 32000, 48000, downbins_8400B,    GET_ARR_NELEMS(downbins_8400B   )},
+    {DWC_DDR5_8400AN,               JESD79_5B,  238,   14285,  14285,  14285, 32000, 46285, downbins_8400AN,   GET_ARR_NELEMS(downbins_8400AN  )},
+    /*Speed bin                 Specs         tck_min  taa_min  trcd    trp    tras   trc  */                  /* DDR5 Jedec Rev190,Table 271 */
+    {DWC_DDR5_8800C,                JESD79_5B,  227,   17500,  17500,  17500, 32000, 49500, downbins_8800C,    GET_ARR_NELEMS(downbins_8800C   )},
+    {DWC_DDR5_8800BN,               JESD79_5B,  227,   16363,  16363,  16363, 32000, 48363, downbins_8800BN,   GET_ARR_NELEMS(downbins_8800BN  )},
+    {DWC_DDR5_8800B,                JESD79_5B,  227,   16000,  16000,  16000, 32000, 48000, downbins_8800B,    GET_ARR_NELEMS(downbins_8800B   )},
+    {DWC_DDR5_8800AN,               JESD79_5B,  227,   14090,  14090,  14090, 32000, 46090, downbins_8800AN,   GET_ARR_NELEMS(downbins_8800AN  )}
+};
+
+
+void cinit_ddr5_speed_bin_get_table(const ddr5_speed_bin_timings_t** table_ptr, uint8_t* n_sgs)
+{
+    *table_ptr = ddr5_speed_bin_table;
+    *n_sgs = GET_ARR_NELEMS(ddr5_speed_bin_table);
+}
+
+
+void cinit_ddr5_speed_bin_get_cas_table(const ddr5_speed_bin_tck_cas_t** table_ptr, uint8_t* n_sgs)
+{
+    *table_ptr = ddr5_speed_bin_tck_cas_table;
+    *n_sgs = GET_ARR_NELEMS(ddr5_speed_bin_tck_cas_table);
+}

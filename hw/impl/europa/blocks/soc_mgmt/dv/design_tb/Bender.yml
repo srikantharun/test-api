@@ -1,0 +1,36 @@
+# (C) Copyright 2024 Axelera AI B.V.
+# All Rights Reserved
+# *** Axelera AI Confidential ***
+
+package:
+  name: europa_soc_mgmt_tb
+  description: "SOC_MGMT Module testbench files"
+  authors:
+    - "Andrew Dickson <andrew.dickson@axelera.ai>"
+    - "Wolfgang Roenninger <wolfgang.roenninger@axelera.ai>"
+
+dependencies:
+  axi_pkg:                   { path: "../../../../../ip/axi/default/rtl/pkg" }
+  europa_soc_mgmt_pkg:       { path: "../../rtl/pkg" }
+  europa_soc_mgmt:           { path: "../../rtl"     }
+  samsung_pvt_probe_wrapper: { path: "${REPO_ROOT}/hw/vendor/samsung/pvt_probe/default/rtl" }
+
+
+
+# Source files grouped in levels.
+# Files in level 0 have no dependencies on files in this package.
+# Files in level 1 only depend on files in level 0, files in level 2 on files in levels 1 and 0, etc.
+# Files within a level are ordered alphabetically.
+sources:
+  - target: simulation
+    include_dirs:
+    - ./
+    files:
+    # Level 0
+    - soc_mgmt_clk_checker_pkg.sv
+    - tb_clkgen.sv
+    - tb_rstgen.sv
+    - sva_delay_repeat_pkg.sv
+    - soc_mgmt_reset_gen_assertions.sv
+    - tb_gen_clk_checker.sv
+    - soc_mgmt_tb.sv

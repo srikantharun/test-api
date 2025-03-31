@@ -1,0 +1,140 @@
+{% import 'snps_dma_task.jinja2' as snps_macros -%}
+{% import 'axe_dma_task.jinja2' as axe_macros -%}
+
+{% macro render_tasklist(tasklist,data_check,data_random,perf_counter,core_list)-%}
+// AUTO GENERATED, DON'T MANUALLY EDIT!!
+// (C) Copyright Axelera AI 2024
+// All Rights Reserved
+// *** Axelera AI Confidential ***
+//
+// Description: Automatic generated test file
+// Owner: scripts/trex
+
+#include <trex/trex_utils.h>
+#include <testutils.h>
+#include <printf.h>
+#include <memutils.h>
+#include <trex/generated_data.h>
+#include <platform.h>
+{% if core_list -%}
+#include <multicore.h>
+#include <thread.h>
+#include <pctl_utils.h>
+{% endif -%}
+
+{% set ns = namespace(size_list=[]) -%}
+{% for task in tasklist -%}
+{% if task -%}
+{% for bytesize in task.src_xbytesize -%}
+{% set size = bytesize-%}
+{% if size not in ns.size_list-%}
+
+{% if data_random -%}
+char *arrRef{{size}} = RANDOM_DATA_{{size}}B;
+char *arrInit{{size}} = INIT_DATA_{{size}}B;
+
+{% else -%}
+char *arrRef{{size}} = INIT_DATA_{{size}}B;
+char *arrInit{{size}} = INIT_DATA_{{size}}B;
+
+{% endif -%}
+{% set _ = ns.size_list.append(size) -%}
+{% endif -%}
+{% endfor -%}
+
+{% endif -%}
+{% endfor -%}
+
+int main() {
+
+{% if core_list -%}
+
+testcase_init();
+
+enable_simple_multicore_printf(APU_CORE_5);
+
+// Always unfence the SDMA modules
+pctl_enable_module(SDMA_MODULE_0);
+pctl_enable_module(SDMA_MODULE_1);
+
+// Always unfence the L2
+pctl_enable_l2();
+
+// Start the AICORE and PVE CPUs
+{% for core in core_list-%}
+{% if core=='AI0'-%}
+start_core(AI_CORE_0);
+{% elif core=='AI1'-%}
+start_core(AI_CORE_1);
+{% elif core=='AI2'-%}
+start_core(AI_CORE_2);
+{% elif core=='AI3'-%}
+start_core(AI_CORE_3);
+{% elif core=='AI4'-%}
+start_core(AI_CORE_4);
+{% elif core=='AI5'-%}
+start_core(AI_CORE_5);
+{% elif core=='AI6'-%}
+start_core(AI_CORE_6);
+{% elif core=='AI7'-%}
+start_core(AI_CORE_7);
+{% elif core=='PVE0'-%}
+// Only one CPU within the PVE0 cluster will trigger the DMA tasks
+start_core(PVE_0_CLUSTER_0_CORE_0);
+{% elif core=='PVE1'-%}
+// Only one CPU within the PVE1 cluster will trigger the DMA tasks
+start_core(PVE_1_CLUSTER_0_CORE_0);
+{% endif -%}
+{% endfor -%}
+{% endif -%}
+
+{% for task in tasklist-%}
+{% if task -%}
+{% set index = loop.index0%}
+{% if task.type=='SNPS_DW'-%}
+{{ snps_macros.render_dma_task(task,index,data_check,data_random,perf_counter)}}
+{% else -%}
+
+{{ axe_macros.render_dma_task(task,index,data_check,data_random,perf_counter)}}
+{% endif -%}
+{% endif -%}
+{% endfor -%}
+
+
+{% if core_list -%}
+{% for core in core_list-%}
+{% if core=='AI0'-%}
+CHECK_TRUE(wait_core(AI_CORE_0) == TEST_SUCCESS);
+{% elif core=='AI1'-%}
+CHECK_TRUE(wait_core(AI_CORE_1) == TEST_SUCCESS);
+{% elif core=='AI2'-%}
+CHECK_TRUE(wait_core(AI_CORE_2) == TEST_SUCCESS);
+{% elif core=='AI3'-%}
+CHECK_TRUE(wait_core(AI_CORE_3) == TEST_SUCCESS);
+{% elif core=='AI4'-%}
+CHECK_TRUE(wait_core(AI_CORE_4) == TEST_SUCCESS);
+{% elif core=='AI5'-%}
+CHECK_TRUE(wait_core(AI_CORE_5) == TEST_SUCCESS);
+{% elif core=='AI6'-%}
+CHECK_TRUE(wait_core(AI_CORE_6) == TEST_SUCCESS);
+{% elif core=='AI7'-%}
+CHECK_TRUE(wait_core(AI_CORE_7) == TEST_SUCCESS);
+{% elif core=='PVE0'-%}
+CHECK_TRUE(wait_core(PVE_0_CLUSTER_0_CORE_0) == TEST_SUCCESS);
+{% elif core=='PVE1'-%}
+CHECK_TRUE(wait_core(PVE_1_CLUSTER_0_CORE_0) == TEST_SUCCESS);
+{% endif -%}
+{% endfor -%}
+
+disable_simple_multicore_printf(APU_CORE_5);
+
+{% endif -%}
+
+return testcase_finalize();
+}
+{%- endmacro -%}
+
+
+{{ render_tasklist(tasklist,data_check,data_random,perf_counter,core_list)}}
+
+

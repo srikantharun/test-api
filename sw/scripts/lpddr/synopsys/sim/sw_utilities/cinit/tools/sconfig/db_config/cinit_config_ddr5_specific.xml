@@ -1,0 +1,148 @@
+<category name="DDR5 specific"
+          depends="@DWC_DDRCTL_CINIT_SDRAM_PROTOCOL==@DWC_DDRCTL_CINIT_SDRAM_PROTOCOL_DDR5">
+
+    <config id="DWC_DDRCTL_CINIT_BASE_TIMER_INTERVAL_US_{channel}"
+            name="Base time microseconds for channel {channel}"
+            min="1" max="4294" type="int" var_type="uint32"
+            depends="@NUM_DCH gt {channel}">
+        <param name="channel" min="0" max="1"/>
+        <default value="1"/>
+    </config>
+
+    <category name="ZQCAL Start, Latch command {channel}"
+              depends="@NUM_DCH gt {channel}">
+        <param name="channel" min="0" max="1"/>
+
+        <config id="DWC_DDRCTL_CINIT_ALL_RANK_ZQCAL_EN_{channel}"
+                name="ZQCAL for channel {channel}, all ranks"
+                type="single_choice" var_type="uint8">
+            <help>
+                Enable/disable automatic sending periodic ZQCAL Start Latch commands
+                on channel {channel} for all active ranks
+            </help>
+            <option id="DWC_DDRCTL_CINIT_ALL_RANK_ZQCAL_EN_{channel}_DISABLE" value="0" name="Disable"/>
+            <option id="DWC_DDRCTL_CINIT_ALL_RANK_ZQCAL_EN_{channel}_ENABLE"  value="1" name="Enable"/>
+            <default value="@DWC_DDRCTL_CINIT_ALL_RANK_ZQCAL_EN_{channel}_DISABLE"/>
+        </config>
+
+        <config id="DWC_DDRCTL_CINIT_ZQCAL_TIMER_CH_{channel}_ALL_RANKS"
+                name="ZQCAL Start interval for channel {channel}, all ranks"
+                min="1" max="32767" type="int" var_type="uint32">
+            <help>
+                ZQCAL Start is issued to all active ranks simultaneously
+                periodically with an interval equal to base time*(time value)
+            </help>
+            <default value="32"/>
+        </config>
+
+        <config id="DWC_DDRCTL_CINIT_ZQLAT_TIMER_CH_{channel}_ALL_RANKS"
+                name="ZQCAL Latch interval for channel {channel}, all ranks"
+                min="1" max="32767" type="int" var_type="uint32">
+            <help>
+                ZQCal Latch is issued base time*(time value) after every ZQCal Start
+            </help>
+            <default value="1"/>
+        </config>
+
+        <category name="ZQ Calibration when ZQ resistors are shared."
+                  depends="@MEMC_NUM_RANKS gt {rank}">
+            <help>
+                The DDRCTL must ensure that the ZQCals do not overlap, config per Rank
+            </help>
+            <param name="rank" min="0" max="3"/>
+            <config id="DWC_DDRCTL_CINIT_PER_RANK_ZQCAL_EN_{channel}_{rank}"
+                    name="ZQCAL for channel {channel}, rank {rank}"
+                    type="single_choice" var_type="uint8">
+                <option id="DWC_DDRCTL_CINIT_PER_RANK_ZQCAL_EN_{channel}_{rank}_DISABLE" value="0" name="Disable"/>
+                <option id="DWC_DDRCTL_CINIT_PER_RANK_ZQCAL_EN_{channel}_{rank}_ENABLE"  value="1" name="Enable"/>
+                <default value="@DWC_DDRCTL_CINIT_PER_RANK_ZQCAL_EN_{channel}_{rank}_DISABLE"/>
+            </config>
+
+            <config id="DWC_DDRCTL_CINIT_ZQCAL_TIMER_CH_{channel}_RANK_{rank}"
+                    name="ZQCAL Start interval for channel {channel}, rank {rank}"
+                    min="1" max="32767" type="int" var_type="uint32">
+                <help>
+                    ZQCAL Start is issued per rank simultaneously
+                    periodically with an interval equal to base time*[time value]
+                </help>
+                <default value="32" depends="{rank} lt 1"/>
+                <default value="2" depends="{rank} gt 0"/>
+            </config>
+            <config id="DWC_DDRCTL_CINIT_ZQLAT_TIMER_CH_{channel}_RANK_{rank}"
+                    name="ZQCAL Latch interval for channel {channel}, rank {rank}"
+                    min="1" max="32767" type="int" var_type="uint32">
+                <default value="1"/>
+            </config>
+        </category>
+    </category>
+
+    <category name="TCR/DQS OSC calibration"
+              depends="(@NUM_DCH gt {channel}) and (@MEMC_NUM_RANKS gt {rank})">
+        <param name="channel" min="0" max="1"/>
+        <param name="rank" min="0" max="3"/>
+        <config id="DWC_DDRCTL_CINIT_TCR_DQSOSC_EN_{channel}_{rank}"
+                name="TCR/DQS OSC for channel {channel}, rank {rank}"
+                type="single_choice" var_type="uint8">
+            <option id="DWC_DDRCTL_CINIT_TCR_DQSOSC_EN_{channel}_{rank}_DISABLE" value="0" name="Disable"/>
+            <option id="DWC_DDRCTL_CINIT_TCR_DQSOSC_EN_{channel}_{rank}_ENABLE"  value="1" name="Enable"/>
+            <default value="@DWC_DDRCTL_CINIT_TCR_DQSOSC_EN_{channel}_{rank}_DISABLE"/>
+        </config>
+
+        <config id="DWC_DDRCTL_CINIT_DQSOSC_TIMER_CH_{channel}_RANK_{rank}"
+                name="DQS OSC Start interval for channel {channel}, rank {rank}"
+                min="1" max="32767" type="int" var_type="uint32">
+            <default value="32" depends="{rank} lt 1"/>
+            <default value="2" depends="{rank} gt 0"/>
+        </config>
+
+        <config id="DWC_DDRCTL_CINIT_TCR_TIMER_CH_{channel}_RANK_{rank}"
+                name="Interval between DQS OSC Start and MRR 46+47+4 for channel {channel}, rank {rank}"
+                min="1" max="32767" type="int" var_type="uint32">
+            <default value="4"/>
+        </config>
+    </category>
+
+    <category name="Controller Update">
+        <config id="DWC_DDRCTL_CINIT_CTLUPD_EN_{channel}"
+                name="Controller update for channel {channel}" type="single_choice" var_type="uint8"
+                depends="@NUM_DCH gt {channel}">
+            <param name="channel" min="0" max="1"/>
+            <help>
+                Controller update is initiated by DDRCTL to update PHY settings. Synopsys PHY uses the
+                controller-initiated updates for two purposes:
+                    Perform periodic Delay Element Compensation. This function compensates for delay elements in the
+                        PHY due to temperature and voltage drift
+                    Reset the internal asynchronous FIFO pointers in the PHY
+            </help>
+            <option id="DWC_DDRCTL_CINIT_CTLUPD_EN_{channel}_DISABLE" value="0" name="Disable"/>
+            <option id="DWC_DDRCTL_CINIT_CTLUPD_EN_{channel}_ENABLE"  value="1" name="Enable"/>
+            <default value="@DWC_DDRCTL_CINIT_CTLUPD_EN_{channel}_DISABLE"/>
+        </config>
+        <config id="DWC_DDRCTL_CTL_UPD_TIMER_CH_{channel}" name="Controller update interval for channel {channel}"
+                min="1" max="32767" type="int" var_type="uint32" depends="@NUM_DCH gt {channel}">
+            <param name="channel" min="0" max="1"/>
+            <help>
+                Controller update is issued periodically with an interval equal to
+                base timer * [time value] on channel 0
+            </help>
+            <default value="2"/>
+        </config>
+    </category>
+
+    <category name="Manual Error Check and Scrub Operation channel {channel} rank {rank}"
+              depends="(@NUM_DCH gt {channel}) and (@MEMC_NUM_RANKS gt {rank})">
+        <param name="channel" min="0" max="1"/>
+        <param name="rank"    min="0" max="3"/>
+        <config id="DWC_DDRCTL_CINIT_PER_RANK_ECS_EN_{channel}_{rank}"
+                name="Manual ECS Operation for channel {channel}, rank {rank}"
+                type="single_choice" var_type="uint8">
+            <option id="DWC_DDRCTL_CINIT_PER_RANK_ECS_EN_{channel}_{rank}_DISABLE" value="0" name="Disable"/>
+            <option id="DWC_DDRCTL_CINIT_PER_RANK_ECS_EN_{channel}_{rank}_ENABLE"  value="1" name="Enable"/>
+            <default value="@DWC_DDRCTL_CINIT_PER_RANK_ECS_EN_{channel}_{rank}_DISABLE"/>
+        </config>
+        <config id="DWC_DDRCTL_CINIT_ECS_TIMER_CH_{channel}_RANK_{rank}" name="Manual ECS Operation period for channel {channel}"
+                min="1" max="32767" type="int" var_type="uint32">
+            <default value="4"/>
+        </config>
+    </category>
+</category>

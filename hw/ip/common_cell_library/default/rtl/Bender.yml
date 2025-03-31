@@ -1,0 +1,88 @@
+# (C) Copyright 2024 Axelera AI B.V.
+# All Rights Reserved
+# *** Axelera AI Confidential ***
+
+package:
+  name: cc_lib
+  description: "Common Library with highly reusable modules."
+  authors:
+    - "Wolfgang Roenninger <wolfgang.roenninger@axelera.ai>"
+    - "Manuel Oliveira <manuel.oliveira@axelera.ai>"
+
+dependencies:
+  cc_lib_pkg:               { path: "" }
+  axe_tcl:                  { path: "" }
+  clk_div_by_int_modulator: { path: "" }
+
+# Source files grouped in levels.
+# Files in level 0 have no dependencies on files in this package.
+# Files in level 1 only depend on files in level 0, files in level 2 on files in levels 1 and 0, etc.
+# Files within a level are ordered alphabetically.
+sources:
+  - target: rtl
+    files:
+    # Deprecated
+    - cc_cnt_delta.sv
+    # Level 0
+    - axe_ccl_cdc_4_phase/axe_ccl_cdc_4_phase_dst.sv
+    - axe_ccl_cdc_4_phase/axe_ccl_cdc_4_phase_src.sv
+    - axe_ccl_cdc_pulse.sv
+    - cc_cdc_sync_array.sv
+    - axe_ccl_clk_div_by_2.sv
+    - axe_ccl_clk_or_tree.sv
+    - axe_ccl_cnt_delta.sv
+    - axe_ccl_cnt_phase_acc.sv
+    - axe_ccl_decode_gray.sv
+    - axe_ccl_mux_onehot.sv
+    - cc_cnt_shift_reg.sv
+    - cc_cnt_lfsr.sv
+    - cc_decode_addr.sv
+    - cc_decode_population.sv
+    - axe_ccl_dft_block_wrapper.sv
+    - axe_ccl_dft_pad_mux_core.sv
+    - axe_ccl_dft_pad_mux_inout.sv
+    - axe_ccl_dft_pad_mux_input.sv
+    - axe_ccl_dft_pad_mux_output.sv
+    - axe_ccl_mon_hysteresis_comparator.sv
+    - axe_ccl_mon_minimum_maximum.sv
+    - axe_ccl_rst_n_sync.sv
+    - cc_stream_round_robin_arbiter.sv
+    - cc_stream_buffer.sv
+    - cc_stream_demux.sv
+    - cc_stream_filter.sv
+    - cc_stream_fork.sv
+    - cc_stream_join.sv
+    - cc_stream_mux.sv
+    - cc_stream_pipe_load.sv
+    - cc_stream_reg_el.sv
+    - cc_stream_reg_ft.sv
+    - cc_stream_reg.sv
+    - sync_fifo.sv
+    - fifo_v3.sv
+    - lzc.sv
+    - axe_ccl_mon_edge_detector.sv
+    # Level 1
+    - axe_ccl_cdc_4_phase.sv
+    - axe_ccl_cdc_fifo/axe_ccl_cdc_fifo_pointer.sv
+    - axe_ccl_cdc_bus.sv
+    - axe_ccl_cdc_reset_control.sv
+    - axe_ccl_clk_div_by_int.sv
+    - axe_ccl_clk_div_by_pt.sv
+    - axe_ccl_clk_mux.sv
+    - axe_ccl_cnt_to_threshold.sv
+    - axe_ccl_clk_lp_control.sv
+    - cc_decode_onehot.sv
+    - cc_stream_disconnect.sv
+    - cc_stream_fifo.sv
+    - cc_stream_spill_reg.sv
+    - rr_arb_tree.sv
+    - cc_stream_xbar.sv
+    - axe_ccl_mem_1rp_1wp_deconflict.sv
+    # Level 2
+    - axe_ccl_cdc_fifo/axe_ccl_cdc_fifo_dst.sv
+    - axe_ccl_cdc_fifo/axe_ccl_cdc_fifo_src.sv
+    - axe_ccl_stream_fifo_mem.sv
+    - axe_ccl_stream_to_mem.sv
+    - id_queue.sv
+    # Level 3
+    - axe_ccl_cdc_fifo.sv

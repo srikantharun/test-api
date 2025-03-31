@@ -1,0 +1,2 @@
+VSIM_VLOG_OPTS_EXT += -suppress 13262,3838,2897
+VSIM_ELAB_OPTS     += -suppress 3838,3839

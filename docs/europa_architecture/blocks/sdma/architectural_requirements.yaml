@@ -1,0 +1,138 @@
+requirements:
+  -
+    block: SDMA
+    category: FEAT
+    index: 0
+    description: "Europa shall contain a SDMA at the top level in order to facilitate data transfers between the NN data memories of the top level system ( DDR, L2 , AICOREx L1)."
+    criticality: bronze
+    owner: Spyridoula Koumousi
+  -
+    block: SDMA
+    category: FEAT
+    index: 1
+    description: "Europa shall use the Axelera DMA IP."
+    criticality: bronze
+    owner: Spyridoula Koumousi
+  -
+    block: SDMA
+    category: FEAT
+    index: 2
+    description: "The Axelera DMA IP instantiated inside the SDMA shall be configured with the following specifications:
+    - 2 initiator ports of 512-bit datawidth
+    - 4 channels
+    - All features defined in the Axelera DMA rel 1.0
+      > All 1D transfers
+      > All 2D transfers
+      > Linked List transfers
+      > Unique ID support
+      > Narrow accesses
+      > CMD and register based configuration method
+      > MMU registers"
+    criticality: bronze
+    owner: Spyridoula Koumousi
+  -
+    block: SDMA
+    category: FEAT
+    index: 3
+    description: "The SDMA ports need to be compliant with the needs of the Axelera DMA IPs:
+    - a configuration AXI4 half duplex interface with 64-bit datawith
+    - 2 request initiator AXI4 full duplex ports with 512-bit datawidth
+    - a token exchange OCP-Lite interface in order to exchange tokens with the AICOREs and the APU
+    - interrupt lines"
+    criticality: bronze
+    owner: Spyridoula Koumousi
+  -
+    block: SDMA
+    category: FEAT
+    index: 4
+    description: "Europa shall have 2 instances of the SDMA module in order to accommodate transfers from multiple requestors."
+    criticality: bronze
+    owner: Spyridoula Koumousi
+  -
+    block: SDMA
+    category: FEAT
+    index: 5
+    description: "The SDMA needs to be able to perform simultaneous transfers to/from all NOC targets.This implies that the NOC should provide the connectivity to all targets and that all targets are reachable by all SDMA initiators ports ( by default not hardcoded in the Axelera DMA IP.) "
+    criticality: bronze
+    owner: Spyridoula Koumousi
+  -
+    block: SDMA
+    category: FEAT
+    index: 6
+    description: "The SDMA can be configured either by the APU or by the AICORE CPUs. The control from 2 different CPUs should not be mixed."
+    criticality: bronze
+    owner: Spyridoula Koumousi
+  -
+    block: SDMA
+    category: FEAT
+    index: 7
+    description: "The SDMA will need to be used safely as a shared resource. This is to ensure that each master can access the SDMA in an atomic way. See full architectural documentation for further explanation."
+    criticality: bronze
+    owner: Spyridoula Koumousi
+  -
+    block: SDMA
+    category: FEAT
+    index: 8
+    description: "The SDMA will need to be integrated with the HW token mechanism in order to be synchronised to the AICOREs workloads and the APU."
+    criticality: bronze
+    owner: Spyridoula Koumousi
+  -
+    block: SDMA
+    category: FEAT
+    index: 9
+    description: "The SDMA shall include any logic needed to translate and remap the tokens from the virtual domain to the physical domain. It shall also contain all the token counters for the channels that consume tokens ( as defined in the top token network documentation)."
+    criticality: bronze
+    owner: Spyridoula Koumousi
+  -
+    block: SDMA
+    category: FEAT
+    index: 10
+    description: "The SDMA token related tables that aid in the virtual to physical translation shall be reset in a way that map the virtual core X to the physical core X. This is to ensure that in case of no vittualisation there is no need to set anything on the translation tables."
+    criticality: bronze
+    owner: Spyridoula Koumousi
+  -
+    block: SDMA
+    category: FEAT
+    index: 11
+    description: "The SDMA shall have a defined debug and observation interface."
+    criticality: bronze
+    owner: Spyridoula Koumousi
+  -
+    block: SDMA
+    category: CLK
+    index: 12
+    description: "The SDMA shall operate at 1.2 GHz."
+    criticality: bronze
+    owner: Spyridoula Koumousi
+  -
+    block: SDMA
+    category: RST
+    index: 13
+    description: "The SDMA shall have an asynchronous active low reset."
+    criticality: bronze
+    owner: Spyridoula Koumousi
+  -
+    block: SDMA
+    category: PERF
+    index: 14
+    description: "The SDMA shall be able to saturate all initiator interfaces in terms of throughput.It maintains 76.8GB/s streaming from M0->M1 or M1->M0 and aggregates 153.6GB/s when simultaneously streaming from M0->M1 and M1->M0, 76.8GB/s in each direction."
+    criticality: bronze
+    owner: Spyridoula Koumousi
+  -
+    block: SDMA
+    category: PERF
+    index: 15
+    description: "The SDMA instances need to be able to reach the SYS-SPM memory with as low latency as possible to ensure that the LL descriptor latency is as low as possible."
+    criticality: bronze
+    owner: Spyridoula Koumousi
+
+
+
+
+
+
+
+
+
+
+
