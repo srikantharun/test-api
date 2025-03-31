@@ -1,8 +1,0 @@
-{% import 'arguments.jinja2' as arguments -%}
-{%- import 'get_object.jinja2' as get_object %}
-#################################
-# Set Disable Timing Statements #
-#################################
-{% for path in data.disable_timing|filter_by_mode(constraint_mode) %}
-set_disable_timing {{ get_object.get_object(path.object) }} {{ arguments.from(path.from_object) }}{{ arguments.to(path.to_object) }}
-{%- endfor %}

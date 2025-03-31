@@ -1,8 +1,0 @@
-nav:
-    - index.md
-    - 10_isa_specification.md
-    - 20_uarch.md
-    - 30_functional.md
-    - 40_performance.md
-    - 50_appnote.md
-    - ...

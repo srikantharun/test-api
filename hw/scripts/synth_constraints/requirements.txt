@@ -1,2 +1,0 @@
-package-lib[cli,config,utils]==0.3.3
-jinja2==3.1.4

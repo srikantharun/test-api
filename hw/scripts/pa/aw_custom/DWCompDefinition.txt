@@ -1,2 +1,0 @@
-DW_lp_fp_multifunc sig_width  exp_width  ieee_compliance  func_select  faithful_round  pi_multiple
-DW_tap width  id  version  part  man_num  sync_mode  tst_mode

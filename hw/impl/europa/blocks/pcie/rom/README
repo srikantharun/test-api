@@ -1,8 +1,0 @@
-#!/bin/bash
-
-
-rm -f ./dwc_c20pcie4_phy_x4_ns_pcs_raw_ref_100m_ext_rom.fastsim.bin
-rm -f ./dwc_c20pcie4_phy_x4_ns_pcs_raw_ref_100m_ext_rom.bin
-
-./hex_to_bin_file.py /data/foundry/LIB/synopsys/pcie4/ip/phy/phy/firmware/dwc_c20pcie4_phy_x4_ns_pcs_raw_ref_100m_ext_rom.fastsim  ./dwc_c20pcie4_phy_x4_ns_pcs_raw_ref_100m_ext_rom.fastsim.bin --word_size 16
-./hex_to_bin_file.py /data/foundry/LIB/synopsys/pcie4/ip/phy/phy/firmware/dwc_c20pcie4_phy_x4_ns_pcs_raw_ref_100m_ext_rom.bin      ./dwc_c20pcie4_phy_x4_ns_pcs_raw_ref_100m_ext_rom.bin         --word_size 16

@@ -1,1 +1,0 @@
-1 |  | 4 | /local/tmp | SLURM | sbatch -c1 --mem=8G

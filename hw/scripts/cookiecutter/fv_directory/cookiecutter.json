@@ -1,6 +1,0 @@
-{
-    "__fv_dir" : "fv",
-    "design_name": "design_name",
-    "author_full_name": "Anonymous",
-    "author_email": "{{ cookiecutter.author_full_name | lower | replace(' ', '.') }}@axelera.ai"
-}

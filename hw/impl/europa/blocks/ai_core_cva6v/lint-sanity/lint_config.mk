@@ -1,1 +1,0 @@
-WAIVE_BENDER_MANI_LOCATIONS := ../rtl/dft

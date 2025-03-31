@@ -1,7 +1,0 @@
-{# Resolve an object expression to the respective string #}
-
-{% macro get_object(object) -%}
-{%- if object.type.value != "expr" %}[get_{{ object.type.value }}s {% endif -%}
-{{ object.name }}
-{%- if object.type.value != "expr" %}]{% endif -%}
-{%- endmacro %}

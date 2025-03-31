@@ -1,6 +1,0 @@
-name: soc_periph_coverage
-variables:
-  scope:
-    type: string
-  toggle_coverage:
-    type: float

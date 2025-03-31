@@ -1,1 +1,0 @@
-ASO: TC 22102024 rvfi_probes are used for DV only and are left floating in RTL [spyglass] regexp=".*W123.*rvfi_probes.*size too big thus not processed.*"

@@ -1,3 +1,0 @@
-anytree>=2.0
-hjson>=3.1
-mako>=1.3

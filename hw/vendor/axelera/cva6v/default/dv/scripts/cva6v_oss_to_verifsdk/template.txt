@@ -1,9 +1,0 @@
-  - name: {name}
-    description: {description}
-    labels: {labels} 
-    requirement_ids: []
-    platforms: [cva6v.*]
-    owner: {owner}
-    flags: {flags}
-
-

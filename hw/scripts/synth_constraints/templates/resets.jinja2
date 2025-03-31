@@ -1,7 +1,0 @@
-{% import 'get_object.jinja2' as get_object %}
-##########
-# Resets #
-##########
-{% for reset in data.resets %}
-set_ideal_network -no_propagate {{ get_object.get_object(reset) }}
-{%- endfor %}

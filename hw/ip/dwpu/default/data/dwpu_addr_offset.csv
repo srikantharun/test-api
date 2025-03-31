@@ -1,4 +1,0 @@
-start_addr,end_addr,size,name,type,info,manually_maintained,notes
-0x0000,0x0FFF,4 KiB,Block CSR,reggen_csr,./dwpu_csr.hjson,True, up to 512 CSRs à 64-bit
-0x1000,0x1FFF,4 KiB,CMD Block,cmdblock_cmd_fifo,5,True, up to 128 CMD Descriptors à 4x 64-bit rows (256 bit)
-0x8000,0xBFFF,16 KiB,Instruction Memory,cmdblock_desc_mem,1024x128,True, up to 1024 instructions à 2x 64-bit rows (128 bit)

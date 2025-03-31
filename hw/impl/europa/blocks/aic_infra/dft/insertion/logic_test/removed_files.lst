@@ -1,3 +1,0 @@
-# Remove from read_rtl.do files matching pattern
-# It is actually not required to remove the next file, included as proof of concept only
-ariane_regfile_fpga.sv

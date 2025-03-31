@@ -1,5 +1,0 @@
-#!/usr/bin/env bash
-
-set -e
-
-$REPO_ROOT/hw/scripts/gen_files/simple_preprocess.py $@

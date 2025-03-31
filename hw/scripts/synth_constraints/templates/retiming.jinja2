@@ -1,7 +1,0 @@
-{% import 'get_object.jinja2' as get_object %}
-##################
-# Apply Retiming #
-##################
-{% for mod in data.retiming %}
-set_optimize_registers -modules [get_modules {{ mod.name }}] true
-{%- endfor %}

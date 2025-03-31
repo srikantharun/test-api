@@ -1,7 +1,0 @@
-nav:
-  - index.md
-  - read_request.md
-  - address_patching.md
-  - fill_counters.md
-  - write_request.md
-  - ...

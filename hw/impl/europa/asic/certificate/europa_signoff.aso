@@ -1,2 +1,0 @@
-ASO: MO 07062024 TMP SIGNOFF Spyglass flow issue #880 [spyglass] regexp="\[\S+\]\s+ErrorAnalyzeBBox\s+ErrorAnalyzeBBox\s+Error\s+(\/data\/foundry\/samsung\/sf5a\/memory\/samsung\/generated)|(.*hw\/ip\/tech_cell_library\/default\/rtl\/sf5a\/(axe_tcl_clk|axe_tcl_seq)\.sv)"
-ASO: MO 13062024 Error from cva6 which will be fixed in next cva6 release [rtla] regexp="Error: 'cva6v_unread' is an empty RTL module without an associated physical blackbox design. \(LNK-094\)"

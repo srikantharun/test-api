@@ -1,1 +1,0 @@
-ASO: MO 07062024 i_stall of shift register is not used by l2 [spyglass] regexp="\[\S+\]\s+FlopEConst\s+Warning\s+(.*)\s+(\d+)\s+\d+\s+Enable pin EN on Flop l2\.u_l2_mem\..*\.data_enable_q\[1\] \(master RTL_FDCE\) is  always enabled \(tied high\)\(connected to l2\.u_l2_mem\..*\.load_control"

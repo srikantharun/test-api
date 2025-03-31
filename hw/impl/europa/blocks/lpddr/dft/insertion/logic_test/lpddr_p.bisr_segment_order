@@ -1,7 +1,0 @@
-BisrSegmentOrderSpecification {
- PowerDomainGroup(-) { 
-  OrderedElements {
-   u_lpddr_subsys_wrapper/snps_ddr_subsystem_inst/bisr_si;   
-  }
- }
-}

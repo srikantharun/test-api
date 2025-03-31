@@ -1,9 +1,0 @@
-aicore0_tohost tohost
-aicore0_fromhost fromhost
-aicore0_multicore_sync multicore_sync
-aicore0_multicore_printf multicore_printf
-aicore0__thread_pointer _thread_pointer
-aicore0_stack_addrs stack_addrs
-aicore0_barrier_vars barrier_vars
-aicore0_exclusive_access_vars exclusive_access_vars
-aicore0_pipeline pipeline

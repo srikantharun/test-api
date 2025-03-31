@@ -1,8 +1,0 @@
-{
-    "__synth_dir": "synth-rtla",
-    "design_name": "example_design",
-
-    "author_full_name": "Anonymous",
-    "author_username": "{{ cookiecutter.author_full_name | lower | replace(' ', '.') }}",
-    "author_email": "{{ cookiecutter.author_username }}@axelera.ai"
-}

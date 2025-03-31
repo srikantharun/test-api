@@ -1,7 +1,0 @@
-{% import 'arguments.jinja2' as arguments %}
-#########################
-# Data Check Statements #
-#########################
-{% for path in data.data_check|filter_by_mode(constraint_mode) %}
-set_data_check -clock {{ path.clock }} {{ arguments.type(path.type) }} {{ arguments.from(path.from_object) }}{{ arguments.to(path.to_object) }} {{ path.delay_ns }}
-{%- endfor %}

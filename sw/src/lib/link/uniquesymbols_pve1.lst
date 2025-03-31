@@ -1,9 +1,0 @@
-pve1_tohost tohost
-pve1_fromhost fromhost
-pve1_multicore_sync multicore_sync
-pve1_multicore_printf multicore_printf
-pve1__thread_pointer _thread_pointer
-pve1_stack_addrs stack_addrs
-pve1_barrier_vars barrier_vars
-pve1_exclusive_access_vars exclusive_access_vars
-pve1_pipeline pipeline

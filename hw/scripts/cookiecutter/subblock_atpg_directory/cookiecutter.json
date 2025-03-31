@@ -1,7 +1,0 @@
-{
-    "design_name": "example_block_name",
-    "project": "europa",
-    "netlist": "/data/{{ cookiecutter.project }}/pd/{{ cookiecutter.design_name }}_p/block_build/dev/build/fc/compile/results/{{ cookiecutter.design_name }}_p.insert_dft.v",
-    "tsdb_outdir_to_open": "$DFT_HOME/{{ cookiecutter.design_name }}/Latest/tsdb/logic_test/tsdb_outdir",
-    "dir_name": "atpg"
-}

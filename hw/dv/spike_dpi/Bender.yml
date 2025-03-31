@@ -1,8 +1,0 @@
-package:
-  name: spike_dpi
-  description: "SV macros to create dpi tasks called by the spike"
-  authors:
-    - "Jerome Sauger"
-
-export_include_dirs:
-  - sv
